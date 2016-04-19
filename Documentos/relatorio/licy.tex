@@ -34,7 +34,7 @@ openright,			% capítulos começam em pág ímpar (insere página vazia caso pre
 twoside,			% para impressão em recto e verso. Oposto a oneside
 a4paper,			% tamanho do papel. 
 % -- opções da classe abntex2 --
-%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas	
 %section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 %subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 %subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
@@ -115,10 +115,12 @@ brazil,				% o último idioma é o principal do documento
 	Escola Politécnica
 	\par
 	Engenharia Elétrica com ênfase em Computação}
-\tipotrabalho{Relatório técnico}
+\tipotrabalho{Trabalho Acadêmico}
+\orientador{Prof. Livre-Docente Bruno Albertini}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
 \preambulo{Dissertação apresentada à Escola Politécnica da Universidade de São Paulo para obtenção do título de Engenheiro. Orientador: Prof. Livre-Docente Bruno Albertini. Área de Concentração: Engenharia Elétrica com ênfase em Computação}
+
 % ---
 
 % ---
@@ -184,56 +186,43 @@ brazil,				% o último idioma é o principal do documento
 	% ---
 	\imprimircapa
 	% ---
-	
+	% ---
+	% Anverso da folha de rosto:
+	% ---
 	% ---
 	% Folha de rosto
 	% (o * indica que haverá a ficha bibliográfica)
 	% ---
+	
 	\imprimirfolhaderosto*
-	% ---
-	
-	% ---
-	% Anverso da folha de rosto:
-	% ---
-	
-	{
-		\ABNTEXchapterfont
-		
-		\vspace*{\fill}
-		
-		Conforme a ABNT NBR 10719:2015, seção 4.2.1.1.1, o anverso da folha de rosto
-		deve conter:
-		
-		\begin{alineas}
-			\item nome do órgão ou entidade responsável que solicitou ou gerou o
-			relatório; 
-			\item título do projeto, programa ou plano que o relatório está relacionado;
-			\item título do relatório;
-			\item subtítulo, se houver, deve ser precedido de dois pontos, evidenciando a
-			sua subordinação ao título. O relatório em vários volumes deve ter um título
-			geral. Além deste, cada volume pode ter um título específico; 
-			\item número do volume, se houver mais de um, deve constar em cada folha de
-			rosto a especificação do respectivo volume, em algarismo arábico; 
-			\item código de identificação, se houver, recomenda-se que seja formado
-			pela sigla da instituição, indicação da categoria do relatório, data,
-			indicação do assunto e número sequencial do relatório na série; 
-			\item classificação de segurança. Todos os órgãos, privados ou públicos, que
-			desenvolvam pesquisa de interesse nacional de conteúdo sigiloso, devem
-			informar a classificação adequada, conforme a legislação em vigor; 
-			\item nome do autor ou autor-entidade. O título e a qualificação ou a função
-			do autor podem ser incluídos, pois servem para indicar sua autoridade no
-			assunto. Caso a instituição que solicitou o relatório seja a mesma que o
-			gerou, suprime-se o nome da instituição no campo de autoria; 
-			\item local (cidade) da instituição responsável e/ou solicitante; NOTA: No
-			caso de cidades homônimas, recomenda-se o acréscimo da sigla da unidade da
-			federação.
-			\item ano de publicação, de acordo com o calendário universal (gregoriano),
-			deve ser apresentado em algarismos arábicos.
-		\end{alineas}
-		
-		\vspace*{\fill}
-	}
-	
+
+	\begin{fichacatalografica}
+		\sffamily
+		\vspace*{\fill}					% Posição vertical
+		\begin{center}					% Minipage Centralizado
+			\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+					\small
+					\imprimirautor
+					%Sobrenome, Nome do autor
+					
+					\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+					\imprimirlocal, \imprimirdata-
+								
+					\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+					
+					\hspace{0.5cm}
+					\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+						\imprimirdata.}\\
+					
+					\hspace{0.5cm}
+					1. Engenharia
+					2. Engenharia de computação
+					3. Ensino e aprendizagem
+					I. Universidade de São Paulo. Escola Politécnica. Departamento de Computação 			
+				\end{minipage}}
+			\end{center}
+	\end{fichacatalografica}
+
 	% ---
 	% Agradecimentos
 	% ---
@@ -254,6 +243,20 @@ brazil,				% o último idioma é o principal do documento
 	% ---
 	
 	% ---
+	% EPÍGRAFE
+	% ---
+	
+	\begin{epigrafe}
+		\vspace*{\fill}
+		\begin{flushright}
+			\textit{‘‘Não existem métodos fáceis \\
+				para resolver problemas difíceis \\
+				(René Descartes)}
+		\end{flushright}
+	\end{epigrafe}
+	
+	
+	% ---
 	% RESUMO
 	% ---
 	
@@ -270,7 +273,7 @@ brazil,				% o último idioma é o principal do documento
 		ponto e finalizadas também por ponto.
 		
 		\noindent
-		\textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+		\textbf{Palavras-chaves}: LiFi. comunicação sem fio. editoração de texto.
 	\end{resumo}
 	% ---
 	
@@ -330,6 +333,16 @@ brazil,				% o último idioma é o principal do documento
 	\chapter*[Introdução]{Introdução}
 	\addcontentsline{toc}{chapter}{Introdução}
 	
+	A saturação das infraestruturas de rádio frequência é iminente\footnote{\url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7274270}}. Um indicador disso é que apenas no ano de 2015, mais de meio bilhão de telefones celulares foram adicionados à rede de telefonia no mundo\footnote{\url{http://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/mobile-white-paper-c11-520862.pdf}}. Em relação ao crescimento de aparelhos conectados como carro, geladeiras, TV’s, DVD’s etc, existem previsões de que a sua quantidade chegará a 9 bilhões em 2020, com um crescimento de 900\% em relação a 2015\footnote{\url{http://www.ericsson.com/res/docs/2015/ericsson-mobility-report-june-2015.pdf}}. O tráfego IP também fica cada vez mais carregado, sendo previsto para atingir 168 exabytes em 2019, como pode-se observar na Figura 1.
+	
+	\begin{figure}[!htb]
+		\caption{\label{fig_cisco}Gráfico do crescimento do tráfego IP do ano 2014 ao 2019}
+		\begin{center}
+			\includegraphics[scale=0.5]{cisco_exabytes_per_month.png}
+		\end{center}
+		\legend{Fonte: Cisco Visual Networking Index: Global Mobile Data Traffic Forecast Update, p. 5}
+	\end{figure}
+	
 	Este documento e seu código-fonte são exemplos de referência de uso da classe
 	\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
 	exemplifica a elaboração de relatórios técnicos e/ou científicos produzidos
@@ -363,7 +376,6 @@ brazil,				% o último idioma é o principal do documento
 	Equipe \abnTeX 
 	
 	Lauro César Araujo
-	
 	
 	% ----------------------------------------------------------
 	% PARTE - preparação da pesquisa
