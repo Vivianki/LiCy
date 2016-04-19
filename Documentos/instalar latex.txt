@@ -1,0 +1,15 @@
+
+1) Baixar MikTex: http://www.google.com/url?q=http%3A%2F%2Fmirrors.ctan.org%2Fsystems%2Fwin32%2Fmiktex%2Fsetup%2Fbasic-miktex-2.9.5872.exe&sa=D&sntz=1&usg=AFQjCNEGdhbtS6QNZnd_3cvsZWmFRuuoHA
+2) Baixar TexStudio: https://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%202.10.8/texstudio-2.10.8-win-qt5.5.1.exe/download
+3) Abrir MikTex Package Manager e instalar os seguintes pacotes
+ (TexStudio deve estar fechado)
+
+abntex2
+ifetex
+textcase
+babel-portuges
+url
+enumitem
+lastpage
+microtype
+mptopdf
