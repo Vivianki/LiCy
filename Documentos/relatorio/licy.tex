@@ -40,7 +40,9 @@ brazil				% o último idioma é o principal do documento
 \usepackage{lipsum}				% para geração de dummy text
 % Pacotes de citações
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage{breakurl}		
+\usepackage[alf,%
+			abnt-url-package=url]{abntex2cite}	% Citações padrão ABNT
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -413,7 +415,7 @@ brazil				% o último idioma é o principal do documento
 		\chapter*[Introdução]{Introdução}
 		\addcontentsline{toc}{chapter}{Introdução}
 		% ----------------------------------------------------------
-		A saturação das infraestruturas de rádio frequência é iminente \cite{load-balancing}. Um indicador disso é que apenas no ano de 2015, mais de meio bilhão de telefones celulares foram adicionados à rede de telefonia no mundo \cite{xx}. Em relação ao crescimento de aparelhos conectados como carro, geladeiras, TV’s, DVD’s etc, existem previsões de que a sua quantidade chegará a 9 bilhões em 2020, com um crescimento 	de 900\% em relação a 2015 \cite{ibge1993}. O tráfego IP também fica cada vez mais carregado, sendo previsto para atingir 168 exabytes em 2019, como pode-se observar na Figura 1.
+		A saturação das infraestruturas de rádio frequência é iminente \cite{load-balancing}. Um indicador disso é que apenas no ano de 2015, mais de meio bilhão de telefones celulares foram adicionados à rede de telefonia no mundo \cite{cisco-forecast}. Em relação ao crescimento de aparelhos conectados como carro, geladeiras, TV’s, DVD’s etc, existem previsões de que a sua quantidade chegará a 9 bilhões em 2020, com um crescimento 	de 900\% em relação a 2015 \cite{ibge1993}. O tráfego IP também fica cada vez mais carregado, sendo previsto para atingir 168 exabytes em 2019, como pode-se observar na Figura 1.
 		
 		\begin{figure}[!htb]
 			\caption{\label{fig_cisco}Gráfico do crescimento do tráfego IP do ano 2014 ao 2019}
@@ -423,7 +425,7 @@ brazil				% o último idioma é o principal do documento
 			\legend{Fonte: Cisco Visual Networking Index: Global Mobile Data Traffic Forecast Update, p. 5}
 		\end{figure}
 		
-		No Brasil, a Anatel regulamenta uma banda de frequências que pertencem ao intervalo  de 3KHz até 300GHz, aproximadamente\footnote{\url{http://www.anatel.gov.br/Portal/verificaDocumentos/documento.asp?numeroPublicacao=98580&assuntoPublicacao=Quadr\%20de\%20Atribui\%E7\%E3o\%20&caminhoRel=null&filtro=1&documentoPath=radiofrequencia/qaff.pdf}}, reduzindo muito a possibilidade de expansão de novos dispositivos. Nesse panorama, observa-se que a banda disponível não é mais suficiente para o futuro. Eventualmente, o número excessivo de dispositivos conectados pode causar interferência de rádio frequência, com consequências como falha de comunicação generalizada de dispositivos em áreas mais densas. Caso não seja solucionada, a saturação das frequências regulamentadas gerará uma crise de conectividade. 
+		No Brasil, a Anatel regulamenta uma banda de frequências que pertencem ao intervalo  de 3KHz até 300GHz, aproximadamente \cite{faixa-anatel}, reduzindo muito a possibilidade de expansão de novos dispositivos. Nesse panorama, observa-se que a banda disponível não é mais suficiente para o futuro. Eventualmente, o número excessivo de dispositivos conectados pode causar interferência de rádio frequência, com consequências como falha de comunicação generalizada de dispositivos em áreas mais densas. Caso não seja solucionada, a saturação das frequências regulamentadas gerará uma crise de conectividade. 
 		No entanto, a luz, cuja frequência pertence ao intervalo de 430THz a 750THz \cite{vision}, não é regulamentada por nenhuma agência, como é observado na Figura 2.
 
 		\begin{figure}[!htb]
