@@ -1,29 +1,6 @@
-%% abtex2-modelo-relatorio-tecnico.tex, v-1.9.6 laurocesar
-%% Copyright 2012-2016 by abnTeX2 group at http://www.abntex.net.br/ 
-%%
-%% This work may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%%
-%% This work has the LPPL maintenance status `maintained'.
-%% 
-%% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
-%% http://www.abntex.net.br/
-%%
-%% This work consists of the files abntex2-modelo-relatorio-tecnico.tex,
-%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
-%%
-
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% abnTeX2: Modelo de Relatório Técnico/Acadêmico em conformidade com 
-% ABNT NBR 10719:2015 Informação e documentação - Relatório técnico e/ou
-% científico - Apresentação
+% LiCy - Trabalho de Conclusão de Curso
 % ------------------------------------------------------------------------ 
 % ------------------------------------------------------------------------
 
@@ -34,50 +11,34 @@ openright,			% capítulos começam em pág ímpar (insere página vazia caso pre
 twoside,			% para impressão em recto e verso. Oposto a oneside
 a4paper,			% tamanho do papel. 
 % -- opções da classe abntex2 --
-%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas	
+%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 %section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 %subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 %subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 % -- opções do pacote babel --
+hyphens,
 english,			% idioma adicional para hifenização
 french,				% idioma adicional para hifenização
 spanish,			% idioma adicional para hifenização
-brazil,				% o último idioma é o principal do documento
+brazil				% o último idioma é o principal do documento
 ]{abntex2}
-
 
 % ---
 % PACOTES
 % ---
 
-% ---
-% Pacotes fundamentais 
-% ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern
+% Pacotes básicos 
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
-% ---
-
-% ---
-% Pacotes adicionais, usados no anexo do modelo de folha de identificação
-% ---
-\usepackage{multicol}
-\usepackage{multirow}
-% ---
-
-% ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
 \usepackage{lipsum}				% para geração de dummy text
-% ---
-
-% ---
 % Pacotes de citações
-% ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
@@ -115,13 +76,10 @@ brazil,				% o último idioma é o principal do documento
 	Escola Politécnica
 	\par
 	Engenharia Elétrica com ênfase em Computação}
-\tipotrabalho{Trabalho Acadêmico}
-\orientador{Prof. Livre-Docente Bruno Albertini}
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
-\preambulo{Dissertação apresentada à Escola Politécnica da Universidade de São Paulo para obtenção do título de Engenheiro. Orientador: Prof. Livre-Docente Bruno Albertini. Área de Concentração: Engenharia Elétrica com ênfase em Computação}
-
+\tipotrabalho{Trabalho de Conclusão de Curso}
+\preambulo{Dissertação apresentada à Escola Politécnica da Universidade de São Paulo para obtenção do título de Engenheiro. Orientador: Prof. Dr. Bruno Albertini. Área de Concentração: Engenharia Elétrica com ênfase em Computação}
 % ---
+
 
 % ---
 % Configurações de aparência do PDF final
@@ -137,7 +95,7 @@ brazil,				% o último idioma é o principal do documento
 	pdfauthor={\@author},
 	pdfsubject={\imprimirpreambulo},
 	pdfcreator={LaTeX with abnTeX2},
-	pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico}, 
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
 	colorlinks=true,       		% false: boxed links; true: colored links
 	linkcolor=blue,          	% color of internal links
 	citecolor=blue,        		% color of links to bibliography
@@ -186,16 +144,29 @@ brazil,				% o último idioma é o principal do documento
 	% ---
 	\imprimircapa
 	% ---
-	% ---
-	% Anverso da folha de rosto:
-	% ---
+	
 	% ---
 	% Folha de rosto
 	% (o * indica que haverá a ficha bibliográfica)
 	% ---
-	
 	\imprimirfolhaderosto*
-
+	% ---
+	
+	% ---
+	% Inserir a ficha bibliografica
+	% ---
+	
+	% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+	% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+	% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+	% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+	% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+	% o conteúdo de implementação deste arquivo pelo comando abaixo:
+	%
+	% \begin{fichacatalografica}
+	%     \includepdf{fig_ficha_catalografica.pdf}
+	% \end{fichacatalografica}
+	
 	\begin{fichacatalografica}
 		\sffamily
 		\vspace*{\fill}					% Posição vertical
@@ -207,7 +178,9 @@ brazil,				% o último idioma é o principal do documento
 					
 					\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
 					\imprimirlocal, \imprimirdata-
-								
+					
+					\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+					
 					\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
 					
 					\hspace{0.5cm}
@@ -218,344 +191,456 @@ brazil,				% o último idioma é o principal do documento
 					1. Engenharia
 					2. Engenharia de computação
 					3. Ensino e aprendizagem
-					I. Universidade de São Paulo. Escola Politécnica. Departamento de Computação 			
+					I. Universidade de São Paulo. Escola Politécnica. Departamento de Computação 	
 				\end{minipage}}
 			\end{center}
-	\end{fichacatalografica}
+		\end{fichacatalografica}
+		% ---
+		
+		% ---
+		% TODO ERRATA
+		% Inserir errata - SE NECESSARIO
+		% ---
+		%\begin{errata}
+		%	Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+			
+		%	\vspace{\onelineskip}
+		%	
+		%   FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+		%		reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+		%		rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+		%	cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+		%	Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+		%	
+		%	\begin{table}[htb]
+		%		\center
+		%		\footnotesize
+		%		\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+		%			\hline
+		%			\textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+		%			\hline
+		%			1 & 10 & auto-conclavo & autoconclavo\\
+		%			\hline
+		%		\end{tabular}
+		%	\end{table}
+		%	
+		%\end{errata}
+		% ---
+		
+		% ---
+		% TODO APROVACAO
+		% Inserir folha de aprovação - APOS TERMINAR
+		% ---
+		
+		% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+		% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+		% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+		% imagem da página assinada pela banca com o comando abaixo:
+		%
+		% \includepdf{folhadeaprovacao_final.pdf}
+		%
+		%\begin{folhadeaprovacao}
+			
+		%	\begin{center}
+		%		{\ABNTEXchapterfont\large\imprimirautor}
+		%		
+		%		\vspace*{\fill}\vspace*{\fill}
+		%		\begin{center}
+		%			\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+		%		\end{center}
+		%		\vspace*{\fill}
+		%		
+		%		\hspace{.45\textwidth}
+		%		\begin{minipage}{.5\textwidth}
+		%			\imprimirpreambulo
+		%		\end{minipage}%
+		%		\vspace*{\fill}
+		%	\end{center}
+		%	
+		%	Trabalho aprovado. \imprimirlocal, 24 de novembro de 2016:
+		%	
+		%	\assinatura{\textbf{Prof. Dr. Bruno Albertini} \\ Orientador} 
+		%	\assinatura{\textbf{Professor} \\ Convidado 1}
+		%	\assinatura{\textbf{Professor} \\ Convidado 2}
+			
+		%	\begin{center}
+		%		\vspace*{0.5cm}
+		%		{\large\imprimirlocal}
+		%		\par
+		%		{\large\imprimirdata}
+		%		\vspace*{1cm}
+		%	\end{center}
+			
+		%\end{folhadeaprovacao}
+		% ---
+		
+		% ---
+		% Dedicatória - Sem dedicatório
+		% ---
+		%\begin{dedicatoria}
+		%\vspace*{\fill}
+		%\centering
+		%\noindent
+		%\textit{ Este trabalho é dedicado às crianças adultas que,\\
+		%quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+		%\end{dedicatoria}
+		% ---
+		
+		% ---
+		% Agradecimentos
+		% ---
+		%\begin{agradecimentos}
+		%	Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
+		%	Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+		%	Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
+		%		projeto abn\TeX\ foram extraídos de
+		%		\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+		%	contribuíram para que a produção de trabalhos acadêmicos conforme
+		%	as normas ABNT com \LaTeX\ fosse possível.
+		%	
+		%	Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+		%	da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+		%	Brasília (CPAI), ao grupo de usuários
+		%	\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+		%	novos voluntários do grupo
+		%	\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+		%		\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
+		%	contribuirão para a evolução do \abnTeX.
+			
+		%\end{agradecimentos}
+		% ---
+		
+		% ---
+		% Epígrafe
+		% ---
+		\begin{epigrafe}
+			\vspace*{\fill}
+			\begin{flushright}
+				\textit{``Não vos amoldeis às estruturas deste mundo, \\
+					mas transformai-vos pela renovação da mente, \\
+					a fim de distinguir qual é a vontade de Deus: \\
+					o que é bom, o que Lhe é agradável, o que é perfeito.\\
+					(Bíblia Sagrada, Romanos 12, 2)}
+			\end{flushright}
+		\end{epigrafe}
+		% ---
+		
+		% ---
+		% RESUMOS
+		% ---
+		
+		% resumo em português
+		\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+		\begin{resumo}
+			Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
+			objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
+			destes itens dependem do tipo de resumo (informativo ou indicativo) e do
+			tratamento que cada item recebe no documento original. O resumo deve ser
+			precedido da referência do documento, com exceção do resumo inserido no
+			próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
+			resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
+			ponto e finalizadas também por ponto.
+			
+			\textbf{Palavras-chave}: latex. abntex. editoração de texto.
+		\end{resumo}
+		
+		% resumo em inglês
+		\begin{resumo}[Abstract]
+			\begin{otherlanguage*}{english}
+				This is the english abstract.
+				
+				\vspace{\onelineskip}
+				
+				\noindent 
+				\textbf{Keywords}: latex. abntex. text editoration.
+			\end{otherlanguage*}
+		\end{resumo}
+		
+		% ---
+		% inserir lista de ilustrações
+		% ---
+		\pdfbookmark[0]{\listfigurename}{lof}
+		\listoffigures*
+		\cleardoublepage
+		% ---
+		
+		% ---
+		% inserir lista de tabelas
+		% ---
+		\pdfbookmark[0]{\listtablename}{lot}
+		\listoftables*
+		\cleardoublepage
+		% ---
+		
+		% ---
+		% inserir lista de abreviaturas e siglas
+		% ---
+		\begin{siglas}
+			\item[ABNT] Associação Brasileira de Normas Técnicas
+			\item[abnTeX] ABsurdas Normas para TeX
+		\end{siglas}
+		% ---
+		
+		% ---
+		% inserir lista de símbolos
+		% ---
+		\begin{simbolos}
+			\item[$ \Gamma $] Letra grega Gama
+			\item[$ \Lambda $] Lambda
+			\item[$ \zeta $] Letra grega minúscula zeta
+			\item[$ \in $] Pertence
+		\end{simbolos}
+		% ---
+		
+		% ---
+		% inserir o sumario
+		% ---
+		\pdfbookmark[0]{\contentsname}{toc}
+		\tableofcontents*
+		\cleardoublepage
+		% ---
+		
+		
+		
+		% ----------------------------------------------------------
+		% ELEMENTOS TEXTUAIS
+		% ----------------------------------------------------------
+		\textual
+		
+		% ----------------------------------------------------------
+		% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
+		% ----------------------------------------------------------
+		\chapter*[Introdução]{Introdução}
+		\addcontentsline{toc}{chapter}{Introdução}
+		% ----------------------------------------------------------
+		A saturação das infraestruturas de rádio frequência é iminente \cite{load-balancing}. Um indicador disso é que apenas no ano de 2015, mais de meio bilhão de telefones celulares foram adicionados à rede de telefonia no mundo \cite{xx}. Em relação ao crescimento de aparelhos conectados como carro, geladeiras, TV’s, DVD’s etc, existem previsões de que a sua quantidade chegará a 9 bilhões em 2020, com um crescimento 	de 900\% em relação a 2015 \cite{ibge1993}. O tráfego IP também fica cada vez mais carregado, sendo previsto para atingir 168 exabytes em 2019, como pode-se observar na Figura 1.
+		
+		\begin{figure}[!htb]
+			\caption{\label{fig_cisco}Gráfico do crescimento do tráfego IP do ano 2014 ao 2019}
+			\begin{center}
+				\includegraphics[scale=0.5]{cisco_exabytes_per_month.png}
+			\end{center}
+			\legend{Fonte: Cisco Visual Networking Index: Global Mobile Data Traffic Forecast Update, p. 5}
+		\end{figure}
+		
+		No Brasil, a Anatel regulamenta uma banda de frequências que pertencem ao intervalo  de 3KHz até 300GHz, aproximadamente\footnote{\url{http://www.anatel.gov.br/Portal/verificaDocumentos/documento.asp?numeroPublicacao=98580&assuntoPublicacao=Quadr\%20de\%20Atribui\%E7\%E3o\%20&caminhoRel=null&filtro=1&documentoPath=radiofrequencia/qaff.pdf}}, reduzindo muito a possibilidade de expansão de novos dispositivos. Nesse panorama, observa-se que a banda disponível não é mais suficiente para o futuro. Eventualmente, o número excessivo de dispositivos conectados pode causar interferência de rádio frequência, com consequências como falha de comunicação generalizada de dispositivos em áreas mais densas. Caso não seja solucionada, a saturação das frequências regulamentadas gerará uma crise de conectividade. 
+		No entanto, a luz, cuja frequência pertence ao intervalo de 430THz a 750THz \cite{vision}, não é regulamentada por nenhuma agência, como é observado na Figura 2.
 
-	% ---
-	% Agradecimentos
-	% ---
-	\begin{agradecimentos}
-		O agradecimento principal é direcionado a Youssef Cherem, autor do
-		\nameref{formulado-identificacao} (\autopageref{formulado-identificacao}).
+		\begin{figure}[!htb]
+			\caption{\label{fig_fcc}Caracterização dos espectros de frequências, de 0Hz a 1000THz}
+			\begin{center}
+				%  trim={<left> <lower> <right> <upper>} 
+				  \includegraphics[width=\textwidth, trim={36.5cm 3.1cm 40cm 61cm},clip]{2003-allochrt.pdf}
+				
+			\end{center}
+			\legend{Fonte: U.S. Frequency Allocation Chart}
+		\end{figure}
+		%citacao https://books.google.com/books?id=NSZvt8Ld2-8C&pg=PA50
 		
-		Os agradecimentos especiais são direcionados ao Centro de Pesquisa em
-		Arquitetura da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
-		Brasília (CPAI), ao grupo de usuários
-		\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-		novos voluntários do grupo
-		\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
-			\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
-		contribuirão para a evolução do abn\TeX.
+		 Descobriu-se que é possível realizar transferência de dados utilizando esse espectro livre de frequências. Essa comunicação foi chamada de VLC (Visible Light Communication) ou Li-Fi (Light Fidelity). O Li-Fi possui várias vantagens sobre o RFC que justificam o seu uso. Não há, por exemplo, interferência com as bandas convencionais (como 2.4GHz e 5GHz), sendo portanto compatível com infraestruturas híbridas. Como a luz possui largura de banda 10000 vezes maior do que a de RFC, o Li-Fi pode alcançar uma vazão de dados até 1000 vezes maior do que a do Wi-Fi, o que torna essa tecnologia muito promissora. Nota-se também a alta eficiência do Li-Fi, pois o LED utilizado para transmissão consome pouca energia. Podemos citar o diferencial de que a luz não atravessa paredes, garantindo segurança e privacidade à rede. Por fim, essa tecnologia tem baixo custo de implementação relativo, uma vez que requer menos componentes do que o Wi-Fi, tornando-a mais barata.
+		 Tendo analisado as vantagens, o trabalho a ser realizado visa desenvolver um produto que se utiliza da comunicação Li-Fi para realizar troca de dados entre dispositivos. Produtos que usam essa tecnologia ainda não são fabricados no nível comercial em grande escala, portanto é relevante estudar neste projeto maneiras de viabilizar seu desenvolvimento para uso em pequenos ambientes internos. Seguindo a norma 802.15.7 do IEEE, o grupo tem o intuito de criar um transmissor em formato de luminária e um receptor portátil anexado ao telefone celular. A comunicação deve ser full-duplex entre os dois módulos criados, além do telefone conseguir realizar requisições de mídia ou conteúdo para a LAMPARINA. Como não existe tal funcionalidade nativa no celular, deve-se criar um aplicativo para Android que realize tradução Li-Fi para dados de mídia. Posteriormente, pode-se integrar o módulo da lamparina à internet ou a redes externas.
+		 
+		Este documento e seu código-fonte são exemplos de referência de uso da classe
+		\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
+		exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
+		gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
+			- Trabalhos acadêmicos - Apresentação}.
 		
-	\end{agradecimentos}
-	% ---
-	
-	% ---
-	% EPÍGRAFE
-	% ---
-	
-	\begin{epigrafe}
-		\vspace*{\fill}
-		\begin{flushright}
-			\textit{‘‘Não existem métodos fáceis \\
-				para resolver problemas difíceis \\
-				(René Descartes)}
-		\end{flushright}
-	\end{epigrafe}
-	
-	
-	% ---
-	% RESUMO
-	% ---
-	
-	% resumo na língua vernácula (obrigatório)
-	\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
-	\begin{resumo}
-		Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
-		objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
-		destes itens dependem do tipo de resumo (informativo ou indicativo) e do
-		tratamento que cada item recebe no documento original. O resumo deve ser
-		precedido da referência do documento, com exceção do resumo inserido no
-		próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
-		resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
-		ponto e finalizadas também por ponto.
+		A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
+		modelo específico de nenhuma universidade ou instituição, mas que implementa tão
+		somente os requisitos das normas da ABNT. Uma lista completa das normas
+		observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
 		
-		\noindent
-		\textbf{Palavras-chaves}: LiFi. comunicação sem fio. editoração de texto.
-	\end{resumo}
-	% ---
-	
-	% ---
-	% inserir lista de ilustrações
-	% ---
-	\pdfbookmark[0]{\listfigurename}{lof}
-	\listoffigures*
-	\cleardoublepage
-	% ---
-	
-	% ---
-	% inserir lista de tabelas
-	% ---
-	\pdfbookmark[0]{\listtablename}{lot}
-	\listoftables*
-	\cleardoublepage
-	% ---
-	
-	% ---
-	% inserir lista de abreviaturas e siglas
-	% ---
-	\begin{siglas}
-		\item[ABNT] Associação Brasileira de Normas Técnicas
-		\item[abnTeX] ABsurdas Normas para TeX
-	\end{siglas}
-	% ---
-	
-	% ---
-	% inserir lista de símbolos
-	% ---
-	\begin{simbolos}
-		\item[$ \Gamma $] Letra grega Gama
-		\item[$ \Lambda $] Lambda
-		\item[$ \zeta $] Letra grega minúscula zeta
-		\item[$ \in $] Pertence
-	\end{simbolos}
-	% ---
-	
-	% ---
-	% inserir o sumario
-	% ---
-	\pdfbookmark[0]{\contentsname}{toc}
-	\tableofcontents*
-	\cleardoublepage
-	% ---
-	
-	
-	% ----------------------------------------------------------
-	% ELEMENTOS TEXTUAIS
-	% ----------------------------------------------------------
-	\textual
-	
-	% ----------------------------------------------------------
-	% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
-	% ----------------------------------------------------------
-	\chapter*[Introdução]{Introdução}
-	\addcontentsline{toc}{chapter}{Introdução}
-	
-	A saturação das infraestruturas de rádio frequência é iminente\footnote{\url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7274270}}. Um indicador disso é que apenas no ano de 2015, mais de meio bilhão de telefones celulares foram adicionados à rede de telefonia no mundo\footnote{\url{http://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/mobile-white-paper-c11-520862.pdf}}. Em relação ao crescimento de aparelhos conectados como carro, geladeiras, TV’s, DVD’s etc, existem previsões de que a sua quantidade chegará a 9 bilhões em 2020, com um crescimento de 900\% em relação a 2015\footnote{\url{http://www.ericsson.com/res/docs/2015/ericsson-mobility-report-june-2015.pdf}}. O tráfego IP também fica cada vez mais carregado, sendo previsto para atingir 168 exabytes em 2019, como pode-se observar na Figura 1.
-	
-	\begin{figure}[!htb]
-		\caption{\label{fig_cisco}Gráfico do crescimento do tráfego IP do ano 2014 ao 2019}
-		\begin{center}
-			\includegraphics[scale=0.5]{cisco_exabytes_per_month.png}
-		\end{center}
-		\legend{Fonte: Cisco Visual Networking Index: Global Mobile Data Traffic Forecast Update, p. 5}
-	\end{figure}
-	
-	Este documento e seu código-fonte são exemplos de referência de uso da classe
-	\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-	exemplifica a elaboração de relatórios técnicos e/ou científicos produzidos
-	conforme a ABNT NBR 10719:2015 \emph{Informação e documentação - Relatório
-		técnico e/ou científico - Apresentação}.
-	
-	A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX\ não é
-	modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-	somente os requisitos das normas da ABNT. Uma lista completa das normas
-	observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
-	
-	Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-	\url{http://www.abntex.net.br/}. Também fique livre para conhecer,
-	estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-	modificados tenham seus nomes alterados e que os créditos sejam dados aos
-	autores originais, nos termos da ``The \LaTeX\ Project Public
-	License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-	
-	Encorajamos que sejam realizadas customizações específicas deste exemplo para
-	universidades e outras instituições --- como capas, folhas de rosto, etc.
-	Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-	\abnTeX, distribua-se arquivos com as respectivas customizações.
-	Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-	incompatíveis com as customizações promovidas. Consulte
-	\citeonline{abntex2-wiki-como-customizar} par mais informações.
-	
-	Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
-	\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-	\cite{memoir}. 
-	
-	Equipe \abnTeX 
-	
-	Lauro César Araujo
-	
-	% ----------------------------------------------------------
-	% PARTE - preparação da pesquisa
-	% ----------------------------------------------------------
-	\part{Preparação do relatório}
-	
-	% ----------------------------------------------------------
-	% Capitulo com exemplos de comandos inseridos de arquivo externo 
-	% ----------------------------------------------------------
-	
-	\include{abntex2-modelo-include-comandos}
-	
-	
-	% ----------------------------------------------------------
-	% Parte de revisãod e literatura
-	% ----------------------------------------------------------
-	\part{Resultados}
-	
-	% ---
-	% Capitulo de revisão de literatura
-	% ---
-	\chapter{Lorem ipsum dolor sit amet}
-	
-	% ---
-	\section{Aliquam vestibulum fringilla lorem}
-	% ---
-	
-	\lipsum[1]
-	
-	\lipsum[2-3]
-	
-	% ---
-	% Finaliza a parte no bookmark do PDF
-	% para que se inicie o bookmark na raiz
-	% e adiciona espaço de parte no Sumário
-	% ---
-	\phantompart
-	
-	% ---
-	% Conclusão
-	% ---
-	\chapter{Conclusão}
-	% ---
-	
-	\lipsum[31-33]
-	
-	% ----------------------------------------------------------
-	% ELEMENTOS PÓS-TEXTUAIS
-	% ----------------------------------------------------------
-	\postextual
-	
-	% ----------------------------------------------------------
-	% Referências bibliográficas
-	% ----------------------------------------------------------
-	\bibliography{abntex2-modelo-references}
-	
-	% ----------------------------------------------------------
-	% Glossário
-	% ----------------------------------------------------------
-	%
-	% Consulte o manual da classe abntex2 para orientações sobre o glossário.
-	%
-	%\glossary
-	
-	% ----------------------------------------------------------
-	% Apêndices
-	% ----------------------------------------------------------
-	
-	% ---
-	% Inicia os apêndices
-	% ---
-	\begin{apendicesenv}
+		Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
+		\url{http://www.abntex.net.br/}. Também fique livre para conhecer,
+		estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+		modificados tenham seus nomes alterados e que os créditos sejam dados aos
+		autores originais, nos termos da ``The \LaTeX\ Project Public
+		License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+		
+		Encorajamos que sejam realizadas customizações específicas deste exemplo para
+		universidades e outras instituições --- como capas, folha de aprovação, etc.
+		Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+		\abnTeX, distribua-se arquivos com as respectivas customizações.
+		Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
+		incompatíveis com as customizações promovidas. Consulte
+		\citeonline{abntex2-wiki-como-customizar} par mais informações.
+		
+		Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+		\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
+		\cite{memoir}. 
+		
+		Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
+		você produzirá, de modo que o principal esforço seja concentrado no principal:
+		na contribuição científica.
+		
+		Equipe \abnTeX 
+		
+		Lauro César Araujo
+		
+		% ----------------------------------------------------------
+		% PARTE
+		% ----------------------------------------------------------
+		\part{Preparação da pesquisa}
+		% ----------------------------------------------------------
+		
+		% ---
+		% Capitulo com exemplos de comandos inseridos de arquivo externo 
+		% ---
+		\include{abntex2-modelo-include-comandos}
+		% ---
+		
+		% ----------------------------------------------------------
+		% PARTE
+		% ----------------------------------------------------------
+		\part{Referenciais teóricos}
+		% ----------------------------------------------------------
+		
+		% ---
+		% Capitulo de revisão de literatura
+		% ---
+		\chapter{Lorem ipsum dolor sit amet}
+		% ---
+		
+		% ---
+		\section{Aliquam vestibulum fringilla lorem}
+		% ---
+		
+		\lipsum[1]
+		
+		\lipsum[2-3]
+		
+		% ----------------------------------------------------------
+		% PARTE
+		% ----------------------------------------------------------
+		\part{Resultados}
+		% ----------------------------------------------------------
+		
+		% ---
+		% primeiro capitulo de Resultados
+		% ---
+		\chapter{Lectus lobortis condimentum}
+		% ---
+		
+		% ---
+		\section{Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+			posuere cubilia Curae}
+		% ---
+		
+		\lipsum[21-22]
+		
+		% ---
+		% segundo capitulo de Resultados
+		% ---
+		\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
+			elementum}
+		% ---
+		
+		% ---
+		\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
+		% ---
+		
+		\lipsum[24]
+		
+		% ----------------------------------------------------------
+		% Finaliza a parte no bookmark do PDF
+		% para que se inicie o bookmark na raiz
+		% e adiciona espaço de parte no Sumário
+		% ----------------------------------------------------------
+		\phantompart
+		
+		% ---
+		% Conclusão
+		% ---
+		\chapter{Conclusão}
+		% ---
+		
+		\lipsum[31-33]
+		
+		% ----------------------------------------------------------
+		% ELEMENTOS PÓS-TEXTUAIS
+		% ----------------------------------------------------------
+		\postextual
+		% ----------------------------------------------------------
+		
+		% ----------------------------------------------------------
+		% Referências bibliográficas
+		% ----------------------------------------------------------
+		\bibliography{referencias-licy}
+		
+		% ----------------------------------------------------------
+		% Glossário
+		% ----------------------------------------------------------
+		%
+		% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+		%
+		%\glossary
+		
+		% ----------------------------------------------------------
+		% Apêndices - SEM APENDICES
+		% ----------------------------------------------------------
+		
+		% ---
+		% Inicia os apêndices
+		% ---
+		%\begin{apendicesenv}
 		
 		% Imprime uma página indicando o início dos apêndices
-		\partapendices
+		%\partapendices
 		
 		% ----------------------------------------------------------
-		\chapter{Quisque libero justo}
+		%\chapter{Quisque libero justo}
 		% ----------------------------------------------------------
 		
-		\lipsum[50]
+		%\lipsum[50]
 		
 		% ----------------------------------------------------------
-		\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
-			ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+		%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+		%ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 		% ----------------------------------------------------------
-		\lipsum[55-57]
+		%\lipsum[55-57]
 		
-	\end{apendicesenv}
-	% ---
-	
-	
-	% ----------------------------------------------------------
-	% Anexos
-	% ----------------------------------------------------------
-	
-	% ---
-	% Inicia os anexos
-	% ---
-	\begin{anexosenv}
+		%\end{apendicesenv}
+		% ---
+		
+		
+		% ----------------------------------------------------------
+		% Anexos - SEM ANEXOS
+		% ----------------------------------------------------------
+		
+		% ---
+		% Inicia os anexos
+		% ---
+		%\begin{anexosenv}
 		
 		% Imprime uma página indicando o início dos anexos
-		\partanexos
+		%\partanexos
 		
 		% ---
-		\chapter{Morbi ultrices rutrum lorem.}
+		%\chapter{Morbi ultrices rutrum lorem.}
 		% ---
-		\lipsum[30]
-		
-		% ---
-		\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
-			parturient montes nascetur ridiculus mus}
-		% ---
-		
-		\lipsum[31]
+		%\lipsum[30]
 		
 		% ---
-		\chapter{Fusce facilisis lacinia dui}
+		%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+		%parturient montes nascetur ridiculus mus}
 		% ---
 		
-		\lipsum[32]
+		%\lipsum[31]
 		
-	\end{anexosenv}
-	
-	%---------------------------------------------------------------------
-	% INDICE REMISSIVO
-	%---------------------------------------------------------------------
-	
-	\phantompart
-	
-	\printindex
-	
-	%---------------------------------------------------------------------
-	% Formulário de Identificação (opcional)
-	%---------------------------------------------------------------------
-	\chapter*[Formulário de Identificação]{Formulário de Identificação}
-	\addcontentsline{toc}{chapter}{Exemplo de Formulário de Identificação}
-	\label{formulado-identificacao}
-	
-	Exemplo de Formulário de Identificação, compatível com o Anexo A (informativo)
-	da ABNT NBR 10719:2015. Este formulário não é um anexo. Conforme definido na
-	norma, ele é o último elemento pós-textual e opcional do relatório.
-	
-	\bigskip
-	
-	\begin{tabular}{|p{9cm}|p{5cm}|}
-		\hline
-		\multicolumn{2}{|c|}{\textbf{\large Dados do Relatório Técnico e/ou científico}}\\
-		\hline
-		\multirow{4}{10cm}[24pt]{Título e subtítulo}& Classificação de segurança\\
-		& \\
-		\cline{2-2}
-		& No.\\
-		& \\
+		% ---
+		%\chapter{Fusce facilisis lacinia dui}
+		% ---
 		
-		\hline
-		Tipo de relatório & Data\\
-		\hline
-		Título do projeto/programa/plano & No.\\
-		\hline
-		\multicolumn{2}{|l|}{Autor(es)} \\
-		\hline
-		\multicolumn{2}{|l|}{Instituição executora e endereço completo} \\
-		\hline
-		\multicolumn{2}{|l|}{Instituição patrocinadora e endereço completo} \\
-		\hline
-		\multicolumn{2}{|l|}{Resumo}\\[3cm]
-		\hline
-		\multicolumn{2}{|l|}{Palavras-chave/descritores}\\
-		\hline
-		\multicolumn{2}{|l|}{
-			Edição \hfill No. de páginas \hfill No. do volume \hfill Nº de classificação \phantom{XXXX}} \\
-		\hline
-		\multicolumn{2}{|l|}{
-			ISSN \hfill \hfill Tiragem \hfill Preço \phantom{XXXXXXXX}} \\
-		\hline
-		\multicolumn{2}{|l|}{Distribuidor} \\
-		\hline
-		\multicolumn{2}{|l|}{Observações/notas}\\[3cm]
-		\hline
-	\end{tabular}
-	
-\end{document}
+		%\lipsum[32]
+		
+		%\end{anexosenv}
+		
+		%---------------------------------------------------------------------
+		% INDICE REMISSIVO
+		%---------------------------------------------------------------------
+		\phantompart
+		\printindex
+		%---------------------------------------------------------------------
+		
+	\end{document}

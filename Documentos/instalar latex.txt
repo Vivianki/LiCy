@@ -5,11 +5,13 @@
  (TexStudio deve estar fechado)
 
 abntex2
+memoir
 ifetex
 textcase
 babel-portuges
 url
 enumitem
 lastpage
+lipsum
 microtype
 mptopdf
