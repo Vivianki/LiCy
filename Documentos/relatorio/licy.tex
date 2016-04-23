@@ -6,19 +6,17 @@
 % ------------------------------------------------------------------------
 
 \documentclass[
-% -- opções da classe memoir --
-12pt,				% tamanho da fonte
-openright,			% capítulos começam em pág ímpar
-twoside,			% para impressão em recto e verso. Oposto a oneside
-a4paper,			% tamanho do papel. 
-% -- opções do pacote babel --
-hyphens,
-english,			% idioma adicional para hifenização
-brazil				% o último idioma é o principal do documento
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar
+	twoside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	hyphens,			% url longa nas referencias
+	english,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
 ]{abntex2}
 
 % ---
-% PACOTES
+%  PACOTES
 % ---
 
 % Pacotes básicos 
@@ -67,12 +65,9 @@ brazil				% o último idioma é o principal do documento
 \preambulo{Dissertação apresentada à Escola Politécnica da Universidade de São Paulo para obtenção do título de Engenheiro. Orientador: Prof. Dr. Bruno Albertini. Área de Concentração: Engenharia Elétrica com ênfase em Computação}
 % ---
 
-
 % ---
 % Configurações de aparência do PDF final
-
-% alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
+\definecolor{blue}{RGB}{41,5,195} % cor azul
 
 % informações do PDF
 \makeatletter
@@ -110,7 +105,7 @@ brazil				% o último idioma é o principal do documento
 % ----
 \begin{document}
 	
-	% Seleciona o idioma do documento (conforme pacotes do babel)
+	% Seleciona o idioma do documento
 	\selectlanguage{brazil}
 	
 	% Retira espaço extra obsoleto entre as frases.
@@ -145,81 +140,11 @@ brazil				% o último idioma é o principal do documento
 	% \end{fichacatalografica}
 
 	% ---
-	% TODO ERRATA
-	% Inserir errata - SE NECESSARIO
-	% ---
-	%\begin{errata}
-	%	Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
-		
-	%	\vspace{\onelineskip}
-	%	
-	%   FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-	%		reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-	%		rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-	%	cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-	%	Zootecnia, Universidade de São Paulo, São Paulo, 2011.
-	%	
-	%	\begin{table}[htb]
-	%		\center
-	%		\footnotesize
-	%		\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-	%			\hline
-	%			\textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-	%			\hline
-	%			1 & 10 & auto-conclavo & autoconclavo\\
-	%			\hline
-	%		\end{tabular}
-	%	\end{table}
-	%	
-	%\end{errata}
-	% ---
-	
-	% ---
 	% TODO APROVACAO
-	% Inserir folha de aprovação - APOS TERMINAR
+	% Quando receber pdf com assinaturas, descomentar linha abaixo
 	% ---
-	
-	% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
-	% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
-	% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
-	% imagem da página assinada pela banca com o comando abaixo:
-	%
 	% \includepdf{folhadeaprovacao_final.pdf}
 	%
-	%\begin{folhadeaprovacao}
-		
-	%	\begin{center}
-	%		{\ABNTEXchapterfont\large\imprimirautor}
-	%		
-	%		\vspace*{\fill}\vspace*{\fill}
-	%		\begin{center}
-	%			\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
-	%		\end{center}
-	%		\vspace*{\fill}
-	%		
-	%		\hspace{.45\textwidth}
-	%		\begin{minipage}{.5\textwidth}
-	%			\imprimirpreambulo
-	%		\end{minipage}%
-	%		\vspace*{\fill}
-	%	\end{center}
-	%	
-	%	Trabalho aprovado. \imprimirlocal, 24 de novembro de 2016:
-	%	
-	%	\assinatura{\textbf{Prof. Dr. Bruno Albertini} \\ Orientador} 
-	%	\assinatura{\textbf{Professor} \\ Convidado 1}
-	%	\assinatura{\textbf{Professor} \\ Convidado 2}
-		
-	%	\begin{center}
-	%		\vspace*{0.5cm}
-	%		{\large\imprimirlocal}
-	%		\par
-	%		{\large\imprimirdata}
-	%		\vspace*{1cm}
-	%	\end{center}
-		
-	%\end{folhadeaprovacao}
-	% ---
 	
 	% ---
 	% Agradecimentos
@@ -235,11 +160,9 @@ brazil				% o último idioma é o principal do documento
 	\begin{epigrafe}
 		\vspace*{\fill}
 		\begin{flushright}
-			\textit{``Não vos amoldeis às estruturas deste mundo, \\
-				mas transformai-vos pela renovação da mente, \\
-				a fim de distinguir qual é a vontade de Deus: \\
-				o que é bom, o que Lhe é agradável, o que é perfeito.\\
-				(Bíblia Sagrada, Romanos 12, 2)}
+			\textit{``In a dark place we find ourselves,\\
+				and a little more knowledge	lights our way.\\
+				(Yoda, Episode 3: Revenge of the Sith)}
 		\end{flushright}
 	\end{epigrafe}
 	% ---
@@ -247,33 +170,8 @@ brazil				% o último idioma é o principal do documento
 	% ---
 	% RESUMOS
 	% ---
-	
-	% resumo em português
-	\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
-	\begin{resumo}
-		Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
-		objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
-		destes itens dependem do tipo de resumo (informativo ou indicativo) e do
-		tratamento que cada item recebe no documento original. O resumo deve ser
-		precedido da referência do documento, com exceção do resumo inserido no
-		próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
-		resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
-		ponto e finalizadas também por ponto.
-		
-		\textbf{Palavras-chave}: latex. abntex. editoração de texto.
-	\end{resumo}
-	
-	% resumo em inglês
-	\begin{resumo}[Abstract]
-		\begin{otherlanguage*}{english}
-			This is the english abstract.
-			
-			\vspace{\onelineskip}
-			
-			\noindent 
-			\textbf{Keywords}: latex. abntex. text editoration.
-		\end{otherlanguage*}
-	\end{resumo}
+	\include{licy-resumos}
+	% ---
 	
 	% ---
 	% inserir lista de ilustrações
@@ -343,9 +241,7 @@ brazil				% o último idioma é o principal do documento
 	% ----------------------------------------------------------
 
 	% ----------------------------------------------------------
-	% Finaliza a parte no bookmark do PDF
-	% para que se inicie o bookmark na raiz
-	% e adiciona espaço de parte no Sumário
+	% Prepara pdf para iniciar o bookmark na raiz
 	% ----------------------------------------------------------
 	\phantompart
 	
@@ -369,57 +265,28 @@ brazil				% o último idioma é o principal do documento
 	% ----------------------------------------------------------
 	% Glossário
 	% ----------------------------------------------------------
-	%
-	% Consulte o manual da classe abntex2 para orientações sobre o glossário.
-	%
 	%\glossary
+	% ----------------------------------------------------------
 	
 	% ----------------------------------------------------------
 	% Apêndices - SEM APENDICES
 	% ----------------------------------------------------------
-	
-	% ---
-	% Inicia os apêndices
-	% ---
 	%\begin{apendicesenv}
-	
-	% Imprime uma página indicando o início dos apêndices
-	%\partapendices
-	
-	% ----------------------------------------------------------
-	%\chapter{Quisque libero justo}
-	% ----------------------------------------------------------
-	
-	%\lipsum[50]
-	
-	% ----------------------------------------------------------
-	%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
-	%ac pretium ante justo a nulla curabitur tristique arcu eu metus}
-	% ----------------------------------------------------------
-	%\lipsum[55-57]
-	
+		%\partapendices % pagina indicando inicio dos apendices
+		%\chapter{Quisque libero justo}
+		%\lipsum[50]
 	%\end{apendicesenv}
-	% ---
-	
+	% ----------------------------------------------------------
 	
 	% ----------------------------------------------------------
 	% Anexos - SEM ANEXOS
 	% ----------------------------------------------------------
-	
-	% ---
-	% Inicia os anexos
-	% ---
 	%\begin{anexosenv}
-	
-	% Imprime uma página indicando o início dos anexos
-	%\partanexos
-	
-	% ---
-	%\chapter{Morbi ultrices rutrum lorem.}
-	% ---
-	%\lipsum[30]
-
+		%\partanexos	% Imprime uma página indicando o início dos anexos
+		%\chapter{Morbi ultrices rutrum lorem.}
+		%\lipsum[30]
 	%\end{anexosenv}
+	% ----------------------------------------------------------
 	
 	%---------------------------------------------------------------------
 	% INDICE REMISSIVO
