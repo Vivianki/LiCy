@@ -3,49 +3,105 @@
 % Gabriel Takaoka Nishimura, Felippe Demarqui Ramos e Vivian Kimie Isuyama 
 % da Escola Politécnica da Universidade de São Paulo
 % ---
+	% ---
 	\chapter{Metodologia}\label{cap-metodologia}
+	% ---
 	
+	Nesse capítulo são discorridas as escolhas da \texttt{norma 802.15.7}, \textit{hardware} e \texttt{software}.
+	% ---
+	\section{802.15.7}\label{sec-norma}
+	% ---
+	
+	
+	
+	% ---
 	\section{Hardware}\label{sec-hardware}
+	% ---
 	
 	Explica as escolhas feitas de hardware.
 	
 	% ---
-	\subsection{FPGA}
+	\subsection{FPGA}\label{hard-fpga}
 	% ---
 	
-	Explicação do porquê foi escolhido FPGA
+	FPGA (Field-Programmable Gate Array) é uma tecnologia que utiliza chips de silício reprogramáveis para obter circuitos customizáveis, latência a nível de hardware\footnote{muito muito rápido} e vazão muito alta\footnote{devido ao alto grau de paralelismo}. No projeto LiCy, como o fluxo de informações é muito alto (requisito de projeto 1Gbps), é necessário realizar múltiplos processos ao mesmo tempo para processar os dados:
 	
-	\subsubsection{Opções Consideradas}\label{fpga-opcoes}
+	\begin{itemize}  
+		\item Recebimento/Transmissão de dados
+		\item Cálculo de paridade
+		\item Correção de erros\footnote{apenas para recebimento}
+		\item (De)codificação de dados
+	\end{itemize}
+	--
+	 O que é um FPGA?
+	 FPGAs são chips de silício reprogramáveis que usa blocos lógicos programáveis pré-construídos que tem recursos de roteamento, você pode configurar esses chips para implementar funcionalidades personalizadas de hardware, sem nunca ter que pegar em uma placa de montagem ou ferro de solda. Você desenvolve tarefas de computação digital em software e as compila em um arquivo de configuração ou bitstream que contém informações sobre como os componentes devem ser ligados entre si. Além disso, os FPGAs são totalmente reconfiguráveis e imediatamente assumem uma nova "personalidade" quando você recompila uma nova configuração de circuito. No passado, a tecnologia FPGA só estava disponível para engenheiros com uma profunda compreensão do projeto de hardware digital. O surgimento de ferramentas de projeto de alto nível, no entanto, está mudando as regras da programação FPGA, com as novas tecnologias que convertem diagramas de blocos gráficos ou mesmo código em C em circuitos de hardware digital.
+	 
+	 A adoção de chips FPGA em todos os setores é dirigida pelo fato dos FPGAs combinarem as melhores partes do ASIC a sistemas baseados em processador. Os FPGAs oferecem confiabilidade  e velocidade na temporização por hardware, mas não exigem grandes volumes para justificar o grande gasto inicial de um projeto ASIC personalizado. O silício reprogramável também tem a mesma flexibilidade de um software rodando em um sistema baseado em processador, mas não é limitado pelo número de núcleos de processamento disponível. Ao contrário de processadores, os FPGAs são verdadeiramente paralelos por natureza, de modo que diferentes operações de processamento não têm que cosumir os mesmos recursos. Cada tarefa independente de processamento é atribuído a uma seção dedicada do chip, e pode funcionar de forma autônoma, sem qualquer influência de outros blocos lógicos. Como resultado, o desempenho de uma parte da aplicação não é afetada quando um processamento adicional é inserido.
+	 --
+	
+	
+	Explicação do porquê foi escolhido FPGA
+	Designing for an FPGA requires a Hardware Description Language (HDL). HDLs are absolutely nothing at all like C. Whereas a C program is a sequential series of instructions and must contort itself to achieve parallel execution, an HDL describes a concurrent circuit and must contort itself to achieve sequential execution. It is a very different world and if you try to build a circuit in an FPGA while thinking like a software developer it will hurt.
+	
+	An MCU is time-limited. In order to accomplish more work, you need more processor cycles. Clocks have very real limits to their frequencies, so it's easy to hit a computational wall. However, an FPGA is space-limited. In order to accomplish more work, you merely add more circuits. If your FPGA isn't big enough, you can buy a bigger one. It's very hard to build a circuit that can't fit in the largest FPGA, and even if you do there are app notes describing how to daisy chain FPGAs together.
+	
+	FPGAs focus way more on parallel execution. Sometimes you have to worry about how long your MCU's ISR takes to service the interrupt, and whether you'll be able to achieve your hard-real-time limits. However, an in FPGA there are lots of Finite State Machines (FSM) running all the time. They are like "femto-controllers", like little clouds of control logic. They are all running simultaneously, so there's no worrying about missing an interrupt. You might have an FSM to interface to an ADC, another FSM to interface to a microcontroller's address/data bus, another FSM to stream data to a stereo codec, yet another FSM to buffer the dataflow from the ADC to the codec...You need to use a simulator to make sure that all the FSMs sing in harmony. If any control logic is off by even a single clock cycle (and such mistakes are easy to make) then you will get a cacophony of failure.
+	
+	FPGAs are a PCB layout designer's wet dream. They are extremely configurable. You can have many different logic interfaces (LVTTL, LVCMOS, LVDS, etc), of varying voltages and even drive strengths (so you don't need series-termination resistors). The pins are swappable; have you ever seen an MCU address bus where the pins were scattered around the chip? Your PCB designer probably has to drop a bunch of vias just to tie all the signals together correctly. With an FPGA, the PCB designer can then run the signals into the chip in pretty much any order that is convenient, and then the design can be back-annotated to the FPGA toolchain.
+	
+	--
+	Often FPGAs get used specifically to do tasks a microcontroller cannot do efficiently, such as highly parallel or low latency operations, operating in multiple clock domains, or doing custom logic at hardware speeds. As such, they'll do the heavy lifting, and you rarely need an MCU to be central to the design - they may be moved to management positions, such as loading the configuration bitstream. An example of this is the PIC or ARM in the Minimig, which implements the storage interface.
+	
+	--
+	
+	The key thing to consider is throughput and latency requirements. A microcontroller can service an interrupt (very roughly) once per microsecond. It can only service one interrupt at once. If you need to process it in an elaborate way, that limits how many you can service in a particular time.
+	
+	With an FPGA, you can generally respond to an input event immediately (well, on the next clock cycle). You can have lots of processing units in parallel. If you know that your filter takes 20 cycles, that's entirely independant of anything else going on.
+	
+	Highly-parallel integer intensive computation works best on FPGAs, especially if there's complex data dependencies. However, they don't have a lot of onboard memory; you can add some DRAM to the side but at the cost of latency.
+	
+	% ---
+	\subsubsection{Opções Consideradas}\label{fpga-options}
+	% ---
 	
 	Explicação de quais foram as opções consideradas.
 	
-	\subsubsection{Tabela Comparativa}\label{fpga-comparativo}
+	% ---
+	\subsubsection{Tabela Comparativa}\label{fpga-table}
+	% ---
 	
 	Tabela de opções consideradas.
 	
 	% ---
-	\subsection{Microcontrolador}
+	\subsection{Microcontrolador}\label{hard-uc}
 	% ---
 	
 	Explicação do porquê foi escolhido microcontrolador
 	
-	\subsubsection{Opções Consideradas}\label{uc-opcoes}
+	Conexão com fgpa e microcontrolador
+	The best way to connect them is to use an MCU with an external address and data bus. Then you can simply memory map the FPGA circuits into the MCU, and add your own "registers" that each have their own address. Now the FPGA can add custom peripherals, like a 32-bit timer that can latch all 4 bytes at once when the first byte is read to prevent overflows between 8-bit reads. You can also use it as glue logic to memory map more peripherals from other chips, like a separate ADC.
+	
+	
+	% ---
+	\subsubsection{Opções Consideradas}\label{uc-options}
+	% ---
 	
 	\lipsum[14]
 	
-	\subsubsection{Tabela Comparativa}\label{uc-comparativo}
+	% ---
+	\subsubsection{Tabela Comparativa}\label{uc-table}
+	% ---
 	
 	\lipsum[15]
 	
 	% ---
-	\subsection{LED}
+	\subsection{LED}\label{hard-led}
 	% ---
 	
 	\lipsum[2]
 	
-	
 	% ---
-	\subsection{Circuito de Amplificação}
+	\subsection{Circuito de Amplificação}\label{hard-opamp}
 	% ---
 	
 	Com intuito de reduzir o ruido da luz ambiente, o circuito a seguir (\autoref{fig_opampdif}) foi proposto para o projeto:
@@ -62,46 +118,49 @@
 	Explicação de porque foi escolhido o circuito com ampop em modo diferencial para o projeto.
 	
 	% ---
-	\subsection{LED}
-	% ---
-	
-	Explicação de porque foi escolhido aquele LED para o projeto.
-	
 	\section{Software}\label{sec-software}
+	% ---
 	
 	Explica as escolhas feitas no aspecto do software do projeto.
 	
 	% ---
-	\subsection{VHDL}
+	\subsection{VHDL}\label{soft-vhdl}
 	% ---
 	
 	Explicação do porquê foi escolhido VHDL
 	
-	\subsubsection{Opções Consideradas}\label{vhdl-opcoes}
+	% ---
+	\subsubsection{Opções Consideradas}\label{vhdl-options}
+	% ---
 	
 	Explicação de quais foram as opções consideradas.
 	
-	\subsubsection{Tabela Comparativa}\label{vhdl-comparativo}
+	% ---
+	\subsubsection{Tabela Comparativa}\label{vhdl-table}
+	% ---
 	
 	Tabela de opções consideradas.
 	
-	
 	% ---
-	\subsection{Quartus}
+	\subsection{Quartus}\label{soft-quartus}
 	% ---
 	
 	Explicação do porquê foi escolhido Quartus
 	
-	\subsubsection{Opções Consideradas}\label{quartus-opcoes}
+	% ---
+	\subsubsection{Opções Consideradas}\label{quartus-options}
+	% ---
 	
 	\lipsum[10]
 	
-	\subsubsection{Tabela Comparativa}\label{quartus-comparativo}
+	% ---
+	\subsubsection{Tabela Comparativa}\label{quartus-table}
+	% ---
 	
 	\lipsum[11]
 	
 	% ---
-	\subsection{Android}
+	\subsection{Android}\label{soft-android}
 	% ---
 	
 	Explicação do porquê foi escolhido Android.
