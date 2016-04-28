@@ -56,7 +56,7 @@
 	 A adoção de chips FPGA em todos os setores é dirigida pelo fato dos FPGAs combinarem as melhores partes do ASIC a sistemas baseados em processador. Os FPGAs oferecem confiabilidade  e velocidade na temporização por hardware, mas não exigem grandes volumes para justificar o grande gasto inicial de um projeto ASIC personalizado. O silício reprogramável também tem a mesma flexibilidade de um software rodando em um sistema baseado em processador, mas não é limitado pelo número de núcleos de processamento disponível. Ao contrário de processadores, os FPGAs são verdadeiramente paralelos por natureza, de modo que diferentes operações de processamento não têm que consumir os mesmos recursos. Cada tarefa independente de processamento é atribuído a uma seção dedicada do chip, e pode funcionar de forma autônoma, sem qualquer influência de outros blocos lógicos. Como resultado, o desempenho de uma parte da aplicação não é afetada quando um processamento adicional é inserido.
 	 --
 	
-	
+		
 	Explicação do porquê foi escolhido FPGA
 	Designing for an FPGA requires a Hardware Description Language (HDL). HDLs are absolutely nothing at all like C. Whereas a C program is a sequential series of instructions and must contort itself to achieve parallel execution, an HDL describes a concurrent circuit and must contort itself to achieve sequential execution. It is a very different world and if you try to build a circuit in an FPGA while thinking like a software developer it will hurt.
 	
@@ -115,7 +115,24 @@
 	\subsection{LED}\label{hard-led}
 	% ---
 	
-	\lipsum[2]
+	De acordo com a \autoref{tab_phy2}, é necessário uma frequência de oscilação luminosa máxima de 120MHz. Isso significa que deve-se escolher um LED 
+	Para realizar a transmissão de informação utilizando a norma 802.15.7, é necessário osci
+	A norma \texttt{802.15.7} informa a frequencia mínima de oscilação de um LED em função da taxa de transferência desejada.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_ledpulse} Gráfico do tempo do pulso luminoso em função da corrente para o LED \texttt{LW-G6SP}.}
+		\begin{center}
+			\includegraphics[width=0.45\textheight, trim={2.1cm 4.9cm 10.6cm 15.7cm}, clip]{lw-g6sp-pulse.pdf}
+		\end{center}
+		\legend{Fonte: OSRAM LW-G6SP Datasheet: Advanced Power TOPLED, p. 12}
+	\end{figure}
+	
+	% ---
+	\subsection{Fotodiodo}\label{hard-photodiode}
+	% ---
+	
+	O fotodiodo é o componente 
+	
 	
 	% ---
 	\subsection{Circuito de Amplificação}\label{hard-opamp}
