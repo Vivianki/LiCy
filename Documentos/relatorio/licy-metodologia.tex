@@ -8,6 +8,55 @@
 	% ---
 	
 	Nesse capítulo são discorridas as escolhas da \texttt{norma 802.15.7}, \textit{hardware} e \texttt{software}.
+	
+	% ---
+	\section{Planejamento}\label{sec-planejamento}
+	% ---
+	
+	% ---
+	\subsection{Estrutura Analítica do Projeto}\label{subsec-eap}
+	% ---
+	
+	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto, foram definidas a partir da EAP as fases de trabalho. Observa-se que existe uma fase de gerenciamento, três fases de desenvolvimento e uma fase final para o encerramento.
+	
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber }
+		\centering
+			\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{EAP.pdf}
+	\end{figure}
+	
+	% ---
+	\subsection{Cronograma}\label{subsec-cronograma}
+	% ---
+	
+	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes então fizeram reuniões para estimar o tempo, com a aplicação dessas estimativas a um calendário, considerando ainda as datas de entrega oficiais da disciplina.
+	
+	% ---
+	\subsection{Requisitos}\label{subsec-requisitos}
+	% ---
+	
+	Os requisitos foram divididos primeiramente em funcionais e não-funcionais. Além disso, existem outras divisões relacionadas a hardware, software, estética e módulos do sistema. Para cada requisito foi dado um peso, conforme avaliação da relevância deste requisito para este projeto, de modo que no topo da árvore haja uma soma equivalente a 1.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_req1} Requisitos Funcionais }
+		\centering
+		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree1.pdf}
+	\end{figure}
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_req2} Requisitos Funcionais }
+		\centering
+		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree2.pdf}
+	\end{figure}
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_req3} Requisitos Funcionais }
+		\centering
+		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree3.pdf}
+	\end{figure}
+	
+	
 	% ---
 	\section{802.15.7}\label{sec-norma}
 	% ---
@@ -48,7 +97,7 @@
 	
 	
 	
-
+	\begin{comment}
 	--
 	 O que é um FPGA?
 	 FPGAs são chips de silício reprogramáveis que usa blocos lógicos programáveis pré-construídos que tem recursos de roteamento, você pode configurar esses chips para implementar funcionalidades personalizadas de hardware, sem nunca ter que pegar em uma placa de montagem ou ferro de solda. Você desenvolve tarefas de computação digital em software e as compila em um arquivo de configuração ou bitstream que contém informações sobre como os componentes devem ser ligados entre si. Além disso, os FPGAs são totalmente reconfiguráveis e imediatamente assumem uma nova "personalidade" quando você recompila uma nova configuração de circuito. No passado, a tecnologia FPGA só estava disponível para engenheiros com uma profunda compreensão do projeto de hardware digital. O surgimento de ferramentas de projeto de alto nível, no entanto, está mudando as regras da programação FPGA, com as novas tecnologias que convertem diagramas de blocos gráficos ou mesmo código em C em circuitos de hardware digital.
@@ -76,6 +125,7 @@
 	With an FPGA, you can generally respond to an input event immediately (well, on the next clock cycle). You can have lots of processing units in parallel. If you know that your filter takes 20 cycles, that's entirely independant of anything else going on.
 	
 	Highly-parallel integer intensive computation works best on FPGAs, especially if there's complex data dependencies. However, they don't have a lot of onboard memory; you can add some DRAM to the side but at the cost of latency.
+	\end{comment}
 	
 	% ---
 	\subsubsection{Opções Consideradas}\label{fpga-options}
