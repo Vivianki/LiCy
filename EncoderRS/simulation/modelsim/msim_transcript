@@ -1,0 +1,195 @@
+# do pll_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet work rtl_work 
+# Copying C:/altera_lite/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:/altera_lite/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/gf_mult.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:41:59 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/gf_mult.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity gf_mult
+# -- Compiling architecture lut of gf_mult
+# End time: 20:41:59 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/gf_sum.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:02 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/gf_sum.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity gf_sum
+# -- Compiling architecture behavior of gf_sum
+# End time: 20:42:02 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/register4b.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:05 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/register4b.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity register4b
+# -- Compiling architecture description of register4b
+# End time: 20:42:05 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/and4x1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:08 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/and4x1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity and4x1
+# -- Compiling architecture behavior of and4x1
+# End time: 20:42:08 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/mux2x1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:11 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/mux2x1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Mux2x1
+# -- Compiling architecture Mux2x1 of Mux2x1
+# End time: 20:42:11 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/static_12.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:14 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/static_12.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_12
+# -- Compiling architecture behavior of static_12
+# End time: 20:42:14 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/static_1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:17 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/static_1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_1
+# -- Compiling architecture behavior of static_1
+# End time: 20:42:17 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/static_3.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:21 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/static_3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_3
+# -- Compiling architecture behavior of static_3
+# End time: 20:42:21 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/static_15.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:24 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/static_15.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_15
+# -- Compiling architecture behavior of static_15
+# End time: 20:42:24 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/sinalControle.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:27 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/sinalControle.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity sinalControle
+# -- Compiling architecture Behavioral of sinalControle
+# End time: 20:42:27 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/RSencoder.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:30 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/RSencoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RSencoder
+# -- Compiling architecture bdf_type of RSencoder
+# End time: 20:42:30 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {C:/altera_lite/15.1/TCC/simulation/modelsim/RSencoder.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 20:42:34 on May 15,2016
+# vcom -reportprogress 300 -93 -work work C:/altera_lite/15.1/TCC/simulation/modelsim/RSencoder.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RSencoder_vhd_tst
+# -- Compiling architecture RSencoder_arch of RSencoder_vhd_tst
+# End time: 20:42:34 on May 15,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  RSencoder_vhd_tst
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" RSencoder_vhd_tst 
+# Start time: 20:42:36 on May 15,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.rsencoder_vhd_tst(rsencoder_arch)
+# Loading work.rsencoder(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.sinalcontrole(behavioral)
+# Loading ieee.numeric_std(body)
+# Loading work.gf_mult(lut)
+# Loading work.register4b(description)
+# Loading work.static_12(behavior)
+# Loading work.static_15(behavior)
+# Loading work.static_3(behavior)
+# Loading work.and4x1(behavior)
+# Loading work.mux2x1(mux2x1)
+# Loading work.gf_sum(behavior)
+# Loading work.static_1(behavior)
+# 
+# add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: MimiPC  Hostname: MIMI  ProcessID: 10480
+# 
+#           Attempting to use alternate WLF file "./wlfthv9dz4".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlfthv9dz4
+# 
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all

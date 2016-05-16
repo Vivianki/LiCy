@@ -1,0 +1,500 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/altera_lite/15.1/TCC/simulation/modelsim
+Eand4x1
+Z1 w1463171084
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/altera_lite/15.1/TCC/and4x1.vhd
+Z6 FC:/altera_lite/15.1/TCC/and4x1.vhd
+l0
+L8
+VgRNcgGU?;;0HaoCLj5_Se3
+!s100 X@Ad[5Ek8>i]m:I5JzMl03
+Z7 OV;C;10.4b;61
+31
+Z8 !s110 1463355728
+!i10b 1
+Z9 !s108 1463355728.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/and4x1.vhd|
+Z11 !s107 C:/altera_lite/15.1/TCC/and4x1.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1
+Abehavior
+R2
+R3
+R4
+DEx4 work 6 and4x1 0 22 gRNcgGU?;;0HaoCLj5_Se3
+l19
+L17
+Vm5P4GA7c`J9]hIHhJZ6ge0
+!s100 lkfU=JTZWZgSzg7nc8fCi1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Egf_mult
+Z14 w1463353890
+R2
+R3
+R4
+R0
+Z15 8C:/altera_lite/15.1/TCC/gf_mult.vhd
+Z16 FC:/altera_lite/15.1/TCC/gf_mult.vhd
+l0
+L5
+V>T0U:eJ`O?9U@O3;z8NMz1
+!s100 `hjilD620eWQJe3FSLUg61
+R7
+31
+Z17 !s110 1463355719
+!i10b 1
+Z18 !s108 1463355719.000000
+Z19 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/gf_mult.vhd|
+Z20 !s107 C:/altera_lite/15.1/TCC/gf_mult.vhd|
+!i113 1
+R12
+R13
+Alut
+R2
+R3
+R4
+DEx4 work 7 gf_mult 0 22 >T0U:eJ`O?9U@O3;z8NMz1
+l14
+L13
+V8cUb_Q<maV0EiZaCJaa522
+!s100 mfZdiFf:fE_jEzM43]ml11
+R7
+31
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13
+Egf_sum
+Z21 w1463164437
+R2
+R3
+R4
+R0
+Z22 8C:/altera_lite/15.1/TCC/gf_sum.vhd
+Z23 FC:/altera_lite/15.1/TCC/gf_sum.vhd
+l0
+L8
+V:EgEGkN`Q?;8oNMO0dcFQ1
+!s100 gjG]YVT:G0D@R7E_G94R82
+R7
+31
+Z24 !s110 1463355722
+!i10b 1
+Z25 !s108 1463355722.000000
+Z26 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/gf_sum.vhd|
+Z27 !s107 C:/altera_lite/15.1/TCC/gf_sum.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 6 gf_sum 0 22 :EgEGkN`Q?;8oNMO0dcFQ1
+l19
+L17
+V;<JmP9fni7TSJnL3hLO0`3
+!s100 @F8MKGY`X6J4_`W>EJ@>C2
+R7
+31
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R12
+R13
+Emux2x1
+Z28 w1463235639
+R3
+R4
+R0
+Z29 8C:/altera_lite/15.1/TCC/mux2x1.vhd
+Z30 FC:/altera_lite/15.1/TCC/mux2x1.vhd
+l0
+L6
+V6AkoIRE1KRX^H17O:HKI`3
+!s100 HP:n4P_DZGDXkSEk?V]N[2
+R7
+31
+Z31 !s110 1463355731
+!i10b 1
+Z32 !s108 1463355731.000000
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/mux2x1.vhd|
+Z34 !s107 C:/altera_lite/15.1/TCC/mux2x1.vhd|
+!i113 1
+R12
+R13
+Amux2x1
+R3
+R4
+DEx4 work 6 mux2x1 0 22 6AkoIRE1KRX^H17O:HKI`3
+l20
+L18
+VjIQ3Z5Y1]E8@SFmIFG]e81
+!s100 KA`]L^4HkZ=ch<5k99@>P2
+R7
+31
+R31
+!i10b 1
+R32
+R33
+R34
+!i113 1
+R12
+R13
+Eregister4b
+Z35 w1463169022
+Z36 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z37 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R3
+R4
+R0
+Z38 8C:/altera_lite/15.1/TCC/register4b.vhd
+Z39 FC:/altera_lite/15.1/TCC/register4b.vhd
+l0
+L6
+VU]n8z[GjlmeO<oP2FkTLT1
+!s100 dT49k:A0UkWO7faV5G[oC2
+R7
+31
+Z40 !s110 1463355725
+!i10b 1
+Z41 !s108 1463355725.000000
+Z42 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/register4b.vhd|
+Z43 !s107 C:/altera_lite/15.1/TCC/register4b.vhd|
+!i113 1
+R12
+R13
+Adescription
+R36
+R37
+R3
+R4
+DEx4 work 10 register4b 0 22 U]n8z[GjlmeO<oP2FkTLT1
+l17
+L15
+VD4LbB2L<>8jBiA`^_ZI[O1
+!s100 aj^Hen@Rm^KFE_jo^V[nH0
+R7
+31
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R12
+R13
+Ersencoder
+Z44 w1463353993
+R3
+R4
+R0
+Z45 8C:/altera_lite/15.1/TCC/RSencoder.vhd
+Z46 FC:/altera_lite/15.1/TCC/RSencoder.vhd
+l0
+L25
+VLD`0>4EJKmDMMCoNIkM<]1
+!s100 IQ;]8`h]1[LDo>6b]a?I31
+R7
+31
+Z47 !s110 1463355750
+!i10b 1
+Z48 !s108 1463355750.000000
+Z49 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/RSencoder.vhd|
+Z50 !s107 C:/altera_lite/15.1/TCC/RSencoder.vhd|
+!i113 1
+R12
+R13
+Abdf_type
+R3
+R4
+DEx4 work 9 rsencoder 0 22 LD`0>4EJKmDMMCoNIkM<]1
+l133
+L42
+VZ=CdRCiZF29NMgj]8XG8`3
+!s100 W=>nEZ=GhjHBhP1Q_Cam11
+R7
+31
+R47
+!i10b 1
+R48
+R49
+R50
+!i113 1
+R12
+R13
+Ersencoder_vhd_tst
+Z51 w1463354065
+R3
+R4
+R0
+Z52 8C:/altera_lite/15.1/TCC/simulation/modelsim/RSencoder.vht
+Z53 FC:/altera_lite/15.1/TCC/simulation/modelsim/RSencoder.vht
+l0
+L31
+V?W>c5gL9F@6=2R]EU5k]L3
+!s100 7=Ui_D7A:@az^2G8;Ym@G1
+R7
+31
+Z54 !s110 1463355754
+!i10b 1
+Z55 !s108 1463355754.000000
+Z56 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/simulation/modelsim/RSencoder.vht|
+Z57 !s107 C:/altera_lite/15.1/TCC/simulation/modelsim/RSencoder.vht|
+!i113 1
+R12
+R13
+Arsencoder_arch
+R3
+R4
+DEx4 work 17 rsencoder_vhd_tst 0 22 ?W>c5gL9F@6=2R]EU5k]L3
+l64
+L33
+V5RAbBSNG9f0zNaM_AZ]cJ1
+!s100 W3[kRN4TONIj0V2ZGFFR;2
+R7
+31
+R54
+!i10b 1
+R55
+R56
+R57
+!i113 1
+R12
+R13
+Esinalcontrole
+Z58 w1463355653
+R36
+R37
+R3
+R4
+R0
+Z59 8C:/altera_lite/15.1/TCC/sinalControle.vhd
+Z60 FC:/altera_lite/15.1/TCC/sinalControle.vhd
+l0
+L7
+VZaf1iY_W_]<hm7@<Gm8Bl3
+!s100 Sfg0@;WOSJTmD5h9L12CI0
+R7
+31
+Z61 !s110 1463355747
+!i10b 1
+Z62 !s108 1463355747.000000
+Z63 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/sinalControle.vhd|
+Z64 !s107 C:/altera_lite/15.1/TCC/sinalControle.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R36
+R37
+R3
+R4
+DEx4 work 13 sinalcontrole 0 22 Zaf1iY_W_]<hm7@<Gm8Bl3
+l17
+L15
+VW>[j5VaCUNn87kPzm`g=10
+!s100 z6C4QmeVm8`CHkH;G56L72
+R7
+31
+R61
+!i10b 1
+R62
+R63
+R64
+!i113 1
+R12
+R13
+Estatic_1
+Z65 w1463237968
+R2
+R3
+R4
+R0
+Z66 8C:/altera_lite/15.1/TCC/static_1.vhd
+Z67 FC:/altera_lite/15.1/TCC/static_1.vhd
+l0
+L8
+VIX5^RXNmXI[BPKj15l^Qj3
+!s100 9bIhmZG4YT`=Vhc3iX^QA3
+R7
+31
+Z68 !s110 1463355737
+!i10b 1
+Z69 !s108 1463355737.000000
+Z70 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/static_1.vhd|
+Z71 !s107 C:/altera_lite/15.1/TCC/static_1.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_1 0 22 IX5^RXNmXI[BPKj15l^Qj3
+l17
+L15
+VdOK0SH2MimzedgCVgEUF71
+!s100 =@IT[1<H;He8>zJ7lkUld1
+R7
+31
+R68
+!i10b 1
+R69
+R70
+R71
+!i113 1
+R12
+R13
+Estatic_12
+Z72 w1463237883
+R2
+R3
+R4
+R0
+Z73 8C:/altera_lite/15.1/TCC/static_12.vhd
+Z74 FC:/altera_lite/15.1/TCC/static_12.vhd
+l0
+L8
+VC=LWomAPGnD9=HHEYNYie3
+!s100 BA`zdW6c6zVP1U?gLf2J?0
+R7
+31
+Z75 !s110 1463355734
+!i10b 1
+Z76 !s108 1463355734.000000
+Z77 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/static_12.vhd|
+Z78 !s107 C:/altera_lite/15.1/TCC/static_12.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 9 static_12 0 22 C=LWomAPGnD9=HHEYNYie3
+l17
+L15
+VC4FcZV7QMINVn5AgafCR:3
+!s100 R_]GWZ8^cQTTgW3Fo:WQi3
+R7
+31
+R75
+!i10b 1
+R76
+R77
+R78
+!i113 1
+R12
+R13
+Estatic_15
+Z79 w1463238242
+R2
+R3
+R4
+R0
+Z80 8C:/altera_lite/15.1/TCC/static_15.vhd
+Z81 FC:/altera_lite/15.1/TCC/static_15.vhd
+l0
+L8
+Vk[E<4o:Jcc2m]MT[UVzg03
+!s100 NhgA=RMPEAC2:LD11=fkI1
+R7
+31
+Z82 !s110 1463355744
+!i10b 1
+Z83 !s108 1463355744.000000
+Z84 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/static_15.vhd|
+Z85 !s107 C:/altera_lite/15.1/TCC/static_15.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 9 static_15 0 22 k[E<4o:Jcc2m]MT[UVzg03
+l17
+L15
+VIzV=iPFAToRYGA1URbmF=3
+!s100 ;b[ZD<F8fAFPKj1n[iK6Z2
+R7
+31
+R82
+!i10b 1
+R83
+R84
+R85
+!i113 1
+R12
+R13
+Estatic_3
+Z86 w1463238150
+R2
+R3
+R4
+R0
+Z87 8C:/altera_lite/15.1/TCC/static_3.vhd
+Z88 FC:/altera_lite/15.1/TCC/static_3.vhd
+l0
+L8
+VVWDcmL7@0Toni78S<oY^X2
+!s100 Q[JN]i_`dR1nY:3Ff2RLi2
+R7
+31
+Z89 !s110 1463355741
+!i10b 1
+Z90 !s108 1463355741.000000
+Z91 !s90 -reportprogress|300|-93|-work|work|C:/altera_lite/15.1/TCC/static_3.vhd|
+Z92 !s107 C:/altera_lite/15.1/TCC/static_3.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_3 0 22 VWDcmL7@0Toni78S<oY^X2
+l17
+L15
+V]_]885412HiOiziLeBjXJ2
+!s100 8cGU0QAdZO<aJz;XNRFUE1
+R7
+31
+R89
+!i10b 1
+R90
+R91
+R92
+!i113 1
+R12
+R13
