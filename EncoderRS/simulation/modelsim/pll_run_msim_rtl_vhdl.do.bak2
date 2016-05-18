@@ -1,0 +1,11 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/altera_lite/15.1/TCC/db {C:/altera_lite/15.1/TCC/db/pll_altpll1.v}
+vcom -93 -work work {C:/altera_lite/15.1/TCC/pll.vhd}
+vcom -93 -work work {C:/altera_lite/15.1/TCC/licy.vhd}
+

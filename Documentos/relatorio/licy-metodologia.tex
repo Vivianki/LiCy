@@ -8,6 +8,55 @@
 	% ---
 	
 	Nesse capítulo são discorridas as escolhas da \texttt{norma 802.15.7}, \textit{hardware} e \texttt{software}.
+	
+	% ---
+	\section{Planejamento}\label{sec-planejamento}
+	% ---
+	
+	% ---
+	\subsection{Estrutura Analítica do Projeto}\label{subsec-eap}
+	% ---
+	
+	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto, foram definidas a partir da EAP as fases de trabalho. Observa-se que existe uma fase de gerenciamento, três fases de desenvolvimento e uma fase final para o encerramento.
+	
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber }
+		\centering
+			\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{EAP.pdf}
+	\end{figure}
+	
+	% ---
+	\subsection{Cronograma}\label{subsec-cronograma}
+	% ---
+	
+	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes então fizeram reuniões para estimar o tempo, com a aplicação dessas estimativas a um calendário, considerando ainda as datas de entrega oficiais da disciplina.
+	
+	% ---
+	\subsection{Requisitos}\label{subsec-requisitos}
+	% ---
+	
+	Os requisitos foram divididos primeiramente em funcionais e não-funcionais. Além disso, existem outras divisões relacionadas a hardware, software, estética e módulos do sistema. Para cada requisito foi dado um peso, conforme avaliação da relevância deste requisito para este projeto, de modo que no topo da árvore haja uma soma equivalente a 1.
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_req1} Requisitos Funcionais }
+		\centering
+		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree1.pdf}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_req2} Requisitos Funcionais }
+		\centering
+		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree2.pdf}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_req3} Requisitos Funcionais }
+		\centering
+		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree3.pdf}
+	\end{figure}
+	
+	
 	% ---
 	\section{Norma IEEE 802.15.7}\label{sec-norma}
 	% ---
@@ -44,8 +93,13 @@
 		\item (De)codificação de dados
 	\end{itemize}
 	
+<<<<<<< HEAD
+	\begin{table}[h!]
+		\caption{\label{tab_phy2} Modos de operação da camada PHY II de Li-Fi}
+=======
 	\begin{table}[htbp]
 		\caption{\label{tab_phy1} Modos de operação da camada PHY I de Li-Fi}
+>>>>>>> origin/master
 		\centering
 		%  trim={<left> <lower> <right> <upper>} 
 		\includegraphics[clip, trim=37mm 151mm 36mm 51mm,  width=0.7\textwidth]{pag213.pdf}
@@ -65,6 +119,41 @@
 	
 	A principal vantagem do uso de uma FPGA em relação a microcontroladores está na independência das operações de processamento, que por estarem em circuitos paralelos não precisam dividir recursos, como um mesmo núcleo por exemplo. Entretanto, o alto grau de paralelismo pode resultar em maiores desafios como garantir o sincronismo e lidar com inconsistência de dados no nível de circuito. Ainda assim, é preferível neste projeto lidar com esses desafios para se beneficiar do ganho em latência e vazão de dados.
 	
+<<<<<<< HEAD
+	
+	
+	\begin{comment}
+	--
+	 O que é um FPGA?
+	 FPGAs são chips de silício reprogramáveis que usa blocos lógicos programáveis pré-construídos que tem recursos de roteamento, você pode configurar esses chips para implementar funcionalidades personalizadas de hardware, sem nunca ter que pegar em uma placa de montagem ou ferro de solda. Você desenvolve tarefas de computação digital em software e as compila em um arquivo de configuração ou bitstream que contém informações sobre como os componentes devem ser ligados entre si. Além disso, os FPGAs são totalmente reconfiguráveis e imediatamente assumem uma nova "personalidade" quando você recompila uma nova configuração de circuito. No passado, a tecnologia FPGA só estava disponível para engenheiros com uma profunda compreensão do projeto de hardware digital. O surgimento de ferramentas de projeto de alto nível, no entanto, está mudando as regras da programação FPGA, com as novas tecnologias que convertem diagramas de blocos gráficos ou mesmo código em C em circuitos de hardware digital.
+	 
+	 A adoção de chips FPGA em todos os setores é dirigida pelo fato dos FPGAs combinarem as melhores partes do ASIC a sistemas baseados em processador. Os FPGAs oferecem confiabilidade  e velocidade na temporização por hardware, mas não exigem grandes volumes para justificar o grande gasto inicial de um projeto ASIC personalizado. O silício reprogramável também tem a mesma flexibilidade de um software rodando em um sistema baseado em processador, mas não é limitado pelo número de núcleos de processamento disponível. Ao contrário de processadores, os FPGAs são verdadeiramente paralelos por natureza, de modo que diferentes operações de processamento não têm que consumir os mesmos recursos. Cada tarefa independente de processamento é atribuído a uma seção dedicada do chip, e pode funcionar de forma autônoma, sem qualquer influência de outros blocos lógicos. Como resultado, o desempenho de uma parte da aplicação não é afetada quando um processamento adicional é inserido.
+	 --
+	
+		
+	Explicação do porquê foi escolhido FPGA
+	Designing for an FPGA requires a Hardware Description Language (HDL). HDLs are absolutely nothing at all like C. Whereas a C program is a sequential series of instructions and must contort itself to achieve parallel execution, an HDL describes a concurrent circuit and must contort itself to achieve sequential execution. It is a very different world and if you try to build a circuit in an FPGA while thinking like a software developer it will hurt.
+	
+	An MCU is time-limited. In order to accomplish more work, you need more processor cycles. Clocks have very real limits to their frequencies, so it's easy to hit a computational wall. However, an FPGA is space-limited. In order to accomplish more work, you merely add more circuits. If your FPGA isn't big enough, you can buy a bigger one. It's very hard to build a circuit that can't fit in the largest FPGA, and even if you do there are app notes describing how to daisy chain FPGAs together.
+	
+	FPGAs focus way more on parallel execution. Sometimes you have to worry about how long your MCU's ISR takes to service the interrupt, and whether you'll be able to achieve your hard-real-time limits. However, an in FPGA there are lots of Finite State Machines (FSM) running all the time. They are like "femto-controllers", like little clouds of control logic. They are all running simultaneously, so there's no worrying about missing an interrupt. You might have an FSM to interface to an ADC, another FSM to interface to a microcontroller's address/data bus, another FSM to stream data to a stereo codec, yet another FSM to buffer the dataflow from the ADC to the codec...You need to use a simulator to make sure that all the FSMs sing in harmony. If any control logic is off by even a single clock cycle (and such mistakes are easy to make) then you will get a cacophony of failure.
+	
+	FPGAs are a PCB layout designer's wet dream. They are extremely configurable. You can have many different logic interfaces (LVTTL, LVCMOS, LVDS, etc), of varying voltages and even drive strengths (so you don't need series-termination resistors). The pins are swappable; have you ever seen an MCU address bus where the pins were scattered around the chip? Your PCB designer probably has to drop a bunch of vias just to tie all the signals together correctly. With an FPGA, the PCB designer can then run the signals into the chip in pretty much any order that is convenient, and then the design can be back-annotated to the FPGA toolchain.
+	
+	--
+	Often FPGAs get used specifically to do tasks a microcontroller cannot do efficiently, such as highly parallel or low latency operations, operating in multiple clock domains, or doing custom logic at hardware speeds. As such, they'll do the heavy lifting, and you rarely need an MCU to be central to the design - they may be moved to management positions, such as loading the configuration bitstream. An example of this is the PIC or ARM in the Minimig, which implements the storage interface.
+	
+	--
+	
+	The key thing to consider is throughput and latency requirements. A microcontroller can service an interrupt (very roughly) once per microsecond. It can only service one interrupt at once. If you need to process it in an elaborate way, that limits how many you can service in a particular time.
+	
+	With an FPGA, you can generally respond to an input event immediately (well, on the next clock cycle). You can have lots of processing units in parallel. If you know that your filter takes 20 cycles, that's entirely independant of anything else going on.
+	
+	Highly-parallel integer intensive computation works best on FPGAs, especially if there's complex data dependencies. However, they don't have a lot of onboard memory; you can add some DRAM to the side but at the cost of latency.
+	\end{comment}
+	
+=======
+>>>>>>> origin/master
 	% ---
 	\subsubsection{Opções Consideradas}\label{fpga-options}
 	% ---
@@ -136,7 +225,14 @@
 	200kHz = 1 / T
 	\end{equation}
 	
+<<<<<<< HEAD
 	\begin{figure}[htb]
+=======
+	
+	
+	
+	\begin{figure}[h!]
+>>>>>>> origin/master
 		\caption{\label{fig_ledpulse} Gráfico do tempo do pulso luminoso em função da corrente para o LED \texttt{LW-G6SP}.}
 		\centering
 		\includegraphics[width=0.3\textheight, trim={2.1cm 4.9cm 10.6cm 15.7cm}, clip]{lw-g6sp-pulse.pdf}
@@ -156,7 +252,7 @@
 	
 	Com intuito de reduzir o ruido da luz ambiente, o circuito passa-faixas amplificador a seguir (\autoref{fig_opampdif}) foi proposto para o projeto.
 	
-	\begin{figure}[htb]
+	\begin{figure}[h!]
 		\caption{\label{fig_opampdif}Circuito amplificador de diferenças.}
 		\centering
 		%  trim={<left> <lower> <right> <upper>} 
