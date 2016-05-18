@@ -12,7 +12,18 @@
 	\section{Norma IEEE 802.15.7}\label{sec-norma}
 	% ---
 	
+	\subsection{Transmissão}
 	
+	Nessa seção será discorrido o processo de transmissão de dados via luz, levando em conta processos de codificação, protocolos RLL e 
+		
+	\begin{figure}[htb]
+		\caption{\label{fig_transmission_simple_blocs} Diagrama de blocos simplificado da transmissão da camada PHY I}
+		\centering
+		\includegraphics[width=0.3\textheight]{transmissao-blocos-simplificado.pdf}
+		\legend{Fonte: Próprios autores}
+	\end{figure}
+	
+	\subsection{Recepção}
 	
 	% ---
 	\section{Hardware}\label{sec-hardware}
@@ -125,14 +136,10 @@
 	200kHz = 1 / T
 	\end{equation}
 	
-	
-	
-	
 	\begin{figure}[htb]
 		\caption{\label{fig_ledpulse} Gráfico do tempo do pulso luminoso em função da corrente para o LED \texttt{LW-G6SP}.}
-		\begin{center}
-			\includegraphics[width=0.3\textheight, trim={2.1cm 4.9cm 10.6cm 15.7cm}, clip]{lw-g6sp-pulse.pdf}
-		\end{center}
+		\centering
+		\includegraphics[width=0.3\textheight, trim={2.1cm 4.9cm 10.6cm 15.7cm}, clip]{lw-g6sp-pulse.pdf}
 		\legend{Fonte: OSRAM LW-G6SP Datasheet: Advanced Power TOPLED, p. 12}
 	\end{figure}
 	
@@ -147,7 +154,7 @@
 	\subsection{Circuito de Amplificação}\label{hard-opamp}
 	% ---
 	
-	Com intuito de reduzir o ruido da luz ambiente, o circuito passa-faixas amplificador a seguir (\autoref{fig_opampdif}) foi proposto para o projeto:
+	Com intuito de reduzir o ruido da luz ambiente, o circuito passa-faixas amplificador a seguir (\autoref{fig_opampdif}) foi proposto para o projeto.
 	
 	\begin{figure}[htb]
 		\caption{\label{fig_opampdif}Circuito amplificador de diferenças.}
@@ -191,8 +198,10 @@
 		f_{o} = \sqrt{f_{ci} \cdot f_{cs}}
 	\end{equation}
 	
+	A banda de passagem do circuito é calculada pela subtração da frequencia de corte superior pela inferior:
+	
 	\begin{equation} \label{eq:4}
-		BW = f_{ci} - f_{cs}
+		BW = f_{cs} - f_{ci}
 	\end{equation}
 	
 	Explicação de porque foi escolhido o circuito com ampop em modo diferencial para o projeto.
