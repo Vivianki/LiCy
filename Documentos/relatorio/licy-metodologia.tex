@@ -93,13 +93,9 @@
 		\item (De)codificação de dados
 	\end{itemize}
 	
-<<<<<<< HEAD
-	\begin{table}[h!]
-		\caption{\label{tab_phy2} Modos de operação da camada PHY II de Li-Fi}
-=======
 	\begin{table}[htbp]
 		\caption{\label{tab_phy1} Modos de operação da camada PHY I de Li-Fi}
->>>>>>> origin/master
+
 		\centering
 		%  trim={<left> <lower> <right> <upper>} 
 		\includegraphics[clip, trim=37mm 151mm 36mm 51mm,  width=0.7\textwidth]{pag213.pdf}
@@ -118,8 +114,6 @@
 	O projeto de uma FPGA possui características que anteriormente estavam associadas a sistemas baseados em processadores. Uma delas é o uso de ferramentas e interfaces de alto nível, usando diagramas de bloco representando comportamentos e linguagens de descrição de hardware (na sigla em inglês, HDL), que no entanto diferem em muito de linguagens de programação como C. 
 	
 	A principal vantagem do uso de uma FPGA em relação a microcontroladores está na independência das operações de processamento, que por estarem em circuitos paralelos não precisam dividir recursos, como um mesmo núcleo por exemplo. Entretanto, o alto grau de paralelismo pode resultar em maiores desafios como garantir o sincronismo e lidar com inconsistência de dados no nível de circuito. Ainda assim, é preferível neste projeto lidar com esses desafios para se beneficiar do ganho em latência e vazão de dados.
-	
-<<<<<<< HEAD
 	
 	
 	\begin{comment}
@@ -152,8 +146,6 @@
 	Highly-parallel integer intensive computation works best on FPGAs, especially if there's complex data dependencies. However, they don't have a lot of onboard memory; you can add some DRAM to the side but at the cost of latency.
 	\end{comment}
 	
-=======
->>>>>>> origin/master
 	% ---
 	\subsubsection{Opções Consideradas}\label{fpga-options}
 	% ---
@@ -225,14 +217,7 @@
 	200kHz = 1 / T
 	\end{equation}
 	
-<<<<<<< HEAD
-	\begin{figure}[htb]
-=======
-	
-	
-	
 	\begin{figure}[h!]
->>>>>>> origin/master
 		\caption{\label{fig_ledpulse} Gráfico do tempo do pulso luminoso em função da corrente para o LED \texttt{LW-G6SP}.}
 		\centering
 		\includegraphics[width=0.3\textheight, trim={2.1cm 4.9cm 10.6cm 15.7cm}, clip]{lw-g6sp-pulse.pdf}
