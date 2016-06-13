@@ -29,6 +29,7 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{lipsum}				% para geração de dummy text
+\usepackage{listings}			% para listagem de código %
 % Pacotes de citações
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações
 \usepackage[alf,abnt-url-package=url]{abntex2cite}	% Citações padrão ABNT
@@ -194,27 +195,31 @@
 	% inserir lista de abreviaturas e siglas
 	% ---
 	\begin{siglas}
+		\item[ADC] Analog Digital Converter
 		\item[EAP] Estrutura Analítica de Projeto
 		\item[FPGA] Field-Programmable Gate Array
-		\item[LED] Light Emitting Diode
-		\item[ADC] Analog Digital Converter
-		\item[VPAN] Visible-Light Communication Personal Area Network
-		\item[USB] Universal Serial Bus
-		\item[MAC] Media Access Control
-		\item[TCP] Transmission Control Protocol
+		\item[GF] Galois Field
 		\item[IP] Internet Protocol	
+		\item[LED] Light Emitting Diode
+		\item[MAC] Media Access Control
+		\item[RS] Reed Solomon
+		\item[USB] Universal Serial Bus
+		\item[VPAN] Visible-Light Communication Personal Area Network
+		\item[TCP] Transmission Control Protocol
 	\end{siglas}
 	% ---
 	
 	% ---
 	% inserir lista de símbolos
 	% ---
+	\begin{comment}
 	\begin{simbolos}
 		\item[$ \Gamma $] Letra grega Gama
 		\item[$ \Lambda $] Lambda
 		\item[$ \zeta $] Letra grega minúscula zeta
 		\item[$ \in $] Pertence
 	\end{simbolos}
+	\end{comment}
 	% ---
 	
 	% ---

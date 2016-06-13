@@ -73,7 +73,7 @@
 	Além desses requisitos, existem também aqueles referentes ao aplicativo de celular, que deve decodificar os dados recebidos via USB, deve ser desenvolvido a fim de funcionar no sistema operacional Android e deve exibir vídeos, imagens ou websites.
 
 	\begin{figure}[h!]
-		\caption{\label{fig_req1} Requisitos Funcionais }
+		\caption{\label{fig_req1} Requisitos Funcionais}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={5cm 0.5cm 3cm 1.3cm}, clip]{ReqTree1.pdf}
 	\end{figure}
@@ -124,18 +124,81 @@
 			\legend{Fonte: @todo figura 126}
 		\end{figure}
 		
-	Para que os dados transmitidos sejam corretamente recebidos, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em burst, maior facilidade na sincronia do clock, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Os passos estarão detalhados nas seções a seguir.
+	Para que os dados transmitidos sejam corretamente recebidos, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em burst, maior facilidade na sincronia do clock, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Esses passos estarão detalhados nas seções a seguir.
 	
 	\subsubsection{Codificação Reed Solomon}
 	
-	Com intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. 
+	Com intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. Ele consiste em compor 2t símbolos de paridade a partir de k símbolos da mensagem, gerando uma mensagem de n símbolos.
+
+	\begin{figure}[htb]
+		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
+		\centering
+		\includegraphics[width=0.5\textheight]{reed_solomon_message.pdf}
+	\end{figure}
 	
 	\paragraph{Campos de Galois}
 
 		\cite{nasa-rs1}
 		
-	\paragraph{Operações}
+	\paragraph{Operações}	
 	
+	\subsubsection{Padding}
+	
+	Esse processo se aplica a mensagens curtas e consiste em preencher espaços vazios com zeros.
+	
+	\subsubsection{Interleaver}
+	
+	O processo de intercalação é utilizado para aprimorar a performance de mecanismos de correção de erros antecipados. Ele se baseia no fato de que canais de comunicação não são estocásticos, então erros ocorrem em sequência e não independentemente. A intercalação serve para distribuir os erros em sequência, facilitando o processo de recuperação de erros, pois os erros serão distribuídos em múltiplas palavras de código. Pode-se exemplificar o uso do intercalador com a transmissão de mensagens com erros em burst. Inicialmente é demonstrado o funcionamento da redundância aplicada e a recuperação de erros caso seja possível.
+
+	\begin{verbatim}
+	   Mensagem inicial:                             abcdefg
+	   Mensagem com redundância:                     aaabbbcccdddeeefffggg
+	   Transmissão com erros em burst:               aaabbbc__dddeeefffggg
+	   Mensagem recuperada:                          abcdefg
+	\end{verbatim}
+
+	Mesmo após dois caracteres perdidos em sequência, foi possível recuperar as perdas do canal. Isso ocorreu pois o erro foi pontual o suficiente para ser recuperado.
+	
+	\begin{verbatim}
+	   Mensagem inicial:                             abcdefg
+	   Mensagem com redundância:                     aaabbbcccdddeeefffggg
+	   Transmissão com erros em burst:               aaabbbccc___eeefffggg
+	   Mensagem recuperada:                          abc_efg
+	\end{verbatim}
+	
+	Mesmo com a redundância aplicada, a informação \textit{d} foi perdida devido à erros em burst. Aplicando intercalação, a mesma mensagem pode ser recuperada facilmente, a seguir:
+	
+	\begin{verbatim}
+	   Mensagem inicial:                             abcdefg
+	   Mensagem com redundância:                     aaabbbcccdddeeefffggg
+	   Intercalação:                                 abcdefgabcdefgabcdefg
+	   Transmissão com erros em sequência:           abcdefgabc___gabcdefg
+	   Mensagem após deintercalação:                 aaabbbcccd_de_ef_fggg
+	   Mensagem recuperada:                          abcdefg
+	\end{verbatim}
+	
+	O último caso mostra a capacidade de recuperação de erros com o auxílio do processo de intercalação. A norma especifica alguns parâmetros que devem ser definidos para criar o intercalador:
+	
+	\begin{verbatim}
+	n: RS codeword length
+	k: Number of information data symbols in a RS codeword
+	q: Number of elements in the Galois field: GF(q)
+	Lframe: Input frame size in bytes
+	Sframe: Number of symbols at the input of the RS encoder
+	S: Number of symbols from the output of the shortened RS encoder
+	Sblock: The size of the interleaver used
+	D:The interleaving depth
+	i: Ordered indices take the values 0, 1, …, Sblock–1
+	l(i): Interleaved indices
+	p: Number of zero RS symbols
+	t: Ordered indices take the values 0, 1, …, p
+	z(t): Locations of the bits to be punctured at the output of the 
+	interleaver before transmission 
+	\end{verbatim}
+	
+	\subsubsection{Puncture}
+	
+	O módulo de punção é utilizado para reduzir o overhead do padding, e é aplicado depois do interleaver.
 	
 	\subsubsection{Codificação RLL}
 	
@@ -151,15 +214,9 @@
 			1 & 10 \\ \hline
 		\end{tabular}
 		\label{tabela_cod_manchester}
-		\legend{Fonte: Tabela XYZ da norma 802.15.7}
+		\legend{Fonte: Tabela 103 da norma 802.15.7}
 	\end{table}
 	
-	\subsubsection{Interleaver}
-	
-	\subsubsection{Puncture}
-	
-	\subsubsection{Padding}
-		
 	\subsection{Recepção}
 	
 	% ---
