@@ -23,14 +23,20 @@
 	\begin{figure}[h!]
 		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber }
 		\centering
-			\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{EAP.pdf}
+		\scalebox{.96}{\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{EAP.pdf}}
 	\end{figure}
 	
 	% ---
 	\subsection{Cronograma}\label{subsec-cronograma}
 	% ---
 	
-	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes então fizeram reuniões para estimar o tempo, com a aplicação dessas estimativas a um calendário, considerando ainda as datas de entrega oficiais da disciplina.
+	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes então fizeram reuniões para estimar o tempo, com a aplicação dessas estimativas a um calendário, considerando ainda as datas de entrega oficiais da disciplina. Com todas as estimativas feitas, o projeto tem a primeira e segunda fase com duração até o fim de Julho, com intuito de adiantar tanto a documentação quanto a implementação, como pode-se observar no diagrama de Gantt  \autoref{fig_gantt} abaixo.
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_gantt} Diagrama de Gantt do projeto LiCy}
+		\centering
+		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 7cm 1cm}, clip]{gantt.pdf}
+	\end{figure}
 	
 	% ---
 	\subsection{Requisitos}\label{subsec-requisitos}
@@ -38,40 +44,122 @@
 	
 	Os requisitos foram divididos primeiramente em funcionais e não-funcionais. Além disso, existem outras divisões relacionadas a hardware, software, estética e módulos do sistema. Para cada requisito foi dado um peso, conforme avaliação da relevância deste requisito para este projeto, de modo que no topo da árvore haja uma soma equivalente a 1.
 	
+	% ---
+	\subsubsection{Requisitos Funcionais}\label{subsubsec-requisitos-func}
+	% ---
+	\textbf{Requisitos de hardware:} é importante observar que estes dividem-se entre a lamparina, que serve de ponto de acesso, e o módulo de celular, com pesos iguais entre os dois, já que a comunicação é bilateral e ambos têm importância equivalente. Há requisitos em comum entre esses subsistemas:
+	\begin{itemize}  
+		\item Estar de acordo com a norma IEEE 802.15.7, que tem o peso mais alto, já que compreende o escopo principal deste trabalho, que é implementá-la;
+		\item Utilização da FPGA e de um microcontrolador, para implementar as camadas física, MAC\footnote{ Media Access Control, ou camada de enlace.},  TCP, IP e de aplicação. As justificativas para o uso desses dois componentes segue nos próximos itens;
+		\item Comunicação full-duplex um a um, diz respeito a garantir a bilateralidade da comunicação entre dois nós, com recepção e transmissão independentes nas duas partes;
+		\item Utilizar LED e fotodiodo, para transmitir e receber, respectivamente, os dados modulados através da luz;
+		\item Filtrar a luz ambiente, que é primordial para que a recepção seja bem sucedida, do contrário pode haver muita interferência da luz que não tenha o LED como fonte. Deve fazer com que o sistema se aproxime ao máximo de um cenário ideal, onde há apenas um LED e um fotodiodo num ambiente escuro.
+	\end{itemize}
+	
+	A lamparina possui requisitos de hardware próprios, incluindo funcionar como Access Point, ou seja, fornecer acesso a uma fonte de dados, que pode ser uma rede local, um computador, a internet, entre outros. Outro requisito importante e complementar a este, é a conexão desse módulo a alguma dessas fontes através de uma interface Ethernet.
+	
+	Já o módulo de celular tem como requisitos de hardware exclusivos o consumo de energia através de uma bateria e a conexão ao celular através da interface USB.	
+	
+	\textbf{Requisitos de software:} dividem-se entre a lamparina, o módulo de celular e o aplicativo, utilizado para receber e enviar dados para este módulo. Existem requisitos que são complementares às funções de hardware, porém correspondentes às soluções de software adotadas, como a implementação da norma IEEE 802.15.7 e a comunicação full-duplex um a um. Além destes, existem os requisitos de software comuns tanto à lamparina, ou Access Point Li-Fi, como ao módulo de telefone:
+	
+	\begin{itemize}  
+		\item Lidar com luz ambiente, ou seja, minimizar a interferência causada por ela, e mitigar o efeito de erros, corrigindo ou descartando pacotes que os contenham;
+		\item Transmissão de dados pelo módulo de celular e recepção pela lamparina, representam o mesmo fluxo de dados mas de dois lados da comunicação;
+		\item Transmissão de dados e multimídia pela lamparina e recepção destes pelo módulo de celular;
+	\end{itemize}
+	
+	O módulo de celular possui um requisito de software exclusivo, que é a utilização de um protocolo conhecido para se comunicar com o celular via USB. Do outro lado, o lamparina deve se conectar à internet e lidar com os pacotes que chegarem desta rede. 
+	
+	Além desses requisitos, existem também aqueles referentes ao aplicativo de celular, que deve decodificar os dados recebidos via USB, deve ser desenvolvido a fim de funcionar no sistema operacional Android e deve exibir vídeos, imagens ou websites.
+
 	\begin{figure}[h!]
 		\caption{\label{fig_req1} Requisitos Funcionais }
 		\centering
-		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree1.pdf}
+		\includegraphics[width=0.5\textwidth, trim={5cm 0.5cm 3cm 1.3cm}, clip]{ReqTree1.pdf}
+	\end{figure}
+	
+	\subsubsection{Requisitos Não-Funcionais}\label{subsubsec-requisitos-nfunc}
+	\textbf{Transmissão de dados:} Deve-se principalmente manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada PHY correspondente. É também primordial garantir a confiabilidade na comunicação, ou seja, garantir que os bits recebidos estão corretos e quando possível e necessário, corrigi-los, com as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação). Além disso, há um requisito de segurança, que equivale a evitar a possibilidade de vazamento de dados para terceiros, ou até a intromissão de mensagens indesejadas na comunicação.
+	\textbf{Modulação de luz:} O requisito mais importante é garantir o funcionamento do sistema a uma distância de até 1 metro, considerando uma aplicação residencial do produto. Secundariamente, há o requisito de manter um baixo consumo de energia, que apesar de fundamental em produtos de tecnologia da informação, foge do escopo deste estudo.
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_req2} Requisitos Não Funcionais}
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[width=0.9\textwidth, trim={1cm 5.5cm 1cm 6cm}, clip]{ReqTree2.pdf}
 	\end{figure}
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_req2} Requisitos Funcionais }
+		\caption{\label{fig_req3} Outros Requisitos}
 		\centering
-		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree2.pdf}
+		\includegraphics[width=0.7\textwidth, trim={1cm 4cm 3cm 4cm}, clip]{ReqTree3.pdf}
 	\end{figure}
-	
-	\begin{figure}[h!]
-		\caption{\label{fig_req3} Requisitos Funcionais }
-		\centering
-		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{ReqTree3.pdf}
-	\end{figure}
-	
 	
 	% ---
 	\section{Norma IEEE 802.15.7}\label{sec-norma}
 	% ---
 	
+	A norma 802.15.7 estabelece um padrão para comunicação via luz, no que se diz respeito à definição de topologias de rede, codificação da informação, divisão das camadas da arquitetura do sistema de comunicação, ordem e conteúdo de cabeçalhos para cada camada e definições sobre a segurança do \textit{link}. A arquitetura de um sistema LiFi completo está definida na \autoref{fig_architecture}.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_architecture} Arquitetura de dispositivos VPAN}
+		\centering
+		\includegraphics[width=0.5\textheight,trim={5.5cm 9.6cm 5.3cm 7cm}, clip]{pag31.pdf}
+		\legend{Fonte: IEEE 802.15.7}
+	\end{figure}
+
+%	\begin{figure}[htb]
+%		\caption{\label{fig_transmission_simple_blocs} Diagrama de blocos simplificado da transmissão da camada PHY I}
+%		\centering
+%		\includegraphics[width=0.4\textheight]{transmissao-blocos-simplificado.pdf}
+%	\end{figure}
+
 	\subsection{Transmissão}
 	
-	Nessa seção será discorrido o processo de transmissão de dados via luz, levando em conta processos de codificação, protocolos RLL e 
+	Nessa seção será discorrido o processo de transmissão de dados via luz, levando em conta códigos cíclicos de correção de erro, redução de erros em burst e protocolos RLL, especificados pela norma IEEE. Para realizar a transmissão, é necessário passar pelas etapas do diagrama abaixo:
 		
-	\begin{figure}[htb]
-		\caption{\label{fig_transmission_simple_blocs} Diagrama de blocos simplificado da transmissão da camada PHY I}
-		\centering
-		\includegraphics[width=0.3\textheight]{transmissao-blocos-simplificado.pdf}
-		\legend{Fonte: Próprios autores}
-	\end{figure}
+		\begin{figure}[htb]
+			\caption{\label{fig_transmission_phy1} Diagrama de blocos da codificação da mensagem}
+			\centering
+			\includegraphics[width=0.6\textheight]{PHY1-transmission.pdf}
+			\legend{Fonte: @todo figura 126}
+		\end{figure}
+		
+	Para que os dados transmitidos sejam corretamente recebidos, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em burst, maior facilidade na sincronia do clock, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Os passos estarão detalhados nas seções a seguir.
 	
+	\subsubsection{Codificação Reed Solomon}
+	
+	Com intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. 
+	
+	\paragraph{Campos de Galois}
+
+		\cite{nasa-rs1}
+		
+	\paragraph{Operações}
+	
+	
+	\subsubsection{Codificação RLL}
+	
+	Para a primeira camada de implementação PHY I, será escolhida codificação RLL Manchester, que é codifica os bits 0 e 1 de acordo com a \autoref{tabela_cod_manchester}. Após 
+	
+	\begin{table}[ht]
+		\caption{Codificação Manchester}
+		\centering
+		\begin{tabular}{c c}
+			\hline
+			bit & manchester symbol \\ \hline
+			0 & 01 \\
+			1 & 10 \\ \hline
+		\end{tabular}
+		\label{tabela_cod_manchester}
+		\legend{Fonte: Tabela XYZ da norma 802.15.7}
+	\end{table}
+	
+	\subsubsection{Interleaver}
+	
+	\subsubsection{Puncture}
+	
+	\subsubsection{Padding}
+		
 	\subsection{Recepção}
 	
 	% ---
@@ -118,7 +206,8 @@
 	
 	\begin{comment}
 	--
-	 O que é um FPGA?
+	 O que é um FPGA?  http://www.ni.com/white-paper/6984/pt/ Publicação: Dez 21, 2011 | 1 Avaliação | 4,00 de 5 | Read in English  | Imprimir
+	 
 	 FPGAs são chips de silício reprogramáveis que usa blocos lógicos programáveis pré-construídos que tem recursos de roteamento, você pode configurar esses chips para implementar funcionalidades personalizadas de hardware, sem nunca ter que pegar em uma placa de montagem ou ferro de solda. Você desenvolve tarefas de computação digital em software e as compila em um arquivo de configuração ou bitstream que contém informações sobre como os componentes devem ser ligados entre si. Além disso, os FPGAs são totalmente reconfiguráveis e imediatamente assumem uma nova "personalidade" quando você recompila uma nova configuração de circuito. No passado, a tecnologia FPGA só estava disponível para engenheiros com uma profunda compreensão do projeto de hardware digital. O surgimento de ferramentas de projeto de alto nível, no entanto, está mudando as regras da programação FPGA, com as novas tecnologias que convertem diagramas de blocos gráficos ou mesmo código em C em circuitos de hardware digital.
 	 
 	 A adoção de chips FPGA em todos os setores é dirigida pelo fato dos FPGAs combinarem as melhores partes do ASIC a sistemas baseados em processador. Os FPGAs oferecem confiabilidade  e velocidade na temporização por hardware, mas não exigem grandes volumes para justificar o grande gasto inicial de um projeto ASIC personalizado. O silício reprogramável também tem a mesma flexibilidade de um software rodando em um sistema baseado em processador, mas não é limitado pelo número de núcleos de processamento disponível. Ao contrário de processadores, os FPGAs são verdadeiramente paralelos por natureza, de modo que diferentes operações de processamento não têm que consumir os mesmos recursos. Cada tarefa independente de processamento é atribuído a uma seção dedicada do chip, e pode funcionar de forma autônoma, sem qualquer influência de outros blocos lógicos. Como resultado, o desempenho de uma parte da aplicação não é afetada quando um processamento adicional é inserido.
@@ -126,6 +215,8 @@
 	
 		
 	Explicação do porquê foi escolhido FPGA
+	http://electronics.stackexchange.com/questions/4382/fpgas-vs-microcontrollers
+	
 	Designing for an FPGA requires a Hardware Description Language (HDL). HDLs are absolutely nothing at all like C. Whereas a C program is a sequential series of instructions and must contort itself to achieve parallel execution, an HDL describes a concurrent circuit and must contort itself to achieve sequential execution. It is a very different world and if you try to build a circuit in an FPGA while thinking like a software developer it will hurt.
 	
 	An MCU is time-limited. In order to accomplish more work, you need more processor cycles. Clocks have very real limits to their frequencies, so it's easy to hit a computational wall. However, an FPGA is space-limited. In order to accomplish more work, you merely add more circuits. If your FPGA isn't big enough, you can buy a bigger one. It's very hard to build a circuit that can't fit in the largest FPGA, and even if you do there are app notes describing how to daisy chain FPGAs together.
@@ -138,6 +229,7 @@
 	Often FPGAs get used specifically to do tasks a microcontroller cannot do efficiently, such as highly parallel or low latency operations, operating in multiple clock domains, or doing custom logic at hardware speeds. As such, they'll do the heavy lifting, and you rarely need an MCU to be central to the design - they may be moved to management positions, such as loading the configuration bitstream. An example of this is the PIC or ARM in the Minimig, which implements the storage interface.
 	
 	--
+	http://electronics.stackexchange.com/questions/97277/when-can-fpgas-be-used-and-microcontrollers-dsps-not
 	
 	The key thing to consider is throughput and latency requirements. A microcontroller can service an interrupt (very roughly) once per microsecond. It can only service one interrupt at once. If you need to process it in an elaborate way, that limits how many you can service in a particular time.
 	
@@ -184,13 +276,9 @@
 	\subsubsection{Opções Consideradas}\label{uc-options}
 	% ---
 	
-	\lipsum[14]
-	
 	% ---
 	\subsubsection{Tabela Comparativa}\label{uc-table}
 	% ---
-	
-	\lipsum[15]
 	
 	% ---
 	\subsection{LED}\label{hard-led}
@@ -320,14 +408,12 @@
 	% ---
 	\subsubsection{Opções Consideradas}\label{quartus-options}
 	% ---
-	
-	\lipsum[10]
+
 	
 	% ---
 	\subsubsection{Tabela Comparativa}\label{quartus-table}
 	% ---
 	
-	\lipsum[11]
 	
 	% ---
 	\subsection{Android}\label{soft-android}
