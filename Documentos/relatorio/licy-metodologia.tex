@@ -73,9 +73,15 @@
 	Além desses requisitos, existem também aqueles referentes ao aplicativo de celular, que deve decodificar os dados recebidos via USB, deve ser desenvolvido a fim de funcionar no sistema operacional Android e deve exibir vídeos, imagens ou websites.
 
 	\begin{figure}[h!]
-		\caption{\label{fig_req1} Requisitos Funcionais}
+		\caption{\label{fig_req1_1} Requisitos Funcionais de Hardware}
 		\centering
-		\includegraphics[width=0.5\textwidth, trim={5cm 0.5cm 3cm 1.3cm}, clip]{ReqTree1.pdf}
+		\includegraphics[width=0.8\textwidth]{ReqTree1_1.pdf}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\caption{\label{fig_req1_2} Requisitos Funcionais de Software}
+		\centering
+		\includegraphics[width=0.8\textwidth]{ReqTree1_2.pdf}
 	\end{figure}
 	
 	\subsubsection{Requisitos Não-Funcionais}\label{subsubsec-requisitos-nfunc}
@@ -106,7 +112,9 @@
 		\includegraphics[width=0.5\textheight,trim={5.5cm 9.6cm 5.3cm 7cm}, clip]{pag31.pdf}
 		\legend{Fonte: IEEE 802.15.7}
 	\end{figure}
-
+	
+	O trabalho focará no estudo e implementação das camadas PHY e MAC.
+	
 %	\begin{figure}[htb]
 %		\caption{\label{fig_transmission_simple_blocs} Diagrama de blocos simplificado da transmissão da camada PHY I}
 %		\centering
@@ -128,19 +136,13 @@
 	
 	\subsubsection{Codificação Reed Solomon}
 	
-	Com intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. Ele consiste em compor 2t símbolos de paridade a partir de k símbolos da mensagem, gerando uma mensagem de n símbolos.
+	Com intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. Ele consiste em compor 2t símbolos de paridade a partir de k símbolos da mensagem, gerando uma mensagem de n símbolos. \cite{nasa-rs1}
 
 	\begin{figure}[htb]
 		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
 		\centering
 		\includegraphics[width=0.5\textheight]{reed_solomon_message.pdf}
-	\end{figure}
-	
-	\paragraph{Campos de Galois}
-
-		\cite{nasa-rs1}
-		
-	\paragraph{Operações}	
+	\end{figure}	
 	
 	\subsubsection{Padding}
 	
@@ -183,10 +185,10 @@
 	n: RS codeword length
 	k: Number of information data symbols in a RS codeword
 	q: Number of elements in the Galois field: GF(q)
-	Lframe: Input frame size in bytes
-	Sframe: Number of symbols at the input of the RS encoder
+	L_{frame}: Input frame size in bytes
+	S_{frame}: Number of symbols at the input of the RS encoder
 	S: Number of symbols from the output of the shortened RS encoder
-	Sblock: The size of the interleaver used
+	S_{block}: The size of the interleaver used
 	D:The interleaving depth
 	i: Ordered indices take the values 0, 1, …, Sblock–1
 	l(i): Interleaved indices
