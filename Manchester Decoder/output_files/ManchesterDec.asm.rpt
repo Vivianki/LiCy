@@ -1,0 +1,92 @@
+Assembler report for ManchesterDec
+Wed Aug 24 19:24:54 2016
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Assembler Summary
+  3. Assembler Settings
+  4. Assembler Generated Files
+  5. Assembler Device Options: C:/Users/owner/Desktop/Manchester Decoder/output_files/ManchesterDec.sof
+  6. Assembler Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; Assembler Summary                                             ;
++-----------------------+---------------------------------------+
+; Assembler Status      ; Successful - Wed Aug 24 19:24:54 2016 ;
+; Revision Name         ; ManchesterDec                         ;
+; Top-level Entity Name ; ManchesterDec                         ;
+; Family                ; Cyclone IV E                          ;
+; Device                ; EP4CE30F23I7                          ;
++-----------------------+---------------------------------------+
+
+
++----------------------------------+
+; Assembler Settings               ;
++--------+---------+---------------+
+; Option ; Setting ; Default Value ;
++--------+---------+---------------+
+
+
++--------------------------------------------------------------------------+
+; Assembler Generated Files                                                ;
++--------------------------------------------------------------------------+
+; File Name                                                                ;
++--------------------------------------------------------------------------+
+; C:/Users/owner/Desktop/Manchester Decoder/output_files/ManchesterDec.sof ;
++--------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/owner/Desktop/Manchester Decoder/output_files/ManchesterDec.sof ;
++----------------+-----------------------------------------------------------------------------------+
+; Option         ; Setting                                                                           ;
++----------------+-----------------------------------------------------------------------------------+
+; Device         ; EP4CE30F23I7                                                                      ;
+; JTAG usercode  ; 0x001FC3EB                                                                        ;
+; Checksum       ; 0x001FC3EB                                                                        ;
++----------------+-----------------------------------------------------------------------------------+
+
+
++--------------------+
+; Assembler Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Assembler
+    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+    Info: Processing started: Wed Aug 24 19:24:48 2016
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off ManchesterDec -c ManchesterDec
+Info (115031): Writing out detailed assembly data for power analysis
+Info (115030): Assembler is generating device programming files
+Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 747 megabytes
+    Info: Processing ended: Wed Aug 24 19:24:55 2016
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:03
+
+

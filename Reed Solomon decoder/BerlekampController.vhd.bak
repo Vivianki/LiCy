@@ -1,0 +1,105 @@
+-------------------------------------------------------
+--! @file unidadeDeControle.vhdl
+--! @author balbertini@usp.br
+--! @date 20160310
+--! @brief Máquina de estados da Unidade de Controle. (módulo 1, experiencia "Um
+--! projeto em VHDL").
+-------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity unidadeDeControle is
+	port(
+		clock:   	in  std_logic;
+		reset:   	in  std_logic;
+		di:  			in  std_logic;
+		count4:		in	 std_logic;
+		count8:		in	 std_logic;
+		loadS:		out std_logic;
+		loadB:		out std_logic;
+		loadC:		out std_logic;
+		clearS:		out std_logic;
+		clearB:		out std_logic;
+		clearC:		out std_logic;
+		registra: 	out std_logic
+	);
+end unidadeDeControle;
+
+--! Máquina de estado no estilo comportamental. Este estilo é caracterizado por
+--! um processo sincronizador, que atualiza as variáveis de estado, e outro
+--! independente do clock da máquina, que descreve o comportamento de cada
+--! estado em relação às entradas, incluindo o próximo estado. Este tipo de
+--! descrição permite modelar máquinas mistas, com saídas dependentes de estado
+--! ou da entrada, ou até mesmo saídas que são dependentes do estado em alguns --! momentos e da entrada em outros. O nome completo deste estilo é PS/NS
+--! dependente sem alocação de estados, e é o mais utilizado em VHDL.
+--! Nota: tecnicamente uma FSM mista é Mealy.
+architecture comportamental of unidadeDeControle is
+	--! O tipo do estado é uma enumeração.
+	--! Nota: este tipo de construção, da maneira como está, deixa a alocação de
+	--! estados a cargo do sintetizador. No Quartus, será implementada como
+	--! one-hot-encoding.
+  type estados is (idle, localizador, clearSyn, avaliador, store);
+	--! Variáveis de estado
+  signal estadoAtual, proximoEstado : estados;
+begin
+	--! Processo sincronizador
+	sincroniza: process(clock, proximoEstado, reset)
+	begin
+		if reset='1'then --! reset ativo alto
+			estadoAtual <= localizador;
+		elsif rising_edge(clock) then --! sensível a borda de subida
+			estadoAtual <= proximoEstado;
+		end if;
+	end process; -- sincroniza
+	--! Gera os sinais que determinam o comportamento em cada estado
+	--! Todas as entradas capazes de alterar o estado ou a saída devem estar na
+	--! lista de sensibilidade do processo.
+	geraSinais: process(estadoAtual)
+	begin
+		case estadoAtual is
+			--! o que fazer quando está no estado de espera?
+			when idle =>
+				loadS <= 0;
+				loadB <= 0;
+				loadC <= 0;
+				clearS <= 1;
+				clearB <= 1;
+				clearC <= 1;
+				registra	<= 0;
+				if iniciar = '1' then
+					proximoEstado <= localizador; --! dependente da entrada também
+				else
+					proximoEstado <= idle;
+				end if;
+			--! estado de contagem
+			when contagem =>
+				--! note que, neste estado, este é o único sinal independente da
+				--! entrada.
+				zera <= '0';
+				if iniciar = '1' then
+					registra <= '0';
+					conta <= '1';
+					proximoEstado <= contagem;
+				else
+					registra <= '1';
+					conta <= '0';
+					proximoEstado <= resultado;
+				end if;
+			--! estado amostrar e zerar
+			when resultado =>
+				zera <= '1';
+				registra <= '0';
+				conta <= '0';
+				proximoEstado <= espera;
+			--! A construção abaixo serve para "cobrir" os possíveis estados
+			--! inválidos. Se a variável de estado atual não for nenhum dos estados
+			--! listados anteriormente no "case", esta é a ação padrão.
+			when others =>
+				zera <= '0';
+				registra <= '0';
+				conta <= '0';
+				proximoEstado <= espera;
+		end case;
+	end process; -- geraSaida
+end comportamental;
+
