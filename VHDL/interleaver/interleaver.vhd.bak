@@ -1,0 +1,114 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+
+--/*********************************************
+-- * Interleaver
+-- * Author: Gabriel Takaoka Nishimura
+-- *
+-- * The interleaver receives data from the
+-- * interleaver padding, which will store the
+-- * everything in a n x D buffer, and send a
+-- * interleaved message when ready.
+-- *
+-- * Each procedure should provide a standard clock, 
+-- * the data to be interleaved, in symbols
+-- * (each of them should have SYMBOL_SIZE bits)
+-- * and a eom End Of Message flag
+-- *
+-- * eom should be active __a clock after__ the 
+-- * last symbol is sent
+-- *
+-- *********************************************/
+
+ENTITY interleaver IS 
+generic(
+  SYMBOL_SIZE: integer := 4;
+  CODEWORD_SIZE: integer := 15; -- 
+  MAX_DEPTH: integer := 30 -- @TODO CALCULATE MAX_DEPTH
+);
+PORT(
+  d   : IN STD_LOGIC_VECTOR((SYMBOL_SIZE - 1) DOWNTO 0); -- 4 by 4
+  enable : IN STD_LOGIC;
+  eom : IN STD_LOGIC;
+  clk : IN STD_LOGIC; -- clock.
+  q   : OUT STD_LOGIC; -- output bit per bit
+  flushing : OUT STD_LOGIC;
+  finished : OUT STD_LOGIC
+);
+END interleaver;
+
+ARCHITECTURE behavior OF interleaver IS
+TYPE symbol IS ARRAY ((SYMBOL_SIZE - 1) DOWNTO 0) OF STD_LOGIC;
+TYPE column IS ARRAY ((CODEWORD_SIZE - 1) DOWNTO 0) OF symbol;
+--TYPE column IS ARRAY (0 TO (CODEWORD_SIZE - 1)) OF symbol; -- OR IS IT THIS ONE?
+TYPE memory IS ARRAY (0 TO MAX_DEPTH) OF column;
+SIGNAL enable_signal : STD_LOGIC;
+SIGNAL eom_signal : STD_LOGIC;
+
+BEGIN
+  enable_signal <= enable;
+  eom_signal <= eom;
+
+  process(clk, enable, eom)
+    -- iterators
+    variable memI : integer := 0;
+	 variable colI : integer := 0;
+	 variable symI : integer := 0;
+	 -- control variables
+	 variable flush : integer := 0; -- flush control
+	 variable once : integer := 0;
+	 variable maxMemI : integer := 0;
+	 variable RAM : memory;
+    begin
+	 --/* Flow control: 
+	 -- * if enabled start storing into array
+	 -- * after everything is stored, start
+	 -- * flushing interleaved bits */
+        if rising_edge(clk) then
+		    if (enable_signal = '0') then
+		      q <= '0';
+			   finished <= '0';
+			   flushing <= '0';
+			 else -- not enabled
+			   if (eom_signal = '1') then -- outputing BIT per BIT
+			     if once = 0 then -- reset iterators
+				    memI := 0; 
+				    colI := 0;
+				    symI := 0;
+			  	    once := 1;
+				    flushing <= '1';
+				  else -- not once
+				    q <= RAM(memI)(colI)(symI); -- flush bit by bit
+					 memI := memI + 1;
+				    flush := flush - 1; 
+					 if (memI = maxMemI - 1) then
+					   memI := 0;
+						symI := symI + 1;
+						if (flush = 0) then
+  						  finished <= '1';
+						  flushing <= '0';
+						  q <= '0';
+						elsif (symI = SYMBOL_SIZE - 1) then -- ended symbol
+						  symI := 0;
+						  colI := colI + 1;
+						end if; -- symI
+					 end if; -- memI
+				  end if; -- once
+			   else -- storing SYMBOL per SYMBOL (!eom)
+			     RAM(memI)(colI)(0) := d(0);
+				  RAM(memI)(colI)(1) := d(1);
+				  RAM(memI)(colI)(2) := d(2);
+				  RAM(memI)(colI)(3) := d(3);
+				  colI := colI + 1;
+				  if (colI = (CODEWORD_SIZE - 1)) then -- ended current RS codeword
+				    colI := 0;
+			       memI := memI + 1; -- hopefully, memI doesnt overflows
+					 maxMemI := memI;
+				    flush := flush + SYMBOL_SIZE; -- iterate SYMBOL_SIZE bits
+				  end if; -- colI
+            end if; -- eom
+		    end if;
+        end if; -- rising_edge
+  end process;
+END behavior;

@@ -1,0 +1,237 @@
+# do Interleaver_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet work rtl_work 
+# Copying C:/Users/U/Documents/Quartus/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:/Users/U/Documents/Quartus/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Users/U/Desktop/interleaver/interleaver.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 23:17:24 on Sep 06,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Desktop/interleaver/interleaver.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity interleaver
+# -- Compiling architecture behavior of interleaver
+# End time: 23:17:24 on Sep 06,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {C:/Users/U/Desktop/interleaver/simulation/modelsim/interleaver.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 23:17:25 on Sep 06,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Desktop/interleaver/simulation/modelsim/interleaver.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity interleaver_vhd_tst
+# -- Compiling architecture interleaver_arch of interleaver_vhd_tst
+# End time: 23:17:25 on Sep 06,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  main_interleaver
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" main_interleaver 
+# Start time: 23:17:25 on Sep 06,2016
+# ** Error: (vsim-3170) Could not find 'C:/Users/U/Desktop/interleaver/simulation/modelsim/rtl_work.main_interleaver'.
+# 
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./Interleaver_run_msim_rtl_vhdl.do PAUSED at line 12
+vsim rtl_work.interleaver_vhd_tst
+# vsim rtl_work.interleaver_vhd_tst 
+# Start time: 23:17:25 on Sep 06,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.interleaver_vhd_tst(interleaver_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.interleaver(behavior)
+# ** Fatal: (vsim-3348) Port length (7) does not match actual length (5) for port "/interleaver_vhd_tst/i1/depth".
+#    Time: 0 ps  Iteration: 0  Instance: /interleaver_vhd_tst/i1 File: C:/Users/U/Desktop/interleaver/interleaver.vhd Line: 36
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./Interleaver_run_msim_rtl_vhdl.do PAUSED at line 12
+vcom -93 -work work C:/Users/U/Desktop/interleaver/simulation/modelsim/interleaver.vht
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 23:18:23 on Sep 06,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Desktop/interleaver/simulation/modelsim/interleaver.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity interleaver_vhd_tst
+# -- Compiling architecture interleaver_arch of interleaver_vhd_tst
+# End time: 23:18:23 on Sep 06,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.interleaver_vhd_tst
+# vsim rtl_work.interleaver_vhd_tst 
+# Start time: 23:17:25 on Sep 06,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.interleaver_vhd_tst(interleaver_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.interleaver(behavior)
+add wave -position end  sim:/interleaver_vhd_tst/finished
+add wave -position end  sim:/interleaver_vhd_tst/clk
+add wave -position end  sim:/interleaver_vhd_tst/d
+add wave -position end  sim:/interleaver_vhd_tst/depth
+add wave -position end  sim:/interleaver_vhd_tst/enable
+add wave -position end  sim:/interleaver_vhd_tst/finished
+add wave -position end  sim:/interleaver_vhd_tst/flushing
+add wave -position end  sim:/interleaver_vhd_tst/q
+add wave -position end  sim:/interleaver_vhd_tst/state
+add wave -position end  sim:/interleaver_vhd_tst/clk_period
+run
+run
+run
+run
+run
+run
+run
+# ** Fatal: (vsim-3421) Value 5 is out of range 0 to 4.
+#    Time: 650 ns  Iteration: 2  Process: /interleaver_vhd_tst/i1/line__63 File: C:/Users/U/Desktop/interleaver/interleaver.vhd
+# Fatal error in Process line__63 at C:/Users/U/Desktop/interleaver/interleaver.vhd line 89
+# 
+# HDL call sequence:
+# Stopped at C:/Users/U/Desktop/interleaver/interleaver.vhd 89 Process line__63
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/U/Desktop/interleaver/interleaver.vhd 89 Process line__63
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/U/Desktop/interleaver/interleaver.vhd 89 Process line__63
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/U/Desktop/interleaver/interleaver.vhd 89 Process line__63
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/U/Desktop/interleaver/interleaver.vhd 89 Process line__63
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/U/Desktop/interleaver/interleaver.vhd 89 Process line__63
+# 
+vcom -93 -work work C:/Users/U/Desktop/interleaver/interleaver.vhd
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 23:20:12 on Sep 06,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Desktop/interleaver/interleaver.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity interleaver
+# -- Compiling architecture behavior of interleaver
+# End time: 23:20:12 on Sep 06,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work C:/Users/U/Desktop/interleaver/simulation/modelsim/interleaver.vht
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 23:20:16 on Sep 06,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Desktop/interleaver/simulation/modelsim/interleaver.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity interleaver_vhd_tst
+# -- Compiling architecture interleaver_arch of interleaver_vhd_tst
+# End time: 23:20:16 on Sep 06,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.interleaver_vhd_tst
+# End time: 23:20:19 on Sep 06,2016, Elapsed time: 0:02:54
+# Errors: 9, Warnings: 0
+# vsim rtl_work.interleaver_vhd_tst 
+# Start time: 23:20:19 on Sep 06,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.interleaver_vhd_tst(interleaver_arch)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.interleaver(behavior)
+add wave -position end  sim:/interleaver_vhd_tst/clk
+add wave -position end  sim:/interleaver_vhd_tst/d
+add wave -position end  sim:/interleaver_vhd_tst/depth
+add wave -position end  sim:/interleaver_vhd_tst/enable
+add wave -position end  sim:/interleaver_vhd_tst/finished
+add wave -position end  sim:/interleaver_vhd_tst/flushing
+add wave -position end  sim:/interleaver_vhd_tst/q
+add wave -position end  sim:/interleaver_vhd_tst/state
+add wave -position end  sim:/interleaver_vhd_tst/clk_period
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 23:23:21 on Sep 06,2016, Elapsed time: 0:03:02
+# Errors: 0, Warnings: 0
