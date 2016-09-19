@@ -357,7 +357,7 @@ function xor (x, y){
 	return output;
 }
 
-var input = ["1000", "0010", "1000", "0010", "1000", "0010", "1010"];
+var input = ["0010", "0001", "1001", "0010", "1000", "0010", "1010"];
 var reg1 = "0000";
 var reg2 = "0000";
 var reg3 = "0000";
@@ -383,23 +383,15 @@ var syn5 = "0000";
 var syn6 = "0000";
 var syn7 = "0000";
 
-for (var i = 0; i < 7; i ++){
-	reg1a = gfmultiplication (xor (reg8, input[i]) ,"1100");
-	console.log (reg1a+",");
-	reg2a = xor (reg1, gfmultiplication (xor (reg8, input[i]) ,"1110"));
-	console.log (reg2a+",");
-	reg3a = xor (reg2, gfmultiplication (xor (reg8, input[i]) ,"0110"));
-	console.log (reg3a+",");
-	reg4a = xor (reg3, gfmultiplication (xor (reg8, input[i]) ,"1101"));	
-	console.log (reg4a+"\n");
-	reg5a = xor (reg4, gfmultiplication (xor (reg8, input[i]) ,"0100"));	
-	console.log (reg5a+"\n");
-	reg6a = xor (reg5, gfmultiplication (xor (reg8, input[i]) ,"0011"));	
-	console.log (reg6a+"\n");
-	reg7a = xor (reg6, gfmultiplication (xor (reg8, input[i]) ,"0100"));	
-	console.log (reg7a+"\n");
-	reg8a = xor (reg7, gfmultiplication (xor (reg8, input[i]) ,"1001"));	
-	console.log (reg8a+"\n");
+for (var i = 6; i >= 0; i--){
+	reg1a = gfmultiplication (xor (reg8, input[i]) ,"1101");
+	reg2a = xor (reg1, gfmultiplication (xor (reg8, input[i]) ,"0011"));
+	reg3a = xor (reg2, gfmultiplication (xor (reg8, input[i]) ,"1001"));
+	reg4a = xor (reg3, gfmultiplication (xor (reg8, input[i]) ,"0101"));
+	reg5a = xor (reg4, gfmultiplication (xor (reg8, input[i]) ,"1101"));
+	reg6a = xor (reg5, gfmultiplication (xor (reg8, input[i]) ,"0010"));
+	reg7a = xor (reg6, gfmultiplication (xor (reg8, input[i]) ,"0001"));
+	reg8a = xor (reg7, gfmultiplication (xor (reg8, input[i]) ,"1101"));
 	
 	reg1 = reg1a;
 	reg2 = reg2a;
@@ -413,12 +405,220 @@ for (var i = 0; i < 7; i ++){
 
 console.log(reg1+","+reg2+","+reg3+","+reg4+","+reg5+","+reg6+","+reg7+","+reg8);
 
-//var input = ["1000", "0010", "1000", "0010", "1000", "0010", "1010"];
- var input2 = ["1010", "0010", "1000", "0010", "1000", "0010", "1010", reg8, reg7, reg6, reg5, reg4, reg3, reg2, reg1];
+												//var input = ["0010", "0001", "1001", "0010", "1000", "0010", "1010"];
+ var input2 = [reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, "1101", "0011", "0110", "0010", "1011", "0010", "1110"];
 
+ /*
+var alphasGF16 = ["0001", "0010", "0100", "1000", 
+                  "0011", "0110", "1100", "1011", 
+                  "0101", "1010", "0111", "1110", 
+                  "1111", "1101", "1001", "0000"];
 
+var c7 = xor(
+				xor(
+						xor(alphasGF16[0], alphasGF16[1]), 
+						xor(alphasGF16[2], alphasGF16[3])
+				), 
+				xor(
+						xor(alphasGF16[4], alphasGF16[5]), 
+						xor(alphasGF16[6], alphasGF16[7])
+				)
+		); 
 
-for(var j = 0; j <= 14; j++){
+var c6 = xor(
+				xor(
+						xor(
+								xor(
+										xor(
+												gfmultiplication(alphasGF16[0], alphasGF16[1]), 
+												gfmultiplication(alphasGF16[0], alphasGF16[2])
+										), 
+										xor(
+												gfmultiplication(alphasGF16[0], alphasGF16[3]), 
+												gfmultiplication(alphasGF16[0], alphasGF16[4])
+										)
+								), 
+						xor(
+								xor(
+										gfmultiplication(alphasGF16[0], alphasGF16[5]), 
+										gfmultiplication(alphasGF16[0], alphasGF16[6])
+								), 
+								xor(
+										gfmultiplication(alphasGF16[0], alphasGF16[7]), 
+										gfmultiplication(alphasGF16[1], alphasGF16[2])
+								)
+						)
+				), 
+				xor(
+						xor(
+								xor(
+										gfmultiplication(alphasGF16[1], alphasGF16[3]), 
+										gfmultiplication(alphasGF16[1], alphasGF16[4])
+								), 
+								xor(
+										gfmultiplication(alphasGF16[1], alphasGF16[5]), 
+										gfmultiplication(alphasGF16[1], alphasGF16[6])
+								)
+						), 
+						xor(
+								xor(
+										gfmultiplication(alphasGF16[1], alphasGF16[7]), 
+										gfmultiplication(alphasGF16[2], alphasGF16[3])
+								), 
+								xor(
+										gfmultiplication(alphasGF16[2], alphasGF16[4]), 
+										gfmultiplication(alphasGF16[2], alphasGF16[5])
+								)
+						)
+				)
+		), 
+		xor(
+				xor(
+						xor(
+								xor(
+										gfmultiplication(alphasGF16[2], alphasGF16[6]), 
+										gfmultiplication(alphasGF16[2], alphasGF16[7])
+								), 
+								xor(
+										gfmultiplication(alphasGF16[3], alphasGF16[4]), 
+										gfmultiplication(alphasGF16[3], alphasGF16[5])
+								)
+						), 
+						xor(
+								xor(
+										gfmultiplication(alphasGF16[3], alphasGF16[6]), 
+										gfmultiplication(alphasGF16[3], alphasGF16[7])
+								), 
+								xor(
+										gfmultiplication(alphasGF16[4], alphasGF16[5]), 
+										gfmultiplication(alphasGF16[4], alphasGF16[6])
+								)
+						)
+				), 
+				xor(
+						xor(
+								gfmultiplication(alphasGF16[4], alphasGF16[7]), 
+								gfmultiplication(alphasGF16[5], alphasGF16[6])
+						), 
+						xor(
+								gfmultiplication(alphasGF16[5], alphasGF16[7]), 
+								gfmultiplication(alphasGF16[6], alphasGF16[7])
+						)
+				)
+		)
+	);
+
+var c1 = xor(
+				xor(
+						xor(
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[0], alphasGF16[1]),
+																		gfmultiplication(alphasGF16[2], alphasGF16[3])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[4], alphasGF16[5]),
+																		alphasGF16[6]
+													)
+								),
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[0], alphasGF16[1]),
+																		gfmultiplication(alphasGF16[2], alphasGF16[3])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[4], alphasGF16[5]),
+																		alphasGF16[7]
+													)
+								)
+						), 
+						xor(
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[0], alphasGF16[1]),
+																		gfmultiplication(alphasGF16[2], alphasGF16[3])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[4], alphasGF16[7]),
+																		alphasGF16[6]
+													)
+								),
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[0], alphasGF16[1]),
+																		gfmultiplication(alphasGF16[2], alphasGF16[3])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[7], alphasGF16[5]),
+																		alphasGF16[6]
+													)
+								)
+						)
+				),
+				xor(
+						xor(
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[0], alphasGF16[1]),
+																		gfmultiplication(alphasGF16[2], alphasGF16[7])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[4], alphasGF16[5]),
+																		alphasGF16[6]
+													)
+								),
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[0], alphasGF16[1]),
+																		gfmultiplication(alphasGF16[7], alphasGF16[3])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[4], alphasGF16[5]),
+																		alphasGF16[6]
+													)
+								)
+						),
+						xor(
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[0], alphasGF16[7]),
+																		gfmultiplication(alphasGF16[2], alphasGF16[3])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[4], alphasGF16[5]),
+																		alphasGF16[6]
+													)
+								),
+								gfmultiplication(
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[7], alphasGF16[1]),
+																		gfmultiplication(alphasGF16[2], alphasGF16[3])
+													), 
+													gfmultiplication(
+																		gfmultiplication(alphasGF16[4], alphasGF16[5]),
+																		alphasGF16[6]
+													)
+								)
+						)
+				)
+		);
+
+var c0 = gfmultiplication(
+							gfmultiplication(
+												gfmultiplication(alphasGF16[0], alphasGF16[1]), 
+												gfmultiplication(alphasGF16[2], alphasGF16[3])
+							), 
+							gfmultiplication(
+												gfmultiplication(alphasGF16[4], alphasGF16[5]), 
+												gfmultiplication(alphasGF16[6], alphasGF16[7])
+							)
+		);
+ 
+ 
+console.log("****Coeficientes: C7:" + c7 + ", C6:" + c6 + ", C1:"+ c1 + ", C0:" + c0);
+ */
+ 
+for(var j = 14; j >= 0; j--){
 	syn0 = xor(input2[j], syn0);
 	syn1 = xor(input2[j], gfmultiplication(syn1, "0010"));
 	syn2 = xor(input2[j], gfmultiplication(syn2, "0100"));
@@ -430,6 +630,7 @@ for(var j = 0; j <= 14; j++){
 }
 
 console.log("Sindromes: "+syn0+","+syn1+","+syn2+","+syn3+","+syn4+","+syn5+","+syn6+","+syn7);
+
 
 var sreg0 = "0000";
 var sreg1 = "0000";
@@ -513,10 +714,10 @@ for(var k = 0; k < 8; k++){
 	creg2 = creg2a;
 	creg3 = creg3a;
 	
-	sreg1 = sreg0;
-	sreg2 = sreg1;
-	sreg3 = sreg2;
 	sreg4 = sreg3;
+	sreg3 = sreg2;
+	sreg2 = sreg1;
+	sreg1 = sreg0;	
 	
 }
 
@@ -530,7 +731,7 @@ sreg2 = "0000";
 sreg3 = "0000";
 sreg4 = "0000";
 
-for(var l = 0; l < 4; l++){
+for(var l = 0; l <= 3; l++){
 	sreg0 = syndrome[l];
 	
 	omega[l] = xor(
@@ -547,11 +748,11 @@ for(var l = 0; l < 4; l++){
 					)
 				);
 				
-				
-	sreg1 = sreg0;
-	sreg2 = sreg1;
+	sreg4 = sreg3;
 	sreg3 = sreg2;
-	sreg4 = sreg3;	
+	sreg2 = sreg1;
+	sreg1 = sreg0;	
+	
 }
 
 console.log("Lambda: " + lambda);
@@ -574,11 +775,11 @@ var csv2 = omega[2];
 var csv3 = omega[3];
 
 
-for(var m = 0; m < 7; m++){
+for(var m = 14; m >= 8; m--){
 	csl0 = gfmultiplication(csl0, "0010");
 	csl1 = gfmultiplication(csl1, "0100");
-	csl2 = gfmultiplication(csl2, "0010");
-	csl3 = gfmultiplication(csl3, "1000");
+	csl2 = gfmultiplication(csl2, "1000");
+	csl3 = gfmultiplication(csl3, "0011");
 	
 	chienLocRO = xor(
 		csl0,
@@ -601,8 +802,9 @@ for(var m = 0; m < 7; m++){
 	
 	chienLocRO = gfinvert(chienLocRO);
 	
-	console.log("Chien Mult "+ m +": "+ gfmultiplication(chienVal, chienLocRO));
 	console.log("Chien Loc "+ m +": "+ chienLocR);
+	console.log("Chien Mult "+ m +": "+ gfmultiplication(chienVal, chienLocRO));
+	
 	
 	if(chienLocR == "0000")
 		input2[m] = xor(input2[m], gfmultiplication(chienVal, chienLocRO));
