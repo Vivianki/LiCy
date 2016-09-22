@@ -7,6 +7,7 @@ port (clk : in std_logic;
       input : in std_logic;
       flp : in std_logic;
 		reset_shift_regs: out std_logic;
+
       output : out std_logic
   );
 end clock_generator ;
@@ -33,13 +34,14 @@ process (current_s, flp)
 begin
   case current_s is
     when s0 =>        --when current state is "s0"
+		
       if(input ='1' and flp = '1') then
-        output <= '1';
+        output <= '0';
 	     temp <= 0;
 		  reset_shift_regs <= '0';
         next_s <= s4;
 		  
-      elsif (temp = 125) then
+      elsif (temp = 10) then
 		  temp <= 0;
         output <= '1';
 		  reset_shift_regs <= '0';
@@ -52,30 +54,32 @@ begin
         next_s <= s2;
       end if;   
     when s1 =>       --when current state is "s1"
+
       if(input ='1' and flp = '1') then
-        output <= '1';
+        output <= '0';
 	     temp <= 0;
 		  reset_shift_regs <= '0';
         next_s <= s4;
-      elsif (temp = 125) then
+      elsif (temp = 10) then
 		  temp <= 0;
-        output <= '0';
+        output <= '1';
 		  reset_shift_regs <= '0';
         next_s <= s0;
 	   else
-	     output <= '1';
+	     output <= '0';
 	     temp <= temp + 1;
 		  reset_shift_regs <= '0';
         next_s <= s3;	
       end if;
 		
 	    when s2 =>       --when current state is "s1"
+
       if(input ='1' and flp = '1') then
-        output <= '1';
+        output <= '0';
 	     temp <= 0;
 		  reset_shift_regs <= '0';
         next_s <= s4;
-      elsif (temp = 125) then
+      elsif (temp = 10) then
 		  temp <= 0;
         output <= '1';
 		  reset_shift_regs <= '0';
@@ -88,43 +92,45 @@ begin
       end if;
 		
 	    when s3 =>       --when current state is "s1"
+
       if(input ='1' and flp = '1') then
-        output <= '1';
+        output <= '0';
 	     temp <= 0;
 		  reset_shift_regs <= '0';
         next_s <= s4;
-      elsif (temp = 125) then
+      elsif (temp = 10) then
 		  temp <= 0;
-        output <= '0';
+        output <= '1';
 		  reset_shift_regs <= '0';
         next_s <= s0;
 	   else
-	     output <= '1';
+	     output <= '0';
 	     temp <= temp + 1;
 		  reset_shift_regs <= '0';
         next_s <= s1;	
       end if;
 	when s4 =>       --when current state is "s1"
-			if (temp = 125) then
-			output <= '0';
+
+			if (temp = 5) then
+			output <= '1';
 			temp <= 0;
 			reset_shift_regs <= '0';
-			next_s <= s0;
+			next_s <= s1;
 			else 
 			reset_shift_regs <= '1';
-	     output <= '1';
+	     output <= '0';
 	     temp <= temp + 1;
         next_s <= s5;	
 			end if;
 		when s5 =>       --when current state is "s1"
-			if (temp = 125) then
-			output <= '0';
+			if (temp = 5) then
+			output <= '1';
 			temp <= 0;
 			reset_shift_regs <= '0';
-			next_s <= s0;
+			next_s <= s1;
 			else 
 			reset_shift_regs <= '1';
-	     output <= '1';
+	     output <= '0';
 	     temp <= temp + 1;
         next_s <= s4;	
 			end if;
