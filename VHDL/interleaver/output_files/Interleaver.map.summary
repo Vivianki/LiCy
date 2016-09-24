@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Sat Sep 24 17:33:22 2016
-Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Analysis & Synthesis Status : Failed - Fri Sep 09 19:20:25 2016
+Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 Revision Name : Interleaver
 Top-level Entity Name : interleaver
 Family : Cyclone IV E
-Total logic elements : 428
-    Total combinational functions : 397
-    Dedicated logic registers : 130
-Total registers : 130
-Total pins : 22
-Total virtual pins : 0
-Total memory bits : 32,768
-Embedded Multiplier 9-bit elements : 0
-Total PLLs : 0
+Total logic elements : N/A until Partition Merge
+    Total combinational functions : N/A until Partition Merge
+    Dedicated logic registers : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total memory bits : N/A until Partition Merge
+Embedded Multiplier 9-bit elements : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge
