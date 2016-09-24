@@ -1,0 +1,630 @@
+Analysis & Synthesis report for RSDecoder
+Thu Sep 22 02:28:45 2016
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "register4b:b2v_inst32"
+ 12. Port Connectivity Checks: "register4b:b2v_inst28"
+ 13. Port Connectivity Checks: "register4b:b2v_inst25"
+ 14. Port Connectivity Checks: "register4b:b2v_inst24"
+ 15. Port Connectivity Checks: "register4b:b2v_inst21"
+ 16. Port Connectivity Checks: "register4b:b2v_inst20"
+ 17. Port Connectivity Checks: "register4b:b2v_inst19"
+ 18. Port Connectivity Checks: "register4b:b2v_inst15"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Sep 22 02:28:45 2016       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; RSDecoder                                   ;
+; Top-level Entity Name              ; Syndrome                                    ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 112                                         ;
+;     Total combinational functions  ; 112                                         ;
+;     Dedicated logic registers      ; 32                                          ;
+; Total registers                    ; 32                                          ;
+; Total pins                         ; 38                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE30F23C8       ;                    ;
+; Top-level entity name                                                      ; Syndrome           ; RSDecoder          ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------+---------+
+; Syndrome.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd   ;         ;
+; register4b.vhd                   ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd ;         ;
+; static_12.vhd                    ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd  ;         ;
+; static_8.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd   ;         ;
+; static_4.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd   ;         ;
+; static_3.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd   ;         ;
+; static_2.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd   ;         ;
+; static_1.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd   ;         ;
+; gf_sum.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd     ;         ;
+; gf_mult.vhd                      ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd    ;         ;
+; static_11.vhd                    ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd  ;         ;
+; static_6.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd   ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 112         ;
+;                                             ;             ;
+; Total combinational functions               ; 112         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 63          ;
+;     -- 3 input functions                    ; 0           ;
+;     -- <=2 input functions                  ; 49          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 112         ;
+;     -- arithmetic mode                      ; 0           ;
+;                                             ;             ;
+; Total registers                             ; 32          ;
+;     -- Dedicated logic registers            ; 32          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 38          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; Clock~input ;
+; Maximum fan-out                             ; 32          ;
+; Total fan-out                               ; 516         ;
+; Average fan-out                             ; 2.35        ;
++---------------------------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                   ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------+--------------+
+; |Syndrome                  ; 112 (0)           ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 38   ; 0            ; |Syndrome                       ; Syndrome    ; work         ;
+;    |gf_mult:b2v_inst11|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst11    ; gf_mult     ; work         ;
+;    |gf_mult:b2v_inst12|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst12    ; gf_mult     ; work         ;
+;    |gf_mult:b2v_inst13|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst13    ; gf_mult     ; work         ;
+;    |gf_mult:b2v_inst14|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst14    ; gf_mult     ; work         ;
+;    |gf_mult:b2v_inst16|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst16    ; gf_mult     ; work         ;
+;    |gf_mult:b2v_inst17|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst17    ; gf_mult     ; work         ;
+;    |gf_mult:b2v_inst26|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst26    ; gf_mult     ; work         ;
+;    |gf_mult:b2v_inst30|    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_mult:b2v_inst30    ; gf_mult     ; work         ;
+;    |gf_sum:b2v_inst10|     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst10     ; gf_sum      ; work         ;
+;    |gf_sum:b2v_inst22|     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst22     ; gf_sum      ; work         ;
+;    |gf_sum:b2v_inst23|     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst23     ; gf_sum      ; work         ;
+;    |gf_sum:b2v_inst27|     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst27     ; gf_sum      ; work         ;
+;    |gf_sum:b2v_inst31|     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst31     ; gf_sum      ; work         ;
+;    |gf_sum:b2v_inst5|      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst5      ; gf_sum      ; work         ;
+;    |gf_sum:b2v_inst6|      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst6      ; gf_sum      ; work         ;
+;    |gf_sum:b2v_inst7|      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|gf_sum:b2v_inst7      ; gf_sum      ; work         ;
+;    |register4b:b2v_inst15| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst15 ; register4b  ; work         ;
+;    |register4b:b2v_inst19| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst19 ; register4b  ; work         ;
+;    |register4b:b2v_inst20| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst20 ; register4b  ; work         ;
+;    |register4b:b2v_inst21| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst21 ; register4b  ; work         ;
+;    |register4b:b2v_inst24| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst24 ; register4b  ; work         ;
+;    |register4b:b2v_inst25| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst25 ; register4b  ; work         ;
+;    |register4b:b2v_inst28| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst28 ; register4b  ; work         ;
+;    |register4b:b2v_inst32| ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Syndrome|register4b:b2v_inst32 ; register4b  ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                    ;
++-----------------------------------------------------+-------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal     ; Free of Timing Hazards ;
++-----------------------------------------------------+-------------------------+------------------------+
+; gf_mult:b2v_inst11|o[0]                             ; gf_mult:b2v_inst11|o[3] ; yes                    ;
+; gf_mult:b2v_inst11|o[1]                             ; gf_mult:b2v_inst11|o[3] ; yes                    ;
+; gf_mult:b2v_inst11|o[2]                             ; gf_mult:b2v_inst11|o[3] ; yes                    ;
+; gf_mult:b2v_inst11|o[3]                             ; gf_mult:b2v_inst11|o[3] ; yes                    ;
+; gf_mult:b2v_inst12|o[0]                             ; gf_mult:b2v_inst12|o[3] ; yes                    ;
+; gf_mult:b2v_inst12|o[1]                             ; gf_mult:b2v_inst12|o[3] ; yes                    ;
+; gf_mult:b2v_inst12|o[2]                             ; gf_mult:b2v_inst12|o[3] ; yes                    ;
+; gf_mult:b2v_inst12|o[3]                             ; gf_mult:b2v_inst12|o[3] ; yes                    ;
+; gf_mult:b2v_inst13|o[0]                             ; gf_mult:b2v_inst13|o[3] ; yes                    ;
+; gf_mult:b2v_inst13|o[1]                             ; gf_mult:b2v_inst13|o[3] ; yes                    ;
+; gf_mult:b2v_inst13|o[2]                             ; gf_mult:b2v_inst13|o[3] ; yes                    ;
+; gf_mult:b2v_inst13|o[3]                             ; gf_mult:b2v_inst13|o[3] ; yes                    ;
+; gf_mult:b2v_inst14|o[0]                             ; gf_mult:b2v_inst14|o[3] ; yes                    ;
+; gf_mult:b2v_inst14|o[1]                             ; gf_mult:b2v_inst14|o[3] ; yes                    ;
+; gf_mult:b2v_inst14|o[2]                             ; gf_mult:b2v_inst14|o[3] ; yes                    ;
+; gf_mult:b2v_inst14|o[3]                             ; gf_mult:b2v_inst14|o[3] ; yes                    ;
+; gf_mult:b2v_inst16|o[0]                             ; gf_mult:b2v_inst16|o[3] ; yes                    ;
+; gf_mult:b2v_inst16|o[1]                             ; gf_mult:b2v_inst16|o[3] ; yes                    ;
+; gf_mult:b2v_inst16|o[2]                             ; gf_mult:b2v_inst16|o[3] ; yes                    ;
+; gf_mult:b2v_inst16|o[3]                             ; gf_mult:b2v_inst16|o[3] ; yes                    ;
+; gf_mult:b2v_inst17|o[0]                             ; gf_mult:b2v_inst17|o[3] ; yes                    ;
+; gf_mult:b2v_inst17|o[1]                             ; gf_mult:b2v_inst17|o[3] ; yes                    ;
+; gf_mult:b2v_inst17|o[2]                             ; gf_mult:b2v_inst17|o[3] ; yes                    ;
+; gf_mult:b2v_inst17|o[3]                             ; gf_mult:b2v_inst17|o[3] ; yes                    ;
+; gf_mult:b2v_inst26|o[0]                             ; gf_mult:b2v_inst26|o[3] ; yes                    ;
+; gf_mult:b2v_inst26|o[1]                             ; gf_mult:b2v_inst26|o[3] ; yes                    ;
+; gf_mult:b2v_inst26|o[2]                             ; gf_mult:b2v_inst26|o[3] ; yes                    ;
+; gf_mult:b2v_inst26|o[3]                             ; gf_mult:b2v_inst26|o[3] ; yes                    ;
+; gf_mult:b2v_inst30|o[0]                             ; gf_mult:b2v_inst30|o[3] ; yes                    ;
+; gf_mult:b2v_inst30|o[1]                             ; gf_mult:b2v_inst30|o[3] ; yes                    ;
+; gf_mult:b2v_inst30|o[2]                             ; gf_mult:b2v_inst30|o[3] ; yes                    ;
+; gf_mult:b2v_inst30|o[3]                             ; gf_mult:b2v_inst30|o[3] ; yes                    ;
+; Number of user-specified and inferred latches = 32  ;                         ;                        ;
++-----------------------------------------------------+-------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 32    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Syndrome|gf_mult:b2v_inst26|o[1] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Syndrome|gf_mult:b2v_inst30|o[1] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |Syndrome|gf_mult:b2v_inst13|o[0] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 6 LEs                ; 14 LEs                 ; No         ; |Syndrome|gf_mult:b2v_inst14|o[1] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |Syndrome|gf_mult:b2v_inst16|o[1] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 18 LEs               ; 2 LEs                  ; No         ; |Syndrome|gf_mult:b2v_inst17|o[1] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 18 LEs               ; 2 LEs                  ; No         ; |Syndrome|gf_mult:b2v_inst26|o[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst32" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst28" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst25" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst24" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst21" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst20" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst19" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "register4b:b2v_inst15" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
++------+-------+----------+-------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 38                          ;
+; cycloneiii_ff         ; 32                          ;
+;     CLR               ; 32                          ;
+; cycloneiii_lcell_comb ; 112                         ;
+;     normal            ; 112                         ;
+;         2 data inputs ; 49                          ;
+;         4 data inputs ; 63                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.60                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Thu Sep 22 02:28:30 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RSDecoder -c RSDecoder
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file syndrome.vhd
+    Info (12022): Found design unit 1: Syndrome-bdf_type File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 42
+    Info (12023): Found entity 1: Syndrome File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file register4b.vhd
+    Info (12022): Found design unit 1: register4b-description File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 15
+    Info (12023): Found entity 1: register4b File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file static_15.vhd
+    Info (12022): Found design unit 1: static_15-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_15.vhd Line: 15
+    Info (12023): Found entity 1: static_15 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_15.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file static_12.vhd
+    Info (12022): Found design unit 1: static_12-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd Line: 15
+    Info (12023): Found entity 1: static_12 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file static_8.vhd
+    Info (12022): Found design unit 1: static_8-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd Line: 14
+    Info (12023): Found entity 1: static_8 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file static_4.vhd
+    Info (12022): Found design unit 1: static_4-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd Line: 14
+    Info (12023): Found entity 1: static_4 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file static_3.vhd
+    Info (12022): Found design unit 1: static_3-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd Line: 15
+    Info (12023): Found entity 1: static_3 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file static_2.vhd
+    Info (12022): Found design unit 1: static_2-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd Line: 15
+    Info (12023): Found entity 1: static_2 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file static_1.vhd
+    Info (12022): Found design unit 1: static_1-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd Line: 15
+    Info (12023): Found entity 1: static_1 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file gf_sum.vhd
+    Info (12022): Found design unit 1: gf_sum-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 17
+    Info (12023): Found entity 1: gf_sum File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file gf_mult.vhd
+    Info (12022): Found design unit 1: gf_mult-lut File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 13
+    Info (12023): Found entity 1: gf_mult File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file berlekamp massey.bdf
+    Info (12023): Found entity 1: Berlekamp Massey
+Info (12021): Found 1 design units, including 1 entities, in source file chien search location.bdf
+    Info (12023): Found entity 1: Chien Search Location
+Info (12021): Found 1 design units, including 1 entities, in source file chien search value.bdf
+    Info (12023): Found entity 1: Chien Search value
+Info (12021): Found 2 design units, including 1 entities, in source file gf_inv.vhd
+    Info (12022): Found design unit 1: gf_inv-lut File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 12
+    Info (12023): Found entity 1: gf_inv File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file forney.bdf
+    Info (12023): Found entity 1: Forney
+Info (12021): Found 2 design units, including 1 entities, in source file berlekampcontroller.vhd
+    Info (12022): Found design unit 1: BerlekampController-comportamental File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 32
+    Info (12023): Found entity 1: BerlekampController File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file chiencontroller.vhd
+    Info (12022): Found design unit 1: ChienController-comportamental File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/ChienController.vhd Line: 20
+    Info (12023): Found entity 1: ChienController File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/ChienController.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file static_0.vhd
+    Info (12022): Found design unit 1: static_0-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_0.vhd Line: 14
+    Info (12023): Found entity 1: static_0 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_0.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file static_11.vhd
+    Info (12022): Found design unit 1: static_11-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd Line: 14
+    Info (12023): Found entity 1: static_11 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file static_6.vhd
+    Info (12022): Found design unit 1: static_6-behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd Line: 14
+    Info (12023): Found entity 1: static_6 File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd Line: 7
+Info (12127): Elaborating entity "Syndrome" for the top level hierarchy
+Info (12128): Elaborating entity "static_3" for hierarchy "static_3:b2v_inst1" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 156
+Info (12128): Elaborating entity "gf_sum" for hierarchy "gf_sum:b2v_inst10" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 160
+Info (12128): Elaborating entity "gf_mult" for hierarchy "gf_mult:b2v_inst11" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 166
+Warning (10631): VHDL Process Statement warning at gf_mult.vhd(15): inferring latch(es) for signal or variable "o", which holds its previous value in one or more paths through the process File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+Info (10041): Inferred latch for "o[0]" at gf_mult.vhd(15) File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+Info (10041): Inferred latch for "o[1]" at gf_mult.vhd(15) File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+Info (10041): Inferred latch for "o[2]" at gf_mult.vhd(15) File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+Info (10041): Inferred latch for "o[3]" at gf_mult.vhd(15) File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+Info (12128): Elaborating entity "register4b" for hierarchy "register4b:b2v_inst15" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 190
+Info (12128): Elaborating entity "static_11" for hierarchy "static_11:b2v_inst18" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 210
+Info (12128): Elaborating entity "static_2" for hierarchy "static_2:b2v_inst2" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 222
+Info (12128): Elaborating entity "static_6" for hierarchy "static_6:b2v_inst29" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 290
+Info (12128): Elaborating entity "static_4" for hierarchy "static_4:b2v_inst3" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 294
+Info (12128): Elaborating entity "static_8" for hierarchy "static_8:b2v_inst4" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 318
+Info (12128): Elaborating entity "static_12" for hierarchy "static_12:b2v_inst8" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 340
+Info (12128): Elaborating entity "static_1" for hierarchy "static_1:b2v_inst9" File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 344
+Warning (13012): Latch gf_mult:b2v_inst11|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst11|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst11|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst11|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst15|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst12|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst19|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst19|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst12|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst19|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst19|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst12|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst19|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst19|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst12|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst19|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst19|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst13|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst20|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst20|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst13|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst20|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst20|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst13|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst20|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst20|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst13|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst20|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst20|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst14|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst21|q[1] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst21|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst14|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst21|q[2] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst21|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst14|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst21|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst21|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst14|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst21|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst21|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst16|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst24|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst24|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst16|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst24|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst24|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst16|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst24|q[2] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst24|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst16|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst24|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst24|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst17|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst25|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst25|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst17|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst25|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst25|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst17|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst25|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst25|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst17|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst25|q[2] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst25|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst26|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst28|q[1] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst28|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst26|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst28|q[1] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst28|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst26|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst28|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst28|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst26|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst28|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst28|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst30|o[0] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst32|q[2] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst32|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst30|o[1] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst32|q[2] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst32|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst30|o[2] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst32|q[3] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst32|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Warning (13012): Latch gf_mult:b2v_inst30|o[3] has unsafe behavior File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal register4b:b2v_inst32|q[2] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal register4b:b2v_inst32|q[0] File: C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd Line: 20
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 150 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 112 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 98 warnings
+    Info: Peak virtual memory: 915 megabytes
+    Info: Processing ended: Thu Sep 22 02:28:46 2016
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:34
+
+

@@ -1,0 +1,542 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/simulation/modelsim
+Egf_mult
+Z1 w1463258144
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd
+Z6 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd
+l0
+L5
+V>T0U:eJ`O?9U@O3;z8NMz1
+!s100 `hjilD620eWQJe3FSLUg61
+Z7 OV;C;10.4d;61
+31
+Z8 !s110 1474522725
+!i10b 1
+Z9 !s108 1474522725.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd|
+Z11 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1
+Alut
+R2
+R3
+R4
+DEx4 work 7 gf_mult 0 22 >T0U:eJ`O?9U@O3;z8NMz1
+l14
+L13
+V^1:^3?]2SAJbk_=X2fDTz0
+!s100 9f>DA>aGEPlJ[8N]ZbDCg2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Egf_sum
+Z14 w1463164438
+R2
+R3
+R4
+R0
+Z15 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd
+Z16 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd
+l0
+L8
+V:EgEGkN`Q?;8oNMO0dcFQ1
+!s100 gjG]YVT:G0D@R7E_G94R82
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd|
+Z18 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 6 gf_sum 0 22 :EgEGkN`Q?;8oNMO0dcFQ1
+l19
+L17
+V;<JmP9fni7TSJnL3hLO0`3
+!s100 @F8MKGY`X6J4_`W>EJ@>C2
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Eregister4b
+Z19 w1463169024
+Z20 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z21 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R3
+R4
+R0
+Z22 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd
+Z23 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd
+l0
+L6
+VU]n8z[GjlmeO<oP2FkTLT1
+!s100 dT49k:A0UkWO7faV5G[oC2
+R7
+31
+Z24 !s110 1474522724
+!i10b 1
+Z25 !s108 1474522724.000000
+Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd|
+Z27 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd|
+!i113 1
+R12
+R13
+Adescription
+R20
+R21
+R3
+R4
+DEx4 work 10 register4b 0 22 U]n8z[GjlmeO<oP2FkTLT1
+l17
+L15
+VD4LbB2L<>8jBiA`^_ZI[O1
+!s100 aj^Hen@Rm^KFE_jo^V[nH0
+R7
+31
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R12
+R13
+Estatic_1
+Z28 w1463237970
+R2
+R3
+R4
+R0
+Z29 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd
+Z30 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd
+l0
+L8
+VIX5^RXNmXI[BPKj15l^Qj3
+!s100 9bIhmZG4YT`=Vhc3iX^QA3
+R7
+31
+R8
+!i10b 1
+R9
+Z31 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd|
+Z32 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_1 0 22 IX5^RXNmXI[BPKj15l^Qj3
+l17
+L15
+VdOK0SH2MimzedgCVgEUF71
+!s100 =@IT[1<H;He8>zJ7lkUld1
+R7
+31
+R8
+!i10b 1
+R9
+R31
+R32
+!i113 1
+R12
+R13
+Estatic_11
+Z33 w1474382366
+R2
+R3
+R4
+R0
+Z34 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd
+Z35 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd
+l0
+L7
+VC`n@P4[KLa6njEG_]JcT`1
+!s100 ZEM1C?jadMO]5W?QUfIY[1
+R7
+31
+R8
+!i10b 1
+R9
+Z36 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd|
+Z37 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 9 static_11 0 22 C`n@P4[KLa6njEG_]JcT`1
+l16
+L14
+V0Z>df?HF8T3`ifgGMG[2B3
+!s100 2;dLkT5]S77R@U[fQlMYz1
+R7
+31
+R8
+!i10b 1
+R9
+R36
+R37
+!i113 1
+R12
+R13
+Estatic_12
+Z38 w1463350716
+R2
+R3
+R4
+R0
+Z39 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd
+Z40 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd
+l0
+L8
+VC=LWomAPGnD9=HHEYNYie3
+!s100 BA`zdW6c6zVP1U?gLf2J?0
+R7
+31
+R24
+!i10b 1
+R25
+Z41 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd|
+Z42 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 9 static_12 0 22 C=LWomAPGnD9=HHEYNYie3
+l17
+L15
+VC4FcZV7QMINVn5AgafCR:3
+!s100 R_]GWZ8^cQTTgW3Fo:WQi3
+R7
+31
+R24
+!i10b 1
+R25
+R41
+R42
+!i113 1
+R12
+R13
+Estatic_2
+Z43 w1463351301
+R2
+R3
+R4
+R0
+Z44 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd
+Z45 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd
+l0
+L8
+VT@ViCTUMO_0MQ=Xzc71o11
+!s100 j6z?D8aenJ6a2678@JLY:0
+R7
+31
+R8
+!i10b 1
+R9
+Z46 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd|
+Z47 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_2 0 22 T@ViCTUMO_0MQ=Xzc71o11
+l17
+L15
+VHXdnX8DSc>InM2gV:5oPA0
+!s100 OChEY=^;J?[AWLoQ?B;<d0
+R7
+31
+R8
+!i10b 1
+R9
+R46
+R47
+!i113 1
+R12
+R13
+Estatic_3
+Z48 w1463238152
+R2
+R3
+R4
+R0
+Z49 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd
+Z50 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd
+l0
+L8
+VVWDcmL7@0Toni78S<oY^X2
+!s100 Q[JN]i_`dR1nY:3Ff2RLi2
+R7
+31
+R8
+!i10b 1
+R25
+Z51 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd|
+Z52 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_3 0 22 VWDcmL7@0Toni78S<oY^X2
+l17
+L15
+V]_]885412HiOiziLeBjXJ2
+!s100 8cGU0QAdZO<aJz;XNRFUE1
+R7
+31
+R8
+!i10b 1
+R25
+R51
+R52
+!i113 1
+R12
+R13
+Estatic_4
+Z53 w1463351877
+R2
+R3
+R4
+R0
+Z54 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd
+Z55 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd
+l0
+L7
+VhEGVDOfNf6OIc2@4;n`FZ0
+!s100 LAQgR?o?gMT6Al^K2<nKK1
+R7
+31
+R24
+!i10b 1
+R25
+Z56 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd|
+Z57 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_4 0 22 hEGVDOfNf6OIc2@4;n`FZ0
+l16
+L14
+V9_iGzAT70d]J`nBlJ7?g72
+!s100 9Jd6fJ=FM4UQ^i3f8ZFLo0
+R7
+31
+R24
+!i10b 1
+R25
+R56
+R57
+!i113 1
+R12
+R13
+Estatic_6
+Z58 w1474382993
+R2
+R3
+R4
+R0
+Z59 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd
+Z60 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd
+l0
+L7
+VoUXNP2o_1oQI8ZYbT]`2;0
+!s100 zRZiWRf;^ec91NW2^l0QN0
+R7
+31
+Z61 !s110 1474522726
+!i10b 1
+Z62 !s108 1474522726.000000
+Z63 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd|
+Z64 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_6 0 22 oUXNP2o_1oQI8ZYbT]`2;0
+l16
+L14
+Va3;VFL_XmeNKWML^@g>=X3
+!s100 b3=]J>QS;1YezFJJE]ocj0
+R7
+31
+R61
+!i10b 1
+R62
+R63
+R64
+!i113 1
+R12
+R13
+Estatic_8
+Z65 w1463351931
+R2
+R3
+R4
+R0
+Z66 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd
+Z67 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd
+l0
+L7
+VRR:VU9fohf5glC<YDBHdK2
+!s100 HRndX@P19Qfa7_J]=lGdf0
+R7
+31
+R24
+!i10b 1
+R25
+Z68 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd|
+Z69 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 8 static_8 0 22 RR:VU9fohf5glC<YDBHdK2
+l16
+L14
+VnPoN;_49d5I3fCDzkeiWR2
+!s100 8KQj?Y@RmMVD>?SBQ7LY;1
+R7
+31
+R24
+!i10b 1
+R25
+R68
+R69
+!i113 1
+R12
+R13
+Esyndrome
+Z70 w1474506987
+R3
+R4
+R0
+Z71 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd
+Z72 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd
+l0
+L25
+V=eYCm6;hKWETd=fdd2SQU0
+!s100 L^bI1fD[KNYVMgif>MT4c3
+R7
+31
+R24
+!i10b 1
+R25
+Z73 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd|
+Z74 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd|
+!i113 1
+R12
+R13
+Abdf_type
+R3
+R4
+Z75 DEx4 work 8 syndrome 0 22 =eYCm6;hKWETd=fdd2SQU0
+l142
+L42
+VAAnL4Tej_I4gZF@g>WG0C0
+!s100 EZAISSEbDU8b:m0CB3fmf3
+R7
+31
+R24
+!i10b 1
+R25
+R73
+R74
+!i113 1
+R12
+R13
+Esyndrome_vhd_tst
+Z76 w1474522332
+R3
+R4
+R0
+Z77 8C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht
+Z78 FC:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht
+l0
+L31
+VQ;^:?bo@1dkl1kJMVA1e13
+!s100 zW67cBVE@R>BD?<D]i<<L2
+R7
+31
+R61
+!i10b 1
+R62
+Z79 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht|
+Z80 !s107 C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht|
+!i113 1
+R12
+R13
+Asyndrome_arch
+R75
+R3
+R4
+DEx4 work 16 syndrome_vhd_tst 0 22 Q;^:?bo@1dkl1kJMVA1e13
+l67
+L34
+V0LTlzd];Dij5:Xb2;X::=0
+!s100 Y8l@9bdOUB_PcB6acoUo^3
+R7
+31
+R61
+!i10b 1
+R62
+R79
+R80
+!i113 1
+R12
+R13
