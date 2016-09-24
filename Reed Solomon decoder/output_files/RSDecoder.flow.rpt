@@ -1,5 +1,5 @@
 Flow report for RSDecoder
-Thu Sep 22 02:29:10 2016
+Sat Sep 24 18:55:18 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Sep 22 02:29:10 2016       ;
+; Flow Status                        ; Successful - Sat Sep 24 18:55:18 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; RSDecoder                                   ;
-; Top-level Entity Name              ; Syndrome                                    ;
+; Top-level Entity Name              ; BerleMas                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE30F23C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 112 / 28,848 ( < 1 % )                      ;
-;     Total combinational functions  ; 112 / 28,848 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 32 / 28,848 ( < 1 % )                       ;
-; Total registers                    ; 32                                          ;
-; Total pins                         ; 38 / 329 ( 12 % )                           ;
+; Total logic elements               ; 0 / 28,848 ( 0 % )                          ;
+;     Total combinational functions  ; 0 / 28,848 ( 0 % )                          ;
+;     Dedicated logic registers      ; 0 / 28,848 ( 0 % )                          ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 31 / 329 ( 9 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/22/2016 02:28:31 ;
+; Start date & time ; 09/24/2016 18:51:18 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; RSDecoder           ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id       ;
 +--------------------------------------+---------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID                ; 264705668682785.147452211106524       ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID                ; 20109038935766.147475387806196        ; --            ; --          ; --               ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; Syndrome_vhd_tst ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; Syndrome_vhd_tst                      ; --            ; --          ; eda_simulation   ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_simulation   ;
@@ -88,13 +88,14 @@ agreement for further details.
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 us                                ; --            ; --          ; Syndrome_vhd_tst ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --               ;
-; PARTITION_COLOR                      ; 16764057                              ; --            ; Syndrome    ; Top              ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; Syndrome    ; Top              ;
-; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; Syndrome    ; Top              ;
+; NUM_PARALLEL_PROCESSORS              ; 4                                     ; --            ; --          ; --               ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; BerleMas    ; Top              ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; BerleMas    ; Top              ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; BerleMas    ; Top              ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --               ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --               ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --               ;
-; TOP_LEVEL_ENTITY                     ; Syndrome                              ; RSDecoder     ; --          ; --               ;
+; TOP_LEVEL_ENTITY                     ; BerleMas                              ; RSDecoder     ; --          ; --               ;
 +--------------------------------------+---------------------------------------+---------------+-------------+------------------+
 
 
@@ -103,12 +104,13 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 915 MB              ; 00:00:34                           ;
-; Fitter                    ; 00:00:13     ; 1.0                     ; 1714 MB             ; 00:00:16                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 779 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 903 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 745 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:56                           ;
+; Analysis & Synthesis      ; 00:00:08     ; 1.0                     ; 860 MB              ; 00:00:20                           ;
+; Fitter                    ; 00:00:05     ; 1.0                     ; 1579 MB             ; 00:00:06                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 757 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 870 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 724 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 710 MB              ; 00:00:00                           ;
+; Total                     ; 00:00:16     ; --                      ; --                  ; 00:00:29                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -117,11 +119,12 @@ agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; owner-VAIO       ; Windows 8 ; 6.2        ; x86_64         ;
-; Fitter                    ; owner-VAIO       ; Windows 8 ; 6.2        ; x86_64         ;
-; Assembler                 ; owner-VAIO       ; Windows 8 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; owner-VAIO       ; Windows 8 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; owner-VAIO       ; Windows 8 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; MimiPC           ; Windows 8 ; 6.2        ; x86_64         ;
+; Fitter                    ; MimiPC           ; Windows 8 ; 6.2        ; x86_64         ;
+; Assembler                 ; MimiPC           ; Windows 8 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; MimiPC           ; Windows 8 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; MimiPC           ; Windows 8 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; MimiPC           ; Windows 8 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -133,6 +136,7 @@ quartus_fit --read_settings_files=off --write_settings_files=off RSDecoder -c RS
 quartus_asm --read_settings_files=off --write_settings_files=off RSDecoder -c RSDecoder
 quartus_sta RSDecoder -c RSDecoder
 quartus_eda --read_settings_files=off --write_settings_files=off RSDecoder -c RSDecoder
+quartus_eda --read_settings_files=on --write_settings_files=off RSDecoder -c RSDecoder --gen_testbench
 
 
 

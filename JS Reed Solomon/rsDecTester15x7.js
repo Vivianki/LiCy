@@ -407,6 +407,8 @@ console.log(reg1+","+reg2+","+reg3+","+reg4+","+reg5+","+reg6+","+reg7+","+reg8)
 
 												//var input = ["0010", "0001", "1001", "0010", "1000", "0010", "1010"];
  var input2 = [reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, "1101", "0011", "0110", "0010", "1011", "0010", "1110"];
+ 
+ console.log("Input errado: " + input2);
 
  /*
 var alphasGF16 = ["0001", "0010", "0100", "1000", 

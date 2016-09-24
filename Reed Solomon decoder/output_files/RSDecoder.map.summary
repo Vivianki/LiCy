@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu Sep 22 02:28:45 2016
+Analysis & Synthesis Status : Successful - Sat Sep 24 18:51:26 2016
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : RSDecoder
-Top-level Entity Name : Syndrome
+Top-level Entity Name : BerleMas
 Family : Cyclone IV E
-Total logic elements : 112
-    Total combinational functions : 112
-    Dedicated logic registers : 32
-Total registers : 32
-Total pins : 38
+Total logic elements : 0
+    Total combinational functions : 0
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 31
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

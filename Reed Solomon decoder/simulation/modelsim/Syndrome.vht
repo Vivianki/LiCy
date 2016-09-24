@@ -98,17 +98,53 @@ always : PROCESS
 -- variable declarations                                      
 BEGIN                                                         
         -- code executes for every event on sensitivity list
-		Clear <= '0';
+		Clear <= '1';
 		Input <= "0000";
 		wait for 200 ns;
 		Clear <= '0';
 		Input <= "1110";
 		wait for 200 ns;
 		Clear <= '0';
-		Input <= "1010";
+		Input <= "0010";
 		wait for 200 ns;
 		Clear <= '0';
 		Input <= "1011";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0010";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0110";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0011";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "1101";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "1111";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "1011";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0011";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0101";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0010";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "1001";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0001";
+		wait for 200 ns;
+		Clear <= '0';
+		Input <= "0000";
 		WAIT;
 		
 END PROCESS always;

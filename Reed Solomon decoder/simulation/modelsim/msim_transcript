@@ -10,21 +10,21 @@
 # Copying C:/altera_lite/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:44 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/Syndrome.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Syndrome
 # -- Compiling architecture bdf_type of Syndrome
-# End time: 02:38:44 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:44 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/register4b.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -32,145 +32,145 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity register4b
 # -- Compiling architecture description of register4b
-# End time: 02:38:44 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:44 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_12.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_12
 # -- Compiling architecture behavior of static_12
-# End time: 02:38:44 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:44 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_8.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_8
 # -- Compiling architecture behavior of static_8
-# End time: 02:38:44 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:44 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_4.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_4
 # -- Compiling architecture behavior of static_4
-# End time: 02:38:44 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:44 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_3.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_3
 # -- Compiling architecture behavior of static_3
-# End time: 02:38:45 on Sep 22,2016, Elapsed time: 0:00:01
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:45 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_2.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_2
 # -- Compiling architecture behavior of static_2
-# End time: 02:38:45 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:45 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_1.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_1
 # -- Compiling architecture behavior of static_1
-# End time: 02:38:45 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:45 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_sum.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_sum
 # -- Compiling architecture behavior of gf_sum
-# End time: 02:38:45 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:45 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/gf_mult.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_mult
 # -- Compiling architecture lut of gf_mult
-# End time: 02:38:45 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:45 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_11.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_11
 # -- Compiling architecture behavior of static_11
-# End time: 02:38:46 on Sep 22,2016, Elapsed time: 0:00:01
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:46 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/static_6.vhd 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_6
 # -- Compiling architecture behavior of static_6
-# End time: 02:38:46 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht}
+# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 02:38:46 on Sep 22,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Documents/9o semestre/TCC 2016/LiCy/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht 
+# Start time: 17:34:44 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Syndrome_vhd_tst
 # -- Compiling architecture Syndrome_arch of Syndrome_vhd_tst
 # -- Loading entity Syndrome
-# End time: 02:38:46 on Sep 22,2016, Elapsed time: 0:00:00
+# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  Syndrome
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" Syndrome 
-# Start time: 02:38:46 on Sep 22,2016
+# Start time: 17:34:44 on Sep 24,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -196,30 +196,53 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 100 us
-vsim work.syndrome_vhd_tst
-# End time: 02:39:05 on Sep 22,2016, Elapsed time: 0:00:19
+vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:35:09 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Syndrome_vhd_tst
+# -- Compiling architecture Syndrome_arch of Syndrome_vhd_tst
+# -- Loading entity Syndrome
+# End time: 17:35:09 on Sep 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim work.syndrome_vhd_tst 
-# Start time: 02:39:05 on Sep 22,2016
+vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:35:26 on Sep 24,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Syndrome
+# -- Compiling architecture bdf_type of Syndrome
+# End time: 17:35:26 on Sep 24,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.syndrome_vhd_tst
+# End time: 17:35:32 on Sep 24,2016, Elapsed time: 0:00:48
+# Errors: 0, Warnings: 0
+# vsim rtl_work.syndrome_vhd_tst 
+# Start time: 17:35:32 on Sep 24,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.syndrome_vhd_tst(syndrome_arch)
-# Loading work.syndrome(bdf_type)
+# Loading rtl_work.syndrome_vhd_tst(syndrome_arch)
+# Loading rtl_work.syndrome(bdf_type)
 # Loading ieee.numeric_std(body)
-# Loading work.static_3(behavior)
-# Loading work.gf_sum(behavior)
-# Loading work.gf_mult(lut)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.gf_mult(lut)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.register4b(description)
-# Loading work.static_11(behavior)
-# Loading work.static_2(behavior)
-# Loading work.static_6(behavior)
-# Loading work.static_4(behavior)
-# Loading work.static_8(behavior)
-# Loading work.static_12(behavior)
-# Loading work.static_1(behavior)
+# Loading rtl_work.register4b(description)
+# Loading rtl_work.static_11(behavior)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_6(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_12(behavior)
+# Loading rtl_work.static_1(behavior)
 add wave -position end  sim:/syndrome_vhd_tst/Clear
 add wave -position end  sim:/syndrome_vhd_tst/Clock
 add wave -position end  sim:/syndrome_vhd_tst/Input
@@ -232,50 +255,8 @@ add wave -position end  sim:/syndrome_vhd_tst/S5
 add wave -position end  sim:/syndrome_vhd_tst/S6
 add wave -position end  sim:/syndrome_vhd_tst/S7
 run
-run -continue
-run
-vsim work.syndrome_vhd_tst
-# End time: 02:40:12 on Sep 22,2016, Elapsed time: 0:01:07
-# Errors: 0, Warnings: 0
-# vsim work.syndrome_vhd_tst 
-# Start time: 02:40:12 on Sep 22,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.syndrome_vhd_tst(syndrome_arch)
-# Loading work.syndrome(bdf_type)
-# Loading ieee.numeric_std(body)
-# Loading work.static_3(behavior)
-# Loading work.gf_sum(behavior)
-# Loading work.gf_mult(lut)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.register4b(description)
-# Loading work.static_11(behavior)
-# Loading work.static_2(behavior)
-# Loading work.static_6(behavior)
-# Loading work.static_4(behavior)
-# Loading work.static_8(behavior)
-# Loading work.static_12(behavior)
-# Loading work.static_1(behavior)
-add wave -position end  sim:/syndrome_vhd_tst/Clear
-add wave -position end  sim:/syndrome_vhd_tst/Clock
-add wave -position end  sim:/syndrome_vhd_tst/Input
-add wave -position end  sim:/syndrome_vhd_tst/S0
-add wave -position end  sim:/syndrome_vhd_tst/S1
-add wave -position end  sim:/syndrome_vhd_tst/S2
-add wave -position end  sim:/syndrome_vhd_tst/S3
-add wave -position end  sim:/syndrome_vhd_tst/S4
-add wave -position end  sim:/syndrome_vhd_tst/S5
-add wave -position end  sim:/syndrome_vhd_tst/S6
-add wave -position end  sim:/syndrome_vhd_tst/S7
-run -next
 run
 run
 run
-run
-run
-run
-run
-# End time: 02:49:25 on Sep 22,2016, Elapsed time: 0:09:13
+# End time: 17:40:05 on Sep 24,2016, Elapsed time: 0:04:33
 # Errors: 0, Warnings: 0
