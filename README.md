@@ -12,7 +12,9 @@ Li-Fi applications are varied as a result of its key features, such as
 * high data rate capability, 
 * signal blocking by walls and 
 * integrated networking capability.
+
 Therefore it has a various applications in: 
+
 * Security,
 * Dense urban environments, 
 * Electromagnetic interference sensitive environments,
