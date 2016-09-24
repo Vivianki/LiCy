@@ -28,9 +28,9 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY interleaver_vhd_tst IS
-END interleaver_vhd_tst;
-ARCHITECTURE interleaver_arch OF interleaver_vhd_tst IS
+ENTITY interlv_tst IS
+END interlv_tst;
+ARCHITECTURE interleaver_arch OF interlv_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
@@ -41,7 +41,13 @@ SIGNAL finished : STD_LOGIC;
 SIGNAL flushing : STD_LOGIC;
 SIGNAL q : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL state : STD_LOGIC_VECTOR(2 DOWNTO 0);
-COMPONENT interleaver
+--SIGNAL mem_sel : STD_LOGIC_VECTOR(12 DOWNTO 0);
+--SIGNAL rw : STD_LOGIC;
+--SIGNAL iterator : STD_LOGIC_VECTOR(3 DOWNTO 0);
+--SIGNAL index : STD_LOGIC_VECTOR(6 DOWNTO 0);
+--SIGNAL term : STD_LOGIC_VECTOR(9 DOWNTO 0);
+
+COMPONENT interleaver IS
 	PORT (
 	clk : IN STD_LOGIC;
 	d : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -51,8 +57,14 @@ COMPONENT interleaver
 	flushing : OUT STD_LOGIC;
 	q : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	state : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+	--mem_sel : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+	--rw : OUT STD_LOGIC;
+	--iterator : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	--index : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+   --term : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 END COMPONENT;
+
 constant clk_period : time := 100 ns;
 
 BEGIN
@@ -67,6 +79,11 @@ BEGIN
 	flushing => flushing,
 	q => q,
 	state => state
+	--mem_sel => mem_sel,
+	--rw => rw,
+	--iterator => iterator,
+	--index => index,
+	--term => term
 	);
                                 
 init : PROCESS
@@ -80,11 +97,40 @@ END PROCESS init;
 always : PROCESS                                                                               
 BEGIN
 	enable <= '0';
+	d <= "0000";
 	depth <= "0000010";
 	wait for 200 ns;
 	enable <= '1';
+	d <= "1010";
+	wait for 100 ns;
+	d <= "1011";
+	wait for 100 ns;
+	d <= "1100";
+	wait for 100 ns;
+	d <= "1101";
+	wait for 100 ns;
+	d <= "1110";
+	wait for 100 ns;
 	d <= "1111";
-	wait for 1500 ns;
+	wait for 100 ns;
+	d <= "0001";
+	wait for 100 ns;
+	d <= "0010";
+	wait for 100 ns;
+	d <= "0011";
+	wait for 100 ns;
+	d <= "0100";
+	wait for 100 ns;
+	d <= "0101";
+	wait for 100 ns;
+	d <= "0110";
+	wait for 100 ns;
+	d <= "0111";
+	wait for 100 ns;
+	d <= "1000";
+	wait for 100 ns;
+	d <= "1001";
+	wait for 100 ns;
 	d <= "0000";
 	wait for 1500 ns;
 WAIT;                                                        
