@@ -1,9 +1,10 @@
 
 State Machine - |interleaver|current_s
-Name current_s.s5 current_s.s4 current_s.s3 current_s.s2 current_s.s1 current_s.s0 
-current_s.s0 0 0 0 0 0 0 
-current_s.s1 0 0 0 0 1 1 
-current_s.s2 0 0 0 1 0 1 
-current_s.s3 0 0 1 0 0 1 
-current_s.s4 0 1 0 0 0 1 
-current_s.s5 1 0 0 0 0 1 
+Name current_s.s6 current_s.s5 current_s.s4 current_s.s3 current_s.s2 current_s.s1 current_s.s0 
+current_s.s0 0 0 0 0 0 0 0 
+current_s.s1 0 0 0 0 0 1 1 
+current_s.s2 0 0 0 0 1 0 1 
+current_s.s3 0 0 0 1 0 0 1 
+current_s.s4 0 0 1 0 0 0 1 
+current_s.s5 0 1 0 0 0 0 1 
+current_s.s6 1 0 0 0 0 0 1 
