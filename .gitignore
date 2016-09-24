@@ -1,0 +1,6 @@
+VHDL/interleaver/db/**
+VHDL/interleaver/output_files/**
+VHDL/interleaver/greybox_tmp/**
+VHDL/interleaver/simulation/**
+VHDL/interleaver/incremental_db/**
+!VHDL/interleaver/simulation/modelsim/interleaver.vht
