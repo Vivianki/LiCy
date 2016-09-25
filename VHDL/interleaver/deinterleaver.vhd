@@ -36,15 +36,15 @@ PORT(
   depth : IN STD_LOGIC_VECTOR((DEPTH_LENGTH - 1) DOWNTO 0); -- represent 18 in binary
   clk : IN STD_LOGIC; -- clock.
   q   : OUT STD_LOGIC_VECTOR((SYMBOL_LENGTH - 1) DOWNTO 0);
-  state: out STD_LOGIC_VECTOR(2 downto 0);
   flushing : OUT STD_LOGIC;
   finished : OUT STD_LOGIC;
-  mem_sel : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+  state: out STD_LOGIC_VECTOR(2 downto 0)
+  --mem_sel : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
   --rw : OUT STD_LOGIC;
-  iterator: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-  index : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-  term : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-  debug: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+  --iterator: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+  --index : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+  --term : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+  --debug: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 );
 END deinterleaver;
 
@@ -101,10 +101,10 @@ ARCHITECTURE behavior OF deinterleaver IS
         begin
 		  
 		  --rw <= wren_a_sig;
-		  iterator <= std_logic_vector(to_unsigned(it, 4));
-		  index <= std_logic_vector(to_unsigned(i, 7));
-		  term <= std_logic_vector(to_unsigned(t, 10));
-		  mem_sel <= address_a_sig;
+		  --iterator <= std_logic_vector(to_unsigned(it, 4));
+		  --index <= std_logic_vector(to_unsigned(i, 7));
+		  --term <= std_logic_vector(to_unsigned(t, 10));
+		  --mem_sel <= address_a_sig;
 		  
         case current_s is
         -- STATE 0 (INITIALIZE ALL VARIABLES)
@@ -117,7 +117,8 @@ ARCHITECTURE behavior OF deinterleaver IS
             t := 0;
             it := 0;
 				max_t := 0;
-				debug <= "0000";
+				aux1 := '0';
+				--debug <= "0000";
 				
 				-- RAM Stuff
 				aux10 := "0000000000000";
@@ -145,7 +146,7 @@ ARCHITECTURE behavior OF deinterleaver IS
 					 
 					 t := t + CODEWORD_LENGTH; -- fill in horizontally
                 it := it + 1;
-					 debug <= "0001";
+					 --debug <= "0001";
                 next_s <= s2; -- sends to dual pair
             else -- no more depths to go
                 if (i < CODEWORD_LENGTH - 1) then -- verify if its not last it
@@ -160,7 +161,7 @@ ARCHITECTURE behavior OF deinterleaver IS
                     -- end (WRITE)
 						  
 						  t := CODEWORD_LENGTH;
-						  debug <= "0010";
+						  --debug <= "0010";
                     next_s <= s2; -- sends to dual pair
                 else -- first flush
                     max_t := t;
@@ -173,7 +174,7 @@ ARCHITECTURE behavior OF deinterleaver IS
 						  q <= q_a_sig;
 						  -- end (READ)
 
-						  debug <= "0011";
+						  --debug <= "0011";
                     next_s <= s6; -- keep on flushing
                 end if;
             end if;
@@ -191,7 +192,7 @@ ARCHITECTURE behavior OF deinterleaver IS
 					 
 					 t := t + CODEWORD_LENGTH; -- fill in horizontally
                 it := it + 1;
-					 debug <= "0100";
+					 --debug <= "0100";
                 next_s <= s1; -- sends to dual pair
             else -- no more depths to go
                 if (i < CODEWORD_LENGTH - 1) then -- verify if its not last it
@@ -206,7 +207,7 @@ ARCHITECTURE behavior OF deinterleaver IS
                     -- end (WRITE)
 						  
 						  t := CODEWORD_LENGTH;
-						  debug <= "0101";
+						  --debug <= "0101";
                     next_s <= s1; -- sends to dual pair
                 else -- first flush
                     max_t := t;
@@ -219,7 +220,7 @@ ARCHITECTURE behavior OF deinterleaver IS
 						  q <= q_a_sig;
 						  -- end (READ)
 
-						  debug <= "0110";
+						  --debug <= "0110";
                     next_s <= s6; -- keep on flushing
                 end if;
             end if;
@@ -241,13 +242,13 @@ ARCHITECTURE behavior OF deinterleaver IS
                 -- end (READ)
 					 
                 t := t + 1;
-					 debug <= "0111";
+					 --debug <= "0111";
                 next_s <= s4; -- sends to flush pair state
             else
                 flushing <= '0';
                 finished <= '1';
 					 t := 0;
-					 debug <= "1000";
+					 --debug <= "1000";
                 next_s <= s5; -- ends the interleaving process
             end if;
         -- STATE 4 (OUTPUT DATA DUAL)
@@ -268,13 +269,13 @@ ARCHITECTURE behavior OF deinterleaver IS
                 -- end RAM
 					 
                 t := t + 1;
-					 debug <= "1001";
+					 --debug <= "1001";
                 next_s <= s3; -- sends to flush pair state
             else
 					 flushing <= '0';
                 finished <= '1';
 					 t := 0;
-					 debug <= "1010";
+					 --debug <= "1010";
                 next_s <= s5; -- ends the interleaving process
             end if;
         when s5 =>
@@ -284,7 +285,7 @@ ARCHITECTURE behavior OF deinterleaver IS
 				q <= "0000";
             finished <= '1';
             flushing <= '0';
-				debug <= "1011";
+				--debug <= "1011";
 				next_s <= s5;
             -- waiting to be reset
 		  when s6 => 
@@ -299,7 +300,7 @@ ARCHITECTURE behavior OF deinterleaver IS
 				-- end (READ)
 					
 				t := t + 1;
-				debug <= "1100";
+				--debug <= "1100";
 				next_s <= s3; -- sends to flush pair state
 		  when others =>
             state <= "111";
@@ -308,7 +309,7 @@ ARCHITECTURE behavior OF deinterleaver IS
 				q <= "0000";
             finished <= '0';
             flushing <= '0';
-				debug <= "1111";
+				--debug <= "1111";
 				next_s <= s0;
         end case;
     end process;

@@ -1,15 +1,15 @@
-Fitter Status : Successful - Sat Sep 24 23:27:48 2016
+Fitter Status : Successful - Sun Sep 25 00:06:16 2016
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : Interleaver
 Top-level Entity Name : deinterleaver
 Family : Cyclone IV E
 Device : EP4CE6F17I8L
 Timing Models : Final
-Total logic elements : 424 / 6,272 ( 7 % )
-    Total combinational functions : 395 / 6,272 ( 6 % )
-    Dedicated logic registers : 129 / 6,272 ( 2 % )
-Total registers : 129
-Total pins : 47 / 180 ( 26 % )
+Total logic elements : 429 / 6,272 ( 7 % )
+    Total combinational functions : 401 / 6,272 ( 6 % )
+    Dedicated logic registers : 130 / 6,272 ( 2 % )
+Total registers : 130
+Total pins : 22 / 180 ( 12 % )
 Total virtual pins : 0
 Total memory bits : 32,768 / 276,480 ( 12 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )

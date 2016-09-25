@@ -36,9 +36,9 @@ PORT(
   depth : IN STD_LOGIC_VECTOR((DEPTH_LENGTH - 1) DOWNTO 0); -- represent 18 in binary
   clk : IN STD_LOGIC; -- clock.
   q   : OUT STD_LOGIC_VECTOR((SYMBOL_LENGTH - 1) DOWNTO 0);
-  state: out STD_LOGIC_VECTOR(2 downto 0);
   flushing : OUT STD_LOGIC;
-  finished : OUT STD_LOGIC
+  finished : OUT STD_LOGIC;
+  state: out STD_LOGIC_VECTOR(2 downto 0)
   --mem_sel : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
   --rw : OUT STD_LOGIC;
   --iterator: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -97,12 +97,15 @@ ARCHITECTURE behavior OF interleaver IS
         variable max_t : integer range 0 to 1034; --MAX_T_LENGTH; -- [0,69*14 + 68] @todo verify if MAX_T_LENGTH is valid in all cases (MAX_T_LENGTH)
 		  variable aux10 : std_logic_vector(12 downto 0);
 		  variable aux1 : std_logic := '1';
+		  variable old_max_t : integer range 0 to 1034 := 0;
         begin
 		  
 		  --rw <= wren_a_sig;
 		  --iterator <= std_logic_vector(to_unsigned(it, 4));
 		  --index <= std_logic_vector(to_unsigned(i, 7));		  --term <= std_logic_vector(to_unsigned(t, 10));
 		  --mem_sel <= address_a_sig;
+		  max_t := old_max_t;
+		  flushing <= '0';
 		  
         case current_s is
         -- STATE 0 (INITIALIZE ALL VARIABLES)
@@ -115,6 +118,8 @@ ARCHITECTURE behavior OF interleaver IS
             t := 0;
             it := 0;
 				max_t := 0;
+				aux1 := '0';
+				old_max_t := 0;
 				
 				-- RAM Stuff
 				aux10 := "0000000000000";
@@ -160,6 +165,7 @@ ARCHITECTURE behavior OF interleaver IS
                 else -- first flush
                     --flushing <= '1'; -- send flushing signal
                     max_t := i + t;
+						  old_max_t := max_t;
                     t := 1;
 
                     -- (READ) q <= RAM(t); -- flush symbol
@@ -203,6 +209,7 @@ ARCHITECTURE behavior OF interleaver IS
                 else -- first flush
                     --flushing <= '1'; -- send flushing signal
                     max_t := i + t;
+						  old_max_t := max_t;
                     t := 1;
 
                     -- (READ) q <= RAM(t); -- flush symbol
@@ -217,8 +224,12 @@ ARCHITECTURE behavior OF interleaver IS
         -- STATE 3 (OUTPUT DATA DUAL)
         when s3 =>
             state <= "011";
-            if (t < max_t) then -- still okay to flush
-                flushing <= '1';
+            if (t <= max_t + 1) then -- still okay to flush
+					 if (aux1 = '0') then
+						aux1 := '1';
+					 else 
+						flushing <= '1';
+					 end if;
 					 
                 -- (READ) q <= RAM(t); -- flush symbol
                 address_a_sig <= std_logic_vector(to_unsigned(t, 13));
@@ -237,8 +248,12 @@ ARCHITECTURE behavior OF interleaver IS
         -- STATE 4 (OUTPUT DATA DUAL)
         when s4 =>
             state <= "100";
-            if (t < max_t) then -- still okay to flush
-					 flushing <= '1';
+            if (t <= max_t + 1) then -- still okay to flush
+					 if (aux1 = '0') then
+						aux1 := '1';
+					 else 
+						flushing <= '1';
+					 end if;
 					 
                 -- q <= RAM(t); -- flush symbol
                 address_a_sig <= std_logic_vector(to_unsigned(t, 13));

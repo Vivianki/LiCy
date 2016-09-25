@@ -1,9 +1,9 @@
 |deinterleaver
-d[0] => Selector38.IN1
-d[1] => Selector35.IN1
-d[2] => Selector34.IN1
-d[3] => Selector23.IN1
-enable => Selector36.IN3
+d[0] => Selector36.IN1
+d[1] => Selector33.IN1
+d[2] => Selector32.IN1
+d[3] => Selector24.IN1
+enable => Selector34.IN3
 enable => next_s.s0.DATAB
 depth[0] => LessThan0.IN10
 depth[1] => LessThan0.IN9
@@ -23,31 +23,6 @@ state[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 state[2] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 flushing <= flushing$latch.DB_MAX_OUTPUT_PORT_TYPE
 finished <= finished$latch.DB_MAX_OUTPUT_PORT_TYPE
-iterator[0] <= it[0].DB_MAX_OUTPUT_PORT_TYPE
-iterator[1] <= it[1].DB_MAX_OUTPUT_PORT_TYPE
-iterator[2] <= it[2].DB_MAX_OUTPUT_PORT_TYPE
-iterator[3] <= it[3].DB_MAX_OUTPUT_PORT_TYPE
-index[0] <= i[0].DB_MAX_OUTPUT_PORT_TYPE
-index[1] <= i[1].DB_MAX_OUTPUT_PORT_TYPE
-index[2] <= i[2].DB_MAX_OUTPUT_PORT_TYPE
-index[3] <= i[3].DB_MAX_OUTPUT_PORT_TYPE
-index[4] <= i[4].DB_MAX_OUTPUT_PORT_TYPE
-index[5] <= i[5].DB_MAX_OUTPUT_PORT_TYPE
-index[6] <= i[6].DB_MAX_OUTPUT_PORT_TYPE
-term[0] <= t[0].DB_MAX_OUTPUT_PORT_TYPE
-term[1] <= t[1].DB_MAX_OUTPUT_PORT_TYPE
-term[2] <= t[2].DB_MAX_OUTPUT_PORT_TYPE
-term[3] <= t[3].DB_MAX_OUTPUT_PORT_TYPE
-term[4] <= t[4].DB_MAX_OUTPUT_PORT_TYPE
-term[5] <= t[5].DB_MAX_OUTPUT_PORT_TYPE
-term[6] <= t[6].DB_MAX_OUTPUT_PORT_TYPE
-term[7] <= t[7].DB_MAX_OUTPUT_PORT_TYPE
-term[8] <= t[8].DB_MAX_OUTPUT_PORT_TYPE
-term[9] <= t[9].DB_MAX_OUTPUT_PORT_TYPE
-debug[0] <= Selector33.DB_MAX_OUTPUT_PORT_TYPE
-debug[1] <= Selector32.DB_MAX_OUTPUT_PORT_TYPE
-debug[2] <= Selector31.DB_MAX_OUTPUT_PORT_TYPE
-debug[3] <= Selector30.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |deinterleaver|ram:ram_inst
