@@ -133,6 +133,6 @@ BEGIN
 	wait for 100 ns;
 	d <= "0000";
 	wait for 1500 ns;
-WAIT;                                                        
+WAIT;
 END PROCESS always;
 END interleaver_arch;
