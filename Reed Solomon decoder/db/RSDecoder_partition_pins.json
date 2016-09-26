@@ -2,7 +2,184 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "Registra",
+					"strict" : false
+				},
+				{
+					"name" : "di",
+					"strict" : false
+				},
+				{
+					"name" : "loadS",
+					"strict" : false
+				},
+				{
+					"name" : "loadB",
+					"strict" : false
+				},
+				{
+					"name" : "loadC",
+					"strict" : false
+				},
+				{
+					"name" : "clearS",
+					"strict" : false
+				},
+				{
+					"name" : "clearB",
+					"strict" : false
+				},
+				{
+					"name" : "clearC",
+					"strict" : false
+				},
+				{
+					"name" : "MuxSel",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lambda4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Test_state[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Test_state[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Test_state[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Test_state[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Test_state[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Impar",
+					"strict" : false
+				},
+				{
+					"name" : "Count8",
+					"strict" : false
+				},
+				{
+					"name" : "Count4",
+					"strict" : false
+				},
+				{
+					"name" : "Inicia",
+					"strict" : false
+				},
+				{
+					"name" : "Clock",
+					"strict" : false
+				},
+				{
+					"name" : "Reset",
+					"strict" : false
+				},
+				{
+					"name" : "Input[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Input[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Input[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Input[0]",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

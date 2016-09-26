@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RSDecoder
-Sat Sep 24 18:51:26 2016
+Sun Sep 25 22:53:45 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -13,14 +13,14 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |BerleMas|BerlekampController:b2v_inst3|estadoAtual
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst33
- 13. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst34
- 14. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst35
- 15. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst22
+  8. State Machine - |BerleMas|BerlekampController:b2v_inst|estadoAtual
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst22
+ 13. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst33
+ 14. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst34
+ 15. Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst35
  16. Post-Synthesis Netlist Statistics for Top Partition
  17. Elapsed Time Per Partition
  18. Analysis & Synthesis Messages
@@ -50,16 +50,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Sep 24 18:51:26 2016       ;
+; Analysis & Synthesis Status        ; Successful - Sun Sep 25 22:53:45 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; RSDecoder                                   ;
 ; Top-level Entity Name              ; BerleMas                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 31                                          ;
+; Total logic elements               ; 537                                         ;
+;     Total combinational functions  ; 517                                         ;
+;     Dedicated logic registers      ; 64                                          ;
+; Total registers                    ; 64                                          ;
+; Total pins                         ; 44                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -164,130 +164,120 @@ agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
-; register4b.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd          ;         ;
-; static_1.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd            ;         ;
-; gf_sum.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd              ;         ;
-; gf_mult.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd             ;         ;
-; gf_inv.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd              ;         ;
-; BerlekampController.vhd          ; yes             ; User VHDL File                     ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd ;         ;
-; Berlekamp_Massey.bdf             ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.bdf    ;         ;
-; BerleMas.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd            ;         ;
-; mux2x1.vhd                       ; yes             ; Auto-Found VHDL File               ; C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/mux2x1.vhd              ;         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                    ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                             ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
+; register4b.vhd                   ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd          ;         ;
+; static_1.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd            ;         ;
+; gf_sum.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd              ;         ;
+; gf_mult.vhd                      ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd             ;         ;
+; gf_inv.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd              ;         ;
+; BerlekampController.vhd          ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd ;         ;
+; BerleMas.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd            ;         ;
+; Berlekamp_Massey.vhd             ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd    ;         ;
+; Mux2x1.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd              ;         ;
+; register4b_1.vhd                 ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd        ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 31    ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; Impar ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 31    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++-----------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                         ;
++---------------------------------------------+-------------------------------------------------------+
+; Resource                                    ; Usage                                                 ;
++---------------------------------------------+-------------------------------------------------------+
+; Estimated Total logic elements              ; 537                                                   ;
+;                                             ;                                                       ;
+; Total combinational functions               ; 517                                                   ;
+; Logic element usage by number of LUT inputs ;                                                       ;
+;     -- 4 input functions                    ; 372                                                   ;
+;     -- 3 input functions                    ; 89                                                    ;
+;     -- <=2 input functions                  ; 56                                                    ;
+;                                             ;                                                       ;
+; Logic elements by mode                      ;                                                       ;
+;     -- normal mode                          ; 517                                                   ;
+;     -- arithmetic mode                      ; 0                                                     ;
+;                                             ;                                                       ;
+; Total registers                             ; 64                                                    ;
+;     -- Dedicated logic registers            ; 64                                                    ;
+;     -- I/O registers                        ; 0                                                     ;
+;                                             ;                                                       ;
+; I/O pins                                    ; 44                                                    ;
+;                                             ;                                                       ;
+; Embedded Multiplier 9-bit elements          ; 0                                                     ;
+;                                             ;                                                       ;
+; Maximum fan-out node                        ; Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst21|o[1]~32 ;
+; Maximum fan-out                             ; 74                                                    ;
+; Total fan-out                               ; 2177                                                  ;
+; Average fan-out                             ; 3.25                                                  ;
++---------------------------------------------+-------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                       ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |BerleMas                  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |BerleMas           ; BerleMas    ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Entity Name         ; Library Name ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+---------------------+--------------+
+; |BerleMas                         ; 517 (0)           ; 64 (0)       ; 0           ; 0            ; 0       ; 0         ; 44   ; 0            ; |BerleMas                                                    ; BerleMas            ; work         ;
+;    |BerlekampController:b2v_inst| ; 24 (24)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|BerlekampController:b2v_inst                       ; BerlekampController ; work         ;
+;    |Berlekamp_Massey:b2v_inst1|   ; 493 (0)           ; 56 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1                         ; Berlekamp_Massey    ; work         ;
+;       |Mux2x1:b2v_inst22|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst22       ; Mux2x1              ; work         ;
+;       |Mux2x1:b2v_inst33|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst33       ; Mux2x1              ; work         ;
+;       |Mux2x1:b2v_inst34|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst34       ; Mux2x1              ; work         ;
+;       |Mux2x1:b2v_inst35|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst35       ; Mux2x1              ; work         ;
+;       |gf_inv:b2v_inst32|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_inv:b2v_inst32       ; gf_inv              ; work         ;
+;       |gf_mult:b2v_inst13|        ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst13      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst14|        ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst14      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst15|        ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst15      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst16|        ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst16      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst17|        ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst17      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst18|        ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst18      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst19|        ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst19      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst20|        ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst20      ; gf_mult             ; work         ;
+;       |gf_mult:b2v_inst21|        ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst21      ; gf_mult             ; work         ;
+;       |gf_sum:b2v_inst25|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst25       ; gf_sum              ; work         ;
+;       |register4b:b2v_inst10|     ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst10   ; register4b          ; work         ;
+;       |register4b:b2v_inst11|     ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst11   ; register4b          ; work         ;
+;       |register4b:b2v_inst1|      ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst1    ; register4b          ; work         ;
+;       |register4b:b2v_inst26|     ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst26   ; register4b          ; work         ;
+;       |register4b:b2v_inst2|      ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst2    ; register4b          ; work         ;
+;       |register4b:b2v_inst3|      ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst3    ; register4b          ; work         ;
+;       |register4b:b2v_inst4|      ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst4    ; register4b          ; work         ;
+;       |register4b:b2v_inst5|      ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst5    ; register4b          ; work         ;
+;       |register4b:b2v_inst6|      ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst6    ; register4b          ; work         ;
+;       |register4b:b2v_inst7|      ; 10 (10)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst7    ; register4b          ; work         ;
+;       |register4b:b2v_inst8|      ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst8    ; register4b          ; work         ;
+;       |register4b:b2v_inst9|      ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst9    ; register4b          ; work         ;
+;       |register4b:b2v_inst|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst     ; register4b          ; work         ;
+;       |register4b_1:b2v_inst12|   ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BerleMas|Berlekamp_Massey:b2v_inst1|register4b_1:b2v_inst12 ; register4b_1        ; work         ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |BerleMas|BerlekampController:b2v_inst3|estadoAtual                                                                     ;
-+-------------------------+-------------------+-----------------------+----------------------+-------------------------+------------------+
-; Name                    ; estadoAtual.store ; estadoAtual.avaliador ; estadoAtual.clearSyn ; estadoAtual.localizador ; estadoAtual.idle ;
-+-------------------------+-------------------+-----------------------+----------------------+-------------------------+------------------+
-; estadoAtual.idle        ; 0                 ; 0                     ; 0                    ; 0                       ; 0                ;
-; estadoAtual.localizador ; 0                 ; 0                     ; 0                    ; 1                       ; 1                ;
-; estadoAtual.clearSyn    ; 0                 ; 0                     ; 1                    ; 0                       ; 1                ;
-; estadoAtual.avaliador   ; 0                 ; 1                     ; 0                    ; 0                       ; 1                ;
-; estadoAtual.store       ; 1                 ; 0                     ; 0                    ; 0                       ; 1                ;
-+-------------------------+-------------------+-----------------------+----------------------+-------------------------+------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                   ;
-+-------------------------------------------------------+--------------------------------------------------------------+
-; Register name                                         ; Reason for Removal                                           ;
-+-------------------------------------------------------+--------------------------------------------------------------+
-; Berlekamp_Massey:b2v_inst5|register4b:inst9|q[0..3]   ; Stuck at GND due to stuck port clock_enable                  ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst10|q[0..3]  ; Stuck at GND due to stuck port clock_enable                  ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst11|q[0..3]  ; Stuck at GND due to stuck port clock_enable                  ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst12|q[0..3]  ; Stuck at GND due to stuck port clock_enable                  ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst26|q[0..3]  ; Lost fanout                                                  ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst5|q[1..3]   ; Merged with Berlekamp_Massey:b2v_inst5|register4b:inst5|q[0] ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst6|q[0..3]   ; Merged with Berlekamp_Massey:b2v_inst5|register4b:inst5|q[0] ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst7|q[0..3]   ; Merged with Berlekamp_Massey:b2v_inst5|register4b:inst5|q[0] ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst8|q[0..3]   ; Merged with Berlekamp_Massey:b2v_inst5|register4b:inst5|q[0] ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst5|q[0]      ; Stuck at GND due to stuck port data_in                       ;
-; BerlekampController:b2v_inst3|estadoAtual.clearSyn    ; Stuck at GND due to stuck port data_in                       ;
-; BerlekampController:b2v_inst3|estadoAtual.idle        ; Lost fanout                                                  ;
-; BerlekampController:b2v_inst3|estadoAtual.localizador ; Lost fanout                                                  ;
-; BerlekampController:b2v_inst3|estadoAtual.avaliador   ; Stuck at GND due to stuck port data_in                       ;
-; BerlekampController:b2v_inst3|estadoAtual.store       ; Stuck at GND due to stuck port data_in                       ;
-; Total Number of Removed Registers = 41                ;                                                              ;
-+-------------------------------------------------------+--------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                ;
-+----------------------------------------------------+--------------------------------+------------------------------------------------------+
-; Register name                                      ; Reason for Removal             ; Registers Removed due to This Register               ;
-+----------------------------------------------------+--------------------------------+------------------------------------------------------+
-; Berlekamp_Massey:b2v_inst5|register4b:inst9|q[3]   ; Stuck at GND                   ; Berlekamp_Massey:b2v_inst5|register4b:inst10|q[3],   ;
-;                                                    ; due to stuck port clock_enable ; Berlekamp_Massey:b2v_inst5|register4b:inst11|q[3],   ;
-;                                                    ;                                ; Berlekamp_Massey:b2v_inst5|register4b:inst12|q[3],   ;
-;                                                    ;                                ; Berlekamp_Massey:b2v_inst5|register4b:inst5|q[0]     ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst9|q[2]   ; Stuck at GND                   ; Berlekamp_Massey:b2v_inst5|register4b:inst10|q[2],   ;
-;                                                    ; due to stuck port clock_enable ; Berlekamp_Massey:b2v_inst5|register4b:inst11|q[2],   ;
-;                                                    ;                                ; Berlekamp_Massey:b2v_inst5|register4b:inst12|q[2]    ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst9|q[1]   ; Stuck at GND                   ; Berlekamp_Massey:b2v_inst5|register4b:inst10|q[1],   ;
-;                                                    ; due to stuck port clock_enable ; Berlekamp_Massey:b2v_inst5|register4b:inst11|q[1],   ;
-;                                                    ;                                ; Berlekamp_Massey:b2v_inst5|register4b:inst12|q[1]    ;
-; Berlekamp_Massey:b2v_inst5|register4b:inst9|q[0]   ; Stuck at GND                   ; Berlekamp_Massey:b2v_inst5|register4b:inst10|q[0],   ;
-;                                                    ; due to stuck port clock_enable ; Berlekamp_Massey:b2v_inst5|register4b:inst11|q[0],   ;
-;                                                    ;                                ; Berlekamp_Massey:b2v_inst5|register4b:inst12|q[0]    ;
-; BerlekampController:b2v_inst3|estadoAtual.clearSyn ; Stuck at GND                   ; BerlekampController:b2v_inst3|estadoAtual.avaliador, ;
-;                                                    ; due to stuck port data_in      ; BerlekampController:b2v_inst3|estadoAtual.store      ;
-+----------------------------------------------------+--------------------------------+------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |BerleMas|BerlekampController:b2v_inst|estadoAtual                                                                                                                                               ;
++--------------------------+-------------------+------------------------+-----------------------+----------------------+--------------------------+-------------------------+-------------------+------------------+
+; Name                     ; estadoAtual.store ; estadoAtual.avaliador2 ; estadoAtual.avaliador ; estadoAtual.clearSyn ; estadoAtual.localizador2 ; estadoAtual.localizador ; estadoAtual.idle2 ; estadoAtual.idle ;
++--------------------------+-------------------+------------------------+-----------------------+----------------------+--------------------------+-------------------------+-------------------+------------------+
+; estadoAtual.idle         ; 0                 ; 0                      ; 0                     ; 0                    ; 0                        ; 0                       ; 0                 ; 0                ;
+; estadoAtual.idle2        ; 0                 ; 0                      ; 0                     ; 0                    ; 0                        ; 0                       ; 1                 ; 1                ;
+; estadoAtual.localizador  ; 0                 ; 0                      ; 0                     ; 0                    ; 0                        ; 1                       ; 0                 ; 1                ;
+; estadoAtual.localizador2 ; 0                 ; 0                      ; 0                     ; 0                    ; 1                        ; 0                       ; 0                 ; 1                ;
+; estadoAtual.clearSyn     ; 0                 ; 0                      ; 0                     ; 1                    ; 0                        ; 0                       ; 0                 ; 1                ;
+; estadoAtual.avaliador    ; 0                 ; 0                      ; 1                     ; 0                    ; 0                        ; 0                       ; 0                 ; 1                ;
+; estadoAtual.avaliador2   ; 0                 ; 1                      ; 0                     ; 0                    ; 0                        ; 0                       ; 0                 ; 1                ;
+; estadoAtual.store        ; 1                 ; 0                      ; 0                     ; 0                    ; 0                        ; 0                       ; 0                 ; 1                ;
++--------------------------+-------------------+------------------------+-----------------------+----------------------+--------------------------+-------------------------+-------------------+------------------+
 
 
 +------------------------------------------------------+
@@ -295,53 +285,77 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 64    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 64    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 40    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst33 ;
-+----------------+-------+--------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                         ;
-+----------------+-------+--------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                               ;
-+----------------+-------+--------------------------------------------------------------+
++-------------------------------------------------------------------+
+; Inverted Register Statistics                                      ;
++---------------------------------------------------------+---------+
+; Inverted Register                                       ; Fan out ;
++---------------------------------------------------------+---------+
+; Berlekamp_Massey:b2v_inst1|register4b_1:b2v_inst12|q[0] ; 13      ;
+; Total number of inverted registers = 1                  ;         ;
++---------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst15|o[3] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst16|o[2] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst13|o[0] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst14|o[3] ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst18|o[3] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst21|o[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst22 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst34 ;
-+----------------+-------+--------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                         ;
-+----------------+-------+--------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                               ;
-+----------------+-------+--------------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst33 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst35 ;
-+----------------+-------+--------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                         ;
-+----------------+-------+--------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                               ;
-+----------------+-------+--------------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst34 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst5|Mux2x1:inst22 ;
-+----------------+-------+--------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                         ;
-+----------------+-------+--------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                               ;
-+----------------+-------+--------------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst35 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -350,13 +364,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 31                          ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; boundary_port         ; 44                          ;
+; cycloneiii_ff         ; 64                          ;
+;     CLR               ; 24                          ;
+;     ENA CLR           ; 40                          ;
+; cycloneiii_lcell_comb ; 517                         ;
+;     normal            ; 517                         ;
+;         2 data inputs ; 56                          ;
+;         3 data inputs ; 89                          ;
+;         4 data inputs ; 372                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 18.00                       ;
+; Average LUT depth     ; 14.46                       ;
 +-----------------------+-----------------------------+
 
 
@@ -365,7 +384,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -375,144 +394,113 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Sat Sep 24 18:51:18 2016
+    Info: Processing started: Sun Sep 25 22:53:27 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RSDecoder -c RSDecoder
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 2 design units, including 1 entities, in source file syndrome.vhd
-    Info (12022): Found design unit 1: Syndrome-bdf_type File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 42
-    Info (12023): Found entity 1: Syndrome File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 25
+    Info (12022): Found design unit 1: Syndrome-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 42
+    Info (12023): Found entity 1: Syndrome File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file register4b.vhd
-    Info (12022): Found design unit 1: register4b-description File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd Line: 15
-    Info (12023): Found entity 1: register4b File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd Line: 6
+    Info (12022): Found design unit 1: register4b-description File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd Line: 15
+    Info (12023): Found entity 1: register4b File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file static_15.vhd
-    Info (12022): Found design unit 1: static_15-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_15.vhd Line: 15
-    Info (12023): Found entity 1: static_15 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_15.vhd Line: 8
+    Info (12022): Found design unit 1: static_15-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_15.vhd Line: 15
+    Info (12023): Found entity 1: static_15 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_15.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_12.vhd
-    Info (12022): Found design unit 1: static_12-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd Line: 15
-    Info (12023): Found entity 1: static_12 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd Line: 8
+    Info (12022): Found design unit 1: static_12-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_12.vhd Line: 15
+    Info (12023): Found entity 1: static_12 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_12.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_8.vhd
-    Info (12022): Found design unit 1: static_8-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd Line: 14
-    Info (12023): Found entity 1: static_8 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd Line: 7
+    Info (12022): Found design unit 1: static_8-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd Line: 14
+    Info (12023): Found entity 1: static_8 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_4.vhd
-    Info (12022): Found design unit 1: static_4-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd Line: 14
-    Info (12023): Found entity 1: static_4 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd Line: 7
+    Info (12022): Found design unit 1: static_4-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd Line: 14
+    Info (12023): Found entity 1: static_4 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_3.vhd
-    Info (12022): Found design unit 1: static_3-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd Line: 15
-    Info (12023): Found entity 1: static_3 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd Line: 8
+    Info (12022): Found design unit 1: static_3-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd Line: 15
+    Info (12023): Found entity 1: static_3 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_2.vhd
-    Info (12022): Found design unit 1: static_2-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd Line: 15
-    Info (12023): Found entity 1: static_2 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd Line: 8
+    Info (12022): Found design unit 1: static_2-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd Line: 15
+    Info (12023): Found entity 1: static_2 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_1.vhd
-    Info (12022): Found design unit 1: static_1-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd Line: 15
-    Info (12023): Found entity 1: static_1 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd Line: 8
+    Info (12022): Found design unit 1: static_1-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd Line: 15
+    Info (12023): Found entity 1: static_1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file gf_sum.vhd
-    Info (12022): Found design unit 1: gf_sum-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 17
-    Info (12023): Found entity 1: gf_sum File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 8
+    Info (12022): Found design unit 1: gf_sum-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 17
+    Info (12023): Found entity 1: gf_sum File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file gf_mult.vhd
-    Info (12022): Found design unit 1: gf_mult-lut File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 13
-    Info (12023): Found entity 1: gf_mult File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 5
+    Info (12022): Found design unit 1: gf_mult-lut File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 13
+    Info (12023): Found entity 1: gf_mult File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file chien search location.bdf
     Info (12023): Found entity 1: Chien Search Location
 Info (12021): Found 1 design units, including 1 entities, in source file chien search value.bdf
     Info (12023): Found entity 1: Chien Search value
 Info (12021): Found 2 design units, including 1 entities, in source file gf_inv.vhd
-    Info (12022): Found design unit 1: gf_inv-lut File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 12
-    Info (12023): Found entity 1: gf_inv File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 5
+    Info (12022): Found design unit 1: gf_inv-lut File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 12
+    Info (12023): Found entity 1: gf_inv File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file forney.bdf
     Info (12023): Found entity 1: Forney
 Info (12021): Found 2 design units, including 1 entities, in source file berlekampcontroller.vhd
-    Info (12022): Found design unit 1: BerlekampController-comportamental File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 32
-    Info (12023): Found entity 1: BerlekampController File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 11
+    Info (12022): Found design unit 1: BerlekampController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 33
+    Info (12023): Found entity 1: BerlekampController File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file chiencontroller.vhd
-    Info (12022): Found design unit 1: ChienController-comportamental File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd Line: 20
-    Info (12023): Found entity 1: ChienController File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd Line: 11
+    Info (12022): Found design unit 1: ChienController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 20
+    Info (12023): Found entity 1: ChienController File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file static_0.vhd
-    Info (12022): Found design unit 1: static_0-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd Line: 14
-    Info (12023): Found entity 1: static_0 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd Line: 7
+    Info (12022): Found design unit 1: static_0-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd Line: 14
+    Info (12023): Found entity 1: static_0 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_11.vhd
-    Info (12022): Found design unit 1: static_11-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd Line: 14
-    Info (12023): Found entity 1: static_11 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd Line: 7
+    Info (12022): Found design unit 1: static_11-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_11.vhd Line: 14
+    Info (12023): Found entity 1: static_11 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_11.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_6.vhd
-    Info (12022): Found design unit 1: static_6-behavior File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd Line: 14
-    Info (12023): Found entity 1: static_6 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd Line: 7
+    Info (12022): Found design unit 1: static_6-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_6.vhd Line: 14
+    Info (12023): Found entity 1: static_6 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_6.vhd Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file aux_berleys.bdf
     Info (12023): Found entity 1: aux_berleys
-Info (12021): Found 1 design units, including 1 entities, in source file berlekamp_massey.bdf
-    Info (12023): Found entity 1: Berlekamp_Massey
 Info (12021): Found 2 design units, including 1 entities, in source file berlemas.vhd
-    Info (12022): Found design unit 1: BerleMas-bdf_type File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 44
-    Info (12023): Found entity 1: BerleMas File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 25
+    Info (12022): Found design unit 1: BerleMas-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 53
+    Info (12023): Found entity 1: BerleMas File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file berlekamp_massey.vhd
+    Info (12022): Found design unit 1: Berlekamp_Massey-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 47
+    Info (12023): Found entity 1: Berlekamp_Massey File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file mux2x1.vhd
+    Info (12022): Found design unit 1: Mux2x1-Mux2x1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd Line: 18
+    Info (12023): Found entity 1: Mux2x1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file register4b_1.vhd
+    Info (12022): Found design unit 1: register4b_1-description File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd Line: 15
+    Info (12023): Found entity 1: register4b_1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd Line: 6
 Info (12127): Elaborating entity "BerleMas" for the top level hierarchy
-Info (12128): Elaborating entity "BerlekampController" for hierarchy "BerlekampController:b2v_inst3" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 101
-Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(61): signal "inicia" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 61
-Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(68): signal "impar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 68
-Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(69): signal "ds" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 69
-Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(132): signal "count4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 132
-Info (12128): Elaborating entity "Berlekamp_Massey" for hierarchy "Berlekamp_Massey:b2v_inst5" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 120
-Warning (275085): Found inconsistent dimensions for element "ds"
-Warning (275080): Converted elements in bus name "ds" using legacy naming rules. Make any assignments on the new names, not on the original names.
-    Warning (275081): Converted element name(s) from "ds[3]" to "ds3"
-    Warning (275081): Converted element name(s) from "ds[3..0]" to "ds3..0"
-    Warning (275081): Converted element name(s) from "ds[2]" to "ds2"
-    Warning (275081): Converted element name(s) from "ds[1]" to "ds1"
-    Warning (275081): Converted element name(s) from "ds[0]" to "ds0"
-Info (12128): Elaborating entity "gf_sum" for hierarchy "Berlekamp_Massey:b2v_inst5|gf_sum:inst25"
-Info (12128): Elaborating entity "gf_mult" for hierarchy "Berlekamp_Massey:b2v_inst5|gf_mult:inst16"
-Info (12128): Elaborating entity "register4b" for hierarchy "Berlekamp_Massey:b2v_inst5|register4b:inst8"
-Info (12128): Elaborating entity "gf_inv" for hierarchy "Berlekamp_Massey:b2v_inst5|gf_inv:inst32"
-Warning (10631): VHDL Process Statement warning at gf_inv.vhd(14): inferring latch(es) for signal or variable "o", which holds its previous value in one or more paths through the process File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 14
-Info (10041): Inferred latch for "o[0]" at gf_inv.vhd(14) File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 14
-Info (10041): Inferred latch for "o[1]" at gf_inv.vhd(14) File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 14
-Info (10041): Inferred latch for "o[2]" at gf_inv.vhd(14) File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 14
-Info (10041): Inferred latch for "o[3]" at gf_inv.vhd(14) File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 14
-Warning (12125): Using design file mux2x1.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
-    Info (12022): Found design unit 1: Mux2x1-Mux2x1 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/mux2x1.vhd Line: 18
-    Info (12023): Found entity 1: Mux2x1 File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/mux2x1.vhd Line: 6
-Info (12128): Elaborating entity "Mux2x1" for hierarchy "Berlekamp_Massey:b2v_inst5|Mux2x1:inst33"
-Info (12128): Elaborating entity "static_1" for hierarchy "Berlekamp_Massey:b2v_inst5|static_1:inst31"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "Registra" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 35
-    Warning (13410): Pin "Lambda1[0]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 36
-    Warning (13410): Pin "Lambda1[1]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 36
-    Warning (13410): Pin "Lambda1[2]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 36
-    Warning (13410): Pin "Lambda1[3]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 36
-    Warning (13410): Pin "Lambda2[0]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 37
-    Warning (13410): Pin "Lambda2[1]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 37
-    Warning (13410): Pin "Lambda2[2]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 37
-    Warning (13410): Pin "Lambda2[3]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 37
-    Warning (13410): Pin "Lambda3[0]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 38
-    Warning (13410): Pin "Lambda3[1]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 38
-    Warning (13410): Pin "Lambda3[2]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 38
-    Warning (13410): Pin "Lambda3[3]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 38
-    Warning (13410): Pin "Lambda4[0]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 39
-    Warning (13410): Pin "Lambda4[1]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 39
-    Warning (13410): Pin "Lambda4[2]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 39
-    Warning (13410): Pin "Lambda4[3]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 39
-    Warning (13410): Pin "Omega[0]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 40
-    Warning (13410): Pin "Omega[1]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 40
-    Warning (13410): Pin "Omega[2]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 40
-    Warning (13410): Pin "Omega[3]" is stuck at GND File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 40
-Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (12128): Elaborating entity "BerlekampController" for hierarchy "BerlekampController:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 119
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(63): signal "inicia" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 63
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(81): signal "inicia" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 81
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(90): signal "impar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(91): signal "ds" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 91
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(127): signal "count8" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 127
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(137): signal "impar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 137
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(138): signal "ds" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 138
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(174): signal "count8" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 174
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(206): signal "count4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 206
+Warning (10492): VHDL Process Statement warning at BerlekampController.vhd(224): signal "count4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 224
+Info (12128): Elaborating entity "Berlekamp_Massey" for hierarchy "Berlekamp_Massey:b2v_inst1" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 139
+Info (12128): Elaborating entity "register4b" for hierarchy "Berlekamp_Massey:b2v_inst1|register4b:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 148
+Info (12128): Elaborating entity "register4b_1" for hierarchy "Berlekamp_Massey:b2v_inst1|register4b_1:b2v_inst12" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 180
+Info (12128): Elaborating entity "gf_mult" for hierarchy "Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst13" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 188
+Info (12128): Elaborating entity "Mux2x1" for hierarchy "Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst22" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 250
+Info (12128): Elaborating entity "gf_sum" for hierarchy "Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst23" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 259
+Info (12128): Elaborating entity "static_1" for hierarchy "Berlekamp_Massey:b2v_inst1|static_1:b2v_inst31" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 317
+Info (12128): Elaborating entity "gf_inv" for hierarchy "Berlekamp_Massey:b2v_inst1|gf_inv:b2v_inst32" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 321
+Info (13000): Registers with preset signals will power-up high File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd Line: 20
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 10 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Impar" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 30
-    Warning (15610): No output dependent on input pin "Count8" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 32
-    Warning (15610): No output dependent on input pin "Input[0]" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 34
-    Warning (15610): No output dependent on input pin "Input[1]" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 34
-    Warning (15610): No output dependent on input pin "Input[2]" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 34
-    Warning (15610): No output dependent on input pin "Input[3]" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 34
-    Warning (15610): No output dependent on input pin "Inicia" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 33
-    Warning (15610): No output dependent on input pin "Count4" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 31
-    Warning (15610): No output dependent on input pin "Clock" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 28
-    Warning (15610): No output dependent on input pin "Reset" File: C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 29
-Info (21057): Implemented 31 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 588 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 21 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 46 warnings
-    Info: Peak virtual memory: 860 megabytes
-    Info: Processing ended: Sat Sep 24 18:51:27 2016
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:20
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 544 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 910 megabytes
+    Info: Processing ended: Sun Sep 25 22:53:45 2016
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:37
 
 

@@ -716,6 +716,11 @@ for(var k = 0; k < 8; k++){
 	creg2 = creg2a;
 	creg3 = creg3a;
 	
+	var lambda = [creg0, creg1, creg2, creg3];
+	
+	console.log("lambda" + k + " :" + lambda);
+	//console.log(lambda);
+	
 	sreg4 = sreg3;
 	sreg3 = sreg2;
 	sreg2 = sreg1;

@@ -44,6 +44,8 @@ begin
 		o <= "0011";
  	elsif (x = "1111") then
 		o <= "1000";
+	else 
+		o <= "0000";
  	end if;
    end process;
 end architecture; 

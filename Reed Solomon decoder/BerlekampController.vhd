@@ -25,17 +25,19 @@ entity BerlekampController is
 		clearB:		out std_logic;
 		clearC:		out std_logic;
 		muxSel:		out std_logic;
-		registra: 	out std_logic
+		registra: 	out std_logic;
+		test_state: out std_logic_vector (4 downto 0)
 	);
 end BerlekampController;
 
 architecture comportamental of BerlekampController is
-  type estados is (idle, localizador, clearSyn, avaliador, store);
+  type estados is (idle, idle2, localizador, localizador2, clearSyn, avaliador, avaliador2, store);
 	--! Variáveis de estado
-  signal estadoAtual, proximoEstado : estados;
+  signal estadoAtual : estados := idle;
+  signal proximoEstado : estados;
 begin
 	--! Processo sincronizador
-	sincroniza: process(clock, proximoEstado, reset)
+	sincroniza: process(clock, reset)
 	begin
 		if reset='1'then --! reset ativo alto
 			estadoAtual <= idle;
@@ -59,36 +61,69 @@ begin
 				di <= '0';
 				muxSel <= '0';
 				if inicia = '1' then
+					test_state <= "00000";
 					proximoEstado <= localizador;
 				else
+					test_state <= "00001";
+					proximoEstado <= idle2;
+				end if;
+			
+			when idle2 => 
+				loadS <= '0';
+				loadB <= '0';
+				loadC <= '0';
+				clearS <= '1';
+				clearB <= '1';
+				clearC <= '1';
+				registra	<= '0';
+				di <= '0';
+				muxSel <= '0';
+				if inicia = '1' then
+					test_state <= "00010";
+					proximoEstado <= localizador;
+				else
+					test_state <= "00011";
 					proximoEstado <= idle;
 				end if;
 				
 			when localizador =>
-				if impar <= '1' then
-					if ds <= '1' then
+				if count8 = '1' then
+					loadS <= '0';
+					loadB <= '0';
+					loadC <= '0';
+					clearS <= '0';
+					clearB <= '0';
+					clearC <= '0';
+					registra	<= '0';
+					di <= '0';
+					muxSel <= '0';
+					proximoEstado <= clearSyn;
+					test_state <= "01010";
+				elsif impar = '1' then
+					if ds = '1' then
 						loadS <= '1';
 						loadB <= '1';
 						loadC <= '1';
-						clearS <= '1';
-						clearB <= '1';
-						clearC <= '1';
+						clearS <= '0';
+						clearB <= '0';
+						clearC <= '0';
 						registra	<= '0';
-						di <= '1';
-						muxSel <= '1';
-						proximoEstado <= localizador;
+						di <= '0';
+						muxSel <= '0';
+						proximoEstado <= localizador2;
+						test_state <= "01000";
 					else
 						loadS <= '1';
 						loadB <= '1';
 						loadC <= '1';
-						clearS <= '1';
-						clearB <= '1';
-						clearC <= '1';
+						clearS <= '0';
+						clearB <= '0';
+						clearC <= '0';
 						registra	<= '0';
-						di <= '0';
-						muxSel <= '0';
-						proximoEstado <= localizador;
-						
+						di <= '1';
+						muxSel <= '1';
+						proximoEstado <= localizador2;
+						test_state <= "01001";
 					end if;
 				else
 					registra <= '0';
@@ -98,13 +133,63 @@ begin
 					clearS <= '0';
 					clearB <= '0';
 					clearC <= '0';
-					di <= '1';
+					di <= '0';
 					muxSel <= '0';
-					if count8 = '1' then
-						proximoEstado <= clearSyn;
-					else
+					proximoEstado <= localizador2;
+					test_state <= "01011";
+				end if;
+
+			when localizador2 =>
+				if count8 = '1' then
+					loadS <= '1';
+					loadB <= '1';
+					loadC <= '1';
+					clearS <= '0';
+					clearB <= '0';
+					clearC <= '0';
+					registra	<= '0';
+					di <= '0';
+					muxSel <= '0';
+					proximoEstado <= clearSyn;
+					test_state <= "01010";
+				elsif impar = '1' then
+					if ds = '1' then
+						loadS <= '1';
+						loadB <= '1';
+						loadC <= '1';
+						clearS <= '0';
+						clearB <= '0';
+						clearC <= '0';
+						registra	<= '0';
+						di <= '0';
+						muxSel <= '0';
 						proximoEstado <= localizador;
+						test_state <= "01000";
+					else
+						loadS <= '1';
+						loadB <= '1';
+						loadC <= '1';
+						clearS <= '0';
+						clearB <= '0';
+						clearC <= '0';
+						registra	<= '0';
+						di <= '1';
+						muxSel <= '1';
+						proximoEstado <= localizador;
+						test_state <= "01001";
 					end if;
+				else
+					registra <= '0';
+					loadS <= '1';
+					loadB <= '1';
+					loadC <= '1';
+					clearS <= '0';
+					clearB <= '0';
+					clearC <= '0';
+					di <= '0';
+					muxSel <= '0';
+					proximoEstado <= localizador;
+					test_state <= "01011";
 				end if;
 				
 			when clearSyn =>
@@ -118,7 +203,8 @@ begin
 					di <= '0';
 					muxSel <= '0';
 					proximoEstado <= avaliador;
-			
+					test_state <= "01100";
+
 			when avaliador =>
 					registra <= '0';
 					loadS <= '1';
@@ -131,8 +217,28 @@ begin
 					di <= '0';
 					if count4 = '1' then
 						proximoEstado <= store;
+						test_state <= "01101";
+					else
+						proximoEstado <= avaliador2;
+						test_state <= "01110";
+					end if;
+					
+			when avaliador2 =>
+					registra <= '0';
+					loadS <= '1';
+					loadB <= '0';
+					loadC <= '0';
+					clearS <= '0';
+					clearB <= '0';
+					clearC <= '0';
+					muxSel <= '0';
+					di <= '0';
+					if count4 = '1' then
+						proximoEstado <= store;
+						test_state <= "01111";
 					else
 						proximoEstado <= avaliador;
+						test_state <= "10000";
 					end if;
 					
 			when store =>
@@ -146,6 +252,20 @@ begin
 				di <= '0';
 				muxSel <= '0';
 				proximoEstado <= idle;
+				test_state <= "10001";
+				
+			when others =>
+				registra <= '0';
+				loadS <= '0';
+				loadB <= '0';
+				loadC <= '0';
+				clearS <= '0';
+				clearB <= '0';
+				clearC <= '0';
+				di <= '0';
+				muxSel <= '0';
+				proximoEstado <= idle;
+				test_state <= "10010";
 		end case;
 	end process; -- geraSaida
 end comportamental;

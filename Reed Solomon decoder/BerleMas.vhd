@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sat Sep 24 18:28:40 2016"
+-- CREATED		"Sun Sep 25 22:37:13 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -33,11 +33,20 @@ ENTITY BerleMas IS
 		Inicia :  IN  STD_LOGIC;
 		Input :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Registra :  OUT  STD_LOGIC;
+		di :  OUT  STD_LOGIC;
+		loadS :  OUT  STD_LOGIC;
+		loadB :  OUT  STD_LOGIC;
+		loadC :  OUT  STD_LOGIC;
+		clearS :  OUT  STD_LOGIC;
+		clearB :  OUT  STD_LOGIC;
+		clearC :  OUT  STD_LOGIC;
+		MuxSel :  OUT  STD_LOGIC;
 		Lambda1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lambda2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lambda3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lambda4 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		Omega :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
+		Omega :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		Test_state :  OUT  STD_LOGIC_VECTOR(4 DOWNTO 0)
 	);
 END BerleMas;
 
@@ -59,20 +68,21 @@ COMPONENT berlekampcontroller
 		 clearB : OUT STD_LOGIC;
 		 clearC : OUT STD_LOGIC;
 		 muxSel : OUT STD_LOGIC;
-		 registra : OUT STD_LOGIC
+		 registra : OUT STD_LOGIC;
+		 test_state : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
 	);
 END COMPONENT;
 
 COMPONENT berlekamp_massey
-	PORT(MuxSel : IN STD_LOGIC;
+	PORT(LoadS : IN STD_LOGIC;
 		 LoadB : IN STD_LOGIC;
-		 ClearB : IN STD_LOGIC;
-		 Clock : IN STD_LOGIC;
 		 LoadC : IN STD_LOGIC;
-		 DsIn : IN STD_LOGIC;
-		 ClearC : IN STD_LOGIC;
-		 LoadS : IN STD_LOGIC;
 		 ClearS : IN STD_LOGIC;
+		 ClearB : IN STD_LOGIC;
+		 ClearC : IN STD_LOGIC;
+		 MuxSel : IN STD_LOGIC;
+		 DsIn : IN STD_LOGIC;
+		 Clock : IN STD_LOGIC;
 		 SIn : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 ds : OUT STD_LOGIC;
 		 Lamb1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -95,10 +105,18 @@ SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
 
 
 BEGIN 
+di <= SYNTHESIZED_WIRE_8;
+loadS <= SYNTHESIZED_WIRE_1;
+loadB <= SYNTHESIZED_WIRE_2;
+loadC <= SYNTHESIZED_WIRE_3;
+clearS <= SYNTHESIZED_WIRE_4;
+clearB <= SYNTHESIZED_WIRE_5;
+clearC <= SYNTHESIZED_WIRE_6;
+MuxSel <= SYNTHESIZED_WIRE_7;
 
 
 
-b2v_inst3 : berlekampcontroller
+b2v_inst : berlekampcontroller
 PORT MAP(clock => Clock,
 		 reset => Reset,
 		 ds => SYNTHESIZED_WIRE_0,
@@ -114,25 +132,26 @@ PORT MAP(clock => Clock,
 		 clearB => SYNTHESIZED_WIRE_5,
 		 clearC => SYNTHESIZED_WIRE_6,
 		 muxSel => SYNTHESIZED_WIRE_7,
-		 registra => Registra);
+		 registra => Registra,
+		 test_state => Test_state);
 
 
-b2v_inst5 : berlekamp_massey
-PORT MAP(MuxSel => SYNTHESIZED_WIRE_1,
+b2v_inst1 : berlekamp_massey
+PORT MAP(LoadS => SYNTHESIZED_WIRE_1,
 		 LoadB => SYNTHESIZED_WIRE_2,
-		 ClearB => SYNTHESIZED_WIRE_3,
-		 Clock => SYNTHESIZED_WIRE_4,
-		 LoadC => SYNTHESIZED_WIRE_5,
-		 DsIn => SYNTHESIZED_WIRE_6,
-		 ClearC => SYNTHESIZED_WIRE_7,
-		 LoadS => SYNTHESIZED_WIRE_8,
-		 ClearS => Clock,
+		 LoadC => SYNTHESIZED_WIRE_3,
+		 ClearS => SYNTHESIZED_WIRE_4,
+		 ClearB => SYNTHESIZED_WIRE_5,
+		 ClearC => SYNTHESIZED_WIRE_6,
+		 MuxSel => SYNTHESIZED_WIRE_7,
+		 DsIn => SYNTHESIZED_WIRE_8,
+		 Clock => Clock,
 		 SIn => Input,
 		 ds => SYNTHESIZED_WIRE_0,
-		 Lamb1 => Lambda1,
-		 Lamb2 => Lambda2,
-		 Lamb3 => Lambda3,
-		 Lamb4 => Lambda4,
+		 Lamb1 => Lambda4,
+		 Lamb2 => Lambda3,
+		 Lamb3 => Lambda2,
+		 Lamb4 => Lambda1,
 		 OmegaOut => Omega);
 
 

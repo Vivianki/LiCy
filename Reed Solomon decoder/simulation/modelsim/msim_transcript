@@ -10,21 +10,10 @@
 # Copying C:/altera_lite/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Syndrome
-# -- Compiling architecture bdf_type of Syndrome
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd 
+# Start time: 22:58:25 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -32,231 +21,893 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity register4b
 # -- Compiling architecture description of register4b
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
+# End time: 22:58:25 on Sep 25,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity static_12
-# -- Compiling architecture behavior of static_12
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity static_8
-# -- Compiling architecture behavior of static_8
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity static_4
-# -- Compiling architecture behavior of static_4
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity static_3
-# -- Compiling architecture behavior of static_3
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity static_2
-# -- Compiling architecture behavior of static_2
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd 
+# Start time: 22:58:25 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_1
 # -- Compiling architecture behavior of static_1
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
+# End time: 22:58:25 on Sep 25,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd 
+# Start time: 22:58:25 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_sum
 # -- Compiling architecture behavior of gf_sum
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
+# End time: 22:58:25 on Sep 25,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd 
+# Start time: 22:58:25 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_mult
 # -- Compiling architecture lut of gf_mult
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
+# End time: 22:58:25 on Sep 25,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd 
+# Start time: 22:58:25 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity static_11
-# -- Compiling architecture behavior of static_11
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
+# -- Compiling entity gf_inv
+# -- Compiling architecture lut of gf_inv
+# End time: 22:58:25 on Sep 25,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd 
+# Start time: 22:58:25 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity static_6
-# -- Compiling architecture behavior of static_6
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 22:58:25 on Sep 25,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-# vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:34:44 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht 
+# Start time: 22:58:26 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity Syndrome_vhd_tst
-# -- Compiling architecture Syndrome_arch of Syndrome_vhd_tst
-# -- Loading entity Syndrome
-# End time: 17:34:44 on Sep 24,2016, Elapsed time: 0:00:00
+# -- Compiling entity BerleMas
+# -- Compiling architecture bdf_type of BerleMas
+# End time: 22:58:26 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 22:58:26 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Berlekamp_Massey
+# -- Compiling architecture bdf_type of Berlekamp_Massey
+# End time: 22:58:26 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 22:58:26 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Mux2x1
+# -- Compiling architecture Mux2x1 of Mux2x1
+# End time: 22:58:26 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 22:58:26 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity register4b_1
+# -- Compiling architecture description of register4b_1
+# End time: 22:58:27 on Sep 25,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  Syndrome
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" Syndrome 
-# Start time: 17:34:44 on Sep 24,2016
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 22:58:27 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 22:58:27 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  BerleMas
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" BerleMas 
+# Start time: 22:58:27 on Sep 25,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.syndrome(bdf_type)
-# Loading ieee.numeric_std(body)
-# Loading work.static_3(behavior)
-# Loading work.gf_sum(behavior)
-# Loading work.gf_mult(lut)
+# Loading work.berlemas(bdf_type)
+# Loading work.berlekampcontroller(comportamental)
+# Loading work.berlekamp_massey(bdf_type)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading work.register4b(description)
-# Loading work.static_11(behavior)
-# Loading work.static_2(behavior)
-# Loading work.static_6(behavior)
-# Loading work.static_4(behavior)
-# Loading work.static_8(behavior)
-# Loading work.static_12(behavior)
+# Loading work.register4b_1(description)
+# Loading ieee.numeric_std(body)
+# Loading work.gf_mult(lut)
+# Loading work.mux2x1(mux2x1)
+# Loading work.gf_sum(behavior)
 # Loading work.static_1(behavior)
+# Loading work.gf_inv(lut)
 # 
 # add wave *
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-# run 100 us
-vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:35:09 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/Syndrome.vht 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Syndrome_vhd_tst
-# -- Compiling architecture Syndrome_arch of Syndrome_vhd_tst
-# -- Loading entity Syndrome
-# End time: 17:35:09 on Sep 24,2016, Elapsed time: 0:00:00
+# run -all
+vsim rtl_work.birl_tst
+# End time: 22:58:34 on Sep 25,2016, Elapsed time: 0:00:07
 # Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 17:35:26 on Sep 24,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/Vivian/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Syndrome
-# -- Compiling architecture bdf_type of Syndrome
-# End time: 17:35:26 on Sep 24,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim rtl_work.syndrome_vhd_tst
-# End time: 17:35:32 on Sep 24,2016, Elapsed time: 0:00:48
-# Errors: 0, Warnings: 0
-# vsim rtl_work.syndrome_vhd_tst 
-# Start time: 17:35:32 on Sep 24,2016
+# vsim rtl_work.birl_tst 
+# Start time: 22:58:34 on Sep 25,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading rtl_work.syndrome_vhd_tst(syndrome_arch)
-# Loading rtl_work.syndrome(bdf_type)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.static_3(behavior)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading rtl_work.register4b(description)
-# Loading rtl_work.static_11(behavior)
-# Loading rtl_work.static_2(behavior)
-# Loading rtl_work.static_6(behavior)
-# Loading rtl_work.static_4(behavior)
-# Loading rtl_work.static_8(behavior)
-# Loading rtl_work.static_12(behavior)
+# Loading rtl_work.register4b_1(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
 # Loading rtl_work.static_1(behavior)
-add wave -position end  sim:/syndrome_vhd_tst/Clear
-add wave -position end  sim:/syndrome_vhd_tst/Clock
-add wave -position end  sim:/syndrome_vhd_tst/Input
-add wave -position end  sim:/syndrome_vhd_tst/S0
-add wave -position end  sim:/syndrome_vhd_tst/S1
-add wave -position end  sim:/syndrome_vhd_tst/S2
-add wave -position end  sim:/syndrome_vhd_tst/S3
-add wave -position end  sim:/syndrome_vhd_tst/S4
-add wave -position end  sim:/syndrome_vhd_tst/S5
-add wave -position end  sim:/syndrome_vhd_tst/S6
-add wave -position end  sim:/syndrome_vhd_tst/S7
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
 run
-run
-run
-run
-# End time: 17:40:05 on Sep 24,2016, Elapsed time: 0:04:33
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:07:19 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Berlekamp_Massey
+# -- Compiling architecture bdf_type of Berlekamp_Massey
+# End time: 23:07:19 on Sep 25,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:07:23 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 23:07:23 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:07:25 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerleMas
+# -- Compiling architecture bdf_type of BerleMas
+# End time: 23:07:25 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:07:26 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:07:26 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:07:28 on Sep 25,2016, Elapsed time: 0:08:54
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:07:28 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:14:43 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:14:43 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:14:45 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 23:14:45 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:14:46 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Berlekamp_Massey
+# -- Compiling architecture bdf_type of Berlekamp_Massey
+# End time: 23:14:47 on Sep 25,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:14:48 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 23:14:48 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:14:49 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerleMas
+# -- Compiling architecture bdf_type of BerleMas
+# End time: 23:14:49 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:14:50 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:14:50 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:14:54 on Sep 25,2016, Elapsed time: 0:07:26
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:14:54 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:20:56 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 23:20:56 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:20:58 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerleMas
+# -- Compiling architecture bdf_type of BerleMas
+# End time: 23:20:58 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:20:59 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Berlekamp_Massey
+# -- Compiling architecture bdf_type of Berlekamp_Massey
+# End time: 23:20:59 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:21:01 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:21:01 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:21:02 on Sep 25,2016, Elapsed time: 0:06:08
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:21:02 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:33:08 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:33:08 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:33:10 on Sep 25,2016, Elapsed time: 0:12:08
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:33:11 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:39:53 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:39:53 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:39:55 on Sep 25,2016, Elapsed time: 0:06:44
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:39:55 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:45:03 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:45:03 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:45:05 on Sep 25,2016, Elapsed time: 0:05:10
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:45:05 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:51:36 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 23:51:36 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:51:38 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerleMas
+# -- Compiling architecture bdf_type of BerleMas
+# End time: 23:51:39 on Sep 25,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:51:40 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Berlekamp_Massey
+# -- Compiling architecture bdf_type of Berlekamp_Massey
+# End time: 23:51:40 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:51:41 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 23:51:41 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:51:43 on Sep 25,2016, Elapsed time: 0:06:38
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:51:43 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 23:57:37 on Sep 25,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 23:57:37 on Sep 25,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 23:57:39 on Sep 25,2016, Elapsed time: 0:05:56
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 23:57:39 on Sep 25,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 00:11:37 on Sep 26,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity birl_tst
+# -- Compiling architecture BerleMas_arch of birl_tst
+# End time: 00:11:37 on Sep 26,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 00:11:39 on Sep 26,2016, Elapsed time: 0:14:00
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 00:11:39 on Sep 26,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/MuxSel
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 00:18:12 on Sep 26,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BerlekampController
+# -- Compiling architecture comportamental of BerlekampController
+# End time: 00:18:12 on Sep 26,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.birl_tst
+# End time: 00:18:14 on Sep 26,2016, Elapsed time: 0:06:35
+# Errors: 0, Warnings: 0
+# vsim rtl_work.birl_tst 
+# Start time: 00:18:14 on Sep 26,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.birl_tst(berlemas_arch)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+add wave -position end  sim:/birl_tst/Clock
+add wave -position end  sim:/birl_tst/Count4
+add wave -position end  sim:/birl_tst/Count8
+add wave -position end  sim:/birl_tst/Impar
+add wave -position end  sim:/birl_tst/Inicia
+add wave -position end  sim:/birl_tst/Input
+add wave -position end  sim:/birl_tst/Lambda1
+add wave -position end  sim:/birl_tst/Lambda2
+add wave -position end  sim:/birl_tst/Lambda3
+add wave -position end  sim:/birl_tst/Lambda4
+add wave -position end  sim:/birl_tst/MuxSel
+add wave -position end  sim:/birl_tst/Omega
+add wave -position end  sim:/birl_tst/Registra
+add wave -position end  sim:/birl_tst/Reset
+add wave -position end  sim:/birl_tst/clearB
+add wave -position end  sim:/birl_tst/clearC
+add wave -position end  sim:/birl_tst/clearS
+add wave -position end  sim:/birl_tst/di
+add wave -position end  sim:/birl_tst/loadB
+add wave -position end  sim:/birl_tst/loadC
+add wave -position end  sim:/birl_tst/loadS
+add wave -position end  sim:/birl_tst/test_state
+run
+# WARNING: No extended dataflow license exists
+# End time: 00:35:57 on Sep 26,2016, Elapsed time: 0:17:43
+# Errors: 0, Warnings: 1
