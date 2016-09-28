@@ -1,64 +1,104 @@
 |BerleMas
 Clock => berlekampcontroller:b2v_inst.clock
-Clock => berlekamp_massey:b2v_inst1.Clock
+Clock => berlekamp_massey:b2v_inst2.Clock
 Reset => berlekampcontroller:b2v_inst.reset
 Impar => berlekampcontroller:b2v_inst.impar
 Count4 => berlekampcontroller:b2v_inst.count4
 Count8 => berlekampcontroller:b2v_inst.count8
 Inicia => berlekampcontroller:b2v_inst.inicia
-Input[0] => berlekamp_massey:b2v_inst1.SIn[0]
-Input[1] => berlekamp_massey:b2v_inst1.SIn[1]
-Input[2] => berlekamp_massey:b2v_inst1.SIn[2]
-Input[3] => berlekamp_massey:b2v_inst1.SIn[3]
-Registra << berlekampcontroller:b2v_inst.registra
-di << berlekampcontroller:b2v_inst.di
-loadS << berlekampcontroller:b2v_inst.loadS
-loadB << berlekampcontroller:b2v_inst.loadB
-loadC << berlekampcontroller:b2v_inst.loadC
-clearS << berlekampcontroller:b2v_inst.clearS
-clearB << berlekampcontroller:b2v_inst.clearB
-clearC << berlekampcontroller:b2v_inst.clearC
-MuxSel << berlekampcontroller:b2v_inst.muxSel
-Lambda1[0] << berlekamp_massey:b2v_inst1.Lamb4[0]
-Lambda1[1] << berlekamp_massey:b2v_inst1.Lamb4[1]
-Lambda1[2] << berlekamp_massey:b2v_inst1.Lamb4[2]
-Lambda1[3] << berlekamp_massey:b2v_inst1.Lamb4[3]
-Lambda2[0] << berlekamp_massey:b2v_inst1.Lamb3[0]
-Lambda2[1] << berlekamp_massey:b2v_inst1.Lamb3[1]
-Lambda2[2] << berlekamp_massey:b2v_inst1.Lamb3[2]
-Lambda2[3] << berlekamp_massey:b2v_inst1.Lamb3[3]
-Lambda3[0] << berlekamp_massey:b2v_inst1.Lamb2[0]
-Lambda3[1] << berlekamp_massey:b2v_inst1.Lamb2[1]
-Lambda3[2] << berlekamp_massey:b2v_inst1.Lamb2[2]
-Lambda3[3] << berlekamp_massey:b2v_inst1.Lamb2[3]
-Lambda4[0] << berlekamp_massey:b2v_inst1.Lamb1[0]
-Lambda4[1] << berlekamp_massey:b2v_inst1.Lamb1[1]
-Lambda4[2] << berlekamp_massey:b2v_inst1.Lamb1[2]
-Lambda4[3] << berlekamp_massey:b2v_inst1.Lamb1[3]
-Omega[0] << berlekamp_massey:b2v_inst1.OmegaOut[0]
-Omega[1] << berlekamp_massey:b2v_inst1.OmegaOut[1]
-Omega[2] << berlekamp_massey:b2v_inst1.OmegaOut[2]
-Omega[3] << berlekamp_massey:b2v_inst1.OmegaOut[3]
-Test_state[0] << berlekampcontroller:b2v_inst.test_state[0]
-Test_state[1] << berlekampcontroller:b2v_inst.test_state[1]
-Test_state[2] << berlekampcontroller:b2v_inst.test_state[2]
-Test_state[3] << berlekampcontroller:b2v_inst.test_state[3]
-Test_state[4] << berlekampcontroller:b2v_inst.test_state[4]
+Input[0] => berlekamp_massey:b2v_inst2.SIn[0]
+Input[1] => berlekamp_massey:b2v_inst2.SIn[1]
+Input[2] => berlekamp_massey:b2v_inst2.SIn[2]
+Input[3] => berlekamp_massey:b2v_inst2.SIn[3]
+Registra <= berlekampcontroller:b2v_inst.registra
+di <= berlekampcontroller:b2v_inst.di
+loadS <= berlekampcontroller:b2v_inst.loadS
+loadB <= berlekampcontroller:b2v_inst.loadB
+loadC <= berlekampcontroller:b2v_inst.loadC
+clearS <= berlekampcontroller:b2v_inst.clearS
+clearB <= berlekampcontroller:b2v_inst.clearB
+clearC <= berlekampcontroller:b2v_inst.clearC
+MuxSel <= berlekampcontroller:b2v_inst.muxSel
+Nerror <= berlekamp_massey:b2v_inst2.Nerror
+B_0[0] <= berlekamp_massey:b2v_inst2.B_0[0]
+B_0[1] <= berlekamp_massey:b2v_inst2.B_0[1]
+B_0[2] <= berlekamp_massey:b2v_inst2.B_0[2]
+B_0[3] <= berlekamp_massey:b2v_inst2.B_0[3]
+B_1[0] <= berlekamp_massey:b2v_inst2.B_1[0]
+B_1[1] <= berlekamp_massey:b2v_inst2.B_1[1]
+B_1[2] <= berlekamp_massey:b2v_inst2.B_1[2]
+B_1[3] <= berlekamp_massey:b2v_inst2.B_1[3]
+B_2[0] <= berlekamp_massey:b2v_inst2.B_2[0]
+B_2[1] <= berlekamp_massey:b2v_inst2.B_2[1]
+B_2[2] <= berlekamp_massey:b2v_inst2.B_2[2]
+B_2[3] <= berlekamp_massey:b2v_inst2.B_2[3]
+B_3[0] <= berlekamp_massey:b2v_inst2.B_3[0]
+B_3[1] <= berlekamp_massey:b2v_inst2.B_3[1]
+B_3[2] <= berlekamp_massey:b2v_inst2.B_3[2]
+B_3[3] <= berlekamp_massey:b2v_inst2.B_3[3]
+B_mux[0] <= berlekamp_massey:b2v_inst2.B_mux[0]
+B_mux[1] <= berlekamp_massey:b2v_inst2.B_mux[1]
+B_mux[2] <= berlekamp_massey:b2v_inst2.B_mux[2]
+B_mux[3] <= berlekamp_massey:b2v_inst2.B_mux[3]
+DS_reg[0] <= berlekamp_massey:b2v_inst2.DS_reg[0]
+DS_reg[1] <= berlekamp_massey:b2v_inst2.DS_reg[1]
+DS_reg[2] <= berlekamp_massey:b2v_inst2.DS_reg[2]
+DS_reg[3] <= berlekamp_massey:b2v_inst2.DS_reg[3]
+Lamb1[0] <= berlekamp_massey:b2v_inst2.Lamb1[0]
+Lamb1[1] <= berlekamp_massey:b2v_inst2.Lamb1[1]
+Lamb1[2] <= berlekamp_massey:b2v_inst2.Lamb1[2]
+Lamb1[3] <= berlekamp_massey:b2v_inst2.Lamb1[3]
+Lambda2[0] <= berlekamp_massey:b2v_inst2.Lamb2[0]
+Lambda2[1] <= berlekamp_massey:b2v_inst2.Lamb2[1]
+Lambda2[2] <= berlekamp_massey:b2v_inst2.Lamb2[2]
+Lambda2[3] <= berlekamp_massey:b2v_inst2.Lamb2[3]
+Lambda3[0] <= berlekamp_massey:b2v_inst2.Lamb3[0]
+Lambda3[1] <= berlekamp_massey:b2v_inst2.Lamb3[1]
+Lambda3[2] <= berlekamp_massey:b2v_inst2.Lamb3[2]
+Lambda3[3] <= berlekamp_massey:b2v_inst2.Lamb3[3]
+Lambda4[0] <= berlekamp_massey:b2v_inst2.Lamb4[0]
+Lambda4[1] <= berlekamp_massey:b2v_inst2.Lamb4[1]
+Lambda4[2] <= berlekamp_massey:b2v_inst2.Lamb4[2]
+Lambda4[3] <= berlekamp_massey:b2v_inst2.Lamb4[3]
+Omega[0] <= berlekamp_massey:b2v_inst2.OmegaOut[0]
+Omega[1] <= berlekamp_massey:b2v_inst2.OmegaOut[1]
+Omega[2] <= berlekamp_massey:b2v_inst2.OmegaOut[2]
+Omega[3] <= berlekamp_massey:b2v_inst2.OmegaOut[3]
+S0[0] <= berlekamp_massey:b2v_inst2.S0[0]
+S0[1] <= berlekamp_massey:b2v_inst2.S0[1]
+S0[2] <= berlekamp_massey:b2v_inst2.S0[2]
+S0[3] <= berlekamp_massey:b2v_inst2.S0[3]
+S1[0] <= berlekamp_massey:b2v_inst2.S1[0]
+S1[1] <= berlekamp_massey:b2v_inst2.S1[1]
+S1[2] <= berlekamp_massey:b2v_inst2.S1[2]
+S1[3] <= berlekamp_massey:b2v_inst2.S1[3]
+S2[0] <= berlekamp_massey:b2v_inst2.S2[0]
+S2[1] <= berlekamp_massey:b2v_inst2.S2[1]
+S2[2] <= berlekamp_massey:b2v_inst2.S2[2]
+S2[3] <= berlekamp_massey:b2v_inst2.S2[3]
+S3[0] <= berlekamp_massey:b2v_inst2.S3[0]
+S3[1] <= berlekamp_massey:b2v_inst2.S3[1]
+S3[2] <= berlekamp_massey:b2v_inst2.S3[2]
+S3[3] <= berlekamp_massey:b2v_inst2.S3[3]
+S4[0] <= berlekamp_massey:b2v_inst2.S4[0]
+S4[1] <= berlekamp_massey:b2v_inst2.S4[1]
+S4[2] <= berlekamp_massey:b2v_inst2.S4[2]
+S4[3] <= berlekamp_massey:b2v_inst2.S4[3]
+Test_state[0] <= berlekampcontroller:b2v_inst.test_state[0]
+Test_state[1] <= berlekampcontroller:b2v_inst.test_state[1]
+Test_state[2] <= berlekampcontroller:b2v_inst.test_state[2]
+Test_state[3] <= berlekampcontroller:b2v_inst.test_state[3]
+Test_state[4] <= berlekampcontroller:b2v_inst.test_state[4]
 
 
 |BerleMas|BerlekampController:b2v_inst
 clock => estadoAtual~1.DATAIN
 reset => estadoAtual~3.DATAIN
 ds => di.DATAB
-ds => muxSel.DATAB
 ds => test_state.DATAB
 impar => di.OUTPUTSELECT
-impar => muxSel.OUTPUTSELECT
-impar => proximoEstado.OUTPUTSELECT
 impar => test_state.OUTPUTSELECT
-impar => proximoEstado.OUTPUTSELECT
-impar => Selector5.IN2
-impar => Selector5.IN3
+impar => test_state.DATAA
 count4 => Selector3.IN4
 count4 => Selector4.IN4
 count4 => Selector5.IN6
@@ -66,11 +106,14 @@ count4 => Selector6.IN7
 count4 => proximoEstado.store.DATAB
 count4 => Selector2.IN2
 count4 => Selector5.IN4
-count4 => Selector10.IN2
+count4 => Selector9.IN2
 count4 => proximoEstado.avaliador2.DATAB
-count8 => proximoEstado.DATAA
-count8 => test_state.DATAA
-count8 => proximoEstado.DATAA
+count8 => di.OUTPUTSELECT
+count8 => test_state.OUTPUTSELECT
+count8 => test_state.OUTPUTSELECT
+count8 => proximoEstado.clearSyn.DATAB
+count8 => Selector8.IN1
+count8 => proximoEstado.localizador2.DATAB
 inicia => Selector8.IN3
 inicia => Selector6.IN2
 inicia => Selector6.IN3
@@ -92,7 +135,35 @@ test_state[3] <= Selector3.DB_MAX_OUTPUT_PORT_TYPE
 test_state[4] <= Selector2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1
+|BerleMas|Berlekamp_Massey:b2v_inst2
+DsIn => register4b:b2v_inst26.ld
+LoadS => register4b:b2v_inst.ld
+LoadS => register4b:b2v_inst1.ld
+LoadS => register4b:b2v_inst2.ld
+LoadS => register4b:b2v_inst3.ld
+LoadS => register4b:b2v_inst4.ld
+LoadB => register4b:b2v_inst10.ld
+LoadB => register4b:b2v_inst11.ld
+LoadB => register4b:b2v_inst36.ld
+LoadB => register4b:b2v_inst9.ld
+LoadC => register4b:b2v_inst5.ld
+LoadC => register4b:b2v_inst6.ld
+LoadC => register4b:b2v_inst7.ld
+LoadC => register4b:b2v_inst8.ld
+ClearS => register4b:b2v_inst.clr
+ClearS => register4b:b2v_inst1.clr
+ClearS => register4b:b2v_inst2.clr
+ClearS => register4b:b2v_inst3.clr
+ClearS => register4b:b2v_inst4.clr
+ClearB => register4b:b2v_inst10.clr
+ClearB => register4b:b2v_inst11.clr
+ClearB => register4b:b2v_inst36.clr
+ClearB => register4b:b2v_inst9.clr
+ClearC => register4b:b2v_inst26.clr
+ClearC => register4b:b2v_inst5.clr
+ClearC => register4b:b2v_inst6.clr
+ClearC => register4b:b2v_inst7.clr
+ClearC => register4b:b2v_inst8.clr
 MuxSel => mux2x1:b2v_inst22.Sel
 MuxSel => mux2x1:b2v_inst33.Sel
 MuxSel => mux2x1:b2v_inst34.Sel
@@ -101,49 +172,45 @@ Clock => register4b:b2v_inst.clk
 Clock => register4b:b2v_inst1.clk
 Clock => register4b:b2v_inst10.clk
 Clock => register4b:b2v_inst11.clk
-Clock => register4b_1:b2v_inst12.clk
 Clock => register4b:b2v_inst2.clk
 Clock => register4b:b2v_inst26.clk
 Clock => register4b:b2v_inst3.clk
+Clock => register4b:b2v_inst36.clk
 Clock => register4b:b2v_inst4.clk
 Clock => register4b:b2v_inst5.clk
 Clock => register4b:b2v_inst6.clk
 Clock => register4b:b2v_inst7.clk
 Clock => register4b:b2v_inst8.clk
 Clock => register4b:b2v_inst9.clk
-LoadB => register4b:b2v_inst10.ld
-LoadB => register4b:b2v_inst11.ld
-LoadB => register4b_1:b2v_inst12.ld
-LoadB => register4b:b2v_inst9.ld
-ClearB => register4b:b2v_inst10.clr
-ClearB => register4b:b2v_inst11.clr
-ClearB => register4b_1:b2v_inst12.clr
-ClearB => register4b:b2v_inst9.clr
-LoadC => register4b:b2v_inst5.ld
-LoadC => register4b:b2v_inst6.ld
-LoadC => register4b:b2v_inst7.ld
-LoadC => register4b:b2v_inst8.ld
-ClearC => register4b:b2v_inst26.clr
-ClearC => register4b:b2v_inst5.clr
-ClearC => register4b:b2v_inst6.clr
-ClearC => register4b:b2v_inst7.clr
-ClearC => register4b:b2v_inst8.clr
-LoadS => register4b:b2v_inst.ld
-LoadS => register4b:b2v_inst1.ld
-LoadS => register4b:b2v_inst2.ld
-LoadS => register4b:b2v_inst3.ld
-LoadS => register4b:b2v_inst4.ld
-ClearS => register4b:b2v_inst.clr
-ClearS => register4b:b2v_inst1.clr
-ClearS => register4b:b2v_inst2.clr
-ClearS => register4b:b2v_inst3.clr
-ClearS => register4b:b2v_inst4.clr
-DsIn => register4b:b2v_inst26.ld
 SIn[0] => register4b:b2v_inst.d[0]
 SIn[1] => register4b:b2v_inst.d[1]
 SIn[2] => register4b:b2v_inst.d[2]
 SIn[3] => register4b:b2v_inst.d[3]
-ds <= ds.DB_MAX_OUTPUT_PORT_TYPE
+Nerror <= Nerror.DB_MAX_OUTPUT_PORT_TYPE
+B_0[0] <= register4b:b2v_inst9.q[0]
+B_0[1] <= register4b:b2v_inst9.q[1]
+B_0[2] <= register4b:b2v_inst9.q[2]
+B_0[3] <= register4b:b2v_inst9.q[3]
+B_1[0] <= register4b:b2v_inst10.q[0]
+B_1[1] <= register4b:b2v_inst10.q[1]
+B_1[2] <= register4b:b2v_inst10.q[2]
+B_1[3] <= register4b:b2v_inst10.q[3]
+B_2[0] <= register4b:b2v_inst11.q[0]
+B_2[1] <= register4b:b2v_inst11.q[1]
+B_2[2] <= register4b:b2v_inst11.q[2]
+B_2[3] <= register4b:b2v_inst11.q[3]
+B_3[0] <= register4b:b2v_inst36.q[0]
+B_3[1] <= register4b:b2v_inst36.q[1]
+B_3[2] <= register4b:b2v_inst36.q[2]
+B_3[3] <= register4b:b2v_inst36.q[3]
+B_mux[0] <= mux2x1:b2v_inst22.O[0]
+B_mux[1] <= mux2x1:b2v_inst22.O[1]
+B_mux[2] <= mux2x1:b2v_inst22.O[2]
+B_mux[3] <= mux2x1:b2v_inst22.O[3]
+DS_reg[0] <= register4b:b2v_inst26.q[0]
+DS_reg[1] <= register4b:b2v_inst26.q[1]
+DS_reg[2] <= register4b:b2v_inst26.q[2]
+DS_reg[3] <= register4b:b2v_inst26.q[3]
 Lamb1[0] <= register4b:b2v_inst5.q[0]
 Lamb1[1] <= register4b:b2v_inst5.q[1]
 Lamb1[2] <= register4b:b2v_inst5.q[2]
@@ -160,13 +227,33 @@ Lamb4[0] <= register4b:b2v_inst8.q[0]
 Lamb4[1] <= register4b:b2v_inst8.q[1]
 Lamb4[2] <= register4b:b2v_inst8.q[2]
 Lamb4[3] <= register4b:b2v_inst8.q[3]
-OmegaOut[0] <= gf_sum:b2v_inst25.c[0]
-OmegaOut[1] <= gf_sum:b2v_inst25.c[1]
-OmegaOut[2] <= gf_sum:b2v_inst25.c[2]
-OmegaOut[3] <= gf_sum:b2v_inst25.c[3]
+OmegaOut[0] <= gf_sum:b2v_inst37.c[0]
+OmegaOut[1] <= gf_sum:b2v_inst37.c[1]
+OmegaOut[2] <= gf_sum:b2v_inst37.c[2]
+OmegaOut[3] <= gf_sum:b2v_inst37.c[3]
+S0[0] <= register4b:b2v_inst.q[0]
+S0[1] <= register4b:b2v_inst.q[1]
+S0[2] <= register4b:b2v_inst.q[2]
+S0[3] <= register4b:b2v_inst.q[3]
+S1[0] <= register4b:b2v_inst1.q[0]
+S1[1] <= register4b:b2v_inst1.q[1]
+S1[2] <= register4b:b2v_inst1.q[2]
+S1[3] <= register4b:b2v_inst1.q[3]
+S2[0] <= register4b:b2v_inst2.q[0]
+S2[1] <= register4b:b2v_inst2.q[1]
+S2[2] <= register4b:b2v_inst2.q[2]
+S2[3] <= register4b:b2v_inst2.q[3]
+S3[0] <= register4b:b2v_inst3.q[0]
+S3[1] <= register4b:b2v_inst3.q[1]
+S3[2] <= register4b:b2v_inst3.q[2]
+S3[3] <= register4b:b2v_inst3.q[3]
+S4[0] <= register4b:b2v_inst4.q[0]
+S4[1] <= register4b:b2v_inst4.q[1]
+S4[2] <= register4b:b2v_inst4.q[2]
+S4[3] <= register4b:b2v_inst4.q[3]
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -189,7 +276,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst1
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst1
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -212,7 +299,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst10
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst10
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -235,7 +322,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst11
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst11
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -258,30 +345,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b_1:b2v_inst12
-d[0] => q[0]~reg0.DATAIN
-d[1] => q[1]~reg0.DATAIN
-d[2] => q[2]~reg0.DATAIN
-d[3] => q[3]~reg0.DATAIN
-ld => q[3]~reg0.ENA
-ld => q[2]~reg0.ENA
-ld => q[1]~reg0.ENA
-ld => q[0]~reg0.ENA
-clr => q[0]~reg0.PRESET
-clr => q[1]~reg0.ACLR
-clr => q[2]~reg0.ACLR
-clr => q[3]~reg0.ACLR
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst13
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -396,7 +460,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst14
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -511,7 +575,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst15
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst15
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -626,7 +690,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst16
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -741,7 +805,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst17
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst17
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -856,7 +920,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst18
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst18
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -971,7 +1035,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst19
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1086,7 +1150,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst2
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst2
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1109,7 +1173,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst20
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1224,7 +1288,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_mult:b2v_inst21
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1339,7 +1403,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst22
+|BerleMas|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1358,7 +1422,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst23
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst23
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1373,7 +1437,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst24
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst24
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1388,7 +1452,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst25
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst25
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1403,7 +1467,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst26
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst26
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1426,7 +1490,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst27
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst27
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1441,7 +1505,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst28
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst28
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1456,7 +1520,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst29
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst29
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1471,7 +1535,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst3
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst3
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1494,7 +1558,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_sum:b2v_inst30
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst30
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1509,14 +1573,14 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|static_1:b2v_inst31
+|BerleMas|Berlekamp_Massey:b2v_inst2|static_1:b2v_inst31
 o[0] <= <VCC>
 o[1] <= <GND>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|gf_inv:b2v_inst32
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_inv:b2v_inst32
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1587,7 +1651,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst33
+|BerleMas|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst33
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1606,7 +1670,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst34
+|BerleMas|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst34
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1625,7 +1689,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|Mux2x1:b2v_inst35
+|BerleMas|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst35
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1644,7 +1708,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst4
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst36
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1667,7 +1731,22 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst5
+|BerleMas|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst37
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst4
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1690,7 +1769,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst6
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst5
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1713,7 +1792,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst7
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst6
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1736,7 +1815,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst8
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst7
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1759,7 +1838,30 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|BerleMas|Berlekamp_Massey:b2v_inst1|register4b:b2v_inst9
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst8
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BerleMas|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst9
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN

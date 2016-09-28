@@ -41,7 +41,7 @@ begin
 	begin
 		if reset='1'then --! reset ativo alto
 			estadoAtual <= idle;
-		elsif rising_edge(clock) then --! sensível a borda de subida
+		elsif falling_edge(clock) then --! sensível a borda de subida
 			estadoAtual <= proximoEstado;
 		end if;
 	end process; 
@@ -88,9 +88,9 @@ begin
 				
 			when localizador =>
 				if count8 = '1' then
-					loadS <= '0';
-					loadB <= '0';
-					loadC <= '0';
+					loadS <= '1';
+					loadB <= '1';
+					loadC <= '1';
 					clearS <= '0';
 					clearB <= '0';
 					clearC <= '0';
@@ -99,6 +99,7 @@ begin
 					muxSel <= '0';
 					proximoEstado <= clearSyn;
 					test_state <= "01010";
+					
 				elsif impar = '1' then
 					if ds = '1' then
 						loadS <= '1';
@@ -126,7 +127,7 @@ begin
 						test_state <= "01001";
 					end if;
 				else
-					registra <= '0';
+					registra <= '0'; -- aqui
 					loadS <= '1';
 					loadB <= '1';
 					loadC <= '1';
@@ -169,7 +170,7 @@ begin
 						loadS <= '1';
 						loadB <= '1';
 						loadC <= '1';
-						clearS <= '0';
+						clearS <= '0'; -- aqui
 						clearB <= '0';
 						clearC <= '0';
 						registra	<= '0';

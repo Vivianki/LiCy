@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sun Sep 25 22:37:13 2016"
+-- CREATED		"Tue Sep 27 22:48:59 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -41,11 +41,23 @@ ENTITY BerleMas IS
 		clearB :  OUT  STD_LOGIC;
 		clearC :  OUT  STD_LOGIC;
 		MuxSel :  OUT  STD_LOGIC;
+		Nerror :  OUT  STD_LOGIC;
+		B_0 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		B_1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		B_2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		B_3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		B_mux :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		DS_reg :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lambda1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lambda2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lambda3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lambda4 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Omega :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		S0 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		S1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		S2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		S3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		S4 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Test_state :  OUT  STD_LOGIC_VECTOR(4 DOWNTO 0)
 	);
 END BerleMas;
@@ -74,22 +86,33 @@ COMPONENT berlekampcontroller
 END COMPONENT;
 
 COMPONENT berlekamp_massey
-	PORT(LoadS : IN STD_LOGIC;
+	PORT(DsIn : IN STD_LOGIC;
+		 LoadS : IN STD_LOGIC;
 		 LoadB : IN STD_LOGIC;
 		 LoadC : IN STD_LOGIC;
 		 ClearS : IN STD_LOGIC;
 		 ClearB : IN STD_LOGIC;
 		 ClearC : IN STD_LOGIC;
 		 MuxSel : IN STD_LOGIC;
-		 DsIn : IN STD_LOGIC;
 		 Clock : IN STD_LOGIC;
 		 SIn : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		 ds : OUT STD_LOGIC;
+		 Nerror : OUT STD_LOGIC;
+		 B_0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 B_1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 B_2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 B_3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 B_mux : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 DS_reg : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 Lamb1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 Lamb2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 Lamb3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 Lamb4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		 OmegaOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+		 OmegaOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 S0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 S1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 S2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 S3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 S4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -105,14 +128,15 @@ SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
 
 
 BEGIN 
-di <= SYNTHESIZED_WIRE_8;
-loadS <= SYNTHESIZED_WIRE_1;
-loadB <= SYNTHESIZED_WIRE_2;
-loadC <= SYNTHESIZED_WIRE_3;
-clearS <= SYNTHESIZED_WIRE_4;
-clearB <= SYNTHESIZED_WIRE_5;
-clearC <= SYNTHESIZED_WIRE_6;
-MuxSel <= SYNTHESIZED_WIRE_7;
+di <= SYNTHESIZED_WIRE_1;
+loadS <= SYNTHESIZED_WIRE_2;
+loadB <= SYNTHESIZED_WIRE_3;
+loadC <= SYNTHESIZED_WIRE_4;
+clearS <= SYNTHESIZED_WIRE_5;
+clearB <= SYNTHESIZED_WIRE_6;
+clearC <= SYNTHESIZED_WIRE_7;
+MuxSel <= SYNTHESIZED_WIRE_8;
+Nerror <= SYNTHESIZED_WIRE_0;
 
 
 
@@ -124,35 +148,46 @@ PORT MAP(clock => Clock,
 		 count4 => Count4,
 		 count8 => Count8,
 		 inicia => Inicia,
-		 di => SYNTHESIZED_WIRE_8,
-		 loadS => SYNTHESIZED_WIRE_1,
-		 loadB => SYNTHESIZED_WIRE_2,
-		 loadC => SYNTHESIZED_WIRE_3,
-		 clearS => SYNTHESIZED_WIRE_4,
-		 clearB => SYNTHESIZED_WIRE_5,
-		 clearC => SYNTHESIZED_WIRE_6,
-		 muxSel => SYNTHESIZED_WIRE_7,
+		 di => SYNTHESIZED_WIRE_1,
+		 loadS => SYNTHESIZED_WIRE_2,
+		 loadB => SYNTHESIZED_WIRE_3,
+		 loadC => SYNTHESIZED_WIRE_4,
+		 clearS => SYNTHESIZED_WIRE_5,
+		 clearB => SYNTHESIZED_WIRE_6,
+		 clearC => SYNTHESIZED_WIRE_7,
+		 muxSel => SYNTHESIZED_WIRE_8,
 		 registra => Registra,
 		 test_state => Test_state);
 
 
-b2v_inst1 : berlekamp_massey
-PORT MAP(LoadS => SYNTHESIZED_WIRE_1,
-		 LoadB => SYNTHESIZED_WIRE_2,
-		 LoadC => SYNTHESIZED_WIRE_3,
-		 ClearS => SYNTHESIZED_WIRE_4,
-		 ClearB => SYNTHESIZED_WIRE_5,
-		 ClearC => SYNTHESIZED_WIRE_6,
-		 MuxSel => SYNTHESIZED_WIRE_7,
-		 DsIn => SYNTHESIZED_WIRE_8,
+b2v_inst2 : berlekamp_massey
+PORT MAP(DsIn => SYNTHESIZED_WIRE_1,
+		 LoadS => SYNTHESIZED_WIRE_2,
+		 LoadB => SYNTHESIZED_WIRE_3,
+		 LoadC => SYNTHESIZED_WIRE_4,
+		 ClearS => SYNTHESIZED_WIRE_5,
+		 ClearB => SYNTHESIZED_WIRE_6,
+		 ClearC => SYNTHESIZED_WIRE_7,
+		 MuxSel => SYNTHESIZED_WIRE_8,
 		 Clock => Clock,
 		 SIn => Input,
-		 ds => SYNTHESIZED_WIRE_0,
-		 Lamb1 => Lambda4,
-		 Lamb2 => Lambda3,
-		 Lamb3 => Lambda2,
-		 Lamb4 => Lambda1,
-		 OmegaOut => Omega);
+		 Nerror => SYNTHESIZED_WIRE_0,
+		 B_0 => B_0,
+		 B_1 => B_1,
+		 B_2 => B_2,
+		 B_3 => B_3,
+		 B_mux => B_mux,
+		 DS_reg => DS_reg,
+		 Lamb1 => Lambda1,
+		 Lamb2 => Lambda2,
+		 Lamb3 => Lambda3,
+		 Lamb4 => Lambda4,
+		 OmegaOut => Omega,
+		 S0 => S0,
+		 S1 => S1,
+		 S2 => S2,
+		 S3 => S3,
+		 S4 => S4);
 
 
 END bdf_type;

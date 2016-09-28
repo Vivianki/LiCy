@@ -357,7 +357,7 @@ function xor (x, y){
 	return output;
 }
 
-var input = ["0010", "0001", "1001", "0010", "1000", "0010", "1010"];
+var input = ["1101", "0011", "0110", "0010", "1000", "0010", "1110"];
 var reg1 = "0000";
 var reg2 = "0000";
 var reg3 = "0000";
@@ -405,8 +405,8 @@ for (var i = 6; i >= 0; i--){
 
 console.log(reg1+","+reg2+","+reg3+","+reg4+","+reg5+","+reg6+","+reg7+","+reg8);
 
-												//var input = ["0010", "0001", "1001", "0010", "1000", "0010", "1010"];
- var input2 = [reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, "1101", "0011", "0110", "0010", "1011", "0010", "1110"];
+												//var input = ["1101", "0011", "0110", "0010", "1000", "0010", "1110"];
+ var input2 = [reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, "1101", "0111", "0110", "0010", "0111", "0010", "1101"];
  
  console.log("Input errado: " + input2);
 
@@ -685,6 +685,13 @@ for(var k = 0; k < 8; k++){
 					)
 				);
 	
+	console.log("Omega"+ (k+1) +": " + regdn);
+	
+	var lambda = [creg0, creg1, creg2, creg3];
+	console.log("lambda" + (k+1) + " :" + lambda);
+	var barray = [breg0, breg1, breg2, breg3];
+	console.log("B" + (k+1) + " :" + barray);
+	
 	regaux = gfmultiplication(regdi, regdn);
 	
 	creg0a = xor(creg0, gfmultiplication(breg0, regaux));
@@ -692,11 +699,12 @@ for(var k = 0; k < 8; k++){
 	creg2a = xor(creg2, gfmultiplication(breg2, regaux));
 	creg3a = xor(creg3, gfmultiplication(breg3, regaux));
 	
-	if(regdn == "0000" || l%2 == 1){
+	if(regdn == "0000" || k%2 == 1){ /*ds = 1 OR par*/
 		breg0a = breg3;
 		breg1a = breg0;
 		breg2a = breg1;
 		breg3a = breg2;
+		/*di = 0*/
 	}
 	else{
 		regdi = gfinvert(regdn);
@@ -716,9 +724,7 @@ for(var k = 0; k < 8; k++){
 	creg2 = creg2a;
 	creg3 = creg3a;
 	
-	var lambda = [creg0, creg1, creg2, creg3];
 	
-	console.log("lambda" + k + " :" + lambda);
 	//console.log(lambda);
 	
 	sreg4 = sreg3;
@@ -817,8 +823,8 @@ for(var m = 14; m >= 8; m--){
 		input2[m] = xor(input2[m], gfmultiplication(chienVal, chienLocRO));
 	
 }
-
-console.log(input2);
+console.log("Certo: 	" + input);
+console.log("Corrigido: " + input2.slice(8, 15));
 
 
 

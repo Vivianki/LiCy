@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -56,7 +56,7 @@ agreement for further details.
 	(input)
 	(rect 304 -56 472 -40)
 	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
-	(text "Load" (rect 5 0 39 14)(font "Arial" ))
+	(text "Load" (rect 5 0 38 14)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -72,7 +72,7 @@ agreement for further details.
 	(input)
 	(rect 288 -256 472 -240)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb0[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb0[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -88,7 +88,7 @@ agreement for further details.
 	(input)
 	(rect 288 -224 472 -208)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb2[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb2[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -104,7 +104,7 @@ agreement for further details.
 	(input)
 	(rect 288 -192 472 -176)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb3[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb3[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -120,7 +120,7 @@ agreement for further details.
 	(input)
 	(rect 288 -160 472 -144)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb1[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb1[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -131,6 +131,22 @@ agreement for further details.
 		(line (pt 125 12)(pt 129 8))
 	)
 	(text "VCC" (rect 144 7 168 18)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 296 -128 464 -112)
+	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
+	(text "Clock" (rect 5 0 47 14)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 152 18)(font "Arial" (font_size 6)))
 )
 (pin
 	(output)
@@ -1379,10 +1395,6 @@ agreement for further details.
 	(pt 1032 608)
 )
 (connector
-	(pt 1032 176)
-	(pt 1032 464)
-)
-(connector
 	(pt 1032 464)
 	(pt 1032 608)
 )
@@ -1398,6 +1410,18 @@ agreement for further details.
 	(pt 960 568)
 	(pt 1280 568)
 	(bus)
+)
+(connector
+	(pt 464 -120)
+	(pt 1032 -120)
+)
+(connector
+	(pt 1032 -120)
+	(pt 1032 176)
+)
+(connector
+	(pt 1032 176)
+	(pt 1032 464)
 )
 (junction (pt -184 128))
 (junction (pt -192 392))
@@ -1415,3 +1439,4 @@ agreement for further details.
 (junction (pt 520 -8))
 (junction (pt 1032 464))
 (junction (pt 1240 416))
+(junction (pt 1032 176))

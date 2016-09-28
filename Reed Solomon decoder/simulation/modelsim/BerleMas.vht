@@ -55,6 +55,18 @@ SIGNAL MuxSel : STD_LOGIC;
 SIGNAL Registra : STD_LOGIC;
 SIGNAL Reset : STD_LOGIC;
 SIGNAL test_state : STD_LOGIC_VECTOR(4 DOWNTO 0);
+SIGNAL B_0 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL B_1 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL B_2 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL B_3 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL B_mux :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL DS_reg :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Nerror :  STD_LOGIC;
+SIGNAL S0 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL S1 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL S2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL S3 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL S4 :    STD_LOGIC_VECTOR(3 DOWNTO 0);
 COMPONENT BerleMas
 	PORT (
 	clearB : OUT STD_LOGIC;
@@ -78,13 +90,36 @@ COMPONENT BerleMas
 	MuxSel : OUT STD_LOGIC;
 	Registra : OUT STD_LOGIC;
 	Reset : IN STD_LOGIC;
-	test_state : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+	test_state : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+	B_0 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	B_1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	B_2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	B_3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	B_mux :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	DS_reg :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Nerror : OUT STD_LOGIC;
+	S0 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S4 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
 	
 	);
 END COMPONENT;
 BEGIN
 	i1 : BerleMas
 	PORT MAP (
+	B_0 => B_0,
+	B_1 => B_1,
+	B_2 => B_2,
+	B_3 => B_3,
+	B_mux => B_mux,
+	S0 => S0,
+	S1 => S1,
+	S2 => S2,
+	S3 => S3,
+	S4 => S4,
+	DS_reg => DS_reg,
 -- list connections between master ports and signals
 	clearB => clearB,
 	clearC => clearC,
@@ -107,7 +142,8 @@ BEGIN
 	MuxSel => MuxSel,
 	Registra => Registra,
 	Reset => Reset,
-	test_state => test_state
+	test_state => test_state,
+	Nerror => Nerror
 	);
 	
 init : PROCESS                                               
@@ -124,7 +160,7 @@ END PROCESS init;
 impar_generation : PROCESS                                               
 -- variable declarations                                     
 BEGIN  
-		wait for 130 ns;
+		wait for 300 ns;
 		Impar <= '1';
 		wait for 200 ns;
 		Impar <= '0';
@@ -202,7 +238,7 @@ BEGIN
 		Reset <= '1';
 		Inicia <= '0';
 		Input <= "0000";
-		wait for 200 ns;
+		wait for 100 ns;
 		
 		Count4 <= '0';
 		Count8 <= '0';
@@ -231,42 +267,28 @@ BEGIN
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "0101";
+		Input <= "1000";
 		wait for 200 ns;
 		
 		Count4 <= '0';
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "1010";
+		Input <= "1100";
 		wait for 200 ns;
 		
 		Count4 <= '0';
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "0110";
+		Input <= "1110";
 		wait for 200 ns;
 		
 		Count4 <= '1';
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "0000";
-		wait for 200 ns;
-		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
-		Input <= "1111";
-		wait for 200 ns;
-		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
-		Input <= "0001";
+		Input <= "0011";
 		wait for 200 ns;
 		
 		Count4 <= '0';
@@ -277,10 +299,24 @@ BEGIN
 		wait for 200 ns;
 		
 		Count4 <= '0';
+		Count8 <= '0';
+		Reset <= '0';
+		Inicia <= '0';
+		Input <= "0010";
+		wait for 200 ns;
+		
+		Count4 <= '0';
+		Count8 <= '0';
+		Reset <= '0';
+		Inicia <= '0';
+		Input <= "1001";
+		wait for 200 ns;
+		
+		Count4 <= '0';
 		Count8 <= '1';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "0111";
+		Input <= "0101";
 		wait for 200 ns;
 		
 		-- clear syn:
@@ -305,28 +341,28 @@ BEGIN
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "0101";
+		Input <= "1000";
 		wait for 200 ns;
 		
 		Count4 <= '0';
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "1010";
+		Input <= "1100";
 		wait for 200 ns;
 		
 		Count4 <= '0';
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "0110";
+		Input <= "1110";
 		wait for 200 ns;
 		
 		Count4 <= '1';
 		Count8 <= '0';
 		Reset <= '0';
 		Inicia <= '0';
-		Input <= "0000";
+		Input <= "0011";
 		wait for 200 ns;
 		
 		-- store:
