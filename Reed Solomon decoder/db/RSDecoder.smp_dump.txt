@@ -1,11 +1,6 @@
 
-State Machine - |BerleMas|BerlekampController:b2v_inst|estadoAtual
-Name estadoAtual.store estadoAtual.avaliador2 estadoAtual.avaliador estadoAtual.clearSyn estadoAtual.localizador2 estadoAtual.localizador estadoAtual.idle2 estadoAtual.idle 
-estadoAtual.idle 0 0 0 0 0 0 0 0 
-estadoAtual.idle2 0 0 0 0 0 0 1 1 
-estadoAtual.localizador 0 0 0 0 0 1 0 1 
-estadoAtual.localizador2 0 0 0 0 1 0 0 1 
-estadoAtual.clearSyn 0 0 0 1 0 0 0 1 
-estadoAtual.avaliador 0 0 1 0 0 0 0 1 
-estadoAtual.avaliador2 0 1 0 0 0 0 0 1 
-estadoAtual.store 1 0 0 0 0 0 0 1 
+State Machine - |Chien|ChienController:b2v_inst|estadoAtual
+Name estadoAtual.mux estadoAtual.idle2 estadoAtual.idle 
+estadoAtual.idle 0 0 0 
+estadoAtual.idle2 0 1 1 
+estadoAtual.mux 1 0 1 

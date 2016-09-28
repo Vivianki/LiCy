@@ -1,5 +1,5 @@
 Flow report for RSDecoder
-Tue Sep 27 22:37:25 2016
+Wed Sep 28 01:28:00 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Sep 27 22:37:25 2016       ;
+; Flow Status                        ; Successful - Wed Sep 28 01:28:00 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; RSDecoder                                   ;
-; Top-level Entity Name              ; BerleMas                                    ;
+; Top-level Entity Name              ; Chien                                       ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE30F23C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 520 / 28,848 ( 2 % )                        ;
-;     Total combinational functions  ; 517 / 28,848 ( 2 % )                        ;
-;     Dedicated logic registers      ; 64 / 28,848 ( < 1 % )                       ;
-; Total registers                    ; 64                                          ;
-; Total pins                         ; 89 / 329 ( 27 % )                           ;
+; Total logic elements               ; 41 / 28,848 ( < 1 % )                       ;
+;     Total combinational functions  ; 29 / 28,848 ( < 1 % )                       ;
+;     Dedicated logic registers      ; 33 / 28,848 ( < 1 % )                       ;
+; Total registers                    ; 33                                          ;
+; Total pins                         ; 50 / 329 ( 15 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/27/2016 22:36:25 ;
+; Start date & time ; 09/28/2016 01:26:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; RSDecoder           ;
 +-------------------+---------------------+
@@ -76,35 +76,39 @@ agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id       ;
 +--------------------------------------+---------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID                ; 264705668682785.147502658509392       ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID                ; 264705668682785.147503677808076       ; --            ; --          ; --               ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; Syndrome_vhd_tst ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; berlemast2       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; berlemastest     ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; berlemast2                            ; --            ; --          ; eda_simulation   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; Chien            ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; Chien                                 ; --            ; --          ; eda_simulation   ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_simulation   ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --               ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation   ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/Syndrome.vht      ; --            ; --          ; Syndrome_vhd_tst ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/BerleMas.vht      ; --            ; --          ; berlemast2       ;
 ; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/BerleMas.vht      ; --            ; --          ; berlemastest     ;
+; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/Chien.vht         ; --            ; --          ; Chien            ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; Syndrome                              ; --            ; --          ; Syndrome_vhd_tst ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; BerleMas                              ; --            ; --          ; berlemast2       ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; BerleMas                              ; --            ; --          ; berlemastest     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Chien                                 ; --            ; --          ; Chien            ;
 ; EDA_TEST_BENCH_NAME                  ; Syndrome_vhd_tst                      ; --            ; --          ; eda_simulation   ;
 ; EDA_TEST_BENCH_NAME                  ; berlemastest                          ; --            ; --          ; eda_simulation   ;
 ; EDA_TEST_BENCH_NAME                  ; berlemast2                            ; --            ; --          ; eda_simulation   ;
+; EDA_TEST_BENCH_NAME                  ; Chien                                 ; --            ; --          ; eda_simulation   ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 us                                ; --            ; --          ; Syndrome_vhd_tst ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 us                                ; --            ; --          ; berlemastest     ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --               ;
 ; NUM_PARALLEL_PROCESSORS              ; 4                                     ; --            ; --          ; --               ;
-; PARTITION_COLOR                      ; 16764057                              ; --            ; BerleMas    ; Top              ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; BerleMas    ; Top              ;
-; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; BerleMas    ; Top              ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; Chien       ; Top              ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; Chien       ; Top              ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; Chien       ; Top              ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --               ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --               ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --               ;
-; TOP_LEVEL_ENTITY                     ; BerleMas                              ; RSDecoder     ; --          ; --               ;
+; TOP_LEVEL_ENTITY                     ; Chien                                 ; RSDecoder     ; --          ; --               ;
 +--------------------------------------+---------------------------------------+---------------+-------------+------------------+
 
 
@@ -113,12 +117,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:25     ; 1.0                     ; 902 MB              ; 00:00:39                           ;
-; Fitter                    ; 00:00:19     ; 1.0                     ; 1707 MB             ; 00:00:23                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 776 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.1                     ; 912 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 754 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:52     ; --                      ; --                  ; 00:01:09                           ;
+; Analysis & Synthesis      ; 00:00:43     ; 1.0                     ; 900 MB              ; 00:01:46                           ;
+; Fitter                    ; 00:00:32     ; 1.0                     ; 1700 MB             ; 00:00:41                           ;
+; Assembler                 ; 00:00:06     ; 1.0                     ; 779 MB              ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.0                     ; 901 MB              ; 00:00:08                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 744 MB              ; 00:00:04                           ;
+; Total                     ; 00:01:32     ; --                      ; --                  ; 00:02:46                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

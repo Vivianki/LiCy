@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Tue Sep 27 22:36:50 2016
+Analysis & Synthesis Status : Successful - Wed Sep 28 01:27:00 2016
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : RSDecoder
-Top-level Entity Name : BerleMas
+Top-level Entity Name : Chien
 Family : Cyclone IV E
-Total logic elements : 537
-    Total combinational functions : 517
-    Dedicated logic registers : 64
-Total registers : 64
-Total pins : 89
+Total logic elements : 45
+    Total combinational functions : 29
+    Dedicated logic registers : 33
+Total registers : 33
+Total pins : 50
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

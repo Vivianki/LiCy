@@ -136,7 +136,7 @@ agreement for further details.
 	(input)
 	(rect 296 -128 464 -112)
 	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
-	(text "Clock" (rect 5 0 47 14)(font "Arial" ))
+	(text "Clock" (rect 5 0 46 14)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -1169,10 +1169,6 @@ agreement for further details.
 	(pt 8 408)
 )
 (connector
-	(pt -8 160)
-	(pt 32 160)
-)
-(connector
 	(pt -8 176)
 	(pt 40 176)
 )
@@ -1189,18 +1185,6 @@ agreement for further details.
 	(pt 8 144)
 )
 (connector
-	(pt 0 424)
-	(pt 32 424)
-)
-(connector
-	(pt 32 16)
-	(pt 32 160)
-)
-(connector
-	(pt 32 160)
-	(pt 32 424)
-)
-(connector
 	(pt 928 160)
 	(pt 1040 160)
 )
@@ -1211,14 +1195,6 @@ agreement for further details.
 (connector
 	(pt 488 -24)
 	(pt 488 16)
-)
-(connector
-	(pt 928 16)
-	(pt 488 16)
-)
-(connector
-	(pt 488 16)
-	(pt 32 16)
 )
 (connector
 	(pt 520 -8)
@@ -1423,6 +1399,30 @@ agreement for further details.
 	(pt 1032 176)
 	(pt 1032 464)
 )
+(connector
+	(pt 0 424)
+	(pt 24 424)
+)
+(connector
+	(pt -8 160)
+	(pt 24 160)
+)
+(connector
+	(pt 24 16)
+	(pt 24 160)
+)
+(connector
+	(pt 24 160)
+	(pt 24 424)
+)
+(connector
+	(pt 24 16)
+	(pt 488 16)
+)
+(connector
+	(pt 488 16)
+	(pt 928 16)
+)
 (junction (pt -184 128))
 (junction (pt -192 392))
 (junction (pt 1216 128))
@@ -1433,10 +1433,10 @@ agreement for further details.
 (junction (pt 8 144))
 (junction (pt 40 440))
 (junction (pt 1016 144))
-(junction (pt 32 160))
 (junction (pt 928 160))
 (junction (pt 488 16))
 (junction (pt 520 -8))
 (junction (pt 1032 464))
 (junction (pt 1240 416))
 (junction (pt 1032 176))
+(junction (pt 24 160))

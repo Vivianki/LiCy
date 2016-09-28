@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:58 on Sep 27,2016
+# Start time: 01:30:35 on Sep 28,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -21,11 +21,59 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity register4b
 # -- Compiling architecture description of register4b
-# End time: 22:39:58 on Sep 27,2016, Elapsed time: 0:00:00
+# End time: 01:30:35 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:30:35 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_8
+# -- Compiling architecture behavior of static_8
+# End time: 01:30:35 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:30:35 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_4
+# -- Compiling architecture behavior of static_4
+# End time: 01:30:35 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:30:35 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_3
+# -- Compiling architecture behavior of static_3
+# End time: 01:30:36 on Sep 28,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:30:36 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity static_2
+# -- Compiling architecture behavior of static_2
+# End time: 01:30:36 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:58 on Sep 27,2016
+# Start time: 01:30:36 on Sep 28,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -33,11 +81,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_1
 # -- Compiling architecture behavior of static_1
-# End time: 22:39:58 on Sep 27,2016, Elapsed time: 0:00:00
+# End time: 01:30:36 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:58 on Sep 27,2016
+# Start time: 01:30:36 on Sep 28,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -45,11 +93,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_sum
 # -- Compiling architecture behavior of gf_sum
-# End time: 22:39:58 on Sep 27,2016, Elapsed time: 0:00:00
+# End time: 01:30:37 on Sep 28,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:58 on Sep 27,2016
+# Start time: 01:30:37 on Sep 28,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -57,728 +105,338 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_mult
 # -- Compiling architecture lut of gf_mult
-# End time: 22:39:58 on Sep 27,2016, Elapsed time: 0:00:00
+# End time: 01:30:37 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:59 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd 
+# Start time: 01:30:37 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity gf_inv
-# -- Compiling architecture lut of gf_inv
-# End time: 22:39:59 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:59 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerlekampController
-# -- Compiling architecture comportamental of BerlekampController
-# End time: 22:39:59 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:59 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerleMas
-# -- Compiling architecture bdf_type of BerleMas
-# End time: 22:39:59 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:59 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Berlekamp_Massey
-# -- Compiling architecture bdf_type of Berlekamp_Massey
-# End time: 22:39:59 on Sep 27,2016, Elapsed time: 0:00:00
+# -- Compiling entity ChienController
+# -- Compiling architecture comportamental of ChienController
+# End time: 01:30:37 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:59 on Sep 27,2016
+# Start time: 01:30:37 on Sep 28,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Mux2x1
 # -- Compiling architecture Mux2x1 of Mux2x1
-# End time: 22:39:59 on Sep 27,2016, Elapsed time: 0:00:00
+# End time: 01:30:38 on Sep 28,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# 
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:39:59 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# Start time: 01:30:38 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 22:39:59 on Sep 27,2016, Elapsed time: 0:00:00
+# -- Compiling entity ChienSearchLocation
+# -- Compiling architecture bdf_type of ChienSearchLocation
+# End time: 01:30:38 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:30:38 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ChienSearchValue
+# -- Compiling architecture bdf_type of ChienSearchValue
+# End time: 01:30:38 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:30:38 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Chien
+# -- Compiling architecture bdf_type of Chien
+# End time: 01:30:39 on Sep 28,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  BerleMas
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" BerleMas 
-# Start time: 22:39:59 on Sep 27,2016
+# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:30:39 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# End time: 01:30:39 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  Chien
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" Chien 
+# Start time: 01:30:39 on Sep 28,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.berlemas(bdf_type)
-# Loading work.berlekampcontroller(comportamental)
-# Loading work.berlekamp_massey(bdf_type)
+# Loading work.chien(bdf_type)
+# Loading work.chiencontroller(comportamental)
+# Loading work.chiensearchlocation(bdf_type)
+# Loading work.mux2x1(mux2x1)
+# Loading ieee.numeric_std(body)
+# Loading work.gf_mult(lut)
+# Loading work.gf_sum(behavior)
+# Loading work.static_1(behavior)
+# Loading work.static_2(behavior)
+# Loading work.static_8(behavior)
+# Loading work.static_4(behavior)
+# Loading work.static_3(behavior)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading work.gf_mult(lut)
-# Loading work.mux2x1(mux2x1)
-# Loading work.gf_sum(behavior)
-# Loading work.static_1(behavior)
-# Loading work.gf_inv(lut)
+# Loading work.chiensearchvalue(bdf_type)
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlftk879it".
+#           Attempting to use alternate WLF file "./wlftdk33z8".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftk879it
+#           Using alternate file: ./wlftdk33z8
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-vsim rtl_work.birl_tst
-# End time: 22:40:15 on Sep 27,2016, Elapsed time: 0:00:16
-# Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 22:40:15 on Sep 27,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# ** Error: (vsim-3732) C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht(111): No default binding for component instance 'i1'.
-# 
-#    The following component port is not on the entity:
-#           Lambda1
-#    Time: 0 ps  Iteration: 0  Instance: /birl_tst/i1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-# Error loading design
-# End time: 22:40:15 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:40:24 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# Start time: 01:31:22 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 22:40:24 on Sep 27,2016, Elapsed time: 0:00:00
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# End time: 01:31:23 on Sep 28,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# vsim rtl_work.birl_tst 
-# Start time: 22:40:27 on Sep 27,2016
+vsim rtl_work.chien_vhd_tst
+# End time: 01:31:30 on Sep 28,2016, Elapsed time: 0:00:51
+# Errors: 0, Warnings: 2
+# vsim rtl_work.chien_vhd_tst 
+# Start time: 01:31:30 on Sep 28,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# ** Error: (vsim-3732) C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht(111): No default binding for component instance 'i1'.
-# 
-#    The following component port is not on the entity:
-#           Lambda1
-#    Time: 0 ps  Iteration: 0  Instance: /birl_tst/i1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading rtl_work.chien_vhd_tst(chien_arch)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-# Error loading design
-# End time: 22:40:27 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+# Loading rtl_work.chiensearchvalue(bdf_type)
+add wave -position end sim:/chien_vhd_tst/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlftm5dc8v".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftm5dc8v
+# 
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:46:12 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# Start time: 01:38:19 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# ** Error: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht(69): near "COMPONENT": (vcom-1576) expecting ';'.
-# 
-# End time: 22:46:12 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# ** Error: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht(128): near "'": syntax error
+# ** Error: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht(133): VHDL Compiler exiting
+# End time: 01:38:19 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
 # C:/altera_lite/16.0/modelsim_ase/win32aloem/vcom failed.
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:46:44 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# Start time: 01:39:00 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 22:46:44 on Sep 27,2016, Elapsed time: 0:00:00
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# End time: 01:39:00 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:47:28 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 22:47:28 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# vsim rtl_work.birl_tst 
-# Start time: 22:47:33 on Sep 27,2016
+vsim rtl_work.chien_vhd_tst
+# End time: 01:39:05 on Sep 28,2016, Elapsed time: 0:07:35
+# Errors: 3, Warnings: 2
+# vsim rtl_work.chien_vhd_tst 
+# Start time: 01:39:05 on Sep 28,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# ** Error: (vsim-3732) C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht(143): No default binding for component instance 'i1'.
-# 
-#    The following component port is not on the entity:
-#           Lambda1
-#    Time: 0 ps  Iteration: 0  Instance: /birl_tst/i1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading rtl_work.chien_vhd_tst(chien_arch)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-# Error loading design
-# End time: 22:47:33 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:47:45 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Berlekamp_Massey
-# -- Compiling architecture bdf_type of Berlekamp_Massey
-# End time: 22:47:45 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:47:50 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerlekampController
-# -- Compiling architecture comportamental of BerlekampController
-# End time: 22:47:50 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:47:53 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerleMas
-# -- Compiling architecture bdf_type of BerleMas
-# End time: 22:47:53 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:47:55 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 22:47:55 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# vsim rtl_work.birl_tst 
-# Start time: 22:47:57 on Sep 27,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# ** Error: (vsim-3732) C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht(143): No default binding for component instance 'i1'.
-# 
-#    The following component port is not on the entity:
-#           Lambda1
-#    Time: 0 ps  Iteration: 0  Instance: /birl_tst/i1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-# Error loading design
-# End time: 22:47:57 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:49:07 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerleMas
-# -- Compiling architecture bdf_type of BerleMas
-# End time: 22:49:07 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# vsim rtl_work.birl_tst 
-# Start time: 22:49:10 on Sep 27,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
+# Loading rtl_work.chiensearchvalue(bdf_type)
+add wave -position end sim:/chien_vhd_tst/*
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlftrbh8g5".
+#           Attempting to use alternate WLF file "./wlftfd5ixs".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftrbh8g5
+#           Using alternate file: ./wlftfd5ixs
 # 
 run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:53:11 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
+# Start time: 01:44:43 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity Berlekamp_Massey
-# -- Compiling architecture bdf_type of Berlekamp_Massey
-# End time: 22:53:11 on Sep 27,2016, Elapsed time: 0:00:00
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# End time: 01:44:43 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:53:17 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# Start time: 01:44:48 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 22:53:17 on Sep 27,2016, Elapsed time: 0:00:00
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# End time: 01:44:48 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# End time: 22:53:19 on Sep 27,2016, Elapsed time: 0:04:09
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
+# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 01:48:05 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# End time: 01:48:05 on Sep 28,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.chien_vhd_tst
+# End time: 01:48:10 on Sep 28,2016, Elapsed time: 0:09:05
 # Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 22:53:19 on Sep 27,2016
+# vsim rtl_work.chien_vhd_tst 
+# Start time: 01:48:10 on Sep 28,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading rtl_work.chien_vhd_tst(chien_arch)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
+# Loading rtl_work.chiensearchvalue(bdf_type)
+add wave -position end sim:/chien_vhd_tst/*
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlft3si0hj".
+#           Attempting to use alternate WLF file "./wlft56m87y".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft3si0hj
+#           Using alternate file: ./wlft56m87y
 # 
 run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
+run
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:55:55 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
+# Start time: 01:53:18 on Sep 28,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/Chien.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 22:55:55 on Sep 27,2016, Elapsed time: 0:00:00
+# -- Compiling entity Chien_vhd_tst
+# -- Compiling architecture Chien_arch of Chien_vhd_tst
+# End time: 01:53:18 on Sep 28,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# End time: 22:55:58 on Sep 27,2016, Elapsed time: 0:02:39
+vsim rtl_work.chien_vhd_tst
+# End time: 01:53:54 on Sep 28,2016, Elapsed time: 0:05:44
 # Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 22:55:58 on Sep 27,2016
+# vsim rtl_work.chien_vhd_tst 
+# Start time: 01:53:54 on Sep 28,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading rtl_work.chien_vhd_tst(chien_arch)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
+# Loading rtl_work.chiensearchvalue(bdf_type)
+add wave -position end sim:/chien_vhd_tst/*
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlft120ghj".
+#           Attempting to use alternate WLF file "./wlft50w34x".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft120ghj
+#           Using alternate file: ./wlft50w34x
 # 
 run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:03:27 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 23:03:28 on Sep 27,2016, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# End time: 23:03:32 on Sep 27,2016, Elapsed time: 0:07:34
-# Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 23:03:32 on Sep 27,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
-# 
-#           Attempting to use alternate WLF file "./wlfti45xnd".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlfti45xnd
-# 
-run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:22:10 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerlekampController
-# -- Compiling architecture comportamental of BerlekampController
-# End time: 23:22:10 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# End time: 23:22:13 on Sep 27,2016, Elapsed time: 0:18:41
-# Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 23:22:13 on Sep 27,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-vsim rtl_work.birl_tst
-# End time: 23:22:18 on Sep 27,2016, Elapsed time: 0:00:05
-# Errors: 0, Warnings: 0
-# vsim rtl_work.birl_tst 
-# Start time: 23:22:18 on Sep 27,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
-# 
-#           Attempting to use alternate WLF file "./wlftkdaikd".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlftkdaikd
-# 
-run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:25:13 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerlekampController
-# -- Compiling architecture comportamental of BerlekampController
-# End time: 23:25:13 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:25:18 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity BerleMas
-# -- Compiling architecture bdf_type of BerleMas
-# End time: 23:25:18 on Sep 27,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:25:20 on Sep 27,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 23:25:21 on Sep 27,2016, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# End time: 23:25:22 on Sep 27,2016, Elapsed time: 0:03:04
-# Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 23:25:22 on Sep 27,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
-# 
-#           Attempting to use alternate WLF file "./wlfta4b37s".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlfta4b37s
-# 
-run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:07:13 on Sep 28,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 00:07:13 on Sep 28,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# End time: 00:07:17 on Sep 28,2016, Elapsed time: 0:41:55
-# Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 00:07:17 on Sep 28,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-vsim rtl_work.birl_tst
-# End time: 00:07:44 on Sep 28,2016, Elapsed time: 0:00:27
-# Errors: 0, Warnings: 0
-# vsim rtl_work.birl_tst 
-# Start time: 00:07:44 on Sep 28,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
-# 
-#           Attempting to use alternate WLF file "./wlftzh2r3a".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlftzh2r3a
-# 
-run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:17:17 on Sep 28,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/BerleMas.vht 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity birl_tst
-# -- Compiling architecture BerleMas_arch of birl_tst
-# End time: 00:17:17 on Sep 28,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim rtl_work.birl_tst
-# End time: 00:17:22 on Sep 28,2016, Elapsed time: 0:09:38
-# Errors: 0, Warnings: 2
-# vsim rtl_work.birl_tst 
-# Start time: 00:17:22 on Sep 28,2016
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading rtl_work.birl_tst(berlemas_arch)
-# Loading rtl_work.berlemas(bdf_type)
-# Loading rtl_work.berlekampcontroller(comportamental)
-# Loading rtl_work.berlekamp_massey(bdf_type)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading rtl_work.register4b(description)
-# Loading ieee.numeric_std(body)
-# Loading rtl_work.gf_mult(lut)
-# Loading rtl_work.mux2x1(mux2x1)
-# Loading rtl_work.gf_sum(behavior)
-# Loading rtl_work.static_1(behavior)
-# Loading rtl_work.gf_inv(lut)
-add wave -position end sim:/birl_tst/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
-# 
-#           Attempting to use alternate WLF file "./wlftht8mtq".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlftht8mtq
-# 
-run
-# End time: 00:33:37 on Sep 28,2016, Elapsed time: 0:16:15
+# End time: 02:14:55 on Sep 28,2016, Elapsed time: 0:21:01
 # Errors: 0, Warnings: 2

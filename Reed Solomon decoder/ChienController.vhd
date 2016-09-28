@@ -18,7 +18,7 @@ entity ChienController is
 end ChienController;
 
 architecture comportamental of ChienController is
-  type estados is (idle, mux);
+  type estados is (idle, idle2, mux);
 	--! Variáveis de estado
   signal estadoAtual, proximoEstado : estados;
 begin
@@ -41,11 +41,21 @@ begin
 				if inicia = '1' then
 					proximoEstado <= mux;
 				else
-					proximoEstado <= idle;
+					proximoEstado <= idle2;
 				end if;
+			
+			when idle2 =>
+				muxSel <= '1';
+				if inicia = '1' then
+					proximoEstado <= mux;
+				else
+					proximoEstado <= idle;
+				end if;	
+			
 			when mux =>
 				muxSel <= '0';
-				proximoEstado <= idle;				
+				proximoEstado <= idle;
+				
 		end case;
 	end process; -- geraSaida
 end comportamental;
