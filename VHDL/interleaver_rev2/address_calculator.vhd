@@ -11,6 +11,7 @@ port(
 	depth: in std_logic_vector(6 downto 0);
 	shift_depth: in std_logic_vector(6 downto 0);
 	count:	out std_logic_vector(11 downto 0);
+	iterator_out: out  std_logic_vector(3 downto 0);
 	carry:	out std_logic 
 );
 end address_calculator;
@@ -31,7 +32,7 @@ begin
 			carry <= '0';
 		elsif (rising_edge(clock)) then
 			Pre_Q <= ("00000" & shift_depth); -- get shifted index
-			if (iterator <= "1111") then
+			if (iterator <= "1110") then
 				Pre_Q <= Pre_Q + ("00000" & depth); -- add to depth
 				iterator <= iterator + 1;
 				carry <= '0';
@@ -44,6 +45,7 @@ begin
 	end process;	
 
 	count <= Pre_Q;
+	iterator_out <= iterator;
 
 end behv;
 

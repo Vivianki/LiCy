@@ -26,7 +26,7 @@ architecture behv of flush_counter is
     begin
     if (enable = '0') then
       Pre_Q <= "000000000000";
-      carry <= '0';
+      carry <= '1';
     elsif (rising_edge(clock)) then
       if Pre_Q <= len then -- flush till end of length
         Pre_Q <= Pre_Q + 1;
