@@ -1,15 +1,15 @@
-Fitter Status : Successful - Wed Sep 28 01:27:34 2016
+Fitter Status : Successful - Fri Sep 30 01:42:53 2016
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : RSDecoder
-Top-level Entity Name : Chien
+Top-level Entity Name : ChienForney
 Family : Cyclone IV E
 Device : EP4CE30F23C8
 Timing Models : Final
-Total logic elements : 41 / 28,848 ( < 1 % )
-    Total combinational functions : 29 / 28,848 ( < 1 % )
-    Dedicated logic registers : 33 / 28,848 ( < 1 % )
-Total registers : 33
-Total pins : 50 / 329 ( 15 % )
+Total logic elements : 102 / 28,848 ( < 1 % )
+    Total combinational functions : 89 / 28,848 ( < 1 % )
+    Dedicated logic registers : 34 / 28,848 ( < 1 % )
+Total registers : 34
+Total pins : 44 / 329 ( 13 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

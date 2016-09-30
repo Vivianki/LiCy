@@ -1,6 +1,6 @@
 
-State Machine - |Chien|ChienController:b2v_inst|estadoAtual
-Name estadoAtual.mux estadoAtual.idle2 estadoAtual.idle 
+State Machine - |ChienForney|Chien:b2v_inst|ChienController:b2v_inst|estadoAtual
+Name estadoAtual.mux2 estadoAtual.mux estadoAtual.idle 
 estadoAtual.idle 0 0 0 
-estadoAtual.idle2 0 1 1 
-estadoAtual.mux 1 0 1 
+estadoAtual.mux 0 1 1 
+estadoAtual.mux2 1 0 1 

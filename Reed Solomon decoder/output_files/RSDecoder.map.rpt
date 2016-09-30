@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RSDecoder
-Wed Sep 28 01:27:00 2016
+Fri Sep 30 01:42:41 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -13,20 +13,21 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Chien|ChienController:b2v_inst|estadoAtual
+  8. State Machine - |ChienForney|Chien:b2v_inst|ChienController:b2v_inst|estadoAtual
   9. Registers Removed During Synthesis
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
- 13. Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
- 14. Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
- 15. Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
- 16. Parameter Settings for User Entity Instance: ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
- 17. Parameter Settings for User Entity Instance: ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
- 18. Parameter Settings for User Entity Instance: ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+ 12. Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
+ 13. Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
+ 14. Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
+ 15. Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
+ 16. Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
+ 17. Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
+ 18. Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
+ 19. Parameter Settings for User Entity Instance: Forney:b2v_inst2|Mux2x1:b2v_inst3
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -53,16 +54,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep 28 01:27:00 2016       ;
+; Analysis & Synthesis Status        ; Successful - Fri Sep 30 01:42:41 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; RSDecoder                                   ;
-; Top-level Entity Name              ; Chien                                       ;
+; Top-level Entity Name              ; ChienForney                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 45                                          ;
-;     Total combinational functions  ; 29                                          ;
-;     Dedicated logic registers      ; 33                                          ;
-; Total registers                    ; 33                                          ;
-; Total pins                         ; 50                                          ;
+; Total logic elements               ; 106                                         ;
+;     Total combinational functions  ; 89                                          ;
+;     Dedicated logic registers      ; 34                                          ;
+; Total registers                    ; 34                                          ;
+; Total pins                         ; 44                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -76,7 +77,7 @@ agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE30F23C8       ;                    ;
-; Top-level entity name                                                      ; Chien              ; RSDecoder          ;
+; Top-level entity name                                                      ; ChienForney        ; RSDecoder          ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Maximum processors allowed for parallel compilation                        ; 4                  ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -188,98 +189,107 @@ agreement for further details.
 ; static_1.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd            ;         ;
 ; gf_sum.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd              ;         ;
 ; gf_mult.vhd                      ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd             ;         ;
+; gf_inv.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd              ;         ;
 ; ChienController.vhd              ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd     ;         ;
+; static_0.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd            ;         ;
 ; Mux2x1.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd              ;         ;
 ; ChienSearchLocation.vhd          ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd ;         ;
 ; ChienSearchValue.vhd             ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd    ;         ;
 ; Chien.vhd                        ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd               ;         ;
+; Forney.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd              ;         ;
+; ChienForney.vhd                  ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd         ;         ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 45          ;
-;                                             ;             ;
-; Total combinational functions               ; 29          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 8           ;
-;     -- 3 input functions                    ; 1           ;
-;     -- <=2 input functions                  ; 20          ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 29          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 33          ;
-;     -- Dedicated logic registers            ; 33          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 50          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 33          ;
-; Total fan-out                               ; 325         ;
-; Average fan-out                             ; 2.01        ;
-+---------------------------------------------+-------------+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                            ;
++---------------------------------------------+----------------------------------------------------------+
+; Resource                                    ; Usage                                                    ;
++---------------------------------------------+----------------------------------------------------------+
+; Estimated Total logic elements              ; 106                                                      ;
+;                                             ;                                                          ;
+; Total combinational functions               ; 89                                                       ;
+; Logic element usage by number of LUT inputs ;                                                          ;
+;     -- 4 input functions                    ; 53                                                       ;
+;     -- 3 input functions                    ; 7                                                        ;
+;     -- <=2 input functions                  ; 29                                                       ;
+;                                             ;                                                          ;
+; Logic elements by mode                      ;                                                          ;
+;     -- normal mode                          ; 89                                                       ;
+;     -- arithmetic mode                      ; 0                                                        ;
+;                                             ;                                                          ;
+; Total registers                             ; 34                                                       ;
+;     -- Dedicated logic registers            ; 34                                                       ;
+;     -- I/O registers                        ; 0                                                        ;
+;                                             ;                                                          ;
+; I/O pins                                    ; 44                                                       ;
+;                                             ;                                                          ;
+; Embedded Multiplier 9-bit elements          ; 0                                                        ;
+;                                             ;                                                          ;
+; Maximum fan-out node                        ; Chien:b2v_inst|ChienController:b2v_inst|estadoAtual.idle ;
+; Maximum fan-out                             ; 34                                                       ;
+; Total fan-out                               ; 498                                                      ;
+; Average fan-out                             ; 2.36                                                     ;
++---------------------------------------------+----------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                             ;
-+------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node         ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name         ; Library Name ;
-+------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
-; |Chien                             ; 29 (0)            ; 33 (0)       ; 0           ; 0            ; 0       ; 0         ; 50   ; 0            ; |Chien                                                    ; Chien               ; work         ;
-;    |ChienController:b2v_inst|      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienController:b2v_inst                           ; ChienController     ; work         ;
-;    |ChienSearchLocation:b2v_inst2| ; 18 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2                      ; ChienSearchLocation ; work         ;
-;       |gf_mult:b2v_inst10|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10   ; gf_mult             ; work         ;
-;       |gf_mult:b2v_inst11|         ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11   ; gf_mult             ; work         ;
-;       |gf_mult:b2v_inst8|          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8    ; gf_mult             ; work         ;
-;       |gf_mult:b2v_inst9|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9    ; gf_mult             ; work         ;
-;       |gf_sum:b2v_inst14|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14    ; gf_sum              ; work         ;
-;       |gf_sum:b2v_inst15|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15    ; gf_sum              ; work         ;
-;       |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4 ; register4b          ; work         ;
-;       |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5 ; register4b          ; work         ;
-;       |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6 ; register4b          ; work         ;
-;       |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7 ; register4b          ; work         ;
-;    |ChienSearchValue:b2v_inst3|    ; 10 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3                         ; ChienSearchValue    ; work         ;
-;       |gf_mult:b2v_inst11|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11      ; gf_mult             ; work         ;
-;       |gf_mult:b2v_inst8|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8       ; gf_mult             ; work         ;
-;       |gf_mult:b2v_inst9|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9       ; gf_mult             ; work         ;
-;       |gf_sum:b2v_inst14|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14       ; gf_sum              ; work         ;
-;       |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst4    ; register4b          ; work         ;
-;       |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst5    ; register4b          ; work         ;
-;       |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst6    ; register4b          ; work         ;
-;       |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst7    ; register4b          ; work         ;
-+------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node            ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                            ; Entity Name         ; Library Name ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+---------------------+--------------+
+; |ChienForney                          ; 89 (2)            ; 34 (0)       ; 0           ; 0            ; 0       ; 0         ; 44   ; 0            ; |ChienForney                                                                   ; ChienForney         ; work         ;
+;    |Chien:b2v_inst|                   ; 28 (0)            ; 34 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst                                                    ; Chien               ; work         ;
+;       |ChienController:b2v_inst|      ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienController:b2v_inst                           ; ChienController     ; work         ;
+;       |ChienSearchLocation:b2v_inst2| ; 17 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2                      ; ChienSearchLocation ; work         ;
+;          |gf_mult:b2v_inst10|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10   ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst11|         ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11   ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst8|          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8    ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst9|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9    ; gf_mult             ; work         ;
+;          |gf_sum:b2v_inst14|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14    ; gf_sum              ; work         ;
+;          |gf_sum:b2v_inst15|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15    ; gf_sum              ; work         ;
+;          |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4 ; register4b          ; work         ;
+;          |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5 ; register4b          ; work         ;
+;          |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6 ; register4b          ; work         ;
+;          |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7 ; register4b          ; work         ;
+;       |ChienSearchValue:b2v_inst3|    ; 10 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3                         ; ChienSearchValue    ; work         ;
+;          |gf_mult:b2v_inst11|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11      ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst8|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8       ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst9|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9       ; gf_mult             ; work         ;
+;          |gf_sum:b2v_inst14|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14       ; gf_sum              ; work         ;
+;          |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4    ; register4b          ; work         ;
+;          |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst5    ; register4b          ; work         ;
+;          |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6    ; register4b          ; work         ;
+;          |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst7    ; register4b          ; work         ;
+;    |Forney:b2v_inst2|                 ; 59 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Forney:b2v_inst2                                                  ; Forney              ; work         ;
+;       |Mux2x1:b2v_inst3|              ; 41 (41)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Forney:b2v_inst2|Mux2x1:b2v_inst3                                 ; Mux2x1              ; work         ;
+;       |gf_inv:b2v_inst|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Forney:b2v_inst2|gf_inv:b2v_inst                                  ; gf_inv              ; work         ;
+;       |gf_mult:b2v_inst2|             ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Forney:b2v_inst2|gf_mult:b2v_inst2                                ; gf_mult             ; work         ;
+;       |gf_sum:b2v_inst1|              ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChienForney|Forney:b2v_inst2|gf_sum:b2v_inst1                                 ; gf_sum              ; work         ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------+
-; State Machine - |Chien|ChienController:b2v_inst|estadoAtual                ;
-+-------------------+-----------------+-------------------+------------------+
-; Name              ; estadoAtual.mux ; estadoAtual.idle2 ; estadoAtual.idle ;
-+-------------------+-----------------+-------------------+------------------+
-; estadoAtual.idle  ; 0               ; 0                 ; 0                ;
-; estadoAtual.idle2 ; 0               ; 1                 ; 1                ;
-; estadoAtual.mux   ; 1               ; 0                 ; 1                ;
-+-------------------+-----------------+-------------------+------------------+
++----------------------------------------------------------------------------------+
+; State Machine - |ChienForney|Chien:b2v_inst|ChienController:b2v_inst|estadoAtual ;
++------------------+------------------+-----------------+--------------------------+
+; Name             ; estadoAtual.mux2 ; estadoAtual.mux ; estadoAtual.idle         ;
++------------------+------------------+-----------------+--------------------------+
+; estadoAtual.idle ; 0                ; 0               ; 0                        ;
+; estadoAtual.mux  ; 0                ; 1               ; 1                        ;
+; estadoAtual.mux2 ; 1                ; 0               ; 1                        ;
++------------------+------------------+-----------------+--------------------------+
 
 
-+-----------------------------------------------------------------+
-; Registers Removed During Synthesis                              ;
-+--------------------------------------------+--------------------+
-; Register name                              ; Reason for Removal ;
-+--------------------------------------------+--------------------+
-; ChienController:b2v_inst|estadoAtual.idle  ; Lost fanout        ;
-; ChienController:b2v_inst|estadoAtual.idle2 ; Lost fanout        ;
-; Total Number of Removed Registers = 2      ;                    ;
-+--------------------------------------------+--------------------+
++------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                           ;
++---------------------------------------------------------+--------------------+
+; Register name                                           ; Reason for Removal ;
++---------------------------------------------------------+--------------------+
+; Chien:b2v_inst|ChienController:b2v_inst|estadoAtual.mux ; Lost fanout        ;
+; Total Number of Removed Registers = 1                   ;                    ;
++---------------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -287,95 +297,106 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 33    ;
+; Total registers                              ; 34    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 28    ;
-; Number of registers using Asynchronous Clear ; 33    ;
+; Number of registers using Asynchronous Clear ; 34    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5|q[2] ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6|q[0] ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst4|q[0]    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst6|q[2]    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5|q[3] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6|q[0]    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4|q[0]    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6|q[0] ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 40 LEs               ; 4 LEs                  ; No         ; |ChienForney|Forney:b2v_inst2|Mux2x1:b2v_inst3|O[1]                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1 ;
-+----------------+-------+--------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                               ;
-+----------------+-------+--------------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                                     ;
-+----------------+-------+--------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1 ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2 ;
-+----------------+-------+--------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                               ;
-+----------------+-------+--------------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                                     ;
-+----------------+-------+--------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2 ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3 ;
-+----------------+-------+--------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                               ;
-+----------------+-------+--------------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                                     ;
-+----------------+-------+--------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3 ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1 ;
-+----------------+-------+-----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                            ;
-+----------------+-------+-----------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                                  ;
-+----------------+-------+-----------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1 ;
++----------------+-------+--------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                           ;
++----------------+-------+--------------------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2 ;
-+----------------+-------+-----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                            ;
-+----------------+-------+-----------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                                  ;
-+----------------+-------+-----------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2 ;
++----------------+-------+--------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                           ;
++----------------+-------+--------------------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3 ;
-+----------------+-------+-----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                            ;
-+----------------+-------+-----------------------------------------------------------------+
-; nb             ; 4     ; Signed Integer                                                  ;
-+----------------+-------+-----------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3 ;
++----------------+-------+--------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                           ;
++----------------+-------+--------------------------------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Forney:b2v_inst2|Mux2x1:b2v_inst3 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; nb             ; 4     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -384,20 +405,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 50                          ;
-; cycloneiii_ff         ; 33                          ;
-;     CLR               ; 1                           ;
-;     ENA CLR           ; 4                           ;
-;     ENA CLR SLD       ; 28                          ;
-; cycloneiii_lcell_comb ; 31                          ;
-;     normal            ; 31                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 20                          ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 8                           ;
+; boundary_port         ; 44                          ;
+; cycloneiii_ff         ; 34                          ;
+;     CLR               ; 6                           ;
+;     CLR SLD           ; 28                          ;
+; cycloneiii_lcell_comb ; 89                          ;
+;     normal            ; 89                          ;
+;         2 data inputs ; 29                          ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 53                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 0.70                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 4.28                        ;
 +-----------------------+-----------------------------+
 
 
@@ -406,7 +425,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -416,7 +435,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Wed Sep 28 01:26:17 2016
+    Info: Processing started: Fri Sep 30 01:42:18 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RSDecoder -c RSDecoder
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 2 design units, including 1 entities, in source file syndrome.vhd
@@ -459,13 +478,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file chien s
 Info (12021): Found 2 design units, including 1 entities, in source file gf_inv.vhd
     Info (12022): Found design unit 1: gf_inv-lut File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 12
     Info (12023): Found entity 1: gf_inv File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file forney.bdf
-    Info (12023): Found entity 1: Forney
 Info (12021): Found 2 design units, including 1 entities, in source file berlekampcontroller.vhd
     Info (12022): Found design unit 1: BerlekampController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 33
     Info (12023): Found entity 1: BerlekampController File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file chiencontroller.vhd
-    Info (12022): Found design unit 1: ChienController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 20
+    Info (12022): Found design unit 1: ChienController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 22
     Info (12023): Found entity 1: ChienController File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file static_0.vhd
     Info (12022): Found design unit 1: static_0-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd Line: 14
@@ -497,35 +514,43 @@ Info (12021): Found 2 design units, including 1 entities, in source file chiense
     Info (12022): Found design unit 1: ChienSearchValue-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd Line: 40
     Info (12023): Found entity 1: ChienSearchValue File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file chien.vhd
-    Info (12022): Found design unit 1: Chien-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 48
+    Info (12022): Found design unit 1: Chien-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 46
     Info (12023): Found entity 1: Chien File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 25
-Info (12127): Elaborating entity "Chien" for the top level hierarchy
-Info (12128): Elaborating entity "ChienController" for hierarchy "ChienController:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 93
-Warning (10492): VHDL Process Statement warning at ChienController.vhd(41): signal "inicia" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 41
-Warning (10492): VHDL Process Statement warning at ChienController.vhd(49): signal "inicia" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 49
-Info (12128): Elaborating entity "ChienSearchLocation" for hierarchy "ChienSearchLocation:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 100
-Info (12128): Elaborating entity "Mux2x1" for hierarchy "ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 128
-Info (12128): Elaborating entity "gf_mult" for hierarchy "ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 146
-Info (12128): Elaborating entity "gf_sum" for hierarchy "ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst12" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 158
-Info (12128): Elaborating entity "static_1" for hierarchy "ChienSearchLocation:b2v_inst2|static_1:b2v_inst16" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 182
-Info (12128): Elaborating entity "static_2" for hierarchy "ChienSearchLocation:b2v_inst2|static_2:b2v_inst17" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 186
-Info (12128): Elaborating entity "static_8" for hierarchy "ChienSearchLocation:b2v_inst2|static_8:b2v_inst18" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 190
-Info (12128): Elaborating entity "static_4" for hierarchy "ChienSearchLocation:b2v_inst2|static_4:b2v_inst19" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 194
-Info (12128): Elaborating entity "static_3" for hierarchy "ChienSearchLocation:b2v_inst2|static_3:b2v_inst20" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 207
-Info (12128): Elaborating entity "register4b" for hierarchy "ChienSearchLocation:b2v_inst2|register4b:b2v_inst4" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 220
-Info (12128): Elaborating entity "ChienSearchValue" for hierarchy "ChienSearchValue:b2v_inst3" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 113
+Info (12021): Found 2 design units, including 1 entities, in source file forney.vhd
+    Info (12022): Found design unit 1: Forney-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd Line: 36
+    Info (12023): Found entity 1: Forney File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file chienforney.vhd
+    Info (12022): Found design unit 1: ChienForney-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 45
+    Info (12023): Found entity 1: ChienForney File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 25
+Info (12127): Elaborating entity "ChienForney" for the top level hierarchy
+Info (12128): Elaborating entity "Chien" for hierarchy "Chien:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 85
+Info (12128): Elaborating entity "ChienController" for hierarchy "Chien:b2v_inst|ChienController:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 95
+Info (12128): Elaborating entity "ChienSearchLocation" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 104
+Info (12128): Elaborating entity "Mux2x1" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 128
+Info (12128): Elaborating entity "gf_mult" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 146
+Info (12128): Elaborating entity "gf_sum" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst12" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 158
+Info (12128): Elaborating entity "static_1" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_1:b2v_inst16" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 182
+Info (12128): Elaborating entity "static_2" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_2:b2v_inst17" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 186
+Info (12128): Elaborating entity "static_8" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_8:b2v_inst18" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 190
+Info (12128): Elaborating entity "static_4" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_4:b2v_inst19" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 194
+Info (12128): Elaborating entity "static_3" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_3:b2v_inst20" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 207
+Info (12128): Elaborating entity "register4b" for hierarchy "Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 220
+Info (12128): Elaborating entity "ChienSearchValue" for hierarchy "Chien:b2v_inst|ChienSearchValue:b2v_inst3" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 117
+Info (12128): Elaborating entity "Forney" for hierarchy "Forney:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 103
+Info (12128): Elaborating entity "gf_inv" for hierarchy "Forney:b2v_inst2|gf_inv:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd Line: 83
+Info (12128): Elaborating entity "static_0" for hierarchy "Forney:b2v_inst2|static_0:b2v_inst5" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd Line: 109
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 95 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 37 input pins
-    Info (21059): Implemented 13 output pins
-    Info (21061): Implemented 45 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 900 megabytes
-    Info: Processing ended: Wed Sep 28 01:27:01 2016
-    Info: Elapsed time: 00:00:44
-    Info: Total CPU time (on all processors): 00:01:47
+Info (21057): Implemented 150 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 39 input pins
+    Info (21059): Implemented 5 output pins
+    Info (21061): Implemented 106 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 893 megabytes
+    Info: Processing ended: Fri Sep 30 01:42:41 2016
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:35
 
 

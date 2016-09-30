@@ -48,9 +48,23 @@ agreement for further details.
 	(port
 		(pt 152 32)
 		(output)
-		(text "muxSel" (rect 0 0 29 12)(font "Arial" ))
-		(text "muxSel" (rect 102 27 131 39)(font "Arial" ))
+		(text "load" (rect 0 0 15 12)(font "Arial" ))
+		(text "load" (rect 116 27 131 39)(font "Arial" ))
 		(line (pt 152 32)(pt 136 32)(line_width 1))
+	)
+	(port
+		(pt 152 48)
+		(output)
+		(text "clear" (rect 0 0 18 12)(font "Arial" ))
+		(text "clear" (rect 113 43 131 55)(font "Arial" ))
+		(line (pt 152 48)(pt 136 48)(line_width 1))
+	)
+	(port
+		(pt 152 64)
+		(output)
+		(text "muxSel" (rect 0 0 29 12)(font "Arial" ))
+		(text "muxSel" (rect 102 59 131 71)(font "Arial" ))
+		(line (pt 152 64)(pt 136 64)(line_width 1))
 	)
 	(drawing
 		(rectangle (rect 16 16 136 96)(line_width 1))

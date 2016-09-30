@@ -4,59 +4,39 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "muxSel",
+					"name" : "pin_name1",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocation[0]",
+					"name" : "Decod[0]",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocation[1]",
+					"name" : "Decod[1]",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocation[2]",
+					"name" : "Decod[2]",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocation[3]",
+					"name" : "Decod[3]",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocationOdd[0]",
+					"name" : "Input[0]",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocationOdd[1]",
+					"name" : "Input[1]",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocationOdd[2]",
+					"name" : "Input[2]",
 					"strict" : false
 				},
 				{
-					"name" : "ResultLocationOdd[3]",
-					"strict" : false
-				},
-				{
-					"name" : "ResultValue[0]",
-					"strict" : false
-				},
-				{
-					"name" : "ResultValue[1]",
-					"strict" : false
-				},
-				{
-					"name" : "ResultValue[2]",
-					"strict" : false
-				},
-				{
-					"name" : "ResultValue[3]",
-					"strict" : false
-				},
-				{
-					"name" : "inicia",
+					"name" : "Input[3]",
 					"strict" : false
 				},
 				{
@@ -65,78 +45,6 @@
 				},
 				{
 					"name" : "reset",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb2[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Clear",
-					"strict" : false
-				},
-				{
-					"name" : "Load",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb0[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb1[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb3[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb0[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb3[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb2[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb0[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb1[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb3[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb2[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb0[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Lamb3[3]",
 					"strict" : false
 				},
 				{
@@ -153,22 +61,6 @@
 				},
 				{
 					"name" : "Omega3[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Omega0[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Omega2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Omega1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Omega3[1]",
 					"strict" : false
 				},
 				{
@@ -201,6 +93,90 @@
 				},
 				{
 					"name" : "Omega3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lamb3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Omega3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "inicia",
 					"strict" : false
 				}
 			]

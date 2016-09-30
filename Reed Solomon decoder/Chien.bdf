@@ -22,7 +22,7 @@ agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect -160 112 8 128)
+	(rect -168 128 0 144)
 	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
 	(text "clock" (rect 5 0 46 14)(font "Arial" ))
 	(pt 168 8)
@@ -38,7 +38,7 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect -160 128 8 144)
+	(rect -168 144 0 160)
 	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
 	(text "reset" (rect 5 0 46 14)(font "Arial" ))
 	(pt 168 8)
@@ -54,7 +54,7 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect -160 144 8 160)
+	(rect -168 160 0 176)
 	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
 	(text "inicia" (rect 5 0 54 14)(font "Arial" ))
 	(pt 168 8)
@@ -70,41 +70,9 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect 328 128 496 144)
-	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
-	(text "Load" (rect 5 0 38 14)(font "Arial" ))
-	(pt 168 8)
-	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
-	)
-	(text "VCC" (rect 128 7 152 18)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
-	(rect 512 160 680 176)
-	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
-	(text "Clear" (rect 5 0 46 14)(font "Arial" ))
-	(pt 168 8)
-	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
-	)
-	(text "VCC" (rect 128 7 152 18)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
 	(rect 488 176 688 192)
 	(text "INPUT" (rect 157 0 198 11)(font "Arial" (font_size 6)))
-	(text "Omega0[3..0]" (rect 5 0 105 14)(font "Arial" ))
+	(text "Omega0[3..0]" (rect 5 0 104 14)(font "Arial" ))
 	(pt 200 8)
 	(drawing
 		(line (pt 116 12)(pt 141 12))
@@ -120,7 +88,7 @@ agreement for further details.
 	(input)
 	(rect 488 192 688 208)
 	(text "INPUT" (rect 157 0 198 11)(font "Arial" (font_size 6)))
-	(text "Omega1[3..0]" (rect 5 0 105 14)(font "Arial" ))
+	(text "Omega1[3..0]" (rect 5 0 104 14)(font "Arial" ))
 	(pt 200 8)
 	(drawing
 		(line (pt 116 12)(pt 141 12))
@@ -136,7 +104,7 @@ agreement for further details.
 	(input)
 	(rect 488 208 688 224)
 	(text "INPUT" (rect 157 0 198 11)(font "Arial" (font_size 6)))
-	(text "Omega2[3..0]" (rect 5 0 105 14)(font "Arial" ))
+	(text "Omega2[3..0]" (rect 5 0 104 14)(font "Arial" ))
 	(pt 200 8)
 	(drawing
 		(line (pt 116 12)(pt 141 12))
@@ -152,7 +120,7 @@ agreement for further details.
 	(input)
 	(rect 488 224 688 240)
 	(text "INPUT" (rect 157 0 198 11)(font "Arial" (font_size 6)))
-	(text "Omega3[3..0]" (rect 5 0 105 14)(font "Arial" ))
+	(text "Omega3[3..0]" (rect 5 0 104 14)(font "Arial" ))
 	(pt 200 8)
 	(drawing
 		(line (pt 116 12)(pt 141 12))
@@ -168,7 +136,7 @@ agreement for further details.
 	(input)
 	(rect 688 488 872 504)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb0[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb0[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -184,7 +152,7 @@ agreement for further details.
 	(input)
 	(rect 688 504 872 520)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb1[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb1[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -200,7 +168,7 @@ agreement for further details.
 	(input)
 	(rect 688 520 872 536)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb2[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb2[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -216,7 +184,7 @@ agreement for further details.
 	(input)
 	(rect 688 536 872 552)
 	(text "INPUT" (rect 141 0 182 11)(font "Arial" (font_size 6)))
-	(text "Lamb3[3..0]" (rect 5 0 96 14)(font "Arial" ))
+	(text "Lamb3[3..0]" (rect 5 0 95 14)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -290,42 +258,6 @@ agreement for further details.
 		(line (pt 78 4)(pt 82 8))
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
-	)
-)
-(symbol
-	(rect 112 88 264 200)
-	(text "ChienController" (rect 5 0 128 14)(font "Arial" ))
-	(text "inst" (rect 8 96 41 110)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clock" (rect 0 0 41 14)(font "Arial" ))
-		(text "clock" (rect 21 27 62 41)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "reset" (rect 0 0 41 14)(font "Arial" ))
-		(text "reset" (rect 21 43 62 57)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "inicia" (rect 0 0 49 14)(font "Arial" ))
-		(text "inicia" (rect 21 59 70 73)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 152 32)
-		(output)
-		(text "muxSel" (rect 0 0 49 14)(font "Arial" ))
-		(text "muxSel" (rect 90 27 139 41)(font "Arial" ))
-		(line (pt 152 32)(pt 136 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 136 96))
 	)
 )
 (symbol
@@ -477,29 +409,55 @@ agreement for further details.
 		(rectangle (rect 16 16 184 160))
 	)
 )
-(connector
-	(pt 112 136)
-	(pt 8 136)
-)
-(connector
-	(pt 112 152)
-	(pt 8 152)
-)
-(connector
-	(pt 96 120)
-	(pt 96 240)
-)
-(connector
-	(pt 96 240)
-	(pt 288 240)
-)
-(connector
-	(pt 112 120)
-	(pt 96 120)
-)
-(connector
-	(pt 96 120)
-	(pt 8 120)
+(symbol
+	(rect 104 104 256 216)
+	(text "ChienController" (rect 5 0 128 14)(font "Arial" ))
+	(text "inst" (rect 8 96 41 110)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 41 14)(font "Arial" ))
+		(text "clock" (rect 21 27 62 41)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "reset" (rect 0 0 41 14)(font "Arial" ))
+		(text "reset" (rect 21 43 62 57)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "inicia" (rect 0 0 49 14)(font "Arial" ))
+		(text "inicia" (rect 21 59 70 73)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 152 32)
+		(output)
+		(text "load" (rect 0 0 33 14)(font "Arial" ))
+		(text "load" (rect 104 27 137 41)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32))
+	)
+	(port
+		(pt 152 48)
+		(output)
+		(text "clear" (rect 0 0 41 14)(font "Arial" ))
+		(text "clear" (rect 97 43 138 57)(font "Arial" ))
+		(line (pt 152 48)(pt 136 48))
+	)
+	(port
+		(pt 152 64)
+		(output)
+		(text "muxSel" (rect 0 0 49 14)(font "Arial" ))
+		(text "muxSel" (rect 90 59 139 73)(font "Arial" ))
+		(line (pt 152 64)(pt 136 64))
+	)
+	(drawing
+		(rectangle (rect 16 16 136 96))
+	)
 )
 (connector
 	(pt 1376 120)
@@ -507,32 +465,8 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 264 120)
-	(pt 352 120)
-)
-(connector
-	(pt 352 120)
-	(pt 1040 120)
-)
-(connector
-	(pt 288 152)
-	(pt 1040 152)
-)
-(connector
-	(pt 288 152)
-	(pt 288 240)
-)
-(connector
-	(pt 288 240)
-	(pt 288 480)
-)
-(connector
 	(pt 352 432)
 	(pt 1072 432)
-)
-(connector
-	(pt 288 480)
-	(pt 1072 480)
 )
 (connector
 	(pt 944 136)
@@ -543,24 +477,12 @@ agreement for further details.
 	(pt 1072 464)
 )
 (connector
-	(pt 496 136)
-	(pt 944 136)
-)
-(connector
-	(pt 944 136)
-	(pt 1040 136)
-)
-(connector
 	(pt 968 168)
 	(pt 968 448)
 )
 (connector
 	(pt 1072 448)
 	(pt 968 448)
-)
-(connector
-	(pt 680 168)
-	(pt 968 168)
 )
 (connector
 	(pt 968 168)
@@ -573,10 +495,6 @@ agreement for further details.
 (connector
 	(pt 352 72)
 	(pt 352 120)
-)
-(connector
-	(pt 352 120)
-	(pt 352 432)
 )
 (connector
 	(pt 1288 432)
@@ -628,8 +546,85 @@ agreement for further details.
 	(pt 1072 528)
 	(bus)
 )
-(junction (pt 96 120))
-(junction (pt 288 240))
+(connector
+	(pt 352 120)
+	(pt 1040 120)
+)
+(connector
+	(pt 104 152)
+	(pt 0 152)
+)
+(connector
+	(pt 104 168)
+	(pt 0 168)
+)
+(connector
+	(pt 88 136)
+	(pt 88 256)
+)
+(connector
+	(pt 0 136)
+	(pt 88 136)
+)
+(connector
+	(pt 88 136)
+	(pt 104 136)
+)
+(connector
+	(pt 256 136)
+	(pt 944 136)
+)
+(connector
+	(pt 944 136)
+	(pt 1040 136)
+)
+(connector
+	(pt 256 168)
+	(pt 352 168)
+)
+(connector
+	(pt 352 120)
+	(pt 352 168)
+)
+(connector
+	(pt 352 168)
+	(pt 352 432)
+)
+(connector
+	(pt 1040 152)
+	(pt 400 152)
+)
+(connector
+	(pt 1072 480)
+	(pt 400 480)
+)
+(connector
+	(pt 88 256)
+	(pt 400 256)
+)
+(connector
+	(pt 400 152)
+	(pt 400 256)
+)
+(connector
+	(pt 400 256)
+	(pt 400 480)
+)
+(connector
+	(pt 376 168)
+	(pt 376 152)
+)
+(connector
+	(pt 376 168)
+	(pt 968 168)
+)
+(connector
+	(pt 376 152)
+	(pt 256 152)
+)
 (junction (pt 352 120))
 (junction (pt 944 136))
 (junction (pt 968 168))
+(junction (pt 88 136))
+(junction (pt 352 168))
+(junction (pt 400 256))

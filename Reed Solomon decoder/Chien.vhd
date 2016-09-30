@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Wed Sep 28 01:17:50 2016"
+-- CREATED		"Fri Sep 30 01:06:28 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -28,8 +28,6 @@ ENTITY Chien IS
 		clock :  IN  STD_LOGIC;
 		reset :  IN  STD_LOGIC;
 		inicia :  IN  STD_LOGIC;
-		Load :  IN  STD_LOGIC;
-		Clear :  IN  STD_LOGIC;
 		Lamb0 :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lamb1 :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Lamb2 :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -51,6 +49,8 @@ COMPONENT chiencontroller
 	PORT(clock : IN STD_LOGIC;
 		 reset : IN STD_LOGIC;
 		 inicia : IN STD_LOGIC;
+		 load : OUT STD_LOGIC;
+		 clear : OUT STD_LOGIC;
 		 muxSel : OUT STD_LOGIC
 	);
 END COMPONENT;
@@ -82,11 +82,13 @@ COMPONENT chiensearchvalue
 	);
 END COMPONENT;
 
-SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
 
 
 BEGIN 
-muxSel <= SYNTHESIZED_WIRE_2;
+muxSel <= SYNTHESIZED_WIRE_6;
 
 
 
@@ -94,13 +96,15 @@ b2v_inst : chiencontroller
 PORT MAP(clock => clock,
 		 reset => reset,
 		 inicia => inicia,
-		 muxSel => SYNTHESIZED_WIRE_2);
+		 load => SYNTHESIZED_WIRE_8,
+		 clear => SYNTHESIZED_WIRE_7,
+		 muxSel => SYNTHESIZED_WIRE_6);
 
 
 b2v_inst2 : chiensearchlocation
-PORT MAP(MuxSel => SYNTHESIZED_WIRE_2,
-		 Clear => Clear,
-		 Load => Load,
+PORT MAP(MuxSel => SYNTHESIZED_WIRE_6,
+		 Clear => SYNTHESIZED_WIRE_7,
+		 Load => SYNTHESIZED_WIRE_8,
 		 Clock => clock,
 		 Lamb0 => Lamb0,
 		 Lamb1 => Lamb1,
@@ -111,10 +115,10 @@ PORT MAP(MuxSel => SYNTHESIZED_WIRE_2,
 
 
 b2v_inst3 : chiensearchvalue
-PORT MAP(MuxSel => SYNTHESIZED_WIRE_2,
-		 Load => Load,
+PORT MAP(MuxSel => SYNTHESIZED_WIRE_6,
+		 Load => SYNTHESIZED_WIRE_8,
 		 Clock => clock,
-		 Clear => Clear,
+		 Clear => SYNTHESIZED_WIRE_7,
 		 Lamb0 => Omega0,
 		 Lamb1 => Omega1,
 		 Lamb2 => Omega2,

@@ -1,13 +1,56 @@
-|Chien
+|ChienForney
+clock => chien:b2v_inst.clock
+reset => chien:b2v_inst.reset
+inicia => chien:b2v_inst.inicia
+Input[0] => forney:b2v_inst2.Input[0]
+Input[1] => forney:b2v_inst2.Input[1]
+Input[2] => forney:b2v_inst2.Input[2]
+Input[3] => forney:b2v_inst2.Input[3]
+Lamb0[0] => chien:b2v_inst.Lamb0[0]
+Lamb0[1] => chien:b2v_inst.Lamb0[1]
+Lamb0[2] => chien:b2v_inst.Lamb0[2]
+Lamb0[3] => chien:b2v_inst.Lamb0[3]
+Lamb1[0] => chien:b2v_inst.Lamb1[0]
+Lamb1[1] => chien:b2v_inst.Lamb1[1]
+Lamb1[2] => chien:b2v_inst.Lamb1[2]
+Lamb1[3] => chien:b2v_inst.Lamb1[3]
+Lamb2[0] => chien:b2v_inst.Lamb2[0]
+Lamb2[1] => chien:b2v_inst.Lamb2[1]
+Lamb2[2] => chien:b2v_inst.Lamb2[2]
+Lamb2[3] => chien:b2v_inst.Lamb2[3]
+Lamb3[0] => chien:b2v_inst.Lamb3[0]
+Lamb3[1] => chien:b2v_inst.Lamb3[1]
+Lamb3[2] => chien:b2v_inst.Lamb3[2]
+Lamb3[3] => chien:b2v_inst.Lamb3[3]
+Omega0[0] => chien:b2v_inst.Omega0[0]
+Omega0[1] => chien:b2v_inst.Omega0[1]
+Omega0[2] => chien:b2v_inst.Omega0[2]
+Omega0[3] => chien:b2v_inst.Omega0[3]
+Omega1[0] => chien:b2v_inst.Omega1[0]
+Omega1[1] => chien:b2v_inst.Omega1[1]
+Omega1[2] => chien:b2v_inst.Omega1[2]
+Omega1[3] => chien:b2v_inst.Omega1[3]
+Omega2[0] => chien:b2v_inst.Omega2[0]
+Omega2[1] => chien:b2v_inst.Omega2[1]
+Omega2[2] => chien:b2v_inst.Omega2[2]
+Omega2[3] => chien:b2v_inst.Omega2[3]
+Omega3[0] => chien:b2v_inst.Omega3[0]
+Omega3[1] => chien:b2v_inst.Omega3[1]
+Omega3[2] => chien:b2v_inst.Omega3[2]
+Omega3[3] => chien:b2v_inst.Omega3[3]
+pin_name1 <= chien:b2v_inst.muxSel
+Decod[0] <= forney:b2v_inst2.Decod[0]
+Decod[1] <= forney:b2v_inst2.Decod[1]
+Decod[2] <= forney:b2v_inst2.Decod[2]
+Decod[3] <= forney:b2v_inst2.Decod[3]
+
+
+|ChienForney|Chien:b2v_inst
 clock => chiencontroller:b2v_inst.clock
 clock => chiensearchlocation:b2v_inst2.Clock
 clock => chiensearchvalue:b2v_inst3.Clock
 reset => chiencontroller:b2v_inst.reset
 inicia => chiencontroller:b2v_inst.inicia
-Load => chiensearchlocation:b2v_inst2.Load
-Load => chiensearchvalue:b2v_inst3.Load
-Clear => chiensearchlocation:b2v_inst2.Clear
-Clear => chiensearchvalue:b2v_inst3.Clear
 Lamb0[0] => chiensearchlocation:b2v_inst2.Lamb0[0]
 Lamb0[1] => chiensearchlocation:b2v_inst2.Lamb0[1]
 Lamb0[2] => chiensearchlocation:b2v_inst2.Lamb0[2]
@@ -40,31 +83,32 @@ Omega3[0] => chiensearchvalue:b2v_inst3.Lamb3[0]
 Omega3[1] => chiensearchvalue:b2v_inst3.Lamb3[1]
 Omega3[2] => chiensearchvalue:b2v_inst3.Lamb3[2]
 Omega3[3] => chiensearchvalue:b2v_inst3.Lamb3[3]
-muxSel << chiencontroller:b2v_inst.muxSel
-ResultLocation[0] << chiensearchlocation:b2v_inst2.Result[0]
-ResultLocation[1] << chiensearchlocation:b2v_inst2.Result[1]
-ResultLocation[2] << chiensearchlocation:b2v_inst2.Result[2]
-ResultLocation[3] << chiensearchlocation:b2v_inst2.Result[3]
-ResultLocationOdd[0] << chiensearchlocation:b2v_inst2.ResultOdd[0]
-ResultLocationOdd[1] << chiensearchlocation:b2v_inst2.ResultOdd[1]
-ResultLocationOdd[2] << chiensearchlocation:b2v_inst2.ResultOdd[2]
-ResultLocationOdd[3] << chiensearchlocation:b2v_inst2.ResultOdd[3]
-ResultValue[0] << chiensearchvalue:b2v_inst3.Result[0]
-ResultValue[1] << chiensearchvalue:b2v_inst3.Result[1]
-ResultValue[2] << chiensearchvalue:b2v_inst3.Result[2]
-ResultValue[3] << chiensearchvalue:b2v_inst3.Result[3]
+muxSel <= chiencontroller:b2v_inst.muxSel
+ResultLocation[0] <= chiensearchlocation:b2v_inst2.Result[0]
+ResultLocation[1] <= chiensearchlocation:b2v_inst2.Result[1]
+ResultLocation[2] <= chiensearchlocation:b2v_inst2.Result[2]
+ResultLocation[3] <= chiensearchlocation:b2v_inst2.Result[3]
+ResultLocationOdd[0] <= chiensearchlocation:b2v_inst2.ResultOdd[0]
+ResultLocationOdd[1] <= chiensearchlocation:b2v_inst2.ResultOdd[1]
+ResultLocationOdd[2] <= chiensearchlocation:b2v_inst2.ResultOdd[2]
+ResultLocationOdd[3] <= chiensearchlocation:b2v_inst2.ResultOdd[3]
+ResultValue[0] <= chiensearchvalue:b2v_inst3.Result[0]
+ResultValue[1] <= chiensearchvalue:b2v_inst3.Result[1]
+ResultValue[2] <= chiensearchvalue:b2v_inst3.Result[2]
+ResultValue[3] <= chiensearchvalue:b2v_inst3.Result[3]
 
 
-|Chien|ChienController:b2v_inst
+|ChienForney|Chien:b2v_inst|ChienController:b2v_inst
 clock => estadoAtual~1.DATAIN
 reset => estadoAtual~3.DATAIN
-inicia => proximoEstado.mux.DATAA
-inicia => Selector0.IN2
-inicia => proximoEstado.idle2.DATAB
+inicia => proximoEstado.mux.DATAB
+inicia => proximoEstado.idle.DATAB
+load <= load.DB_MAX_OUTPUT_PORT_TYPE
+clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
 muxSel <= muxSel.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2
 MuxSel => mux2x1:b2v_inst.Sel
 MuxSel => mux2x1:b2v_inst1.Sel
 MuxSel => mux2x1:b2v_inst2.Sel
@@ -107,7 +151,7 @@ ResultOdd[2] <= gf_sum:b2v_inst15.c[2]
 ResultOdd[3] <= gf_sum:b2v_inst15.c[3]
 
 
-|Chien|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -126,7 +170,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -145,7 +189,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -260,7 +304,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -375,7 +419,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst12
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst12
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -390,7 +434,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst13
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst13
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -405,7 +449,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -420,7 +464,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -435,35 +479,35 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|static_1:b2v_inst16
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_1:b2v_inst16
 o[0] <= <VCC>
 o[1] <= <GND>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|Chien|ChienSearchLocation:b2v_inst2|static_2:b2v_inst17
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_2:b2v_inst17
 o[0] <= <GND>
 o[1] <= <VCC>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|Chien|ChienSearchLocation:b2v_inst2|static_8:b2v_inst18
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_8:b2v_inst18
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <GND>
 o[3] <= <VCC>
 
 
-|Chien|ChienSearchLocation:b2v_inst2|static_4:b2v_inst19
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_4:b2v_inst19
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <VCC>
 o[3] <= <GND>
 
 
-|Chien|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -482,14 +526,14 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|static_3:b2v_inst20
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_3:b2v_inst20
 o[0] <= <VCC>
 o[1] <= <VCC>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|Chien|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -508,7 +552,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -531,7 +575,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -554,7 +598,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -577,7 +621,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -600,7 +644,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -715,7 +759,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9
+|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -830,7 +874,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3
 MuxSel => mux2x1:b2v_inst1.Sel
 MuxSel => mux2x1:b2v_inst2.Sel
 MuxSel => mux2x1:b2v_inst3.Sel
@@ -868,14 +912,14 @@ Result[2] <= gf_sum:b2v_inst14.c[2]
 Result[3] <= gf_sum:b2v_inst14.c[3]
 
 
-|Chien|ChienSearchValue:b2v_inst3|static_4:b2v_inst
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_4:b2v_inst
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <VCC>
 o[3] <= <GND>
 
 
-|Chien|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -894,7 +938,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1009,14 +1053,14 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|static_2:b2v_inst12
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_2:b2v_inst12
 o[0] <= <GND>
 o[1] <= <VCC>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|Chien|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst13
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst13
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1031,7 +1075,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1046,7 +1090,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst15
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst15
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1061,14 +1105,14 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|static_8:b2v_inst16
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_8:b2v_inst16
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <GND>
 o[3] <= <VCC>
 
 
-|Chien|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1087,7 +1131,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1106,7 +1150,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst4
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1129,7 +1173,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst5
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst5
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1152,7 +1196,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst6
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1175,7 +1219,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|register4b:b2v_inst7
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst7
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1198,7 +1242,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1313,7 +1357,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Chien|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9
+|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1426,5 +1470,252 @@ o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChienForney|Forney:b2v_inst2
+Loca => mux2x1:b2v_inst3.Sel
+Input[0] => gf_sum:b2v_inst1.b[0]
+Input[1] => gf_sum:b2v_inst1.b[1]
+Input[2] => gf_sum:b2v_inst1.b[2]
+Input[3] => gf_sum:b2v_inst1.b[3]
+ResultOdd[0] => gf_inv:b2v_inst.x[0]
+ResultOdd[1] => gf_inv:b2v_inst.x[1]
+ResultOdd[2] => gf_inv:b2v_inst.x[2]
+ResultOdd[3] => gf_inv:b2v_inst.x[3]
+Valor[0] => gf_mult:b2v_inst2.y[0]
+Valor[1] => gf_mult:b2v_inst2.y[1]
+Valor[2] => gf_mult:b2v_inst2.y[2]
+Valor[3] => gf_mult:b2v_inst2.y[3]
+Decod[0] <= gf_sum:b2v_inst1.c[0]
+Decod[1] <= gf_sum:b2v_inst1.c[1]
+Decod[2] <= gf_sum:b2v_inst1.c[2]
+Decod[3] <= gf_sum:b2v_inst1.c[3]
+
+
+|ChienForney|Forney:b2v_inst2|gf_inv:b2v_inst
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChienForney|Forney:b2v_inst2|gf_sum:b2v_inst1
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChienForney|Forney:b2v_inst2|gf_mult:b2v_inst2
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChienForney|Forney:b2v_inst2|Mux2x1:b2v_inst3
+I0[0] => O.DATAB
+I0[1] => O.DATAB
+I0[2] => O.DATAB
+I0[3] => O.DATAB
+I1[0] => O.DATAA
+I1[1] => O.DATAA
+I1[2] => O.DATAA
+I1[3] => O.DATAA
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+O[0] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChienForney|Forney:b2v_inst2|static_0:b2v_inst5
+o[0] <= <GND>
+o[1] <= <GND>
+o[2] <= <GND>
+o[3] <= <GND>
 
 

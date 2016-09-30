@@ -18,7 +18,7 @@
 -- suit user's needs .Comments are provided in each section to help the user  
 -- fill out necessary details.                                                
 -- ***************************************************************************
--- Generated on "09/28/2016 01:18:30"
+-- Generated on "09/30/2016 01:41:36"
                                                             
 -- Vhdl Test Bench template for design  :  Chien
 -- 
@@ -40,12 +40,12 @@ SIGNAL Lamb0 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Lamb1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Lamb2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Lamb3 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Load : STD_LOGIC;
+SIGNAL muxSel : STD_LOGIC;
 SIGNAL Omega0 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Omega1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Omega2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Omega3 : STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL Load : STD_LOGIC;
-SIGNAL muxSel : STD_LOGIC;
 SIGNAL reset : STD_LOGIC;
 SIGNAL ResultLocation : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL ResultLocationOdd : STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -59,16 +59,16 @@ COMPONENT Chien
 	Lamb1 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Lamb2 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Lamb3 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Load : IN STD_LOGIC;
+	muxSel : BUFFER STD_LOGIC;
 	Omega0 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Omega1 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Omega2 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Omega3 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-	Load : IN STD_LOGIC;
-	muxSel : OUT STD_LOGIC;
 	reset : IN STD_LOGIC;
-	ResultLocation : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	ResultLocationOdd : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	ResultValue : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	ResultLocation : BUFFER STD_LOGIC_VECTOR(3 DOWNTO 0);
+	ResultLocationOdd : BUFFER STD_LOGIC_VECTOR(3 DOWNTO 0);
+	ResultValue : BUFFER STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
@@ -82,12 +82,12 @@ BEGIN
 	Lamb1 => Lamb1,
 	Lamb2 => Lamb2,
 	Lamb3 => Lamb3,
+	Load => Load,
+	muxSel => muxSel,
 	Omega0 => Omega0,
 	Omega1 => Omega1,
 	Omega2 => Omega2,
 	Omega3 => Omega3,
-	Load => Load,
-	muxSel => muxSel,
 	reset => reset,
 	ResultLocation => ResultLocation,
 	ResultLocationOdd => ResultLocationOdd,
@@ -95,40 +95,16 @@ BEGIN
 	);
 init : PROCESS                                               
 -- variable declarations                                     
-BEGIN
-			Clock <= '0';
-			wait for 100 ns;
-			Clock <= '1';
-			wait for 100 ns;
-			
-END PROCESS init;
-                                          
+BEGIN                                                        
+        -- code that executes only once                      
+WAIT;                                                       
+END PROCESS init;                                           
 always : PROCESS                                              
-                                      
+-- optional sensitivity list                                  
+-- (        )                                                 
+-- variable declarations                                      
 BEGIN                                                         
-			
-		Clear <= '1';
-		reset <= '1'; 
-		inicia <= '0';
-		Lamb0 <= "1100";
-		Lamb1 <= "0111";
-		Lamb2 <= "0110";
-		Lamb3 <= "0000";
-		Omega0 <= "1000";
-		Omega1 <= "0110";
-		Omega2 <= "1100";
-		Omega3 <= "0000";
-		Load <= '0';
-		
-		wait for 200 ns;
-		Clear <= '0';
-		reset <= '0';
-		inicia <= '1';
-		
-		wait for 200 ns;
-		inicia <= '0';
-		Load <= '1';
-			
+        -- code executes for every event on sensitivity list  
 WAIT;                                                        
-END PROCESS always;                                           
+END PROCESS always;                                          
 END Chien_arch;
