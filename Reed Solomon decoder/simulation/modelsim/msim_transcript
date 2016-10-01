@@ -1,19 +1,20 @@
-# Reading C:/altera_lite/16.0/modelsim_ase/tcl/vsim/pref.tcl
 # do RSDecoder_run_msim_rtl_vhdl.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Model Technology ModelSim ALTERA vmap 10.4d Lib Mapping Utility 2015.12 Dec 30 2015
-# vmap work rtl_work 
-# Copying C:/altera_lite/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet work rtl_work 
+# Copying C:/Users/U/Documents/Quartus/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
+# ** Warning: Copied C:/Users/U/Documents/Quartus/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
 # 
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:21 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:54 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -21,253 +22,266 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity register4b
 # -- Compiling architecture description of register4b
-# End time: 03:00:21 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:54 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:21 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:55 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_8
 # -- Compiling architecture behavior of static_8
-# End time: 03:00:21 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:55 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:21 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:55 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_4
 # -- Compiling architecture behavior of static_4
-# End time: 03:00:21 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:55 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:21 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:56 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_3
 # -- Compiling architecture behavior of static_3
-# End time: 03:00:21 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:56 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:21 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:56 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_2
 # -- Compiling architecture behavior of static_2
-# End time: 03:00:21 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:56 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:21 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:57 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_1
 # -- Compiling architecture behavior of static_1
-# End time: 03:00:22 on Oct 01,2016, Elapsed time: 0:00:01
+# End time: 15:01:57 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:22 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:57 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_sum
 # -- Compiling architecture behavior of gf_sum
-# End time: 03:00:22 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:57 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:22 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:58 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_mult
 # -- Compiling architecture lut of gf_mult
-# End time: 03:00:22 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:58 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:22 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:58 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_inv
 # -- Compiling architecture lut of gf_inv
-# End time: 03:00:22 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:58 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:22 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:58 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity BerlekampController
 # -- Compiling architecture comportamental of BerlekampController
-# End time: 03:00:23 on Oct 01,2016, Elapsed time: 0:00:01
+# End time: 15:01:59 on Oct 01,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:23 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:59 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ChienController
 # -- Compiling architecture comportamental of ChienController
-# End time: 03:00:23 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:01:59 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:23 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:01:59 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_0
 # -- Compiling architecture behavior of static_0
-# End time: 03:00:23 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:00 on Oct 01,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:23 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:00 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity BerleMas
 # -- Compiling architecture bdf_type of BerleMas
-# End time: 03:00:23 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:00 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:23 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:00 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Berlekamp_Massey
 # -- Compiling architecture bdf_type of Berlekamp_Massey
-# End time: 03:00:23 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:00 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:23 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:01 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Mux2x1
 # -- Compiling architecture Mux2x1 of Mux2x1
-# End time: 03:00:23 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:01 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:23 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:01 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ChienSearchLocation
 # -- Compiling architecture bdf_type of ChienSearchLocation
-# End time: 03:00:24 on Oct 01,2016, Elapsed time: 0:00:01
+# End time: 15:02:02 on Oct 01,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:24 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:02 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ChienSearchValue
 # -- Compiling architecture bdf_type of ChienSearchValue
-# End time: 03:00:24 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:02 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:25 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:03 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Chien
 # -- Compiling architecture bdf_type of Chien
-# End time: 03:00:25 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:03 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:25 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:03 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Forney
 # -- Compiling architecture bdf_type of Forney
-# End time: 03:00:25 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:03 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:25 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:04 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ChienForney
 # -- Compiling architecture bdf_type of ChienForney
-# End time: 03:00:25 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:04 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:25 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:04 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity RSIntegration
 # -- Compiling architecture bdf_type of RSIntegration
-# End time: 03:00:25 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:02:04 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:05 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity berlekamp_counter
+# -- Compiling architecture behv of berlekamp_counter
+# End time: 15:02:05 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:25 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+# vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:02:05 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity intgr_t
 # -- Compiling architecture RSIntegration_arch of intgr_t
-# End time: 03:00:26 on Oct 01,2016, Elapsed time: 0:00:01
+# End time: 15:02:05 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  RSIntegration
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" RSIntegration 
-# Start time: 03:00:26 on Oct 01,2016
+# Start time: 15:02:05 on Oct 01,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -284,6 +298,7 @@
 # Loading work.gf_sum(behavior)
 # Loading work.static_1(behavior)
 # Loading work.gf_inv(lut)
+# Loading work.berlekamp_counter(behv)
 # Loading work.chienforney(bdf_type)
 # Loading work.chien(bdf_type)
 # Loading work.chiencontroller(comportamental)
@@ -301,85 +316,156 @@
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlftyrfjw2".
+#           Attempting to use alternate WLF file "./wlftvjbeg5".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftyrfjw2
+#           Using alternate file: ./wlftvjbeg5
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-add wave -position 16  sim:/rsintegration/B_0
-add wave -position 17  sim:/rsintegration/B_1
-add wave -position 18  sim:/rsintegration/B_2
-add wave -position 19  sim:/rsintegration/B_3
-add wave -position 20  sim:/rsintegration/B_mux
-add wave -position 21  sim:/rsintegration/Clock
-add wave -position 22  sim:/rsintegration/Count4
-add wave -position 23  sim:/rsintegration/Count8
-add wave -position 24  sim:/rsintegration/DS_reg
-add wave -position 25  sim:/rsintegration/Decod
-add wave -position 26  sim:/rsintegration/Impar
-add wave -position 27  sim:/rsintegration/Inicia
-add wave -position 28  sim:/rsintegration/Input
-add wave -position 29  sim:/rsintegration/Lambda1
-add wave -position 30  sim:/rsintegration/Lambda2
-add wave -position 31  sim:/rsintegration/Lambda3
-add wave -position 32  sim:/rsintegration/Lambda4
-add wave -position 33  sim:/rsintegration/Mensagem
-add wave -position 34  sim:/rsintegration/MuxSel
-add wave -position 35  sim:/rsintegration/Nerror
-add wave -position 36  sim:/rsintegration/Omega0
-add wave -position 37  sim:/rsintegration/Omega1
-add wave -position 38  sim:/rsintegration/Omega2
-add wave -position 39  sim:/rsintegration/Omega3
-add wave -position 40  sim:/rsintegration/Omega4
-add wave -position 41  sim:/rsintegration/Registra
-add wave -position 42  sim:/rsintegration/Reset
-add wave -position 43  sim:/rsintegration/S0
-add wave -position 44  sim:/rsintegration/S1
-add wave -position 45  sim:/rsintegration/S2
-add wave -position 46  sim:/rsintegration/S3
-add wave -position 47  sim:/rsintegration/S4
-add wave -position 48  sim:/rsintegration/SYNTHESIZED_WIRE_15
-add wave -position 49  sim:/rsintegration/SYNTHESIZED_WIRE_16
-add wave -position 50  sim:/rsintegration/SYNTHESIZED_WIRE_17
-add wave -position 51  sim:/rsintegration/SYNTHESIZED_WIRE_18
-add wave -position 52  sim:/rsintegration/SYNTHESIZED_WIRE_19
-add wave -position 53  sim:/rsintegration/SYNTHESIZED_WIRE_2
-add wave -position 54  sim:/rsintegration/SYNTHESIZED_WIRE_24
-add wave -position 55  sim:/rsintegration/SYNTHESIZED_WIRE_25
-add wave -position 56  sim:/rsintegration/SYNTHESIZED_WIRE_26
-add wave -position 57  sim:/rsintegration/SYNTHESIZED_WIRE_27
-add wave -position 58  sim:/rsintegration/SYNTHESIZED_WIRE_28
-add wave -position 59  sim:/rsintegration/SYNTHESIZED_WIRE_29
-add wave -position 60  sim:/rsintegration/Test_state
-add wave -position 61  sim:/rsintegration/clearB
-add wave -position 62  sim:/rsintegration/clearC
-add wave -position 63  sim:/rsintegration/clearS
-add wave -position 64  sim:/rsintegration/di
-add wave -position 65  sim:/rsintegration/loadB
-add wave -position 66  sim:/rsintegration/loadC
-add wave -position 67  sim:/rsintegration/loadS
-add wave -position 68  sim:/rsintegration/pin_name1
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 03:00:53 on Oct 01,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:03:22 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity intgr_t
 # -- Compiling architecture RSIntegration_arch of intgr_t
-# End time: 03:00:53 on Oct 01,2016, Elapsed time: 0:00:00
+# End time: 15:03:22 on Oct 01,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim rtl_work.intgr_t
-# End time: 03:00:55 on Oct 01,2016, Elapsed time: 0:00:29
-# Errors: 0, Warnings: 2
 # vsim rtl_work.intgr_t 
-# Start time: 03:00:55 on Oct 01,2016
+# Start time: 15:03:24 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# ** Error: (vsim-3732) C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht(167): No default binding for component instance 'i1'.
+# 
+#    The following component ports are not on the entity:
+#           Impar
+#           Count8
+#           Count4
+#    Time: 0 ps  Iteration: 0  Instance: /intgr_t/i1 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+# Error loading design
+# End time: 15:03:24 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:05:03 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity intgr_t
+# -- Compiling architecture RSIntegration_arch of intgr_t
+# End time: 15:05:03 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:05:05 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# ** Error: (vsim-3732) C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht(167): No default binding for component instance 'i1'.
+# 
+#    The following component ports are not on the entity:
+#           Impar
+#           Count8
+#           Count4
+#    Time: 0 ps  Iteration: 0  Instance: /intgr_t/i1 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+# Error loading design
+# End time: 15:05:05 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:07:56 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity intgr_t
+# -- Compiling architecture RSIntegration_arch of intgr_t
+# End time: 15:07:57 on Oct 01,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:07:58 on Oct 01,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -397,6 +483,7 @@ vsim rtl_work.intgr_t
 # Loading rtl_work.gf_sum(behavior)
 # Loading rtl_work.static_1(behavior)
 # Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
 # Loading rtl_work.chienforney(bdf_type)
 # Loading rtl_work.chien(bdf_type)
 # Loading rtl_work.chiencontroller(comportamental)
@@ -408,30 +495,996 @@ vsim rtl_work.intgr_t
 # Loading rtl_work.chiensearchvalue(bdf_type)
 # Loading rtl_work.forney(bdf_type)
 # Loading rtl_work.static_0(behavior)
-add wave -position end sim:/intgr_t/*
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlftmrwftc".
+#           Attempting to use alternate WLF file "./wlftd3fvy3".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftmrwftc
+#           Using alternate file: ./wlftd3fvy3
+# 
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4100 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4300 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4500 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4700 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4900 ns  Iteration: 1  Instance: /intgr_t/i1/b2v_inst1
+run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:09:53 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RSIntegration
+# -- Compiling architecture bdf_type of RSIntegration
+# End time: 15:09:53 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:09:55 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity intgr_t
+# -- Compiling architecture RSIntegration_arch of intgr_t
+# End time: 15:09:55 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:09:56 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+run
+run
+run
+run
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:10:12 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlftw9fsve".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftw9fsve
 # 
 run
 run
 run
 run
 run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:16:37 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity intgr_t
+# -- Compiling architecture RSIntegration_arch of intgr_t
+# ** Error: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht(76): (vcom-1136) Unknown identifier "STD_LOGC".
+# 
+# ** Error: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht(276): VHDL Compiler exiting
+# End time: 15:16:37 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# C:/Users/U/Documents/Quartus/modelsim_ase/win32aloem/vcom failed.
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:16:50 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity intgr_t
+# -- Compiling architecture RSIntegration_arch of intgr_t
+# End time: 15:16:51 on Oct 01,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:16:52 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RSIntegration
+# -- Compiling architecture bdf_type of RSIntegration
+# End time: 15:16:53 on Oct 01,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:16:56 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
+add wave -position end  sim:/intgr_t/Impar
+add wave -position end  sim:/intgr_t/Count_4
+add wave -position end  sim:/intgr_t/Count_8
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlftayi6y6".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftayi6y6
+# 
+run
+run
+run
+run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:27:19 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity intgr_t
+# -- Compiling architecture RSIntegration_arch of intgr_t
+# End time: 15:27:19 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:27:21 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+add wave -position end  sim:/intgr_t/clearS
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlftnwvkdt".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftnwvkdt
+# 
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
+add wave -position end  sim:/intgr_t/Impar
+add wave -position end  sim:/intgr_t/Count_4
+add wave -position end  sim:/intgr_t/Count_8
 run
 run
 run
 run
 run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:31:56 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity berlekamp_counter
+# -- Compiling architecture behv of berlekamp_counter
+# End time: 15:31:56 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:31:58 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RSIntegration
+# -- Compiling architecture bdf_type of RSIntegration
+# End time: 15:31:58 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:31:59 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
+add wave -position end  sim:/intgr_t/Impar
+add wave -position end  sim:/intgr_t/Count_4
+add wave -position end  sim:/intgr_t/Count_8
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlft3r07ge".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft3r07ge
+# 
+run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:34:26 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity berlekamp_counter
+# -- Compiling architecture behv of berlekamp_counter
+# End time: 15:34:26 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:34:29 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RSIntegration
+# -- Compiling architecture bdf_type of RSIntegration
+# End time: 15:34:30 on Oct 01,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# End time: 15:34:31 on Oct 01,2016, Elapsed time: 0:02:32
+# Errors: 0, Warnings: 2
+# vsim rtl_work.intgr_t 
+# Start time: 15:34:31 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
+add wave -position end  sim:/intgr_t/Impar
+add wave -position end  sim:/intgr_t/Count_4
+add wave -position end  sim:/intgr_t/Count_8
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlft3nvct9".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft3nvct9
+# 
 run
 run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:35:32 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity berlekamp_counter
+# -- Compiling architecture behv of berlekamp_counter
+# End time: 15:35:32 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# End time: 15:35:33 on Oct 01,2016, Elapsed time: 0:01:02
+# Errors: 0, Warnings: 2
+# vsim rtl_work.intgr_t 
+# Start time: 15:35:33 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
+add wave -position end  sim:/intgr_t/Impar
+add wave -position end  sim:/intgr_t/Count_4
+add wave -position end  sim:/intgr_t/Count_8
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlftbv1mnn".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftbv1mnn
+# 
 run
 run
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:39:33 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity berlekamp_counter
+# -- Compiling architecture behv of berlekamp_counter
+# ** Error: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd(90): (vcom-1342) Choice value "1101" duplicates prior choice value at line 86.
+# 
+# ** Error: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd(103): VHDL Compiler exiting
+# End time: 15:39:33 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# C:/Users/U/Documents/Quartus/modelsim_ase/win32aloem/vcom failed.
+vcom -93 -work work {C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 15:39:42 on Oct 01,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity berlekamp_counter
+# -- Compiling architecture behv of berlekamp_counter
+# End time: 15:39:42 on Oct 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim rtl_work.intgr_t
+# vsim rtl_work.intgr_t 
+# Start time: 15:39:47 on Oct 01,2016
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading rtl_work.intgr_t(rsintegration_arch)
+# Loading rtl_work.rsintegration(bdf_type)
+# Loading rtl_work.berlemas(bdf_type)
+# Loading rtl_work.berlekampcontroller(comportamental)
+# Loading rtl_work.berlekamp_massey(bdf_type)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading rtl_work.register4b(description)
+# Loading ieee.numeric_std(body)
+# Loading rtl_work.gf_mult(lut)
+# Loading rtl_work.mux2x1(mux2x1)
+# Loading rtl_work.gf_sum(behavior)
+# Loading rtl_work.static_1(behavior)
+# Loading rtl_work.gf_inv(lut)
+# Loading rtl_work.berlekamp_counter(behv)
+# Loading rtl_work.chienforney(bdf_type)
+# Loading rtl_work.chien(bdf_type)
+# Loading rtl_work.chiencontroller(comportamental)
+# Loading rtl_work.chiensearchlocation(bdf_type)
+# Loading rtl_work.static_2(behavior)
+# Loading rtl_work.static_8(behavior)
+# Loading rtl_work.static_4(behavior)
+# Loading rtl_work.static_3(behavior)
+# Loading rtl_work.chiensearchvalue(bdf_type)
+# Loading rtl_work.forney(bdf_type)
+# Loading rtl_work.static_0(behavior)
+add wave -position end  sim:/intgr_t/B_0
+add wave -position end  sim:/intgr_t/B_1
+add wave -position end  sim:/intgr_t/B_2
+add wave -position end  sim:/intgr_t/B_3
+add wave -position end  sim:/intgr_t/B_mux
+add wave -position end  sim:/intgr_t/clearB
+add wave -position end  sim:/intgr_t/clearC
+add wave -position end  sim:/intgr_t/clearS
+add wave -position end  sim:/intgr_t/Clock
+add wave -position end  sim:/intgr_t/di
+add wave -position end  sim:/intgr_t/DS_reg
+add wave -position end  sim:/intgr_t/Inicia
+add wave -position end  sim:/intgr_t/Input
+add wave -position end  sim:/intgr_t/Lambda1
+add wave -position end  sim:/intgr_t/Lambda2
+add wave -position end  sim:/intgr_t/Lambda3
+add wave -position end  sim:/intgr_t/Lambda4
+add wave -position end  sim:/intgr_t/loadB
+add wave -position end  sim:/intgr_t/loadC
+add wave -position end  sim:/intgr_t/loadS
+add wave -position end  sim:/intgr_t/MuxSel
+add wave -position end  sim:/intgr_t/Nerror
+add wave -position end  sim:/intgr_t/Omega0
+add wave -position end  sim:/intgr_t/Omega1
+add wave -position end  sim:/intgr_t/Omega2
+add wave -position end  sim:/intgr_t/Omega3
+add wave -position end  sim:/intgr_t/Omega4
+add wave -position end  sim:/intgr_t/Registra
+add wave -position end  sim:/intgr_t/Reset
+add wave -position end  sim:/intgr_t/S0
+add wave -position end  sim:/intgr_t/S1
+add wave -position end  sim:/intgr_t/S2
+add wave -position end  sim:/intgr_t/S3
+add wave -position end  sim:/intgr_t/S4
+add wave -position end  sim:/intgr_t/Test_state
+add wave -position end  sim:/intgr_t/Mensagem
+add wave -position end  sim:/intgr_t/pin_name1
+add wave -position end  sim:/intgr_t/Decod
+add wave -position end  sim:/intgr_t/Impar
+add wave -position end  sim:/intgr_t/Count_4
+add wave -position end  sim:/intgr_t/Count_8
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
+# 
+#           Attempting to use alternate WLF file "./wlftyi3x5j".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftyi3x5j
+# 
 run
-# End time: 03:17:50 on Oct 01,2016, Elapsed time: 0:16:55
+run
+# End time: 15:41:21 on Oct 01,2016, Elapsed time: 0:01:34
 # Errors: 0, Warnings: 2

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for RSDecoder
-Sat Oct 01 02:55:02 2016
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Sat Oct 01 14:57:23 2016
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
 ---------------------
@@ -38,16 +38,17 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
  30. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst12"
  31. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst11"
  32. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst1"
- 33. Post-Synthesis Netlist Statistics for Top Partition
- 34. Elapsed Time Per Partition
- 35. Analysis & Synthesis Messages
+ 33. Port Connectivity Checks: "berlekamp_counter:b2v_inst1"
+ 34. Post-Synthesis Netlist Statistics for Top Partition
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -67,16 +68,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Oct 01 02:55:02 2016       ;
-; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Sat Oct 01 14:57:23 2016       ;
+; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; RSDecoder                                   ;
 ; Top-level Entity Name              ; RSIntegration                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 691                                         ;
-;     Total combinational functions  ; 602                                         ;
-;     Dedicated logic registers      ; 147                                         ;
-; Total registers                    ; 147                                         ;
-; Total pins                         ; 114                                         ;
+; Total logic elements               ; 698                                         ;
+;     Total combinational functions  ; 609                                         ;
+;     Dedicated logic registers      ; 154                                         ;
+; Total registers                    ; 154                                         ;
+; Total pins                         ; 111                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -172,50 +173,45 @@ agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                    ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                             ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
-; register4b.vhd                   ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd          ;         ;
-; static_8.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd            ;         ;
-; static_4.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd            ;         ;
-; static_3.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd            ;         ;
-; static_2.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd            ;         ;
-; static_1.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd            ;         ;
-; gf_sum.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd              ;         ;
-; gf_mult.vhd                      ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd             ;         ;
-; gf_inv.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd              ;         ;
-; BerlekampController.vhd          ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd ;         ;
-; ChienController.vhd              ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd     ;         ;
-; static_0.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd            ;         ;
-; BerleMas.vhd                     ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd            ;         ;
-; Berlekamp_Massey.vhd             ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd    ;         ;
-; Mux2x1.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd              ;         ;
-; ChienSearchLocation.vhd          ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd ;         ;
-; ChienSearchValue.vhd             ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd    ;         ;
-; Chien.vhd                        ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd               ;         ;
-; Forney.vhd                       ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd              ;         ;
-; ChienForney.vhd                  ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd         ;         ;
-; RSIntegration.vhd                ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd       ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+; register4b.vhd                   ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd          ;         ;
+; static_8.vhd                     ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd            ;         ;
+; static_4.vhd                     ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd            ;         ;
+; static_3.vhd                     ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd            ;         ;
+; static_2.vhd                     ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd            ;         ;
+; static_1.vhd                     ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd            ;         ;
+; gf_sum.vhd                       ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd              ;         ;
+; gf_mult.vhd                      ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd             ;         ;
+; gf_inv.vhd                       ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd              ;         ;
+; BerlekampController.vhd          ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd ;         ;
+; ChienController.vhd              ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd     ;         ;
+; static_0.vhd                     ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd            ;         ;
+; BerleMas.vhd                     ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd            ;         ;
+; Berlekamp_Massey.vhd             ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd    ;         ;
+; Mux2x1.vhd                       ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd              ;         ;
+; ChienSearchLocation.vhd          ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd ;         ;
+; ChienSearchValue.vhd             ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd    ;         ;
+; Chien.vhd                        ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd               ;         ;
+; Forney.vhd                       ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd              ;         ;
+; ChienForney.vhd                  ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd         ;         ;
+; RSIntegration.vhd                ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd       ;         ;
+; berlekamp_counter.vhd            ; yes             ; User VHDL File  ; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd   ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -223,113 +219,114 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 691         ;
+; Estimated Total logic elements              ; 698         ;
 ;                                             ;             ;
-; Total combinational functions               ; 602         ;
+; Total combinational functions               ; 609         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 430         ;
-;     -- 3 input functions                    ; 83          ;
-;     -- <=2 input functions                  ; 89          ;
+;     -- 4 input functions                    ; 433         ;
+;     -- 3 input functions                    ; 84          ;
+;     -- <=2 input functions                  ; 92          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 602         ;
+;     -- normal mode                          ; 609         ;
 ;     -- arithmetic mode                      ; 0           ;
 ;                                             ;             ;
-; Total registers                             ; 147         ;
-;     -- Dedicated logic registers            ; 147         ;
+; Total registers                             ; 154         ;
+;     -- Dedicated logic registers            ; 154         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 114         ;
+; I/O pins                                    ; 111         ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; Clock~input ;
-; Maximum fan-out                             ; 115         ;
-; Total fan-out                               ; 2918        ;
+; Maximum fan-out                             ; 122         ;
+; Total fan-out                               ; 2949        ;
 ; Average fan-out                             ; 2.99        ;
 +---------------------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name         ; Library Name ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |RSIntegration                           ; 602 (0)           ; 147 (0)      ; 0           ; 0            ; 0       ; 0         ; 114  ; 0            ; |RSIntegration                                                                                         ; RSIntegration       ; work         ;
-;    |BerleMas:b2v_inst|                   ; 511 (0)           ; 61 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst                                                                       ; BerleMas            ; work         ;
-;       |BerlekampController:b2v_inst|     ; 14 (14)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|BerlekampController:b2v_inst                                          ; BerlekampController ; work         ;
-;       |Berlekamp_Massey:b2v_inst2|       ; 497 (1)           ; 56 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2                                            ; Berlekamp_Massey    ; work         ;
-;          |Mux2x1:b2v_inst22|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22                          ; Mux2x1              ; work         ;
-;          |Mux2x1:b2v_inst33|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst33                          ; Mux2x1              ; work         ;
-;          |Mux2x1:b2v_inst34|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst34                          ; Mux2x1              ; work         ;
-;          |Mux2x1:b2v_inst35|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst35                          ; Mux2x1              ; work         ;
-;          |gf_inv:b2v_inst32|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_inv:b2v_inst32                          ; gf_inv              ; work         ;
-;          |gf_mult:b2v_inst13|            ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst14|            ; 50 (50)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst15|            ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst15                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst16|            ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst17|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst17                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst18|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst18                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst19|            ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst20|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst21|            ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21                         ; gf_mult             ; work         ;
-;          |gf_sum:b2v_inst37|             ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst37                          ; gf_sum              ; work         ;
-;          |register4b:b2v_inst10|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst10                      ; register4b          ; work         ;
-;          |register4b:b2v_inst11|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst11                      ; register4b          ; work         ;
-;          |register4b:b2v_inst1|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst1                       ; register4b          ; work         ;
-;          |register4b:b2v_inst26|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst26                      ; register4b          ; work         ;
-;          |register4b:b2v_inst2|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst2                       ; register4b          ; work         ;
-;          |register4b:b2v_inst36|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst36                      ; register4b          ; work         ;
-;          |register4b:b2v_inst3|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst3                       ; register4b          ; work         ;
-;          |register4b:b2v_inst4|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst4                       ; register4b          ; work         ;
-;          |register4b:b2v_inst5|          ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst5                       ; register4b          ; work         ;
-;          |register4b:b2v_inst6|          ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst6                       ; register4b          ; work         ;
-;          |register4b:b2v_inst7|          ; 10 (10)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst7                       ; register4b          ; work         ;
-;          |register4b:b2v_inst8|          ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst8                       ; register4b          ; work         ;
-;          |register4b:b2v_inst9|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst9                       ; register4b          ; work         ;
-;          |register4b:b2v_inst|           ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst                        ; register4b          ; work         ;
-;    |ChienForney:b2v_inst8|               ; 91 (2)            ; 66 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8                                                                   ; ChienForney         ; work         ;
-;       |Chien:b2v_inst|                   ; 28 (0)            ; 66 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst                                                    ; Chien               ; work         ;
-;          |ChienController:b2v_inst|      ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst                           ; ChienController     ; work         ;
-;          |ChienSearchLocation:b2v_inst2| ; 17 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2                      ; ChienSearchLocation ; work         ;
-;             |gf_mult:b2v_inst10|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10   ; gf_mult             ; work         ;
-;             |gf_mult:b2v_inst11|         ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11   ; gf_mult             ; work         ;
-;             |gf_mult:b2v_inst8|          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8    ; gf_mult             ; work         ;
-;             |gf_mult:b2v_inst9|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9    ; gf_mult             ; work         ;
-;             |gf_sum:b2v_inst14|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14    ; gf_sum              ; work         ;
-;             |gf_sum:b2v_inst15|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15    ; gf_sum              ; work         ;
-;             |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4 ; register4b          ; work         ;
-;             |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5 ; register4b          ; work         ;
-;             |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6 ; register4b          ; work         ;
-;             |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7 ; register4b          ; work         ;
-;          |ChienSearchValue:b2v_inst3|    ; 10 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3                         ; ChienSearchValue    ; work         ;
-;             |gf_mult:b2v_inst11|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11      ; gf_mult             ; work         ;
-;             |gf_mult:b2v_inst8|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8       ; gf_mult             ; work         ;
-;             |gf_mult:b2v_inst9|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9       ; gf_mult             ; work         ;
-;             |gf_sum:b2v_inst14|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14       ; gf_sum              ; work         ;
-;             |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4    ; register4b          ; work         ;
-;             |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst5    ; register4b          ; work         ;
-;             |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6    ; register4b          ; work         ;
-;             |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst7    ; register4b          ; work         ;
-;          |register4b:b2v_inst11|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst11                              ; register4b          ; work         ;
-;          |register4b:b2v_inst12|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst12                              ; register4b          ; work         ;
-;          |register4b:b2v_inst1|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst1                               ; register4b          ; work         ;
-;          |register4b:b2v_inst4|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst4                               ; register4b          ; work         ;
-;          |register4b:b2v_inst5|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst5                               ; register4b          ; work         ;
-;          |register4b:b2v_inst6|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst6                               ; register4b          ; work         ;
-;          |register4b:b2v_inst8|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst8                               ; register4b          ; work         ;
-;          |register4b:b2v_inst9|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst9                               ; register4b          ; work         ;
-;       |Forney:b2v_inst2|                 ; 61 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2                                                  ; Forney              ; work         ;
-;          |Mux2x1:b2v_inst3|              ; 43 (43)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3                                 ; Mux2x1              ; work         ;
-;          |gf_inv:b2v_inst|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_inv:b2v_inst                                  ; gf_inv              ; work         ;
-;          |gf_mult:b2v_inst2|             ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_mult:b2v_inst2                                ; gf_mult             ; work         ;
-;          |gf_sum:b2v_inst1|              ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_sum:b2v_inst1                                 ; gf_sum              ; work         ;
-;    |register4b:b2v_inst2|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst2                                                                    ; register4b          ; work         ;
-;    |register4b:b2v_inst3|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst3                                                                    ; register4b          ; work         ;
-;    |register4b:b2v_inst4|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst4                                                                    ; register4b          ; work         ;
-;    |register4b:b2v_inst5|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst5                                                                    ; register4b          ; work         ;
-;    |register4b:b2v_inst6|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst6                                                                    ; register4b          ; work         ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                          ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+; |RSIntegration                           ; 609 (0)           ; 154 (0)      ; 0           ; 0            ; 0       ; 0         ; 111  ; 0            ; |RSIntegration                                                                                         ; work         ;
+;    |BerleMas:b2v_inst|                   ; 511 (0)           ; 61 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst                                                                       ; work         ;
+;       |BerlekampController:b2v_inst|     ; 14 (14)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|BerlekampController:b2v_inst                                          ; work         ;
+;       |Berlekamp_Massey:b2v_inst2|       ; 497 (1)           ; 56 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2                                            ; work         ;
+;          |Mux2x1:b2v_inst22|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22                          ; work         ;
+;          |Mux2x1:b2v_inst33|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst33                          ; work         ;
+;          |Mux2x1:b2v_inst34|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst34                          ; work         ;
+;          |Mux2x1:b2v_inst35|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst35                          ; work         ;
+;          |gf_inv:b2v_inst32|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_inv:b2v_inst32                          ; work         ;
+;          |gf_mult:b2v_inst13|            ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13                         ; work         ;
+;          |gf_mult:b2v_inst14|            ; 50 (50)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14                         ; work         ;
+;          |gf_mult:b2v_inst15|            ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst15                         ; work         ;
+;          |gf_mult:b2v_inst16|            ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16                         ; work         ;
+;          |gf_mult:b2v_inst17|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst17                         ; work         ;
+;          |gf_mult:b2v_inst18|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst18                         ; work         ;
+;          |gf_mult:b2v_inst19|            ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19                         ; work         ;
+;          |gf_mult:b2v_inst20|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20                         ; work         ;
+;          |gf_mult:b2v_inst21|            ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21                         ; work         ;
+;          |gf_sum:b2v_inst37|             ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst37                          ; work         ;
+;          |register4b:b2v_inst10|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst10                      ; work         ;
+;          |register4b:b2v_inst11|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst11                      ; work         ;
+;          |register4b:b2v_inst1|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst1                       ; work         ;
+;          |register4b:b2v_inst26|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst26                      ; work         ;
+;          |register4b:b2v_inst2|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst2                       ; work         ;
+;          |register4b:b2v_inst36|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst36                      ; work         ;
+;          |register4b:b2v_inst3|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst3                       ; work         ;
+;          |register4b:b2v_inst4|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst4                       ; work         ;
+;          |register4b:b2v_inst5|          ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst5                       ; work         ;
+;          |register4b:b2v_inst6|          ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst6                       ; work         ;
+;          |register4b:b2v_inst7|          ; 10 (10)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst7                       ; work         ;
+;          |register4b:b2v_inst8|          ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst8                       ; work         ;
+;          |register4b:b2v_inst9|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst9                       ; work         ;
+;          |register4b:b2v_inst|           ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst                        ; work         ;
+;    |ChienForney:b2v_inst8|               ; 91 (2)            ; 66 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8                                                                   ; work         ;
+;       |Chien:b2v_inst|                   ; 28 (0)            ; 66 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst                                                    ; work         ;
+;          |ChienController:b2v_inst|      ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst                           ; work         ;
+;          |ChienSearchLocation:b2v_inst2| ; 17 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2                      ; work         ;
+;             |gf_mult:b2v_inst10|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10   ; work         ;
+;             |gf_mult:b2v_inst11|         ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11   ; work         ;
+;             |gf_mult:b2v_inst8|          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8    ; work         ;
+;             |gf_mult:b2v_inst9|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9    ; work         ;
+;             |gf_sum:b2v_inst14|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14    ; work         ;
+;             |gf_sum:b2v_inst15|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15    ; work         ;
+;             |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4 ; work         ;
+;             |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5 ; work         ;
+;             |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6 ; work         ;
+;             |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7 ; work         ;
+;          |ChienSearchValue:b2v_inst3|    ; 10 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3                         ; work         ;
+;             |gf_mult:b2v_inst11|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11      ; work         ;
+;             |gf_mult:b2v_inst8|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8       ; work         ;
+;             |gf_mult:b2v_inst9|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9       ; work         ;
+;             |gf_sum:b2v_inst14|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14       ; work         ;
+;             |register4b:b2v_inst4|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4    ; work         ;
+;             |register4b:b2v_inst5|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst5    ; work         ;
+;             |register4b:b2v_inst6|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6    ; work         ;
+;             |register4b:b2v_inst7|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst7    ; work         ;
+;          |register4b:b2v_inst11|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst11                              ; work         ;
+;          |register4b:b2v_inst12|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst12                              ; work         ;
+;          |register4b:b2v_inst1|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst1                               ; work         ;
+;          |register4b:b2v_inst4|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst4                               ; work         ;
+;          |register4b:b2v_inst5|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst5                               ; work         ;
+;          |register4b:b2v_inst6|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst6                               ; work         ;
+;          |register4b:b2v_inst8|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst8                               ; work         ;
+;          |register4b:b2v_inst9|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst9                               ; work         ;
+;       |Forney:b2v_inst2|                 ; 61 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2                                                  ; work         ;
+;          |Mux2x1:b2v_inst3|              ; 43 (43)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3                                 ; work         ;
+;          |gf_inv:b2v_inst|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_inv:b2v_inst                                  ; work         ;
+;          |gf_mult:b2v_inst2|             ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_mult:b2v_inst2                                ; work         ;
+;          |gf_sum:b2v_inst1|              ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_sum:b2v_inst1                                 ; work         ;
+;    |berlekamp_counter:b2v_inst1|         ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|berlekamp_counter:b2v_inst1                                                             ; work         ;
+;    |register4b:b2v_inst2|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst2                                                                    ; work         ;
+;    |register4b:b2v_inst3|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst3                                                                    ; work         ;
+;    |register4b:b2v_inst4|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst4                                                                    ; work         ;
+;    |register4b:b2v_inst5|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst5                                                                    ; work         ;
+;    |register4b:b2v_inst6|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst6                                                                    ; work         ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -374,7 +371,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 147   ;
+; Total registers                              ; 154   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 28    ;
 ; Number of registers using Asynchronous Clear ; 147   ;
@@ -595,25 +592,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-------------------------------------------------------------+
 
 
++---------------------------------------------------------+
+; Port Connectivity Checks: "berlekamp_counter:b2v_inst1" ;
++--------+-------+----------+-----------------------------+
+; Port   ; Type  ; Severity ; Details                     ;
++--------+-------+----------+-----------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                ;
++--------+-------+----------+-----------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 114                         ;
-; cycloneiii_ff         ; 147                         ;
+; boundary_port         ; 111                         ;
+; cycloneiii_ff         ; 154                         ;
 ;     CLR               ; 59                          ;
 ;     CLR SLD           ; 28                          ;
 ;     ENA CLR           ; 60                          ;
-; cycloneiii_lcell_comb ; 605                         ;
-;     normal            ; 605                         ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 89                          ;
-;         3 data inputs ; 83                          ;
-;         4 data inputs ; 430                         ;
+;     plain             ; 7                           ;
+; cycloneiii_lcell_comb ; 612                         ;
+;     normal            ; 612                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 91                          ;
+;         3 data inputs ; 84                          ;
+;         4 data inputs ; 433                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 18.00                       ;
-; Average LUT depth     ; 12.46                       ;
+; Average LUT depth     ; 12.29                       ;
 +-----------------------+-----------------------------+
 
 
@@ -622,7 +629,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -631,130 +638,134 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Sat Oct 01 02:54:42 2016
+    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+    Info: Processing started: Sat Oct 01 14:57:04 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RSDecoder -c RSDecoder
-Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file syndrome.vhd
-    Info (12022): Found design unit 1: Syndrome-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 42
-    Info (12023): Found entity 1: Syndrome File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 25
+    Info (12022): Found design unit 1: Syndrome-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 42
+    Info (12023): Found entity 1: Syndrome File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file register4b.vhd
-    Info (12022): Found design unit 1: register4b-description File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd Line: 15
-    Info (12023): Found entity 1: register4b File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd Line: 6
+    Info (12022): Found design unit 1: register4b-description File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd Line: 15
+    Info (12023): Found entity 1: register4b File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file static_15.vhd
-    Info (12022): Found design unit 1: static_15-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_15.vhd Line: 15
-    Info (12023): Found entity 1: static_15 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_15.vhd Line: 8
+    Info (12022): Found design unit 1: static_15-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_15.vhd Line: 15
+    Info (12023): Found entity 1: static_15 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_15.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_12.vhd
-    Info (12022): Found design unit 1: static_12-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_12.vhd Line: 15
-    Info (12023): Found entity 1: static_12 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_12.vhd Line: 8
+    Info (12022): Found design unit 1: static_12-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd Line: 15
+    Info (12023): Found entity 1: static_12 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_12.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_8.vhd
-    Info (12022): Found design unit 1: static_8-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd Line: 14
-    Info (12023): Found entity 1: static_8 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd Line: 7
+    Info (12022): Found design unit 1: static_8-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd Line: 14
+    Info (12023): Found entity 1: static_8 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_4.vhd
-    Info (12022): Found design unit 1: static_4-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd Line: 14
-    Info (12023): Found entity 1: static_4 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd Line: 7
+    Info (12022): Found design unit 1: static_4-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd Line: 14
+    Info (12023): Found entity 1: static_4 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_3.vhd
-    Info (12022): Found design unit 1: static_3-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd Line: 15
-    Info (12023): Found entity 1: static_3 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd Line: 8
+    Info (12022): Found design unit 1: static_3-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd Line: 15
+    Info (12023): Found entity 1: static_3 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_2.vhd
-    Info (12022): Found design unit 1: static_2-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd Line: 15
-    Info (12023): Found entity 1: static_2 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd Line: 8
+    Info (12022): Found design unit 1: static_2-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd Line: 15
+    Info (12023): Found entity 1: static_2 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file static_1.vhd
-    Info (12022): Found design unit 1: static_1-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd Line: 15
-    Info (12023): Found entity 1: static_1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd Line: 8
+    Info (12022): Found design unit 1: static_1-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd Line: 15
+    Info (12023): Found entity 1: static_1 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file gf_sum.vhd
-    Info (12022): Found design unit 1: gf_sum-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 17
-    Info (12023): Found entity 1: gf_sum File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 8
+    Info (12022): Found design unit 1: gf_sum-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 17
+    Info (12023): Found entity 1: gf_sum File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file gf_mult.vhd
-    Info (12022): Found design unit 1: gf_mult-lut File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 13
-    Info (12023): Found entity 1: gf_mult File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 5
+    Info (12022): Found design unit 1: gf_mult-lut File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 13
+    Info (12023): Found entity 1: gf_mult File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file chien search location.bdf
     Info (12023): Found entity 1: Chien Search Location
 Info (12021): Found 1 design units, including 1 entities, in source file chien search value.bdf
     Info (12023): Found entity 1: Chien Search value
 Info (12021): Found 2 design units, including 1 entities, in source file gf_inv.vhd
-    Info (12022): Found design unit 1: gf_inv-lut File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 12
-    Info (12023): Found entity 1: gf_inv File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 5
+    Info (12022): Found design unit 1: gf_inv-lut File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 12
+    Info (12023): Found entity 1: gf_inv File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file berlekampcontroller.vhd
-    Info (12022): Found design unit 1: BerlekampController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 33
-    Info (12023): Found entity 1: BerlekampController File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 11
+    Info (12022): Found design unit 1: BerlekampController-comportamental File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 33
+    Info (12023): Found entity 1: BerlekampController File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file chiencontroller.vhd
-    Info (12022): Found design unit 1: ChienController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 22
-    Info (12023): Found entity 1: ChienController File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd Line: 11
+    Info (12022): Found design unit 1: ChienController-comportamental File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd Line: 22
+    Info (12023): Found entity 1: ChienController File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file static_0.vhd
-    Info (12022): Found design unit 1: static_0-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd Line: 14
-    Info (12023): Found entity 1: static_0 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd Line: 7
+    Info (12022): Found design unit 1: static_0-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd Line: 14
+    Info (12023): Found entity 1: static_0 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_11.vhd
-    Info (12022): Found design unit 1: static_11-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_11.vhd Line: 14
-    Info (12023): Found entity 1: static_11 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_11.vhd Line: 7
+    Info (12022): Found design unit 1: static_11-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd Line: 14
+    Info (12023): Found entity 1: static_11 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_11.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file static_6.vhd
-    Info (12022): Found design unit 1: static_6-behavior File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_6.vhd Line: 14
-    Info (12023): Found entity 1: static_6 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_6.vhd Line: 7
+    Info (12022): Found design unit 1: static_6-behavior File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd Line: 14
+    Info (12023): Found entity 1: static_6 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_6.vhd Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file aux_berleys.bdf
     Info (12023): Found entity 1: aux_berleys
 Info (12021): Found 2 design units, including 1 entities, in source file berlemas.vhd
-    Info (12022): Found design unit 1: BerleMas-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 65
-    Info (12023): Found entity 1: BerleMas File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 25
+    Info (12022): Found design unit 1: BerleMas-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 65
+    Info (12023): Found entity 1: BerleMas File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file berlekamp_massey.vhd
-    Info (12022): Found design unit 1: Berlekamp_Massey-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 58
-    Info (12023): Found entity 1: Berlekamp_Massey File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 25
+    Info (12022): Found design unit 1: Berlekamp_Massey-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 58
+    Info (12023): Found entity 1: Berlekamp_Massey File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file mux2x1.vhd
-    Info (12022): Found design unit 1: Mux2x1-Mux2x1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd Line: 18
-    Info (12023): Found entity 1: Mux2x1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd Line: 6
+    Info (12022): Found design unit 1: Mux2x1-Mux2x1 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd Line: 18
+    Info (12023): Found entity 1: Mux2x1 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file register4b_1.vhd
-    Info (12022): Found design unit 1: register4b_1-description File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd Line: 15
-    Info (12023): Found entity 1: register4b_1 File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b_1.vhd Line: 6
+    Info (12022): Found design unit 1: register4b_1-description File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b_1.vhd Line: 15
+    Info (12023): Found entity 1: register4b_1 File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b_1.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file chiensearchlocation.vhd
-    Info (12022): Found design unit 1: ChienSearchLocation-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 41
-    Info (12023): Found entity 1: ChienSearchLocation File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 25
+    Info (12022): Found design unit 1: ChienSearchLocation-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 41
+    Info (12023): Found entity 1: ChienSearchLocation File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file chiensearchvalue.vhd
-    Info (12022): Found design unit 1: ChienSearchValue-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd Line: 40
-    Info (12023): Found entity 1: ChienSearchValue File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd Line: 25
+    Info (12022): Found design unit 1: ChienSearchValue-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd Line: 40
+    Info (12023): Found entity 1: ChienSearchValue File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file chien.vhd
-    Info (12022): Found design unit 1: Chien-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 46
-    Info (12023): Found entity 1: Chien File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 25
+    Info (12022): Found design unit 1: Chien-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd Line: 46
+    Info (12023): Found entity 1: Chien File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file forney.vhd
-    Info (12022): Found design unit 1: Forney-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd Line: 36
-    Info (12023): Found entity 1: Forney File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd Line: 25
+    Info (12022): Found design unit 1: Forney-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd Line: 36
+    Info (12023): Found entity 1: Forney File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file chienforney.vhd
-    Info (12022): Found design unit 1: ChienForney-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 45
-    Info (12023): Found entity 1: ChienForney File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 25
+    Info (12022): Found design unit 1: ChienForney-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 45
+    Info (12023): Found entity 1: ChienForney File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file rsintegration.vhd
-    Info (12022): Found design unit 1: RSIntegration-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 72
-    Info (12023): Found entity 1: RSIntegration File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 25
+    Info (12022): Found design unit 1: RSIntegration-bdf_type File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 69
+    Info (12023): Found entity 1: RSIntegration File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file berlekamp_counter.vhd
+    Info (12022): Found design unit 1: berlekamp_counter-behv File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd Line: 19
+    Info (12023): Found entity 1: berlekamp_counter File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd Line: 7
 Info (12127): Elaborating entity "RSIntegration" for the top level hierarchy
-Info (12128): Elaborating entity "BerleMas" for hierarchy "BerleMas:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 168
-Info (12128): Elaborating entity "BerlekampController" for hierarchy "BerleMas:b2v_inst|BerlekampController:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 143
-Info (12128): Elaborating entity "Berlekamp_Massey" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 163
-Info (12128): Elaborating entity "register4b" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 162
-Info (12128): Elaborating entity "gf_mult" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 194
-Info (12128): Elaborating entity "Mux2x1" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 256
-Info (12128): Elaborating entity "gf_sum" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst23" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 265
-Info (12128): Elaborating entity "static_1" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|static_1:b2v_inst31" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 323
-Info (12128): Elaborating entity "gf_inv" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_inv:b2v_inst32" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 327
-Info (12128): Elaborating entity "ChienForney" for hierarchy "ChienForney:b2v_inst8" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 245
-Info (12128): Elaborating entity "Chien" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 85
-Info (12128): Elaborating entity "ChienController" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 116
-Info (12128): Elaborating entity "ChienSearchLocation" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 150
-Info (12128): Elaborating entity "static_2" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_2:b2v_inst17" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 186
-Info (12128): Elaborating entity "static_8" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_8:b2v_inst18" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 190
-Info (12128): Elaborating entity "static_4" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_4:b2v_inst19" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 194
-Info (12128): Elaborating entity "static_3" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_3:b2v_inst20" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 207
-Info (12128): Elaborating entity "ChienSearchValue" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 163
-Info (12128): Elaborating entity "Forney" for hierarchy "ChienForney:b2v_inst8|Forney:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 103
-Info (12128): Elaborating entity "static_0" for hierarchy "ChienForney:b2v_inst8|Forney:b2v_inst2|static_0:b2v_inst5" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd Line: 109
+Info (12128): Elaborating entity "BerleMas" for hierarchy "BerleMas:b2v_inst" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 179
+Info (12128): Elaborating entity "BerlekampController" for hierarchy "BerleMas:b2v_inst|BerlekampController:b2v_inst" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 143
+Info (12128): Elaborating entity "Berlekamp_Massey" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 163
+Info (12128): Elaborating entity "register4b" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 162
+Info (12128): Elaborating entity "gf_mult" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 194
+Info (12128): Elaborating entity "Mux2x1" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 256
+Info (12128): Elaborating entity "gf_sum" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst23" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 265
+Info (12128): Elaborating entity "static_1" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|static_1:b2v_inst31" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 323
+Info (12128): Elaborating entity "gf_inv" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_inv:b2v_inst32" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 327
+Info (12128): Elaborating entity "berlekamp_counter" for hierarchy "berlekamp_counter:b2v_inst1" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 216
+Info (12128): Elaborating entity "ChienForney" for hierarchy "ChienForney:b2v_inst8" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 265
+Info (12128): Elaborating entity "Chien" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 85
+Info (12128): Elaborating entity "ChienController" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd Line: 116
+Info (12128): Elaborating entity "ChienSearchLocation" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd Line: 150
+Info (12128): Elaborating entity "static_2" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_2:b2v_inst17" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 186
+Info (12128): Elaborating entity "static_8" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_8:b2v_inst18" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 190
+Info (12128): Elaborating entity "static_4" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_4:b2v_inst19" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 194
+Info (12128): Elaborating entity "static_3" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_3:b2v_inst20" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd Line: 207
+Info (12128): Elaborating entity "ChienSearchValue" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd Line: 163
+Info (12128): Elaborating entity "Forney" for hierarchy "ChienForney:b2v_inst8|Forney:b2v_inst2" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 103
+Info (12128): Elaborating entity "static_0" for hierarchy "ChienForney:b2v_inst8|Forney:b2v_inst2|static_0:b2v_inst5" File: C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd Line: 109
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 814 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 14 input pins
+Info (21057): Implemented 818 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
     Info (21059): Implemented 100 output pins
-    Info (21061): Implemented 700 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 901 megabytes
-    Info: Processing ended: Sat Oct 01 02:55:02 2016
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:42
+    Info (21061): Implemented 707 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 858 megabytes
+    Info: Processing ended: Sat Oct 01 14:57:23 2016
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:40
 
 

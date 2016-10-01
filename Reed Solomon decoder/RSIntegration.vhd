@@ -1,4 +1,4 @@
--- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+-- Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 -- Your use of Altera Corporation's design tools, logic functions 
 -- and other software and tools, and its AMPP partner logic 
 -- functions, and any output files from any of the foregoing 
@@ -14,8 +14,8 @@
 -- agreement for further details.
 
 -- PROGRAM		"Quartus Prime"
--- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sat Oct 01 02:58:36 2016"
+-- VERSION		"Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition"
+-- CREATED		"Sat Oct 01 15:16:16 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -27,9 +27,6 @@ ENTITY RSIntegration IS
 	(
 		Clock :  IN  STD_LOGIC;
 		Reset :  IN  STD_LOGIC;
-		Impar :  IN  STD_LOGIC;
-		Count4 :  IN  STD_LOGIC;
-		Count8 :  IN  STD_LOGIC;
 		Inicia :  IN  STD_LOGIC;
 		Input :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Mensagem :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -44,6 +41,9 @@ ENTITY RSIntegration IS
 		MuxSel :  OUT  STD_LOGIC;
 		Nerror :  OUT  STD_LOGIC;
 		pin_name1 :  OUT  STD_LOGIC;
+		Impar :  OUT  STD_LOGIC;
+		Count_4 :  OUT  STD_LOGIC;
+		Count_8 :  OUT  STD_LOGIC;
 		B_0 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		B_1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		B_2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -109,6 +109,15 @@ COMPONENT berlemas
 	);
 END COMPONENT;
 
+COMPONENT berlekamp_counter
+	PORT(clock : IN STD_LOGIC;
+		 enable : IN STD_LOGIC;
+		 Impar : OUT STD_LOGIC;
+		 Count_4 : OUT STD_LOGIC;
+		 Count_8 : OUT STD_LOGIC
+	);
+END COMPONENT;
+
 COMPONENT register4b
 	PORT(ld : IN STD_LOGIC;
 		 clr : IN STD_LOGIC;
@@ -136,49 +145,56 @@ COMPONENT chienforney
 	);
 END COMPONENT;
 
-SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_25 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_26 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_27 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_28 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_29 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_28 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_29 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_30 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_31 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_32 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_33 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_23 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 BEGIN 
-Registra <= SYNTHESIZED_WIRE_15;
-loadS <= SYNTHESIZED_WIRE_24;
-clearS <= SYNTHESIZED_WIRE_25;
-Lambda1 <= SYNTHESIZED_WIRE_16;
-Lambda2 <= SYNTHESIZED_WIRE_17;
-Lambda3 <= SYNTHESIZED_WIRE_18;
-Lambda4 <= SYNTHESIZED_WIRE_19;
-Omega0 <= SYNTHESIZED_WIRE_29;
-Omega1 <= SYNTHESIZED_WIRE_28;
-Omega2 <= SYNTHESIZED_WIRE_27;
-Omega3 <= SYNTHESIZED_WIRE_26;
+Registra <= SYNTHESIZED_WIRE_19;
+loadS <= SYNTHESIZED_WIRE_28;
+clearS <= SYNTHESIZED_WIRE_29;
+Impar <= SYNTHESIZED_WIRE_0;
+Count_4 <= SYNTHESIZED_WIRE_1;
+Count_8 <= SYNTHESIZED_WIRE_2;
+Lambda1 <= SYNTHESIZED_WIRE_20;
+Lambda2 <= SYNTHESIZED_WIRE_21;
+Lambda3 <= SYNTHESIZED_WIRE_22;
+Lambda4 <= SYNTHESIZED_WIRE_23;
+Omega0 <= SYNTHESIZED_WIRE_33;
+Omega1 <= SYNTHESIZED_WIRE_32;
+Omega2 <= SYNTHESIZED_WIRE_31;
+Omega3 <= SYNTHESIZED_WIRE_30;
 
 
 
 b2v_inst : berlemas
 PORT MAP(Clock => Clock,
 		 Reset => Reset,
-		 Impar => Impar,
-		 Count4 => Count4,
-		 Count8 => Count8,
+		 Impar => SYNTHESIZED_WIRE_0,
+		 Count4 => SYNTHESIZED_WIRE_1,
+		 Count8 => SYNTHESIZED_WIRE_2,
 		 Inicia => Inicia,
 		 Input => Input,
-		 Registra => SYNTHESIZED_WIRE_15,
+		 Registra => SYNTHESIZED_WIRE_19,
 		 di => di,
-		 loadS => SYNTHESIZED_WIRE_24,
+		 loadS => SYNTHESIZED_WIRE_28,
 		 loadB => loadB,
 		 loadC => loadC,
-		 clearS => SYNTHESIZED_WIRE_25,
+		 clearS => SYNTHESIZED_WIRE_29,
 		 clearB => clearB,
 		 clearC => clearC,
 		 MuxSel => MuxSel,
@@ -189,11 +205,11 @@ PORT MAP(Clock => Clock,
 		 B_3 => B_3,
 		 B_mux => B_mux,
 		 DS_reg => DS_reg,
-		 Lambda1 => SYNTHESIZED_WIRE_16,
-		 Lambda2 => SYNTHESIZED_WIRE_17,
-		 Lambda3 => SYNTHESIZED_WIRE_18,
-		 Lambda4 => SYNTHESIZED_WIRE_19,
-		 Omega => SYNTHESIZED_WIRE_2,
+		 Lambda1 => SYNTHESIZED_WIRE_20,
+		 Lambda2 => SYNTHESIZED_WIRE_21,
+		 Lambda3 => SYNTHESIZED_WIRE_22,
+		 Lambda4 => SYNTHESIZED_WIRE_23,
+		 Omega => SYNTHESIZED_WIRE_6,
 		 S0 => S0,
 		 S1 => S1,
 		 S2 => S2,
@@ -202,61 +218,73 @@ PORT MAP(Clock => Clock,
 		 Test_state => Test_state);
 
 
+b2v_inst1 : berlekamp_counter
+PORT MAP(clock => Clock,
+		 enable => SYNTHESIZED_WIRE_3,
+		 Impar => SYNTHESIZED_WIRE_0,
+		 Count_4 => SYNTHESIZED_WIRE_1,
+		 Count_8 => SYNTHESIZED_WIRE_2);
+
+
 b2v_inst2 : register4b
-PORT MAP(ld => SYNTHESIZED_WIRE_24,
-		 clr => SYNTHESIZED_WIRE_25,
+PORT MAP(ld => SYNTHESIZED_WIRE_28,
+		 clr => SYNTHESIZED_WIRE_29,
 		 clk => Clock,
-		 d => SYNTHESIZED_WIRE_2,
-		 q => SYNTHESIZED_WIRE_26);
+		 d => SYNTHESIZED_WIRE_6,
+		 q => SYNTHESIZED_WIRE_30);
 
 
 b2v_inst3 : register4b
-PORT MAP(ld => SYNTHESIZED_WIRE_24,
-		 clr => SYNTHESIZED_WIRE_25,
+PORT MAP(ld => SYNTHESIZED_WIRE_28,
+		 clr => SYNTHESIZED_WIRE_29,
 		 clk => Clock,
-		 d => SYNTHESIZED_WIRE_26,
-		 q => SYNTHESIZED_WIRE_27);
+		 d => SYNTHESIZED_WIRE_30,
+		 q => SYNTHESIZED_WIRE_31);
 
 
 b2v_inst4 : register4b
-PORT MAP(ld => SYNTHESIZED_WIRE_24,
-		 clr => SYNTHESIZED_WIRE_25,
+PORT MAP(ld => SYNTHESIZED_WIRE_28,
+		 clr => SYNTHESIZED_WIRE_29,
 		 clk => Clock,
-		 d => SYNTHESIZED_WIRE_27,
-		 q => SYNTHESIZED_WIRE_28);
+		 d => SYNTHESIZED_WIRE_31,
+		 q => SYNTHESIZED_WIRE_32);
 
 
 b2v_inst5 : register4b
-PORT MAP(ld => SYNTHESIZED_WIRE_24,
-		 clr => SYNTHESIZED_WIRE_25,
+PORT MAP(ld => SYNTHESIZED_WIRE_28,
+		 clr => SYNTHESIZED_WIRE_29,
 		 clk => Clock,
-		 d => SYNTHESIZED_WIRE_28,
-		 q => SYNTHESIZED_WIRE_29);
+		 d => SYNTHESIZED_WIRE_32,
+		 q => SYNTHESIZED_WIRE_33);
 
 
 b2v_inst6 : register4b
-PORT MAP(ld => SYNTHESIZED_WIRE_24,
-		 clr => SYNTHESIZED_WIRE_25,
+PORT MAP(ld => SYNTHESIZED_WIRE_28,
+		 clr => SYNTHESIZED_WIRE_29,
 		 clk => Clock,
-		 d => SYNTHESIZED_WIRE_29,
+		 d => SYNTHESIZED_WIRE_33,
 		 q => Omega4);
 
 
 b2v_inst8 : chienforney
 PORT MAP(clock => Clock,
 		 reset => Reset,
-		 inicia => SYNTHESIZED_WIRE_15,
+		 inicia => SYNTHESIZED_WIRE_19,
 		 Input => Mensagem,
-		 Lamb0 => SYNTHESIZED_WIRE_16,
-		 Lamb1 => SYNTHESIZED_WIRE_17,
-		 Lamb2 => SYNTHESIZED_WIRE_18,
-		 Lamb3 => SYNTHESIZED_WIRE_19,
-		 Omega0 => SYNTHESIZED_WIRE_29,
-		 Omega1 => SYNTHESIZED_WIRE_28,
-		 Omega2 => SYNTHESIZED_WIRE_27,
-		 Omega3 => SYNTHESIZED_WIRE_26,
+		 Lamb0 => SYNTHESIZED_WIRE_20,
+		 Lamb1 => SYNTHESIZED_WIRE_21,
+		 Lamb2 => SYNTHESIZED_WIRE_22,
+		 Lamb3 => SYNTHESIZED_WIRE_23,
+		 Omega0 => SYNTHESIZED_WIRE_33,
+		 Omega1 => SYNTHESIZED_WIRE_32,
+		 Omega2 => SYNTHESIZED_WIRE_31,
+		 Omega3 => SYNTHESIZED_WIRE_30,
 		 pin_name1 => pin_name1,
 		 Decod => Decod);
+
+
+SYNTHESIZED_WIRE_3 <= NOT(Reset);
+
 
 
 END bdf_type;

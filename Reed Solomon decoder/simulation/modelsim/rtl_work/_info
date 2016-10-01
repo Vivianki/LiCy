@@ -7,884 +7,927 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim
-Eberlekamp_massey
-Z1 w1475291794
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z0 dC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim
+Eberlekamp_counter
+Z1 w1475347178
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z4 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd
-Z5 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd
+Z6 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd
+Z7 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd
+l0
+L7
+V0Rf`?Ke[kWkaFlXLFbLTI0
+!s100 39mOfV_>B1d3_:VQljNS>0
+Z8 OV;C;10.4b;61
+31
+Z9 !s110 1475347182
+!i10b 1
+Z10 !s108 1475347182.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd|
+Z12 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/berlekamp_counter.vhd|
+!i113 1
+Z13 o-93 -work work
+Z14 tExplicit 1
+Abehv
+R2
+R3
+R4
+R5
+Z15 DEx4 work 17 berlekamp_counter 0 22 0Rf`?Ke[kWkaFlXLFbLTI0
+l22
+L19
+VJWlDgQ_1@AWJIZ=Wl50WL3
+!s100 LM:]?Hdz2cccMk?Xn=Sj^1
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Eberlekamp_massey
+Z16 w1475291913
+R4
+R5
+R0
+Z17 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd
+Z18 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd
 l0
 L25
 VG]VMgEX9onRf<lDFBKKDR3
 !s100 :0m=7GC:dQ8W2@9L=>VnZ3
-Z6 OV;C;10.4d;61
+R8
 31
-Z7 !s110 1475301623
+Z19 !s110 1475344920
 !i10b 1
-Z8 !s108 1475301623.000000
-Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd|
-Z10 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd|
+Z20 !s108 1475344920.000000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd|
+Z22 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd|
 !i113 1
-Z11 o-93 -work work
-Z12 tExplicit 1
+R13
+R14
 Abdf_type
-R2
-R3
+R4
+R5
 DEx4 work 16 berlekamp_massey 0 22 G]VMgEX9onRf<lDFBKKDR3
 l143
 L58
 VnFPzWLg`J>PA:M;Mc>_h[2
 !s100 Xdn@L25=iQJnT8>E9JEJU3
-R6
-31
-R7
-!i10b 1
 R8
-R9
-R10
+31
+R19
+!i10b 1
+R20
+R21
+R22
 !i113 1
-R11
-R12
+R13
+R14
 Eberlekampcontroller
-Z13 w1475294584
-R2
-R3
+Z23 w1475343180
+R4
+R5
 R0
-Z14 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd
-Z15 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd
+Z24 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd
+Z25 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd
 l0
 L11
 V]4zKa8bHTcUWEboSS6Z4m0
 !s100 h@Y@J]<3=DUlIPj^hV7C72
-R6
+R8
 31
-R7
+Z26 !s110 1475344919
 !i10b 1
-Z16 !s108 1475301622.000000
-Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd|
-Z18 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd|
+Z27 !s108 1475344918.000000
+Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd|
+Z29 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerlekampController.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Acomportamental
-R2
-R3
+R4
+R5
 DEx4 work 19 berlekampcontroller 0 22 ]4zKa8bHTcUWEboSS6Z4m0
 l38
 L33
 V>DLafgnZX?@IOW1a0ncB]1
 !s100 zmcl2]1Qg]TNb1PBPYdW:2
-R6
+R8
 31
-R7
+R26
 !i10b 1
-R16
-R17
-R18
+R27
+R28
+R29
 !i113 1
-R11
-R12
+R13
+R14
 Eberlemas
-Z19 w1475291793
-R2
-R3
+R16
+R4
+R5
 R0
-Z20 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd
-Z21 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd
+Z30 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd
+Z31 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd
 l0
 L25
 V;2mlC8noSH:]WR@l3d4o]2
 !s100 jR?jdo;VN3^D9TEgW=HbM1
-R6
-31
-R7
-!i10b 1
 R8
-Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd|
-Z23 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd|
+31
+R19
+!i10b 1
+R20
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd|
+Z33 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/BerleMas.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abdf_type
-R2
-R3
+R4
+R5
 DEx4 work 8 berlemas 0 22 ;2mlC8noSH:]WR@l3d4o]2
 l130
 L65
 VhMgK?jIK2>lo[j]lZgalP0
 !s100 Fl1=ADcgQhGBJV18ZUhSB2
-R6
-31
-R7
-!i10b 1
 R8
-R22
-R23
+31
+R19
+!i10b 1
+R20
+R32
+R33
 !i113 1
-R11
-R12
+R13
+R14
 Echien
-Z24 w1475301229
-R2
-R3
+R23
+R4
+R5
 R0
-Z25 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd
-Z26 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd
+Z34 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd
+Z35 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd
 l0
 L25
 Vm`K5l>hW:K]WoG>G3zoV<1
 !s100 VI?1zNK:>=G>Hda?VnkWk1
-R6
+R8
 31
-Z27 !s110 1475301625
+Z36 !s110 1475344923
 !i10b 1
-Z28 !s108 1475301625.000000
-Z29 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd|
-Z30 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd|
+Z37 !s108 1475344923.000000
+Z38 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd|
+Z39 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Chien.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abdf_type
-R2
-R3
+R4
+R5
 DEx4 work 5 chien 0 22 m`K5l>hW:K]WoG>G3zoV<1
 l109
 L46
 VkiDI6NlkX[8Ak9bob_4N>2
 !s100 kiTe5?KooW^O45ML;i5En0
-R6
+R8
 31
-R27
+R36
 !i10b 1
-R28
-R29
-R30
+R37
+R38
+R39
 !i113 1
-R11
-R12
+R13
+R14
 Echiencontroller
-Z31 w1475294605
-R2
-R3
+R23
+R4
+R5
 R0
-Z32 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd
-Z33 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd
+Z40 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd
+Z41 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd
 l0
 L11
 V]A2bec2]VPf9>k:2]eVkM2
 !s100 CmY6GO]61:c>;<MT^1B571
-R6
-31
-R7
-!i10b 1
 R8
-Z34 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd|
-Z35 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd|
+31
+R26
+!i10b 1
+Z42 !s108 1475344919.000000
+Z43 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd|
+Z44 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienController.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Acomportamental
-R2
-R3
+R4
+R5
 DEx4 work 15 chiencontroller 0 22 ]A2bec2]VPf9>k:2]eVkM2
 l26
 L22
 VISKL`WTz3j7k[55DJ?Rmg2
 !s100 ZafPg`R=l]h4bQ8H8>Jno1
-R6
-31
-R7
-!i10b 1
 R8
-R34
-R35
+31
+R26
+!i10b 1
+R42
+R43
+R44
 !i113 1
-R11
-R12
+R13
+R14
 Echienforney
-Z36 w1475301258
-R2
-R3
+R23
+R4
+R5
 R0
-Z37 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd
-Z38 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd
+Z45 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd
+Z46 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd
 l0
 L25
 VY>SI0:e7]>27BXo9@^`_e2
 !s100 3Kg45@SGkK[m=QHD4gLAk1
-R6
+R8
 31
-R27
+Z47 !s110 1475344924
 !i10b 1
-R28
-Z39 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd|
-Z40 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd|
+Z48 !s108 1475344924.000000
+Z49 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd|
+Z50 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienForney.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abdf_type
-R2
-R3
+R4
+R5
 DEx4 work 11 chienforney 0 22 Y>SI0:e7]>27BXo9@^`_e2
 l81
 L45
 V88OQ?SNVi;3CHkAIl5[g23
 !s100 j6kiiR^3C2[Hc6H2XYWfT1
-R6
+R8
 31
-R27
+R47
 !i10b 1
-R28
-R39
-R40
+R48
+R49
+R50
 !i113 1
-R11
-R12
+R13
+R14
 Echiensearchlocation
-Z41 w1475291801
-R2
-R3
+R16
+R4
+R5
 R0
-Z42 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd
-Z43 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd
+Z51 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd
+Z52 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd
 l0
 L25
 Vm^gL4D`Kz80o<@nk^JFJb2
 !s100 e61BAFK<<J:2YnFmYR1LH1
-R6
-31
-Z44 !s110 1475301624
-!i10b 1
 R8
-Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd|
-Z46 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd|
+31
+Z53 !s110 1475344922
+!i10b 1
+Z54 !s108 1475344921.000000
+Z55 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd|
+Z56 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abdf_type
-R2
-R3
+R4
+R5
 DEx4 work 19 chiensearchlocation 0 22 m^gL4D`Kz80o<@nk^JFJb2
 l123
 L41
 VcFJC1CDc8R74e7_czFG541
 !s100 M?cS34eMlEV6z0iVh0=fc0
-R6
-31
-R44
-!i10b 1
 R8
-R45
-R46
+31
+R53
+!i10b 1
+R54
+R55
+R56
 !i113 1
-R11
-R12
+R13
+R14
 Echiensearchvalue
-R41
-R2
-R3
+R16
+R4
+R5
 R0
-Z47 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd
-Z48 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd
+Z57 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd
+Z58 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd
 l0
 L25
 V9hoROEP]JhIi_SOTKA;]:3
 !s100 ]I5=:k9em>zZ8dhA6`46a0
-R6
+R8
 31
-R44
+R53
 !i10b 1
-Z49 !s108 1475301624.000000
-Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd|
-Z51 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd|
+Z59 !s108 1475344922.000000
+Z60 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd|
+Z61 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/ChienSearchValue.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abdf_type
-R2
-R3
+R4
+R5
 DEx4 work 16 chiensearchvalue 0 22 9hoROEP]JhIi_SOTKA;]:3
 l107
 L40
 V^YMAMKdaAnPBY8`k^2a@b2
 !s100 TmoB6O19GKLUB6:l5hNMN0
-R6
+R8
 31
-R44
+R53
 !i10b 1
-R49
-R50
-R51
+R59
+R60
+R61
 !i113 1
-R11
-R12
+R13
+R14
 Eforney
-Z52 w1475291806
-R2
-R3
+R16
+R4
+R5
 R0
-Z53 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd
-Z54 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd
+Z62 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd
+Z63 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd
 l0
 L25
 VKHW>LGC^Khi_c@TQ04dLK2
 !s100 P6aeca^R?79O]i`<Domge0
-R6
+R8
 31
-R27
+R36
 !i10b 1
-R28
-Z55 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd|
-Z56 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd|
+R37
+Z64 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd|
+Z65 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Forney.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abdf_type
-R2
-R3
+R4
+R5
 DEx4 work 6 forney 0 22 KHW>LGC^Khi_c@TQ04dLK2
 l79
 L36
 VbznAiV:cd6;4@h3FKLBb`2
 !s100 WSM:TMQZe81C7:AmfhCMX1
-R6
+R8
 31
-R27
+R36
 !i10b 1
-R28
-R55
-R56
+R37
+R64
+R65
 !i113 1
-R11
-R12
+R13
+R14
 Egf_inv
-Z57 w1475291786
-Z58 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-R2
-R3
+R16
+Z66 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R4
+R5
 R0
-Z59 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd
-Z60 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd
+Z67 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd
+Z68 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd
 l0
 L5
 VePdF1@@a6_OLo5o;ez5fT1
 !s100 XWkUmY^igPgjRb0<XEB6J2
-R6
+R8
 31
-Z61 !s110 1475301622
+Z69 !s110 1475344918
 !i10b 1
-R16
-Z62 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd|
-Z63 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd|
+R27
+Z70 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd|
+Z71 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_inv.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Alut
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 6 gf_inv 0 22 ePdF1@@a6_OLo5o;ez5fT1
 l13
 L12
 VR>m7;TR:JAJ_V4CHn39K91
 !s100 CK5W`_HkP8CYhjM>CQ]F00
-R6
+R8
 31
-R61
+R69
 !i10b 1
-R16
-R62
-R63
+R27
+R70
+R71
 !i113 1
-R11
-R12
+R13
+R14
 Egf_mult
-Z64 w1474838118
-R58
-R2
-R3
+Z72 w1474765165
+R66
+R4
+R5
 R0
-Z65 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd
-Z66 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd
+Z73 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd
+Z74 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd
 l0
 L5
 V>T0U:eJ`O?9U@O3;z8NMz1
 !s100 `hjilD620eWQJe3FSLUg61
-R6
+R8
 31
-R61
+R69
 !i10b 1
-R16
-Z67 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd|
-Z68 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd|
+R27
+Z75 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd|
+Z76 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_mult.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Alut
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 7 gf_mult 0 22 >T0U:eJ`O?9U@O3;z8NMz1
 l14
 L13
 V6dF0@R:mn9fSf?aeWO:5e3
 !s100 2ULQc:8@TZ9S3?G@CnA4]0
-R6
+R8
 31
-R61
+R69
 !i10b 1
-R16
-R67
-R68
+R27
+R75
+R76
 !i113 1
-R11
-R12
+R13
+R14
 Egf_sum
-Z69 w1474748658
-R58
-R2
-R3
+Z77 w1474509323
+R66
+R4
+R5
 R0
-Z70 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd
-Z71 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd
+Z78 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd
+Z79 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd
 l0
 L8
 V:EgEGkN`Q?;8oNMO0dcFQ1
 !s100 gjG]YVT:G0D@R7E_G94R82
-R6
+R8
 31
-R61
+Z80 !s110 1475344917
 !i10b 1
-R16
-Z72 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd|
-Z73 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd|
+Z81 !s108 1475344917.000000
+Z82 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd|
+Z83 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/gf_sum.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abehavior
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 6 gf_sum 0 22 :EgEGkN`Q?;8oNMO0dcFQ1
 l19
 L17
 V;<JmP9fni7TSJnL3hLO0`3
 !s100 @F8MKGY`X6J4_`W>EJ@>C2
-R6
+R8
 31
-R61
+R80
 !i10b 1
-R16
-R72
-R73
+R81
+R82
+R83
 !i113 1
-R11
-R12
+R13
+R14
 Eintgr_t
-Z74 w1475301577
-R2
-R3
+Z84 w1475346398
+R4
+R5
 R0
-Z75 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht
-Z76 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht
+Z85 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht
+Z86 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht
 l0
 L31
 VD=OD?RfzXSOz6jh_Gh9<b2
 !s100 b<UH[iWKb@_bCPBAU=LHk2
-R6
+R8
 31
-Z77 !s110 1475301653
+Z87 !s110 1475346439
 !i10b 1
-Z78 !s108 1475301653.000000
-Z79 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht|
-Z80 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht|
+Z88 !s108 1475346439.000000
+Z89 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht|
+Z90 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht|
 !i113 1
-R11
-R12
+R13
+R14
 Arsintegration_arch
-R2
-R3
-Z81 DEx4 work 7 intgr_t 0 22 D=OD?RfzXSOz6jh_Gh9<b2
+R4
+R5
+DEx4 work 7 intgr_t 0 22 D=OD?RfzXSOz6jh_Gh9<b2
 l122
 L33
-Z82 VTa?Uh_1oACggE7`lZ;a=Q2
-Z83 !s100 Z@@0Rl1cZOHIUIcT0>X:^3
-R6
+Vk7Jafi]odV>OVjDMSj85G1
+!s100 D1oMS2j7Og_F6VC4FQd4b2
+R8
 31
-R77
+R87
 !i10b 1
-R78
-R79
-R80
+R88
+R89
+R90
 !i113 1
-R11
-R12
+R13
+R14
 Emux2x1
-Z84 w1474748659
-R2
-R3
+R77
+R4
+R5
 R0
-Z85 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd
-Z86 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd
+Z91 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd
+Z92 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd
 l0
 L6
 V6AkoIRE1KRX^H17O:HKI`3
 !s100 HP:n4P_DZGDXkSEk?V]N[2
-R6
-31
-R7
-!i10b 1
 R8
-Z87 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd|
-Z88 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd|
+31
+Z93 !s110 1475344921
+!i10b 1
+R54
+Z94 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd|
+Z95 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/Mux2x1.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Amux2x1
-R2
-R3
+R4
+R5
 DEx4 work 6 mux2x1 0 22 6AkoIRE1KRX^H17O:HKI`3
 l20
 L18
 VjIQ3Z5Y1]E8@SFmIFG]e81
 !s100 KA`]L^4HkZ=ch<5k99@>P2
-R6
-31
-R7
-!i10b 1
 R8
-R87
-R88
+31
+R93
+!i10b 1
+R54
+R94
+R95
 !i113 1
-R11
-R12
+R13
+R14
 Eregister4b
-Z89 w1474853866
-Z90 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z91 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-R2
+R77
 R3
+R2
+R4
+R5
 R0
-Z92 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd
-Z93 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd
+Z96 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd
+Z97 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd
 l0
 L6
 VU]n8z[GjlmeO<oP2FkTLT1
 !s100 dT49k:A0UkWO7faV5G[oC2
-R6
+R8
 31
-Z94 !s110 1475301621
+Z98 !s110 1475344914
 !i10b 1
-Z95 !s108 1475301621.000000
-Z96 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd|
-Z97 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd|
+Z99 !s108 1475344914.000000
+Z100 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd|
+Z101 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/register4b.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Adescription
-R90
-R91
-R2
 R3
+R2
+R4
+R5
 DEx4 work 10 register4b 0 22 U]n8z[GjlmeO<oP2FkTLT1
 l17
 L15
 VD4LbB2L<>8jBiA`^_ZI[O1
 !s100 aj^Hen@Rm^KFE_jo^V[nH0
-R6
+R8
 31
-R94
+R98
 !i10b 1
-R95
-R96
-R97
+R99
+R100
+R101
 !i113 1
-R11
-R12
+R13
+R14
 Ersintegration
-Z98 w1475301516
-R2
-R3
+Z102 w1475345776
+R4
+R5
 R0
-Z99 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd
-Z100 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd
+Z103 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd
+Z104 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd
 l0
 L25
-VYI_k3?gUB3K4GH[iiIdMU2
-!s100 :CPNkae`G0MiX>hP?nCPm3
-R6
+V2KX_SO:KKGH>4ggjPholj0
+!s100 SNViZGeJemo?2mz^`bHAo3
+R8
 31
-R27
+Z105 !s110 1475346870
 !i10b 1
-R28
-Z101 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd|
-Z102 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd|
+Z106 !s108 1475346869.000000
+Z107 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd|
+Z108 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/RSIntegration.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abdf_type
-R2
-R3
-DEx4 work 13 rsintegration 0 22 YI_k3?gUB3K4GH[iiIdMU2
-l153
+R4
+R5
+DEx4 work 13 rsintegration 0 22 2KX_SO:KKGH>4ggjPholj0
+l166
 L72
-VDQ_NjUfNbYD7QI9^<B;1k0
-!s100 A@6n0`3OUGKo:b6iD?Y5n2
-R6
+V7Vj@Sa=gI85n@<W75_iA=1
+!s100 b]Hj]G^LFV2]e1D@1Wz@G3
+R8
 31
-R27
+R105
 !i10b 1
-R28
-R101
-R102
+R106
+R107
+R108
 !i113 1
-R11
-R12
+R13
+R14
 Estatic_0
-R84
-R58
-R2
-R3
+R77
+R66
+R4
+R5
 R0
-Z103 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd
-Z104 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd
+Z109 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd
+Z110 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd
 l0
 L7
 Vf8QEmZ3_3IH?891:Io=OR1
 !s100 GKDIV?jIRQB9<gZT^nR6c1
-R6
-31
-R7
-!i10b 1
 R8
-Z105 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd|
-Z106 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd|
+31
+R26
+!i10b 1
+R42
+Z111 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd|
+Z112 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_0.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abehavior
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 8 static_0 0 22 f8QEmZ3_3IH?891:Io=OR1
 l16
 L14
 Vd2_VoK8S?EBd<?YRb2[KT1
 !s100 Z<CR@QCf>HAjzG7^1IcL>0
-R6
-31
-R7
-!i10b 1
 R8
-R105
-R106
+31
+R26
+!i10b 1
+R42
+R111
+R112
 !i113 1
-R11
-R12
+R13
+R14
 Estatic_1
-R84
-R58
-R2
-R3
+R77
+R66
+R4
+R5
 R0
-Z107 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd
-Z108 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd
+Z113 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd
+Z114 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd
 l0
 L8
 VIX5^RXNmXI[BPKj15l^Qj3
 !s100 9bIhmZG4YT`=Vhc3iX^QA3
-R6
+R8
 31
-R61
+R80
 !i10b 1
-R95
-Z109 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd|
-Z110 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd|
+R81
+Z115 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd|
+Z116 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_1.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abehavior
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 8 static_1 0 22 IX5^RXNmXI[BPKj15l^Qj3
 l17
 L15
 VdOK0SH2MimzedgCVgEUF71
 !s100 =@IT[1<H;He8>zJ7lkUld1
-R6
+R8
 31
-R61
+R80
 !i10b 1
-R95
-R109
-R110
+R81
+R115
+R116
 !i113 1
-R11
-R12
+R13
+R14
 Estatic_2
-R84
-R58
-R2
-R3
+R77
+R66
+R4
+R5
 R0
-Z111 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd
-Z112 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd
+Z117 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd
+Z118 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd
 l0
 L8
 VT@ViCTUMO_0MQ=Xzc71o11
 !s100 j6z?D8aenJ6a2678@JLY:0
-R6
+R8
 31
-R94
+Z119 !s110 1475344916
 !i10b 1
-R95
-Z113 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd|
-Z114 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd|
+Z120 !s108 1475344916.000000
+Z121 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd|
+Z122 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_2.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abehavior
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 8 static_2 0 22 T@ViCTUMO_0MQ=Xzc71o11
 l17
 L15
 VHXdnX8DSc>InM2gV:5oPA0
 !s100 OChEY=^;J?[AWLoQ?B;<d0
-R6
+R8
 31
-R94
+R119
 !i10b 1
-R95
-R113
-R114
+R120
+R121
+R122
 !i113 1
-R11
-R12
+R13
+R14
 Estatic_3
-R84
-R58
-R2
-R3
+R77
+R66
+R4
+R5
 R0
-Z115 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd
-Z116 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd
+Z123 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd
+Z124 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd
 l0
 L8
 VVWDcmL7@0Toni78S<oY^X2
 !s100 Q[JN]i_`dR1nY:3Ff2RLi2
-R6
+R8
 31
-R94
+R119
 !i10b 1
-R95
-Z117 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd|
-Z118 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd|
+R120
+Z125 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd|
+Z126 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_3.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abehavior
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 8 static_3 0 22 VWDcmL7@0Toni78S<oY^X2
 l17
 L15
 V]_]885412HiOiziLeBjXJ2
 !s100 8cGU0QAdZO<aJz;XNRFUE1
-R6
+R8
 31
-R94
+R119
 !i10b 1
-R95
-R117
-R118
+R120
+R125
+R126
 !i113 1
-R11
-R12
+R13
+R14
 Estatic_4
-R84
-R58
-R2
-R3
+R77
+R66
+R4
+R5
 R0
-Z119 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd
-Z120 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd
+Z127 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd
+Z128 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd
 l0
 L7
 VhEGVDOfNf6OIc2@4;n`FZ0
 !s100 LAQgR?o?gMT6Al^K2<nKK1
-R6
+R8
 31
-R94
+Z129 !s110 1475344915
 !i10b 1
-R95
-Z121 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd|
-Z122 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd|
+Z130 !s108 1475344915.000000
+Z131 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd|
+Z132 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_4.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abehavior
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 8 static_4 0 22 hEGVDOfNf6OIc2@4;n`FZ0
 l16
 L14
 V9_iGzAT70d]J`nBlJ7?g72
 !s100 9Jd6fJ=FM4UQ^i3f8ZFLo0
-R6
+R8
 31
-R94
+R129
 !i10b 1
-R95
-R121
-R122
+R130
+R131
+R132
 !i113 1
-R11
-R12
+R13
+R14
 Estatic_8
-R84
-R58
-R2
-R3
+R77
+R66
+R4
+R5
 R0
-Z123 8C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd
-Z124 FC:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd
+Z133 8C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd
+Z134 FC:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd
 l0
 L7
 VRR:VU9fohf5glC<YDBHdK2
 !s100 HRndX@P19Qfa7_J]=lGdf0
-R6
+R8
 31
-R94
+R129
 !i10b 1
-R95
-Z125 !s90 -reportprogress|300|-93|-work|work|C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd|
-Z126 !s107 C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd|
+R130
+Z135 !s90 -reportprogress|300|-93|-work|work|C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd|
+Z136 !s107 C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/static_8.vhd|
 !i113 1
-R11
-R12
+R13
+R14
 Abehavior
-R58
-R2
-R3
+R66
+R4
+R5
 DEx4 work 8 static_8 0 22 RR:VU9fohf5glC<YDBHdK2
 l16
 L14
 VnPoN;_49d5I3fCDzkeiWR2
 !s100 8KQj?Y@RmMVD>?SBQ7LY;1
-R6
+R8
 31
-R94
+R129
 !i10b 1
-R95
-R125
-R126
+R130
+R135
+R136
 !i113 1
-R11
-R12
+R13
+R14

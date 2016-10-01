@@ -42,11 +42,8 @@ SIGNAL clearB : STD_LOGIC;
 SIGNAL clearC : STD_LOGIC;
 SIGNAL clearS : STD_LOGIC;
 SIGNAL Clock : STD_LOGIC;
-SIGNAL Count4 : STD_LOGIC;
-SIGNAL Count8 : STD_LOGIC;
 SIGNAL di : STD_LOGIC;
 SIGNAL DS_reg : STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL Impar : STD_LOGIC;
 SIGNAL Inicia : STD_LOGIC;
 SIGNAL Input : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Lambda1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -74,6 +71,9 @@ SIGNAL Test_state : STD_LOGIC_VECTOR(4 DOWNTO 0);
 SIGNAL Mensagem : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL pin_name1 : STD_LOGIC;
 SIGNAL Decod : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Impar : STD_LOGIC;
+SIGNAL Count_4 : STD_LOGIC;
+SIGNAL Count_8 : STD_LOGIC;
 COMPONENT RSIntegration
 	PORT (
 	B_0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -85,11 +85,8 @@ COMPONENT RSIntegration
 	clearC : OUT STD_LOGIC;
 	clearS : OUT STD_LOGIC;
 	Clock : IN STD_LOGIC;
-	Count4 : IN STD_LOGIC;
-	Count8 : IN STD_LOGIC;
 	di : OUT STD_LOGIC;
 	DS_reg : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	Impar : IN STD_LOGIC;
 	Inicia : IN STD_LOGIC;
 	Input : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Lambda1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -116,7 +113,10 @@ COMPONENT RSIntegration
 	Test_state : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
 	Mensagem : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	pin_name1 : OUT STD_LOGIC;
-	Decod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	Decod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Impar : OUT STD_LOGIC;
+	Count_4 : OUT STD_LOGIC;
+	Count_8 : OUT STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
@@ -132,11 +132,8 @@ BEGIN
 	clearC => clearC,
 	clearS => clearS,
 	Clock => Clock,
-	Count4 => Count4,
-	Count8 => Count8,
 	di => di,
 	DS_reg => DS_reg,
-	Impar => Impar,
 	Inicia => Inicia,
 	Input => Input,
 	Lambda1 => Lambda1,
@@ -163,7 +160,10 @@ BEGIN
 	Test_state => Test_state,
 	Mensagem => Mensagem,
 	pin_name1 => pin_name1,
-	Decod => Decod
+	Decod => Decod,
+	Impar => Impar,
+	Count_4 => Count_4,
+	Count_8 => Count_8
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -175,77 +175,7 @@ BEGIN
 		wait for 100 ns;
 		
 END PROCESS init;
-
-impar_generation : PROCESS                                               
--- variable declarations                                     
-BEGIN  
-		wait for 300 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-		Impar <= '1';
-		wait for 200 ns;
-		Impar <= '0';
-		wait for 200 ns;
-END PROCESS impar_generation;
-                                         
+                     
 always : PROCESS 
                                           
 -- optional sensitivity list                                  
@@ -253,142 +183,72 @@ always : PROCESS
 -- variable declarations                                      
 BEGIN
 		Mensagem <= "0000";
-		Count4 <= '0';
-		Count8 <= '0';
 		Reset <= '1';
 		Inicia <= '0';
 		Input <= "0000";
 		wait for 100 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
-		Input <= "0000";
+		Reset <= '1';
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
 		Inicia <= '1';
-		Input <= "0000";
+		Reset <= '0';
 		wait for 200 ns;
 		
 		-- comp L:
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
 		Inicia <= '0';
 		Input <= "0000";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "1000";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "1100";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "1110";
 		wait for 200 ns;
 		
-		Count4 <= '1';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "0011";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "0101";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "0010";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "1001";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '1';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "0101";
 		wait for 200 ns;
 		
 		-- clear syn:
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "0000";
 		wait for 200 ns;
 		
 		-- comp V:
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "0000";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "1000";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "1100";
 		wait for 200 ns;
 		
-		Count4 <= '0';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "1110";
 		wait for 200 ns;
 		
-		Count4 <= '1';
-		Count8 <= '0';
-		Reset <= '0';
-		Inicia <= '0';
 		Input <= "0011";
 		wait for 200 ns;
 		
 		-- store:
 		
-		Count4 <= '0';
-		Count8 <= '0';
 		Input <= "0000";
 		
 		wait for 500 ns;

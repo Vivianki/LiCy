@@ -1,5 +1,6 @@
 |RSIntegration
 Clock => berlemas:b2v_inst.Clock
+Clock => berlekamp_counter:b2v_inst1.clock
 Clock => register4b:b2v_inst2.clk
 Clock => register4b:b2v_inst3.clk
 Clock => register4b:b2v_inst4.clk
@@ -8,9 +9,6 @@ Clock => register4b:b2v_inst6.clk
 Clock => chienforney:b2v_inst8.clock
 Reset => berlemas:b2v_inst.Reset
 Reset => chienforney:b2v_inst8.reset
-Impar => berlemas:b2v_inst.Impar
-Count4 => berlemas:b2v_inst.Count4
-Count8 => berlemas:b2v_inst.Count8
 Inicia => berlemas:b2v_inst.Inicia
 Input[0] => berlemas:b2v_inst.Input[0]
 Input[1] => berlemas:b2v_inst.Input[1]
@@ -91,10 +89,10 @@ Omega3[0] <= register4b:b2v_inst2.q[0]
 Omega3[1] <= register4b:b2v_inst2.q[1]
 Omega3[2] <= register4b:b2v_inst2.q[2]
 Omega3[3] <= register4b:b2v_inst2.q[3]
-Omega5[0] <= register4b:b2v_inst6.q[0]
-Omega5[1] <= register4b:b2v_inst6.q[1]
-Omega5[2] <= register4b:b2v_inst6.q[2]
-Omega5[3] <= register4b:b2v_inst6.q[3]
+Omega4[0] <= register4b:b2v_inst6.q[0]
+Omega4[1] <= register4b:b2v_inst6.q[1]
+Omega4[2] <= register4b:b2v_inst6.q[2]
+Omega4[3] <= register4b:b2v_inst6.q[3]
 S0[0] <= berlemas:b2v_inst.S0[0]
 S0[1] <= berlemas:b2v_inst.S0[1]
 S0[2] <= berlemas:b2v_inst.S0[2]
@@ -1998,6 +1996,26 @@ q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|berlekamp_counter:b2v_inst1
+clock => Count_8~reg0.CLK
+clock => Count_4~reg0.CLK
+clock => Impar~reg0.CLK
+clock => Pre_Q[0].CLK
+clock => Pre_Q[1].CLK
+clock => Pre_Q[2].CLK
+clock => Pre_Q[3].CLK
+enable => Count_8~reg0.ACLR
+enable => Count_4~reg0.ACLR
+enable => Impar~reg0.ACLR
+enable => Pre_Q[0].ACLR
+enable => Pre_Q[1].ACLR
+enable => Pre_Q[2].ACLR
+enable => Pre_Q[3].ACLR
+Impar <= Impar~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Count_4 <= Count_4~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Count_8 <= Count_8~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |RSIntegration|register4b:b2v_inst2
