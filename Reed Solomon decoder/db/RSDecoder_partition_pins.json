@@ -48,6 +48,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "Impar",
+					"strict" : false
+				},
+				{
+					"name" : "Count_4",
+					"strict" : false
+				},
+				{
+					"name" : "Count_8",
+					"strict" : false
+				},
+				{
 					"name" : "B_0[0]",
 					"strict" : false
 				},

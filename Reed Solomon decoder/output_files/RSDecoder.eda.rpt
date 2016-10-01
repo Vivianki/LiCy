@@ -1,6 +1,6 @@
 EDA Netlist Writer report for RSDecoder
-Sat Oct 01 14:58:10 2016
-Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Sat Oct 01 18:01:49 2016
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
 ---------------------
@@ -17,7 +17,7 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sat Oct 01 14:58:10 2016 ;
+; EDA Netlist Writer Status ; Successful - Sat Oct 01 18:01:49 2016 ;
 ; Revision Name             ; RSDecoder                             ;
 ; Top-level Entity Name     ; RSIntegration                         ;
 ; Family                    ; Cyclone IV E                          ;
@@ -51,7 +51,7 @@ agreement for further details.
 ; Option                                                                                            ; Setting                ;
 +---------------------------------------------------------------------------------------------------+------------------------+
 ; Tool Name                                                                                         ; ModelSim-Altera (VHDL) ;
-; Generate netlist for functional simulation only                                                   ; Off                    ;
+; Generate functional simulation netlist                                                            ; Off                    ;
 ; Time scale                                                                                        ; 1 ps                   ;
 ; Truncate long hierarchy paths                                                                     ; Off                    ;
 ; Map illegal HDL characters                                                                        ; Off                    ;
@@ -67,20 +67,20 @@ agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                     ;
-+----------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                ;
-+----------------------------------------------------------------------------------------------------------------+
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_85c_slow.vho      ;
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_0c_slow.vho       ;
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_min_1200mv_0c_fast.vho     ;
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder.vho                        ;
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_85c_vhd_slow.sdo  ;
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_0c_vhd_slow.sdo   ;
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_min_1200mv_0c_vhd_fast.sdo ;
-; C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_vhd.sdo                    ;
-+----------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                ;
++-----------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                           ;
++-----------------------------------------------------------------------------------------------------------+
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_85c_slow.vho      ;
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_0c_slow.vho       ;
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_min_1200mv_0c_fast.vho     ;
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder.vho                        ;
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_85c_vhd_slow.sdo  ;
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_8_1200mv_0c_vhd_slow.sdo   ;
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_min_1200mv_0c_vhd_fast.sdo ;
+; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSDecoder_vhd.sdo                    ;
++-----------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -88,21 +88,21 @@ agreement for further details.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Sat Oct 01 14:58:08 2016
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Sat Oct 01 18:01:46 2016
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off RSDecoder -c RSDecoder
-Info (204019): Generated file RSDecoder_8_1200mv_85c_slow.vho in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file RSDecoder_8_1200mv_0c_slow.vho in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file RSDecoder_min_1200mv_0c_fast.vho in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file RSDecoder.vho in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file RSDecoder_8_1200mv_85c_vhd_slow.sdo in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file RSDecoder_8_1200mv_0c_vhd_slow.sdo in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file RSDecoder_min_1200mv_0c_vhd_fast.sdo in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file RSDecoder_vhd.sdo in folder "C:/Users/U/Documents/GitHub/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder_8_1200mv_85c_slow.vho in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder_8_1200mv_0c_slow.vho in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder_min_1200mv_0c_fast.vho in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder.vho in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder_8_1200mv_85c_vhd_slow.sdo in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder_8_1200mv_0c_vhd_slow.sdo in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder_min_1200mv_0c_vhd_fast.sdo in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file RSDecoder_vhd.sdo in folder "C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 717 megabytes
-    Info: Processing ended: Sat Oct 01 14:58:10 2016
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 757 megabytes
+    Info: Processing ended: Sat Oct 01 18:01:49 2016
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

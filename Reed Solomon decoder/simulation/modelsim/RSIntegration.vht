@@ -251,7 +251,7 @@ BEGIN
 		
 		Input <= "0000";
 		
-		wait for 500 ns;
+		wait for 600 ns;
 		Mensagem <= "1101";
 			
 		wait for 200 ns;

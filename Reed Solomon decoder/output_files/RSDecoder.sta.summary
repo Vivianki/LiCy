@@ -3,27 +3,27 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'Clock'
-Slack : -14.337
-TNS   : -594.389
+Slack : -13.597
+TNS   : -617.032
 
 Type  : Slow 1200mV 85C Model Setup 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : -1.175
-TNS   : -22.088
+Slack : -0.809
+TNS   : -13.001
 
 Type  : Slow 1200mV 85C Model Hold 'Clock'
 Slack : 0.451
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : 0.482
+Slack : 0.532
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'Clock'
-Slack : -2.271
-TNS   : -170.989
+Slack : -2.184
+TNS   : -166.779
 
 Type  : Slow 1200mV 85C Model Removal 'Clock'
-Slack : 1.217
+Slack : 1.420
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock'
@@ -35,27 +35,27 @@ Slack : -1.487
 TNS   : -47.584
 
 Type  : Slow 1200mV 0C Model Setup 'Clock'
-Slack : -13.625
-TNS   : -558.778
+Slack : -12.895
+TNS   : -579.257
 
 Type  : Slow 1200mV 0C Model Setup 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : -1.077
-TNS   : -19.298
+Slack : -0.704
+TNS   : -10.403
 
 Type  : Slow 1200mV 0C Model Hold 'Clock'
-Slack : 0.399
+Slack : 0.400
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : 0.424
+Slack : 0.458
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'Clock'
-Slack : -2.036
-TNS   : -151.371
+Slack : -1.988
+TNS   : -147.585
 
 Type  : Slow 1200mV 0C Model Removal 'Clock'
-Slack : 1.121
+Slack : 1.289
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock'
@@ -67,32 +67,32 @@ Slack : -1.487
 TNS   : -47.584
 
 Type  : Fast 1200mV 0C Model Setup 'Clock'
-Slack : -5.755
-TNS   : -209.199
+Slack : -5.338
+TNS   : -216.865
 
 Type  : Fast 1200mV 0C Model Setup 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : -0.044
-TNS   : -0.120
-
-Type  : Fast 1200mV 0C Model Hold 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : 0.181
+Slack : 0.094
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'Clock'
-Slack : 0.185
+Slack : 0.142
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
+Slack : 0.226
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'Clock'
-Slack : -0.515
-TNS   : -22.281
+Slack : -0.452
+TNS   : -18.401
 
 Type  : Fast 1200mV 0C Model Removal 'Clock'
-Slack : 0.516
+Slack : 0.586
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock'
 Slack : -3.000
-TNS   : -132.052
+TNS   : -131.997
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
 Slack : -1.000
