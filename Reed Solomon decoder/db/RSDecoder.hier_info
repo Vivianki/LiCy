@@ -1,4 +1,2121 @@
-|ChienForney
+|RSIntegration
+Clock => berlemas:b2v_inst.Clock
+Clock => register4b:b2v_inst2.clk
+Clock => register4b:b2v_inst3.clk
+Clock => register4b:b2v_inst4.clk
+Clock => register4b:b2v_inst5.clk
+Clock => register4b:b2v_inst6.clk
+Clock => chienforney:b2v_inst8.clock
+Reset => berlemas:b2v_inst.Reset
+Reset => chienforney:b2v_inst8.reset
+Impar => berlemas:b2v_inst.Impar
+Count4 => berlemas:b2v_inst.Count4
+Count8 => berlemas:b2v_inst.Count8
+Inicia => berlemas:b2v_inst.Inicia
+Input[0] => berlemas:b2v_inst.Input[0]
+Input[1] => berlemas:b2v_inst.Input[1]
+Input[2] => berlemas:b2v_inst.Input[2]
+Input[3] => berlemas:b2v_inst.Input[3]
+Mensagem[0] => chienforney:b2v_inst8.Input[0]
+Mensagem[1] => chienforney:b2v_inst8.Input[1]
+Mensagem[2] => chienforney:b2v_inst8.Input[2]
+Mensagem[3] => chienforney:b2v_inst8.Input[3]
+Registra <= berlemas:b2v_inst.Registra
+di <= berlemas:b2v_inst.di
+loadS <= berlemas:b2v_inst.loadS
+loadB <= berlemas:b2v_inst.loadB
+loadC <= berlemas:b2v_inst.loadC
+clearS <= berlemas:b2v_inst.clearS
+clearB <= berlemas:b2v_inst.clearB
+clearC <= berlemas:b2v_inst.clearC
+MuxSel <= berlemas:b2v_inst.MuxSel
+Nerror <= berlemas:b2v_inst.Nerror
+pin_name1 <= chienforney:b2v_inst8.pin_name1
+B_0[0] <= berlemas:b2v_inst.B_0[0]
+B_0[1] <= berlemas:b2v_inst.B_0[1]
+B_0[2] <= berlemas:b2v_inst.B_0[2]
+B_0[3] <= berlemas:b2v_inst.B_0[3]
+B_1[0] <= berlemas:b2v_inst.B_1[0]
+B_1[1] <= berlemas:b2v_inst.B_1[1]
+B_1[2] <= berlemas:b2v_inst.B_1[2]
+B_1[3] <= berlemas:b2v_inst.B_1[3]
+B_2[0] <= berlemas:b2v_inst.B_2[0]
+B_2[1] <= berlemas:b2v_inst.B_2[1]
+B_2[2] <= berlemas:b2v_inst.B_2[2]
+B_2[3] <= berlemas:b2v_inst.B_2[3]
+B_3[0] <= berlemas:b2v_inst.B_3[0]
+B_3[1] <= berlemas:b2v_inst.B_3[1]
+B_3[2] <= berlemas:b2v_inst.B_3[2]
+B_3[3] <= berlemas:b2v_inst.B_3[3]
+B_mux[0] <= berlemas:b2v_inst.B_mux[0]
+B_mux[1] <= berlemas:b2v_inst.B_mux[1]
+B_mux[2] <= berlemas:b2v_inst.B_mux[2]
+B_mux[3] <= berlemas:b2v_inst.B_mux[3]
+Decod[0] <= chienforney:b2v_inst8.Decod[0]
+Decod[1] <= chienforney:b2v_inst8.Decod[1]
+Decod[2] <= chienforney:b2v_inst8.Decod[2]
+Decod[3] <= chienforney:b2v_inst8.Decod[3]
+DS_reg[0] <= berlemas:b2v_inst.DS_reg[0]
+DS_reg[1] <= berlemas:b2v_inst.DS_reg[1]
+DS_reg[2] <= berlemas:b2v_inst.DS_reg[2]
+DS_reg[3] <= berlemas:b2v_inst.DS_reg[3]
+Lambda1[0] <= berlemas:b2v_inst.Lambda1[0]
+Lambda1[1] <= berlemas:b2v_inst.Lambda1[1]
+Lambda1[2] <= berlemas:b2v_inst.Lambda1[2]
+Lambda1[3] <= berlemas:b2v_inst.Lambda1[3]
+Lambda2[0] <= berlemas:b2v_inst.Lambda2[0]
+Lambda2[1] <= berlemas:b2v_inst.Lambda2[1]
+Lambda2[2] <= berlemas:b2v_inst.Lambda2[2]
+Lambda2[3] <= berlemas:b2v_inst.Lambda2[3]
+Lambda3[0] <= berlemas:b2v_inst.Lambda3[0]
+Lambda3[1] <= berlemas:b2v_inst.Lambda3[1]
+Lambda3[2] <= berlemas:b2v_inst.Lambda3[2]
+Lambda3[3] <= berlemas:b2v_inst.Lambda3[3]
+Lambda4[0] <= berlemas:b2v_inst.Lambda4[0]
+Lambda4[1] <= berlemas:b2v_inst.Lambda4[1]
+Lambda4[2] <= berlemas:b2v_inst.Lambda4[2]
+Lambda4[3] <= berlemas:b2v_inst.Lambda4[3]
+Omega0[0] <= register4b:b2v_inst5.q[0]
+Omega0[1] <= register4b:b2v_inst5.q[1]
+Omega0[2] <= register4b:b2v_inst5.q[2]
+Omega0[3] <= register4b:b2v_inst5.q[3]
+Omega1[0] <= register4b:b2v_inst4.q[0]
+Omega1[1] <= register4b:b2v_inst4.q[1]
+Omega1[2] <= register4b:b2v_inst4.q[2]
+Omega1[3] <= register4b:b2v_inst4.q[3]
+Omega2[0] <= register4b:b2v_inst3.q[0]
+Omega2[1] <= register4b:b2v_inst3.q[1]
+Omega2[2] <= register4b:b2v_inst3.q[2]
+Omega2[3] <= register4b:b2v_inst3.q[3]
+Omega3[0] <= register4b:b2v_inst2.q[0]
+Omega3[1] <= register4b:b2v_inst2.q[1]
+Omega3[2] <= register4b:b2v_inst2.q[2]
+Omega3[3] <= register4b:b2v_inst2.q[3]
+Omega5[0] <= register4b:b2v_inst6.q[0]
+Omega5[1] <= register4b:b2v_inst6.q[1]
+Omega5[2] <= register4b:b2v_inst6.q[2]
+Omega5[3] <= register4b:b2v_inst6.q[3]
+S0[0] <= berlemas:b2v_inst.S0[0]
+S0[1] <= berlemas:b2v_inst.S0[1]
+S0[2] <= berlemas:b2v_inst.S0[2]
+S0[3] <= berlemas:b2v_inst.S0[3]
+S1[0] <= berlemas:b2v_inst.S1[0]
+S1[1] <= berlemas:b2v_inst.S1[1]
+S1[2] <= berlemas:b2v_inst.S1[2]
+S1[3] <= berlemas:b2v_inst.S1[3]
+S2[0] <= berlemas:b2v_inst.S2[0]
+S2[1] <= berlemas:b2v_inst.S2[1]
+S2[2] <= berlemas:b2v_inst.S2[2]
+S2[3] <= berlemas:b2v_inst.S2[3]
+S3[0] <= berlemas:b2v_inst.S3[0]
+S3[1] <= berlemas:b2v_inst.S3[1]
+S3[2] <= berlemas:b2v_inst.S3[2]
+S3[3] <= berlemas:b2v_inst.S3[3]
+S4[0] <= berlemas:b2v_inst.S4[0]
+S4[1] <= berlemas:b2v_inst.S4[1]
+S4[2] <= berlemas:b2v_inst.S4[2]
+S4[3] <= berlemas:b2v_inst.S4[3]
+Test_state[0] <= berlemas:b2v_inst.Test_state[0]
+Test_state[1] <= berlemas:b2v_inst.Test_state[1]
+Test_state[2] <= berlemas:b2v_inst.Test_state[2]
+Test_state[3] <= berlemas:b2v_inst.Test_state[3]
+Test_state[4] <= berlemas:b2v_inst.Test_state[4]
+
+
+|RSIntegration|BerleMas:b2v_inst
+Clock => berlekampcontroller:b2v_inst.clock
+Clock => berlekamp_massey:b2v_inst2.Clock
+Reset => berlekampcontroller:b2v_inst.reset
+Impar => berlekampcontroller:b2v_inst.impar
+Count4 => berlekampcontroller:b2v_inst.count4
+Count8 => berlekampcontroller:b2v_inst.count8
+Inicia => berlekampcontroller:b2v_inst.inicia
+Input[0] => berlekamp_massey:b2v_inst2.SIn[0]
+Input[1] => berlekamp_massey:b2v_inst2.SIn[1]
+Input[2] => berlekamp_massey:b2v_inst2.SIn[2]
+Input[3] => berlekamp_massey:b2v_inst2.SIn[3]
+Registra <= berlekampcontroller:b2v_inst.registra
+di <= berlekampcontroller:b2v_inst.di
+loadS <= berlekampcontroller:b2v_inst.loadS
+loadB <= berlekampcontroller:b2v_inst.loadB
+loadC <= berlekampcontroller:b2v_inst.loadC
+clearS <= berlekampcontroller:b2v_inst.clearS
+clearB <= berlekampcontroller:b2v_inst.clearB
+clearC <= berlekampcontroller:b2v_inst.clearC
+MuxSel <= berlekampcontroller:b2v_inst.muxSel
+Nerror <= berlekamp_massey:b2v_inst2.Nerror
+B_0[0] <= berlekamp_massey:b2v_inst2.B_0[0]
+B_0[1] <= berlekamp_massey:b2v_inst2.B_0[1]
+B_0[2] <= berlekamp_massey:b2v_inst2.B_0[2]
+B_0[3] <= berlekamp_massey:b2v_inst2.B_0[3]
+B_1[0] <= berlekamp_massey:b2v_inst2.B_1[0]
+B_1[1] <= berlekamp_massey:b2v_inst2.B_1[1]
+B_1[2] <= berlekamp_massey:b2v_inst2.B_1[2]
+B_1[3] <= berlekamp_massey:b2v_inst2.B_1[3]
+B_2[0] <= berlekamp_massey:b2v_inst2.B_2[0]
+B_2[1] <= berlekamp_massey:b2v_inst2.B_2[1]
+B_2[2] <= berlekamp_massey:b2v_inst2.B_2[2]
+B_2[3] <= berlekamp_massey:b2v_inst2.B_2[3]
+B_3[0] <= berlekamp_massey:b2v_inst2.B_3[0]
+B_3[1] <= berlekamp_massey:b2v_inst2.B_3[1]
+B_3[2] <= berlekamp_massey:b2v_inst2.B_3[2]
+B_3[3] <= berlekamp_massey:b2v_inst2.B_3[3]
+B_mux[0] <= berlekamp_massey:b2v_inst2.B_mux[0]
+B_mux[1] <= berlekamp_massey:b2v_inst2.B_mux[1]
+B_mux[2] <= berlekamp_massey:b2v_inst2.B_mux[2]
+B_mux[3] <= berlekamp_massey:b2v_inst2.B_mux[3]
+DS_reg[0] <= berlekamp_massey:b2v_inst2.DS_reg[0]
+DS_reg[1] <= berlekamp_massey:b2v_inst2.DS_reg[1]
+DS_reg[2] <= berlekamp_massey:b2v_inst2.DS_reg[2]
+DS_reg[3] <= berlekamp_massey:b2v_inst2.DS_reg[3]
+Lambda1[0] <= berlekamp_massey:b2v_inst2.Lamb1[0]
+Lambda1[1] <= berlekamp_massey:b2v_inst2.Lamb1[1]
+Lambda1[2] <= berlekamp_massey:b2v_inst2.Lamb1[2]
+Lambda1[3] <= berlekamp_massey:b2v_inst2.Lamb1[3]
+Lambda2[0] <= berlekamp_massey:b2v_inst2.Lamb2[0]
+Lambda2[1] <= berlekamp_massey:b2v_inst2.Lamb2[1]
+Lambda2[2] <= berlekamp_massey:b2v_inst2.Lamb2[2]
+Lambda2[3] <= berlekamp_massey:b2v_inst2.Lamb2[3]
+Lambda3[0] <= berlekamp_massey:b2v_inst2.Lamb3[0]
+Lambda3[1] <= berlekamp_massey:b2v_inst2.Lamb3[1]
+Lambda3[2] <= berlekamp_massey:b2v_inst2.Lamb3[2]
+Lambda3[3] <= berlekamp_massey:b2v_inst2.Lamb3[3]
+Lambda4[0] <= berlekamp_massey:b2v_inst2.Lamb4[0]
+Lambda4[1] <= berlekamp_massey:b2v_inst2.Lamb4[1]
+Lambda4[2] <= berlekamp_massey:b2v_inst2.Lamb4[2]
+Lambda4[3] <= berlekamp_massey:b2v_inst2.Lamb4[3]
+Omega[0] <= berlekamp_massey:b2v_inst2.OmegaOut[0]
+Omega[1] <= berlekamp_massey:b2v_inst2.OmegaOut[1]
+Omega[2] <= berlekamp_massey:b2v_inst2.OmegaOut[2]
+Omega[3] <= berlekamp_massey:b2v_inst2.OmegaOut[3]
+S0[0] <= berlekamp_massey:b2v_inst2.S0[0]
+S0[1] <= berlekamp_massey:b2v_inst2.S0[1]
+S0[2] <= berlekamp_massey:b2v_inst2.S0[2]
+S0[3] <= berlekamp_massey:b2v_inst2.S0[3]
+S1[0] <= berlekamp_massey:b2v_inst2.S1[0]
+S1[1] <= berlekamp_massey:b2v_inst2.S1[1]
+S1[2] <= berlekamp_massey:b2v_inst2.S1[2]
+S1[3] <= berlekamp_massey:b2v_inst2.S1[3]
+S2[0] <= berlekamp_massey:b2v_inst2.S2[0]
+S2[1] <= berlekamp_massey:b2v_inst2.S2[1]
+S2[2] <= berlekamp_massey:b2v_inst2.S2[2]
+S2[3] <= berlekamp_massey:b2v_inst2.S2[3]
+S3[0] <= berlekamp_massey:b2v_inst2.S3[0]
+S3[1] <= berlekamp_massey:b2v_inst2.S3[1]
+S3[2] <= berlekamp_massey:b2v_inst2.S3[2]
+S3[3] <= berlekamp_massey:b2v_inst2.S3[3]
+S4[0] <= berlekamp_massey:b2v_inst2.S4[0]
+S4[1] <= berlekamp_massey:b2v_inst2.S4[1]
+S4[2] <= berlekamp_massey:b2v_inst2.S4[2]
+S4[3] <= berlekamp_massey:b2v_inst2.S4[3]
+Test_state[0] <= berlekampcontroller:b2v_inst.test_state[0]
+Test_state[1] <= berlekampcontroller:b2v_inst.test_state[1]
+Test_state[2] <= berlekampcontroller:b2v_inst.test_state[2]
+Test_state[3] <= berlekampcontroller:b2v_inst.test_state[3]
+Test_state[4] <= berlekampcontroller:b2v_inst.test_state[4]
+
+
+|RSIntegration|BerleMas:b2v_inst|BerlekampController:b2v_inst
+clock => estadoAtual~1.DATAIN
+reset => estadoAtual~3.DATAIN
+ds => di.DATAB
+ds => test_state.DATAB
+impar => test_state.OUTPUTSELECT
+impar => di.OUTPUTSELECT
+impar => test_state.DATAA
+count4 => Selector1.IN4
+count4 => proximoEstado.store.DATAB
+count4 => Selector0.IN2
+count4 => Selector4.IN2
+count8 => test_state.OUTPUTSELECT
+count8 => test_state.OUTPUTSELECT
+count8 => proximoEstado.clearSyn.DATAB
+count8 => di.OUTPUTSELECT
+count8 => Selector3.IN1
+inicia => Selector3.IN3
+inicia => Selector1.IN2
+inicia => Selector2.IN2
+di <= di.DB_MAX_OUTPUT_PORT_TYPE
+loadS <= loadS.DB_MAX_OUTPUT_PORT_TYPE
+loadB <= loadB.DB_MAX_OUTPUT_PORT_TYPE
+loadC <= loadC.DB_MAX_OUTPUT_PORT_TYPE
+clearS <= clearS.DB_MAX_OUTPUT_PORT_TYPE
+clearB <= clearB.DB_MAX_OUTPUT_PORT_TYPE
+clearC <= clearC.DB_MAX_OUTPUT_PORT_TYPE
+muxSel <= muxSel.DB_MAX_OUTPUT_PORT_TYPE
+registra <= registra.DB_MAX_OUTPUT_PORT_TYPE
+test_state[0] <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
+test_state[1] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+test_state[2] <= test_state.DB_MAX_OUTPUT_PORT_TYPE
+test_state[3] <= test_state.DB_MAX_OUTPUT_PORT_TYPE
+test_state[4] <= test_state[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2
+DsIn => register4b:b2v_inst26.ld
+LoadS => register4b:b2v_inst.ld
+LoadS => register4b:b2v_inst1.ld
+LoadS => register4b:b2v_inst2.ld
+LoadS => register4b:b2v_inst3.ld
+LoadS => register4b:b2v_inst4.ld
+LoadB => register4b:b2v_inst10.ld
+LoadB => register4b:b2v_inst11.ld
+LoadB => register4b:b2v_inst36.ld
+LoadB => register4b:b2v_inst9.ld
+LoadC => register4b:b2v_inst5.ld
+LoadC => register4b:b2v_inst6.ld
+LoadC => register4b:b2v_inst7.ld
+LoadC => register4b:b2v_inst8.ld
+ClearS => register4b:b2v_inst.clr
+ClearS => register4b:b2v_inst1.clr
+ClearS => register4b:b2v_inst2.clr
+ClearS => register4b:b2v_inst3.clr
+ClearS => register4b:b2v_inst4.clr
+ClearB => register4b:b2v_inst10.clr
+ClearB => register4b:b2v_inst11.clr
+ClearB => register4b:b2v_inst36.clr
+ClearB => register4b:b2v_inst9.clr
+ClearC => register4b:b2v_inst26.clr
+ClearC => register4b:b2v_inst5.clr
+ClearC => register4b:b2v_inst6.clr
+ClearC => register4b:b2v_inst7.clr
+ClearC => register4b:b2v_inst8.clr
+MuxSel => mux2x1:b2v_inst22.Sel
+MuxSel => mux2x1:b2v_inst33.Sel
+MuxSel => mux2x1:b2v_inst34.Sel
+MuxSel => mux2x1:b2v_inst35.Sel
+Clock => register4b:b2v_inst.clk
+Clock => register4b:b2v_inst1.clk
+Clock => register4b:b2v_inst10.clk
+Clock => register4b:b2v_inst11.clk
+Clock => register4b:b2v_inst2.clk
+Clock => register4b:b2v_inst26.clk
+Clock => register4b:b2v_inst3.clk
+Clock => register4b:b2v_inst36.clk
+Clock => register4b:b2v_inst4.clk
+Clock => register4b:b2v_inst5.clk
+Clock => register4b:b2v_inst6.clk
+Clock => register4b:b2v_inst7.clk
+Clock => register4b:b2v_inst8.clk
+Clock => register4b:b2v_inst9.clk
+SIn[0] => register4b:b2v_inst.d[0]
+SIn[1] => register4b:b2v_inst.d[1]
+SIn[2] => register4b:b2v_inst.d[2]
+SIn[3] => register4b:b2v_inst.d[3]
+Nerror <= Nerror.DB_MAX_OUTPUT_PORT_TYPE
+B_0[0] <= register4b:b2v_inst9.q[0]
+B_0[1] <= register4b:b2v_inst9.q[1]
+B_0[2] <= register4b:b2v_inst9.q[2]
+B_0[3] <= register4b:b2v_inst9.q[3]
+B_1[0] <= register4b:b2v_inst10.q[0]
+B_1[1] <= register4b:b2v_inst10.q[1]
+B_1[2] <= register4b:b2v_inst10.q[2]
+B_1[3] <= register4b:b2v_inst10.q[3]
+B_2[0] <= register4b:b2v_inst11.q[0]
+B_2[1] <= register4b:b2v_inst11.q[1]
+B_2[2] <= register4b:b2v_inst11.q[2]
+B_2[3] <= register4b:b2v_inst11.q[3]
+B_3[0] <= register4b:b2v_inst36.q[0]
+B_3[1] <= register4b:b2v_inst36.q[1]
+B_3[2] <= register4b:b2v_inst36.q[2]
+B_3[3] <= register4b:b2v_inst36.q[3]
+B_mux[0] <= mux2x1:b2v_inst22.O[0]
+B_mux[1] <= mux2x1:b2v_inst22.O[1]
+B_mux[2] <= mux2x1:b2v_inst22.O[2]
+B_mux[3] <= mux2x1:b2v_inst22.O[3]
+DS_reg[0] <= register4b:b2v_inst26.q[0]
+DS_reg[1] <= register4b:b2v_inst26.q[1]
+DS_reg[2] <= register4b:b2v_inst26.q[2]
+DS_reg[3] <= register4b:b2v_inst26.q[3]
+Lamb1[0] <= register4b:b2v_inst5.q[0]
+Lamb1[1] <= register4b:b2v_inst5.q[1]
+Lamb1[2] <= register4b:b2v_inst5.q[2]
+Lamb1[3] <= register4b:b2v_inst5.q[3]
+Lamb2[0] <= register4b:b2v_inst6.q[0]
+Lamb2[1] <= register4b:b2v_inst6.q[1]
+Lamb2[2] <= register4b:b2v_inst6.q[2]
+Lamb2[3] <= register4b:b2v_inst6.q[3]
+Lamb3[0] <= register4b:b2v_inst7.q[0]
+Lamb3[1] <= register4b:b2v_inst7.q[1]
+Lamb3[2] <= register4b:b2v_inst7.q[2]
+Lamb3[3] <= register4b:b2v_inst7.q[3]
+Lamb4[0] <= register4b:b2v_inst8.q[0]
+Lamb4[1] <= register4b:b2v_inst8.q[1]
+Lamb4[2] <= register4b:b2v_inst8.q[2]
+Lamb4[3] <= register4b:b2v_inst8.q[3]
+OmegaOut[0] <= gf_sum:b2v_inst37.c[0]
+OmegaOut[1] <= gf_sum:b2v_inst37.c[1]
+OmegaOut[2] <= gf_sum:b2v_inst37.c[2]
+OmegaOut[3] <= gf_sum:b2v_inst37.c[3]
+S0[0] <= register4b:b2v_inst.q[0]
+S0[1] <= register4b:b2v_inst.q[1]
+S0[2] <= register4b:b2v_inst.q[2]
+S0[3] <= register4b:b2v_inst.q[3]
+S1[0] <= register4b:b2v_inst1.q[0]
+S1[1] <= register4b:b2v_inst1.q[1]
+S1[2] <= register4b:b2v_inst1.q[2]
+S1[3] <= register4b:b2v_inst1.q[3]
+S2[0] <= register4b:b2v_inst2.q[0]
+S2[1] <= register4b:b2v_inst2.q[1]
+S2[2] <= register4b:b2v_inst2.q[2]
+S2[3] <= register4b:b2v_inst2.q[3]
+S3[0] <= register4b:b2v_inst3.q[0]
+S3[1] <= register4b:b2v_inst3.q[1]
+S3[2] <= register4b:b2v_inst3.q[2]
+S3[3] <= register4b:b2v_inst3.q[3]
+S4[0] <= register4b:b2v_inst4.q[0]
+S4[1] <= register4b:b2v_inst4.q[1]
+S4[2] <= register4b:b2v_inst4.q[2]
+S4[3] <= register4b:b2v_inst4.q[3]
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst1
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst10
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst11
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst15
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst17
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst18
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst2
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+y[0] => Mux4.IN5
+y[0] => Mux5.IN10
+y[0] => Mux6.IN5
+y[0] => Mux7.IN10
+y[0] => Mux8.IN5
+y[0] => Mux9.IN19
+y[0] => Mux10.IN10
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[0] => o.DATAB
+y[1] => Mux1.IN5
+y[1] => Mux2.IN5
+y[1] => Mux3.IN10
+y[1] => Mux7.IN9
+y[1] => Mux8.IN4
+y[1] => Mux9.IN18
+y[1] => Mux10.IN9
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[1] => o.DATAB
+y[2] => Mux0.IN5
+y[2] => Mux2.IN4
+y[2] => Mux3.IN9
+y[2] => Mux5.IN9
+y[2] => Mux6.IN4
+y[2] => Mux9.IN17
+y[2] => Mux10.IN8
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[2] => o.DATAB
+y[3] => Mux0.IN4
+y[3] => Mux1.IN4
+y[3] => Mux3.IN8
+y[3] => Mux4.IN4
+y[3] => Mux5.IN8
+y[3] => Mux7.IN8
+y[3] => Mux9.IN16
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+y[3] => o.DATAB
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22
+I0[0] => O.DATAB
+I0[1] => O.DATAB
+I0[2] => O.DATAB
+I0[3] => O.DATAB
+I1[0] => O.DATAA
+I1[1] => O.DATAA
+I1[2] => O.DATAA
+I1[3] => O.DATAA
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+O[0] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst23
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst24
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst25
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst26
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst27
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst28
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst29
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst3
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst30
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|static_1:b2v_inst31
+o[0] <= <VCC>
+o[1] <= <GND>
+o[2] <= <GND>
+o[3] <= <GND>
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_inv:b2v_inst32
+x[0] => Equal0.IN3
+x[0] => Equal1.IN3
+x[0] => Equal2.IN2
+x[0] => Equal3.IN3
+x[0] => Equal4.IN2
+x[0] => Equal5.IN3
+x[0] => Equal6.IN1
+x[0] => Equal7.IN3
+x[0] => Equal8.IN2
+x[0] => Equal9.IN3
+x[0] => Equal10.IN1
+x[0] => Equal11.IN3
+x[0] => Equal12.IN1
+x[0] => Equal13.IN3
+x[0] => Equal14.IN0
+x[0] => Equal15.IN3
+x[1] => Equal0.IN2
+x[1] => Equal1.IN2
+x[1] => Equal2.IN3
+x[1] => Equal3.IN2
+x[1] => Equal4.IN1
+x[1] => Equal5.IN1
+x[1] => Equal6.IN3
+x[1] => Equal7.IN2
+x[1] => Equal8.IN1
+x[1] => Equal9.IN1
+x[1] => Equal10.IN3
+x[1] => Equal11.IN2
+x[1] => Equal12.IN0
+x[1] => Equal13.IN0
+x[1] => Equal14.IN3
+x[1] => Equal15.IN2
+x[2] => Equal0.IN1
+x[2] => Equal1.IN1
+x[2] => Equal2.IN1
+x[2] => Equal3.IN1
+x[2] => Equal4.IN3
+x[2] => Equal5.IN2
+x[2] => Equal6.IN2
+x[2] => Equal7.IN1
+x[2] => Equal8.IN0
+x[2] => Equal9.IN0
+x[2] => Equal10.IN0
+x[2] => Equal11.IN0
+x[2] => Equal12.IN3
+x[2] => Equal13.IN2
+x[2] => Equal14.IN2
+x[2] => Equal15.IN1
+x[3] => Equal0.IN0
+x[3] => Equal1.IN0
+x[3] => Equal2.IN0
+x[3] => Equal3.IN0
+x[3] => Equal4.IN0
+x[3] => Equal5.IN0
+x[3] => Equal6.IN0
+x[3] => Equal7.IN0
+x[3] => Equal8.IN3
+x[3] => Equal9.IN2
+x[3] => Equal10.IN2
+x[3] => Equal11.IN1
+x[3] => Equal12.IN2
+x[3] => Equal13.IN1
+x[3] => Equal14.IN1
+x[3] => Equal15.IN0
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst33
+I0[0] => O.DATAB
+I0[1] => O.DATAB
+I0[2] => O.DATAB
+I0[3] => O.DATAB
+I1[0] => O.DATAA
+I1[1] => O.DATAA
+I1[2] => O.DATAA
+I1[3] => O.DATAA
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+O[0] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst34
+I0[0] => O.DATAB
+I0[1] => O.DATAB
+I0[2] => O.DATAB
+I0[3] => O.DATAB
+I1[0] => O.DATAA
+I1[1] => O.DATAA
+I1[2] => O.DATAA
+I1[3] => O.DATAA
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+O[0] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst35
+I0[0] => O.DATAB
+I0[1] => O.DATAB
+I0[2] => O.DATAB
+I0[3] => O.DATAB
+I1[0] => O.DATAA
+I1[1] => O.DATAA
+I1[2] => O.DATAA
+I1[3] => O.DATAA
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+Sel => O.OUTPUTSELECT
+O[0] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst36
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst37
+a[0] => c.IN0
+a[1] => c.IN0
+a[2] => c.IN0
+a[3] => c.IN0
+b[0] => c.IN1
+b[1] => c.IN1
+b[2] => c.IN1
+b[3] => c.IN1
+c[0] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[1] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst4
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst5
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst6
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst7
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst8
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst9
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|register4b:b2v_inst2
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|register4b:b2v_inst3
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|register4b:b2v_inst4
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|register4b:b2v_inst5
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|register4b:b2v_inst6
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8
 clock => chien:b2v_inst.clock
 reset => chien:b2v_inst.reset
 inicia => chien:b2v_inst.inicia
@@ -45,44 +2162,60 @@ Decod[2] <= forney:b2v_inst2.Decod[2]
 Decod[3] <= forney:b2v_inst2.Decod[3]
 
 
-|ChienForney|Chien:b2v_inst
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst
 clock => chiencontroller:b2v_inst.clock
 clock => chiensearchlocation:b2v_inst2.Clock
 clock => chiensearchvalue:b2v_inst3.Clock
 reset => chiencontroller:b2v_inst.reset
+reset => register4b:b2v_inst1.clr
+reset => register4b:b2v_inst11.clr
+reset => register4b:b2v_inst12.clr
+reset => register4b:b2v_inst4.clr
+reset => register4b:b2v_inst5.clr
+reset => register4b:b2v_inst6.clr
+reset => register4b:b2v_inst8.clr
+reset => register4b:b2v_inst9.clr
 inicia => chiencontroller:b2v_inst.inicia
-Lamb0[0] => chiensearchlocation:b2v_inst2.Lamb0[0]
-Lamb0[1] => chiensearchlocation:b2v_inst2.Lamb0[1]
-Lamb0[2] => chiensearchlocation:b2v_inst2.Lamb0[2]
-Lamb0[3] => chiensearchlocation:b2v_inst2.Lamb0[3]
-Lamb1[0] => chiensearchlocation:b2v_inst2.Lamb1[0]
-Lamb1[1] => chiensearchlocation:b2v_inst2.Lamb1[1]
-Lamb1[2] => chiensearchlocation:b2v_inst2.Lamb1[2]
-Lamb1[3] => chiensearchlocation:b2v_inst2.Lamb1[3]
-Lamb2[0] => chiensearchlocation:b2v_inst2.Lamb2[0]
-Lamb2[1] => chiensearchlocation:b2v_inst2.Lamb2[1]
-Lamb2[2] => chiensearchlocation:b2v_inst2.Lamb2[2]
-Lamb2[3] => chiensearchlocation:b2v_inst2.Lamb2[3]
-Lamb3[0] => chiensearchlocation:b2v_inst2.Lamb3[0]
-Lamb3[1] => chiensearchlocation:b2v_inst2.Lamb3[1]
-Lamb3[2] => chiensearchlocation:b2v_inst2.Lamb3[2]
-Lamb3[3] => chiensearchlocation:b2v_inst2.Lamb3[3]
-Omega0[0] => chiensearchvalue:b2v_inst3.Lamb0[0]
-Omega0[1] => chiensearchvalue:b2v_inst3.Lamb0[1]
-Omega0[2] => chiensearchvalue:b2v_inst3.Lamb0[2]
-Omega0[3] => chiensearchvalue:b2v_inst3.Lamb0[3]
-Omega1[0] => chiensearchvalue:b2v_inst3.Lamb1[0]
-Omega1[1] => chiensearchvalue:b2v_inst3.Lamb1[1]
-Omega1[2] => chiensearchvalue:b2v_inst3.Lamb1[2]
-Omega1[3] => chiensearchvalue:b2v_inst3.Lamb1[3]
-Omega2[0] => chiensearchvalue:b2v_inst3.Lamb2[0]
-Omega2[1] => chiensearchvalue:b2v_inst3.Lamb2[1]
-Omega2[2] => chiensearchvalue:b2v_inst3.Lamb2[2]
-Omega2[3] => chiensearchvalue:b2v_inst3.Lamb2[3]
-Omega3[0] => chiensearchvalue:b2v_inst3.Lamb3[0]
-Omega3[1] => chiensearchvalue:b2v_inst3.Lamb3[1]
-Omega3[2] => chiensearchvalue:b2v_inst3.Lamb3[2]
-Omega3[3] => chiensearchvalue:b2v_inst3.Lamb3[3]
+inicia => register4b:b2v_inst1.clk
+inicia => register4b:b2v_inst11.clk
+inicia => register4b:b2v_inst12.clk
+inicia => register4b:b2v_inst4.clk
+inicia => register4b:b2v_inst5.clk
+inicia => register4b:b2v_inst6.clk
+inicia => register4b:b2v_inst8.clk
+inicia => register4b:b2v_inst9.clk
+Lamb0[0] => register4b:b2v_inst11.d[0]
+Lamb0[1] => register4b:b2v_inst11.d[1]
+Lamb0[2] => register4b:b2v_inst11.d[2]
+Lamb0[3] => register4b:b2v_inst11.d[3]
+Lamb1[0] => register4b:b2v_inst8.d[0]
+Lamb1[1] => register4b:b2v_inst8.d[1]
+Lamb1[2] => register4b:b2v_inst8.d[2]
+Lamb1[3] => register4b:b2v_inst8.d[3]
+Lamb2[0] => register4b:b2v_inst9.d[0]
+Lamb2[1] => register4b:b2v_inst9.d[1]
+Lamb2[2] => register4b:b2v_inst9.d[2]
+Lamb2[3] => register4b:b2v_inst9.d[3]
+Lamb3[0] => register4b:b2v_inst12.d[0]
+Lamb3[1] => register4b:b2v_inst12.d[1]
+Lamb3[2] => register4b:b2v_inst12.d[2]
+Lamb3[3] => register4b:b2v_inst12.d[3]
+Omega0[0] => register4b:b2v_inst1.d[0]
+Omega0[1] => register4b:b2v_inst1.d[1]
+Omega0[2] => register4b:b2v_inst1.d[2]
+Omega0[3] => register4b:b2v_inst1.d[3]
+Omega1[0] => register4b:b2v_inst4.d[0]
+Omega1[1] => register4b:b2v_inst4.d[1]
+Omega1[2] => register4b:b2v_inst4.d[2]
+Omega1[3] => register4b:b2v_inst4.d[3]
+Omega2[0] => register4b:b2v_inst5.d[0]
+Omega2[1] => register4b:b2v_inst5.d[1]
+Omega2[2] => register4b:b2v_inst5.d[2]
+Omega2[3] => register4b:b2v_inst5.d[3]
+Omega3[0] => register4b:b2v_inst6.d[0]
+Omega3[1] => register4b:b2v_inst6.d[1]
+Omega3[2] => register4b:b2v_inst6.d[2]
+Omega3[3] => register4b:b2v_inst6.d[3]
 muxSel <= chiencontroller:b2v_inst.muxSel
 ResultLocation[0] <= chiensearchlocation:b2v_inst2.Result[0]
 ResultLocation[1] <= chiensearchlocation:b2v_inst2.Result[1]
@@ -98,7 +2231,7 @@ ResultValue[2] <= chiensearchvalue:b2v_inst3.Result[2]
 ResultValue[3] <= chiensearchvalue:b2v_inst3.Result[3]
 
 
-|ChienForney|Chien:b2v_inst|ChienController:b2v_inst
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst
 clock => estadoAtual~1.DATAIN
 reset => estadoAtual~3.DATAIN
 inicia => proximoEstado.mux.DATAB
@@ -108,7 +2241,76 @@ clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
 muxSel <= muxSel.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst1
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst11
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst12
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2
 MuxSel => mux2x1:b2v_inst.Sel
 MuxSel => mux2x1:b2v_inst1.Sel
 MuxSel => mux2x1:b2v_inst2.Sel
@@ -151,7 +2353,7 @@ ResultOdd[2] <= gf_sum:b2v_inst15.c[2]
 ResultOdd[3] <= gf_sum:b2v_inst15.c[3]
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -170,7 +2372,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -189,7 +2391,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst10
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -304,7 +2506,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst11
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -419,7 +2621,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst12
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst12
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -434,7 +2636,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst13
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst13
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -449,7 +2651,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst14
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -464,7 +2666,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_sum:b2v_inst15
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -479,35 +2681,35 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_1:b2v_inst16
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_1:b2v_inst16
 o[0] <= <VCC>
 o[1] <= <GND>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_2:b2v_inst17
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_2:b2v_inst17
 o[0] <= <GND>
 o[1] <= <VCC>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_8:b2v_inst18
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_8:b2v_inst18
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <GND>
 o[3] <= <VCC>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_4:b2v_inst19
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_4:b2v_inst19
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <VCC>
 o[3] <= <GND>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -526,14 +2728,14 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_3:b2v_inst20
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|static_3:b2v_inst20
 o[0] <= <VCC>
 o[1] <= <VCC>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -552,7 +2754,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst4
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -575,7 +2777,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -598,7 +2800,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -621,7 +2823,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst7
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -644,7 +2846,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst8
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -759,7 +2961,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|gf_mult:b2v_inst9
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -874,7 +3076,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3
 MuxSel => mux2x1:b2v_inst1.Sel
 MuxSel => mux2x1:b2v_inst2.Sel
 MuxSel => mux2x1:b2v_inst3.Sel
@@ -912,14 +3114,14 @@ Result[2] <= gf_sum:b2v_inst14.c[2]
 Result[3] <= gf_sum:b2v_inst14.c[3]
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_4:b2v_inst
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_4:b2v_inst
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <VCC>
 o[3] <= <GND>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -938,7 +3140,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst11
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1053,14 +3255,14 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_2:b2v_inst12
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_2:b2v_inst12
 o[0] <= <GND>
 o[1] <= <VCC>
 o[2] <= <GND>
 o[3] <= <GND>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst13
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst13
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1075,7 +3277,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst14
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1090,7 +3292,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst15
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_sum:b2v_inst15
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1105,14 +3307,14 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_8:b2v_inst16
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|static_8:b2v_inst16
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <GND>
 o[3] <= <VCC>
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1131,7 +3333,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1150,7 +3352,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1173,7 +3375,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst5
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst5
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1196,7 +3398,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1219,7 +3421,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst7
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst7
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -1242,7 +3444,7 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst8
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1357,7 +3559,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|gf_mult:b2v_inst9
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1472,7 +3674,122 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Forney:b2v_inst2
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst4
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst5
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst6
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst8
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst9
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+ld => q[3]~reg0.ENA
+ld => q[2]~reg0.ENA
+ld => q[1]~reg0.ENA
+ld => q[0]~reg0.ENA
+clr => q[0]~reg0.ACLR
+clr => q[1]~reg0.ACLR
+clr => q[2]~reg0.ACLR
+clr => q[3]~reg0.ACLR
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2
 Loca => mux2x1:b2v_inst3.Sel
 Input[0] => gf_sum:b2v_inst1.b[0]
 Input[1] => gf_sum:b2v_inst1.b[1]
@@ -1492,7 +3809,7 @@ Decod[2] <= gf_sum:b2v_inst1.c[2]
 Decod[3] <= gf_sum:b2v_inst1.c[3]
 
 
-|ChienForney|Forney:b2v_inst2|gf_inv:b2v_inst
+|RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_inv:b2v_inst
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1563,7 +3880,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Forney:b2v_inst2|gf_sum:b2v_inst1
+|RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_sum:b2v_inst1
 a[0] => c.IN0
 a[1] => c.IN0
 a[2] => c.IN0
@@ -1578,7 +3895,7 @@ c[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
 c[3] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Forney:b2v_inst2|gf_mult:b2v_inst2
+|RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_mult:b2v_inst2
 x[0] => Equal0.IN3
 x[0] => Equal1.IN3
 x[0] => Equal2.IN2
@@ -1693,7 +4010,7 @@ o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
 o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Forney:b2v_inst2|Mux2x1:b2v_inst3
+|RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3
 I0[0] => O.DATAB
 I0[1] => O.DATAB
 I0[2] => O.DATAB
@@ -1712,7 +4029,7 @@ O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
 O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ChienForney|Forney:b2v_inst2|static_0:b2v_inst5
+|RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|static_0:b2v_inst5
 o[0] <= <GND>
 o[1] <= <GND>
 o[2] <= <GND>

@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Fri Sep 30 01:06:28 2016"
+-- CREATED		"Sat Oct 01 02:53:49 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -55,6 +55,15 @@ COMPONENT chiencontroller
 	);
 END COMPONENT;
 
+COMPONENT register4b
+	PORT(ld : IN STD_LOGIC;
+		 clr : IN STD_LOGIC;
+		 clk : IN STD_LOGIC;
+		 d : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 q : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	);
+END COMPONENT;
+
 COMPONENT chiensearchlocation
 	PORT(MuxSel : IN STD_LOGIC;
 		 Clear : IN STD_LOGIC;
@@ -82,13 +91,25 @@ COMPONENT chiensearchvalue
 	);
 END COMPONENT;
 
-SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_23 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_25 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_26 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 BEGIN 
-muxSel <= SYNTHESIZED_WIRE_6;
+muxSel <= SYNTHESIZED_WIRE_24;
+SYNTHESIZED_WIRE_22 <= '1';
+SYNTHESIZED_WIRE_23 <= '1';
 
 
 
@@ -96,34 +117,100 @@ b2v_inst : chiencontroller
 PORT MAP(clock => clock,
 		 reset => reset,
 		 inicia => inicia,
-		 load => SYNTHESIZED_WIRE_8,
-		 clear => SYNTHESIZED_WIRE_7,
-		 muxSel => SYNTHESIZED_WIRE_6);
+		 load => SYNTHESIZED_WIRE_26,
+		 clear => SYNTHESIZED_WIRE_25,
+		 muxSel => SYNTHESIZED_WIRE_24);
+
+
+b2v_inst1 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_22,
+		 clr => reset,
+		 clk => inicia,
+		 d => Omega0,
+		 q => SYNTHESIZED_WIRE_13);
+
+
+
+b2v_inst11 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_23,
+		 clr => reset,
+		 clk => inicia,
+		 d => Lamb0,
+		 q => SYNTHESIZED_WIRE_6);
+
+
+b2v_inst12 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_23,
+		 clr => reset,
+		 clk => inicia,
+		 d => Lamb3,
+		 q => SYNTHESIZED_WIRE_9);
 
 
 b2v_inst2 : chiensearchlocation
-PORT MAP(MuxSel => SYNTHESIZED_WIRE_6,
-		 Clear => SYNTHESIZED_WIRE_7,
-		 Load => SYNTHESIZED_WIRE_8,
+PORT MAP(MuxSel => SYNTHESIZED_WIRE_24,
+		 Clear => SYNTHESIZED_WIRE_25,
+		 Load => SYNTHESIZED_WIRE_26,
 		 Clock => clock,
-		 Lamb0 => Lamb0,
-		 Lamb1 => Lamb1,
-		 Lamb2 => Lamb2,
-		 Lamb3 => Lamb3,
+		 Lamb0 => SYNTHESIZED_WIRE_6,
+		 Lamb1 => SYNTHESIZED_WIRE_7,
+		 Lamb2 => SYNTHESIZED_WIRE_8,
+		 Lamb3 => SYNTHESIZED_WIRE_9,
 		 Result => ResultLocation,
 		 ResultOdd => ResultLocationOdd);
 
 
 b2v_inst3 : chiensearchvalue
-PORT MAP(MuxSel => SYNTHESIZED_WIRE_6,
-		 Load => SYNTHESIZED_WIRE_8,
+PORT MAP(MuxSel => SYNTHESIZED_WIRE_24,
+		 Load => SYNTHESIZED_WIRE_26,
 		 Clock => clock,
-		 Clear => SYNTHESIZED_WIRE_7,
-		 Lamb0 => Omega0,
-		 Lamb1 => Omega1,
-		 Lamb2 => Omega2,
-		 Lamb3 => Omega3,
+		 Clear => SYNTHESIZED_WIRE_25,
+		 Lamb0 => SYNTHESIZED_WIRE_13,
+		 Lamb1 => SYNTHESIZED_WIRE_14,
+		 Lamb2 => SYNTHESIZED_WIRE_15,
+		 Lamb3 => SYNTHESIZED_WIRE_16,
 		 Result => ResultValue);
+
+
+b2v_inst4 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_22,
+		 clr => reset,
+		 clk => inicia,
+		 d => Omega1,
+		 q => SYNTHESIZED_WIRE_14);
+
+
+b2v_inst5 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_22,
+		 clr => reset,
+		 clk => inicia,
+		 d => Omega2,
+		 q => SYNTHESIZED_WIRE_15);
+
+
+b2v_inst6 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_22,
+		 clr => reset,
+		 clk => inicia,
+		 d => Omega3,
+		 q => SYNTHESIZED_WIRE_16);
+
+
+
+b2v_inst8 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_23,
+		 clr => reset,
+		 clk => inicia,
+		 d => Lamb1,
+		 q => SYNTHESIZED_WIRE_7);
+
+
+b2v_inst9 : register4b
+PORT MAP(ld => SYNTHESIZED_WIRE_23,
+		 clr => reset,
+		 clk => inicia,
+		 d => Lamb2,
+		 q => SYNTHESIZED_WIRE_8);
 
 
 END bdf_type;

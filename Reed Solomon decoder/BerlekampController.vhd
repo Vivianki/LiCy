@@ -31,9 +31,9 @@ entity BerlekampController is
 end BerlekampController;
 
 architecture comportamental of BerlekampController is
-  type estados is (idle, idle2, localizador, localizador2, clearSyn, avaliador, avaliador2, store);
+  type estados is (idle,localizador, clearSyn, avaliador, store);
 	--! Variáveis de estado
-  signal estadoAtual : estados := idle;
+  signal estadoAtual : estados;
   signal proximoEstado : estados;
 begin
 	--! Processo sincronizador
@@ -41,12 +41,71 @@ begin
 	begin
 		if reset='1'then --! reset ativo alto
 			estadoAtual <= idle;
-		elsif falling_edge(clock) then --! sensível a borda de subida
+		elsif rising_edge(clock) then --! sensível a borda de subida
 			estadoAtual <= proximoEstado;
 		end if;
 	end process; 
 	
-	geraSinais: process(estadoAtual)
+	trancisiona: process(estadoAtual, inicia, count8, count4, ds, impar) 
+	begin
+		case estadoAtual is
+			--! o que fazer quando está no estado de espera?
+			when idle =>
+				if inicia = '1' then
+					test_state <= "00000";
+					proximoEstado <= localizador;
+				else
+					test_state <= "00001";
+					proximoEstado <= idle;
+				end if;
+				
+			when localizador =>
+				if count8 = '1' then
+					proximoEstado <= clearSyn;
+					test_state <= "01010";
+					
+				elsif impar = '1' then
+					if ds = '1' then
+						proximoEstado <= localizador;
+						test_state <= "01000";
+					else
+						proximoEstado <= localizador;
+						test_state <= "01001";
+					end if;
+				else
+					proximoEstado <= localizador;
+					test_state <= "01011";
+				end if;
+
+				
+			when clearSyn =>
+					proximoEstado <= avaliador;
+					test_state <= "01100";
+
+			when avaliador =>
+					if count4 = '1' then
+						proximoEstado <= store;
+						test_state <= "01101";
+					else
+						proximoEstado <= avaliador;
+						test_state <= "01110";
+					end if;
+					
+			when store =>
+				proximoEstado <= idle;
+				test_state <= "10001";
+				
+			when others =>
+				proximoEstado <= idle;
+				test_state <= "10010";
+		end case;
+		
+		
+	end process;
+	
+	
+	
+	geraSinais: process(estadoAtual, inicia, count8, count4, ds, impar)
 	begin
 		case estadoAtual is
 			--! o que fazer quando está no estado de espera?
@@ -60,32 +119,6 @@ begin
 				registra	<= '0';
 				di <= '0';
 				muxSel <= '0';
-				if inicia = '1' then
-					test_state <= "00000";
-					proximoEstado <= localizador;
-				else
-					test_state <= "00001";
-					proximoEstado <= idle2;
-				end if;
-			
-			when idle2 => 
-				loadS <= '0';
-				loadB <= '0';
-				loadC <= '0';
-				clearS <= '1';
-				clearB <= '1';
-				clearC <= '1';
-				registra	<= '0';
-				di <= '0';
-				muxSel <= '0';
-				if inicia = '1' then
-					test_state <= "00010";
-					proximoEstado <= localizador;
-				else
-					test_state <= "00011";
-					proximoEstado <= idle;
-				end if;
-				
 			when localizador =>
 				if count8 = '1' then
 					loadS <= '1';
@@ -97,9 +130,6 @@ begin
 					registra	<= '0';
 					di <= '0';
 					muxSel <= '0';
-					proximoEstado <= clearSyn;
-					test_state <= "01010";
-					
 				elsif impar = '1' then
 					if ds = '1' then
 						loadS <= '1';
@@ -111,8 +141,6 @@ begin
 						registra	<= '0';
 						di <= '0';
 						muxSel <= '0';
-						proximoEstado <= localizador2;
-						test_state <= "01000";
 					else
 						loadS <= '1';
 						loadB <= '1';
@@ -123,8 +151,6 @@ begin
 						registra	<= '0';
 						di <= '1';
 						muxSel <= '1';
-						proximoEstado <= localizador2;
-						test_state <= "01001";
 					end if;
 				else
 					registra <= '0'; -- aqui
@@ -136,62 +162,8 @@ begin
 					clearC <= '0';
 					di <= '0';
 					muxSel <= '0';
-					proximoEstado <= localizador2;
-					test_state <= "01011";
 				end if;
 
-			when localizador2 =>
-				if count8 = '1' then
-					loadS <= '1';
-					loadB <= '1';
-					loadC <= '1';
-					clearS <= '0';
-					clearB <= '0';
-					clearC <= '0';
-					registra	<= '0';
-					di <= '0';
-					muxSel <= '0';
-					proximoEstado <= clearSyn;
-					test_state <= "01010";
-				elsif impar = '1' then
-					if ds = '1' then
-						loadS <= '1';
-						loadB <= '1';
-						loadC <= '1';
-						clearS <= '0';
-						clearB <= '0';
-						clearC <= '0';
-						registra	<= '0';
-						di <= '0';
-						muxSel <= '0';
-						proximoEstado <= localizador;
-						test_state <= "01000";
-					else
-						loadS <= '1';
-						loadB <= '1';
-						loadC <= '1';
-						clearS <= '0'; -- aqui
-						clearB <= '0';
-						clearC <= '0';
-						registra	<= '0';
-						di <= '1';
-						muxSel <= '1';
-						proximoEstado <= localizador;
-						test_state <= "01001";
-					end if;
-				else
-					registra <= '0';
-					loadS <= '1';
-					loadB <= '1';
-					loadC <= '1';
-					clearS <= '0';
-					clearB <= '0';
-					clearC <= '0';
-					di <= '0';
-					muxSel <= '0';
-					proximoEstado <= localizador;
-					test_state <= "01011";
-				end if;
 				
 			when clearSyn =>
 					registra <= '0';
@@ -203,8 +175,6 @@ begin
 					clearC <= '0';
 					di <= '0';
 					muxSel <= '0';
-					proximoEstado <= avaliador;
-					test_state <= "01100";
 
 			when avaliador =>
 					registra <= '0';
@@ -216,31 +186,6 @@ begin
 					clearC <= '0';
 					muxSel <= '0';
 					di <= '0';
-					if count4 = '1' then
-						proximoEstado <= store;
-						test_state <= "01101";
-					else
-						proximoEstado <= avaliador2;
-						test_state <= "01110";
-					end if;
-					
-			when avaliador2 =>
-					registra <= '0';
-					loadS <= '1';
-					loadB <= '0';
-					loadC <= '0';
-					clearS <= '0';
-					clearB <= '0';
-					clearC <= '0';
-					muxSel <= '0';
-					di <= '0';
-					if count4 = '1' then
-						proximoEstado <= store;
-						test_state <= "01111";
-					else
-						proximoEstado <= avaliador;
-						test_state <= "10000";
-					end if;
 					
 			when store =>
 				registra <= '1';
@@ -252,8 +197,6 @@ begin
 				clearC <= '0';
 				di <= '0';
 				muxSel <= '0';
-				proximoEstado <= idle;
-				test_state <= "10001";
 				
 			when others =>
 				registra <= '0';
@@ -265,8 +208,6 @@ begin
 				clearC <= '0';
 				di <= '0';
 				muxSel <= '0';
-				proximoEstado <= idle;
-				test_state <= "10010";
 		end case;
 	end process; -- geraSaida
 end comportamental;
