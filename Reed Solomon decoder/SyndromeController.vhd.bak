@@ -1,0 +1,89 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity SyndromeController is
+	port(
+		clock:   	in  std_logic;
+		reset:   	in  std_logic;
+		inicia:		in	 std_logic;
+		start:		out std_logic;
+		load:			out std_logic
+	);
+end SyndromeController;
+
+architecture comportamental of SyndromeController is
+  type estados is (idle, contagem, iniciou, wait1, shift1, wait2, shift2);
+	--! Variáveis de estado
+  signal estadoAtual : estados;
+  signal proximoEstado : estados;
+  signal counter : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
+begin
+	--! Processo sincronizador
+	sincroniza: process(clock, reset)
+	begin
+		if reset = '1' then --! reset ativo alto
+			estadoAtual <= idle;
+			counter <= "0000";
+		elsif rising_edge(clock) then --! sensível a borda de subida
+			estadoAtual <= proximoEstado;
+			counter <= counter + 1;
+		end if;
+	end process; 
+	
+	trancisiona: process(estadoAtual, ) 
+	begin
+		case estadoAtual is
+			
+			when idle =>
+				if inicia = '1' then
+					proximoEstado <= contagem;
+				else
+					proximoEstado <= idle;
+				end if;
+			
+			when contagem =>
+				if counter = "1111" then
+					proximoEstado <= iniciou;
+				else
+					proximoEstado <= contagem;
+				end if;
+			
+			when iniciou =>
+				proximoEstado <= wait1;
+				
+			when wait1 =>
+				proximoEstado <= shift1;
+				
+			when shift1 =>
+				if counter = x then
+					proximoEstado <= wait2;
+				else
+					proximoEstado <= shift1;
+				end if;
+			
+			when wait2 =>
+				proximoEstado <= shift2;
+			
+			when shift2 =>
+				if counter = y then
+					proximoEstado <= idle;
+				else
+					proximoEstado <= shift2;
+			
+			when others =>
+				proximoEstado <= idle;
+		end case;
+
+	end process;
+	
+	
+	
+	geraSinais: process(estadoAtual, )
+	begin
+		case estadoAtual is
+			
+		end case;
+	end process;
+end comportamental;
+

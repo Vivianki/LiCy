@@ -1,15 +1,15 @@
-Fitter Status : Successful - Sat Oct 01 18:01:31 2016
+Fitter Status : Successful - Sun Oct 09 22:36:50 2016
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : RSDecoder
 Top-level Entity Name : RSIntegration
 Family : Cyclone IV E
 Device : EP4CE30F23C8
 Timing Models : Final
-Total logic elements : 689 / 28,848 ( 2 % )
-    Total combinational functions : 609 / 28,848 ( 2 % )
-    Dedicated logic registers : 154 / 28,848 ( < 1 % )
-Total registers : 154
-Total pins : 114 / 329 ( 35 % )
+Total logic elements : 768 / 28,848 ( 3 % )
+    Total combinational functions : 691 / 28,848 ( 2 % )
+    Dedicated logic registers : 226 / 28,848 ( < 1 % )
+Total registers : 226
+Total pins : 150 / 329 ( 46 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

@@ -115,4 +115,7 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME RSIntegration -section_id
 set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/RSIntegration.vht -section_id RSIntegration
 set_global_assignment -name VHDL_FILE berlekamp_counter.vhd
 set_global_assignment -name VHDL_TEST_BENCH_FILE simulation/modelsim/RSIntegration.vht
+set_global_assignment -name VHDL_FILE syndrome_counter.vhd
+set_global_assignment -name VHDL_FILE Syn8x4.vhd
+set_global_assignment -name VHDL_FILE SyndromeController.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

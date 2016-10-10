@@ -396,6 +396,150 @@
 					"strict" : false
 				},
 				{
+					"name" : "Syn0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn6[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Syn7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SyndromeOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SyndromeOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SyndromeOut[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SyndromeOut[3]",
+					"strict" : false
+				},
+				{
 					"name" : "Test_state[0]",
 					"strict" : false
 				},
@@ -432,10 +576,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "Inicia",
-					"strict" : false
-				},
-				{
 					"name" : "Clock",
 					"strict" : false
 				},
@@ -457,6 +597,10 @@
 				},
 				{
 					"name" : "Input[3]",
+					"strict" : false
+				},
+				{
+					"name" : "IniciaSyn",
 					"strict" : false
 				}
 			]

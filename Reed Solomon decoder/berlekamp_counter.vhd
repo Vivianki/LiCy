@@ -95,7 +95,6 @@ begin
                     Impar <= '0';
                     Count_4 <= '0';
                     Count_8 <= '0';
-						  Pre_Q <= "1111";
             end case;
 		end if;
 	end process;

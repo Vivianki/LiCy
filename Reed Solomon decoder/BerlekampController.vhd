@@ -1,10 +1,4 @@
--------------------------------------------------------
---! @file unidadeDeControle.vhdl
---! @author balbertini@usp.br
---! @date 20160310
---! @brief Máquina de estados da Unidade de Controle. (módulo 1, experiencia "Um
---! projeto em VHDL").
--------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

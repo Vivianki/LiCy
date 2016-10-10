@@ -44,7 +44,6 @@ SIGNAL clearS : STD_LOGIC;
 SIGNAL Clock : STD_LOGIC;
 SIGNAL di : STD_LOGIC;
 SIGNAL DS_reg : STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL Inicia : STD_LOGIC;
 SIGNAL Input : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Lambda1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Lambda2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -71,9 +70,19 @@ SIGNAL Test_state : STD_LOGIC_VECTOR(4 DOWNTO 0);
 SIGNAL Mensagem : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL pin_name1 : STD_LOGIC;
 SIGNAL Decod : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL SyndromeOut : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Impar : STD_LOGIC;
 SIGNAL Count_4 : STD_LOGIC;
 SIGNAL Count_8 : STD_LOGIC;
+SIGNAL Syn0 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Syn1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Syn2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Syn3 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Syn4 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Syn5 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Syn6 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL Syn7 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL IniciaSyn : STD_LOGIC;
 COMPONENT RSIntegration
 	PORT (
 	B_0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -87,7 +96,6 @@ COMPONENT RSIntegration
 	Clock : IN STD_LOGIC;
 	di : OUT STD_LOGIC;
 	DS_reg : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	Inicia : IN STD_LOGIC;
 	Input : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Lambda1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Lambda2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -110,13 +118,23 @@ COMPONENT RSIntegration
 	S2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	S3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	S4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SyndromeOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Test_state : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
 	Mensagem : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	pin_name1 : OUT STD_LOGIC;
 	Decod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Impar : OUT STD_LOGIC;
 	Count_4 : OUT STD_LOGIC;
-	Count_8 : OUT STD_LOGIC
+	Count_8 : OUT STD_LOGIC;
+	IniciaSyn : IN STD_LOGIC;
+	Syn0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn5 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn6 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn7 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
@@ -134,7 +152,6 @@ BEGIN
 	Clock => Clock,
 	di => di,
 	DS_reg => DS_reg,
-	Inicia => Inicia,
 	Input => Input,
 	Lambda1 => Lambda1,
 	Lambda2 => Lambda2,
@@ -163,7 +180,17 @@ BEGIN
 	Decod => Decod,
 	Impar => Impar,
 	Count_4 => Count_4,
-	Count_8 => Count_8
+	Count_8 => Count_8,
+	IniciaSyn => IniciaSyn,
+	SyndromeOut => SyndromeOut,
+	Syn0 => Syn0,
+	Syn1 => Syn1,
+	Syn2 => Syn2,
+	Syn3 => Syn3,
+	Syn4 => Syn4,
+	Syn5 => Syn5,
+	Syn6 => Syn6,
+	Syn7 => Syn7
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -184,74 +211,132 @@ always : PROCESS
 BEGIN
 		Mensagem <= "0000";
 		Reset <= '1';
-		Inicia <= '0';
+		IniciaSyn <= '0';
 		Input <= "0000";
 		wait for 100 ns;
 		
-		Reset <= '1';
-		wait for 200 ns;
-		
-		Inicia <= '1';
 		Reset <= '0';
+		IniciaSyn <= '1';
+		
 		wait for 200 ns;
 		
-		-- comp L:
-		
-		Inicia <= '0';
-		Input <= "0000";
-		wait for 200 ns;
-		
-		Input <= "1000";
-		wait for 200 ns;
-		
-		Input <= "1100";
-		wait for 200 ns;
-		
-		Input <= "1110";
-		wait for 200 ns;
-		
-		Input <= "0011";
-		wait for 200 ns;
-		
-		Input <= "0101";
+		Reset <= '0';
+		-- MuxSyndrome <= '1';
+		-- LoadRegSyn <= '1';
+		Input <= "1101";
 		wait for 200 ns;
 		
 		Input <= "0010";
 		wait for 200 ns;
 		
-		Input <= "1001";
+		Input <= "0111";
 		wait for 200 ns;
 		
-		Input <= "0101";
+		Input <= "0010";
 		wait for 200 ns;
 		
-		-- clear syn:
-		
-		Input <= "0000";
+		Input <= "0110";
 		wait for 200 ns;
 		
-		-- comp V:
-		
-		Input <= "0000";
+		Input <= "0111";
 		wait for 200 ns;
 		
-		Input <= "1000";
+		Input <= "1101";
 		wait for 200 ns;
 		
-		Input <= "1100";
+		Input <= "0111";
 		wait for 200 ns;
 		
 		Input <= "1110";
 		wait for 200 ns;
 		
-		Input <= "0011";
+		Input <= "0001";
+		wait for 200 ns;
+		
+		Input <= "1100";
+		wait for 200 ns;
+		
+		Input <= "0110";
+		wait for 200 ns;
+		
+		Input <= "1000";
+		wait for 200 ns;
+		
+		Input <= "0010";
+		wait for 200 ns;
+		
+		Input <= "0110";
+		wait for 200 ns;
+			
+				
+		-- comp L:
+		-- Input <= "0000";
+		wait for 200 ns;
+		--Inicia <= '1';
+		
+		
+		-- Input <= "1000";
+		wait for 200 ns;
+		--MuxSyndrome <= '0';
+		--LoadRegSyn <= '0';
+		--Inicia <= '0';
+		-- Input <= "1100";
+		
+		wait for 200 ns;
+		--LoadRegSyn <= '1';
+		-- Input <= "1110";
+		wait for 200 ns;
+		
+		-- Input <= "0011";
+		wait for 200 ns;
+		
+		-- Input <= "0101";
+		wait for 200 ns;
+		
+		-- Input <= "0010";
+		wait for 200 ns;
+		
+		-- Input <= "1001";
+		wait for 200 ns;
+		
+		-- Input <= "0101";
+		wait for 200 ns;
+		
+		-- clear syn:
+		
+		
+		wait for 200 ns;
+		
+		-- comp V:
+		
+		-- Input <= "0000";
+		wait for 200 ns;
+		--LoadRegSyn <= '0';
+		-- Input <= "1000";
+		wait for 200 ns;
+		
+		-- Input <= "1100";
+		wait for 200 ns;
+		--LoadRegSyn <= '1';
+		-- Input <= "1110";
+		wait for 200 ns;
+		
+		-- Input <= "0011";
 		wait for 200 ns;
 		
 		-- store:
 		
-		Input <= "0000";
+		-- Input <= "0000";
 		
-		wait for 600 ns;
+		wait for 200 ns;
+		
+		wait for 200 ns;
+		
+		wait for 200 ns;
+		
+		wait for 200 ns;
+		
+		wait for 200 ns;
 		Mensagem <= "1101";
 			
 		wait for 200 ns;
