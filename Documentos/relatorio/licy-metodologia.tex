@@ -225,8 +225,28 @@
 	\section{Hardware}\label{sec-hardware}
 	% ---
 	
-	Explica as escolhas feitas de hardware.
+	A seguir serão discorridos os requisitos necessários pelo hardware para implementar a norma IEEE 802.15.7. Estarão divididos em duas partes: analógica e digital. Será aplicada uma metodologia \textit{top-down} para explicar a transmissão de dados.
 	
+	% ---
+	\subsection{Analógico}
+	% ---
+	
+	Engloba o escopo de transmissão e recepção de sinais luminosos, com a devida conversão de (e para) bits de forma que seja possível interpretá-los como dados.
+	
+	% ---
+	\subsubsection{Transmissor}
+	% ---
+	
+	Falar sobre curva de potencia do led, e de como passar do corte para saturação (desligando e ligando) muito rápido trabalha dentro da área não linear de operação do LED (nem está marcada no datasheet). Então foi escolhida uma técnica utilizada em vários sistemas de VLC e transmissão de fibra ótica: trabalhar com um V_{dc} e 
+	
+	% ---
+	\subsubsection{Receptor}
+	% ---	
+	
+	% ---
+	\subsection{Digital}
+	% ---
+
 	% ---
 	\subsection{FPGA}\label{hard-fpga}
 	% ---
@@ -261,41 +281,6 @@
 	O projeto de uma FPGA possui características que anteriormente estavam associadas a sistemas baseados em processadores. Uma delas é o uso de ferramentas e interfaces de alto nível, usando diagramas de bloco representando comportamentos e linguagens de descrição de hardware (na sigla em inglês, HDL), que no entanto diferem em muito de linguagens de programação como C. 
 	
 	A principal vantagem do uso de uma FPGA em relação a microcontroladores está na independência das operações de processamento, que por estarem em circuitos paralelos não precisam dividir recursos, como um mesmo núcleo por exemplo. Entretanto, o alto grau de paralelismo pode resultar em maiores desafios como garantir o sincronismo e lidar com inconsistência de dados no nível de circuito. Ainda assim, é preferível neste projeto lidar com esses desafios para se beneficiar do ganho em latência e vazão de dados.
-	
-	
-	\begin{comment}
-	--
-	 O que é um FPGA?  http://www.ni.com/white-paper/6984/pt/ Publicação: Dez 21, 2011 | 1 Avaliação | 4,00 de 5 | Read in English  | Imprimir
-	 
-	 FPGAs são chips de silício reprogramáveis que usa blocos lógicos programáveis pré-construídos que tem recursos de roteamento, você pode configurar esses chips para implementar funcionalidades personalizadas de hardware, sem nunca ter que pegar em uma placa de montagem ou ferro de solda. Você desenvolve tarefas de computação digital em software e as compila em um arquivo de configuração ou bitstream que contém informações sobre como os componentes devem ser ligados entre si. Além disso, os FPGAs são totalmente reconfiguráveis e imediatamente assumem uma nova "personalidade" quando você recompila uma nova configuração de circuito. No passado, a tecnologia FPGA só estava disponível para engenheiros com uma profunda compreensão do projeto de hardware digital. O surgimento de ferramentas de projeto de alto nível, no entanto, está mudando as regras da programação FPGA, com as novas tecnologias que convertem diagramas de blocos gráficos ou mesmo código em C em circuitos de hardware digital.
-	 
-	 A adoção de chips FPGA em todos os setores é dirigida pelo fato dos FPGAs combinarem as melhores partes do ASIC a sistemas baseados em processador. Os FPGAs oferecem confiabilidade  e velocidade na temporização por hardware, mas não exigem grandes volumes para justificar o grande gasto inicial de um projeto ASIC personalizado. O silício reprogramável também tem a mesma flexibilidade de um software rodando em um sistema baseado em processador, mas não é limitado pelo número de núcleos de processamento disponível. Ao contrário de processadores, os FPGAs são verdadeiramente paralelos por natureza, de modo que diferentes operações de processamento não têm que consumir os mesmos recursos. Cada tarefa independente de processamento é atribuído a uma seção dedicada do chip, e pode funcionar de forma autônoma, sem qualquer influência de outros blocos lógicos. Como resultado, o desempenho de uma parte da aplicação não é afetada quando um processamento adicional é inserido.
-	 --
-	
-		
-	Explicação do porquê foi escolhido FPGA
-	http://electronics.stackexchange.com/questions/4382/fpgas-vs-microcontrollers
-	
-	Designing for an FPGA requires a Hardware Description Language (HDL). HDLs are absolutely nothing at all like C. Whereas a C program is a sequential series of instructions and must contort itself to achieve parallel execution, an HDL describes a concurrent circuit and must contort itself to achieve sequential execution. It is a very different world and if you try to build a circuit in an FPGA while thinking like a software developer it will hurt.
-	
-	An MCU is time-limited. In order to accomplish more work, you need more processor cycles. Clocks have very real limits to their frequencies, so it's easy to hit a computational wall. However, an FPGA is space-limited. In order to accomplish more work, you merely add more circuits. If your FPGA isn't big enough, you can buy a bigger one. It's very hard to build a circuit that can't fit in the largest FPGA, and even if you do there are app notes describing how to daisy chain FPGAs together.
-	
-	FPGAs focus way more on parallel execution. Sometimes you have to worry about how long your MCU's ISR takes to service the interrupt, and whether you'll be able to achieve your hard-real-time limits. However, an in FPGA there are lots of Finite State Machines (FSM) running all the time. They are like "femto-controllers", like little clouds of control logic. They are all running simultaneously, so there's no worrying about missing an interrupt. You might have an FSM to interface to an ADC, another FSM to interface to a microcontroller's address/data bus, another FSM to stream data to a stereo codec, yet another FSM to buffer the dataflow from the ADC to the codec...You need to use a simulator to make sure that all the FSMs sing in harmony. If any control logic is off by even a single clock cycle (and such mistakes are easy to make) then you will get a cacophony of failure.
-	
-	FPGAs are a PCB layout designer's wet dream. They are extremely configurable. You can have many different logic interfaces (LVTTL, LVCMOS, LVDS, etc), of varying voltages and even drive strengths (so you don't need series-termination resistors). The pins are swappable; have you ever seen an MCU address bus where the pins were scattered around the chip? Your PCB designer probably has to drop a bunch of vias just to tie all the signals together correctly. With an FPGA, the PCB designer can then run the signals into the chip in pretty much any order that is convenient, and then the design can be back-annotated to the FPGA toolchain.
-	
-	--
-	Often FPGAs get used specifically to do tasks a microcontroller cannot do efficiently, such as highly parallel or low latency operations, operating in multiple clock domains, or doing custom logic at hardware speeds. As such, they'll do the heavy lifting, and you rarely need an MCU to be central to the design - they may be moved to management positions, such as loading the configuration bitstream. An example of this is the PIC or ARM in the Minimig, which implements the storage interface.
-	
-	--
-	http://electronics.stackexchange.com/questions/97277/when-can-fpgas-be-used-and-microcontrollers-dsps-not
-	
-	The key thing to consider is throughput and latency requirements. A microcontroller can service an interrupt (very roughly) once per microsecond. It can only service one interrupt at once. If you need to process it in an elaborate way, that limits how many you can service in a particular time.
-	
-	With an FPGA, you can generally respond to an input event immediately (well, on the next clock cycle). You can have lots of processing units in parallel. If you know that your filter takes 20 cycles, that's entirely independant of anything else going on.
-	
-	Highly-parallel integer intensive computation works best on FPGAs, especially if there's complex data dependencies. However, they don't have a lot of onboard memory; you can add some DRAM to the side but at the cost of latency.
-	\end{comment}
 	
 	% ---
 	\subsubsection{Opções Consideradas}\label{fpga-options}
