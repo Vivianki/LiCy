@@ -225,19 +225,60 @@
 	\section{Hardware}\label{sec-hardware}
 	% ---
 	
-	A seguir serão discorridos os requisitos necessários pelo hardware para implementar a norma IEEE 802.15.7. Estarão divididos em duas partes: analógica e digital. Será aplicada uma metodologia \textit{top-down} para explicar a transmissão de dados.
+	A seguir serão discorridas as implicações da implementação da norma IEEE 802.15.7 em um escopo de hardware. Estarão divididos em duas partes: analógica e digital. Será aplicada uma abordagem \textit{top-down}, começando pela necessidade de transmitir, receber e converter os dados digitais em sinais luminosos, ou até analógicos.
 	
 	% ---
 	\subsection{Analógico}
 	% ---
 	
-	Engloba o escopo de transmissão e recepção de sinais luminosos, com a devida conversão de (e para) bits de forma que seja possível interpretá-los como dados.
+	Seção referente a transmissão e recepção de sinais luminosos, com a devida conversão analógica-digital e digital-analógica de forma que seja possível interpretá-los como dados. A figura abaixo representa o fluxo que os dados devem fazer:
+	
+	Dados Digitais -> Envio para circuito do Led -> transmissão de oscilações luminosas ->
+	Recebimento por um fotodiodo -> amplificação do sinal -> filtração de ruídos -> conversão da onda analógica para digital -> Dados Digitais
+	
+	@todo linkar figura, fazer figura
+	
+	% ---
+	\subsubsection{Especificações Adicionais}
+	% ---
+	
+	Para que o circuito seja bem projetado, é importante que 
 	
 	% ---
 	\subsubsection{Transmissor}
 	% ---
 	
-	Falar sobre curva de potencia do led, e de como passar do corte para saturação (desligando e ligando) muito rápido trabalha dentro da área não linear de operação do LED (nem está marcada no datasheet). Então foi escolhida uma técnica utilizada em vários sistemas de VLC e transmissão de fibra ótica: trabalhar com um V_{dc} e 
+	O transmissor do sistema de comunicação LiCy será composto por um transistor e um LED de potência. Os dados serão enviados a partir da FPGA e codificados em 0 e 3.3V, representando os sinais \texttt{0} e \texttt{1} digitais. 
+	
+	Para cada um desses componentes deve haver um minucioso estudo sobre suas características electro-eletrônicas, pois existem muitas restrições que devem ser levadas em conta com a frequência de operação $F_{op}$ = 200 kHz, como:
+		
+	\begin{itemize}  
+		\item Ruídos são amplificados nessa frequência;
+		\item Capacitâncias e Indutâncias parasitas em todos componentes, com ênfase no LED e no transistor;
+		\item Prototipação dificultada, pois a breadboard possui muita capacitância em seus contatos;
+		\item Componentes limitados pela frequência de operação.
+	\end{itemize}
+	
+	O LED deverá ser capaz de enviar sinais luminosos oscilantes a uma frequência não perceptível ao olho de 200kHz especificada na norma.
+	
+	\texttt{Colocar desenho de FPGA enviando dados}
+	
+	Para o envio de daos
+	O LED escolhido deverá ter uma curva de resposta de tensão semelhante ao de um diodo. A 
+	Para realizar a transmissão, deve-se realiz
+	Falar sobre curva de potencia do led, e de como passar do corte para saturação (desligando e ligando) muito rápido trabalha dentro da área não linear de operação do LED (nem está marcada no datasheet). Então foi escolhida uma técnica utilizada em vários sistemas de VLC e transmissão de fibra ótica: trabalhar com um Vdc e apenas variar a tensão dentro na saturação.
+	
+	O receptor é obrigado a identificar essas variações minúsculas na luminosidade e para isso deve ser utilizado no modo fotocondutivo com uma amplificação alta (
+	
+	Fig. 2 shows a inverting TIA with the photodiode driven by a laser diode and operating in the photoconductive mode. A positive voltage at the cathode of the photodiode applies a reverse bias. This reverse bias increases the width of the depletion region and lowers the junction capacitance, improving the high frequency performance. The photoconductive configuration of a transimpedance photodiode amplifier is used where fast switching speed is required but high gain is not. The feedback capacitor, Cf is usually required to improve stability.
+	
+	)
+	
+	Após o estágio de recepção propriamente dito utilizando o Amplificador de Transimpedância e o fotodiodo, é realizado um estágio de amplificação com comparação, para transformar o sinal analogico recebido em uma onda quadrada. Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Após esse estágio pode ser necessário realizar a retificação da onda com um outro comparador, um schmitt trigger hex inverter nesse caso.
+	
+	http://electronicdesign.com/analog/whats-all-transimpedance-amplifier-stuff-anyhow-part-1
+	
+	@todo	Precisa de mais bibliografia.
 	
 	% ---
 	\subsubsection{Receptor}
@@ -298,27 +339,17 @@
 	\subsection{Microcontrolador}\label{hard-uc}
 	% ---
 	
-	O microcontrolador escolhido foi o Photon.
-	
-	\begin{figure}[htb]
-		\caption{\label{fig_photon} Desenho esquemático do microcontrolador Photon}
-		\begin{center}
-			%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.5\textheight, trim={11.7cm 7.9cm 7.8cm 7.4cm}, clip]{photon.pdf}
-		\end{center}
-		\legend{Fonte: Particle Docs}
-	\end{figure}
+	O microcontrolador escolhido foi o Raspberry Pi.
 
+	% @TODO insira imagem do rasp aqui %
 	
-	Explicação do porquê foi escolhido microcontrolador
-	
-	Conexão com fgpa e microcontrolador
-	The best way to connect them is to use an MCU with an external address and data bus. Then you can simply memory map the FPGA circuits into the MCU, and add your own "registers" that each have their own address. Now the FPGA can add custom peripherals, like a 32-bit timer that can latch all 4 bytes at once when the first byte is read to prevent overflows between 8-bit reads. You can also use it as glue logic to memory map more peripherals from other chips, like a separate ADC.
-	
+	Explicação do porquê foi escolhido Raspberry Pi: sistema linux, GPIO de fácil acesso, programação python
 	
 	% ---
 	\subsubsection{Opções Consideradas}\label{uc-options}
 	% ---
+	
+	Raspberry Pi, Galileo, 
 	
 	% ---
 	\subsubsection{Tabela Comparativa}\label{uc-table}
