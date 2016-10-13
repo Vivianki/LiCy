@@ -92,4 +92,11 @@ set_global_assignment -name VHDL_FILE output_files/sipo.vhd
 set_location_assignment PIN_H18 -to output
 set_location_assignment PIN_L21 -to data_mem
 set_global_assignment -name VHDL_FILE regiter3b.vhd
+set_global_assignment -name VHDL_FILE piso.vhd
+set_global_assignment -name BDF_FILE encCCencoder.bdf
+set_global_assignment -name VHDL_FILE conv_input_data_control.vhd
+set_global_assignment -name VHDL_FILE conv_input_data_control2.vhd
+set_global_assignment -name VHDL_FILE mux2x1.vhd
+set_global_assignment -name VHDL_FILE shift_register_zeroes.vhd
+set_global_assignment -name VHDL_FILE manchester_encoder.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

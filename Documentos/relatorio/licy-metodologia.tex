@@ -225,7 +225,7 @@
 	\section{Hardware}\label{sec-hardware}
 	% ---
 	
-	A seguir serão discorridas as implicações da implementação da norma IEEE 802.15.7 em um escopo de hardware. Estarão divididos em duas partes: analógica e digital. Será aplicada uma abordagem \textit{top-down}, começando pela necessidade de transmitir, receber e converter os dados digitais em sinais luminosos, ou até analógicos.
+	A seguir serão discorridas as implicações da implementação da norma IEEE 802.15.7 em um escopo de hardware. Estarão divididos em duas partes: analógica e digital. Será aplicada uma abordagem \textit{top-down}, a partir da necessidade de transmitir, receber e converter sinais digitais em analógicos, que então serão convertidos em oscilações luminosas.
 	
 	% ---
 	\subsection{Analógico}
@@ -250,7 +250,7 @@
 	
 	O transmissor do sistema de comunicação LiCy será composto por um transistor e um LED de potência. Os dados serão enviados a partir da FPGA e codificados em 0 e 3.3V, representando os sinais \texttt{0} e \texttt{1} digitais. 
 	
-	Para cada um desses componentes deve haver um minucioso estudo sobre suas características electro-eletrônicas, pois existem muitas restrições que devem ser levadas em conta com a frequência de operação $F_{op}$ = 200 kHz, como:
+	Para cada um desses componentes deve haver um minucioso estudo sobre suas características eletro-eletrônicas, pois existem muitas restrições que devem ser levadas em conta com a frequência de operação $F_{op}$ = 200 kHz, como:
 		
 	\begin{itemize}  
 		\item Ruídos são amplificados nessa frequência;
@@ -259,9 +259,11 @@
 		\item Componentes limitados pela frequência de operação.
 	\end{itemize}
 	
-	O LED deverá ser capaz de enviar sinais luminosos oscilantes a uma frequência não perceptível ao olho de 200kHz especificada na norma.
-	
+	Contornando e solucionando todas as restrições listadas acima, o circuito resultante deverá enviar sinais luminosos a uma frequência de 200kHz.
+	 
 	\texttt{Colocar desenho de FPGA enviando dados}
+	
+	É proposto um circuito que associa o transistor em modo emissor comum e o LED conectado no 	
 	
 	Para o envio de daos
 	O LED escolhido deverá ter uma curva de resposta de tensão semelhante ao de um diodo. A 
