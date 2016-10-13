@@ -15,11 +15,11 @@ architecture Behavioral of conv_input_data_control2 is
 begin   process(Clock,Reset)
    begin
       if Reset='0' then
-         temp <= "0000";
+         temp <= "000000";
 			carry <= '1';
       elsif(rising_edge(Clock)) then
-	    if temp="11101" then
-	       temp<="11101";
+	    if temp="011101" then
+	       temp<="011101";
 			 carry <= '0';
 		else 
 			carry <= '1';
