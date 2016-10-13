@@ -60,6 +60,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "startSReg",
+					"strict" : false
+				},
+				{
+					"name" : "startBerle",
+					"strict" : false
+				},
+				{
 					"name" : "B_0[0]",
 					"strict" : false
 				},
@@ -584,6 +592,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "IniciaSyn",
+					"strict" : false
+				},
+				{
 					"name" : "Input[0]",
 					"strict" : false
 				},
@@ -597,10 +609,6 @@
 				},
 				{
 					"name" : "Input[3]",
-					"strict" : false
-				},
-				{
-					"name" : "IniciaSyn",
 					"strict" : false
 				}
 			]

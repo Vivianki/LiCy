@@ -630,7 +630,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 360 264 536 280)
+	(rect 360 600 536 616)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
 	(text "Impar" (rect 90 0 131 14)(font "Arial" ))
 	(pt 0 8)
@@ -646,7 +646,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 344 296 520 312)
+	(rect 352 632 528 648)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
 	(text "Count_4" (rect 90 0 147 14)(font "Arial" ))
 	(pt 0 8)
@@ -662,7 +662,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 328 328 504 344)
+	(rect 328 672 504 688)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
 	(text "Count_8" (rect 90 0 147 14)(font "Arial" ))
 	(pt 0 8)
@@ -809,6 +809,38 @@ agreement for further details.
 	(rect -776 280 -598 296)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
 	(text "Syn7[3..0]" (rect 90 0 172 14)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect -456 -184 -280 -168)
+	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
+	(text "startSReg" (rect 90 0 164 14)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect -128 -168 50 -152)
+	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
+	(text "startBerle" (rect 90 0 172 14)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -2019,54 +2051,6 @@ agreement for further details.
 	(pt 288 16)
 )
 (connector
-	(pt 328 336)
-	(pt 304 336)
-)
-(connector
-	(pt 304 336)
-	(pt 304 144)
-)
-(connector
-	(pt 384 144)
-	(pt 304 144)
-)
-(connector
-	(pt 304 144)
-	(pt 272 144)
-)
-(connector
-	(pt 344 304)
-	(pt 328 304)
-)
-(connector
-	(pt 328 304)
-	(pt 328 128)
-)
-(connector
-	(pt 384 128)
-	(pt 328 128)
-)
-(connector
-	(pt 328 128)
-	(pt 272 128)
-)
-(connector
-	(pt 360 272)
-	(pt 352 272)
-)
-(connector
-	(pt 352 272)
-	(pt 352 112)
-)
-(connector
-	(pt 384 112)
-	(pt 352 112)
-)
-(connector
-	(pt 352 112)
-	(pt 272 112)
-)
-(connector
 	(pt 1048 848)
 	(pt 1088 848)
 	(bus)
@@ -2438,10 +2422,6 @@ agreement for further details.
 	(pt -664 24)
 )
 (connector
-	(pt -688 -176)
-	(pt -648 -176)
-)
-(connector
 	(pt -648 -176)
 	(pt -648 8)
 )
@@ -2486,12 +2466,72 @@ agreement for further details.
 	(pt -936 -144)
 )
 (connector
+	(pt -136 -160)
+	(pt -136 40)
+)
+(connector
+	(pt -688 -176)
+	(pt -648 -176)
+)
+(connector
+	(pt -648 -176)
+	(pt -456 -176)
+)
+(connector
 	(pt -688 -160)
 	(pt -136 -160)
 )
 (connector
 	(pt -136 -160)
-	(pt -136 40)
+	(pt -128 -160)
+)
+(connector
+	(pt 304 680)
+	(pt 328 680)
+)
+(connector
+	(pt 304 144)
+	(pt 304 680)
+)
+(connector
+	(pt 272 144)
+	(pt 304 144)
+)
+(connector
+	(pt 304 144)
+	(pt 384 144)
+)
+(connector
+	(pt 328 640)
+	(pt 352 640)
+)
+(connector
+	(pt 328 128)
+	(pt 328 640)
+)
+(connector
+	(pt 272 128)
+	(pt 328 128)
+)
+(connector
+	(pt 328 128)
+	(pt 384 128)
+)
+(connector
+	(pt 352 608)
+	(pt 360 608)
+)
+(connector
+	(pt 352 112)
+	(pt 352 608)
+)
+(connector
+	(pt 272 112)
+	(pt 352 112)
+)
+(connector
+	(pt 352 112)
+	(pt 384 112)
 )
 (junction (pt 888 160))
 (junction (pt 1072 160))
@@ -2543,3 +2583,5 @@ agreement for further details.
 (junction (pt -160 208))
 (junction (pt -880 -248))
 (junction (pt -896 -232))
+(junction (pt -648 -176))
+(junction (pt -136 -160))

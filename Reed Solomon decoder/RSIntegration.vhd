@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sun Oct 09 22:43:00 2016"
+-- CREATED		"Wed Oct 12 22:57:23 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -44,6 +44,8 @@ ENTITY RSIntegration IS
 		Impar :  OUT  STD_LOGIC;
 		Count_4 :  OUT  STD_LOGIC;
 		Count_8 :  OUT  STD_LOGIC;
+		startSReg :  OUT  STD_LOGIC;
+		startBerle :  OUT  STD_LOGIC;
 		B_0 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		B_1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		B_2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -233,6 +235,8 @@ clearS <= SYNTHESIZED_WIRE_41;
 Impar <= SYNTHESIZED_WIRE_0;
 Count_4 <= SYNTHESIZED_WIRE_1;
 Count_8 <= SYNTHESIZED_WIRE_2;
+startSReg <= SYNTHESIZED_WIRE_6;
+startBerle <= SYNTHESIZED_WIRE_3;
 Lambda1 <= SYNTHESIZED_WIRE_32;
 Lambda2 <= SYNTHESIZED_WIRE_33;
 Lambda3 <= SYNTHESIZED_WIRE_34;

@@ -83,6 +83,8 @@ SIGNAL Syn5 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Syn6 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Syn7 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL IniciaSyn : STD_LOGIC;
+SIGNAL startBerle : STD_LOGIC;
+SIGNAL startSReg : STD_LOGIC; 
 COMPONENT RSIntegration
 	PORT (
 	B_0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -134,7 +136,9 @@ COMPONENT RSIntegration
 	Syn4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Syn5 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Syn6 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	Syn7 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	Syn7 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	startSReg : OUT STD_LOGIC;
+	startBerle : OUT STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
@@ -190,7 +194,9 @@ BEGIN
 	Syn4 => Syn4,
 	Syn5 => Syn5,
 	Syn6 => Syn6,
-	Syn7 => Syn7
+	Syn7 => Syn7,
+	startBerle => startBerle,
+	startSReg => startSReg
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -219,8 +225,7 @@ BEGIN
 		IniciaSyn <= '1';
 		
 		wait for 200 ns;
-		
-		Reset <= '0';
+		IniciaSyn <= '0';
 		-- MuxSyndrome <= '1';
 		-- LoadRegSyn <= '1';
 		Input <= "1101";
@@ -327,8 +332,6 @@ BEGIN
 		-- store:
 		
 		-- Input <= "0000";
-		
-		wait for 200 ns;
 		
 		wait for 200 ns;
 		

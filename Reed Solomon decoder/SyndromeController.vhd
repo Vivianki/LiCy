@@ -14,19 +14,22 @@ entity SyndromeController is
 end SyndromeController;
 
 architecture comportamental of SyndromeController is
-  type estados is (idle, contagem, iniciou, wait1, shift1, wait2, wait3, shift2);
+  type estados is (idle, contagem, iniciou, wait1, shift1, wait2, shift2);
 	--! Variáveis de estado
   signal estadoAtual : estados;
   signal proximoEstado : estados;
   signal counter : STD_LOGIC_VECTOR (3 downto 0);
+  signal next_counter : STD_LOGIC_VECTOR (3 downto 0);
 begin
 	--! Processo sincronizador
 	sincroniza: process(clock, reset)
 	begin
 		if reset = '1' then --! reset ativo alto
 			estadoAtual <= idle;
+			counter <= "0000";
 		elsif rising_edge(clock) then --! sensível a borda de subida
 			estadoAtual <= proximoEstado;
+			counter <= next_counter;
 		end if;
 	end process; 
 	
@@ -36,59 +39,57 @@ begin
 			
 			when idle =>
 				if inicia = '1' then
+					next_counter <= "0000";
 					proximoEstado <= contagem;
-					counter <= "0000";
 				else
+					next_counter <= "0000";
 					proximoEstado <= idle;
-					counter <= "0000";
 				end if;
 			
 			when contagem =>
-				if counter = "1111" then
+				if counter = "1110" then
+					next_counter <= "0000";
 					proximoEstado <= iniciou;
-					counter <= "0000";
 				else
+					next_counter <= counter + "0001";
 					proximoEstado <= contagem;
-					counter <= counter + 1;
 				end if;
 			
 			when iniciou =>
+				next_counter <= "0000";
 				proximoEstado <= wait1;
-				counter <= "0000";
 				
 			when wait1 =>
+				next_counter <= "0000";
 				proximoEstado <= shift1;
-				counter <= "0000";
 				
 			when shift1 =>
 				if counter = "0111" then
+					next_counter <= "0000";
 					proximoEstado <= wait2;
-					counter <= "0000";
 				else
+					next_counter <= counter + "0001";
 					proximoEstado <= shift1;
-					counter <= counter + 1;
 				end if;
 			
 			when wait2 =>
-				proximoEstado <= wait3;
-				counter <= "0000";
-				
-			when wait3 =>
+				next_counter <= "0000";
 				proximoEstado <= shift2;
-				counter <= "0000";
+				
 				
 			when shift2 =>
 				if counter = "0110" then
-					proximoEstado <= idle;
-					counter <= "0000";
+					next_counter <= "0000";
+					proximoEstado <= idle;			
 				else
+					next_counter <= counter + "0001";
 					proximoEstado <= shift2;
-					counter <= counter + 1;
 				end if;
 				
 			when others =>
+				next_counter <= "0000";
 				proximoEstado <= idle;
-				counter <= "0000";
+				
 				
 			end case;
 
@@ -123,11 +124,6 @@ begin
 				load <= '1';
 			
 			when wait2 =>
-				startSReg <= '0';
-				startBerle <= '0';
-				load <= '0';
-				
-			when wait3 =>
 				startSReg <= '0';
 				startBerle <= '0';
 				load <= '0';
