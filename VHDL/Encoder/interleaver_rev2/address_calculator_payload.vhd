@@ -4,7 +4,7 @@ use ieee.std_logic_unsigned.all;
 
 ----------------------------------------------------
 
-entity address_calculator is
+entity address_calculator_payload is
 port(	
 	clock:	in std_logic;
 	enable: 	in std_logic;
@@ -14,11 +14,11 @@ port(
 	iterator_out: out  std_logic_vector(3 downto 0);
 	carry:	out std_logic 
 );
-end address_calculator;
+end address_calculator_payload;
 
 ----------------------------------------------------
 
-architecture behv of address_calculator is		 	  
+architecture behv of address_calculator_payload is		 	  
 	
 	
 	signal iterator: std_logic_vector(3 downto 0) := "0000";
@@ -31,7 +31,7 @@ begin
 	begin	
 		Pre_Q2 := ("000000" & shift_depth);
 		if enable = '0' then
-			Pre_Q := "0000000000000";
+			Pre_Q := "0000000011110";
 			carry <= '0';
 			iterator <= "0000";
 		elsif (rising_edge(clock)) then
@@ -44,7 +44,7 @@ begin
 				carry <= '1';
 				iterator <= iterator + 1;
 			else
-				Pre_Q := "0000000000000"+ Pre_Q2;
+				Pre_Q := "0000000011110"+ Pre_Q2;
 				carry <= '0';
 				iterator <= "0001";
 			end if;
