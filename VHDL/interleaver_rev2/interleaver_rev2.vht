@@ -28,9 +28,9 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY interleaver_rev2_vhd_tst IS
-END interleaver_rev2_vhd_tst;
-ARCHITECTURE interleaver_rev2_arch OF interleaver_rev2_vhd_tst IS
+ENTITY itrl_t IS
+END itrl_t;
+ARCHITECTURE interleaver_rev2_arch OF itrl_t IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL Addb : STD_LOGIC_VECTOR(11 DOWNTO 0);
@@ -41,7 +41,20 @@ SIGNAL Flag : STD_LOGIC;
 SIGNAL Input : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Len : STD_LOGIC_VECTOR(11 DOWNTO 0);
 SIGNAL Output : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL flush_count : STD_LOGIC_VECTOR(11 DOWNTO 0);
+SIGNAL depth_count : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL address_calc : STD_LOGIC_VECTOR(11 DOWNTO 0);
+SIGNAL saida_mux : STD_LOGIC_VECTOR(11 DOWNTO 0);
 SIGNAL wren_b : STD_LOGIC;
+SIGNAL iterator_sig :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL enable_flush : STD_LOGIC;
+SIGNAL carry_sig : STD_LOGIC;
+SIGNAL depth_counter_enable : STD_LOGIC;
+SIGNAL flush_counter_carry :  STD_LOGIC;
+SIGNAL depth_counter_carry :  STD_LOGIC;
+SIGNAL signal_readWrite :    STD_LOGIC;
+SIGNAL start_flushing :   STD_LOGIC;
+SIGNAL readWrite :  STD_LOGIC;
 COMPONENT interleaver_rev2
 	PORT (
 	Addb : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
@@ -49,10 +62,23 @@ COMPONENT interleaver_rev2
 	Db : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Depth : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
 	Flag : IN STD_LOGIC;
+	start_flushing :   IN STD_LOGIC;
 	Input : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Len : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
 	Output : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	wren_b : IN STD_LOGIC
+	wren_b : IN STD_LOGIC;			
+	depth_count :  OUT  STD_LOGIC_VECTOR(6 DOWNTO 0);
+	flush_count :  OUT  STD_LOGIC_VECTOR(11 DOWNTO 0);
+	address_calc :  OUT  STD_LOGIC_VECTOR(11 DOWNTO 0);
+	carry_sig :  OUT  STD_LOGIC;
+	iterator_sig :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	enable_flush : OUT STD_LOGIC;
+	depth_counter_enable :  OUT  STD_LOGIC;
+	flush_counter_carry :  OUT  STD_LOGIC;
+	readWrite :  OUT  STD_LOGIC;
+	depth_counter_carry :  OUT  STD_LOGIC;
+	signal_readWrite :  OUT  STD_LOGIC;
+	saida_mux :  OUT  STD_LOGIC_VECTOR(11 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -70,7 +96,20 @@ BEGIN
 	Input => Input,
 	Len => Len,
 	Output => Output,
-	wren_b => wren_b
+	wren_b => wren_b,
+	depth_count => depth_count,
+	flush_count => flush_count,
+	address_calc => address_calc,
+	saida_mux => saida_mux,
+	iterator_sig => iterator_sig,
+	carry_sig => carry_sig,
+	enable_flush => enable_flush,
+	flush_counter_carry => flush_counter_carry,
+	depth_counter_enable => depth_counter_enable,
+	depth_counter_carry => depth_counter_carry,
+	signal_readWrite => signal_readWrite,
+	start_flushing => start_flushing,
+	readWrite => readWrite
 	);
 
 init : PROCESS
@@ -91,13 +130,21 @@ BEGIN
 	Addb <= "000000000000";
 	
 	Flag <= '0';
+	wait for 50 ns;
+	
+	start_flushing <= '0';
 	Input <= "0000";
-	Len <= "000000001111";
+	Len <= "000000011101";
 	Depth <= "0000010";
-	wait for 200 ns;
+	wait for 150 ns;
+	
 	Flag <= '1';
+	wait for 100 ns;
+	
+	start_flushing <= '0';
 	Input <= "1010";
 	wait for 100 ns;
+	
 	Input <= "1011";
 	wait for 100 ns;
 	Input <= "1100";
@@ -126,9 +173,13 @@ BEGIN
 	wait for 100 ns;
 	Input <= "1001";
 	wait for 100 ns;
-	Input <= "0000";
-	wait for 1500 ns;
+	Input <= "0001";
+	wait for 1400 ns;
+	Input <= "0011";
 	Flag <= '1';
+	wait for 50 ns;
+	start_flushing <= '1';
+	
 WAIT;                                                        
 END PROCESS always;                                          
 END interleaver_rev2_arch;

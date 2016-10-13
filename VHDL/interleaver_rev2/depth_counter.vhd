@@ -28,7 +28,7 @@ begin
 			Pre_Q <= "0000000";
 			carry <= '0';
 		elsif (rising_edge(clock)) then
-			if Pre_Q < depth then
+			if Pre_Q < depth - 1 then
 				Pre_Q <= Pre_Q + 1;
 				carry <= '0';
 			else

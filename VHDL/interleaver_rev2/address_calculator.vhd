@@ -20,31 +20,41 @@ end address_calculator;
 
 architecture behv of address_calculator is		 	  
 	
-	signal Pre_Q: std_logic_vector(11 downto 0);
+	
 	signal iterator: std_logic_vector(3 downto 0) := "0000";
 	
 begin
 
 	process(clock, enable)
-	begin
+	variable Pre_Q: std_logic_vector(11 downto 0);
+	variable Pre_Q2: std_logic_vector(11 downto 0);
+	begin	
+		Pre_Q2 := ("00000" & shift_depth);
 		if enable = '0' then
-			Pre_Q <= "000000000000";
+			Pre_Q := "000000000000";
 			carry <= '0';
+			iterator <= "0000";
 		elsif (rising_edge(clock)) then
-			Pre_Q <= ("00000" & shift_depth); -- get shifted index
-			if (iterator <= "1110") then
-				Pre_Q <= Pre_Q + ("00000" & depth); -- add to depth
+			
+			if (iterator <= "1101") then
+				Pre_Q := Pre_Q + ("00000" & depth); -- add to depth
 				iterator <= iterator + 1;
 				carry <= '0';
-			else
-				Pre_Q <= "000000000000";
+			elsif (iterator = "1110") then
+				Pre_Q := Pre_Q + ("00000" & depth);
 				carry <= '1';
-				iterator <= "0000";
+				iterator <= iterator + 1;
+			else 
+				Pre_Q := "000000000000"+ Pre_Q2;
+				carry <= '0';
+				iterator <= "0001";
 			end if;
 		end if;
+		count <= Pre_Q;
+		Pre_Q2 := ("00000" & shift_depth);
 	end process;	
-
-	count <= Pre_Q;
+	
+	
 	iterator_out <= iterator;
 
 end behv;
