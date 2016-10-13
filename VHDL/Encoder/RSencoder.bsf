@@ -1,0 +1,121 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 272 224)
+	(text "RSencoder" (rect 5 0 51 12)(font "Arial" ))
+	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Clock_RSencoder" (rect 0 0 74 12)(font "Arial" ))
+		(text "Clock_RSencoder" (rect 21 27 95 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "Initialize_RSencoder" (rect 0 0 79 12)(font "Arial" ))
+		(text "Initialize_RSencoder" (rect 21 43 100 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "input_RSencoder[3..0]" (rect 0 0 89 12)(font "Arial" ))
+		(text "input_RSencoder[3..0]" (rect 21 59 110 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 256 32)
+		(output)
+		(text "control" (rect 0 0 25 12)(font "Arial" ))
+		(text "control" (rect 210 27 235 39)(font "Arial" ))
+		(line (pt 256 32)(pt 240 32)(line_width 1))
+	)
+	(port
+		(pt 256 48)
+		(output)
+		(text "clock_sistema" (rect 0 0 56 12)(font "Arial" ))
+		(text "clock_sistema" (rect 179 43 235 55)(font "Arial" ))
+		(line (pt 256 48)(pt 240 48)(line_width 1))
+	)
+	(port
+		(pt 256 64)
+		(output)
+		(text "count[3..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "count[3..0]" (rect 194 59 235 71)(font "Arial" ))
+		(line (pt 256 64)(pt 240 64)(line_width 3))
+	)
+	(port
+		(pt 256 80)
+		(output)
+		(text "Output[0..3]" (rect 0 0 46 12)(font "Arial" ))
+		(text "Output[0..3]" (rect 189 75 235 87)(font "Arial" ))
+		(line (pt 256 80)(pt 240 80)(line_width 3))
+	)
+	(port
+		(pt 256 96)
+		(output)
+		(text "reg1[3..0]" (rect 0 0 36 12)(font "Arial" ))
+		(text "reg1[3..0]" (rect 199 91 235 103)(font "Arial" ))
+		(line (pt 256 96)(pt 240 96)(line_width 3))
+	)
+	(port
+		(pt 256 112)
+		(output)
+		(text "reg2[3..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "reg2[3..0]" (rect 198 107 235 119)(font "Arial" ))
+		(line (pt 256 112)(pt 240 112)(line_width 3))
+	)
+	(port
+		(pt 256 128)
+		(output)
+		(text "reg3[3..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "reg3[3..0]" (rect 198 123 235 135)(font "Arial" ))
+		(line (pt 256 128)(pt 240 128)(line_width 3))
+	)
+	(port
+		(pt 256 144)
+		(output)
+		(text "reg4[3..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "reg4[3..0]" (rect 197 139 235 151)(font "Arial" ))
+		(line (pt 256 144)(pt 240 144)(line_width 3))
+	)
+	(port
+		(pt 256 160)
+		(output)
+		(text "saida_AND[3..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "saida_AND[3..0]" (rect 167 155 235 167)(font "Arial" ))
+		(line (pt 256 160)(pt 240 160)(line_width 3))
+	)
+	(port
+		(pt 256 176)
+		(output)
+		(text "saidaMul[3..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "saidaMul[3..0]" (rect 181 171 235 183)(font "Arial" ))
+		(line (pt 256 176)(pt 240 176)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 240 192)(line_width 1))
+	)
+)
