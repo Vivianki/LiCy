@@ -5,17 +5,17 @@ use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 
-entity static_29 is
+entity static_44 is
   port(
 
        o : out std_logic_vector(12 downto 0)
   );
-end static_29;
+end static_44;
 
-architecture behavior of static_29 is
+architecture behavior of static_44 is
 
 begin
  
- o <= "0000000011101";
+ o <= "0000000101100";
 
 end behavior;
