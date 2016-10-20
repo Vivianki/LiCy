@@ -1,0 +1,49 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/simulation/modelsim
+Episo
+Z1 w1476931100
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/piso.vhd
+Z5 FC:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/piso.vhd
+l0
+L4
+Vzej2HQDfUFQG6`XEMohbV1
+!s100 CV?QX]_YloNPR@bcg>1TW1
+Z6 OV;C;10.4d;61
+31
+Z7 !s110 1476931119
+!i10b 1
+Z8 !s108 1476931119.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/piso.vhd|
+Z10 !s107 C:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/piso.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1
+Aarch
+R2
+R3
+Z13 DEx4 work 4 piso 0 22 zej2HQDfUFQG6`XEMohbV1
+l16
+L11
+Z14 VDRY8@25<Gf[a^o^A;YSzg2
+Z15 !s100 HCQ613lbYk53:CQjZFk1U1
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12

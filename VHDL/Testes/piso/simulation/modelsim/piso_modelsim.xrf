@@ -1,0 +1,16 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/piso.vhd
+source_file = 1, C:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/piso2.bdf
+source_file = 1, c:/altera_lite/16.0/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, c:/altera_lite/16.0/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, c:/altera_lite/16.0/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, c:/altera_lite/16.0/quartus/libraries/vhdl/ieee/timing_p.vhd
+source_file = 1, C:/Users/Vivian/Documents/GitHub/LiCy/VHDL/Testes/piso/db/piso.cbx.xml
+design_name = piso
+instance = comp, \so~output , so~output, piso, 1
+instance = comp, \pi[3]~input , pi[3]~input, piso, 1
+instance = comp, \clk~input , clk~input, piso, 1
+instance = comp, \load~input , load~input, piso, 1
+instance = comp, \pi[0]~input , pi[0]~input, piso, 1
+instance = comp, \pi[1]~input , pi[1]~input, piso, 1
+instance = comp, \pi[2]~input , pi[2]~input, piso, 1

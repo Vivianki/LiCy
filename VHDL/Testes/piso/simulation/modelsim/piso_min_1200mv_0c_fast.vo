@@ -1,0 +1,151 @@
+// Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus Prime License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
+
+// DATE "10/20/2016 00:21:54"
+
+// 
+// Device: Altera EP4CE30F23C7 Package FBGA484
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module piso (
+	clk,
+	load,
+	pi,
+	so);
+input 	clk;
+input 	load;
+input 	[3:0] pi;
+output 	so;
+
+// Design Ports Information
+// clk	=>  Location: PIN_C17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// load	=>  Location: PIN_W13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pi[0]	=>  Location: PIN_R7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pi[1]	=>  Location: PIN_E13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pi[2]	=>  Location: PIN_AB3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// so	=>  Location: PIN_H11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pi[3]	=>  Location: PIN_C7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+// synopsys translate_off
+initial $sdf_annotate("piso_min_1200mv_0c_v_fast.sdo");
+// synopsys translate_on
+
+wire \clk~input_o ;
+wire \load~input_o ;
+wire \pi[0]~input_o ;
+wire \pi[1]~input_o ;
+wire \pi[2]~input_o ;
+wire \so~output_o ;
+wire \pi[3]~input_o ;
+
+
+// Location: IOOBUF_X20_Y43_N30
+cycloneive_io_obuf \so~output (
+	.i(\pi[3]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\so~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \so~output .bus_hold = "false";
+defparam \so~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X20_Y43_N8
+cycloneive_io_ibuf \pi[3]~input (
+	.i(pi[3]),
+	.ibar(gnd),
+	.o(\pi[3]~input_o ));
+// synopsys translate_off
+defparam \pi[3]~input .bus_hold = "false";
+defparam \pi[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X56_Y43_N8
+cycloneive_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X43_Y0_N29
+cycloneive_io_ibuf \load~input (
+	.i(load),
+	.ibar(gnd),
+	.o(\load~input_o ));
+// synopsys translate_off
+defparam \load~input .bus_hold = "false";
+defparam \load~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y2_N1
+cycloneive_io_ibuf \pi[0]~input (
+	.i(pi[0]),
+	.ibar(gnd),
+	.o(\pi[0]~input_o ));
+// synopsys translate_off
+defparam \pi[0]~input .bus_hold = "false";
+defparam \pi[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X41_Y43_N8
+cycloneive_io_ibuf \pi[1]~input (
+	.i(pi[1]),
+	.ibar(gnd),
+	.o(\pi[1]~input_o ));
+// synopsys translate_off
+defparam \pi[1]~input .bus_hold = "false";
+defparam \pi[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X7_Y0_N22
+cycloneive_io_ibuf \pi[2]~input (
+	.i(pi[2]),
+	.ibar(gnd),
+	.o(\pi[2]~input_o ));
+// synopsys translate_off
+defparam \pi[2]~input .bus_hold = "false";
+defparam \pi[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+assign so = \so~output_o ;
+
+endmodule

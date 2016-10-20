@@ -1,0 +1,10 @@
+|piso
+clk => estadoAtual.CLK
+load => estadoAtual.ACLR
+pi[0] => temp[0].DATAB
+pi[1] => temp[1].DATAB
+pi[2] => temp[2].DATAB
+pi[3] => t.DATAB
+so <= t.DB_MAX_OUTPUT_PORT_TYPE
+
+

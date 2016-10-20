@@ -1,0 +1,17 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "so",
+					"strict" : false
+				},
+				{
+					"name" : "pi[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

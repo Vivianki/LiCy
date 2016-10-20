@@ -1,4 +1,4 @@
--- Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+-- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 -- Your use of Altera Corporation's design tools, logic functions 
 -- and other software and tools, and its AMPP partner logic 
 -- functions, and any output files from any of the foregoing 
@@ -14,8 +14,8 @@
 -- agreement for further details.
 
 -- PROGRAM		"Quartus Prime"
--- VERSION		"Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition"
--- CREATED		"Thu Oct 13 17:03:47 2016"
+-- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
+-- CREATED		"Wed Oct 19 22:30:44 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -35,6 +35,7 @@ ENTITY encCCencoder IS
 		output_manchester :  OUT  STD_LOGIC;
 		so :  OUT  STD_LOGIC;
 		ccEncoderinput :  OUT  STD_LOGIC;
+		input_manchester :  OUT  STD_LOGIC;
 		count_control1 :  OUT  STD_LOGIC_VECTOR(0 TO 3);
 		count_control2 :  OUT  STD_LOGIC_VECTOR(0 TO 5)
 	);
@@ -119,6 +120,7 @@ SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
 BEGIN 
 so <= SYNTHESIZED_WIRE_21;
 ccEncoderinput <= SYNTHESIZED_WIRE_1;
+input_manchester <= SYNTHESIZED_WIRE_5;
 SYNTHESIZED_WIRE_3 <= '1';
 SYNTHESIZED_WIRE_13 <= '0';
 
