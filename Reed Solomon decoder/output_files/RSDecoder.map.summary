@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Wed Oct 12 23:01:42 2016
+Analysis & Synthesis Status : Successful - Wed Nov 02 16:38:01 2016
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : RSDecoder
 Top-level Entity Name : RSIntegration
 Family : Cyclone IV E
-Total logic elements : 781
-    Total combinational functions : 691
-    Dedicated logic registers : 229
-Total registers : 229
-Total pins : 152
+Total logic elements : 847
+    Total combinational functions : 737
+    Dedicated logic registers : 271
+Total registers : 271
+Total pins : 189
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

@@ -115,6 +115,13 @@ agreement for further details.
 		(text "S_out[3..0]" (rect 120 27 163 39)(font "Arial" ))
 		(line (pt 184 32)(pt 168 32)(line_width 3))
 	)
+	(port
+		(pt 184 48)
+		(output)
+		(text "error" (rect 0 0 20 12)(font "Arial" ))
+		(text "error" (rect 143 43 163 55)(font "Arial" ))
+		(line (pt 184 48)(pt 168 48)(line_width 1))
+	)
 	(drawing
 		(rectangle (rect 16 16 168 224)(line_width 1))
 	)

@@ -16,7 +16,7 @@ end syndrome_counter;
 ----------------------------------------------------
 
 architecture behv of syndrome_counter is		 	  
-    signal Pre_Q: std_logic_vector(3 downto 0);
+    signal Pre_Q: std_logic_vector (3 downto 0);
 
 begin
 

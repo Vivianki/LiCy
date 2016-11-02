@@ -14,7 +14,7 @@ entity SyndromeController is
 end SyndromeController;
 
 architecture comportamental of SyndromeController is
-  type estados is (idle, contagem, iniciou, wait1, shift1, wait2, shift2);
+  type estados is (idle, contagem, iniciou, wait1, shift1, wait2, shift2, ready);
 	--! Variáveis de estado
   signal estadoAtual : estados;
   signal proximoEstado : estados;
@@ -80,11 +80,15 @@ begin
 			when shift2 =>
 				if counter = "0110" then
 					next_counter <= "0000";
-					proximoEstado <= idle;			
+					proximoEstado <= ready;			
 				else
 					next_counter <= counter + "0001";
 					proximoEstado <= shift2;
 				end if;
+				
+			when ready =>
+				next_counter <= "0000";
+				proximoEstado <= ready;
 				
 			when others =>
 				next_counter <= "0000";
@@ -132,6 +136,11 @@ begin
 				startSReg <= '0';
 				startBerle <= '0';
 				load <= '1';
+			
+			when ready =>
+				startSReg <= '0';
+				startBerle <= '0';
+				load <= '0';
 				
 			when others =>
 				startSReg <= '0';

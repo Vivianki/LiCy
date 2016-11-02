@@ -33,6 +33,8 @@ vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegrat
 vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
 vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syn8x4.vhd}
 vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/SyndromeController.vhd}
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/error_detector.vhd}
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/siso.vhd}
 
 vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
 

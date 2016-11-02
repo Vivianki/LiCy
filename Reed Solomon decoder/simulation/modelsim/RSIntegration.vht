@@ -82,9 +82,22 @@ SIGNAL Syn4 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Syn5 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Syn6 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL Syn7 : STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL IniciaSyn : STD_LOGIC;
 SIGNAL startBerle : STD_LOGIC;
-SIGNAL startSReg : STD_LOGIC; 
+SIGNAL startSReg : STD_LOGIC;
+SIGNAL Error : STD_LOGIC;
+SIGNAL Number_errors: STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL error_reset : STD_LOGIC;
+SIGNAL error_enable : STD_LOGIC;
+SIGNAL error_syndrome : STD_LOGIC;
+SIGNAl error_corrected : STD_LOGIC; 
+SIGNAL erroro : STD_LOGIC;
+SIGNAL deco0 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL deco1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL deco2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL deco3 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL deco4 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL deco5 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL deco6 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 COMPONENT RSIntegration
 	PORT (
 	B_0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -128,7 +141,6 @@ COMPONENT RSIntegration
 	Impar : OUT STD_LOGIC;
 	Count_4 : OUT STD_LOGIC;
 	Count_8 : OUT STD_LOGIC;
-	IniciaSyn : IN STD_LOGIC;
 	Syn0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Syn1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Syn2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -138,7 +150,21 @@ COMPONENT RSIntegration
 	Syn6 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Syn7 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	startSReg : OUT STD_LOGIC;
-	startBerle : OUT STD_LOGIC
+	startBerle : OUT STD_LOGIC;
+	Error : OUT STD_LOGIC;
+	Number_errors: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	error_reset : OUT STD_LOGIC;
+	error_corrected : OUT STD_LOGIC;
+	error_syndrome : OUT STD_LOGIC;
+	error_enable : OUT STD_LOGIC;
+	deco0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco5 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco6 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	erroro : OUT STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
@@ -185,7 +211,6 @@ BEGIN
 	Impar => Impar,
 	Count_4 => Count_4,
 	Count_8 => Count_8,
-	IniciaSyn => IniciaSyn,
 	SyndromeOut => SyndromeOut,
 	Syn0 => Syn0,
 	Syn1 => Syn1,
@@ -196,7 +221,21 @@ BEGIN
 	Syn6 => Syn6,
 	Syn7 => Syn7,
 	startBerle => startBerle,
-	startSReg => startSReg
+	startSReg => startSReg,
+	Error => Error,
+	Number_errors => Number_errors,
+	error_reset => error_reset,
+	error_corrected => error_corrected,
+	error_syndrome => error_syndrome,
+	error_enable => error_enable,
+	erroro => erroro,
+	deco0 => deco0,
+	deco1 => deco1,
+	deco2 => deco2,
+	deco3 => deco3,
+	deco4 => deco4,
+	deco5 => deco5,
+	deco6 => deco6
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -217,21 +256,18 @@ always : PROCESS
 BEGIN
 		Mensagem <= "0000";
 		Reset <= '1';
-		IniciaSyn <= '0';
 		Input <= "0000";
 		wait for 100 ns;
 		
 		Reset <= '0';
-		IniciaSyn <= '1';
 		
 		wait for 200 ns;
-		IniciaSyn <= '0';
 		-- MuxSyndrome <= '1';
 		-- LoadRegSyn <= '1';
 		Input <= "1101";
 		wait for 200 ns;
 		
-		Input <= "0010";
+		Input <= "0011";
 		wait for 200 ns;
 		
 		Input <= "0111";
@@ -343,7 +379,7 @@ BEGIN
 		Mensagem <= "1101";
 			
 		wait for 200 ns;
-		Mensagem <= "0010";
+		Mensagem <= "0011";
 		
 		wait for 200 ns;
 		Mensagem <= "0111";

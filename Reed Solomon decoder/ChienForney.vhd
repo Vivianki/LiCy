@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sat Oct 01 02:54:18 2016"
+-- CREATED		"Sun Oct 30 18:48:01 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -38,7 +38,11 @@ ENTITY ChienForney IS
 		Omega2 :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Omega3 :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		pin_name1 :  OUT  STD_LOGIC;
-		Decod :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
+		Error :  OUT  STD_LOGIC;
+		error_enable :  OUT  STD_LOGIC;
+		error_reset :  OUT  STD_LOGIC;
+		Decod :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		Number_errors :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END ChienForney;
 
@@ -63,6 +67,15 @@ COMPONENT chien
 	);
 END COMPONENT;
 
+COMPONENT error_detector
+	PORT(clock : IN STD_LOGIC;
+		 reset : IN STD_LOGIC;
+		 enable : IN STD_LOGIC;
+		 error : OUT STD_LOGIC;
+		 count : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	);
+END COMPONENT;
+
 COMPONENT forney
 	PORT(Loca : IN STD_LOGIC;
 		 Input : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -74,11 +87,14 @@ END COMPONENT;
 
 SIGNAL	Result :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 BEGIN 
+error_enable <= SYNTHESIZED_WIRE_5;
+error_reset <= SYNTHESIZED_WIRE_0;
 
 
 
@@ -96,19 +112,30 @@ PORT MAP(clock => clock,
 		 Omega3 => Omega3,
 		 muxSel => pin_name1,
 		 ResultLocation => Result,
-		 ResultLocationOdd => SYNTHESIZED_WIRE_1,
-		 ResultValue => SYNTHESIZED_WIRE_2);
+		 ResultLocationOdd => SYNTHESIZED_WIRE_3,
+		 ResultValue => SYNTHESIZED_WIRE_4);
+
+
+b2v_inst1 : error_detector
+PORT MAP(clock => clock,
+		 reset => SYNTHESIZED_WIRE_0,
+		 enable => SYNTHESIZED_WIRE_5,
+		 error => Error,
+		 count => Number_errors);
 
 
 b2v_inst2 : forney
-PORT MAP(Loca => SYNTHESIZED_WIRE_0,
+PORT MAP(Loca => SYNTHESIZED_WIRE_5,
 		 Input => Input,
-		 ResultOdd => SYNTHESIZED_WIRE_1,
-		 Valor => SYNTHESIZED_WIRE_2,
+		 ResultOdd => SYNTHESIZED_WIRE_3,
+		 Valor => SYNTHESIZED_WIRE_4,
 		 Decod => Decod);
 
 
-SYNTHESIZED_WIRE_0 <= Result(0) OR Result(2) OR Result(3) OR Result(1);
+SYNTHESIZED_WIRE_0 <= inicia OR reset;
+
+
+SYNTHESIZED_WIRE_5 <= Result(0) OR Result(2) OR Result(3) OR Result(1);
 
 
 END bdf_type;

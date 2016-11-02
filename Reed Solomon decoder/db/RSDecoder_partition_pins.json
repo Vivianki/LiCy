@@ -68,6 +68,30 @@
 					"strict" : false
 				},
 				{
+					"name" : "error_enable",
+					"strict" : false
+				},
+				{
+					"name" : "error_reset",
+					"strict" : false
+				},
+				{
+					"name" : "error_syndrome",
+					"strict" : false
+				},
+				{
+					"name" : "Error",
+					"strict" : false
+				},
+				{
+					"name" : "error_corrected",
+					"strict" : false
+				},
+				{
+					"name" : "erroro",
+					"strict" : false
+				},
+				{
 					"name" : "B_0[0]",
 					"strict" : false
 				},
@@ -145,6 +169,118 @@
 				},
 				{
 					"name" : "B_mux[3]",
+					"strict" : false
+				},
+				{
+					"name" : "deco0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "deco0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "deco0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "deco0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "deco1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "deco1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "deco1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "deco1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "deco2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "deco2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "deco2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "deco2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "deco3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "deco3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "deco3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "deco3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "deco4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "deco4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "deco4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "deco4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "deco5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "deco5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "deco5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "deco5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "deco6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "deco6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "deco6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "deco6[3]",
 					"strict" : false
 				},
 				{
@@ -241,6 +377,22 @@
 				},
 				{
 					"name" : "Lambda4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Number_errors[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Number_errors[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Number_errors[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Number_errors[3]",
 					"strict" : false
 				},
 				{
@@ -568,6 +720,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "Reset",
+					"strict" : false
+				},
+				{
 					"name" : "Mensagem[0]",
 					"strict" : false
 				},
@@ -585,14 +741,6 @@
 				},
 				{
 					"name" : "Clock",
-					"strict" : false
-				},
-				{
-					"name" : "Reset",
-					"strict" : false
-				},
-				{
-					"name" : "IniciaSyn",
 					"strict" : false
 				},
 				{
