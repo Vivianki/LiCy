@@ -273,7 +273,7 @@ BEGIN
 		Input <= "1101";
 		wait for 200 ns;
 		
-		Input <= "0011";
+		Input <= "0010";
 		wait for 200 ns;
 		
 		Input <= "0111";

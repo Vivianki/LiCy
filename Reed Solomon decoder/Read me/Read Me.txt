@@ -1,2 +1,101 @@
 A resposta para tudo se encontra aqui:
 http://www.inf.pucrs.br/~moraes/my_pubs/tcc/tc_reedsolomon.pdf
+
+Para simular na FPGA:
+
+1. Deixe Reset = 1 por tempo indeterminado (à sua escolha).
+2. Deixe Reset = 0 e aguarde o tempo de 1 clock (pode ser menos, mas não é garantido).
+3. Comece a enviar a mensagem codificada em Input, deixe por 1 clock cada uma delas.
+4. Observar (depois de alguns clocks), os resultados que ficarão em deco0 ... deco6.
+5. Flag de dados (inválidos) é erroro.
+
+Mensagem errada = "Mensagem"
+
+Mensagem corrigida = "Decod"
+
+Sinais da Simulação:
+ 	- Registradores de Berlekamp do tipo B (olhar nos diagramas do pdf do link aqui em cima):
+	B_0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	B_1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	B_2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	B_3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+
+
+	B_mux : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	
+	- Sinais de Clear para o conjunto de registradores de Berlekamp:
+	clearB : OUT STD_LOGIC;
+	clearC : OUT STD_LOGIC;
+	clearS : OUT STD_LOGIC;
+
+	- Clock (não precisa de explicações):
+	Clock : IN STD_LOGIC;
+
+
+	di : OUT STD_LOGIC;
+	DS_reg : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+	- Input (jogar aqui as mensagens codificadas):
+	Input : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+	-Lambdas calculados em Berlekamp:
+	Lambda1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Lambda2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Lambda3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Lambda4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+	- Sinais de load para Berlekamp:
+	loadB : OUT STD_LOGIC;
+	loadC : OUT STD_LOGIC;
+	loadS : OUT STD_LOGIC;
+
+	
+	MuxSel : OUT STD_LOGIC;
+	Nerror : OUT STD_LOGIC;
+	Omega0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Omega1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Omega2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Omega3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Omega4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Registra : OUT STD_LOGIC;
+	Reset : IN STD_LOGIC;
+	S0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SyndromeOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Test_state : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+	Mensagem : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	pin_name1 : OUT STD_LOGIC;
+	Decod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Impar : OUT STD_LOGIC;
+	Count_4 : OUT STD_LOGIC;
+	Count_8 : OUT STD_LOGIC;
+	Syn0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn5 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn6 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Syn7 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	startSReg : OUT STD_LOGIC;
+	startBerle : OUT STD_LOGIC;
+	Error : OUT STD_LOGIC;
+	Number_errors: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	error_reset : OUT STD_LOGIC;
+	error_corrected : OUT STD_LOGIC;
+	error_syndrome : OUT STD_LOGIC;
+	error_enable : OUT STD_LOGIC;
+	deco0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco3 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco5 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	deco6 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	debug : OUT STD_LOGIC_VECTOR(27 DOWNTO 0);
+	count	: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	erroro : OUT STD_LOGIC

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RSDecoder
-Wed Nov 02 22:21:34 2016
+Wed Nov 02 22:43:39 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -78,13 +78,13 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 02 22:21:34 2016       ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 02 22:43:38 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; RSDecoder                                   ;
 ; Top-level Entity Name              ; RSIntegration                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 920                                         ;
-;     Total combinational functions  ; 810                                         ;
+; Total logic elements               ; 922                                         ;
+;     Total combinational functions  ; 812                                         ;
 ;     Dedicated logic registers      ; 279                                         ;
 ; Total registers                    ; 279                                         ;
 ; Total pins                         ; 221                                         ;
@@ -246,16 +246,16 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 920         ;
+; Estimated Total logic elements              ; 922         ;
 ;                                             ;             ;
-; Total combinational functions               ; 810         ;
+; Total combinational functions               ; 812         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 538         ;
-;     -- 3 input functions                    ; 170         ;
-;     -- <=2 input functions                  ; 102         ;
+;     -- 4 input functions                    ; 534         ;
+;     -- 3 input functions                    ; 175         ;
+;     -- <=2 input functions                  ; 103         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 810         ;
+;     -- normal mode                          ; 812         ;
 ;     -- arithmetic mode                      ; 0           ;
 ;                                             ;             ;
 ; Total registers                             ; 279         ;
@@ -268,7 +268,7 @@ agreement for further details.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; Clock~input ;
 ; Maximum fan-out                             ; 247         ;
-; Total fan-out                               ; 4241        ;
+; Total fan-out                               ; 4242        ;
 ; Average fan-out                             ; 2.77        ;
 +---------------------------------------------+-------------+
 
@@ -278,7 +278,7 @@ agreement for further details.
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name         ; Library Name ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |RSIntegration                           ; 810 (2)           ; 279 (0)      ; 0           ; 0            ; 0       ; 0         ; 221  ; 0            ; |RSIntegration                                                                                         ; RSIntegration       ; work         ;
+; |RSIntegration                           ; 812 (2)           ; 279 (0)      ; 0           ; 0            ; 0       ; 0         ; 221  ; 0            ; |RSIntegration                                                                                         ; RSIntegration       ; work         ;
 ;    |BerleMas:b2v_inst|                   ; 511 (0)           ; 61 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst                                                                       ; BerleMas            ; work         ;
 ;       |BerlekampController:b2v_inst|     ; 14 (14)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|BerlekampController:b2v_inst                                          ; BerlekampController ; work         ;
 ;       |Berlekamp_Massey:b2v_inst2|       ; 497 (1)           ; 56 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2                                            ; Berlekamp_Massey    ; work         ;
@@ -293,8 +293,8 @@ agreement for further details.
 ;          |gf_mult:b2v_inst16|            ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16                         ; gf_mult             ; work         ;
 ;          |gf_mult:b2v_inst17|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst17                         ; gf_mult             ; work         ;
 ;          |gf_mult:b2v_inst18|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst18                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst19|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst20|            ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20                         ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst19|            ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19                         ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst20|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20                         ; gf_mult             ; work         ;
 ;          |gf_mult:b2v_inst21|            ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21                         ; gf_mult             ; work         ;
 ;          |gf_sum:b2v_inst37|             ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst37                          ; gf_sum              ; work         ;
 ;          |register4b:b2v_inst10|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst10                      ; register4b          ; work         ;
@@ -311,7 +311,7 @@ agreement for further details.
 ;          |register4b:b2v_inst8|          ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst8                       ; register4b          ; work         ;
 ;          |register4b:b2v_inst9|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst9                       ; register4b          ; work         ;
 ;          |register4b:b2v_inst|           ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst                        ; register4b          ; work         ;
-;    |ChienForney:b2v_inst8|               ; 123 (3)           ; 78 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8                                                                   ; ChienForney         ; work         ;
+;    |ChienForney:b2v_inst8|               ; 126 (3)           ; 78 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8                                                                   ; ChienForney         ; work         ;
 ;       |Chien:b2v_inst|                   ; 53 (0)            ; 74 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst                                                    ; Chien               ; work         ;
 ;          |ChienController:b2v_inst|      ; 3 (3)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst                           ; ChienController     ; work         ;
 ;          |ChienSearchLocation:b2v_inst2| ; 29 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2                      ; ChienSearchLocation ; work         ;
@@ -347,13 +347,13 @@ agreement for further details.
 ;          |register4b:b2v_inst6|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst6                               ; register4b          ; work         ;
 ;          |register4b:b2v_inst8|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst8                               ; register4b          ; work         ;
 ;          |register4b:b2v_inst9|          ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst9                               ; register4b          ; work         ;
-;       |Forney:b2v_inst2|                 ; 61 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2                                                  ; Forney              ; work         ;
-;          |Mux2x1:b2v_inst3|              ; 43 (43)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3                                 ; Mux2x1              ; work         ;
+;       |Forney:b2v_inst2|                 ; 64 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2                                                  ; Forney              ; work         ;
+;          |Mux2x1:b2v_inst3|              ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3                                 ; Mux2x1              ; work         ;
 ;          |gf_inv:b2v_inst|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_inv:b2v_inst                                  ; gf_inv              ; work         ;
 ;          |gf_mult:b2v_inst2|             ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_mult:b2v_inst2                                ; gf_mult             ; work         ;
-;          |gf_sum:b2v_inst1|              ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_sum:b2v_inst1                                 ; gf_sum              ; work         ;
+;          |gf_sum:b2v_inst1|              ; 24 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_sum:b2v_inst1                                 ; gf_sum              ; work         ;
 ;       |error_detector:b2v_inst1|         ; 6 (6)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|error_detector:b2v_inst1                                          ; error_detector      ; work         ;
-;    |MessageController:b2v_inst19|        ; 73 (73)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|MessageController:b2v_inst19                                                            ; MessageController   ; work         ;
+;    |MessageController:b2v_inst19|        ; 72 (72)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|MessageController:b2v_inst19                                                            ; MessageController   ; work         ;
 ;    |Syn8x4:b2v_inst10|                   ; 45 (45)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syn8x4:b2v_inst10                                                                       ; Syn8x4              ; work         ;
 ;    |Syndrome:b2v_inst7|                  ; 32 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syndrome:b2v_inst7                                                                      ; Syndrome            ; work         ;
 ;       |gf_sum:b2v_inst10|                ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syndrome:b2v_inst7|gf_sum:b2v_inst10                                                    ; gf_sum              ; work         ;
@@ -520,23 +520,23 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RSIntegration|Syn8x4:b2v_inst10|Syndrome[24]                                                               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RSIntegration|Syn8x4:b2v_inst10|Syndrome[9]                                                                ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5|q[3] ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6|q[0] ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6|q[0]    ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4|q[3]    ;
 ; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |RSIntegration|SyndromeController:b2v_inst11|counter[3]                                                     ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst11|o[0]                                                   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst12|o[3]                                                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst11|o[1]                                                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst12|o[2]                                                   ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst13|o[0]                                                   ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |RSIntegration|MessageController:b2v_inst19|Selector38                                                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |RSIntegration|MessageController:b2v_inst19|Selector36                                                      ;
 ; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst15|o[3]                         ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16|o[2]                         ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13|o[1]                         ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14|o[2]                         ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20|o[3]                         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16|o[1]                         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13|o[3]                         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14|o[3]                         ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19|o[0]                         ;
 ; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21|o[3]                         ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 40 LEs               ; 4 LEs                  ; No         ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3|O[0]                                 ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 40 LEs               ; 4 LEs                  ; No         ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3|O[1]                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
 
@@ -815,15 +815,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR SLD           ; 6                           ;
 ;     ENA               ; 29                          ;
 ;     ENA CLR           ; 92                          ;
-; cycloneiii_lcell_comb ; 814                         ;
-;     normal            ; 814                         ;
+; cycloneiii_lcell_comb ; 816                         ;
+;     normal            ; 816                         ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 101                         ;
-;         3 data inputs ; 170                         ;
-;         4 data inputs ; 538                         ;
+;         2 data inputs ; 102                         ;
+;         3 data inputs ; 175                         ;
+;         4 data inputs ; 534                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 18.00                       ;
-; Average LUT depth     ; 9.12                        ;
+; Average LUT depth     ; 9.13                        ;
 +-----------------------+-----------------------------+
 
 
@@ -842,7 +842,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Wed Nov 02 22:21:15 2016
+    Info: Processing started: Wed Nov 02 22:43:19 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RSDecoder -c RSDecoder
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 2 design units, including 1 entities, in source file syndrome.vhd
@@ -1023,14 +1023,14 @@ Info (12128): Elaborating entity "static_0" for hierarchy "ChienForney:b2v_inst8
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1155 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1157 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 215 output pins
-    Info (21061): Implemented 934 logic cells
+    Info (21061): Implemented 936 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 903 megabytes
-    Info: Processing ended: Wed Nov 02 22:21:34 2016
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Peak virtual memory: 906 megabytes
+    Info: Processing ended: Wed Nov 02 22:43:39 2016
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:38
 
 

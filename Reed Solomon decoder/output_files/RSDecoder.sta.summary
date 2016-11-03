@@ -3,35 +3,35 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'Clock'
-Slack : -13.077
-TNS   : -1010.755
+Slack : -13.399
+TNS   : -1046.665
 
 Type  : Slow 1200mV 85C Model Setup 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : -2.479
-TNS   : -46.224
+Slack : -1.980
+TNS   : -47.990
 
 Type  : Slow 1200mV 85C Model Setup 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : -0.388
-TNS   : -8.506
+Slack : -1.065
+TNS   : -18.533
 
 Type  : Slow 1200mV 85C Model Hold 'Clock'
-Slack : 0.432
+Slack : 0.254
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : 0.502
+Slack : 0.480
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : 0.745
+Slack : 0.617
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'Clock'
-Slack : -2.133
-TNS   : -167.854
+Slack : -2.266
+TNS   : -178.528
 
 Type  : Slow 1200mV 85C Model Removal 'Clock'
-Slack : 1.335
+Slack : 1.215
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock'
@@ -43,39 +43,39 @@ Slack : -1.487
 TNS   : -47.584
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : 0.358
+Slack : 0.431
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'Clock'
-Slack : -12.233
-TNS   : -936.479
+Slack : -12.639
+TNS   : -974.880
 
 Type  : Slow 1200mV 0C Model Setup 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : -2.351
-TNS   : -42.260
+Slack : -1.807
+TNS   : -42.949
 
 Type  : Slow 1200mV 0C Model Setup 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : -0.315
-TNS   : -6.516
+Slack : -0.980
+TNS   : -16.025
 
 Type  : Slow 1200mV 0C Model Hold 'Clock'
-Slack : 0.381
+Slack : 0.220
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : 0.402
+Slack : 0.397
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : 0.539
+Slack : 0.547
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'Clock'
-Slack : -1.940
-TNS   : -147.174
+Slack : -2.066
+TNS   : -159.036
 
 Type  : Slow 1200mV 0C Model Removal 'Clock'
-Slack : 1.180
+Slack : 1.117
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock'
@@ -87,51 +87,51 @@ Slack : -1.487
 TNS   : -47.584
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : 0.220
+Slack : 0.425
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'Clock'
-Slack : -5.124
-TNS   : -335.483
+Slack : -5.201
+TNS   : -349.236
 
 Type  : Fast 1200mV 0C Model Setup 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : -0.644
-TNS   : -7.045
+Slack : -0.378
+TNS   : -7.303
 
 Type  : Fast 1200mV 0C Model Setup 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : 0.289
+Slack : 0.042
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'Clock'
-Slack : 0.177
+Slack : 0.090
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
-Slack : 0.179
+Slack : 0.182
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : 0.331
+Slack : 0.246
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'Clock'
-Slack : -0.472
-TNS   : -18.814
+Slack : -0.499
+TNS   : -23.674
 
 Type  : Fast 1200mV 0C Model Removal 'Clock'
-Slack : 0.419
+Slack : 0.448
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock'
 Slack : -3.000
-TNS   : -263.933
+TNS   : -263.927
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual.store'
 Slack : -1.000
 TNS   : -32.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MessageController:b2v_inst19|estadoAtual.wait1'
-Slack : 0.351
+Slack : 0.412
 TNS   : 0.000
 
 ------------------------------------------------------------

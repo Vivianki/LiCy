@@ -12,18 +12,18 @@
 # 
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:36 on Nov 02,2016
+# Start time: 22:47:00 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Syndrome
 # -- Compiling architecture bdf_type of Syndrome
-# End time: 22:22:36 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:00 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:37 on Nov 02,2016
+# Start time: 22:47:00 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/register4b.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -32,11 +32,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity register4b
 # -- Compiling architecture description of register4b
-# End time: 22:22:37 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:00 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_12.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:37 on Nov 02,2016
+# Start time: 22:47:00 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_12.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -44,11 +44,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_12
 # -- Compiling architecture behavior of static_12
-# End time: 22:22:37 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:01 on Nov 02,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:37 on Nov 02,2016
+# Start time: 22:47:01 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_8.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -56,11 +56,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_8
 # -- Compiling architecture behavior of static_8
-# End time: 22:22:37 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:01 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:37 on Nov 02,2016
+# Start time: 22:47:01 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_4.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -68,11 +68,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_4
 # -- Compiling architecture behavior of static_4
-# End time: 22:22:37 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:01 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:37 on Nov 02,2016
+# Start time: 22:47:01 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_3.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -80,11 +80,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_3
 # -- Compiling architecture behavior of static_3
-# End time: 22:22:37 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:01 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:37 on Nov 02,2016
+# Start time: 22:47:01 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_2.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -92,11 +92,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_2
 # -- Compiling architecture behavior of static_2
-# End time: 22:22:37 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:01 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:37 on Nov 02,2016
+# Start time: 22:47:01 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -104,11 +104,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_1
 # -- Compiling architecture behavior of static_1
-# End time: 22:22:38 on Nov 02,2016, Elapsed time: 0:00:01
+# End time: 22:47:01 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:38 on Nov 02,2016
+# Start time: 22:47:01 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_sum.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -116,11 +116,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_sum
 # -- Compiling architecture behavior of gf_sum
-# End time: 22:22:38 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:02 on Nov 02,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:38 on Nov 02,2016
+# Start time: 22:47:02 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_mult.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -128,11 +128,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_mult
 # -- Compiling architecture lut of gf_mult
-# End time: 22:22:38 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:02 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:38 on Nov 02,2016
+# Start time: 22:47:02 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/gf_inv.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -140,22 +140,22 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gf_inv
 # -- Compiling architecture lut of gf_inv
-# End time: 22:22:38 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:02 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:38 on Nov 02,2016
+# Start time: 22:47:02 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerlekampController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity BerlekampController
 # -- Compiling architecture comportamental of BerlekampController
-# End time: 22:22:38 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:02 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:38 on Nov 02,2016
+# Start time: 22:47:02 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -164,11 +164,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity ChienController
 # -- Compiling architecture comportamental of ChienController
-# End time: 22:22:38 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:02 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:39 on Nov 02,2016
+# Start time: 22:47:03 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_0.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -176,11 +176,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_0
 # -- Compiling architecture behavior of static_0
-# End time: 22:22:39 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:03 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_11.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:39 on Nov 02,2016
+# Start time: 22:47:03 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_11.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -188,11 +188,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_11
 # -- Compiling architecture behavior of static_11
-# End time: 22:22:39 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:03 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_6.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:39 on Nov 02,2016
+# Start time: 22:47:03 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/static_6.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -200,110 +200,110 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity static_6
 # -- Compiling architecture behavior of static_6
-# End time: 22:22:39 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:03 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:39 on Nov 02,2016
+# Start time: 22:47:03 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity BerleMas
 # -- Compiling architecture bdf_type of BerleMas
-# End time: 22:22:39 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:03 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:39 on Nov 02,2016
+# Start time: 22:47:03 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Berlekamp_Massey
 # -- Compiling architecture bdf_type of Berlekamp_Massey
-# End time: 22:22:39 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:03 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:40 on Nov 02,2016
+# Start time: 22:47:04 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Mux2x1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Mux2x1
 # -- Compiling architecture Mux2x1 of Mux2x1
-# End time: 22:22:40 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:04 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:40 on Nov 02,2016
+# Start time: 22:47:04 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchLocation.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ChienSearchLocation
 # -- Compiling architecture bdf_type of ChienSearchLocation
-# End time: 22:22:40 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:04 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:40 on Nov 02,2016
+# Start time: 22:47:04 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienSearchValue.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ChienSearchValue
 # -- Compiling architecture bdf_type of ChienSearchValue
-# End time: 22:22:40 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:04 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:40 on Nov 02,2016
+# Start time: 22:47:04 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Chien
 # -- Compiling architecture bdf_type of Chien
-# End time: 22:22:40 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:04 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:40 on Nov 02,2016
+# Start time: 22:47:05 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Forney.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Forney
 # -- Compiling architecture bdf_type of Forney
-# End time: 22:22:40 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:05 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:40 on Nov 02,2016
+# Start time: 22:47:05 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ChienForney
 # -- Compiling architecture bdf_type of ChienForney
-# End time: 22:22:41 on Nov 02,2016, Elapsed time: 0:00:01
+# End time: 22:47:05 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:41 on Nov 02,2016
+# Start time: 22:47:05 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity RSIntegration
 # -- Compiling architecture bdf_type of RSIntegration
-# End time: 22:22:41 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:05 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/berlekamp_counter.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:41 on Nov 02,2016
+# Start time: 22:47:05 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/berlekamp_counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -312,22 +312,22 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity berlekamp_counter
 # -- Compiling architecture behv of berlekamp_counter
-# End time: 22:22:41 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:05 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syn8x4.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:41 on Nov 02,2016
+# Start time: 22:47:05 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syn8x4.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Syn8x4
 # -- Compiling architecture Behavioral of Syn8x4
-# End time: 22:22:41 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:05 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/SyndromeController.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:41 on Nov 02,2016
+# Start time: 22:47:05 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/SyndromeController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -336,11 +336,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity SyndromeController
 # -- Compiling architecture comportamental of SyndromeController
-# End time: 22:22:41 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:05 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/error_detector.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:41 on Nov 02,2016
+# Start time: 22:47:06 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/error_detector.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -349,22 +349,22 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity error_detector
 # -- Compiling architecture behv of error_detector
-# End time: 22:22:41 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:06 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/siso.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:41 on Nov 02,2016
+# Start time: 22:47:06 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/siso.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity siso
 # -- Compiling architecture arch of siso
-# End time: 22:22:41 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:06 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:42 on Nov 02,2016
+# Start time: 22:47:06 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -373,24 +373,24 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity MessageController
 # -- Compiling architecture comportamental of MessageController
-# End time: 22:22:42 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:06 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:22:42 on Nov 02,2016
+# Start time: 22:47:06 on Nov 02,2016
 # vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity intgr_t
 # -- Compiling architecture RSIntegration_arch of intgr_t
-# End time: 22:22:42 on Nov 02,2016, Elapsed time: 0:00:00
+# End time: 22:47:06 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  RSIntegration
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" RSIntegration 
-# Start time: 22:22:42 on Nov 02,2016
+# Start time: 22:47:07 on Nov 02,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -434,10 +434,10 @@
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlft0aik6x".
+#           Attempting to use alternate WLF file "./wlftrsmssz".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft0aik6x
+#           Using alternate file: ./wlftrsmssz
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
@@ -445,10 +445,10 @@
 # .main_pane.objects.interior.cs.body.tree
 # run -all
 vsim rtl_work.intgr_t
-# End time: 22:22:59 on Nov 02,2016, Elapsed time: 0:00:17
+# End time: 22:47:42 on Nov 02,2016, Elapsed time: 0:00:35
 # Errors: 0, Warnings: 2
 # vsim rtl_work.intgr_t 
-# Start time: 22:22:59 on Nov 02,2016
+# Start time: 22:47:42 on Nov 02,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -492,30 +492,28 @@ add wave -position end sim:/intgr_t/*
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlftrdym8r".
+#           Attempting to use alternate WLF file "./wlftgi70wk".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftrdym8r
+#           Using alternate file: ./wlftgi70wk
 # 
 run
-vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd}
+vcom -93 -work work {C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht}
 # Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:29:20 on Nov 02,2016
-# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd 
+# Start time: 22:49:52 on Nov 02,2016
+# vcom -reportprogress 300 -93 -work work C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/simulation/modelsim/RSIntegration.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package std_logic_arith
-# -- Loading package STD_LOGIC_UNSIGNED
-# -- Compiling entity MessageController
-# -- Compiling architecture comportamental of MessageController
-# End time: 22:29:20 on Nov 02,2016, Elapsed time: 0:00:00
+# -- Compiling entity intgr_t
+# -- Compiling architecture RSIntegration_arch of intgr_t
+# End time: 22:49:52 on Nov 02,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim rtl_work.intgr_t
-# End time: 22:29:24 on Nov 02,2016, Elapsed time: 0:06:25
+# End time: 22:49:55 on Nov 02,2016, Elapsed time: 0:02:13
 # Errors: 0, Warnings: 2
 # vsim rtl_work.intgr_t 
-# Start time: 22:29:24 on Nov 02,2016
+# Start time: 22:49:55 on Nov 02,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -559,11 +557,11 @@ add wave -position end sim:/intgr_t/*
 # 
 #           File in use by: owner  Hostname: OWNER-VAIO  ProcessID: 4024
 # 
-#           Attempting to use alternate WLF file "./wlftnkqb89".
+#           Attempting to use alternate WLF file "./wlftevkb83".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftnkqb89
+#           Using alternate file: ./wlftevkb83
 # 
 run
-# End time: 22:37:52 on Nov 02,2016, Elapsed time: 0:08:28
+# End time: 23:01:06 on Nov 02,2016, Elapsed time: 0:11:11
 # Errors: 0, Warnings: 2
