@@ -9,7 +9,9 @@ entity MessageController is
 		Input: 		in  std_logic_vector (3 downto 0);
 		inicia:		in	 std_logic;
 		correct:		in	 std_logic;
-		Message:	out std_logic_vector (3 downto 0)
+		debug:		out std_logic_vector (27 downto 0);
+		Message:		out std_logic_vector (3 downto 0);
+		count:		out std_logic_vector (3 downto 0)
 	);
 end MessageController;
 
@@ -20,8 +22,8 @@ architecture comportamental of MessageController is
   signal proximoEstado : estados;
   signal counter : STD_LOGIC_VECTOR (3 downto 0);
   signal next_counter : STD_LOGIC_VECTOR (3 downto 0);
-  signal messages : STD_LOGIC_VECTOR (27 downto 0) := (others => '0');
-  signal data: STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
+  signal messages : STD_LOGIC_VECTOR (27 downto 0);
+  signal data : STD_LOGIC_VECTOR (3 downto 0);
 begin
 	--! Processo sincronizador
 	sincroniza: process(clock, reset)
@@ -35,7 +37,7 @@ begin
 		end if;
 	end process; 
 	
-	trancisiona: process(estadoAtual, inicia, counter) 
+	trancisiona: process(estadoAtual, inicia, counter, correct) 
 	begin
 		case estadoAtual is
 			
@@ -49,7 +51,7 @@ begin
 				end if;
 			
 			when save =>
-				if counter = "0111" then
+				if counter = "0110" then
 					next_counter <= "0000";
 					proximoEstado <= wait1;
 				else
@@ -67,7 +69,7 @@ begin
 				end if;
 				
 			when release =>
-				if counter = "0111" then
+				if counter = "0110" then
 					next_counter <= "0000";
 					proximoEstado <= wait2;
 				else
@@ -87,7 +89,7 @@ begin
 
 	end process;	
 	
-	geraSinais: process(estadoAtual, inicia)
+	geraSinais: process(estadoAtual, counter)
 	begin
 		case estadoAtual is
 			when idle =>
@@ -95,18 +97,18 @@ begin
 				data <= "0000";
 			
 			when save =>
-				data <= messages(23 downto 20);
-				messages <= messages(23 downto 0) & Input ;
+				data <= messages(3 downto 0);
+				messages <= Input & messages(27 downto 4);
 				
 			when wait1 =>
-				data <= messages(27 downto 24);
+				data <= messages(3 downto 0);
 				
 			when release =>
-				data <= messages(27 downto 24);
-				messages <= messages(23 downto 0) & messages(27 downto 24);
+				data <= messages(3 downto 0);
+				messages <= messages(3 downto 0) & messages(27 downto 4);
 			
 			when wait2 =>
-				data <= messages(27 downto 24);
+				data <= messages(3 downto 0);
 				
 			when others =>
 				messages <= "0000000000000000000000000000";
@@ -114,6 +116,9 @@ begin
 				
 		end case;
 	end process;
+	
 	Message <= data;
+	debug <= messages;
+	count <= counter;
 end comportamental;
 

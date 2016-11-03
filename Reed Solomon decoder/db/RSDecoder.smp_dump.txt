@@ -12,6 +12,14 @@ estadoAtual.mux7 0 0 1 0 0 0 0 0 0 1
 estadoAtual.mux8 0 1 0 0 0 0 0 0 0 1 
 estadoAtual.mux9 1 0 0 0 0 0 0 0 0 1 
 
+State Machine - |RSIntegration|MessageController:b2v_inst19|estadoAtual
+Name estadoAtual.wait2 estadoAtual.release estadoAtual.wait1 estadoAtual.save estadoAtual.idle 
+estadoAtual.idle 0 0 0 0 0 
+estadoAtual.save 0 0 0 1 1 
+estadoAtual.wait1 0 0 1 0 1 
+estadoAtual.release 0 1 0 0 1 
+estadoAtual.wait2 1 0 0 0 1 
+
 State Machine - |RSIntegration|SyndromeController:b2v_inst11|estadoAtual
 Name estadoAtual.ready estadoAtual.shift2 estadoAtual.wait2 estadoAtual.shift1 estadoAtual.wait1 estadoAtual.iniciou estadoAtual.contagem estadoAtual.idle 
 estadoAtual.idle 0 0 0 0 0 0 0 0 

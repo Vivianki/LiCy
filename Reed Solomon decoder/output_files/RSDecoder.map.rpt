@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RSDecoder
-Wed Nov 02 16:38:01 2016
+Wed Nov 02 22:21:34 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -14,42 +14,44 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst|estadoAtual
-  9. State Machine - |RSIntegration|SyndromeController:b2v_inst11|estadoAtual
- 10. State Machine - |RSIntegration|BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22
- 15. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst33
- 16. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst34
- 17. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst35
- 18. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
- 19. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
- 20. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
- 21. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
- 22. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
- 23. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
- 24. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
- 25. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3
- 26. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst9"
- 27. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst8"
- 28. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst6"
- 29. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst5"
- 30. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst4"
- 31. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst12"
- 32. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst11"
- 33. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst1"
- 34. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst32"
- 35. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst28"
- 36. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst25"
- 37. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst24"
- 38. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst21"
- 39. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst20"
- 40. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst19"
- 41. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst15"
- 42. Post-Synthesis Netlist Statistics for Top Partition
- 43. Elapsed Time Per Partition
- 44. Analysis & Synthesis Messages
+  9. State Machine - |RSIntegration|MessageController:b2v_inst19|estadoAtual
+ 10. State Machine - |RSIntegration|SyndromeController:b2v_inst11|estadoAtual
+ 11. State Machine - |RSIntegration|BerleMas:b2v_inst|BerlekampController:b2v_inst|estadoAtual
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst22
+ 17. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst33
+ 18. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst34
+ 19. Parameter Settings for User Entity Instance: BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|Mux2x1:b2v_inst35
+ 20. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst
+ 21. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst1
+ 22. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst2
+ 23. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|Mux2x1:b2v_inst3
+ 24. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst1
+ 25. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst2
+ 26. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|Mux2x1:b2v_inst3
+ 27. Parameter Settings for User Entity Instance: ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3
+ 28. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst9"
+ 29. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst8"
+ 30. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst6"
+ 31. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst5"
+ 32. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst4"
+ 33. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst12"
+ 34. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst11"
+ 35. Port Connectivity Checks: "ChienForney:b2v_inst8|Chien:b2v_inst|register4b:b2v_inst1"
+ 36. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst32"
+ 37. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst28"
+ 38. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst25"
+ 39. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst24"
+ 40. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst21"
+ 41. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst20"
+ 42. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst19"
+ 43. Port Connectivity Checks: "Syndrome:b2v_inst7|register4b:b2v_inst15"
+ 44. Post-Synthesis Netlist Statistics for Top Partition
+ 45. Elapsed Time Per Partition
+ 46. Analysis & Synthesis Messages
 
 
 
@@ -76,16 +78,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 02 16:38:01 2016       ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 02 22:21:34 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; RSDecoder                                   ;
 ; Top-level Entity Name              ; RSIntegration                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 847                                         ;
-;     Total combinational functions  ; 737                                         ;
-;     Dedicated logic registers      ; 271                                         ;
-; Total registers                    ; 271                                         ;
-; Total pins                         ; 189                                         ;
+; Total logic elements               ; 920                                         ;
+;     Total combinational functions  ; 810                                         ;
+;     Dedicated logic registers      ; 279                                         ;
+; Total registers                    ; 279                                         ;
+; Total pins                         ; 221                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -235,6 +237,7 @@ agreement for further details.
 ; SyndromeController.vhd           ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/SyndromeController.vhd  ;         ;
 ; error_detector.vhd               ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/error_detector.vhd      ;         ;
 ; siso.vhd                         ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/siso.vhd                ;         ;
+; MessageController.vhd            ; yes             ; User VHDL File  ; C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd   ;         ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
 
 
@@ -243,30 +246,30 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 847         ;
+; Estimated Total logic elements              ; 920         ;
 ;                                             ;             ;
-; Total combinational functions               ; 737         ;
+; Total combinational functions               ; 810         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 522         ;
-;     -- 3 input functions                    ; 115         ;
-;     -- <=2 input functions                  ; 100         ;
+;     -- 4 input functions                    ; 538         ;
+;     -- 3 input functions                    ; 170         ;
+;     -- <=2 input functions                  ; 102         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 737         ;
+;     -- normal mode                          ; 810         ;
 ;     -- arithmetic mode                      ; 0           ;
 ;                                             ;             ;
-; Total registers                             ; 271         ;
-;     -- Dedicated logic registers            ; 271         ;
+; Total registers                             ; 279         ;
+;     -- Dedicated logic registers            ; 279         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 189         ;
+; I/O pins                                    ; 221         ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; Clock~input ;
-; Maximum fan-out                             ; 239         ;
-; Total fan-out                               ; 3916        ;
-; Average fan-out                             ; 2.83        ;
+; Maximum fan-out                             ; 247         ;
+; Total fan-out                               ; 4241        ;
+; Average fan-out                             ; 2.77        ;
 +---------------------------------------------+-------------+
 
 
@@ -275,7 +278,7 @@ agreement for further details.
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name         ; Library Name ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |RSIntegration                           ; 737 (2)           ; 271 (0)      ; 0           ; 0            ; 0       ; 0         ; 189  ; 0            ; |RSIntegration                                                                                         ; RSIntegration       ; work         ;
+; |RSIntegration                           ; 810 (2)           ; 279 (0)      ; 0           ; 0            ; 0       ; 0         ; 221  ; 0            ; |RSIntegration                                                                                         ; RSIntegration       ; work         ;
 ;    |BerleMas:b2v_inst|                   ; 511 (0)           ; 61 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst                                                                       ; BerleMas            ; work         ;
 ;       |BerlekampController:b2v_inst|     ; 14 (14)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|BerlekampController:b2v_inst                                          ; BerlekampController ; work         ;
 ;       |Berlekamp_Massey:b2v_inst2|       ; 497 (1)           ; 56 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2                                            ; Berlekamp_Massey    ; work         ;
@@ -290,8 +293,8 @@ agreement for further details.
 ;          |gf_mult:b2v_inst16|            ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16                         ; gf_mult             ; work         ;
 ;          |gf_mult:b2v_inst17|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst17                         ; gf_mult             ; work         ;
 ;          |gf_mult:b2v_inst18|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst18                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst19|            ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19                         ; gf_mult             ; work         ;
-;          |gf_mult:b2v_inst20|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20                         ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst19|            ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19                         ; gf_mult             ; work         ;
+;          |gf_mult:b2v_inst20|            ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20                         ; gf_mult             ; work         ;
 ;          |gf_mult:b2v_inst21|            ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21                         ; gf_mult             ; work         ;
 ;          |gf_sum:b2v_inst37|             ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst37                          ; gf_sum              ; work         ;
 ;          |register4b:b2v_inst10|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst10                      ; register4b          ; work         ;
@@ -350,6 +353,7 @@ agreement for further details.
 ;          |gf_mult:b2v_inst2|             ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_mult:b2v_inst2                                ; gf_mult             ; work         ;
 ;          |gf_sum:b2v_inst1|              ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|gf_sum:b2v_inst1                                 ; gf_sum              ; work         ;
 ;       |error_detector:b2v_inst1|         ; 6 (6)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|ChienForney:b2v_inst8|error_detector:b2v_inst1                                          ; error_detector      ; work         ;
+;    |MessageController:b2v_inst19|        ; 73 (73)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|MessageController:b2v_inst19                                                            ; MessageController   ; work         ;
 ;    |Syn8x4:b2v_inst10|                   ; 45 (45)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syn8x4:b2v_inst10                                                                       ; Syn8x4              ; work         ;
 ;    |Syndrome:b2v_inst7|                  ; 32 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syndrome:b2v_inst7                                                                      ; Syndrome            ; work         ;
 ;       |gf_sum:b2v_inst10|                ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syndrome:b2v_inst7|gf_sum:b2v_inst10                                                    ; gf_sum              ; work         ;
@@ -368,7 +372,7 @@ agreement for further details.
 ;       |register4b:b2v_inst25|            ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syndrome:b2v_inst7|register4b:b2v_inst25                                                ; register4b          ; work         ;
 ;       |register4b:b2v_inst28|            ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syndrome:b2v_inst7|register4b:b2v_inst28                                                ; register4b          ; work         ;
 ;       |register4b:b2v_inst32|            ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|Syndrome:b2v_inst7|register4b:b2v_inst32                                                ; register4b          ; work         ;
-;    |SyndromeController:b2v_inst11|       ; 17 (17)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|SyndromeController:b2v_inst11                                                           ; SyndromeController  ; work         ;
+;    |SyndromeController:b2v_inst11|       ; 17 (17)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|SyndromeController:b2v_inst11                                                           ; SyndromeController  ; work         ;
 ;    |berlekamp_counter:b2v_inst1|         ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|berlekamp_counter:b2v_inst1                                                             ; berlekamp_counter   ; work         ;
 ;    |register4b:b2v_inst2|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst2                                                                    ; register4b          ; work         ;
 ;    |register4b:b2v_inst3|                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RSIntegration|register4b:b2v_inst3                                                                    ; register4b          ; work         ;
@@ -397,6 +401,20 @@ Encoding Type:  One-Hot
 ; estadoAtual.mux8 ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 1                ;
 ; estadoAtual.mux9 ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0               ; 1                ;
 +------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+-----------------+------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |RSIntegration|MessageController:b2v_inst19|estadoAtual                                                 ;
++---------------------+-------------------+---------------------+-------------------+------------------+------------------+
+; Name                ; estadoAtual.wait2 ; estadoAtual.release ; estadoAtual.wait1 ; estadoAtual.save ; estadoAtual.idle ;
++---------------------+-------------------+---------------------+-------------------+------------------+------------------+
+; estadoAtual.idle    ; 0                 ; 0                   ; 0                 ; 0                ; 0                ;
+; estadoAtual.save    ; 0                 ; 0                   ; 0                 ; 1                ; 1                ;
+; estadoAtual.wait1   ; 0                 ; 0                   ; 1                 ; 0                ; 1                ;
+; estadoAtual.release ; 0                 ; 1                   ; 0                 ; 0                ; 1                ;
+; estadoAtual.wait2   ; 1                 ; 0                   ; 0                 ; 0                ; 1                ;
++---------------------+-------------------+---------------------+-------------------+------------------+------------------+
 
 
 Encoding Type:  One-Hot
@@ -430,17 +448,56 @@ Encoding Type:  One-Hot
 +-------------------------+-------------------+-----------------------+----------------------+-------------------------+------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                ;
-+---------------------------------------+-------------------------------------------+
-; Register name                         ; Reason for Removal                        ;
-+---------------------------------------+-------------------------------------------+
-; Syn8x4:b2v_inst10|DATA[3]             ; Merged with Syn8x4:b2v_inst10|Syndrome[3] ;
-; Syn8x4:b2v_inst10|DATA[2]             ; Merged with Syn8x4:b2v_inst10|Syndrome[2] ;
-; Syn8x4:b2v_inst10|DATA[1]             ; Merged with Syn8x4:b2v_inst10|Syndrome[1] ;
-; Syn8x4:b2v_inst10|DATA[0]             ; Merged with Syn8x4:b2v_inst10|Syndrome[0] ;
-; Total Number of Removed Registers = 4 ;                                           ;
-+---------------------------------------+-------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                  ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                   ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+; MessageController:b2v_inst19|messages[0]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[1]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[2]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[3]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[4]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[5]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[6]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[7]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[8]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[9]            ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[10]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[11]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[12]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[13]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[14]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[15]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[16]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[17]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[18]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[19]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[20]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[21]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[22]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[23]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[24]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[25]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[26]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; MessageController:b2v_inst19|messages[27]           ; MessageController:b2v_inst19|messages ; yes                    ;
+; Number of user-specified and inferred latches = 28  ;                                       ;                        ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                         ;
++------------------------------------------------+-----------------------------------------------------------+
+; Register name                                  ; Reason for Removal                                        ;
++------------------------------------------------+-----------------------------------------------------------+
+; Syn8x4:b2v_inst10|DATA[3]                      ; Merged with Syn8x4:b2v_inst10|Syndrome[3]                 ;
+; Syn8x4:b2v_inst10|DATA[2]                      ; Merged with Syn8x4:b2v_inst10|Syndrome[2]                 ;
+; Syn8x4:b2v_inst10|DATA[1]                      ; Merged with Syn8x4:b2v_inst10|Syndrome[1]                 ;
+; Syn8x4:b2v_inst10|DATA[0]                      ; Merged with Syn8x4:b2v_inst10|Syndrome[0]                 ;
+; SyndromeController:b2v_inst11|estadoAtual.idle ; Merged with MessageController:b2v_inst19|estadoAtual.idle ;
+; Total Number of Removed Registers = 5          ;                                                           ;
++------------------------------------------------+-----------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -448,10 +505,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 271   ;
+; Total registers                              ; 279   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 6     ;
-; Number of registers using Asynchronous Clear ; 242   ;
+; Number of registers using Asynchronous Clear ; 250   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 121   ;
 ; Number of registers using Preset             ; 0     ;
@@ -463,20 +520,21 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RSIntegration|Syn8x4:b2v_inst10|Syndrome[23]                                                               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RSIntegration|Syn8x4:b2v_inst10|Syndrome[24]                                                               ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst5|q[3] ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2|register4b:b2v_inst6|q[0] ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6|q[3]    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst6|q[0]    ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RSIntegration|ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchValue:b2v_inst3|register4b:b2v_inst4|q[3]    ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |RSIntegration|SyndromeController:b2v_inst11|counter[0]                                                     ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |RSIntegration|SyndromeController:b2v_inst11|counter[3]                                                     ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst11|o[0]                                                   ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst12|o[3]                                                   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst13|o[3]                                                   ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst15|o[0]                         ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16|o[1]                         ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13|o[0]                         ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14|o[3]                         ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst19|o[1]                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RSIntegration|Syndrome:b2v_inst7|gf_mult:b2v_inst13|o[0]                                                   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |RSIntegration|MessageController:b2v_inst19|Selector38                                                      ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst15|o[3]                         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst16|o[2]                         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst13|o[1]                         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst14|o[2]                         ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst20|o[3]                         ;
 ; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |RSIntegration|BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_mult:b2v_inst21|o[3]                         ;
 ; 17:1               ; 4 bits    ; 44 LEs        ; 40 LEs               ; 4 LEs                  ; No         ; |RSIntegration|ChienForney:b2v_inst8|Forney:b2v_inst2|Mux2x1:b2v_inst3|O[0]                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
@@ -751,21 +809,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 189                         ;
-; cycloneiii_ff         ; 271                         ;
-;     CLR               ; 144                         ;
+; boundary_port         ; 221                         ;
+; cycloneiii_ff         ; 279                         ;
+;     CLR               ; 152                         ;
 ;     CLR SLD           ; 6                           ;
 ;     ENA               ; 29                          ;
 ;     ENA CLR           ; 92                          ;
-; cycloneiii_lcell_comb ; 741                         ;
-;     normal            ; 741                         ;
+; cycloneiii_lcell_comb ; 814                         ;
+;     normal            ; 814                         ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 99                          ;
-;         3 data inputs ; 115                         ;
-;         4 data inputs ; 522                         ;
+;         2 data inputs ; 101                         ;
+;         3 data inputs ; 170                         ;
+;         4 data inputs ; 538                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 18.00                       ;
-; Average LUT depth     ; 9.83                        ;
+; Average LUT depth     ; 9.12                        ;
 +-----------------------+-----------------------------+
 
 
@@ -784,7 +842,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Wed Nov 02 16:37:42 2016
+    Info: Processing started: Wed Nov 02 22:21:15 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RSDecoder -c RSDecoder
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 2 design units, including 1 entities, in source file syndrome.vhd
@@ -872,7 +930,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file chienfo
     Info (12022): Found design unit 1: ChienForney-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 49
     Info (12023): Found entity 1: ChienForney File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file rsintegration.vhd
-    Info (12022): Found design unit 1: RSIntegration-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 96
+    Info (12022): Found design unit 1: RSIntegration-bdf_type File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 98
     Info (12023): Found entity 1: RSIntegration File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file berlekamp_counter.vhd
     Info (12022): Found design unit 1: berlekamp_counter-behv File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/berlekamp_counter.vhd Line: 19
@@ -892,8 +950,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file error_d
 Info (12021): Found 2 design units, including 1 entities, in source file siso.vhd
     Info (12022): Found design unit 1: siso-arch File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/siso.vhd Line: 12
     Info (12023): Found entity 1: siso File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/siso.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file messagecontroller.vhd
+    Info (12022): Found design unit 1: MessageController-comportamental File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 18
+    Info (12023): Found entity 1: MessageController File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 5
 Info (12127): Elaborating entity "RSIntegration" for the top level hierarchy
-Info (12128): Elaborating entity "BerleMas" for hierarchy "BerleMas:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 306
+Info (12128): Elaborating entity "BerleMas" for hierarchy "BerleMas:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 322
 Info (12128): Elaborating entity "BerlekampController" for hierarchy "BerleMas:b2v_inst|BerlekampController:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 143
 Info (12128): Elaborating entity "Berlekamp_Massey" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/BerleMas.vhd Line: 163
 Info (12128): Elaborating entity "register4b" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|register4b:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 162
@@ -902,11 +963,48 @@ Info (12128): Elaborating entity "Mux2x1" for hierarchy "BerleMas:b2v_inst|Berle
 Info (12128): Elaborating entity "gf_sum" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_sum:b2v_inst23" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 265
 Info (12128): Elaborating entity "static_1" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|static_1:b2v_inst31" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 323
 Info (12128): Elaborating entity "gf_inv" for hierarchy "BerleMas:b2v_inst|Berlekamp_Massey:b2v_inst2|gf_inv:b2v_inst32" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Berlekamp_Massey.vhd Line: 327
-Info (12128): Elaborating entity "berlekamp_counter" for hierarchy "berlekamp_counter:b2v_inst1" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 343
-Info (12128): Elaborating entity "Syn8x4" for hierarchy "Syn8x4:b2v_inst10" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 351
-Info (12128): Elaborating entity "SyndromeController" for hierarchy "SyndromeController:b2v_inst11" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 368
-Info (12128): Elaborating entity "siso" for hierarchy "siso:b2v_inst15" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 387
-Info (12128): Elaborating entity "Syndrome" for hierarchy "Syndrome:b2v_inst7" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 446
+Info (12128): Elaborating entity "berlekamp_counter" for hierarchy "berlekamp_counter:b2v_inst1" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 359
+Info (12128): Elaborating entity "Syn8x4" for hierarchy "Syn8x4:b2v_inst10" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 367
+Info (12128): Elaborating entity "SyndromeController" for hierarchy "SyndromeController:b2v_inst11" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 384
+Info (12128): Elaborating entity "siso" for hierarchy "siso:b2v_inst15" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 403
+Info (12128): Elaborating entity "MessageController" for hierarchy "MessageController:b2v_inst19" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 422
+Warning (10492): VHDL Process Statement warning at MessageController.vhd(100): signal "messages" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 100
+Warning (10492): VHDL Process Statement warning at MessageController.vhd(101): signal "Input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 101
+Warning (10492): VHDL Process Statement warning at MessageController.vhd(101): signal "messages" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 101
+Warning (10492): VHDL Process Statement warning at MessageController.vhd(104): signal "messages" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 104
+Warning (10492): VHDL Process Statement warning at MessageController.vhd(107): signal "messages" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 107
+Warning (10492): VHDL Process Statement warning at MessageController.vhd(108): signal "messages" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 108
+Warning (10492): VHDL Process Statement warning at MessageController.vhd(111): signal "messages" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 111
+Warning (10631): VHDL Process Statement warning at MessageController.vhd(92): inferring latch(es) for signal or variable "messages", which holds its previous value in one or more paths through the process File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[0]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[1]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[2]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[3]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[4]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[5]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[6]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[7]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[8]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[9]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[10]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[11]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[12]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[13]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[14]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[15]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[16]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[17]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[18]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[19]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[20]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[21]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[22]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[23]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[24]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[25]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[26]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (10041): Inferred latch for "messages[27]" at MessageController.vhd(92) File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/MessageController.vhd Line: 92
+Info (12128): Elaborating entity "Syndrome" for hierarchy "Syndrome:b2v_inst7" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 473
 Info (12128): Elaborating entity "static_3" for hierarchy "Syndrome:b2v_inst7|static_3:b2v_inst1" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 156
 Info (12128): Elaborating entity "static_11" for hierarchy "Syndrome:b2v_inst7|static_11:b2v_inst18" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 210
 Info (12128): Elaborating entity "static_2" for hierarchy "Syndrome:b2v_inst7|static_2:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 222
@@ -914,7 +1012,7 @@ Info (12128): Elaborating entity "static_6" for hierarchy "Syndrome:b2v_inst7|st
 Info (12128): Elaborating entity "static_4" for hierarchy "Syndrome:b2v_inst7|static_4:b2v_inst3" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 294
 Info (12128): Elaborating entity "static_8" for hierarchy "Syndrome:b2v_inst7|static_8:b2v_inst4" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 318
 Info (12128): Elaborating entity "static_12" for hierarchy "Syndrome:b2v_inst7|static_12:b2v_inst8" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Syndrome.vhd Line: 340
-Info (12128): Elaborating entity "ChienForney" for hierarchy "ChienForney:b2v_inst8" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 460
+Info (12128): Elaborating entity "ChienForney" for hierarchy "ChienForney:b2v_inst8" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/RSIntegration.vhd Line: 487
 Info (12128): Elaborating entity "Chien" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/ChienForney.vhd Line: 101
 Info (12128): Elaborating entity "ChienController" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienController:b2v_inst" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 116
 Info (12128): Elaborating entity "ChienSearchLocation" for hierarchy "ChienForney:b2v_inst8|Chien:b2v_inst|ChienSearchLocation:b2v_inst2" File: C:/Users/owner/Desktop/LiCy/Reed Solomon decoder/Chien.vhd Line: 150
@@ -925,14 +1023,14 @@ Info (12128): Elaborating entity "static_0" for hierarchy "ChienForney:b2v_inst8
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1050 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 179 output pins
-    Info (21061): Implemented 861 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 908 megabytes
-    Info: Processing ended: Wed Nov 02 16:38:01 2016
+Info (21057): Implemented 1155 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 215 output pins
+    Info (21061): Implemented 934 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 903 megabytes
+    Info: Processing ended: Wed Nov 02 22:21:34 2016
     Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Total CPU time (on all processors): 00:00:37
 
 

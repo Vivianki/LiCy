@@ -98,6 +98,8 @@ SIGNAL deco3 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL deco4 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL deco5 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL deco6 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL debug : STD_LOGIC_VECTOR(27 DOWNTO 0);
+SIGNAL count : STD_LOGIC_VECTOR(3 DOWNTO 0);
 COMPONENT RSIntegration
 	PORT (
 	B_0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -135,7 +137,7 @@ COMPONENT RSIntegration
 	S4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SyndromeOut : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Test_state : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-	Mensagem : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	Mensagem : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	pin_name1 : OUT STD_LOGIC;
 	Decod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	Impar : OUT STD_LOGIC;
@@ -164,6 +166,8 @@ COMPONENT RSIntegration
 	deco4 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	deco5 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	deco6 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	debug : OUT STD_LOGIC_VECTOR(27 DOWNTO 0);
+	count	: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 	erroro : OUT STD_LOGIC
 	);
 END COMPONENT;
@@ -235,7 +239,9 @@ BEGIN
 	deco3 => deco3,
 	deco4 => deco4,
 	deco5 => deco5,
-	deco6 => deco6
+	deco6 => deco6,
+	debug => debug,
+	count => count
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -254,7 +260,7 @@ always : PROCESS
 -- (        )                                                 
 -- variable declarations                                      
 BEGIN
-		Mensagem <= "0000";
+
 		Reset <= '1';
 		Input <= "0000";
 		wait for 100 ns;
@@ -376,25 +382,25 @@ BEGIN
 		wait for 200 ns;
 		
 		wait for 200 ns;
-		Mensagem <= "1101";
+		--Mensagem <= "1101";
 			
 		wait for 200 ns;
-		Mensagem <= "0011";
+		--Mensagem <= "0011";
 		
 		wait for 200 ns;
-		Mensagem <= "0111";
+		--Mensagem <= "0111";
 		
 		wait for 200 ns;
-		Mensagem <= "0010";
+		--Mensagem <= "0010";
 		
 		wait for 200 ns;
-		Mensagem <= "0110";
+		--Mensagem <= "0110";
 		
 		wait for 200 ns;
-		Mensagem <= "0111";
+		--Mensagem <= "0111";
 		
 		wait for 200 ns;
-		Mensagem <= "1101";
+		--Mensagem <= "1101";
 		
 WAIT;                                                        
 END PROCESS always;                                          

@@ -172,6 +172,134 @@
 					"strict" : false
 				},
 				{
+					"name" : "count[0]",
+					"strict" : false
+				},
+				{
+					"name" : "count[1]",
+					"strict" : false
+				},
+				{
+					"name" : "count[2]",
+					"strict" : false
+				},
+				{
+					"name" : "count[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[2]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[4]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[5]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[6]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[7]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[8]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[9]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[10]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[11]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[12]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[13]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[14]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[15]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[16]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[17]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[18]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[19]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[20]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[21]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[22]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[23]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[24]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[25]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[26]",
+					"strict" : false
+				},
+				{
+					"name" : "debug[27]",
+					"strict" : false
+				},
+				{
 					"name" : "deco0[0]",
 					"strict" : false
 				},
@@ -377,6 +505,22 @@
 				},
 				{
 					"name" : "Lambda4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Mensagem[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Mensagem[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Mensagem[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Mensagem[3]",
 					"strict" : false
 				},
 				{
@@ -721,22 +865,6 @@
 				},
 				{
 					"name" : "Reset",
-					"strict" : false
-				},
-				{
-					"name" : "Mensagem[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Mensagem[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Mensagem[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Mensagem[3]",
 					"strict" : false
 				},
 				{
