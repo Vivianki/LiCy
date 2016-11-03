@@ -51,84 +51,6 @@ set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name VHDL_FILE interleaver_rev2/register1b.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/readOrWrite.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/mux2x1_12b.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/length_register.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/flush_counter.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/depth_counter.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/address_calculator.vhd
-set_global_assignment -name VHDL_FILE convolutional/xor5x1.vhd
-set_global_assignment -name VHDL_FILE convolutional/xor3bits.vhd
-set_global_assignment -name BDF_FILE convolutional/vDecoder.bdf
-set_global_assignment -name VHDL_FILE convolutional/trellisTable.vhd
-set_global_assignment -name VHDL_FILE convolutional/transformador200kHz.vhd
-set_global_assignment -name VHDL_FILE convolutional/transformador100kHz.vhd
-set_global_assignment -name VHDL_FILE convolutional/transformador100D3.vhd
-set_global_assignment -name VHDL_FILE convolutional/regiter3b.vhd
-set_global_assignment -name VHDL_FILE convolutional/register10b.vhd
-set_global_assignment -name VHDL_FILE convolutional/register6b.vhd
-set_global_assignment -name VHDL_FILE convolutional/paralleltoserial.vhd
-set_global_assignment -name VHDL_FILE convolutional/mux_2to1_top.vhd
-set_global_assignment -name VHDL_FILE convolutional/memory.vhd
-set_global_assignment -name VHDL_FILE convolutional/memcount.vhd
-set_global_assignment -name VHDL_FILE convolutional/manchester_encoding.vhd
-set_global_assignment -name VHDL_FILE convolutional/flipflopD.vhd
-set_global_assignment -name VHDL_FILE convolutional/countmemconv.vhd
-set_global_assignment -name VHDL_FILE convolutional/counter.vhd
-set_global_assignment -name VHDL_FILE convolutional/count3.vhd
-set_global_assignment -name VHDL_FILE convolutional/conta1s.vhd
-set_global_assignment -name VHDL_FILE convolutional/compare.vhd
-set_global_assignment -name BDF_FILE convolutional/ccEncoder.bdf
-set_global_assignment -name VHDL_FILE EncoderRS/transformador100kHz.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_15.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_14.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_13.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_12.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_8.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_4.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_3.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_1.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/static_0.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/sinalControle.vhd
-set_global_assignment -name SOURCE_FILE EncoderRS/sinalControle.cmp
-set_global_assignment -name VHDL_FILE EncoderRS/register4b.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/pll1.vhd
-set_global_assignment -name QIP_FILE EncoderRS/pll1.qip
-set_global_assignment -name SOURCE_FILE EncoderRS/pll1.cmp
-set_global_assignment -name VHDL_FILE EncoderRS/PLL.vhd
-set_global_assignment -name QIP_FILE EncoderRS/PLL.qip
-set_global_assignment -name SOURCE_FILE EncoderRS/pll.cmp
-set_global_assignment -name VHDL_FILE EncoderRS/mux2x1.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/LiCy.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/gf_sum.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/gf_mult.vhd
-set_global_assignment -name BDF_FILE EncoderRS/Block1.bdf
-set_global_assignment -name VHDL_FILE EncoderRS/and4x1.vhd
-set_global_assignment -name QIP_FILE memInicial.qip
-set_global_assignment -name VHDL_FILE memInicial_flush_counter.vhd
-set_global_assignment -name BDF_FILE manchesterPayload.bdf
-set_global_assignment -name VHDL_FILE ParalellToSerial8x4.vhd
-set_global_assignment -name VHDL_FILE PHR_PSDU.vhd
-set_global_assignment -name VHDL_FILE counter_PHR_PSDU.vhd
-set_global_assignment -name VHDL_FILE EncIntegration.vhd
-set_global_assignment -name VHDL_FILE EncoderRS/RSencoder.vhd
-set_global_assignment -name VHDL_FILE static_2.vhd
-set_global_assignment -name VHDL_FILE static_29.vhd
-set_global_assignment -name VHDL_FILE shift_register_4b.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/mux2x1_13b.vhd
-set_global_assignment -name QIP_FILE interleaver_shared_memory.qip
-set_global_assignment -name VHDL_FILE static_44.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/depth_counter_payload.vhd
-set_global_assignment -name VHDL_FILE interleaver_rev2/address_calculator_payload.vhd
-set_global_assignment -name VHDL_FILE static_1_depth.vhd
-set_global_assignment -name BDF_FILE ../convolutional/encCCencoder.bdf
-set_global_assignment -name VHDL_FILE ../convolutional/shift_register_zeroes.vhd
-set_global_assignment -name VHDL_FILE ../convolutional/conv_input_data_control.vhd
-set_global_assignment -name VHDL_FILE ../convolutional/conv_input_data_control2.vhd
-set_global_assignment -name VHDL_FILE ../convolutional/piso.vhd
-set_global_assignment -name VHDL_FILE ../convolutional/manchester_encoder.vhd
-set_global_assignment -name VHDL_FILE convolutional/transformador100D4.vhd
 set_location_assignment PIN_T1 -to clock_50MHz
 set_location_assignment PIN_V21 -to rest_clock
 set_location_assignment PIN_W22 -to Flag
@@ -137,7 +59,6 @@ set_location_assignment PIN_H22 -to Output[0]
 set_location_assignment PIN_F19 -to Output[1]
 set_location_assignment PIN_J22 -to Output[2]
 set_location_assignment PIN_H19 -to Output[3]
-set_global_assignment -name CDF_FILE output_files/Chain1.cdf
 set_location_assignment PIN_K21 -to output_rs[3]
 set_location_assignment PIN_L21 -to kilo25D4
 set_location_assignment PIN_J18 -to address_calc_payload[0]
@@ -146,7 +67,6 @@ set_location_assignment PIN_H18 -to Initial_data[2]
 set_location_assignment PIN_M19 -to Saida_counter_PHR_PSDU[0]
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_RAM_BLOCK_TYPE=AUTO" -section_id auto_signaltap_0
@@ -197,7 +117,6 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[18] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[20] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[23] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_global_assignment -name VHDL_FILE interleaver_rev4.vhd
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to kilo100 -section_id auto_signaltap_0
@@ -207,7 +126,6 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=8192
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[4] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[9] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=8192" -section_id auto_signaltap_0
-set_global_assignment -name TEXT_FILE stp1_auto_signaltap_0.txt
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to Output[0] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to Output[1] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to Output[2] -section_id auto_signaltap_0
@@ -277,7 +195,110 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=34" 
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_BITS=34" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=129" -section_id auto_signaltap_0
+set_global_assignment -name BDF_FILE interleaver_rev4.bdf
+set_global_assignment -name VHDL_FILE memInicia_flush_counterl.vhd
+set_global_assignment -name VHDL_FILE deint_control.vhd
+set_global_assignment -name VHDL_FILE Sync/transformador200kHz.vhd
+set_global_assignment -name BDF_FILE Sync/synchro.bdf
+set_global_assignment -name VHDL_FILE Sync/shiftreg64.vhd
+set_global_assignment -name VHDL_FILE Sync/shift_register_3b.vhd
+set_global_assignment -name VHDL_FILE Sync/scale_clock_400kHZ.vhd
+set_global_assignment -name VHDL_FILE Sync/register1.vhd
+set_global_assignment -name VHDL_FILE Sync/reg6b.vhd
+set_global_assignment -name VHDL_FILE Sync/mux_2to1_top.vhd
+set_global_assignment -name VHDL_FILE Sync/mem.vhd
+set_global_assignment -name VHDL_FILE Sync/flp_detector.vhd
+set_global_assignment -name VHDL_FILE Sync/divisor_frequencia.vhd
+set_global_assignment -name VHDL_FILE Sync/CounterWEnable.vhd
+set_global_assignment -name VHDL_FILE Sync/counter.vhd
+set_global_assignment -name VHDL_FILE Sync/count_verifier.vhd
+set_global_assignment -name VHDL_FILE Sync/count_analyzer.vhd
+set_global_assignment -name VHDL_FILE Sync/clock_generator.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/register1b.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/readOrWrite.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/mux2x1_12b.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/length_register.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/flush_counter.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/depth_counter.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/address_calculator.vhd
+set_global_assignment -name VHDL_FILE convolutional/xor5x1.vhd
+set_global_assignment -name VHDL_FILE convolutional/xor3bits.vhd
+set_global_assignment -name BDF_FILE convolutional/vDecoder.bdf
+set_global_assignment -name VHDL_FILE convolutional/trellisTable.vhd
+set_global_assignment -name VHDL_FILE convolutional/transformador100kHz.vhd
+set_global_assignment -name VHDL_FILE convolutional/transformador100D3.vhd
+set_global_assignment -name VHDL_FILE convolutional/regiter3b.vhd
+set_global_assignment -name VHDL_FILE convolutional/register10b.vhd
+set_global_assignment -name VHDL_FILE convolutional/register6b.vhd
+set_global_assignment -name VHDL_FILE convolutional/paralleltoserial.vhd
+set_global_assignment -name VHDL_FILE convolutional/mux_2to1_top.vhd
+set_global_assignment -name VHDL_FILE convolutional/memcount.vhd
+set_global_assignment -name VHDL_FILE convolutional/manchester_encoding.vhd
+set_global_assignment -name VHDL_FILE convolutional/flipflopD.vhd
+set_global_assignment -name VHDL_FILE convolutional/countmemconv.vhd
+set_global_assignment -name VHDL_FILE convolutional/counter.vhd
+set_global_assignment -name VHDL_FILE convolutional/count3.vhd
+set_global_assignment -name VHDL_FILE convolutional/conta1s.vhd
+set_global_assignment -name VHDL_FILE convolutional/compare.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/transformador100kHz.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_15.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_14.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_13.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_12.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_8.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_4.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_3.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_1.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/static_0.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/sinalControle.vhd
+set_global_assignment -name SOURCE_FILE EncoderRS/sinalControle.cmp
+set_global_assignment -name VHDL_FILE EncoderRS/register4b.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/mux2x1.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/gf_sum.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/gf_mult.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/and4x1.vhd
+set_global_assignment -name BDF_FILE manchesterPayload.bdf
+set_global_assignment -name VHDL_FILE ParalellToSerial8x4.vhd
+set_global_assignment -name VHDL_FILE PHR_PSDU.vhd
+set_global_assignment -name VHDL_FILE counter_PHR_PSDU.vhd
+set_global_assignment -name VHDL_FILE EncoderRS/RSencoder.vhd
+set_global_assignment -name VHDL_FILE static_2.vhd
+set_global_assignment -name VHDL_FILE static_29.vhd
+set_global_assignment -name VHDL_FILE shift_register_4b.vhd
+set_global_assignment -name QIP_FILE interleaver_shared_memory.qip
+set_global_assignment -name VHDL_FILE static_44.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/depth_counter_payload.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/address_calculator_payload.vhd
+set_global_assignment -name VHDL_FILE static_1_depth.vhd
+set_global_assignment -name VHDL_FILE ../convolutional/shift_register_zeroes.vhd
+set_global_assignment -name VHDL_FILE ../convolutional/conv_input_data_control.vhd
+set_global_assignment -name VHDL_FILE ../convolutional/conv_input_data_control2.vhd
+set_global_assignment -name VHDL_FILE ../convolutional/piso.vhd
+set_global_assignment -name VHDL_FILE ../convolutional/manchester_encoder.vhd
+set_global_assignment -name VHDL_FILE convolutional/transformador100D4.vhd
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name TEXT_FILE stp1_auto_signaltap_0.txt
 set_global_assignment -name VHDL_FILE EncIntegration2.vhd
+set_global_assignment -name VHDL_FILE transformador100D2.vhd
+set_global_assignment -name VHDL_FILE convolutional/ccEncoder.vhd
+set_global_assignment -name VHDL_FILE encCCencoder.vhd
+set_global_assignment -name VHDL_FILE sipo.vhd
+set_global_assignment -name VHDL_FILE branch_metrics.vhd
+set_global_assignment -name VHDL_FILE adder.vhd
+set_global_assignment -name VHDL_FILE trellisTablev2.vhd
+set_global_assignment -name VHDL_FILE mux4x1_3b.vhd
+set_global_assignment -name VHDL_FILE comparev2.vhd
+set_global_assignment -name BDF_FILE viterbiv2.bdf
+set_global_assignment -name BDF_FILE decoderInt.bdf
+set_global_assignment -name BDF_FILE deinterleaver_vai.bdf
+set_global_assignment -name VHDL_FILE address_calculator_header_deint.vhd
+set_global_assignment -name VHDL_FILE address_calculator_payload_deint.vhd
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VHDL_FILE shift_register_60b.vhd
+set_global_assignment -name VHDL_FILE tdp_detector.vhd
+set_global_assignment -name VHDL_FILE interleaver_rev2/mux2x1_13b.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

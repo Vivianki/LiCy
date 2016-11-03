@@ -16,6 +16,6 @@ architecture behavior of static_15 is
 
 begin
  
- o <= "1111";
+ o <= "1110";
 
 end behavior;

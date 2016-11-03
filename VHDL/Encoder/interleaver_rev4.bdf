@@ -422,7 +422,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 2448 352 2624 368)
+	(rect 2704 296 2880 312)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
 	(text "Flag_2" (rect 90 0 139 14)(font "Arial" ))
 	(pt 0 8)
@@ -1332,6 +1332,31 @@ agreement for further details.
 		(circle (rect 31 12 39 20))
 	)
 )
+(symbol
+	(rect 2632 288 2680 320)
+	(text "NOT" (rect 1 0 25 11)(font "Arial" (font_size 6)))
+	(text "inst4" (rect 3 21 44 35)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 21)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 21)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 21)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 21)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
+)
 (connector
 	(pt 2696 616)
 	(pt 2760 616)
@@ -1576,10 +1601,6 @@ agreement for further details.
 (connector
 	(pt 2392 1000)
 	(pt 2424 1000)
-)
-(connector
-	(pt 2424 1000)
-	(pt 3112 1000)
 )
 (connector
 	(pt 2376 992)
@@ -2208,6 +2229,26 @@ agreement for further details.
 	(pt 2344 488)
 	(pt 2392 488)
 )
+(connector
+	(pt 2632 304)
+	(pt 2536 304)
+)
+(connector
+	(pt 2536 1000)
+	(pt 2536 304)
+)
+(connector
+	(pt 2424 1000)
+	(pt 2536 1000)
+)
+(connector
+	(pt 2536 1000)
+	(pt 3112 1000)
+)
+(connector
+	(pt 2680 304)
+	(pt 2704 304)
+)
 (junction (pt 2440 424))
 (junction (pt 2160 600))
 (junction (pt 2064 720))
@@ -2248,3 +2289,4 @@ agreement for further details.
 (junction (pt 1608 512))
 (junction (pt 2192 896))
 (junction (pt 2344 488))
+(junction (pt 2536 1000))

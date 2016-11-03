@@ -1,4 +1,4 @@
--- Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+-- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 -- Your use of Altera Corporation's design tools, logic functions 
 -- and other software and tools, and its AMPP partner logic 
 -- functions, and any output files from any of the foregoing 
@@ -14,8 +14,8 @@
 -- agreement for further details.
 
 -- PROGRAM		"Quartus Prime"
--- VERSION		"Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition"
--- CREATED		"Sat Sep 24 17:28:32 2016"
+-- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
+-- CREATED		"Sun Oct 30 21:02:38 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -27,7 +27,6 @@ ENTITY ccEncoder IS
 	(
 		clock :  IN  STD_LOGIC;
 		reset :  IN  STD_LOGIC;
-		clock_enable :  IN  STD_LOGIC;
 		input :  IN  STD_LOGIC;
 		A0 :  OUT  STD_LOGIC;
 		B0 :  OUT  STD_LOGIC;
@@ -40,7 +39,6 @@ ARCHITECTURE bdf_type OF ccEncoder IS
 COMPONENT d_ff_vhdl
 	PORT(clk : IN STD_LOGIC;
 		 rst : IN STD_LOGIC;
-		 ce : IN STD_LOGIC;
 		 d : IN STD_LOGIC;
 		 q : OUT STD_LOGIC
 	);
@@ -71,7 +69,6 @@ BEGIN
 b2v_inst : d_ff_vhdl
 PORT MAP(clk => clock,
 		 rst => reset,
-		 ce => clock_enable,
 		 d => SYNTHESIZED_WIRE_17,
 		 q => SYNTHESIZED_WIRE_18);
 
@@ -103,44 +100,39 @@ PORT MAP(A1 => input,
 		 F => C0);
 
 
-b2v_inst2 : d_ff_vhdl
+b2v_inst13 : d_ff_vhdl
 PORT MAP(clk => clock,
 		 rst => reset,
-		 ce => clock_enable,
-		 d => SYNTHESIZED_WIRE_18,
-		 q => SYNTHESIZED_WIRE_22);
-
-
-b2v_inst3 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 ce => clock_enable,
-		 d => SYNTHESIZED_WIRE_22,
-		 q => SYNTHESIZED_WIRE_19);
-
-
-b2v_inst4 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 ce => clock_enable,
 		 d => SYNTHESIZED_WIRE_19,
 		 q => SYNTHESIZED_WIRE_20);
-
-
-b2v_inst5 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 ce => clock_enable,
-		 d => SYNTHESIZED_WIRE_21,
-		 q => SYNTHESIZED_WIRE_17);
 
 
 b2v_inst6 : d_ff_vhdl
 PORT MAP(clk => clock,
 		 rst => reset,
-		 ce => clock_enable,
 		 d => input,
 		 q => SYNTHESIZED_WIRE_21);
+
+
+b2v_inst7 : d_ff_vhdl
+PORT MAP(clk => clock,
+		 rst => reset,
+		 d => SYNTHESIZED_WIRE_21,
+		 q => SYNTHESIZED_WIRE_17);
+
+
+b2v_inst8 : d_ff_vhdl
+PORT MAP(clk => clock,
+		 rst => reset,
+		 d => SYNTHESIZED_WIRE_18,
+		 q => SYNTHESIZED_WIRE_22);
+
+
+b2v_inst9 : d_ff_vhdl
+PORT MAP(clk => clock,
+		 rst => reset,
+		 d => SYNTHESIZED_WIRE_22,
+		 q => SYNTHESIZED_WIRE_19);
 
 
 END bdf_type;
