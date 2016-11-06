@@ -1,0 +1,6 @@
+*.bak
+db
+greybox_tmp
+incremental_db
+simulation
+!*.vht

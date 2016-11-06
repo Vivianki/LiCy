@@ -1,0 +1,349 @@
+Info: Starting: Create testbench Qsys system
+Info: C:/Users/U/Documents/Quartus/uart_test/uart/testbench/uart.ipx
+Info: qsys-generate C:\Users\U\Documents\Quartus\uart_test\uart.qsys --testbench=STANDARD --output-directory=C:\Users\U\Documents\Quartus\uart_test --family="Cyclone IV E" --part=EP4CE30F23C7
+Progress: Loading uart_test/uart.qsys
+Progress: Reading input file
+Progress: Adding rs232_0 [altera_up_avalon_rs232 15.1]
+Progress: Parameterizing module rs232_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Loading IP catalog for testbench.
+Progress: 
+Progress: 
+Progress: 
+Progress: (2) searching C:/users/u/documents/quartus/quartus/sopc_builder/bin/root_components.ipx (ipx file)
+Info: Reading index C:\users\u\documents\quartus\quartus\sopc_builder\bin\root_components.ipx
+Info: C:\users\u\documents\quartus\quartus\sopc_builder\bin\root_components.ipx: Loading now from components.ipx
+Info: Reading index C:\users\u\documents\quartus\quartus\sopc_builder\bin\ip_component_categories.ipx
+Info: C:\users\u\documents\quartus\quartus\sopc_builder\bin\ip_component_categories.ipx described 0 plugins, 0 paths, in 0.01 seconds
+Info: C:/users/u/documents/quartus/quartus/sopc_builder/bin/ip_component_categories.ipx matched 1 files in 0.01 seconds
+Info: C:/Users/U/Documents/Quartus/uart_test/uart/testbench/ip/**/* matched 0 files in 0.00 seconds
+Info: Reading index C:\Users\U\Documents\Quartus\uart_test\uart\testbench\uart.ipx
+Progress: Loading uart_test/uart.qsys
+Info: C:/Users/U/Documents/Quartus/uart_test/* matched 7 files in 0.00 seconds
+Info: C:/Users/U/Documents/Quartus/uart_test/ip/**/* matched 0 files in 0.00 seconds
+Info: C:/Users/U/Documents/Quartus/uart_test/*/* matched 24 files in 0.01 seconds
+Info: C:\Users\U\Documents\Quartus\uart_test\uart\testbench\uart.ipx described 0 plugins, 3 paths, in 0.01 seconds
+Info: C:/Users/U/Documents/Quartus/uart_test/uart/testbench/* matched 4 files in 0.02 seconds
+Info: C:/Users/U/Documents/Quartus/uart_test/uart/testbench/*/* matched 0 files in 0.01 seconds
+Info: C:/Users/U/AppData/Roaming/SPB_16.6/.altera.quartus/ip/15.1/**/* matched 0 files in 0.00 seconds
+Info: Reading index C:\users\u\documents\quartus\ip\altera\altera_components.ipx
+Info: C:\users\u\documents\quartus\ip\altera\altera_components.ipx described 1698 plugins, 0 paths, in 0.27 seconds
+Info: C:/users/u/documents/quartus/ip/**/* matched 134 files in 0.27 seconds
+Info: Reading index C:\users\u\documents\quartus\quartus\sopc_builder\builtin.ipx
+Info: C:\users\u\documents\quartus\quartus\sopc_builder\builtin.ipx described 82 plugins, 0 paths, in 0.01 seconds
+Info: C:/users/u/documents/quartus/quartus/sopc_builder/**/* matched 8 files in 0.01 seconds
+Info: Reading index C:\users\u\documents\quartus\quartus\common\librarian\factories\index.ipx
+Info: C:\users\u\documents\quartus\quartus\common\librarian\factories\index.ipx described 151 plugins, 0 paths, in 0.02 seconds
+Info: C:/users/u/documents/quartus/quartus/common/librarian/factories/**/* matched 4 files in 0.02 seconds
+Info: C:/users/u/documents/quartus/quartus/sopc_builder/bin/$IP_IPX_PATH matched 1 files in 0.00 seconds
+Info: C:\users\u\documents\quartus\quartus\sopc_builder\bin\root_components.ipx described 0 plugins, 9 paths, in 0.34 seconds
+Info: C:/users/u/documents/quartus/quartus/sopc_builder/bin/root_components.ipx matched 1 files in 0.34 seconds
+Progress: 
+Progress: 
+Progress: 
+Info: Running script C:/users/u/documents/quartus/quartus/sopc_builder/bin/tbgen.tcl
+Info: send_message Info TB_Gen: QSYS Testbench Generator Rev: $Revision: #1 $
+Info: TB_Gen: QSYS Testbench Generator Rev: $Revision: #1 $
+Info: get_module_property NAME
+Info: send_message Info TB_Gen: System design is: uart
+Info: TB_Gen: System design is: uart
+Info: get_interfaces 
+Info: get_connections 
+Info: get_interface_property avalon_rs232_slave EXPORT_OF
+Info: get_instance_property rs232_0 CLASS_NAME
+Info: get_instance_assignment rs232_0 testbench.partner.map.avalon_rs232_slave
+Info: get_interface_property clk EXPORT_OF
+Info: get_instance_property rs232_0 CLASS_NAME
+Info: get_instance_assignment rs232_0 testbench.partner.map.clk
+Info: get_interface_property external_interface EXPORT_OF
+Info: get_instance_property rs232_0 CLASS_NAME
+Info: get_instance_assignment rs232_0 testbench.partner.map.external_interface
+Info: get_interface_property interrupt EXPORT_OF
+Info: get_instance_property rs232_0 CLASS_NAME
+Info: get_instance_assignment rs232_0 testbench.partner.map.interrupt
+Info: get_interface_property reset EXPORT_OF
+Info: get_instance_property rs232_0 CLASS_NAME
+Info: get_instance_assignment rs232_0 testbench.partner.map.reset
+Info: send_message Info TB_Gen: Creating testbench system : uart_tb with all standard BFMs
+Info: TB_Gen: Creating testbench system : uart_tb with all standard BFMs
+Info: create_system uart_tb
+Info: add_instance uart_inst uart 
+Info: set_use_testbench_naming_pattern true uart
+Info: get_instance_interfaces uart_inst
+Info: get_instance_interface_property uart_inst avalon_rs232_slave CLASS_NAME
+Info: get_instance_interface_property uart_inst clk CLASS_NAME
+Info: get_instance_interface_property uart_inst external_interface CLASS_NAME
+Info: get_instance_interface_property uart_inst interrupt CLASS_NAME
+Info: get_instance_interface_property uart_inst reset CLASS_NAME
+Info: get_instance_interface_property uart_inst clk CLASS_NAME
+Info: send_message Info TB_Gen: clock_sink found: clk
+Info: TB_Gen: clock_sink found: clk
+Info: get_instance_interface_property uart_inst clk CLASS_NAME
+Info: add_instance uart_inst_clk_bfm altera_avalon_clock_source 
+Info: get_instance_property uart_inst_clk_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst clk clockRate
+Info: send_message Warning TB_Gen: clockRate is less than 1Hz; setting to 50MHz
+Warning: TB_Gen: clockRate is less than 1Hz; setting to 50MHz
+Info: set_instance_parameter_value uart_inst_clk_bfm CLOCK_RATE 50000000
+Info: set_instance_parameter_value uart_inst_clk_bfm CLOCK_UNIT 1
+Info: get_instance_property uart_inst_clk_bfm CLASS_NAME
+Info: get_instance_interface_property uart_inst clk CLASS_NAME
+Info: get_instance_interfaces uart_inst_clk_bfm
+Info: get_instance_interface_property uart_inst_clk_bfm clk CLASS_NAME
+Info: add_connection uart_inst_clk_bfm.clk uart_inst.clk
+Info: get_instance_interface_property uart_inst reset CLASS_NAME
+Info: send_message Info TB_Gen: reset_sink found: reset
+Info: TB_Gen: reset_sink found: reset
+Info: get_instance_interface_property uart_inst reset CLASS_NAME
+Info: add_instance uart_inst_reset_bfm altera_avalon_reset_source 
+Info: get_instance_property uart_inst_reset_bfm CLASS_NAME
+Info: get_instance_interface_ports uart_inst reset
+Info: get_instance_interface_port_property uart_inst reset reset ROLE
+Info: get_instance_interface_port_property uart_inst reset reset ROLE
+Info: set_instance_parameter_value uart_inst_reset_bfm ASSERT_HIGH_RESET 1
+Info: set_instance_parameter_value uart_inst_reset_bfm INITIAL_RESET_CYCLES 50
+Info: get_instance_property uart_inst_reset_bfm CLASS_NAME
+Info: get_instance_interfaces uart_inst_reset_bfm
+Info: get_instance_interface_property uart_inst_reset_bfm reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_reset_bfm clk CLASS_NAME
+Info: get_instance_property uart_inst_reset_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst reset associatedClock
+Info: get_instance_interface_property uart_inst clk CLASS_NAME
+Info: get_instance_interfaces uart_inst_clk_bfm
+Info: get_instance_interface_property uart_inst_clk_bfm clk CLASS_NAME
+Info: add_connection uart_inst_clk_bfm.clk uart_inst_reset_bfm.clk
+Info: get_instance_interface_property uart_inst reset CLASS_NAME
+Info: get_instance_interfaces uart_inst_reset_bfm
+Info: get_instance_interface_property uart_inst_reset_bfm reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_reset_bfm clk CLASS_NAME
+Info: add_connection uart_inst_reset_bfm.reset uart_inst.reset
+Info: get_instance_interface_property uart_inst avalon_rs232_slave CLASS_NAME
+Info: send_message Info TB_Gen: avalon_slave found: avalon_rs232_slave
+Info: TB_Gen: avalon_slave found: avalon_rs232_slave
+Info: get_instance_interface_property uart_inst avalon_rs232_slave CLASS_NAME
+Info: add_instance uart_inst_avalon_rs232_slave_bfm altera_avalon_mm_master_bfm 
+Info: get_instance_property uart_inst_avalon_rs232_slave_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave bitsPerSymbol
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave addressUnits
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave burstOnBurstBoundariesOnly
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave linewrapBursts
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave readLatency
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave maximumPendingReadTransactions
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave maximumPendingWriteTransactions
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave readWaitTime
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave writeWaitTime
+Info: get_instance_interface_property uart_inst avalon_rs232_slave CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave addressAlignment
+Info: get_instance_interface_ports uart_inst avalon_rs232_slave
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave address ROLE
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave address WIDTH
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave chipselect ROLE
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave byteenable ROLE
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave read ROLE
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave write ROLE
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave writedata ROLE
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave writedata WIDTH
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave readdata ROLE
+Info: get_instance_interface_port_property uart_inst avalon_rs232_slave readdata WIDTH
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_SYMBOL_W 8
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm ADDRESS_UNITS WORDS
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_BURST_BNDR_ONLY 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_BURST_LINEWRAP 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_FIX_READ_LATENCY 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_MAX_PENDING_READS 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_MAX_PENDING_WRITES 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_READ_WAIT_TIME 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_WRITE_WAIT_TIME 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm REGISTER_WAITREQUEST 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_ADDRESS_W 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_ADDRESS 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_BURSTCOUNT_W 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_BURSTCOUNT 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_NUMSYMBOLS 4
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_READ_DATA 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_WRITE_DATA 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_BEGIN_TRANSFER 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_BEGIN_BURST_TRANSFER 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_WAIT_REQUEST 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_WRITE 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_READ 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_BYTE_ENABLE 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_READ_DATA_VALID 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_ARBITERLOCK 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_DEBUGACCESS 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_TRANSACTIONID 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_READRESPONSE_W 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_READRESPONSE 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm AV_WRITERESPONSE_W 1
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_WRITERESPONSE 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm USE_CLKEN 0
+Info: set_instance_parameter_value uart_inst_avalon_rs232_slave_bfm VHDL_ID 0
+Info: get_instance_property uart_inst_avalon_rs232_slave_bfm CLASS_NAME
+Info: get_instance_interfaces uart_inst_avalon_rs232_slave_bfm
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm clk CLASS_NAME
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm clk_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm m0 CLASS_NAME
+Info: get_instance_property uart_inst_avalon_rs232_slave_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave associatedClock
+Info: get_instance_interface_property uart_inst clk CLASS_NAME
+Info: get_instance_interfaces uart_inst_clk_bfm
+Info: get_instance_interface_property uart_inst_clk_bfm clk CLASS_NAME
+Info: add_connection uart_inst_clk_bfm.clk uart_inst_avalon_rs232_slave_bfm.clk
+Info: get_instance_interfaces uart_inst_avalon_rs232_slave_bfm
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm clk CLASS_NAME
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm clk_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm m0 CLASS_NAME
+Info: get_instance_property uart_inst_avalon_rs232_slave_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst avalon_rs232_slave associatedReset
+Info: get_instance_interface_property uart_inst reset CLASS_NAME
+Info: get_instance_interfaces uart_inst_reset_bfm
+Info: get_instance_interface_property uart_inst_reset_bfm reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_reset_bfm clk CLASS_NAME
+Info: add_connection uart_inst_reset_bfm.reset uart_inst_avalon_rs232_slave_bfm.clk_reset
+Info: get_instance_interface_property uart_inst avalon_rs232_slave CLASS_NAME
+Info: get_instance_interfaces uart_inst_avalon_rs232_slave_bfm
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm clk CLASS_NAME
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm clk_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_avalon_rs232_slave_bfm m0 CLASS_NAME
+Info: add_connection uart_inst_avalon_rs232_slave_bfm.m0 uart_inst.avalon_rs232_slave
+Info: get_instance_interface_property uart_inst external_interface CLASS_NAME
+Info: send_message Info TB_Gen: conduit_end found: external_interface
+Info: TB_Gen: conduit_end found: external_interface
+Info: get_instance_interface_property uart_inst external_interface CLASS_NAME
+Info: add_instance uart_inst_external_interface_bfm altera_conduit_bfm 
+Info: get_instance_property uart_inst_external_interface_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst external_interface associatedClock
+Info: get_instance_interface_parameter_value uart_inst external_interface associatedReset
+Info: get_instance_interface_ports uart_inst external_interface
+Info: get_instance_interface_port_property uart_inst external_interface UART_RXD ROLE
+Info: get_instance_interface_port_property uart_inst external_interface UART_RXD WIDTH
+Info: get_instance_interface_port_property uart_inst external_interface UART_RXD DIRECTION
+Info: get_instance_interface_port_property uart_inst external_interface UART_TXD ROLE
+Info: get_instance_interface_port_property uart_inst external_interface UART_TXD WIDTH
+Info: get_instance_interface_port_property uart_inst external_interface UART_TXD DIRECTION
+Info: set_instance_parameter_value uart_inst_external_interface_bfm CLOCKED_SIGNAL 0
+Info: set_instance_parameter_value uart_inst_external_interface_bfm ENABLE_RESET 0
+Info: set_instance_parameter_value uart_inst_external_interface_bfm SIGNAL_ROLES RXD TXD
+Info: set_instance_parameter_value uart_inst_external_interface_bfm SIGNAL_WIDTHS 1 1
+Info: set_instance_parameter_value uart_inst_external_interface_bfm SIGNAL_DIRECTIONS output input
+Info: get_instance_property uart_inst_external_interface_bfm CLASS_NAME
+Info: get_instance_interface_property uart_inst external_interface CLASS_NAME
+Info: get_instance_interfaces uart_inst_external_interface_bfm
+Info: get_instance_interface_property uart_inst_external_interface_bfm conduit CLASS_NAME
+Info: add_connection uart_inst_external_interface_bfm.conduit uart_inst.external_interface
+Info: get_instance_interface_property uart_inst interrupt CLASS_NAME
+Info: send_message Info TB_Gen: interrupt_sender found: interrupt
+Info: TB_Gen: interrupt_sender found: interrupt
+Info: get_instance_interface_property uart_inst interrupt CLASS_NAME
+Info: add_instance uart_inst_interrupt_bfm altera_avalon_interrupt_sink 
+Info: get_instance_property uart_inst_interrupt_bfm CLASS_NAME
+Info: get_instance_interface_ports uart_inst interrupt
+Info: get_instance_interface_port_property uart_inst interrupt irq ROLE
+Info: get_instance_interface_port_property uart_inst interrupt irq WIDTH
+Info: set_instance_parameter_value uart_inst_interrupt_bfm AV_IRQ_W 1
+Info: set_instance_parameter_value uart_inst_interrupt_bfm ASSERT_HIGH_IRQ 1
+Info: set_instance_parameter_value uart_inst_interrupt_bfm VHDL_ID 0
+Info: get_instance_property uart_inst_interrupt_bfm CLASS_NAME
+Info: get_instance_interfaces uart_inst_interrupt_bfm
+Info: get_instance_interface_property uart_inst_interrupt_bfm clock_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_interrupt_bfm clock_reset_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_interrupt_bfm irq CLASS_NAME
+Info: get_instance_property uart_inst_interrupt_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst interrupt associatedClock
+Info: get_instance_interface_property uart_inst clk CLASS_NAME
+Info: get_instance_interfaces uart_inst_clk_bfm
+Info: get_instance_interface_property uart_inst_clk_bfm clk CLASS_NAME
+Info: add_connection uart_inst_clk_bfm.clk uart_inst_interrupt_bfm.clock_reset
+Info: get_instance_interfaces uart_inst_interrupt_bfm
+Info: get_instance_interface_property uart_inst_interrupt_bfm clock_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_interrupt_bfm clock_reset_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_interrupt_bfm irq CLASS_NAME
+Info: get_instance_property uart_inst_interrupt_bfm CLASS_NAME
+Info: get_instance_interface_parameter_value uart_inst interrupt associatedReset
+Info: get_instance_interface_property uart_inst reset CLASS_NAME
+Info: get_instance_interfaces uart_inst_reset_bfm
+Info: get_instance_interface_property uart_inst_reset_bfm reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_reset_bfm clk CLASS_NAME
+Info: add_connection uart_inst_reset_bfm.reset uart_inst_interrupt_bfm.clock_reset_reset
+Info: get_instance_interface_property uart_inst interrupt CLASS_NAME
+Info: get_instance_interfaces uart_inst_interrupt_bfm
+Info: get_instance_interface_property uart_inst_interrupt_bfm clock_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_interrupt_bfm clock_reset_reset CLASS_NAME
+Info: get_instance_interface_property uart_inst_interrupt_bfm irq CLASS_NAME
+Info: add_connection uart_inst_interrupt_bfm.irq uart_inst.interrupt
+Info: send_message Info TB_Gen: Saving testbench system: uart_tb.qsys
+Info: TB_Gen: Saving testbench system: uart_tb.qsys
+Info: save_system uart_tb.qsys
+Info: send_message Info TB_Gen: TBGEN SUCCESSFUL
+Info: TB_Gen: TBGEN SUCCESSFUL
+Info: Testbench system: C:/Users/U/Documents/Quartus/uart_test/uart/testbench/uart_tb.qsys
+Info: Done
+Info: qsys-generate C:\Users\U\Documents\Quartus\uart_test\uart.qsys --simulation=VHDL --testbench=STANDARD --testbench-simulation=VHDL --output-directory=C:\Users\U\Documents\Quartus\uart_test\uart\testbench\uart_tb\simulation --family="Cyclone IV E" --part=EP4CE30F23C7
+Progress: Loading testbench/uart_tb.qsys
+Progress: Reading input file
+Progress: Adding uart_inst [uart 1.0]
+Progress: Parameterizing module uart_inst
+Progress: Adding uart_inst_avalon_rs232_slave_bfm [altera_avalon_mm_master_bfm 15.1]
+Progress: Parameterizing module uart_inst_avalon_rs232_slave_bfm
+Progress: Adding uart_inst_clk_bfm [altera_avalon_clock_source 15.1]
+Progress: Parameterizing module uart_inst_clk_bfm
+Progress: Adding uart_inst_external_interface_bfm [altera_conduit_bfm 15.1]
+Progress: Parameterizing module uart_inst_external_interface_bfm
+Progress: Adding uart_inst_interrupt_bfm [altera_avalon_interrupt_sink 15.1]
+Progress: Parameterizing module uart_inst_interrupt_bfm
+Progress: Adding uart_inst_reset_bfm [altera_avalon_reset_source 15.1]
+Progress: Parameterizing module uart_inst_reset_bfm
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: uart_tb.uart_inst_avalon_rs232_slave_bfm.m0: Master needs a minimum address width of 3 bits (has 1)
+Info: uart_tb.uart_inst_clk_bfm: Elaborate: altera_clock_source
+Info: uart_tb.uart_inst_clk_bfm:            $Revision: #1 $
+Info: uart_tb.uart_inst_clk_bfm:            $Date: 2015/08/09 $
+Info: uart_tb.uart_inst_reset_bfm: Elaborate: altera_reset_source
+Info: uart_tb.uart_inst_reset_bfm:            $Revision: #1 $
+Info: uart_tb.uart_inst_reset_bfm:            $Date: 2015/08/09 $
+Info: uart_tb.uart_inst_reset_bfm: Reset is positively asserted.
+Info: uart_tb: Generating uart_tb "uart_tb" for SIM_VHDL
+Info: uart_inst: "uart_tb" instantiated uart "uart_inst"
+Info: uart_inst_avalon_rs232_slave_bfm: "uart_tb" instantiated altera_avalon_mm_master_bfm "uart_inst_avalon_rs232_slave_bfm"
+Info: uart_inst_clk_bfm: "uart_tb" instantiated altera_avalon_clock_source "uart_inst_clk_bfm"
+Info: uart_inst_external_interface_bfm: "uart_tb" instantiated altera_conduit_bfm "uart_inst_external_interface_bfm"
+Info: uart_inst_interrupt_bfm: "uart_tb" instantiated altera_avalon_interrupt_sink "uart_inst_interrupt_bfm"
+Info: Reusing file C:/Users/U/Documents/Quartus/uart_test/uart/testbench/uart_tb/simulation/submodules/mentor/verbosity_pkg.sv
+Info: Reusing file C:/Users/U/Documents/Quartus/uart_test/uart/testbench/uart_tb/simulation/submodules/verbosity_pkg.sv
+Info: uart_inst_reset_bfm: "uart_tb" instantiated altera_avalon_reset_source "uart_inst_reset_bfm"
+Info: mm_interconnect_0: "uart_tb" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: Generating VHDL simulation model
+Warning: Parallel compilation is not licensed and has been disabled
+Info: irq_mapper: Generated simulation model altera_irq_mapper.vho
+Info: irq_mapper: "uart_tb" instantiated altera_irq_mapper "irq_mapper"
+Info: rs232_0: Starting Generation of RS232 UART
+Warning: rs232_0: No files generated for fileset SIM_VHDL
+Info: rs232_0: "uart_inst" instantiated altera_up_avalon_rs232 "rs232_0"
+Info: uart_inst_avalon_rs232_slave_bfm_m0_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "uart_inst_avalon_rs232_slave_bfm_m0_translator"
+Info: uart_inst_avalon_rs232_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "uart_inst_avalon_rs232_slave_translator"
+Info: uart_tb: Done "uart_tb" with 12 modules, 29 files
+Info: qsys-generate succeeded.
+Info: sim-script-gen --spd=C:\Users\U\Documents\Quartus\uart_test\uart_tb.spd --output-directory=C:/Users/U/Documents/Quartus/uart_test/uart/testbench/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\Users\U\Documents\Quartus\uart_test\uart_tb.spd --output-directory=C:/Users/U/Documents/Quartus/uart_test/uart/testbench/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/Users/U/Documents/Quartus/uart_test/uart/testbench/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Skipping VCS script generation since VHDL file $QUARTUS_INSTALL_DIR/eda/sim_lib/altera_syn_attributes.vhd is required for simulation
+Info: Generating the following file(s) for VCSMX simulator in C:/Users/U/Documents/Quartus/uart_test/uart/testbench/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/Users/U/Documents/Quartus/uart_test/uart/testbench/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	10 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in C:/Users/U/Documents/Quartus/uart_test/uart/testbench/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/U/Documents/Quartus/uart_test/uart/testbench/.
+Info: Finished: Create testbench Qsys system

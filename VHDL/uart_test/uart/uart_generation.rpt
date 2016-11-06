@@ -1,0 +1,12 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\U\Documents\Quartus\uart_test\uart.qsys --block-symbol-file --output-directory=C:\Users\U\Documents\Quartus\uart_test\uart --family="Cyclone IV E" --part=EP4CE30F23C7
+Progress: Loading uart_test/uart.qsys
+Progress: Reading input file
+Progress: Adding rs232_0 [altera_up_avalon_rs232 15.1]
+Progress: Parameterizing module rs232_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Stopping: Create block symbol file (.bsf)

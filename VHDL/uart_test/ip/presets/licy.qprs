@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ip>
+ <presets version="12.1">
+  <preset
+     name="LiCy RS232"
+     kind="altera_up_avalon_rs232"
+     version="All"
+     description="licy">
+   <parameter name="baud" value="9600" />
+   <parameter name="stop_bits" value="1" />
+   <parameter name="avalon_bus_type" value="Memory Mapped" />
+   <parameter name="data_bits" value="8" />
+   <parameter name="clk_rate" value="50000000" />
+   <parameter name="parity" value="Odd" />
+  </preset>
+ </presets>
+</ip>

@@ -1,0 +1,27 @@
+
+WORK > DEFAULT
+DEFAULT:                                        ./libraries/work/                                          
+work:                                           ./libraries/work/                                          
+altera_common_sv_packages:                      ./libraries/altera_common_sv_packages/                     
+uart_inst_avalon_rs232_slave_bfm_m0_translator: ./libraries/uart_inst_avalon_rs232_slave_bfm_m0_translator/
+irq_mapper:                                     ./libraries/irq_mapper/                                    
+mm_interconnect_0:                              ./libraries/mm_interconnect_0/                             
+uart_inst_reset_bfm:                            ./libraries/uart_inst_reset_bfm/                           
+uart_inst_interrupt_bfm:                        ./libraries/uart_inst_interrupt_bfm/                       
+uart_inst_external_interface_bfm:               ./libraries/uart_inst_external_interface_bfm/              
+uart_inst_clk_bfm:                              ./libraries/uart_inst_clk_bfm/                             
+uart_inst_avalon_rs232_slave_bfm:               ./libraries/uart_inst_avalon_rs232_slave_bfm/              
+uart_inst:                                      ./libraries/uart_inst/                                     
+altera_ver:                                     ./libraries/altera_ver/                                    
+lpm_ver:                                        ./libraries/lpm_ver/                                       
+sgate_ver:                                      ./libraries/sgate_ver/                                     
+altera_mf_ver:                                  ./libraries/altera_mf_ver/                                 
+altera_lnsim_ver:                               ./libraries/altera_lnsim_ver/                              
+cycloneive_ver:                                 ./libraries/cycloneive_ver/                                
+altera:                                         ./libraries/altera/                                        
+lpm:                                            ./libraries/lpm/                                           
+sgate:                                          ./libraries/sgate/                                         
+altera_mf:                                      ./libraries/altera_mf/                                     
+altera_lnsim:                                   ./libraries/altera_lnsim/                                  
+cycloneive:                                     ./libraries/cycloneive/                                    
+LIBRARY_SCAN = TRUE

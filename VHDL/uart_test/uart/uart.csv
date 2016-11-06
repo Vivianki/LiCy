@@ -1,0 +1,17 @@
+# system info uart on 2016.10.23.15:53:45
+system_info:
+name,value
+DEVICE,EP4CE30F23C7
+DEVICE_FAMILY,Cyclone IV E
+GENERATION_ID,1477245224
+#
+#
+# Files generated for uart on 2016.10.23.15:53:45
+files:
+filepath,kind,attributes,module,is_top
+simulation/uart.vhd,VHDL,,uart,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+uart.rs232_0,uart_rs232_0
