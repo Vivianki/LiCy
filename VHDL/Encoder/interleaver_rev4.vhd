@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Wed Nov 02 22:14:25 2016"
+-- CREATED		"Sun Nov 06 13:24:31 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -28,27 +28,7 @@ ENTITY interleaver_rev4 IS
 		Flag :  IN  STD_LOGIC;
 		Clock :  IN  STD_LOGIC;
 		Input :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		readWrite :  OUT  STD_LOGIC;
-		depth_counter_carry :  OUT  STD_LOGIC;
-		carry_sig :  OUT  STD_LOGIC;
-		enable_flush :  OUT  STD_LOGIC;
-		flush_counter_carry :  OUT  STD_LOGIC;
-		readWrite_2 :  OUT  STD_LOGIC;
-		carry_sig2 :  OUT  STD_LOGIC;
-		depth_counter_carry2 :  OUT  STD_LOGIC;
-		enable_flush2 :  OUT  STD_LOGIC;
-		start_flushing :  OUT  STD_LOGIC;
 		Flag_2 :  OUT  STD_LOGIC;
-		address_calc :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
-		address_sel :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
-		address_sel_payload :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
-		depth_count :  OUT  STD_LOGIC_VECTOR(6 DOWNTO 0);
-		depth_count_payload :  OUT  STD_LOGIC_VECTOR(6 DOWNTO 0);
-		flush_count :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
-		InputPayload :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		InputSR2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		iterator_sig :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		iterator_sig_payload :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Output :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		q_b :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
@@ -195,24 +175,6 @@ SIGNAL	SYNTHESIZED_WIRE_39 :  STD_LOGIC;
 
 
 BEGIN 
-readWrite <= SYNTHESIZED_WIRE_6;
-depth_counter_carry <= SYNTHESIZED_WIRE_43;
-carry_sig <= SYNTHESIZED_WIRE_33;
-enable_flush <= SYNTHESIZED_WIRE_12;
-flush_counter_carry <= SYNTHESIZED_WIRE_48;
-readWrite_2 <= SYNTHESIZED_WIRE_7;
-carry_sig2 <= SYNTHESIZED_WIRE_28;
-depth_counter_carry2 <= SYNTHESIZED_WIRE_47;
-enable_flush2 <= SYNTHESIZED_WIRE_45;
-start_flushing <= SYNTHESIZED_WIRE_14;
-address_calc <= SYNTHESIZED_WIRE_27;
-address_sel <= SYNTHESIZED_WIRE_8;
-address_sel_payload <= SYNTHESIZED_WIRE_9;
-depth_count <= SYNTHESIZED_WIRE_46;
-depth_count_payload <= SYNTHESIZED_WIRE_42;
-flush_count <= SYNTHESIZED_WIRE_26;
-InputPayload <= SYNTHESIZED_WIRE_11;
-InputSR2 <= SYNTHESIZED_WIRE_44;
 SYNTHESIZED_WIRE_13 <= '0';
 SYNTHESIZED_WIRE_18 <= '0';
 
@@ -224,8 +186,7 @@ PORT MAP(clock => Clock,
 		 depth => SYNTHESIZED_WIRE_41,
 		 shift_depth => SYNTHESIZED_WIRE_42,
 		 carry => SYNTHESIZED_WIRE_28,
-		 count => SYNTHESIZED_WIRE_9,
-		 iterator_out => iterator_sig_payload);
+		 count => SYNTHESIZED_WIRE_9);
 
 
 SYNTHESIZED_WIRE_32 <= NOT(SYNTHESIZED_WIRE_43);
@@ -356,8 +317,7 @@ PORT MAP(clock => Clock,
 		 depth => SYNTHESIZED_WIRE_49,
 		 shift_depth => SYNTHESIZED_WIRE_46,
 		 carry => SYNTHESIZED_WIRE_33,
-		 count => SYNTHESIZED_WIRE_27,
-		 iterator_out => iterator_sig);
+		 count => SYNTHESIZED_WIRE_27);
 
 
 

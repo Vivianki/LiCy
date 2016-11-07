@@ -24,13 +24,13 @@ architecture behavior of branch_metrics is
 
 
 begin 
-	output_00a <= input_manchester(3)&input_manchester(1) xor "00";
-	output_00b <= input_manchester(2)&input_manchester(0) xor "00";
-	output_01a <= input_manchester(3)&input_manchester(1) xor "01";
-	output_01b <= input_manchester(2)&input_manchester(0) xor "01";
-	output_10a <= input_manchester(3)&input_manchester(1) xor "10";
-	output_10b <= input_manchester(2)&input_manchester(0) xor "10";
-	output_11a <= input_manchester(3)&input_manchester(1) xor "11";
-	output_11b <= input_manchester(2)&input_manchester(0) xor "11";
+	output_00a <= '0'&(input_manchester(3)&input_manchester(1) xor "00");
+	output_00b <= '0'&(input_manchester(2)&input_manchester(0) xor "00");
+	output_01a <= '0'&(input_manchester(3)&input_manchester(1) xor "01");
+	output_01b <= '0'&(input_manchester(2)&input_manchester(0) xor "01");
+	output_10a <= '0'&(input_manchester(3)&input_manchester(1) xor "10");
+	output_10b <= '0'&(input_manchester(2)&input_manchester(0) xor "10");
+	output_11a <= '0'&(input_manchester(3)&input_manchester(1) xor "11");
+	output_11b <= '0'&(input_manchester(2)&input_manchester(0) xor "11");
 
 end behavior;

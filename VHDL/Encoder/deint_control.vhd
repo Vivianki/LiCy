@@ -21,7 +21,7 @@ use ieee.numeric_std.ALL;
 -- *
 -- *********************************************/
 
-ENTITY interleaver IS 
+ENTITY deint_control IS 
 generic(
   SYMBOL_LENGTH     : integer := 4;
   CODEWORD_LENGTH   : integer := 15; -- 
@@ -35,9 +35,9 @@ PORT(
   enable : IN STD_LOGIC;
   depth : IN STD_LOGIC_VECTOR((DEPTH_LENGTH - 1) DOWNTO 0); -- represent 18 in binary
   clk : IN STD_LOGIC; -- clock.
-  q   : OUT STD_LOGIC_VECTOR((SYMBOL_LENGTH - 1) DOWNTO 0);
-  flushing : OUT STD_LOGIC;
-  finished : OUT STD_LOGIC;
+  addressA   : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+  write_read : OUT STD_LOGIC;
+  flag_deint : OUT STD_LOGIC;
   state: out STD_LOGIC_VECTOR(2 downto 0)
   --mem_sel : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
   --rw : OUT STD_LOGIC;
@@ -45,10 +45,10 @@ PORT(
   --index : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
   --term : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
 );
-END interleaver;
+END deint_control;
 
 
-ARCHITECTURE behavior OF interleaver IS	
+ARCHITECTURE behavior OF deint_control IS	
     --TYPE memory IS ARRAY (0 TO ((MAX_DEPTH * CODEWORD_LENGTH) - 1)) OF STD_LOGIC_VECTOR((SYMBOL_LENGTH - 1) DOWNTO 0);
     type state_type is (s0,s1,s2,s3,s4,s5,s6);  --type of state machine.
     signal current_s: state_type := s0;
@@ -57,38 +57,31 @@ ARCHITECTURE behavior OF interleaver IS
 	 signal data_a_sig : STD_LOGIC_VECTOR (3 DOWNTO 0);
 	 signal wren_a_sig : STD_LOGIC;
 	 signal q_a_sig : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	
-	COMPONENT ram IS
-	PORT
-	(
-		address		: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
-		clock		: IN STD_LOGIC  := '1';
-		data		: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-		wren		: IN STD_LOGIC ;
-		q		: OUT STD_LOGIC_VECTOR (3 DOWNTO 0)
-	);
-	END COMPONENT;
 
+-- comeco bagunca namo
+-- 0 15 1 16 2 17 3 18 _4_ 19 _5_ 20 _6_ 21 posso comecar deint payload
+-- recebendo header s1;s2
+-- counter++
+-- shift_reg(30 downto 0) <= shift_reg(31 downto 1);
+-- length(8downto0) <= shift_reg(6) & shift_reg(4) & shift_reg(2) & ...
+-- if counter > HEADER_LENGTH
+ -- comeca a receber payload real com LENGTH VARIAVEL....
+-- end if;
+-- fim bagunca
 	 
     BEGIN
-	 -- instance memory
-	 ram_inst : ram PORT MAP (
-		address	 => address_a_sig,
-		clock	 		 => clk,
-		data	    => data_a_sig,
-		wren	    => wren_a_sig, -- 1=write 0=read
-		q	       => q_a_sig
-	 );
     -- state change and async reset
     process(clk)
         begin
-		  if (rising_edge(clk)) then
+			if (enable = 0) then
+				current_s <= s0;	
+		  elsif (rising_edge(clk)) then
             current_s <= next_s; -- state change
         end if;
     end process;
     
     -- actual logic
-    process(current_s, enable)
+    process(current_s)
         -- variables
         --variable RAM : memory;
         variable i : integer range 0 to 68; --DEPTH_LENGTH; -- [0,68] (DEPTH_LENGTH)
@@ -100,54 +93,22 @@ ARCHITECTURE behavior OF interleaver IS
 		  variable old_max_t : integer range 0 to 1034 := 0;
         begin
 		  
-		  --rw <= wren_a_sig;
-		  --iterator <= std_logic_vector(to_unsigned(it, 4));
-		  --index <= std_logic_vector(to_unsigned(i, 7));
-		  --term <= std_logic_vector(to_unsigned(t, 10));
-		  --mem_sel <= address_a_sig;
 		  max_t := old_max_t;
 		  flushing <= '0';
 		  
         case current_s is
         -- STATE 0 (INITIALIZE ALL VARIABLES)
         when s0 =>        --when current state is "s0"
-            state <= "000";
-            q <= "0000";
-            finished <= '0';
-            flushing <= '0';
-            i := 0;
-            t := 0;
-            it := 0;
-				max_t := 0;
-				aux1 := '0';
-				old_max_t := 0;
-				
-				-- RAM Stuff
-				aux10 := "0000000000000";
-				address_a_sig <= aux10;
-				data_a_sig <= d;
-				wren_a_sig <= '1';
-				-- END RAM Stuff
-            
-				if (enable = '1') then
-				   next_s <= s1;
-				else
-					next_s <= s0;
-				end if;
+			
+			next_s <= s1;
         -- STATE 1 (STORE INTO RAM AND ITERATE DUAL)
         when s1 =>
             state <= "001";
             if (it < CODEWORD_LENGTH) then -- still valid store
+				write_read <= '1';
 				
-                -- (WRITE) RAM(i + t) := d;
-                aux10 := std_logic_vector(to_unsigned(i + t, 13));
-                address_a_sig <= aux10;
-                data_a_sig <= d;
-                wren_a_sig <= '1'; -- recording may need additional clocks 
-                -- end (WRITE)
-					 
-					 t := t + to_integer(unsigned(depth)); -- fill in horizontally
-                it := it + 1;
+				
+				
                 next_s <= s2; -- sends to dual pair
             else -- no more depths to go
                 if (i < to_integer(unsigned(depth)) - 1) then -- verify if its not last it
@@ -301,5 +262,7 @@ ARCHITECTURE behavior OF interleaver IS
 				next_s <= s0;
         end case;
     end process;
-
+	
+	
+	addressA <= address_a_sig;
 END behavior;

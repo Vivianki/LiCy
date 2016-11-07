@@ -6,80 +6,41 @@ entity shift_register_60b is
     Port ( CLK : in  STD_LOGIC;
            D   : in  STD_LOGIC;
 			  Reset_60b   : in  STD_LOGIC;
-           shift_regiters_values : out STD_LOGIC_VECTOR(59 downto 0));
+			  is_enviando_external : in STD_LOGIC;
+           shift_regiters_values : out STD_LOGIC_VECTOR(169 downto 0);
+			  is_enviando_value : out STD_LOGIC;
+			  reset_reg: out STD_LOGIC);
 end shift_register_60b;
     
 architecture Behavioral of shift_register_60b is
-    signal shift_reg : STD_LOGIC_VECTOR(59 downto 0) := "000000000000000000000000000000000000000000000000000000000000";
+    signal shift_reg : STD_LOGIC_VECTOR(169 downto 0) := "10101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010111101011001000000010100110111111101011001000000010100110111";
+	 signal counter : integer range 0 to 169 := 0;
+	 signal is_enviando : std_logic := '0';
 begin
     -- shift register
     process (CLK, Reset_60b)
     begin
-	    if (Reset_60b = '0') then
-			shift_reg <= "111101011001000000010100110111111101011001000000010100110111";
-		elsif (CLK'event and CLK = '1') then
-					shift_reg(59) <= shift_reg(58);
-					shift_reg(58) <= shift_reg(57);
-					shift_reg(57) <= shift_reg(56);
-					shift_reg(56) <= shift_reg(55);
-					shift_reg(55) <= shift_reg(54);
-					shift_reg(54) <= shift_reg(53);
-					shift_reg(53) <= shift_reg(52);
-					shift_reg(52) <= shift_reg(51);
-					shift_reg(51) <= shift_reg(50);
-					shift_reg(50) <= shift_reg(49);
-					shift_reg(49) <= shift_reg(48);
-					shift_reg(48) <= shift_reg(47);
-					shift_reg(47) <= shift_reg(46);
-					shift_reg(46) <= shift_reg(45);
-					shift_reg(45) <= shift_reg(44);
-					shift_reg(44) <= shift_reg(43);
-					shift_reg(43) <= shift_reg(42);
-					shift_reg(42) <= shift_reg(41);
-					shift_reg(41) <= shift_reg(40);
-					shift_reg(40) <= shift_reg(39);
-					shift_reg(39) <= shift_reg(38);
-					shift_reg(38) <= shift_reg(37);
-					shift_reg(37) <= shift_reg(36);
-					shift_reg(36) <= shift_reg(35);
-					shift_reg(35) <= shift_reg(34);
-					shift_reg(34) <= shift_reg(33);
-					shift_reg(33) <= shift_reg(32);
-					shift_reg(32) <= shift_reg(31);
-					shift_reg(31) <= shift_reg(30);
-					shift_reg(30) <= shift_reg(29);
-					shift_reg(29) <= shift_reg(28);
-					shift_reg(28) <= shift_reg(27);
-					shift_reg(27) <= shift_reg(26);
-					shift_reg(26) <= shift_reg(25);
-					shift_reg(25) <= shift_reg(24);
-					shift_reg(24) <= shift_reg(23);
-					shift_reg(23) <= shift_reg(22);
-					shift_reg(22) <= shift_reg(21);
-					shift_reg(21) <= shift_reg(20);
-					shift_reg(20) <= shift_reg(19);
-					shift_reg(19) <= shift_reg(18);
-					shift_reg(18) <= shift_reg(17);
-					shift_reg(17) <= shift_reg(16);
-					shift_reg(16) <= shift_reg(15);
-					shift_reg(15) <= shift_reg(14);
-					shift_reg(14) <= shift_reg(13);
-					shift_reg(13) <= shift_reg(12);
-					shift_reg(12) <= shift_reg(11);
-					shift_reg(11) <= shift_reg(10);
-					shift_reg(10) <= shift_reg(9);
-					shift_reg(9) <= shift_reg(8);
-					shift_reg(8) <= shift_reg(7);
-					shift_reg(7) <= shift_reg(6);
-					shift_reg(6) <= shift_reg(5);
-					shift_reg(5) <= shift_reg(4);
-					shift_reg(4) <= shift_reg(3);
-					shift_reg(3) <= shift_reg(2);
-					shift_reg(2) <= shift_reg(1);
-					shift_reg(1) <= shift_reg(0);
-					shift_reg(0) <= D;
-end if;
+		if (rising_edge(CLK)) then
+			if (Reset_60b = '0' and is_enviando = '0') then
+				shift_reg <= "10101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010111101011001000000010100110111111101011001000000010100110111";
+				is_enviando <= '0';
+			elsif (Reset_60b = '1' and (is_enviando = '0' OR is_enviando = '1')) then -- flag = 1
+				is_enviando <= '1';
+				counter <= 0; -- count
+				-- shift reg
+				shift_reg(169 downto 1) <= shift_reg(168 downto 0);
+				shift_reg(0) <= D;
+			elsif (Reset_60b = '0' and is_enviando = '1') then
+				counter <= counter + 1;
+				-- shift reg
+				shift_reg(169 downto 1) <= shift_reg(168 downto 0);
+				shift_reg(0) <= D;
+				if (counter > 170) then
+					is_enviando <= '0';
+				end if;
+			end if;
+		end if;
     end process;
     shift_regiters_values <= shift_reg;
-
+	 is_enviando_value <= is_enviando;
 end Behavioral;

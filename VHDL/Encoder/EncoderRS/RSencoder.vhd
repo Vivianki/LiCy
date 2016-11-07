@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Fri Oct 07 18:26:04 2016"
+-- CREATED		"Sun Nov 06 13:30:11 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -28,16 +28,7 @@ ENTITY RSencoder IS
 		Clock_RSencoder :  IN  STD_LOGIC;
 		Initialize_RSencoder :  IN  STD_LOGIC;
 		input_RSencoder :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		control :  OUT  STD_LOGIC;
-		clock_sistema :  OUT  STD_LOGIC;
-		count :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		Output :  OUT  STD_LOGIC_VECTOR(0 TO 3);
-		reg1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		reg2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		reg3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		reg4 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		saida_AND :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		saidaMul :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
+		Output :  OUT  STD_LOGIC_VECTOR(0 TO 3)
 	);
 END RSencoder;
 
@@ -159,14 +150,6 @@ SIGNAL	SYNTHESIZED_WIRE_50 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 BEGIN 
-clock_sistema <= Clock_RSencoder;
-control <= SYNTHESIZED_WIRE_53;
-reg1 <= SYNTHESIZED_WIRE_35;
-reg2 <= SYNTHESIZED_WIRE_43;
-reg3 <= SYNTHESIZED_WIRE_45;
-reg4 <= SYNTHESIZED_WIRE_54;
-saida_AND <= SYNTHESIZED_WIRE_51;
-saidaMul <= SYNTHESIZED_WIRE_7;
 SYNTHESIZED_WIRE_52 <= '1';
 
 
@@ -174,8 +157,7 @@ SYNTHESIZED_WIRE_52 <= '1';
 b2v_inst : sinalcontrole
 PORT MAP(clk => Clock_RSencoder,
 		 reset => Initialize_RSencoder,
-		 control => SYNTHESIZED_WIRE_53,
-		 count => count);
+		 control => SYNTHESIZED_WIRE_53);
 
 
 b2v_inst10 : gf_mult

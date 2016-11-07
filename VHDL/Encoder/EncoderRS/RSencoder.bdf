@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -24,7 +24,7 @@ agreement for further details.
 	(input)
 	(rect 2720 512 2992 528)
 	(text "INPUT" (rect 229 0 270 11)(font "Arial" (font_size 6)))
-	(text "input_RSencoder[3..0]" (rect 5 0 179 14)(font "Arial" ))
+	(text "input_RSencoder[3..0]" (rect 5 0 178 14)(font "Arial" ))
 	(pt 272 8)
 	(drawing
 		(line (pt 188 12)(pt 213 12))
@@ -40,7 +40,7 @@ agreement for further details.
 	(input)
 	(rect -736 368 -512 384)
 	(text "INPUT" (rect 181 0 222 11)(font "Arial" (font_size 6)))
-	(text "Clock_RSencoder" (rect 5 0 129 14)(font "Arial" ))
+	(text "Clock_RSencoder" (rect 5 0 128 14)(font "Arial" ))
 	(pt 224 8)
 	(drawing
 		(line (pt 140 12)(pt 165 12))
@@ -57,7 +57,7 @@ agreement for further details.
 	(input)
 	(rect -528 352 -264 368)
 	(text "INPUT" (rect 221 0 262 11)(font "Arial" (font_size 6)))
-	(text "Initialize_RSencoder" (rect 5 0 171 14)(font "Arial" ))
+	(text "Initialize_RSencoder" (rect 5 0 170 14)(font "Arial" ))
 	(pt 264 8)
 	(drawing
 		(line (pt 180 12)(pt 205 12))
@@ -85,156 +85,6 @@ agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 	(annotation_block (location)(rect 3603 520 3691 552))
-)
-(pin
-	(output)
-	(rect 440 488 626 504)
-	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
-	(text "count[3..0]" (rect 90 0 180 14)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-)
-(pin
-	(output)
-	(rect 552 152 568 328)
-	(text "OUTPUT" (rect 0 128 11 177)(font "Arial" (font_size 6))(vertical))
-	(text "reg2[3..0]" (rect 0 6 14 88)(font "Arial" )(vertical))
-	(pt 8 176)
-	(drawing
-		(line (pt 8 178)(pt 8 126))
-		(line (pt 4 126)(pt 4 100))
-		(line (pt 12 126)(pt 12 100))
-		(line (pt 12 126)(pt 4 126))
-		(line (pt 4 100)(pt 8 96))
-		(line (pt 8 96)(pt 12 100))
-		(line (pt 12 100)(pt 8 96))
-	)
-	(rotate90)
-)
-(pin
-	(output)
-	(rect 1000 152 1016 328)
-	(text "OUTPUT" (rect 0 128 11 177)(font "Arial" (font_size 6))(vertical))
-	(text "reg3[3..0]" (rect 0 6 14 88)(font "Arial" )(vertical))
-	(pt 8 176)
-	(drawing
-		(line (pt 8 178)(pt 8 126))
-		(line (pt 4 126)(pt 4 100))
-		(line (pt 12 126)(pt 12 100))
-		(line (pt 12 126)(pt 4 126))
-		(line (pt 4 100)(pt 8 96))
-		(line (pt 8 96)(pt 12 100))
-		(line (pt 12 100)(pt 8 96))
-	)
-	(rotate90)
-)
-(pin
-	(output)
-	(rect 3096 120 3112 296)
-	(text "OUTPUT" (rect 0 126 11 175)(font "Arial" (font_size 6))(vertical))
-	(text "reg4[3..0]" (rect 1 5 15 87)(font "Arial" )(vertical))
-	(pt 8 176)
-	(drawing
-		(line (pt 8 176)(pt 8 124))
-		(line (pt 4 124)(pt 4 98))
-		(line (pt 12 124)(pt 12 98))
-		(line (pt 12 124)(pt 4 124))
-		(line (pt 4 98)(pt 8 94))
-		(line (pt 8 94)(pt 12 98))
-		(line (pt 12 98)(pt 8 94))
-	)
-	(rotate90)
-)
-(pin
-	(output)
-	(rect -88 520 88 536)
-	(text "OUTPUT" (rect 128 5 177 16)(font "Arial" (font_size 6)))
-	(text "reg1[3..0]" (rect 6 2 88 16)(font "Arial" ))
-	(pt 176 8)
-	(drawing
-		(line (pt 178 8)(pt 126 8))
-		(line (pt 126 12)(pt 100 12))
-		(line (pt 126 4)(pt 100 4))
-		(line (pt 126 4)(pt 126 12))
-		(line (pt 100 12)(pt 96 8))
-		(line (pt 96 8)(pt 100 4))
-		(line (pt 100 4)(pt 96 8))
-	)
-	(rotate180)
-)
-(pin
-	(output)
-	(rect -64 0 155 16)
-	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
-	(text "saida_AND[3..0]" (rect 90 0 213 14)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-)
-(pin
-	(output)
-	(rect -48 248 163 264)
-	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
-	(text "saidaMul[3..0]" (rect 90 0 205 14)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-)
-(pin
-	(output)
-	(rect 2968 368 2984 544)
-	(text "OUTPUT" (rect 0 126 11 175)(font "Arial" (font_size 6))(vertical))
-	(text "control" (rect 0 5 14 62)(font "Arial" )(vertical))
-	(pt 8 176)
-	(drawing
-		(line (pt 8 176)(pt 8 124))
-		(line (pt 4 124)(pt 4 98))
-		(line (pt 12 124)(pt 12 98))
-		(line (pt 12 124)(pt 4 124))
-		(line (pt 4 98)(pt 8 94))
-		(line (pt 8 94)(pt 12 98))
-		(line (pt 12 98)(pt 8 94))
-	)
-	(rotate90)
-)
-(pin
-	(output)
-	(rect -184 176 -168 376)
-	(text "OUTPUT" (rect 0 150 11 199)(font "Arial" (font_size 6))(vertical))
-	(text "clock_sistema" (rect 0 5 14 112)(font "Arial" )(vertical))
-	(pt 8 200)
-	(drawing
-		(line (pt 8 200)(pt 8 148))
-		(line (pt 4 148)(pt 4 122))
-		(line (pt 12 148)(pt 12 122))
-		(line (pt 12 148)(pt 4 148))
-		(line (pt 4 122)(pt 8 118))
-		(line (pt 8 118)(pt 12 122))
-		(line (pt 12 122)(pt 8 118))
-	)
-	(rotate90)
 )
 (symbol
 	(rect 168 280 320 360)
@@ -1462,53 +1312,13 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 544 328)
-	(pt 560 328)
-	(bus)
-)
-(connector
-	(pt 560 328)
-	(pt 616 328)
-	(bus)
-)
-(connector
 	(pt 776 328)
 	(pt 848 328)
 	(bus)
 )
 (connector
-	(pt 1072 328)
-	(pt 1008 328)
-	(bus)
-)
-(connector
-	(pt 1008 328)
-	(pt 1000 328)
-	(bus)
-)
-(connector
 	(pt 1232 320)
 	(pt 1304 320)
-	(bus)
-)
-(connector
-	(pt 88 528)
-	(pt 136 528)
-	(bus)
-)
-(connector
-	(pt 136 528)
-	(pt 136 328)
-	(bus)
-)
-(connector
-	(pt 120 328)
-	(pt 136 328)
-	(bus)
-)
-(connector
-	(pt 136 328)
-	(pt 168 328)
 	(bus)
 )
 (connector
@@ -1518,21 +1328,6 @@ agreement for further details.
 )
 (connector
 	(pt -32 328)
-	(pt -64 328)
-	(bus)
-)
-(connector
-	(pt -64 256)
-	(pt -48 256)
-	(bus)
-)
-(connector
-	(pt -64 168)
-	(pt -64 256)
-	(bus)
-)
-(connector
-	(pt -64 256)
 	(pt -64 328)
 	(bus)
 )
@@ -1962,21 +1757,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt -248 48)
-	(pt -64 48)
-	(bus)
-)
-(connector
-	(pt -64 48)
-	(pt -8 48)
-	(bus)
-)
-(connector
-	(pt -64 8)
-	(pt -64 48)
-	(bus)
-)
-(connector
 	(pt 3352 336)
 	(pt 3352 376)
 )
@@ -2011,20 +1791,8 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 448 544)
-	(pt 2976 544)
-)
-(connector
-	(pt 2976 544)
-	(pt 3144 544)
-)
-(connector
 	(pt 3144 544)
 	(pt 3168 544)
-)
-(connector
-	(pt -176 376)
-	(pt -32 376)
 )
 (connector
 	(pt -32 376)
@@ -2046,12 +1814,41 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt -512 376)
-	(pt -176 376)
-)
-(connector
 	(pt -264 360)
 	(pt -64 360)
+)
+(connector
+	(pt 1000 328)
+	(pt 1072 328)
+	(bus)
+)
+(connector
+	(pt 544 328)
+	(pt 616 328)
+	(bus)
+)
+(connector
+	(pt -512 376)
+	(pt -32 376)
+)
+(connector
+	(pt 448 544)
+	(pt 3144 544)
+)
+(connector
+	(pt -64 168)
+	(pt -64 328)
+	(bus)
+)
+(connector
+	(pt -248 48)
+	(pt -8 48)
+	(bus)
+)
+(connector
+	(pt 120 328)
+	(pt 168 328)
+	(bus)
 )
 (junction (pt -8 48))
 (junction (pt -32 360))
@@ -2065,11 +1862,6 @@ agreement for further details.
 (junction (pt -32 344))
 (junction (pt 280 376))
 (junction (pt -64 360))
-(junction (pt 560 328))
-(junction (pt 1008 328))
-(junction (pt 136 328))
-(junction (pt -64 48))
-(junction (pt -64 256))
 (junction (pt 832 32))
 (junction (pt 352 32))
 (junction (pt 1312 344))
@@ -2090,6 +1882,4 @@ agreement for further details.
 (junction (pt 1968 32))
 (junction (pt 2360 32))
 (junction (pt 3144 544))
-(junction (pt 2976 544))
-(junction (pt -176 376))
 (junction (pt 3112 520))

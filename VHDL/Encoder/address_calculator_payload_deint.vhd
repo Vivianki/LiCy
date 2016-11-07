@@ -11,7 +11,7 @@ port(
 	depth: in std_logic_vector(6 downto 0);
 	shift_depth: in std_logic_vector(6 downto 0);
 	count:	out std_logic_vector(12 downto 0);
-	iterator_out: out  std_logic_vector(3 downto 0);
+	iterator_out: out  std_logic_vector(6 downto 0);
 	carry:	out std_logic 
 );
 end address_calculator_payload_deint;
@@ -33,7 +33,7 @@ begin
 		if enable = '0' then
 			Pre_Q := "0000000011110";
 			carry <= '0';
-			iterator <= "0000";
+			iterator <= "0000000";
 		elsif (rising_edge(clock)) then
 			if (iterator = (depth - 1)) then
 				Pre_Q := Pre_Q + "000000001111";

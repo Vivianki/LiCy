@@ -1,0 +1,170 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 248 352)
+	(text "synchro" (rect 5 0 38 12)(font "Arial" ))
+	(text "inst" (rect 8 320 20 332)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock_counter" (rect 0 0 55 12)(font "Arial" ))
+		(text "clock_counter" (rect 21 27 76 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "input_synchro" (rect 0 0 56 12)(font "Arial" ))
+		(text "input_synchro" (rect 21 43 77 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "clock_generated" (rect 0 0 64 12)(font "Arial" ))
+		(text "clock_generated" (rect 147 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 1))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "input" (rect 0 0 17 12)(font "Arial" ))
+		(text "input" (rect 194 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 1))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "count1s" (rect 0 0 29 12)(font "Arial" ))
+		(text "count1s" (rect 182 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 1))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "count0s" (rect 0 0 30 12)(font "Arial" ))
+		(text "count0s" (rect 181 75 211 87)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80)(line_width 1))
+	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "sinal_analizado" (rect 0 0 56 12)(font "Arial" ))
+		(text "sinal_analizado" (rect 155 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96)(line_width 1))
+	)
+	(port
+		(pt 232 112)
+		(output)
+		(text "regs1" (rect 0 0 21 12)(font "Arial" ))
+		(text "regs1" (rect 190 107 211 119)(font "Arial" ))
+		(line (pt 232 112)(pt 216 112)(line_width 1))
+	)
+	(port
+		(pt 232 128)
+		(output)
+		(text "regs0" (rect 0 0 22 12)(font "Arial" ))
+		(text "regs0" (rect 189 123 211 135)(font "Arial" ))
+		(line (pt 232 128)(pt 216 128)(line_width 1))
+	)
+	(port
+		(pt 232 144)
+		(output)
+		(text "input_dos_sr" (rect 0 0 51 12)(font "Arial" ))
+		(text "input_dos_sr" (rect 160 139 211 151)(font "Arial" ))
+		(line (pt 232 144)(pt 216 144)(line_width 1))
+	)
+	(port
+		(pt 232 160)
+		(output)
+		(text "flp" (rect 0 0 9 12)(font "Arial" ))
+		(text "flp" (rect 202 155 211 167)(font "Arial" ))
+		(line (pt 232 160)(pt 216 160)(line_width 1))
+	)
+	(port
+		(pt 232 176)
+		(output)
+		(text "out_400h2z" (rect 0 0 46 12)(font "Arial" ))
+		(text "out_400h2z" (rect 165 171 211 183)(font "Arial" ))
+		(line (pt 232 176)(pt 216 176)(line_width 1))
+	)
+	(port
+		(pt 232 192)
+		(output)
+		(text "out_4001hz" (rect 0 0 44 12)(font "Arial" ))
+		(text "out_4001hz" (rect 167 187 211 199)(font "Arial" ))
+		(line (pt 232 192)(pt 216 192)(line_width 1))
+	)
+	(port
+		(pt 232 208)
+		(output)
+		(text "rst_shift_regs" (rect 0 0 56 12)(font "Arial" ))
+		(text "rst_shift_regs" (rect 155 203 211 215)(font "Arial" ))
+		(line (pt 232 208)(pt 216 208)(line_width 1))
+	)
+	(port
+		(pt 232 224)
+		(output)
+		(text "clock50MHz" (rect 0 0 48 12)(font "Arial" ))
+		(text "clock50MHz" (rect 163 219 211 231)(font "Arial" ))
+		(line (pt 232 224)(pt 216 224)(line_width 1))
+	)
+	(port
+		(pt 232 240)
+		(output)
+		(text "antes_reg[9..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "antes_reg[9..0]" (rect 151 235 211 247)(font "Arial" ))
+		(line (pt 232 240)(pt 216 240)(line_width 3))
+	)
+	(port
+		(pt 232 256)
+		(output)
+		(text "antes_regs[9..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "antes_regs[9..0]" (rect 147 251 211 263)(font "Arial" ))
+		(line (pt 232 256)(pt 216 256)(line_width 3))
+	)
+	(port
+		(pt 232 272)
+		(output)
+		(text "in_shift_regs[99..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "in_shift_regs[99..0]" (rect 135 267 211 279)(font "Arial" ))
+		(line (pt 232 272)(pt 216 272)(line_width 3))
+	)
+	(port
+		(pt 232 288)
+		(output)
+		(text "pos_reg[9..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "pos_reg[9..0]" (rect 158 283 211 295)(font "Arial" ))
+		(line (pt 232 288)(pt 216 288)(line_width 3))
+	)
+	(port
+		(pt 232 304)
+		(output)
+		(text "pos_regs[9..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "pos_regs[9..0]" (rect 154 299 211 311)(font "Arial" ))
+		(line (pt 232 304)(pt 216 304)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 320)(line_width 1))
+	)
+)
