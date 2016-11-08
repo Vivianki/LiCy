@@ -16,7 +16,7 @@ begin
 	process (Clk, Rst)
 	begin
 		if Rst = '1' then
-			ClkDiv2_i <= '0';
+			ClkDiv2_i <= '1';
 		elsif rising_edge(Clk) then   -- rising clock edge
 			ClkDiv2_i <= not ClkDiv2_i;
 		end if;

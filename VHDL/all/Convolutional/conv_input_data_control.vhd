@@ -18,7 +18,7 @@ begin   process(Clock,Reset)
          temp <= "0000";
 			load <= '1';
       elsif(rising_edge(Clock)) then
-	    if temp="0111" then
+	    if temp="1111" then
 	       temp<="0000";
 			 load <= '1';
 	    elsif temp ="0000" then

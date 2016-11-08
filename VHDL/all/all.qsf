@@ -48,7 +48,6 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
@@ -120,4 +119,16 @@ set_global_assignment -name VHDL_FILE Synchro/scale_clock.vhd
 set_global_assignment -name VHDL_FILE Synchro/flp_detector.vhd
 set_global_assignment -name VHDL_FILE Synchro/CounterWEnable.vhd
 set_global_assignment -name VHDL_FILE Synchro/synchro.vhd
+set_global_assignment -name VHDL_FILE Synchro/shift_register_60b.vhd
+set_global_assignment -name VHDL_FILE Synchro/tdp_detector.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/adder.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/branch_metrics.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/comparev2.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/mux4x1_3b.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/register1b_viterbi.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/register6b_viterbi.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/sipo.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/trellisTablev2.vhd
+set_global_assignment -name VHDL_FILE flag_reg.vhd
+set_global_assignment -name VHDL_FILE ViterbiDecoder/viterbiv2.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

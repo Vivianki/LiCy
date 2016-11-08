@@ -18,7 +18,7 @@ begin
 	process (Clk, Rst)
 	begin
 		if Rst = '1' then
-			ClkDiv125_i <= '0';
+			ClkDiv125_i <= '1';
 			prescaler <= "0000000";
 		elsif rising_edge(Clk) then   -- rising clock edge
 			if prescaler = "1111101" then     -- 125

@@ -18,7 +18,7 @@ begin
 	begin
 		if Rst = '1' then
 			prescaler <= "000";
-			ClkDiv4_i <= '0';
+			ClkDiv4_i <= '1';
 		elsif rising_edge(Clk) then
 			if (prescaler = "001") then
 				prescaler <= prescaler + "1";
