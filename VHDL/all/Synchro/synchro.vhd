@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sun Nov 06 22:53:57 2016"
+-- CREATED		"Fri Nov 11 22:46:04 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -42,7 +42,7 @@ ENTITY synchro IS
 		clock50MHz :  OUT  STD_LOGIC;
 		antes_reg :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0);
 		antes_regs :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0);
-		in_shift_regs :  OUT  STD_LOGIC_VECTOR(99 DOWNTO 0);
+		FLP_OUT :  OUT  STD_LOGIC_VECTOR(100 DOWNTO 0);
 		pos_reg :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0);
 		pos_regs :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
@@ -55,12 +55,6 @@ COMPONENT mux_2to1_sync
 		 A : IN STD_LOGIC;
 		 B : IN STD_LOGIC;
 		 X : OUT STD_LOGIC
-	);
-END COMPONENT;
-
-COMPONENT flp_detector
-	PORT(entrada : IN STD_LOGIC_VECTOR(99 DOWNTO 0);
-		 flp_detect : OUT STD_LOGIC
 	);
 END COMPONENT;
 
@@ -78,11 +72,9 @@ COMPONENT scale_clock_400khz
 	);
 END COMPONENT;
 
-COMPONENT shiftreg100b
-	PORT(CLK : IN STD_LOGIC;
-		 D : IN STD_LOGIC;
-		 Reset_100b : IN STD_LOGIC;
-		 shift_regiters_values : OUT STD_LOGIC_VECTOR(99 DOWNTO 0)
+COMPONENT flp_detector
+	PORT(entrada : IN STD_LOGIC_VECTOR(199 DOWNTO 0);
+		 flp_detect : OUT STD_LOGIC
 	);
 END COMPONENT;
 
@@ -90,6 +82,14 @@ COMPONENT scale_clock
 	PORT(clk_50Mhz : IN STD_LOGIC;
 		 rst : IN STD_LOGIC;
 		 clk_200kHz : OUT STD_LOGIC
+	);
+END COMPONENT;
+
+COMPONENT shiftreg200b
+	PORT(CLK : IN STD_LOGIC;
+		 D : IN STD_LOGIC;
+		 Reset_200b : IN STD_LOGIC;
+		 shift_regiters_values : OUT STD_LOGIC_VECTOR(199 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -111,9 +111,9 @@ END COMPONENT;
 
 SIGNAL	A :  STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL	B :  STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL	C :  STD_LOGIC_VECTOR(99 DOWNTO 0);
 SIGNAL	D :  STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL	E :  STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL	flprs :  STD_LOGIC_VECTOR(199 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
@@ -125,9 +125,9 @@ SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC;
@@ -136,12 +136,12 @@ SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC;
 BEGIN 
 input <= input_synchro;
 clock50MHz <= clock_counter;
-sinal_analizado <= SYNTHESIZED_WIRE_11;
-input_dos_sr <= SYNTHESIZED_WIRE_12;
+sinal_analizado <= SYNTHESIZED_WIRE_12;
+input_dos_sr <= SYNTHESIZED_WIRE_13;
 flp <= SYNTHESIZED_WIRE_10;
 out_400h2z <= SYNTHESIZED_WIRE_2;
 out_4001hz <= SYNTHESIZED_WIRE_1;
-rst_shift_regs <= SYNTHESIZED_WIRE_13;
+rst_shift_regs <= SYNTHESIZED_WIRE_14;
 SYNTHESIZED_WIRE_20 <= '0';
 
 
@@ -150,14 +150,14 @@ b2v_inst : mux_2to1_sync
 PORT MAP(SEL => SYNTHESIZED_WIRE_0,
 		 A => SYNTHESIZED_WIRE_1,
 		 B => SYNTHESIZED_WIRE_2,
-		 X => SYNTHESIZED_WIRE_11);
+		 X => SYNTHESIZED_WIRE_12);
 
 
 SYNTHESIZED_WIRE_16 <= NOT(input_synchro);
 
 
 
-SYNTHESIZED_WIRE_13 <= SYNTHESIZED_WIRE_3 OR SYNTHESIZED_WIRE_4;
+SYNTHESIZED_WIRE_14 <= SYNTHESIZED_WIRE_3 OR SYNTHESIZED_WIRE_4;
 
 
 SYNTHESIZED_WIRE_5 <= NOT(input_synchro);
@@ -170,12 +170,7 @@ SYNTHESIZED_WIRE_6 <= NOT(D(7) AND input_synchro);
 SYNTHESIZED_WIRE_7 <= E(7) AND SYNTHESIZED_WIRE_5;
 
 
-SYNTHESIZED_WIRE_12 <= SYNTHESIZED_WIRE_6 OR SYNTHESIZED_WIRE_7;
-
-
-b2v_inst2 : flp_detector
-PORT MAP(entrada => C,
-		 flp_detect => SYNTHESIZED_WIRE_10);
+SYNTHESIZED_WIRE_13 <= SYNTHESIZED_WIRE_6 OR SYNTHESIZED_WIRE_7;
 
 
 b2v_inst20 : shift_register_3b
@@ -196,6 +191,11 @@ PORT MAP(clk_50Mhz => clock_counter,
 		 clk_400kHz => SYNTHESIZED_WIRE_2);
 
 
+b2v_inst23 : flp_detector
+PORT MAP(entrada => flprs,
+		 flp_detect => SYNTHESIZED_WIRE_10);
+
+
 SYNTHESIZED_WIRE_9 <= NOT(input_synchro);
 
 
@@ -210,17 +210,17 @@ SYNTHESIZED_WIRE_0 <= NOT(input_synchro);
 SYNTHESIZED_WIRE_19 <= input_synchro AND SYNTHESIZED_WIRE_10;
 
 
-b2v_inst3 : shiftreg100b
-PORT MAP(CLK => SYNTHESIZED_WIRE_11,
-		 D => SYNTHESIZED_WIRE_12,
-		 Reset_100b => SYNTHESIZED_WIRE_13,
-		 shift_regiters_values => C);
-
-
 b2v_inst35 : scale_clock
 PORT MAP(clk_50Mhz => clock_counter,
 		 rst => SYNTHESIZED_WIRE_19,
 		 clk_200kHz => clock_generated);
+
+
+b2v_inst4 : shiftreg200b
+PORT MAP(CLK => SYNTHESIZED_WIRE_12,
+		 D => SYNTHESIZED_WIRE_13,
+		 Reset_200b => SYNTHESIZED_WIRE_14,
+		 shift_regiters_values => flprs);
 
 
 b2v_inst41 : counterwenable
@@ -261,7 +261,7 @@ regs1 <= E(7);
 regs0 <= D(7);
 antes_reg <= A;
 antes_regs <= B;
-in_shift_regs <= C;
+FLP_OUT(100 DOWNTO 0) <= flprs(100 DOWNTO 0);
 pos_reg <= E;
 pos_regs <= D;
 

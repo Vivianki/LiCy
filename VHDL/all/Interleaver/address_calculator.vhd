@@ -25,7 +25,7 @@ architecture behv of address_calculator is
 	
 begin
 
-	process(clock, enable)
+	process(clock, enable, shift_depth)
 	variable Pre_Q: std_logic_vector(12 downto 0);
 	variable Pre_Q2: std_logic_vector(12 downto 0);
 	begin	

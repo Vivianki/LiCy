@@ -32,7 +32,7 @@ begin
 				Pre_Q <= Pre_Q + 1;
 				carry <= '0';
 			else
-				Pre_Q <= "0000000";
+				Pre_Q <= "0001110";
 				carry <= '1';		
 			end if;
 		end if;

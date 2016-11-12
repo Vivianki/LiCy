@@ -51,9 +51,6 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
@@ -61,7 +58,9 @@ set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH rs_encoder_test
 set_global_assignment -name EDA_TEST_BENCH_NAME rs_encoder_testbench -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id rs_encoder_testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME all_enc -section_id rs_encoder_testbench
-set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/rs_encoder_testbench.vht -section_id rs_encoder_testbench
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VHDL_FILE all_enc.vhd
 set_global_assignment -name VHDL_FILE ClockDividers/DivideClockBy125.vhd
 set_global_assignment -name VHDL_FILE ClockDividers/DivideClockBy4.vhd
@@ -98,6 +97,11 @@ set_global_assignment -name VHDL_FILE Interleaver/depth_counter_payload.vhd
 set_global_assignment -name VHDL_FILE Interleaver/depth_counter.vhd
 set_global_assignment -name VHDL_FILE Interleaver/address_calculator_payload.vhd
 set_global_assignment -name VHDL_FILE Interleaver/address_calculator.vhd
+set_global_assignment -name VHDL_FILE Interleaver/address_calculator_header_deint.vhd
+set_global_assignment -name VHDL_FILE Interleaver/address_calculator_payload_deint.vhd
+set_global_assignment -name VHDL_FILE Interleaver/deinterleaver_vai.vhd
+set_global_assignment -name VHDL_FILE Interleaver/static_15_deint.vhd
+set_global_assignment -name VHDL_FILE Interleaver/mux_2to1_deint.vhd
 set_global_assignment -name VHDL_FILE Interleaver/Interleaver.vhd
 set_global_assignment -name VHDL_FILE Convolutional/xor5x1.vhd
 set_global_assignment -name VHDL_FILE Convolutional/D_FF_VHDL.vhd
@@ -109,9 +113,7 @@ set_global_assignment -name VHDL_FILE Convolutional/manchester_encoder.vhd
 set_global_assignment -name VHDL_FILE Convolutional/conv_input_data_control2.vhd
 set_global_assignment -name VHDL_FILE Convolutional/conv_input_data_control.vhd
 set_global_assignment -name VHDL_FILE Convolutional/encCCencoder.vhd
-set_global_assignment -name VHDL_FILE AddFLP_TDP.vhd
 set_global_assignment -name VHDL_FILE Synchro/register1.vhd
-set_global_assignment -name VHDL_FILE Synchro/shiftreg100b.vhd
 set_global_assignment -name VHDL_FILE Synchro/shift_register_3b.vhd
 set_global_assignment -name VHDL_FILE Synchro/mux_2to1_sync.vhd
 set_global_assignment -name VHDL_FILE Synchro/scale_clock_400kHZ.vhd
@@ -120,6 +122,7 @@ set_global_assignment -name VHDL_FILE Synchro/flp_detector.vhd
 set_global_assignment -name VHDL_FILE Synchro/CounterWEnable.vhd
 set_global_assignment -name VHDL_FILE Synchro/synchro.vhd
 set_global_assignment -name VHDL_FILE Synchro/shift_register_60b.vhd
+set_global_assignment -name VHDL_FILE Synchro/shiftreg200b.vhd
 set_global_assignment -name VHDL_FILE Synchro/tdp_detector.vhd
 set_global_assignment -name VHDL_FILE ViterbiDecoder/adder.vhd
 set_global_assignment -name VHDL_FILE ViterbiDecoder/branch_metrics.vhd
@@ -129,6 +132,9 @@ set_global_assignment -name VHDL_FILE ViterbiDecoder/register1b_viterbi.vhd
 set_global_assignment -name VHDL_FILE ViterbiDecoder/register6b_viterbi.vhd
 set_global_assignment -name VHDL_FILE ViterbiDecoder/sipo.vhd
 set_global_assignment -name VHDL_FILE ViterbiDecoder/trellisTablev2.vhd
-set_global_assignment -name VHDL_FILE flag_reg.vhd
 set_global_assignment -name VHDL_FILE ViterbiDecoder/viterbiv2.vhd
+set_global_assignment -name VHDL_FILE AddFLP_TDP.vhd
+set_global_assignment -name VHDL_FILE flag_reg.vhd
+set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/all_enc.vht -section_id rs_encoder_testbench
+set_global_assignment -name VHDL_FILE Interleaver/register13b_deinterleaver.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -102,7 +102,7 @@ agreement for further details.
 )
 (pin
 	(bidir)
-	(rect 2016 128 2277 144)
+	(rect 2424 96 2685 112)
 	(text "BIDIR" (rect 1 0 42 11)(font "Arial" (font_size 6)))
 	(text "viterbi_output[3..0]" (rect 90 0 255 14)(font "Arial" ))
 	(pt 0 8)
@@ -513,7 +513,7 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 1872 104 2016 184)
+	(rect 2008 104 2152 184)
 	(text "sipo" (rect 5 0 38 14)(font "Arial" ))
 	(text "inst11" (rect 8 64 57 78)(font "Arial" ))
 	(port
@@ -564,23 +564,6 @@ agreement for further details.
 		(line (pt 13 7)(pt 31 16))
 		(line (pt 13 25)(pt 31 16))
 		(circle (rect 31 12 39 20))
-	)
-)
-(symbol
-	(rect 1856 40 1888 72)
-	(text "GND" (rect 8 16 32 27)(font "Arial" (font_size 6)))
-	(text "inst17" (rect 3 21 52 35)(font "Arial" )(invisible))
-	(port
-		(pt 16 0)
-		(output)
-		(text "1" (rect 18 0 23 14)(font "Courier New" (bold))(invisible))
-		(text "1" (rect 18 0 23 14)(font "Courier New" (bold))(invisible))
-		(line (pt 16 8)(pt 16 0))
-	)
-	(drawing
-		(line (pt 8 8)(pt 16 16))
-		(line (pt 16 16)(pt 24 8))
-		(line (pt 8 8)(pt 24 8))
 	)
 )
 (symbol
@@ -660,6 +643,60 @@ agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 104 96))
+	)
+)
+(symbol
+	(rect 1888 16 1936 48)
+	(text "NOT" (rect 1 0 25 11)(font "Arial" (font_size 6)))
+	(text "inst1" (rect 3 21 44 35)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 21)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 21)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 21)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 21)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
+)
+(symbol
+	(rect 2264 72 2424 152)
+	(text "shift_register_4b" (rect 5 0 145 14)(font "Arial" ))
+	(text "inst15" (rect 8 64 57 78)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK" (rect 0 0 24 14)(font "Arial" ))
+		(text "CLK" (rect 21 27 45 41)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "D[3..0]" (rect 0 0 57 14)(font "Arial" ))
+		(text "D[3..0]" (rect 21 43 78 57)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "Q[3..0]" (rect 0 0 57 14)(font "Arial" ))
+		(text "Q[3..0]" (rect 91 27 148 41)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 64))
 	)
 )
 (connector
@@ -1043,36 +1080,48 @@ agreement for further details.
 	(pt 1872 -168)
 )
 (connector
+	(pt 1872 16)
+	(pt 1936 16)
+)
+(connector
+	(pt 1848 136)
+	(pt 1848 48)
+)
+(connector
+	(pt 1848 48)
+	(pt 1936 48)
+)
+(connector
 	(pt 1872 -168)
 	(pt 1872 16)
 )
 (connector
 	(pt 1872 16)
-	(pt 1936 16)
-)
-(connector
-	(pt 1872 40)
 	(pt 1872 32)
 )
 (connector
 	(pt 1872 32)
-	(pt 1936 32)
-)
-(connector
-	(pt 1848 136)
-	(pt 1848 48)
+	(pt 1888 32)
 )
 (connector
 	(pt 1832 136)
 	(pt 1848 136)
 )
 (connector
-	(pt 1848 136)
-	(pt 1872 136)
+	(pt 1832 152)
+	(pt 1832 224)
 )
 (connector
-	(pt 1848 48)
-	(pt 1936 48)
+	(pt 2000 152)
+	(pt 2000 224)
+)
+(connector
+	(pt 2008 152)
+	(pt 2000 152)
+)
+(connector
+	(pt 1832 224)
+	(pt 2000 224)
 )
 (connector
 	(pt 1744 152)
@@ -1080,7 +1129,38 @@ agreement for further details.
 )
 (connector
 	(pt 1824 152)
-	(pt 1872 152)
+	(pt 1832 152)
+)
+(connector
+	(pt 1992 104)
+	(pt 1992 136)
+)
+(connector
+	(pt 1992 104)
+	(pt 2264 104)
+)
+(connector
+	(pt 1848 136)
+	(pt 1992 136)
+)
+(connector
+	(pt 1992 136)
+	(pt 2008 136)
+)
+(connector
+	(pt 2152 136)
+	(pt 2232 136)
+	(bus)
+)
+(connector
+	(pt 2232 136)
+	(pt 2232 120)
+	(bus)
+)
+(connector
+	(pt 2232 120)
+	(pt 2264 120)
+	(bus)
 )
 (junction (pt 1136 112))
 (junction (pt 1152 160))
@@ -1090,3 +1170,5 @@ agreement for further details.
 (junction (pt 632 -32))
 (junction (pt 1848 136))
 (junction (pt 1824 152))
+(junction (pt 1872 16))
+(junction (pt 1992 136))

@@ -10,26 +10,26 @@ architecture Behavioral of PHR_PSDU is
   type mem is array ( 0 to 20) of std_logic_vector(3 downto 0);
   constant my_rom : mem := (
 		0 => "1000",
-		1 => "0000",
-		2 => "0000",
-		3 => "0000",
-		4 => "0000",
-		5 => "0000",
+		1 => "0000", -- era tudo 0
+		2 => "0000", -- era tudo 0
+		3 => "0000", -- era tudo 0
+		4 => "0000", -- era tudo 0
+		5 => "0000", -- era tudo 0
 		6 => "0100",
-		7 => "0000",
-		8 => "0000",
-		9 => "0000",
-		10 => "0000",
-		11 => "0000",
-		12 => "0000",
-		13 => "0000",
+		7 => "0000", -- era tudo 0
+		8 => "0000", -- era tudo 0
+		9 => "0000", -- era tudo 0
+		10 => "0000", -- era tudo 0
+		11 => "0000", -- era tudo 0
+		12 => "0000", -- era tudo 0
+		13 => "0000", -- era tudo 0
 		14 => "0100",
 		15 => "0110",
-		16 => "0000",
-		17 => "0000",
-		18 => "0000",
-		19 => "0000",
-		20 => "0000");
+		16 => "0000", -- era tudo 0
+		17 => "0000", -- era tudo 0
+		18 => "0000", -- era tudo 0
+		19 => "0000", -- era tudo 0
+		20 => "0000"); -- era tudo 0
 	begin
 		process (address)
 		begin

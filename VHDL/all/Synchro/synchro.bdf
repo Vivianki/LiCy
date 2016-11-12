@@ -160,7 +160,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 1520 360 1696 376)
+	(rect 1584 400 1760 416)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
 	(text "regs0" (rect 90 0 131 14)(font "Arial" ))
 	(pt 0 8)
@@ -308,7 +308,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 2224 272 2240 483)
+	(rect 2224 328 2240 539)
 	(text "OUTPUT" (rect 5 1 16 50)(font "Arial" (font_size 6))(vertical))
 	(text "rst_shift_regs" (rect 2 90 16 205)(font "Arial" )(vertical))
 	(pt 8 0)
@@ -342,9 +342,9 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 2528 192 2789 208)
+	(rect 2560 224 2779 240)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
-	(text "in_shift_regs[99..0]" (rect 90 0 255 14)(font "Arial" ))
+	(text "FLP_OUT[100..0]" (rect 90 0 213 14)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -955,64 +955,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 2544 256 2736 336)
-	(text "flp_detector" (rect 5 0 104 14)(font "Arial" ))
-	(text "inst2" (rect 8 64 49 78)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "entrada[99..0]" (rect 0 0 115 14)(font "Arial" ))
-		(text "entrada[99..0]" (rect 21 27 136 41)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 192 32)
-		(output)
-		(text "flp_detect" (rect 0 0 82 14)(font "Arial" ))
-		(text "flp_detect" (rect 102 27 184 41)(font "Arial" ))
-		(line (pt 192 32)(pt 176 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 176 64))
-	)
-)
-(symbol
-	(rect 2240 200 2496 312)
-	(text "shiftreg100b" (rect 5 0 104 14)(font "Arial" ))
-	(text "inst3" (rect 8 96 49 110)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "CLK" (rect 0 0 24 14)(font "Arial" ))
-		(text "CLK" (rect 21 27 45 41)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "D" (rect 0 0 8 14)(font "Arial" ))
-		(text "D" (rect 21 43 29 57)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "Reset_100b" (rect 0 0 82 14)(font "Arial" ))
-		(text "Reset_100b" (rect 21 59 103 73)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 256 32)
-		(output)
-		(text "shift_regiters_values[99..0]" (rect 0 0 231 14)(font "Arial" ))
-		(text "shift_regiters_values[99..0]" (rect 40 27 271 41)(font "Arial" ))
-		(line (pt 256 32)(pt 240 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 240 96))
-	)
-)
-(symbol
 	(rect 2056 320 2184 432)
 	(text "mux_2to1_sync" (rect 5 0 112 14)(font "Arial" ))
 	(text "inst" (rect 8 96 41 110)(font "Arial" ))
@@ -1046,6 +988,64 @@ agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 112 96))
+	)
+)
+(symbol
+	(rect 2240 200 2504 312)
+	(text "shiftreg200b" (rect 5 0 104 14)(font "Arial" ))
+	(text "inst4" (rect 8 96 49 110)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK" (rect 0 0 24 14)(font "Arial" ))
+		(text "CLK" (rect 21 27 45 41)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "D" (rect 0 0 8 14)(font "Arial" ))
+		(text "D" (rect 21 43 29 57)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "Reset_200b" (rect 0 0 82 14)(font "Arial" ))
+		(text "Reset_200b" (rect 21 59 103 73)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "shift_regiters_values[199..0]" (rect 0 0 239 14)(font "Arial" ))
+		(text "shift_regiters_values[199..0]" (rect 41 27 280 41)(font "Arial" ))
+		(line (pt 264 32)(pt 248 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 248 96))
+	)
+)
+(symbol
+	(rect 2544 256 2744 336)
+	(text "flp_detector" (rect 5 0 104 14)(font "Arial" ))
+	(text "inst23" (rect 8 64 57 78)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "entrada[199..0]" (rect 0 0 123 14)(font "Arial" ))
+		(text "entrada[199..0]" (rect 21 27 144 41)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 200 32)
+		(output)
+		(text "flp_detect" (rect 0 0 82 14)(font "Arial" ))
+		(text "flp_detect" (rect 110 27 192 41)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 184 64))
 	)
 )
 (connector
@@ -1082,15 +1082,6 @@ agreement for further details.
 	(pt 1216 328)
 )
 (connector
-	(pt 2544 288)
-	(pt 2520 288)
-	(bus)
-)
-(connector
-	(pt 2736 288)
-	(pt 2776 288)
-)
-(connector
 	(pt 616 232)
 	(pt 616 320)
 )
@@ -1115,10 +1106,6 @@ agreement for further details.
 	(pt 2160 264)
 )
 (connector
-	(pt 2240 272)
-	(pt 2240 264)
-)
-(connector
 	(text "A[0]" (rect 1064 90 1078 123)(font "Arial" )(vertical))
 	(pt 1080 128)
 	(pt 1080 88)
@@ -1127,14 +1114,6 @@ agreement for further details.
 	(text "B[0]" (rect 1064 282 1078 315)(font "Arial" )(vertical))
 	(pt 1080 320)
 	(pt 1080 280)
-)
-(connector
-	(pt 1520 336)
-	(pt 1560 336)
-)
-(connector
-	(pt 1520 336)
-	(pt 1520 368)
 )
 (connector
 	(pt 1056 184)
@@ -1287,14 +1266,6 @@ agreement for further details.
 (connector
 	(pt 1712 128)
 	(pt 1712 144)
-)
-(connector
-	(pt 1688 320)
-	(pt 1560 320)
-)
-(connector
-	(pt 1560 320)
-	(pt 1560 336)
 )
 (connector
 	(pt 1688 160)
@@ -1564,14 +1535,6 @@ agreement for further details.
 	(pt 1992 384)
 )
 (connector
-	(pt 2224 272)
-	(pt 2232 272)
-)
-(connector
-	(pt 2232 272)
-	(pt 2240 272)
-)
-(connector
 	(text "E[7]" (rect 1522 84 1536 117)(font "Arial" )(vertical))
 	(pt 1544 128)
 	(pt 1544 88)
@@ -1580,11 +1543,6 @@ agreement for further details.
 	(text "D[8]" (rect 1487 401 1501 434)(font "Arial" )(vertical))
 	(pt 1504 288)
 	(pt 1504 440)
-)
-(connector
-	(text "D[7]" (rect 1542 296 1556 329)(font "Arial" )(vertical))
-	(pt 1560 288)
-	(pt 1560 320)
 )
 (connector
 	(pt 576 128)
@@ -1597,21 +1555,6 @@ agreement for further details.
 (connector
 	(pt 416 336)
 	(pt 696 336)
-)
-(connector
-	(pt 2520 200)
-	(pt 2528 200)
-	(bus)
-)
-(connector
-	(pt 2496 232)
-	(pt 2520 232)
-	(bus)
-)
-(connector
-	(pt 2520 200)
-	(pt 2520 232)
-	(bus)
 )
 (connector
 	(pt 1472 288)
@@ -1635,9 +1578,62 @@ agreement for further details.
 	(pt 1488 128)
 )
 (connector
-	(text "C[99..0]" (rect 2504 222 2518 288)(font "Arial" )(vertical))
+	(pt 2744 288)
+	(pt 2776 288)
+)
+(connector
+	(pt 2224 272)
+	(pt 2232 272)
+)
+(connector
+	(pt 2240 264)
+	(pt 2232 264)
+)
+(connector
+	(pt 2232 264)
+	(pt 2232 272)
+)
+(connector
+	(pt 2232 272)
+	(pt 2232 328)
+)
+(connector
+	(pt 1560 320)
+	(pt 1688 320)
+)
+(connector
+	(pt 1560 408)
+	(pt 1584 408)
+)
+(connector
+	(text "D[7]" (rect 1542 296 1556 329)(font "Arial" )(vertical))
+	(pt 1560 288)
+	(pt 1560 320)
+)
+(connector
+	(pt 1560 320)
+	(pt 1560 408)
+)
+(connector
+	(text "flprs[199..0]" (rect 2503 242 2517 349)(font "Arial" )(vertical))
 	(pt 2520 232)
 	(pt 2520 288)
+	(bus)
+)
+(connector
+	(pt 2544 288)
+	(pt 2520 288)
+	(bus)
+)
+(connector
+	(pt 2504 232)
+	(pt 2520 232)
+	(bus)
+)
+(connector
+	(text "flprs[100..0]" (rect 2536 200 2643 214)(font "Arial" ))
+	(pt 2520 232)
+	(pt 2560 232)
 	(bus)
 )
 (junction (pt 616 232))
