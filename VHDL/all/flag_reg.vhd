@@ -18,7 +18,7 @@ begin
 	if clr = '1' then 
 		q_signal <= '0';
 	elsif rising_edge(clk) then 
-			q_signal <= '1'; 
+		q_signal <= '1'; 
 	end if; 
 end process; 
 	q <= q_signal;

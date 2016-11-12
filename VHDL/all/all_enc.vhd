@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sat Nov 12 02:24:16 2016"
+-- CREATED		"Sat Nov 12 18:59:36 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -44,18 +44,6 @@ ENTITY all_enc IS
 		is_enviando_value :  OUT  STD_LOGIC;
 		reset_reg :  OUT  STD_LOGIC;
 		clock_generated :  OUT  STD_LOGIC;
-		input :  OUT  STD_LOGIC;
-		count1s :  OUT  STD_LOGIC;
-		count0s :  OUT  STD_LOGIC;
-		sinal_analizado :  OUT  STD_LOGIC;
-		regs1 :  OUT  STD_LOGIC;
-		regs0 :  OUT  STD_LOGIC;
-		input_dos_sr :  OUT  STD_LOGIC;
-		flp :  OUT  STD_LOGIC;
-		out_400h2z :  OUT  STD_LOGIC;
-		out_4001hz :  OUT  STD_LOGIC;
-		rst_shift_regs :  OUT  STD_LOGIC;
-		clock50MHz12 :  OUT  STD_LOGIC;
 		encoder_output :  OUT  STD_LOGIC;
 		flag_viterbi :  OUT  STD_LOGIC;
 		viterbi_clock :  OUT  STD_LOGIC;
@@ -78,27 +66,34 @@ ENTITY all_enc IS
 		start_flushing :  OUT  STD_LOGIC;
 		Flag_4 :  OUT  STD_LOGIC;
 		finished_flushing :  OUT  STD_LOGIC;
-		address_calc :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
+		pin_name1 :  OUT  STD_LOGIC;
+		erroro :  OUT  STD_LOGIC;
+		pin_name2 :  OUT  STD_LOGIC;
+		pin_name3 :  OUT  STD_LOGIC;
+		pin_name4 :  OUT  STD_LOGIC;
+		pin_name5 :  OUT  STD_LOGIC;
+		reset_1 :  OUT  STD_LOGIC;
+		reset_2 :  OUT  STD_LOGIC;
+		reset_3 :  OUT  STD_LOGIC;
+		reset_4 :  OUT  STD_LOGIC;
+		erroro2 :  OUT  STD_LOGIC;
+		erroro3 :  OUT  STD_LOGIC;
+		erroro4 :  OUT  STD_LOGIC;
 		address_interleaver :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
 		address_sel :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
 		address_sel_payload :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
-		addtdp_counter :  OUT  STD_LOGIC_VECTOR(8 DOWNTO 0);
-		antes_reg :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0);
-		antes_regs :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0);
+		Decod_1 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		Decod_2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		Decod_3 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		Decod_4 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		depth_count :  OUT  STD_LOGIC_VECTOR(6 DOWNTO 0);
 		depth_count_payload :  OUT  STD_LOGIC_VECTOR(6 DOWNTO 0);
-		flush_count :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
 		input_deint_heade :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		InputPayload :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		InputSR2 :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		iterator_sig :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		iterator_sig_payload :  OUT  STD_LOGIC_VECTOR(6 DOWNTO 0);
 		Output :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Output_Interlv :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Output_Interlv_Aux :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Output_PHR_PSDU :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		pos_reg :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0);
-		pos_regs :  OUT  STD_LOGIC_VECTOR(9 DOWNTO 0);
 		q_b :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		RSOutput :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		viterbi_input :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
@@ -288,6 +283,26 @@ COMPONENT synchro
 	);
 END COMPONENT;
 
+COMPONENT rsintegration
+	PORT(Clock : IN STD_LOGIC;
+		 Reset : IN STD_LOGIC;
+		 Input : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 pin_name1 : OUT STD_LOGIC;
+		 erroro : OUT STD_LOGIC;
+		 Decod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT reset_rsdecoder
+	PORT(Clk : IN STD_LOGIC;
+		 enable : IN STD_LOGIC;
+		 rst_rsdecoder1 : OUT STD_LOGIC;
+		 rst_rsdecoder2 : OUT STD_LOGIC;
+		 rst_rsdecoder3 : OUT STD_LOGIC;
+		 rst_rsdecoder4 : OUT STD_LOGIC
+	);
+END COMPONENT;
+
 COMPONENT counter_phr_psdu
 	PORT(Clk : IN STD_LOGIC;
 		 Flag : IN STD_LOGIC;
@@ -306,76 +321,90 @@ END COMPONENT;
 SIGNAL	I :  STD_LOGIC_VECTOR(59 DOWNTO 0);
 SIGNAL	K :  STD_LOGIC_VECTOR(59 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC_VECTOR(4 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_59 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_60 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_61 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_76 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_77 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_78 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_62 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_79 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_63 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_80 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_64 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_81 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_65 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_82 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC_VECTOR(0 TO 3);
-SIGNAL	SYNTHESIZED_WIRE_66 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_67 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_83 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_84 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_26 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_28 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_68 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_85 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_31 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_33 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_34 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_36 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_69 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_86 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_40 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_43 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_46 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_50 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_57 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_52 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_87 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_88 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_58 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_61 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_64 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_67 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_73 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_74 :  STD_LOGIC;
 
 
 BEGIN 
-Clk200kHz <= SYNTHESIZED_WIRE_68;
-Clk100kHz <= SYNTHESIZED_WIRE_59;
-Clk25kH <= SYNTHESIZED_WIRE_61;
-Clk25D4kHz <= SYNTHESIZED_WIRE_60;
+Clk200kHz <= SYNTHESIZED_WIRE_85;
+Clk100kHz <= SYNTHESIZED_WIRE_76;
+Clk25kH <= SYNTHESIZED_WIRE_78;
+Clk25D4kHz <= SYNTHESIZED_WIRE_77;
 Flag_2 <= SYNTHESIZED_WIRE_4;
 flag_shift_reg <= SYNTHESIZED_WIRE_34;
 OutputManchester <= SYNTHESIZED_WIRE_10;
-clock_generated <= SYNTHESIZED_WIRE_63;
-encoder_output <= SYNTHESIZED_WIRE_66;
+clock_generated <= SYNTHESIZED_WIRE_80;
+encoder_output <= SYNTHESIZED_WIRE_83;
 flag_viterbi <= SYNTHESIZED_WIRE_46;
-viterbi_clock <= SYNTHESIZED_WIRE_65;
+viterbi_clock <= SYNTHESIZED_WIRE_82;
 flag_viterbi_input <= SYNTHESIZED_WIRE_24;
 tdp_detected <= SYNTHESIZED_WIRE_14;
-manchester_decoder_clock <= SYNTHESIZED_WIRE_67;
+manchester_decoder_clock <= SYNTHESIZED_WIRE_84;
 manchester_decoder_output <= SYNTHESIZED_WIRE_22;
-clock_deint <= SYNTHESIZED_WIRE_62;
+clock_deint <= SYNTHESIZED_WIRE_79;
+Flag_4 <= SYNTHESIZED_WIRE_67;
+pin_name5 <= SYNTHESIZED_WIRE_87;
+reset_1 <= SYNTHESIZED_WIRE_87;
+reset_2 <= SYNTHESIZED_WIRE_58;
+reset_3 <= SYNTHESIZED_WIRE_61;
+reset_4 <= SYNTHESIZED_WIRE_64;
+Output <= SYNTHESIZED_WIRE_52;
 Output_Interlv <= SYNTHESIZED_WIRE_5;
-Output_PHR_PSDU <= SYNTHESIZED_WIRE_57;
+Output_PHR_PSDU <= SYNTHESIZED_WIRE_73;
 RSOutput(3 DOWNTO 0) <= SYNTHESIZED_WIRE_18(0 TO 3);
 viterbi_input <= SYNTHESIZED_WIRE_26;
 SYNTHESIZED_WIRE_13 <= '0';
-SYNTHESIZED_WIRE_69 <= '0';
+SYNTHESIZED_WIRE_86 <= '0';
 
 
 
 b2v_inst : phr_psdu
 PORT MAP(address => SYNTHESIZED_WIRE_0,
-		 Q => SYNTHESIZED_WIRE_57);
+		 Q => SYNTHESIZED_WIRE_73);
 
 
 b2v_inst1 : encccencoder
-PORT MAP(clock_100kHz => SYNTHESIZED_WIRE_59,
-		 clock_igual_interleaver_50D4 => SYNTHESIZED_WIRE_60,
-		 clock_50kHz => SYNTHESIZED_WIRE_61,
+PORT MAP(clock_100kHz => SYNTHESIZED_WIRE_76,
+		 clock_igual_interleaver_50D4 => SYNTHESIZED_WIRE_77,
+		 clock_50kHz => SYNTHESIZED_WIRE_78,
 		 Flag => SYNTHESIZED_WIRE_4,
 		 Input_CCencoder => SYNTHESIZED_WIRE_5,
 		 so => so,
@@ -388,7 +417,7 @@ PORT MAP(clock_100kHz => SYNTHESIZED_WIRE_59,
 
 b2v_inst10 : deinterleaver_vai
 PORT MAP(Flag => SYNTHESIZED_WIRE_6,
-		 Clock => SYNTHESIZED_WIRE_62,
+		 Clock => SYNTHESIZED_WIRE_79,
 		 Input => viterbi_output,
 		 Input_payload => SYNTHESIZED_WIRE_8,
 		 readWrite => readWrite,
@@ -401,25 +430,20 @@ PORT MAP(Flag => SYNTHESIZED_WIRE_6,
 		 depth_counter_carry2 => depth_counter_carry2,
 		 enable_flush2 => enable_flush2,
 		 start_flushing => start_flushing,
-		 Flag_2 => Flag_4,
+		 Flag_2 => SYNTHESIZED_WIRE_67,
 		 finished_flushing => finished_flushing,
-		 address_calc => address_calc,
 		 address_sel => address_sel,
 		 address_sel_payload => address_sel_payload,
 		 depth_count => depth_count,
 		 depth_count_payload => depth_count_payload,
-		 flush_count => flush_count,
 		 input_deint_heade => input_deint_heade,
 		 InputPayload => InputPayload,
-		 InputSR2 => InputSR2,
-		 iterator_sig => iterator_sig,
-		 iterator_sig_payload => iterator_sig_payload,
-		 Output => Output,
+		 Output => SYNTHESIZED_WIRE_52,
 		 q_b => q_b);
 
 
 b2v_inst12 : shift_register_60b
-PORT MAP(CLK => SYNTHESIZED_WIRE_63,
+PORT MAP(CLK => SYNTHESIZED_WIRE_80,
 		 D => K(59),
 		 Q => I);
 
@@ -434,9 +458,9 @@ SYNTHESIZED_WIRE_33 <= NOT(SYNTHESIZED_WIRE_10);
 
 
 b2v_inst15 : divideclockby2
-PORT MAP(Clk => SYNTHESIZED_WIRE_63,
-		 Rst => SYNTHESIZED_WIRE_64,
-		 ClkDiv2 => SYNTHESIZED_WIRE_67);
+PORT MAP(Clk => SYNTHESIZED_WIRE_80,
+		 Rst => SYNTHESIZED_WIRE_81,
+		 ClkDiv2 => SYNTHESIZED_WIRE_84);
 
 
 b2v_inst16 : flag_reg
@@ -446,14 +470,14 @@ PORT MAP(clr => SYNTHESIZED_WIRE_13,
 
 
 b2v_inst17 : divideclockby4
-PORT MAP(Clk => SYNTHESIZED_WIRE_65,
-		 Rst => SYNTHESIZED_WIRE_64,
+PORT MAP(Clk => SYNTHESIZED_WIRE_82,
+		 Rst => SYNTHESIZED_WIRE_81,
 		 ClkDiv4 => SYNTHESIZED_WIRE_40);
 
 
 b2v_inst18 : interleaver
 PORT MAP(Flag => Flag,
-		 Clock => SYNTHESIZED_WIRE_60,
+		 Clock => SYNTHESIZED_WIRE_77,
 		 InputIntrlv => SYNTHESIZED_WIRE_18,
 		 Flag_2 => SYNTHESIZED_WIRE_4,
 		 address_interlaver => address_interleaver,
@@ -462,19 +486,19 @@ PORT MAP(Flag => Flag,
 
 
 b2v_inst19 : shift_register_60b
-PORT MAP(CLK => SYNTHESIZED_WIRE_63,
-		 D => SYNTHESIZED_WIRE_66,
+PORT MAP(CLK => SYNTHESIZED_WIRE_80,
+		 D => SYNTHESIZED_WIRE_83,
 		 Q => K);
 
 
 b2v_inst2 : divideclockby125
 PORT MAP(Clk => Clock50MHz,
 		 Rst => reset_clock,
-		 ClkDiv125 => SYNTHESIZED_WIRE_68);
+		 ClkDiv125 => SYNTHESIZED_WIRE_85);
 
 
 b2v_inst20 : sipo
-PORT MAP(clk => SYNTHESIZED_WIRE_67,
+PORT MAP(clk => SYNTHESIZED_WIRE_84,
 		 si => SYNTHESIZED_WIRE_22,
 		 po => SYNTHESIZED_WIRE_28);
 
@@ -482,18 +506,18 @@ PORT MAP(clk => SYNTHESIZED_WIRE_67,
 
 b2v_inst22 : tdp_detector
 PORT MAP(entrada => K,
-		 tdp_detect => SYNTHESIZED_WIRE_64);
+		 tdp_detect => SYNTHESIZED_WIRE_81);
 
 
 b2v_inst23 : manchester_encoder
-PORT MAP(clk => SYNTHESIZED_WIRE_67,
+PORT MAP(clk => SYNTHESIZED_WIRE_84,
 		 D => I(0),
-		 Q => SYNTHESIZED_WIRE_58);
+		 Q => SYNTHESIZED_WIRE_74);
 
 
 b2v_inst25 : viterbiv2
 PORT MAP(flag => SYNTHESIZED_WIRE_24,
-		 clk => SYNTHESIZED_WIRE_65,
+		 clk => SYNTHESIZED_WIRE_82,
 		 input_manchester => SYNTHESIZED_WIRE_26,
 		 viterbi_output => viterbi_output,
 		 flag_viterbi => SYNTHESIZED_WIRE_46,
@@ -502,128 +526,162 @@ PORT MAP(flag => SYNTHESIZED_WIRE_24,
 
 
 b2v_inst28 : shift_register_4b
-PORT MAP(CLK => SYNTHESIZED_WIRE_67,
+PORT MAP(CLK => SYNTHESIZED_WIRE_84,
 		 D => SYNTHESIZED_WIRE_28,
 		 Q => SYNTHESIZED_WIRE_31);
 
 
 b2v_inst3 : divideclockby2
-PORT MAP(Clk => SYNTHESIZED_WIRE_68,
+PORT MAP(Clk => SYNTHESIZED_WIRE_85,
 		 Rst => reset_clock,
-		 ClkDiv2 => SYNTHESIZED_WIRE_59);
+		 ClkDiv2 => SYNTHESIZED_WIRE_76);
 
 
 b2v_inst30 : shift_register_4b
-PORT MAP(CLK => SYNTHESIZED_WIRE_67,
+PORT MAP(CLK => SYNTHESIZED_WIRE_84,
 		 D => SYNTHESIZED_WIRE_31,
 		 Q => SYNTHESIZED_WIRE_26);
 
 
 b2v_inst31 : addflp_tdp
-PORT MAP(CLK => SYNTHESIZED_WIRE_68,
+PORT MAP(CLK => SYNTHESIZED_WIRE_85,
 		 D => SYNTHESIZED_WIRE_33,
 		 Reset_60b => SYNTHESIZED_WIRE_34,
 		 is_enviando_external => is_enviando_external,
 		 is_enviando => is_enviando_value,
 		 reset_reg => reset_reg,
-		 last_reg => SYNTHESIZED_WIRE_66,
-		 tdp_counter => addtdp_counter);
+		 last_reg => SYNTHESIZED_WIRE_83);
 
 
 b2v_inst32 : shift_register_4b
-PORT MAP(CLK => SYNTHESIZED_WIRE_65,
+PORT MAP(CLK => SYNTHESIZED_WIRE_82,
 		 D => viterbi_output,
 		 Q => SYNTHESIZED_WIRE_50);
 
 
 b2v_inst33 : register1b_viterbi
 PORT MAP(d => SYNTHESIZED_WIRE_36,
-		 clr => SYNTHESIZED_WIRE_69,
-		 clk => SYNTHESIZED_WIRE_63,
-		 q => SYNTHESIZED_WIRE_65);
+		 clr => SYNTHESIZED_WIRE_86,
+		 clk => SYNTHESIZED_WIRE_80,
+		 q => SYNTHESIZED_WIRE_82);
 
 
 b2v_inst34 : synchro
 PORT MAP(clock_counter => Clock50MHz,
-		 input_synchro => SYNTHESIZED_WIRE_66,
-		 clock_generated => SYNTHESIZED_WIRE_63,
-		 input => input,
-		 count1s => count1s,
-		 count0s => count0s,
-		 sinal_analizado => sinal_analizado,
-		 regs1 => regs1,
-		 regs0 => regs0,
-		 input_dos_sr => input_dos_sr,
-		 flp => flp,
-		 out_400h2z => out_400h2z,
-		 out_4001hz => out_4001hz,
-		 rst_shift_regs => rst_shift_regs,
-		 clock50MHz => clock50MHz12,
-		 antes_reg => antes_reg,
-		 antes_regs => antes_regs,
-		 pos_reg => pos_reg,
-		 pos_regs => pos_regs);
+		 input_synchro => SYNTHESIZED_WIRE_83,
+		 clock_generated => SYNTHESIZED_WIRE_80);
 
 
 b2v_inst35 : register1b_viterbi
 PORT MAP(d => SYNTHESIZED_WIRE_40,
-		 clr => SYNTHESIZED_WIRE_69,
-		 clk => SYNTHESIZED_WIRE_65,
+		 clr => SYNTHESIZED_WIRE_86,
+		 clk => SYNTHESIZED_WIRE_82,
 		 q => SYNTHESIZED_WIRE_43);
 
 
 b2v_inst36 : register1b_viterbi
 PORT MAP(d => SYNTHESIZED_WIRE_43,
-		 clr => SYNTHESIZED_WIRE_69,
-		 clk => SYNTHESIZED_WIRE_65,
-		 q => SYNTHESIZED_WIRE_62);
+		 clr => SYNTHESIZED_WIRE_86,
+		 clk => SYNTHESIZED_WIRE_82,
+		 q => SYNTHESIZED_WIRE_79);
 
 
 b2v_inst37 : register1b_viterbi
 PORT MAP(d => SYNTHESIZED_WIRE_46,
-		 clr => SYNTHESIZED_WIRE_69,
-		 clk => SYNTHESIZED_WIRE_62,
+		 clr => SYNTHESIZED_WIRE_86,
+		 clk => SYNTHESIZED_WIRE_79,
 		 q => SYNTHESIZED_WIRE_6);
 
 
 b2v_inst38 : shift_register_4b
-PORT MAP(CLK => SYNTHESIZED_WIRE_65,
+PORT MAP(CLK => SYNTHESIZED_WIRE_82,
 		 D => SYNTHESIZED_WIRE_50,
 		 Q => SYNTHESIZED_WIRE_8);
 
 
+b2v_inst39 : shift_register_4b
+PORT MAP(CLK => SYNTHESIZED_WIRE_79,
+		 D => SYNTHESIZED_WIRE_52,
+		 Q => SYNTHESIZED_WIRE_88);
+
+
 b2v_inst4 : divideclockby4
-PORT MAP(Clk => SYNTHESIZED_WIRE_59,
+PORT MAP(Clk => SYNTHESIZED_WIRE_76,
 		 Rst => reset_clock,
-		 ClkDiv4 => SYNTHESIZED_WIRE_61);
+		 ClkDiv4 => SYNTHESIZED_WIRE_78);
+
+
+b2v_inst40 : rsintegration
+PORT MAP(Clock => SYNTHESIZED_WIRE_79,
+		 Reset => SYNTHESIZED_WIRE_87,
+		 Input => SYNTHESIZED_WIRE_88,
+		 pin_name1 => pin_name1,
+		 erroro => erroro,
+		 Decod => Decod_1);
+
+
+b2v_inst41 : rsintegration
+PORT MAP(Clock => SYNTHESIZED_WIRE_79,
+		 Reset => SYNTHESIZED_WIRE_58,
+		 Input => SYNTHESIZED_WIRE_88,
+		 pin_name1 => pin_name2,
+		 erroro => erroro2,
+		 Decod => Decod_2);
+
+
+b2v_inst42 : rsintegration
+PORT MAP(Clock => SYNTHESIZED_WIRE_79,
+		 Reset => SYNTHESIZED_WIRE_61,
+		 Input => SYNTHESIZED_WIRE_88,
+		 pin_name1 => pin_name3,
+		 erroro => erroro3,
+		 Decod => Decod_3);
+
+
+b2v_inst43 : rsintegration
+PORT MAP(Clock => SYNTHESIZED_WIRE_79,
+		 Reset => SYNTHESIZED_WIRE_64,
+		 Input => SYNTHESIZED_WIRE_88,
+		 pin_name1 => pin_name4,
+		 erroro => erroro4,
+		 Decod => Decod_4);
+
+
+b2v_inst45 : reset_rsdecoder
+PORT MAP(Clk => SYNTHESIZED_WIRE_79,
+		 enable => SYNTHESIZED_WIRE_67,
+		 rst_rsdecoder1 => SYNTHESIZED_WIRE_87,
+		 rst_rsdecoder2 => SYNTHESIZED_WIRE_58,
+		 rst_rsdecoder3 => SYNTHESIZED_WIRE_61,
+		 rst_rsdecoder4 => SYNTHESIZED_WIRE_64);
 
 
 b2v_inst5 : divideclockby4
-PORT MAP(Clk => SYNTHESIZED_WIRE_61,
+PORT MAP(Clk => SYNTHESIZED_WIRE_78,
 		 Rst => reset_clock,
-		 ClkDiv4 => SYNTHESIZED_WIRE_60);
+		 ClkDiv4 => SYNTHESIZED_WIRE_77);
 
 
 b2v_inst6 : divideclockby4
-PORT MAP(Clk => SYNTHESIZED_WIRE_67,
-		 Rst => SYNTHESIZED_WIRE_64,
+PORT MAP(Clk => SYNTHESIZED_WIRE_84,
+		 Rst => SYNTHESIZED_WIRE_81,
 		 ClkDiv4 => SYNTHESIZED_WIRE_36);
 
 
 b2v_inst7 : counter_phr_psdu
-PORT MAP(Clk => SYNTHESIZED_WIRE_60,
+PORT MAP(Clk => SYNTHESIZED_WIRE_77,
 		 Flag => Flag,
 		 Q => SYNTHESIZED_WIRE_0);
 
 
 b2v_inst8 : rsencoder
-PORT MAP(Clk => SYNTHESIZED_WIRE_60,
+PORT MAP(Clk => SYNTHESIZED_WIRE_77,
 		 Flag => Flag,
-		 InputRS => SYNTHESIZED_WIRE_57,
+		 InputRS => SYNTHESIZED_WIRE_73,
 		 OutputRS => SYNTHESIZED_WIRE_18);
 
 
-SYNTHESIZED_WIRE_22 <= NOT(SYNTHESIZED_WIRE_58);
+SYNTHESIZED_WIRE_22 <= NOT(SYNTHESIZED_WIRE_74);
 
 
 manchester_decoder_input <= I(0);

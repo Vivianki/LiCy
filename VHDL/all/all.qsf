@@ -61,6 +61,7 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME all_enc -section_id rs_en
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/all_enc.vht -section_id rs_encoder_testbench
 set_global_assignment -name VHDL_FILE all_enc.vhd
 set_global_assignment -name VHDL_FILE ClockDividers/DivideClockBy125.vhd
 set_global_assignment -name VHDL_FILE ClockDividers/DivideClockBy4.vhd
@@ -135,6 +136,38 @@ set_global_assignment -name VHDL_FILE ViterbiDecoder/trellisTablev2.vhd
 set_global_assignment -name VHDL_FILE ViterbiDecoder/viterbiv2.vhd
 set_global_assignment -name VHDL_FILE AddFLP_TDP.vhd
 set_global_assignment -name VHDL_FILE flag_reg.vhd
-set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/all_enc.vht -section_id rs_encoder_testbench
 set_global_assignment -name VHDL_FILE Interleaver/register13b_deinterleaver.vhd
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/SyndromeController.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_0_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_1_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_2_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_3_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_4_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_6_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_8_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_11_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_12_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/static_15_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/register4b_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/gf_sum_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/gf_mult_decoder.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/Syndrome.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/MessageController.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/Syn8x4.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/berlekamp_counter.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/BerlekampController.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/gf_inv.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/Berlekamp_Massey.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/mux2x1.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/BerleMas.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/Forney.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/error_detector.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/ChienController.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/ChienSearchValue.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/ChienSearchLocation.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/Chien.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/siso.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/ChienForney.vhd"
+set_global_assignment -name VHDL_FILE "Reed Solomon decoder/RSIntegration.vhd"
+set_global_assignment -name VHDL_FILE reset_rsdecoder.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
