@@ -5,6 +5,45 @@
 % ---
 	\chapter{Execução}\label{cap-execucao}
 	
+	\section{Arquitetura}
+	
+	\subsection{Codificador}
+	
+	Conforme apontado no capítulo de Metodologia, a arquitetura do codificador Reed Solomon foi construída para um código (15, 7), portanto contando com 8 registradores em série. Os multiplicadores foram feitos com uma tabela,  que recebe duas entradas e retorna uma saída, de maneira a simplificar o trabalho de fazer uma função utilizando lógica combinatória. Já os somadores são equivalentes à função de OU exclusivo, ou XOR, com duas entradas e uma saída de 4 bits cada - ou seja, um símbolo. Além destes, os módulos básicos ainda compreendem um multiplexador, que seleciona um entre dois símbolos.
+	
+	Diagrama do codificador
+	
+	O comportamento de codificação de uma mensagem pode ser exemplificado pela seguinte simulação, onde se observa a entrada de uma mensagem de 7 símbolos e a saída de um bloco de 15 símbolos, sendo 8 de paridade.	
+	
+	 
+	\subsection{Decodificador}
+	
+	A arquitetura do decodificador segue o diagrama funcional da figura X do capítulo de Metologia. Desta forma, o desenvolvimento pode ser separado em quatro partes principais, apresentadas a seguir.
+	
+	Cálculo das Síndromes
+	
+	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso.
+	
+	*diagrama de cálculo das síndromes*
+	
+	A simulação a seguir representa o caso em que existem erros na mensagem codificada, o que é indicado por síndromes diferentes de 0000.
+	
+	*simulação das síndromes*
+	
+	Módulo de Berlekamp-Massey
+	
+	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados então, com as síndromes e localizações de erro.
+	
+	Diagrama do módulo
+	
+	Simulação
+	
+	 
+	
+	
+	
+	
+	
 	\section{Medidas}
 	
 	\subsection{Taxa máxima de transferência de dados}
