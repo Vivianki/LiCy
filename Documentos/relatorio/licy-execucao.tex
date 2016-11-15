@@ -5,14 +5,79 @@
 % ---
 	\chapter{Execução}\label{cap-execucao}
 	
-	\section{Medidas}
+	% ---
+	\section{Hardware - Analógico}
+	% ---
+	\subsection{Transmissor}
+	\subsubsection{Conversor Digital-Analógico}
+		 Os requisitos para o transistor de potência realizando transmissão via luz são:
+
+		\begin{itemize}
+			\item Tensão de base/gate compatível com 3.3V;
+			\item Corrente de saída compatível com LED de alta potência, no mínimo 750mA;
+			\item Resposta de base/gate a $V_{on(FPGA)}$ de no máximo 1us;
+		\end{itemize}
+		
+		Alguns dos parâmetros são decisões de projeto, como a utilização de níveis TTL para chaveamento do transistor (3.3V ou 5V), e também requisitos da norma IEEE, como frequência de operação a 200kHz (nesse caso deseja-se um transistor com $T_{rise}$ e $T_{fall}$ de no mínimo 10-100 vezes menor que o período da onda transmitida - no caso $5\mu$$s/100 = 50ns$).
+		O componente escolhido foi um MOSFET de Potência, mais especificamente o IRLZ14, pois é um transistor de nível lógico, então tem o GATE compatível com voltagens de microcontrolador. 
+		
+		\begin{figure}[htb]
+			\caption{\label{fig_transfer_carac_irlz14} Características de transferência do MOSFET de potência IRLZ14.}
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[page=3, width=0.7\textwidth, trim={12cm 16.5cm 2.2cm 5cm}, clip]{circuits/irlz14.pdf}
+			\legend{Fonte: Vishay Siliconix.}
+		\end{figure}
 	
-	\subsection{Taxa máxima de transferência de dados}
+		De acordo com função de transferência da \autoref{fig_transfer_carac_irlz14}, a VGS=3.3V ele permite corrente de dreno de 2A. A datasheet também especifica parâmetros de resposta dinâmica do circuito, como seu $T_{rise}$, $T_{fall}$, que estão disponibilizados na tabela abaixo.
+		
+		\begin{table}[ht]
+			\caption{Características Dinâmicas do MOSFET IRLZ14}
+			\centering
+			\begin{tabular}{c c}
+				\hline
+				Parâmetro  & Valor  \\ \hline
+				$T_{rise}$ & 110 ns \\
+				$T_{fall}$ & 26 ns  \\ \hline
+			\end{tabular}
+			\label{tab_irlz14_timing}
+			\legend{Fonte: Vishay Siliconix.}
+		\end{table}
 	
-	\subsection{Bit Error Rate}
+		O circuito proposto é 
+
+	\subsubsection{Transmissão de Luz}
+		
+		Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. O LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento.
+		
+%		\begin{figure}[htb]
+%			\caption{\label{fig_pulse_handling_led} Gráfico da capacidade de manuseio de pulso do LED LUW-W5AM. D: Duty Cycle, Ts = 25 C}
+%			\centering									%  trim={<left> <lower> <right> <upper>} 
+%			\includegraphics[page=15, width=0.5\textwidth, trim={2.5cm 4.6cm 11.5cm 15.6cm}, clip]{circuits/led_luw_w5am.pdf}
+%			\legend{Fonte: OSRAM LUW W5AM Datasheet.}
+%		\end{figure}
+
+		 a frequências altas com alta corrente são necessários cuidados especiais para projetar um circuito que oscila corretamente de acordo com o sistema de chaveamento anterior.
+		
+	\subsection{Receptor}
+	\subsubsection{Recepção Luminosa}
+		
+		A photodiode is a semiconductor device that converts light into current. The current is generated when photons are absorbed in the photodiode. A small amount of current is also produced when no light is present. Photodiodes may contain optical filters, built-in lenses, and may have large or small surface areas. Photodiodes usually have a slower response time as their surface area increases. The common, traditional solar cell used to generate electric solar power is a large area photodiode.
+		
+		Photodiodes are similar to regular semiconductor diodes except that they may be either exposed (to detect vacuum UV or X-rays) or packaged with a window or optical fiber connection to allow light to reach the sensitive part of the device. Many diodes designed for use specifically as a photodiode use a PIN junction rather than a p–n junction, to increase the speed of response. A photodiode is designed to operate in reverse bias.[1]
+
+%		https://www.aptechnologies.co.uk/images/img/ODC/PV_and_PC_Modes.png
+		
+		
+	\subsubsection{Amplificador de Transimpedância}
 	
-	\subsection{Outra medida}
+	\subsubsection{Conversor Analógico-Digital}
 	
-	\section{Duty Cycle}
+	% ---
+	\section{Hardware - Digital}
+	% ---
+	\subsection{Codificador}
 	
-	\section{Circuito do Projeto}
+	\subsection{Decodificador}
+	
+	\section{Software}
+		Com os dados codificados, enviados via luz, recebidos via luz e decodificados, é possível realizar 
