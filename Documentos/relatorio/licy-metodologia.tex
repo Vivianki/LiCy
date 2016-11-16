@@ -140,51 +140,79 @@
 	
 	Os códigos Reed Solomon são compostos por símbolos de mais de um bit. O número de erros é considerado como sendo o total de símbolos com pelo menos um bit com erro. Isso o torna efetivo para corrigir erros em rajadas, já que uma sequência de bits errados dentro de um mesmo símbolo é considerada como apenas um erro. 
 	
-	Os principais parâmetros de um código Reed Solomon são (n, k), onde n é o número de símbolos de um bloco de código e k é o tamanho da mensagem em número de símbolos. Portanto, o bloco terá n - k símbolos de paridade, usualmente designados como 2t, sendo que a capacidade de correção é de até t símbolos.
+	Os principais parâmetros de um código Reed Solomon são $(n, k)$, onde $n$ é o número de símbolos de um bloco de código e $k$ é o tamanho da mensagem em número de símbolos. Portanto, o bloco terá $n - k$ símbolos de paridade, usualmente designados como $2t$, sendo que a capacidade de correção é de até $t$ símbolos.
 	
-	Galois Fields
+	Campos de Galois
 	
-	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de 2m - 1 elementos, cada qual representado por um polinômio de grau m - 1, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 bits, totalizando 16 elementos de 0000 a 1111. 
-	
-	Tabela de GF(16)
+	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 bits, totalizando 16 elementos de 0000 a 1111. 
 	
 	A adição e subtração de dois campos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas bit a bit, sem que haja bits de "vai um" para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, para ambas adição e subtração.
 	
-	Os campos de Galois são definidos com base no gerador polinomial de campos, que é um polinômio irredutível, de grau m. Para GF(16) existem duas possíveis opções:
+	Os campos de Galois são definidos com base no gerador polinomial de campos, que é um polinômio irredutível, de grau $m$. Para GF(16) existe por exemplo, esta opção:
 	
-	opções de gerador
+	$p(x) = x^{4} + x + 1 $
 	
-	A norma IEEE 802.7.15 não especifica qual gerador polinomial deve ser usado, portanto neste estudo foi usada a opção 1. O processo de geração neste caso resulta nos seguintes elementos finitos:
+	
+	A norma IEEE 802.7.15 não especifica qual gerador polinomial deve ser usado, portanto neste estudo foi usada a opção do exemplo. O processo de geração neste caso resulta nos seguintes elementos finitos:
 	 
-	 tabela de elementos
+	\begin{table}[]
+		\centering
+		\caption{Campos de Galois (16)}
+		\label{my-label}
+		\begin{tabular}{|c|c|}
+			\hline
+			Elemento & Representação binária \\ \hline
+			$\alpha^{0}$   & 0001                  \\ \hline
+			$\alpha^{1}$   & 0010                  \\ \hline
+			$\alpha^{2}$   & 0100                  \\ \hline
+			$\alpha^{3}$   & 1000                  \\ \hline
+			$\alpha^{4}$   & 0011                  \\ \hline
+			$\alpha^{5}$   & 0110                  \\ \hline
+			$\alpha^{6}$   & 1100                  \\ \hline
+			$\alpha^{7}$   & 1011                  \\ \hline
+			$\alpha^{8}$   & 0101                  \\ \hline
+			$\alpha^{9}$   & 1010                  \\ \hline
+			$\alpha^{10}$  & 0111                  \\ \hline
+			$\alpha^{11}$  & 1110                  \\ \hline
+			$\alpha^{12}$  & 1111                  \\ \hline
+			$\alpha^{13}$  & 1101                  \\ \hline
+			$\alpha^{14}$  & 1001                  \\ \hline
+			$\alpha^{15}$  & 0000                  \\ \hline
+		\end{tabular}
+	\end{table}
 	 
 	A multiplicação entre dois campos de Galois ocorre, em termos de aritmética comum, pela multiplicação de dois polinômios, seguida da divisão pelo gerador polinomial. Já a divisão  de campos finitos pode ser feita através da operação de inversão do divisor e multiplicação desse resultado pelo dividendo, seguindo os passos indicados anteriormente para a multiplicação. 
 	 
 	 Codificação 
 	 
-	Para gerar um código de Reed Solomon a partir dos campos finitos, é necessário um polinômio gerador de código. Este polinômio possui 2t fatores, de maneira que o grau do polinômio representado por C(x) (bloco codificado, com grau n) seja a soma do grau de M(X) (a própria mensagem dentro do bloco codificado, com grau k) e G(X) (polinômio codificador, com grau 2t = n - k). O polinômio gerador de código deve ter a seguinte forma:
+	Para gerar um código de Reed Solomon a partir dos campos finitos, é necessário um polinômio gerador de código. Este polinômio possui $2t$ fatores, de maneira que o grau do polinômio representado por $C(x)$ (bloco codificado, com grau $n$) seja a soma do grau de $M(x)$ (a própria mensagem dentro do bloco codificado, com grau $k$) e $G(x)$ (polinômio codificador, com grau $2t = n - k$). O polinômio gerador de código deve ter a seguinte forma:
 	 
-	 polinômio gerador genérico
+	 $g(x) = (x + \alpha^{i})(x + \alpha^{i+1})...(x + \alpha^{i + 2t - 1})  $
+	
+	
+	As raízes são escolhidas como campos finitos de Galois consecutivos. Para esse estudo, usaram-se como raízes os elementos consecutivos de $\alpha^{0}$ a $\alpha^{7}$. Por exemplo, para um código (15, 7), usado posteriormente neste projeto:
 	 
-	As raízes são escolhidas como campos finitos de Galois consecutivos. Para esse estudo, usaram-se como raízes os elementos consecutivos de alpha0 a alpha7. Por exemplo, para um código (15, 7), usado posteriormente neste projeto:
+	$g(x) = (x + \alpha^{0})(x + \alpha^{1})(x + \alpha^{2})(x + \alpha^{3})(x + \alpha^{4})(x + \alpha^{5})(x + \alpha^{6})(x + \alpha^{7})$
 	 
-	cálculo do polinômio gerador 15,7
+	$g(x) = $
+	
+	
+	Neste caso, a mensagem $M(x)$ é codificada da seguinte maneira:
+	
+	
+	$\frac{M(x)x^{n-k}}{G(x)} = q(x) + \frac{r(x)}{g(x)}$
 	 
-	polinômio 15,7
 	 
-	Neste caso, a mensagem M(x) é codificada da seguinte maneira:
+	Desta forma, são produzidos um quociente $q(x)$ e um resto $r(x)$. Por manipulação algébrica, temos que o bloco codificado pode ser representado da seguinte forma:
 	 
-	M(x) * x elevado a n-k dividido por G(x)
-	 *por a fórmula*
-	 
-	Desta forma, são produzidos um quociente q(x) e um resto r(x). Por manipulação algébrica, temos que o bloco codificado pode ser representado da seguinte forma:
-	 
-	M(x)x x(n-k) + r(x) = g(x) x q(x)
-	 
-	Portanto o bloco codificado C(x) é composto por M(x) deslocada, somada a r(x), na prática equivalendo às seguintes code words (por referência explicando o que é cw):
+	$M(x)x^{n-k} + r(x) = g(x)q(x)$
+	
+	
+	Portanto o bloco codificado $C(x)$ é composto por $M(x)$ deslocada, somada a $r(x)$, na prática equivalendo às seguintes code words (por referência explicando o que é cw):
 	 
 	 *desenho do bloco M(x) + r(x)*
-	 
+	
+	
 	Finalmente, o codificador de Reed Solomon (15, 7) em hardware equivale a:
 	 
 	 
@@ -192,57 +220,79 @@
 	
 	Cálculo das síndromes:
 	
-	As síndromes são calculadas através da mensagem recebida e dos símbolos de paridade. O objeto desse cálculo é identificar num primeiro momento a presença de erros no que foi recebido em relação ao que foi transmitido. Utilizaremos aqui a notação de R(x) para o bloco recebido e E(x) para os possíveis erros. Portanto:
+	As síndromes são calculadas através da mensagem recebida e dos símbolos de paridade. O objeto desse cálculo é identificar num primeiro momento a presença de erros no que foi recebido em relação ao que foi transmitido. Utilizaremos aqui a notação de $R(x)$ para o bloco recebido e $E(x)$ para os possíveis erros. Portanto:
 	
-	R(x) = C(x) + E(x)
+	$R(x)$ = $C(x)$ + $E(x)$
 	
-	Caso a mensagem recebida não tenha erros, teremos E(x) formado por 15 símbolos de 0000 no caso de Reed Solomon (15, 7). Se pelo menos um símbolo de E(x) possuir pelo menos um bit diferente de 0, configura-se um erro, e o cálculo das síndromes deverá apontá-lo. Caso o número de símbolos com erro exceda t, ou 4 símbolos para um código (15, 7), o erro será identificado nas síndromes, porém não será possível corrigi-lo posteriormente.
+	
+	Caso a mensagem recebida não tenha erros, teremos $E(x)$ formado por 15 símbolos de 0000 no caso de Reed Solomon (15, 7). Se pelo menos um símbolo de $E(x)$ possuir pelo menos um bit diferente de 0, configura-se um erro, e o cálculo das síndromes deverá apontá-lo. Caso o número de símbolos com erro exceda $t$, ou 4 símbolos para um código (15, 7), o erro será identificado nas síndromes, porém não será possível corrigi-lo posteriormente.
 	
 	No caso de Reed Solomon, as síndromes podem se definir da seguinte maneira:
 	
-	Si = Qi(x)*(x + alphai) + R(x)
+	$S_{i} = Q_{i}(x)*(x + \alpha^{i}) + R(x)$
 	
-	No caso específico em que x é alphai, temos que o primeiro termo da soma é nulo, já que x + alphai = 0000. Portanto:
 	
-	Si = R(alphai)
+	No caso específico em que $x$ é $\alpha^{i}$, temos que o primeiro termo da soma é nulo, já que $x + \alpha^{i} = 0000$. Portanto:
 	
-	E haverá um total de 2t síndromes, uma para cada raiz do polinômio codificador G(x). Considerando que existem v símbolos com erros, com v <= t, teremos:
+	$S_{i} = R(\alpha^{i})$
 	
-	E(x) = V1*xL1 + ... + Vv*x Lv
 	
-	Com Vi representando os valores do erro, e Li indicando a localização desses erros. Portanto, para cada Síndrome Si:
+	E haverá um total de $2t$ síndromes, uma para cada raiz do polinômio codificador $G(x)$. Considerando que existem $v$ símbolos com erros, com $v \leq t$, teremos:
 	
-	Si(alphai) = V1*X1i + V2*X2i + ... Vv*Xvi
+	$E(x) = V_{1}x^{L_{1}} + ... + V_{v}x^{L_{v}}$
 	
-	Os valores de Xi são usualmente designados para representar os localizadores de erro. Observe que os índices numéricos não necessariamente indicam o coeficiente do polinômio.
+	
+	Com $V_{i}$ representando os valores do erro, e $L_{i}$ indicando a localização desses erros. Portanto, para cada síndrome $S_{i}$:
+	
+	$S_{i}(\alpha^{i}) = V_{1}X_{1}^{i} + V_{2}X_{2}^{i} + ... V_{v}X_{v}^{i}$
+	
+	
+	Os valores de $X_{i}$ são usualmente designados para representar os localizadores de erro. Observe que os índices numéricos não necessariamente indicam o coeficiente do polinômio.
 	
 	Uma possível representação para o cálculo da síndrome, em hardware, seria:
 	
 	Localização dos erros:
 	
-	O polinômio localizador de erros é construído com auxílio dos localizadores de erro, denotados por X1 a Xv.
+	O polinômio localizador de erros é construído com auxílio dos localizadores de erro, denotados por $X_{1}$ a $X_{v}$.
 	
-	sigma(x) = (1 + x*X1)(1 + x*X2)...(1 + x*Xv)
-	sigma(x) =  1 + sigma1*x1 + ... + sigmav-1*xv-1 + sigmav*xv
 	
-	Dessa forma teremos os inversos de X1 a Xv como raízes deste polinômio, sendo que cada uma dessas raízes torna sigma(x) igual a zero. 
+	$\Lambda(x) = (1 + xX_{1})(1 + xX_{2})...(1 + xX_{v})$
 	
-	sigma(Xi -1) = sigmav*xi-v + ... + sigma1*xi-1 + 1 = 0
+	$\Lambda(x) =  1 + \Lambda_{1}x^{1} + ... + \Lambda_{v-1}x^{v-1} + \Lambda_{v}x^{v}$
 	
-	Multiplicando essa igualdade por Vi*Xi i+v, temos:
 	
-	...
+	Dessa forma teremos os inversos de $X_{1}$ a $X_{v}$ como raízes deste polinômio, sendo que cada uma dessas raízes torna $\Lambda(x)$ igual a zero. 
 	
-	Para diferentes valores de j, temos:
+	$\Lambda(X_{j}^{-1}) = \Lambda_{v}X_{j}^{-v} + ... + \Lambda_{1}X_{j}^{-1} + 1 = 0$
 	
-	...
+	
+	Multiplicando essa igualdade por $V_{j}*X_{j}^{i+v}$, temos:
+	
+	$Y_{j}X_{j}^{i+v} + \Lambda_{1}Y_{j}X_{j}^{i+v-1} + ... + \Lambda_{v}Y_{j}X_{j}^{i}$
+	
+	
+	Para diferentes valores de $j$, temos:
+	
+	$S_{i+v} + \Lambda_{1}S_{i+v-1} + ... + \Lambda_{v}S_{i} = 0$
+	
 	
 	Dessa forma, pode-se construir a seguinte matriz com um sistema de equações:
 	
 	*Tabela*
 	
+	Algoritmo de Berlekamp-Massey
 	
-	Resolvendo esse sistema, encontram-se os coeficientes do polinômio localizador de erros. Essa resolução pode se feita de mais de uma forma, porém neste estudo aborda-se o método de Berlekamp. Este algoritmo resolve o sistema por meio de aproximações sucessivas do polinômio localizador, iniciando com sigma(x) = 1.
+	Resolvendo o sistema anterior, encontram-se os coeficientes do polinômio localizador de erros. Essa resolução pode se feita por mais de uma forma, porém neste estudo é abordado o método de Berlekamp-Massey. Este algoritmo resolve o sistema por meio de aproximações sucessivas do polinômio localizador, iniciando com um $\Lambda(x)$ capaz de produzir $S_{v}$, ou a primeira síndrome. Conforme a seção anterior, calcula-se o próximo termo, $S_{v + 1}$:
+	
+	$S_{v + 1} = S_{v}\Lambda_{1} + S_{v-1}\Lambda_{2} + ... + S_{1}\Lambda_{v}$
+	
+	
+	Sendo que os valores de $\Lambda$ fazem parte da primeira aproximação. Caso esse valor da síndrome calculada pelo polinômio seja o mesmo valor da síndrome real, ou a diferença $d = 0$, calcula-se $S_{v + 2}$. Caso contrário, o polinômio deve ser refinado:
+	
+	$\Lambda'(x) = \Lambda(x) +  Kx^{z}\Lambda''(x)$
+	
+	
+	Onde $\Lambda''(x)$ é o último polinômio localizador estimado antes de haver uma diferença $d \neq 0$. K é definida como $d''^{-1}d$, com $d''^{-1}$ sendo o inverso da diferença de quando o polinômio $\Lambda(x)$ foi modificado da última vez. Já $z$ é o número de estágios entre $\Lambda''^{+1}(x)$ e $\Lambda(x)$.
 	
 	Uma vez calculados os coeficientes do polinômio localizador, 
 	deve-se descobrir o valor de suas raízes. Como apontado anteriormente, o inverso destas aponta a localização dos erros. Esses valores são encontrados através do método de busca de Chien, que utiliza tentativa e erro, com todos os possíveis valores das raízes.
@@ -251,13 +301,20 @@
 	
 	Existem diversas maneiras de encontrar os valores dos erros. O método abordado aqui - o algoritmo de Forney - utiliza o polinômio avaliador de erros, definido como:
 	
-	Omega(x) = Omegav-1*xv-1 + ... + Omega1x + Omega0
+	$\Omega(x) = \Omega_{v-1}x^{v-1} + ... + \Omega_{1}x + \Omega_{0}$
+
 
 	Os valores dos erros são dados por sua vez por:
 	
-	Vi = Xi 1-b Omega(Xi -1) dividido por Sigma'(Xi -1)
+	$V_{j} = X_{j}^{1-b} \frac{\Omega(X_{j}^{-1})}{\Lambda'(X_{j}^{-1})}$
 	
-	Sendo Omega'(Xj -1) a derivada de Sigma(x), e b o índice do primeiro Alpha usado no polinômio codificador, que neste caso será 0.
+	
+	Sendo $\Lambda'(x)$ a derivada de $\Lambda(x)$, e $b$ o índice do primeiro $\alpha$ usado no polinômio codificador, que neste caso será 0.
+	
+	
+	
+	
+	
 	
 	Síntese
 	
