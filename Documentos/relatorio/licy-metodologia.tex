@@ -424,7 +424,7 @@
 	
 	\subsection{Recepção}
 	
-	Após a codificação dos dados, é necessário realizar a decodificação deles. Para isso, deve-se reverter os processos aplicados pela seção anterior. No entanto, isso não é tão trivial, dado que vários desses módulos devem realizar correção de erro, tornando o algoritmo completamente diferente. As etapas de decodificação dos dados estão esquematizadas abaixo:
+	Após a codificação dos dados, é necessário realizar a decodificação deles. Para isso, deve-se reverter os processos aplicados pela seção anterior. No entanto, isso não é tão trivial, dado que vários desses módulos devem realizar correção de erros, tornando o algoritmo completamente diferente. As etapas de decodificação dos dados estão esquematizadas abaixo:
 
 	\begin{figure}[htb]
 		\caption{\label{fig_transmission_phy1} Diagrama de blocos da codificação da mensagem}
@@ -434,7 +434,6 @@
 	\end{figure}
 
 	Esses passos estarão detalhados abaixo:
-	
 	
 	\subsubsection{Decodificação RLL}
 	\subsubsection{Decodificação Viterbi}
@@ -446,9 +445,7 @@
 	\section{Hardware}\label{sec-hardware}
 	% ---
 	
-	A seguir serão discorridas as implicações da implementação da norma IEEE 802.15.7 em um escopo de hardware analógico, a partir da necessidade de transmitir, receber e converter sinais digitais em analógicos, que então serão convertidos de/para oscilações luminosas.
-	
-	A \autoref{fig_dataflow_analog_circuits}  representa o fluxo que os dados devem fazer:
+	A seguir serão discorridas as implicações da implementação da norma IEEE 802.15.7 em um escopo de hardware analógico, a partir da necessidade de transmitir, receber e converter sinais digitais em analógicos, que então serão convertidos de/para oscilações luminosas.A \autoref{fig_dataflow_analog_circuits}  representa o fluxo dos dados:
 	
 	\begin{figure}[htb]
 		\caption{\label{fig_dataflow_analog_circuits} Diagrama de blocos da conversão digital-analógica e analógica-digital da transmissão de dados.}
@@ -491,17 +488,65 @@
 	\end{comment}
 	
 	\subsubsection{Conversor Digital-Analógico}
-	Como o LED será de alta potência, a corrente necessária para ligá-lo corretamente é na ordem de grandeza de amperes, incompatível com a corrente fornecida pela porta de saída da FPGA. Como forma de proteger o circuito da FPGA e também chavear o LED, será utilizado um transistor de potência.
+	Como o LED será de alta potência, a corrente necessária para ligá-lo corretamente é na ordem de grandeza de amperes. Essa corrente de polarização é incompatível com a fornecida pela porta de saída da FPGA (aproximadamente mil vezes menor). Como forma de proteger o circuito da FPGA e também de chavear o LED, será utilizado um transistor de potência.
+	
+	Além disso, deve-se notar que o método de modulação desejado é OOK (on-off keying). Isso significa que na presença de portadora (sinal 1) o a luz deve estar ligada, enquanto em sua ausência (sinal 0) a luz deve estar desligada.
+	
+	\paragraph{Curva característica de FET}
+
+	Para projetar um circuito chaveador com um transistor de potência é importante entender seu funcionamento. Um FET é um transistor que utiliza campo elétrico para controlar a condutividade de um tipo de carga de um canal em um semicondutor. Existem dois tipos de canais para transistores: n e p.
 		
-	O intuito é deixá-lo na configuração de fonte comum (\autoref{fig_common_source}, agindo como chave entre o circuito do LED, VCC e GND.
+	Em um n-channel FET, a aplicação de voltagem positiva no Gate em relação a Source permite a livre passagem de eletrons pelo caminho Drain-Source. Analogamente em um p-channel, a aplicação de voltagem positiva no gate bloqueia a passagem de elétrons. Nesse caso, a voltagem aplicada deve ser zero ou negativa para polarizá-lo. Esse comportamento deve ser melhor detalhado utilizando uma curva característica de transistores tipo FET.
 		
 	\begin{figure}[htb]
-		\caption{\label{fig_common_source} FET em modo de fonte comum.}
+		\caption{\label{fig_carac_mosfet} Curva característica de um MOSFET, com indicações das regiões de saturação, corte e triodo.}
 		\centering
-		\includegraphics[width=0.2\textwidth]{circuits/common_source.pdf}
-		\legend{Fonte: Wikipedia}
+		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[page=8,width=0.5\textwidth, trim={16.5cm 9.89cm 3.6cm 3cm},clip]{circuits/Electronics_Ch5.pdf}
+		\legend{Fonte: \cite{microelectronics-circuits}}
+	\end{figure}
+	
+	A \autoref{fig_carac_mosfet} caracteriza a resposta $i_{D}$ do transistor tipo FET de acordo com a tensão $V_{GS}$ fornecida, indicando as regiões operação do componente. As regiões de interesse para o chaveamento do LED são as de saturação e corte, e serão detalhadas abaixo.
+	
+	\subparagraph{Região de Corte}
+	
+	Na região de corte o transistor se comporta como uma chave aberta. Esse comportamento é visto em todos transistores FET em que se aplica uma tensão $V_{GS} \leq V_{t}$, onde $V_{t}$ indica a tensão de limiar, característica de cada componente. A \autoref{fig_mosfet_cutoff} mostra um circuito com comportamento equivalente.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_mosfet_cutoff} Equivalência de circuitos com MOSFET em região de corte.}
+		\centering
+		\includegraphics[width=0.5\textwidth, trim={0cm 2cm 0cm 2cm}, clip]{circuits/mosfet_cutoff.pdf}
+		\legend{Fonte: Autores.}
 	\end{figure}
 
+	Nesse esquemático, R1 representa o resistor que controla a tensão no Gate, R2 e R3 a carga.
+	
+	Para a aplicação OOK, é interessante que a chave do LED esteja aberta quando a FPGA gerar um zero digital. A restrição mínima da tensão de limiar é $V_{th} > 0V$, 
+	
+	\subparagraph{Região de Saturação}
+	
+	Na região de saturação o transistor se comporta como uma chave fechada. Em uma situação real, dependendo de qual $V_{GS} \geq V_{t}$ aplicado, é permitida maior ou menor passagem de corrente $i_{D}$, como pode-se observar na \autoref{fig_carac_mosfet}. Os valores $i_{D}$ não são fiéis a realidade, uma vez que um MOSFET de potência permite passagem de corrente muito maior. O esquemático abaixo mostra um circuito com FET na região de saturação com um circuito com comportamento equivalente, utilizando apenas componentes passivos.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_mosfet_saturation} Equivalência de circuitos com MOSFET em região de saturação.}
+		\centering
+		\includegraphics[width=0.5\textwidth, trim={0cm 2cm 0cm 2cm}, clip]{circuits/mosfet_saturation.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+
+	Nesse esquemático, R1 representa o resistor que controla a tensão no Gate, R2 e R3 a carga e R4 a resistência interna $R_{DS}$ do MOSFET.
+
+	\paragraph{Conclusão}
+
+	O transistor deve ser deixado na configuração de fonte comum \autoref{fig_common_source}, agindo como chave entre o circuito do LED, VCC e GND. Quando a FPGA gerar o sinal digital 1, o circuito deve atender $V_{in} \geq V_{(i_{D} > Corrente de LED aceso)}$. Da mesma forma, quando o sinal gerado for 0, é necessário projetar $V_{in} < V_{i_{D} \approx 0}$.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_common_source} FET-n em modo de fonte comum.}
+		\centering
+		\includegraphics[width=0.5\textwidth, trim={0cm 2cm 0cm 2cm}, clip]{circuits/mosfet_example.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
 	% ---
 	\subsubsection{LED}\label{hard-led}
 	% ---
@@ -515,29 +560,45 @@
 	
 	O LED para a transmissão deverá então suportar essas frequências de acordo com a implementação de cada camada. Além disso, também deve realizar a transmissão de luz a distâncias de pelo menos um metro.
 	
-	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional a luz emitida. Caso esse último requisito não seja atendido, será muito difícil realizar uma transferência confiável de dados.
+	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional a luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza - como por exemplo, a possibilidade do LED atrasar em relação a excitações em seus terminais.
 	
+	\paragraph{Resposta Luminosa}
+	
+	Como definido no próprio nome, o LED é um Diodo Emissor de Luz. Então para efeitos de simulação pode-se considerar que ele é um diodo.
+	\begin{figure}[htb]
+		\caption{\label{fig_led_schematic}Símbolo esquemático de um LED, similar ao do diodo}
+		\centering
+		\includegraphics[width=0.4\textwidth, trim={12cm 9.2cm 12cm 9.5cm},clip]{circuits/led_schematics.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	O circuito proposto deseja oscilar todos os componentes a 200kHz. Isso significa oscilar entre a região de saturação e corte. Ao realizar o fechamento ou abertura de seus terminais, é possível que o componente responda com efeitos de capacitor. As componentes capacitivas passivas e ativas dos componentes criam respostas indesejadas no circuito. Para atenuá-las, é possível utilizar um filtro, que remove esse comportamento indesejado, aplicando uma onda de acordo com a entrada (da FPGA) no LED.
+	
+	Ainda existe outra opção para não gerar a componente capacitiva ativa no circuito: oscilar a voltagem de entrada apenas dentro da região de saturação do LED. Essa modificação consiste em aplicar uma componente contínua $V_{DC}$ no LED e uma alternada $V_{AC}$ pequena com a portadora do sinal gerado pela FPGA. Esse é muito utilizado em circuitos de fibra ótica, utilizando um componente chamado Bias-Tee.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_diode_carac} Zona de operação do diodo}
+		\centering
+		\includegraphics[page=5,width=0.6\textwidth, trim={16cm 2.5cm 2cm 12.5cm}, clip]{circuits/Electronics_Ch3.pdf}
+		\legend{Fonte: \cite{microelectronics-circuits}}
+	\end{figure}
+
+	No gráfico da \autoref{fig_diode_carac} é possível observar a curva de operação do diodo crescente. Ao submetê-lo a uma tensão, há resposta em $I_{D}$, que no caso do LED corresponde a intensidade luminosa. Cada diodo (ou LED) tem sua curva, e será necessário projetar o circuito levando esses parâmetros em consideração.
+	
+	No entanto, é possível que essa estratégia cause modificações também no circuito do receptor, pois o LED deixará de apagar e acender, apenas oscilando sua intensidade.
+
 	% ---
 	\subsection{Recepção}
 	% ---
 	
-	O receptor é obrigado a identificar essas variações minúsculas na luminosidade e para isso deve ser utilizado no modo fotocondutivo com uma amplificação alta (
-	
-	Fig. 2 shows a inverting TIA with the photodiode driven by a laser diode and operating in the photoconductive mode. A positive voltage at the cathode of the photodiode applies a reverse bias. This reverse bias increases the width of the depletion region and lowers the junction capacitance, improving the high frequency performance. The photoconductive configuration of a transimpedance photodiode amplifier is used where fast switching speed is required but high gain is not. The feedback capacitor, Cf is usually required to improve stability.
-	
-	)
-	
-	Após o estágio de recepção propriamente dito utilizando o Amplificador de Transimpedância e o fotodiodo, é realizado um estágio de amplificação com comparação, para transformar o sinal analogico recebido em uma onda quadrada. Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Após esse estágio pode ser necessário realizar a retificação da onda com um outro comparador, um schmitt trigger hex inverter nesse caso.
-	
-	http://electronicdesign.com/analog/whats-all-transimpedance-amplifier-stuff-anyhow-part-1
+	É de responsabilidade do receptor realizar três processos: a recepção dos sinais luminosos, sua amplificação com filtragem e por fim a conversão das ondas em sinais digitais. Com o funcionamento pleno deles, será possível receber um sinal equivalente ao transmitido pela FPGA. Os processos e todos métodos envolvidos estarão explicados em detalhes a seguir na \autoref{hard-photodiode}, \autoref{hard-bandfilter} e \autoref{hard-comparator-filter-and-waves}.
 
 	% ---
-	\subsubsection{Fotoreceptor}\label{hard-photodiode}
+	\subsubsection{Recepção Luminosa}\label{hard-photodiode}
 	% ---
 	
 	O módulo mais crítico do receptor, que recebe oscilações luminosas e converte-as em sinais analógicos. É muito empregado em circuitos receptores de fibra óptica, CD players, televisões, câmeras e até em medidores de batimento cardíaco. Os fotoreceptores mais comuns são fototransistores ou fotodiodos, que são classificados principalmente de acordo com sua velocidade de chaveamento. 
 	
-	Um fototransistor é composto por um transistor de junção que responde à incidencia de luz gerando e amplificando corrente elétrica. Seu tempo de resposta é da ordem de $\mu$s. Já o fotodiodo é um diodo semicondutor que gera diferença de potencial ou mudança em sua resistência quando iluminado, com o tempo de resposta usualmente em ns.
+	Um fototransistor é composto por um transistor de junção que responde à incidencia de luz gerando e amplificando corrente elétrica. Seu tempo de resposta é da ordem de $\mu$s. Já o fotodiodo é um diodo semicondutor que gera diferença de potencial ou mudança em sua resistência quando iluminado, com o tempo de resposta usualmente em ns, devido a sua natureza semicondutora e arquitetura de silício.
 	
 	Para o projeto, é mais interessante a escolha do fotodiodo, pela sua alta velocidade de resposta, tornando a onda recebida mais fiel possível a realidade.
 	
@@ -549,36 +610,56 @@
 		\begin{tabular}{c c c}
 			\hline
 			Modo de Operação  & Polarização & Características \\ \hline
-			Fotovoltaico & não & $I_{dark}$ menor, resposta mais lenta \\
-			Fotocondutivo & negativa & $I_{dark}$ maior, resposta muito rápida \\ \hline
+			Fotovoltaico & não & $I_{dark}$ menor, resposta lenta \\
+			Fotocondutivo & negativa & $I_{dark}$ maior, resposta rápida \\ \hline
 		\end{tabular}
 		\label{tab_photodiode_comp}
 	\end{table}
 	
-	% ---
-	\subsubsection{Amplificadores Operacionais}\label{hard-opamp}
-	% ---
+	Como velocidade de resposta é prioritária na aplicação de comunicação, será utilizado o modo fotocondutivo. A polarização reversa aumenta o comprimento da região de depleção e diminui a capacitância de junção, aumentando a performance em altas frequências.
 	
-	Amplificadores operacionais são 
-	A seguir serão exemplificados três modos de operação com amplificadores operacionais. 
-	\paragraph{Passa-faixas}
-	Com intuito de reduzir o ruido da luz ambiente, o circuito passa-faixas amplificador a seguir (\autoref{fig_opampdif}) foi proposto para o projeto.
+	Mas como o fotodiodo gera apenas corrente, é necessário convertê-la em tensão para amplificar o sinal e filtrar os eventuais ruídos. A conversão será feita por um amplificador de transimpedância.
+	
+	\paragraph{Amplificador de Transimpedância}
+	
+	O comportamento de um amplificador de transimpedância é simples: converter corrente em tensão. Ele normalmente é utilizado com componentes em que resposta em corrente é mais linear que a resposta em tensão, no caso o fotodiodo. 
+	
+	O amplificador apresenta baixa impedância de entrada para isolar o fotodiodo da voltagem de saída. Ao contrário do fototransistor, que tem corrente de saída a $\mu$A, o fotodiodo gera uma corrente na ordem de grandeza de pA. Para converter essa corrente minúscula a uma voltagem útil para o circuito, é necessário realizar a amplificação desse sinal utilizando um resistor de feedback, rotulado como R1 na \autoref{fig_transimpedance_amp_simple}.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_transimpedance_amp_simple} Circuito Amplificador de Transimpedância}
+		\centering
+		\includegraphics[width=0.6\textwidth, trim={2cm 3.8cm 2cm 3.8cm}, clip]{circuits/transimpedance_amp_simple.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	O circuito apresentado tem voltagem de saída com o seguinte comportamento:
+
+	\begin{equation}
+	V_{out} = - I_{fotodiodo} \cdot R_{feedback}
+	\end{equation}
+	
+	Como $I_{fotodiodo}$ é da ordem de pA, $R_{feedback}$ deve ser grande (M$\Omega$). Nota-se que a $V_{out}$ é negativo pois o amplificador se encontra na configuração inversora.
+
+	% ---
+	\subsubsection{Filtro Passa-Faixas}\label{hard-bandfilter}
+	% ---
+
+	Com intuito de reduzir o ruido em circuitos de amplificação com amplificadores operacionais, especifica-se um modelo de circuito passa-faixas na \autoref{fig_opampdif}.
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_opampdif}Circuito amplificador de diferenças.}
 		\centering
-		%  trim={<left> <lower> <right> <upper>} 
-		\includegraphics[width=0.6\textwidth, trim={5cm 12.29cm 17.6cm 4.3cm},clip]{opamp-dif2.pdf}
-		%\includegraphics[width=0.5\textwidth, trim={9.5cm 11.2cm 15cm %5.76cm},clip]{opamp-dif.pdf}
-		\legend{Fonte: Próprios autores}
+		\includegraphics[width=0.6\textwidth, trim={5cm 12.29cm 17.6cm 4.3cm},clip]{circuits/opamp-dif2.pdf}
+		\legend{Fonte: Autores}
 	\end{figure}
 	
 	De acordo com as tabelas \ref{tab_phy1} e \ref{tab_phy2}, o intervalo da frequência do \textit{clock} luminoso é de 200kHz até 120MHz. Deseja-se então  permitir a passagem dessas, limitando as frequências fora desse intervalo. Com o uso do passa baixas e passa altas da figura acima, pode-se realizar essa limitação adequando os resistores e capacitores do circuito.
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_frequenciacentral}Um gráfico em escala logaritmica mostrando a banda de passagem B, a frequência de corte inferior Fl, a frequência de corte superior Fh e a frequência central fo para um circuito passa faixas.}
+		\caption{\label{fig_frequenciacentral}Um gráfico em escala logaritmica mostrando a banda de passagem B, a frequência de corte inferior $f_{L}$, a frequência de corte superior $f_{H}$ e a frequência central fo para um circuito passa faixas.}
 		\centering
-		\includegraphics[width=0.5\textwidth, trim={4.5cm 17cm 3.3cm 2cm},clip]{freq-corte.pdf}
+		\includegraphics[width=0.5\textwidth, trim={4.5cm 17cm 3.3cm 2cm},clip]{circuits/freq-corte.pdf}
 		\legend{Fonte: Inductiveload, Wikipedia}
 	\end{figure}
 	
@@ -612,11 +693,160 @@
 	BW = f_{cs} - f_{ci}
 	\end{equation}
 	
-	Explicação de porque foi escolhido o circuito com ampop em modo diferencial para o projeto.
-	
 	% ---
-	\subsubsection{Conversor Digital-Analógico}
-	% ---	
+	\subsubsection{Conversor Digital-Analógico}\label{hard-comparator-filter-and-waves}
+	% ---
+	
+	Após o estágio de recepção propriamente dito utilizando o Amplificador de Transimpedância e o fotodiodo, obtém-se uma onda com componente $V_{DC} = L$. Essa componente é variável e depende de alterações na intensidade de luz, variações na distância do transmissor com receptor, entre outros fatores. A amplitude da onda depende da corrente  $i_{D}$ do fotodiodo e da resistência de feedback $R_{F}$ do circuito amplificador.
+	
+	\begin{figure}[h]
+		\caption{\label{plot-pre-lowpass-filter} Saída esperada do Amplificador de Transimpedância, com amplitude de $i_{D} \cdot R_{F}$, com componente $V_{DC} = L$ variável.}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				xmin=0, xmax=25,
+				ymin=-2, ymax=2,
+				axis lines=middle,
+				xticklabels={,,},
+				ytick={0.3, 1, 1.7},	
+				yticklabels={$-A_{i_{D} \cdot R_{F}}$,$L$,$A_{i_{D} \cdot R_{F}}$},
+				ylabel near ticks,
+				%			ylabel style={yshift=-0.5cm},
+				xlabel shift = 2 pt,
+				xlabel style={yshift=-1cm},
+				xlabel={[$t$]},
+				ylabel={[$V$]}
+			]
+			\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2)) + 1};
+			\addplot[domain=0:8*pi]{1};
+			\end{axis}
+		\end{tikzpicture}
+		\legend{Fonte: Autores}
+	\end{figure}
+
+	Para poder realizar estágios adicionais de amplificação e comparação, é importante que a componente DC L seja eliminada. Para fazer isso, pode-se utilizar um simples circuito RC de primeira ordem, que age como filtro passa altas, esquematizado na \autoref{plot-post-highpass-filter}. Seu funcionamento se baseia no capacitor C, que em baixas frequências apresenta alta reatância, atuando como um aberto e bloqueando qualquer sinal abaixo da frequência de corte $f_{c}$. Acima dessa frequência a reatância do capacitor é reduzida suficientemente para agir como um curto circuito, permitindo qualquer entrada $V_{in}$ passar diretamente para saída $V_{out}$. A frequência de corte $f_{c}$ só pode ser obtida com a presença do resistor R e do capacitor C juntos, que geram a constante de tempo $\tau$. Esses valores são análogos aos cálculados na \autoref{hard-bandfilter} e se encontram abaixo:
+	
+	\begin{equation}
+	\tau = R \cdot C
+	\end{equation}
+	
+	\begin{equation}
+	f_{c} = \frac{1}{2 \cdot \pi \cdot \tau}
+	\end{equation}
+	
+	Ainda existe a possibilidade da fase de resposta do circuito se deslocar devido à presença do capacitor. A fórmula que calcula sua defasagem/adiantamento $\phi$ é:
+
+	\begin{equation}
+	\phi = arctan{\frac{1}{2 \cdot \pi \cdot f_{op} \cdot R \cdot C}}
+	\end{equation}
+	
+	\begin{figure}[h]
+		\caption{\label{plot-post-highpass-filter} Saída esperada após remoção da componente DC, aplicando filtro passa-alta RC de primeira ordem.}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+				\begin{tikzpicture}
+				\begin{axis}[
+				xmin=0, xmax=25,
+				ymin=-2, ymax=2,
+				axis lines=middle,
+				xticklabels={,,},
+				ytick={-0.7, 0, 0.7},	
+				yticklabels={$-A_{i_{D} \cdot R_{F}}$,$0$,$A_{i_{D} \cdot R_{F}}$},
+				ylabel near ticks,
+				%			ylabel style={yshift=-0.5cm},
+				xlabel shift = 2 pt,
+				%xlabel style={yshift=-1cm},
+				xlabel={[$t$]},
+				ylabel={[$V$]}
+				]
+				\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2))};
+				\addplot[domain=0:8*pi]{0};
+				\end{axis}
+				\end{tikzpicture}
+			\label{fig:sub1}
+		\end{subfigure}%
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth, trim={3cm 0cm 3cm 3cm},clip]{circuits/highpass_filter.pdf}
+			\label{fig:sub2}
+		\end{subfigure}
+		\legend{Fonte: Autores}
+	\end{figure}
+
+	\begin{figure}[h]
+		\caption{\label{plot-post-bias1v} Saída esperada após adição de componente DC $V_{DC} = 1V$ fixa.}
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[
+			xmin=0, xmax=25,
+			ymin=-2, ymax=2,
+			axis lines=middle,
+			xticklabels={,,},
+			ytick={0.3, 1, 1.7},	
+			yticklabels={$-A_{i_{D} \cdot R_{F}}$,$1$,$A_{i_{D} \cdot R_{F}}$},
+			ylabel near ticks,
+			%ylabel style={yshift=-0.5cm},
+			xlabel shift = 2 pt,
+			xlabel style={yshift=-1cm},
+			xlabel={[$t$]},
+			ylabel={[$V$]}
+			]
+			\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2)) + 1};
+			\addplot[domain=0:8*pi]{1};
+		\end{axis}
+		\end{tikzpicture}
+		\legend{Fonte: Autores}
+	\end{figure}
+	\begin{figure}[h]
+		\caption{\label{plot-post-comparator} Saída esperada após o comparador}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+			xmin=0, xmax=25,
+			ymin=-2, ymax=2,
+			axis lines=middle,
+			xticklabels={,,},
+			ytick={0, 0.7},	
+			yticklabels={$V_{EE}$,$0$,$V_{CC}$},
+			ylabel near ticks,
+			%			ylabel style={yshift=-0.5cm},
+			xlabel shift = 2 pt,
+			%xlabel style={yshift=-1cm},
+			xlabel={[$t$]},
+			ylabel={[$V$]}
+			]
+			\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2)) + 1};
+			%\addplot[domain=0:8*pi]{1};
+			\addplot[color=green]coordinates
+			{(0,0) (0, 0.7) (2*pi,0.7) (2*pi,0) (4*pi,0) (4*pi,0.7) (6*pi,0.7) (6*pi,0) (8*pi,0)};
+			\end{axis}
+		\end{tikzpicture}
+		\legend{Fonte: Autores}
+	\end{figure}
+	Para realizar a etapa de comparação, transformando a onda analógica em onda quadrada, é de altíssima importância que a componente DC seja fixa. Uma solução é remover a componente contínua completamente, para adicioná-la apenas na etapa de comparação. Uma das formas de se fazer isso é utilizando um filtro passa altas, esquematizado na \autoref{} a seguir:
+
+	é realizado um estágio de amplificação com comparação, para transformar o sinal analógico  recebido (até então senoidal) em uma onda quadrada. 
+	
+	O comparador é um circuito de decisão eletrônico que utiliza um amplificador operacional com alto ganho sem realimentação, como na \autoref{fig_comparator_circuit}.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_comparator_circuit}Circuito comparador simples com amplificador operacional}
+		\centering
+		\includegraphics[width=0.5\textwidth, trim={7.5cm 5cm 7.5cm 5.5cm},clip]{circuits/comparator_amp.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_comparator_transfer}Curva de resposta de um comparador não-inversor}
+		\centering
+		\includegraphics[page=1,width=0.5\textwidth, trim={6.7cm 5.5cm 6.7cm 19.25cm},clip]{circuits/lecture_comparator.pdf}
+		\legend{Fonte: \cite{comparator-ampop-lecture}}
+	\end{figure}	
+	The Op-amp comparator compares one analogue voltage level with another analogue voltage level, or some preset reference voltage, VREF and produces an output signal based on this voltage comparison. In other words, the op-amp voltage comparator compares the magnitudes of two voltage inputs and determines which is the largest of the two.
+	
+	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Após esse estágio pode ser necessário realizar a retificação da onda com um outro comparador, um schmitt trigger hex inverter nesse caso.
 	
 	% ---
 	\subsection{Microcontrolador}\label{hard-uc}
@@ -672,7 +902,7 @@
 	O projeto de uma FPGA possui características que anteriormente estavam associadas a sistemas baseados em processadores. Uma delas é o uso de ferramentas e interfaces de alto nível, usando diagramas de bloco representando comportamentos e linguagens de descrição de hardware (na sigla em inglês, HDL), que no entanto diferem em muito de linguagens de programação como C. 
 	
 	A principal vantagem do uso de uma FPGA em relação a microcontroladores está na independência das operações de processamento, que por estarem em circuitos paralelos não precisam dividir recursos, como um mesmo núcleo por exemplo. Entretanto, o alto grau de paralelismo pode resultar em maiores desafios como garantir o sincronismo e lidar com inconsistência de dados no nível de circuito. Ainda assim, é preferível neste projeto lidar com esses desafios para se beneficiar do ganho em latência e vazão de dados.
-
+	
 	% ---
 	\section{Software}\label{sec-software}
 	% ---

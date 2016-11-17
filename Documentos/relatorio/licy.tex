@@ -26,7 +26,10 @@
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
+\usepackage{amssymb}			% Less than or equal to
+\usepackage{pgfplots}			% desenhos de gráficos
 \usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{subcaption}			% Subfigure
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{lipsum}				% para geração de dummy text
 \usepackage{listings}			% para listagem de código %
@@ -37,6 +40,23 @@
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
+
+% ---
+% Configurações do pacote PGFPLOT
+\pgfplotsset{compat=1.14}
+\newcommand{\plotsin}[2]{\begin{axis}[
+		xmin=0, xmax=25,
+		ymin=-2, ymax=2,
+		axis lines=middle,
+		%xticklabels={,,},
+		%ytick={#1},	
+		%yticklabels={#2},
+		ylabel near ticks,
+		ylabel style={yshift=-0.5cm},
+		xlabel shift = 2 pt,
+		xlabel={[$t$]},
+		ylabel={[$V$]}
+		]}
 
 % ---
 % Configurações do pacote backref
