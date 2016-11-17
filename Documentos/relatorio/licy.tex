@@ -27,9 +27,11 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{amssymb}			% Less than or equal to
+\usepackage{tikz}				% desenhos de graficos aux
 \usepackage{pgfplots}			% desenhos de gráficos
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{subcaption}			% Subfigure
+\usepackage{gensymb}			% degree
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{lipsum}				% para geração de dummy text
 \usepackage{listings}			% para listagem de código %
@@ -44,6 +46,8 @@
 % ---
 % Configurações do pacote PGFPLOT
 \pgfplotsset{compat=1.14}
+\usetikzlibrary{patterns}
+\usepgfplotslibrary{fillbetween}
 \newcommand{\plotsin}[2]{\begin{axis}[
 		xmin=0, xmax=25,
 		ymin=-2, ymax=2,
