@@ -31,6 +31,7 @@
 \usepackage{pgfplots}			% desenhos de gráficos
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{subcaption}			% Subfigure
+\usepackage{float}				% Gráficos
 \usepackage{gensymb}			% degree
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{lipsum}				% para geração de dummy text
@@ -72,7 +73,13 @@
 		xlabel={[$t$]},
 		ylabel={[$V$]}
 		]}
-
+% ---
+% Configurações do pacote float
+\newfloat{chart}{tbhp}{loc} %section
+\floatname{chart}{Gráfico}
+\floatstyle{plaintop}
+\restylefloat{chart}
+\newcommand{\listofcharts}{\listof{chart}{Lista de Gráficos}}
 % ---
 % Configurações do pacote backref
 \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
@@ -223,6 +230,14 @@
 	% ---
 	\pdfbookmark[0]{\listtablename}{lot}
 	\listoftables*
+	\cleardoublepage
+	% ---
+	
+	% ---
+	% inserir lista de gráficos
+	% ---
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listofcharts
 	\cleardoublepage
 	% ---
 	

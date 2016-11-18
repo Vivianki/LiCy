@@ -561,30 +561,13 @@
 	
 	Contornando e solucionando todas as restrições listadas acima, o circuito resultante deverá enviar sinais luminosos a uma frequência de 200kHz.
 	
-	\begin{comment}
-	\texttt{Colocar desenho de FPGA enviando dados}
-	
-	É proposto um circuito que associa o transistor em modo emissor comum e o LED conectado no 	
-	
-	Para o envio de daos
-	O LED escolhido deverá ter uma curva de resposta de tensão semelhante ao de um diodo. A 
-	Para realizar a transmissão, deve-se realiz
-	Falar sobre curva de potencia do led, e de como passar do corte para saturação (desligando e ligando) muito rápido trabalha dentro da área não linear de operação do LED (nem está marcada no datasheet). Então foi escolhida uma técnica utilizada em vários sistemas de VLC e transmissão de fibra ótica: trabalhar com um Vdc e apenas variar a tensão dentro na saturação.
-	
-	@todo	Precisa de mais bibliografia.
-	\end{comment}
-	
 	\subsubsection{Conversor Digital-Analógico}
 	Como o LED será de alta potência, a corrente necessária para ligá-lo corretamente é na ordem de grandeza de amperes. Essa corrente de polarização é incompatível com a fornecida pela porta de saída da FPGA (aproximadamente mil vezes menor). Como forma de proteger o circuito da FPGA e também de chavear o LED, será utilizado um transistor de potência.
 	
 	Além disso, deve-se notar que o método de modulação desejado é OOK (on-off keying). Isso significa que na presença de portadora (sinal 1) o a luz deve estar ligada, enquanto em sua ausência (sinal 0) a luz deve estar desligada.
 	
 	\paragraph{Curva característica de FET}
-	
-	Para projetar um circuito chaveador com um transistor de potência é importante entender seu funcionamento. Um FET é um transistor que utiliza campo elétrico para controlar a condutividade de um tipo de carga de um canal em um semicondutor. Existem dois tipos de canais para transistores: n e p.
-	
-	Em um n-channel FET, a aplicação de voltagem positiva no Gate em relação a Source permite a livre passagem de eletrons pelo caminho Drain-Source. Analogamente em um p-channel, a aplicação de voltagem positiva no gate bloqueia a passagem de elétrons. Nesse caso, a voltagem aplicada deve ser zero ou negativa para polarizá-lo. Esse comportamento deve ser melhor detalhado utilizando uma curva característica de transistores tipo FET.
-	
+		
 	\begin{figure}[htb]
 		\caption{\label{fig_carac_mosfet} Curva característica de um MOSFET, com indicações das regiões de saturação, corte e triodo.}
 		\centering
@@ -593,6 +576,10 @@
 		\legend{Fonte: \cite{microelectronics-circuits}}
 	\end{figure}
 	
+	Para projetar um circuito chaveador com um transistor de potência é importante entender seu funcionamento. Um FET é um transistor que utiliza campo elétrico para controlar a condutividade de um tipo de carga de um canal em um semicondutor. Existem dois tipos de canais para transistores: n e p.
+	
+	Em um n-channel FET, a aplicação de voltagem positiva no Gate em relação a Source permite a livre passagem de eletrons pelo caminho Drain-Source. Analogamente em um p-channel, a aplicação de voltagem positiva no gate bloqueia a passagem de elétrons. Nesse caso, a voltagem aplicada deve ser zero ou negativa para polarizá-lo. Esse comportamento deve ser melhor detalhado utilizando uma curva característica de transistores tipo FET.
+
 	A \autoref{fig_carac_mosfet} caracteriza a resposta $i_{D}$ do transistor tipo FET de acordo com a tensão $V_{GS}$ fornecida, indicando as regiões operação do componente. As regiões de interesse para o chaveamento do LED são as de saturação e corte, e serão detalhadas abaixo.
 	
 	\subparagraph{Região de Corte}
@@ -625,7 +612,7 @@
 	
 	\paragraph{Conclusão}
 	
-	O transistor deve ser deixado na configuração de fonte comum \autoref{fig_common_source}, agindo como chave entre o circuito do LED, VCC e GND. Quando a FPGA gerar o sinal digital 1, o circuito deve atender $V_{in} \geq V_{(i_{D} > Corrente de LED aceso)}$. Da mesma forma, quando o sinal gerado for 0, é necessário projetar $V_{in} < V_{i_{D} \approx 0}$.
+	O transistor deve ser deixado na configuração de fonte comum da \autoref{fig_common_source}, agindo como chave entre o circuito do LED, VCC e GND. Quando a FPGA gerar o sinal digital 1, o circuito deve atender $V_{in} \geq V_{(i_{D} > Corrente de LED aceso)}$. Da mesma forma, quando o sinal gerado for 0, é necessário projetar $V_{in} < V_{i_{D} \approx 0}$.
 	
 	\begin{figure}[htb]
 		\caption{\label{fig_common_source} FET-n em modo de fonte comum.}
@@ -647,7 +634,19 @@
 	
 	O LED para a transmissão deverá então suportar essas frequências de acordo com a implementação de cada camada. Além disso, também deve realizar a transmissão de luz a distâncias de pelo menos um metro.
 	
-	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional a luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza - como por exemplo, a possibilidade do LED atrasar em relação a excitações em seus terminais.
+	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional a luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza - como por exemplo, a possibilidade do LED atrasar em relação a excitações em seus terminais. O circuito polarizador de um LED de alta potência pode ser simples, apenas ligando-o a um resistor de alta potência chamado de resistor limitador de corrente.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_led_circuit}Circuito polarizador de LED, com resistor limitador de corrente}
+		\centering
+		\includegraphics[width=0.5\textwidth, trim={8cm 8cm 8cm 8.5cm},clip]{circuits/led_circuit.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+
+	A corrente que passa pelo LED, que não pode exceder valores definidos de fábrica pode ser calculada pela fórmula:
+	\begin{equation}
+	V_{LED} = \frac{V_{CC}}{R_{limit}}
+	\end{equation}
 	
 	\paragraph{Resposta Luminosa}
 	
@@ -655,7 +654,7 @@
 	\begin{figure}[htb]
 		\caption{\label{fig_led_schematic}Símbolo esquemático de um LED, similar ao do diodo}
 		\centering
-		\includegraphics[width=0.4\textwidth, trim={12cm 9.2cm 12cm 9.5cm},clip]{circuits/led_schematics.pdf}
+		\includegraphics[width=0.3\textwidth, trim={12cm 9.2cm 12cm 9.5cm},clip]{circuits/led_schematics.pdf}
 		\legend{Fonte: Autores}
 	\end{figure}
 	O circuito proposto deseja oscilar todos os componentes a 200kHz. Isso significa oscilar entre a região de saturação e corte. Ao realizar o fechamento ou abertura de seus terminais, é possível que o componente responda com efeitos de capacitor. As componentes capacitivas passivas e ativas dos componentes criam respostas indesejadas no circuito. Para atenuá-las, é possível utilizar um filtro, que remove esse comportamento indesejado, aplicando uma onda de acordo com a entrada (da FPGA) no LED.
@@ -671,7 +670,7 @@
 	
 	No gráfico da \autoref{fig_diode_carac} é possível observar a curva de operação do diodo crescente. Ao submetê-lo a uma tensão, há resposta em $I_{D}$, que no caso do LED corresponde a intensidade luminosa. Cada diodo (ou LED) tem sua curva, e será necessário projetar o circuito levando esses parâmetros em consideração.
 	
-	No entanto, é possível que essa estratégia cause modificações também no circuito do receptor, pois o LED deixará de apagar e acender, apenas oscilando sua intensidade.
+	No entanto, é possível que essa estratégia cause modificações também no circuito do receptor, pois o LED deixará de apagar e acender, apenas oscilando sua intensidade.	
 	
 	% ---
 	\subsection{Recepção}
@@ -734,17 +733,17 @@
 		\begin{tikzpicture}
 		\begin{axis}[
 		xmin=0, xmax=25,
-		ymin=-2, ymax=2,
+		ymin=0, ymax=2,
 		axis lines=middle,
 		xticklabels={,,},
 		ytick={0.3, 1, 1.7},	
-		yticklabels={$-A_{i_{D} \cdot R_{F}}$,$L$,$A_{i_{D} \cdot R_{F}}$},
-		ylabel near ticks,
+		yticklabels={$L-A_{i_{D} \cdot R_{F}}$,$L$,$L+A_{i_{D} \cdot R_{F}}$},
+		%ylabel near ticks,
 		%			ylabel style={yshift=-0.5cm},
 		xlabel shift = 2 pt,
 		xlabel style={yshift=-1cm},
 		xlabel={[$t$]},
-		ylabel={[$V$]}
+		ylabel={[$V_{out}$]}
 		]
 		\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2)) + 1};
 		\addplot[domain=0:8*pi]{1};
@@ -797,7 +796,7 @@
 	\begin{equation}
 	V_{\delta-} = \frac{V_{EE}}{A}
 	\end{equation}
-	Nesse intervalo $V_{\delta-} < V_{in} < V_{\delta+}$ (ilustrado em \autoref{fig_comparator_transfer}), o comportamento da saída é diferenciado e depende do ganho de loop aberto A, que para circuitos reais é muito grande $A=20000$. Os valores $V_{\delta-}$ e $V_{\delta+}$ então são da ordem de  $\mu$V, definindo a tensão mínima (ou máxima) da entrada para que o comparador realize uma comparação adequada. Com uma amplitude $V_{in_{AC}}$ alternada suficientemente alta, é possível tornar a curva de resposta mais íngreme melhorando o tempo de resposta do componente. A amplitude pode ser ajustada com o resistor de feedback $R_{f}$ do estágio anterior. Mesmo com essas correções, a onda comparada pode defasar um pouco da saída.
+	Nesse intervalo $V_{\delta-} < V_{in} < V_{\delta+}$ (ilustrado em \autoref{fig_comparator_transfer}), o comportamento da saída é diferenciado e depende do ganho de loop aberto A, que para circuitos reais é muito grande $A=20000$. Os valores $V_{\delta-}$ e $V_{\delta+}$ então são da ordem de  $\mu$V, definindo a tensão mínima (ou máxima) da entrada para que o comparador realize uma comparação adequada. Com uma amplitude $V_{in_{AC}}$ alternada suficientemente alta, é possível tornar a curva de resposta mais íngreme melhorando o tempo de resposta do componente. A amplitude pode ser ajustada com o resistor de feedback $R_{f}$ do estágio anterior. Mesmo com essas correções, a onda comparada pode defasar um pouco na saída.
 	
 	\subsubsection{Filtro Passa-Altas}
 	
@@ -820,23 +819,29 @@
 	A \autoref{plot-post-highpass-filter} ilustra o comportamento da saída do filtro passa-altas juntamente com o esquemático do filtro passa-altas.
 	
 	\begin{figure}[h]
-		\caption{\label{plot-post-highpass-filter} Saída esperada após remoção do acoplamento DC, aplicando filtro passa-alta RC de primeira ordem, com defasagem de 45$\degree$. A área hachurada representa tensão }
+		\caption{\label{plot-post-highpass-filter} Saída esperada após remoção do acoplamento DC, aplicando filtro passa-alta RC de primeira ordem (à direita), com defasagem de 45$\degree$. A área hachurada representa tensão inadequada para o comparador.}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\begin{tikzpicture}
 			\begin{axis}[
 			xmin=0, xmax=25,
-			ymin=-2, ymax=2,
+			ymin=-1, ymax=1,
 			axis lines=middle,
 			xticklabels={,,},
 			ytick={-0.7, 0, 0.7},	
 			yticklabels={$-A_{i_{D} \cdot R_{F}}$,$0$,$A_{i_{D} \cdot R_{F}}$},
-			ylabel near ticks,
+			%ylabel near ticks,
 			%			ylabel style={yshift=-0.5cm},
 			xlabel shift = 2 pt,
 			%xlabel style={yshift=-1cm},
 			xlabel={[$t$]},
-			ylabel={[$V$]}]
+			ylabel={[$V_{out}$]},
+			after end axis/.code={
+				\path (axis cs:0,0) 
+				%			node [anchor=north west,yshift=-0.075cm] {$V_{EE}$};
+				node [anchor=south east,xshift=-0.2cm, yshift=-0.3cm] {$0$};
+			}
+			]
 			\addplot[name path=f, smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2 - pi/2))};
 			\addplot[name path=axis, domain=0:8*pi]{0};
 			\addplot[fill=none]
@@ -850,83 +855,92 @@
 			];
 			\end{axis}
 			\end{tikzpicture}
-			\label{fig:sub1}
 		\end{subfigure}%
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\textwidth, trim={3cm 0cm 3cm 3cm},clip]{circuits/highpass_filter.pdf}
-			\label{fig:sub2}
 		\end{subfigure}
 		\legend{Fonte: Autores}
 	\end{figure}
 	\subsubsection{Acoplamento DC}
-	Com a aplicação do filtro passa-altas agora a onda gerada têm componente $V_{DC} = 0$ fixa, que ainda necessita correção, pois é uma tensão imcompatível com o circuito.
+	Com a aplicação do filtro passa-altas agora a onda gerada têm componente $V_{DC} = 0$ fixa - observada na parte hachurada da \autoref{plot-post-highpass-filter} -, que ainda necessita correção, pois é uma tensão incompatível com o circuito.
 	
-	O funcionamento do comparador (e de qualquer amplificador operacional) depende altamente do fato de que as voltagens de entrada $V_{in}$ e $V_{ref}$ estão dentro do intervalo de alimentação. Caso as tensões aplicadas nas entradas sejam muito altas (ou baixas), o amplificador pode operar incorretamente, ser reversamente polarizado e até ser danificado. Esses valores costumam estar presentes em datasheets de componentes em uma tabela chamada	\textbf{ABSOLUTE MAXIMUM RATINGS}. Como foi decisão de projeto o fato de que o sistema de comunicação utilizaria apenas uma fonte de alimentação, essa restrição será aplicada para todos os componentes do circuito.
+	O funcionamento do comparador (e de qualquer amplificador operacional) depende altamente do fato de que as voltagens de entrada $V_{in}$ e $V_{ref}$ estejam dentro do intervalo de alimentação. Caso as tensões aplicadas nas entradas sejam muito altas (ou baixas), o amplificador pode operar incorretamente, ser reversamente polarizado e até ser danificado. Esses valores costumam estar presentes em datasheets de componentes em uma tabela chamada	\textbf{ABSOLUTE MAXIMUM RATINGS}. Como foi decisão de projeto o fato de que o sistema de comunicação utilizaria apenas uma fonte de alimentação, essa restrição será aplicada para todos os componentes do circuito.
 	
-	Apenas uma fonte significa que o circuito terá apenas alimentação positiva disponível em seus terminais. 
+	Apenas uma fonte significa que o circuito terá apenas alimentação positiva disponível em seus terminais: 
 	\begin{equation}
 	V_{in}, V_{ref} \in [V_{EE} \geq 0, V_{CC} > V_{EE}]
 	\end{equation}
-	Como é possível observar na saída do circuito após o filtro passa-altas (\autoref{plot-post-highpass-filter}), a tensão de saída passa por 
-	
-	Com a onda corrigida com componente $V_{DC} = 1V$, 
+	Portanto o componente não conseguirá realizar a comparação corretamente. Para resolver esse problema pode-se adicionar um acoplamento $V_{DC} = V_{ref}$ fixo, que também será utilizado na entrada de referência do comparador. E etapa de filtro pode ser realizada juntamente com a adição de $V_{ref}$, utilizando um circuito levemente modificado.
 	
 	\begin{figure}[h]
-		\caption{\label{plot-post-bias1v} Saída esperada após adição de componente DC $V_{DC} = 1V$ fixa.}
+		\caption{\label{plot-post-bias1v} Gráfico com adição de componente DC $V_{DC} = V_{ref}$ fixa e filtro passa-altas modificado. Agora não existe tensão }
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\begin{tikzpicture}
+			\begin{axis}[
+			xmin=0, xmax=25,
+			ymin=0, ymax=2,
+			axis lines=middle,
+			xticklabels={,,},
+			ytick={0.3, 1, 1.7},	
+			yticklabels={$V_{ref}-A_{i_{D} \cdot R_{F}}$,$V_{ref}$,$V_{ref}+A_{i_{D} \cdot R_{F}}$},
+			%ylabel near ticks,
+			%ylabel style={yshift=-0.5cm},
+			xlabel shift = 2 pt,
+			xlabel style={yshift=-1cm},
+			xlabel={[$t$]},
+			ylabel={[$V_{out}$]}
+			]
+			\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2 - pi/2)) + 1};
+			\addplot[domain=0:8*pi]{1};
+			\end{axis}
+			\end{tikzpicture}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			%\caption{\label{hard-post-bias1v} Filtro passa-altas com adição de $V_{DC} = 1V$.}
+			\centering
+			\includegraphics[width=1\textwidth, trim={3cm 0cm 3cm 3cm},clip]{circuits/highpass_filter_bias.pdf}
+		\end{subfigure}
+		\legend{Fonte: Autores}
+	\end{figure}
+
+	 A figura \autoref{plot-post-bias1v} ilustra a onda modificada, com voltagem de referência fixa agora. Após todas essas etapas, é possível realizar de fato a etapa de comparação. Idealmente a onda ficaria similar a \autoref{plot-post-comparator}.
+	
+	\begin{figure}[h]
+		\caption{\label{plot-post-comparator} Saída esperada após a etapa de comparação em verde.}
 		\centering
 		\begin{tikzpicture}
 		\begin{axis}[
 		xmin=0, xmax=25,
-		ymin=-2, ymax=2,
-		axis lines=middle,
+		ymin=0, ymax=1.8,
+		axis y line=middle, 
+		axis x line=bottom,
 		xticklabels={,,},
-		ytick={0.3, 1, 1.7},	
-		yticklabels={$-A_{i_{D} \cdot R_{F}}$,$1$,$A_{i_{D} \cdot R_{F}}$},
-		ylabel near ticks,
-		%ylabel style={yshift=-0.5cm},
-		xlabel shift = 2 pt,
-		xlabel style={yshift=-1cm},
+		ytick={0, 0.7, 1.4},	
+		yticklabels={$V_{EE}$, $V_{ref}$, $V_{CC}$},
+		%ylabel near ticks,
+		ylabel style={yshift=0cm, xshift=0cm},
+		xlabel style={xshift=3cm, yshift=0.1cm},
+		legend style={anchor=north east, xshift=0.5cm},
 		xlabel={[$t$]},
-		ylabel={[$V$]}
+		ylabel={[$V_{out}$]},
+		after end axis/.code={
+			\path (axis cs:0,0) 
+%			node [anchor=north west,yshift=-0.075cm] {$V_{EE}$};
+			node [anchor=south east,xshift=-0.075cm, yshift=-0.3cm] {$V_{EE}$};
+		}
 		]
-		\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2)) + 1};
-		\addplot[domain=0:8*pi]{1};
+		\addplot[smooth, domain=0:8*pi, color=red]{0.35*sin(deg(x/2)) + 0.7}; \addlegendentry{$V_{in}$};
+		\addplot[color=green] coordinates {(0, 1.4) (2*pi,1.4) (2*pi,0) (4*pi,0) (4*pi,1.4) (6*pi,1.4) (6*pi,0) (8*pi,0)}; \addlegendentry{$V_{comp}$};
+		%\addplot[color=green] coordinates {(0,0) (0, 1.4) (2*pi,1.4) (2*pi,0) (4*pi,0) (4*pi,1.4) (6*pi,1.4) (6*pi,0) (8*pi,0)}; \addlegendentry{$V_{comp}$};
+		\addplot[domain=0:8*pi]{0.7};
 		\end{axis}
 		\end{tikzpicture}
 		\legend{Fonte: Autores}
 	\end{figure}
-	
-	
-	\begin{figure}[h]
-		\caption{\label{plot-post-comparator} Saída esperada após o comparador}
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[
-		xmin=0, xmax=25,
-		ymin=-2, ymax=2,
-		axis lines=middle,
-		xticklabels={,,},
-		ytick={0, 0.7},	
-		yticklabels={$V_{EE}$,$0$,$V_{CC}$},
-		ylabel near ticks,
-		%			ylabel style={yshift=-0.5cm},
-		xlabel shift = 2 pt,
-		%xlabel style={yshift=-1cm},
-		xlabel={[$t$]},
-		ylabel={[$V$]}
-		]
-		\addplot[smooth, domain=0:8*pi, color=red]{0.7*sin(deg(x/2)) + 1};
-		%\addplot[domain=0:8*pi]{1};
-		\addplot[color=green]coordinates
-		{(0,0) (0, 0.7) (2*pi,0.7) (2*pi,0) (4*pi,0) (4*pi,0.7) (6*pi,0.7) (6*pi,0) (8*pi,0)};
-		\end{axis}
-		\end{tikzpicture}
-		\legend{Fonte: Autores}
-	\end{figure}
-	
-	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Após esse estágio pode ser necessário realizar a retificação da onda com um outro comparador, um schmitt trigger hex inverter nesse caso.
-	
+		
+	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Caso a saída não esteja adequada, é possível que seja necessário realizar mais um estágio de amplificação e filtração após o filtro passa-altas.
 	
 	% ---
 	\subsubsection{Filtro Passa-Faixas}\label{hard-bandfilter}
@@ -943,12 +957,15 @@
 	
 	De acordo com as tabelas \ref{tab_phy1} e \ref{tab_phy2}, o intervalo da frequência do \textit{clock} luminoso é de 200kHz até 120MHz. Deseja-se então  permitir a passagem dessas, limitando as frequências fora desse intervalo. Com o uso do passa baixas e passa altas da figura acima, pode-se realizar essa limitação adequando os resistores e capacitores do circuito.
 	
+	\begin{comment}
+	Ninguém gosta de imagens da wikipedia
 	\begin{figure}[htb]
 		\caption{\label{fig_frequenciacentral}Um gráfico em escala logaritmica mostrando a banda de passagem B, a frequência de corte inferior $f_{L}$, a frequência de corte superior $f_{H}$ e a frequência central fo para um circuito passa faixas.}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={4.5cm 17cm 3.3cm 2cm},clip]{circuits/freq-corte.pdf}
 		\legend{Fonte: Inductiveload, Wikipedia}
 	\end{figure}
+	\end{comment}
 	
 	Deve-se levar em conta também o ganho do circuito, que é dado pela fórmula:
 	
