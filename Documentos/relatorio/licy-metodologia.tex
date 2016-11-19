@@ -25,6 +25,7 @@
 		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber }
 		\centering
 		\scalebox{.96}{\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{EAP.pdf}}
+		\legend{Fonte: Autores}
 	\end{figure}
 	
 	% ---
@@ -37,6 +38,7 @@
 		\caption{\label{fig_gantt} Diagrama de Gantt do projeto LiCy}
 		\centering
 		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 7cm 1cm}, clip]{gantt.pdf}
+		\legend{Fonte: Autores}
 	\end{figure}
 	
 	% ---
@@ -48,7 +50,18 @@
 	% ---
 	\subsubsection{Requisitos Funcionais}\label{subsubsec-requisitos-func}
 	% ---
-	\textbf{Requisitos de hardware:} é importante observar que estes dividem-se entre a lamparina, que serve de ponto de acesso, e o módulo de celular, com pesos iguais entre os dois, já que a comunicação é bilateral e ambos têm importância equivalente. Há requisitos em comum entre esses subsistemas:
+	
+	\paragraph{Requisitos de hardware} 
+	
+	É importante observar que estes dividem-se entre a lamparina, que serve de ponto de acesso, e o módulo de celular, com pesos iguais entre os dois, já que a comunicação é bilateral e ambos têm importância equivalente. Há requisitos em comum entre esses subsistemas:
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_req1_1} Requisitos Funcionais de Hardware}
+		\centering
+		\includegraphics[width=0.8\textwidth]{ReqTree1_1.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+
 	\begin{itemize}  
 		\item Estar de acordo com a norma IEEE 802.15.7, que tem o peso mais alto, já que compreende o escopo principal deste trabalho, que é implementá-la;
 		\item Utilização da FPGA e de um microcontrolador, para implementar as camadas física, MAC\footnote{ Media Access Control, ou camada de enlace.},  TCP, IP e de aplicação. As justificativas para o uso desses dois componentes segue nos próximos itens;
@@ -61,7 +74,15 @@
 	
 	Já o módulo de celular tem como requisitos de hardware exclusivos o consumo de energia através de uma bateria e a conexão ao celular através da interface USB.	
 	
-	\textbf{Requisitos de software:} dividem-se entre a lamparina, o módulo de celular e o aplicativo, utilizado para receber e enviar dados para este módulo. Existem requisitos que são complementares às funções de hardware, porém correspondentes às soluções de software adotadas, como a implementação da norma IEEE 802.15.7 e a comunicação full-duplex um a um. Além destes, existem os requisitos de software comuns tanto à lamparina, ou Access Point Li-Fi, como ao módulo de telefone:
+	\paragraph{Requisitos de software} 
+	Dividem-se entre a lamparina, o módulo de celular e o aplicativo, utilizado para receber e enviar dados para este módulo. Existem requisitos que são complementares às funções de hardware, porém correspondentes às soluções de software adotadas, como a implementação da norma IEEE 802.15.7 e a comunicação full-duplex um a um. Além destes, existem os requisitos de software comuns tanto à lamparina, ou Access Point Li-Fi, como ao módulo de telefone:
+	
+	\begin{figure}[h!]
+		\caption{\label{fig_req1_2} Requisitos Funcionais de Software}
+		\centering
+		\includegraphics[width=0.8\textwidth]{ReqTree1_2.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
 	
 	\begin{itemize}  
 		\item Lidar com luz ambiente, ou seja, minimizar a interferência causada por ela, e mitigar o efeito de erros, corrigindo ou descartando pacotes que os contenham;
@@ -72,49 +93,41 @@
 	O módulo de celular possui um requisito de software exclusivo, que é a utilização de um protocolo conhecido para se comunicar com o celular via USB. Do outro lado, o lamparina deve se conectar à internet e lidar com os pacotes que chegarem desta rede. 
 	
 	Além desses requisitos, existem também aqueles referentes ao aplicativo de celular, que deve decodificar os dados recebidos via USB, deve ser desenvolvido a fim de funcionar no sistema operacional Android e deve exibir vídeos, imagens ou websites.
-
-	\begin{figure}[h!]
-		\caption{\label{fig_req1_1} Requisitos Funcionais de Hardware}
-		\centering
-		\includegraphics[width=0.8\textwidth]{ReqTree1_1.pdf}
-	\end{figure}
-
-	\begin{figure}[h!]
-		\caption{\label{fig_req1_2} Requisitos Funcionais de Software}
-		\centering
-		\includegraphics[width=0.8\textwidth]{ReqTree1_2.pdf}
-	\end{figure}
 	
 	\subsubsection{Requisitos Não-Funcionais}\label{subsubsec-requisitos-nfunc}
-	\textbf{Transmissão de dados:} Deve-se principalmente manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada PHY correspondente. É também primordial garantir a confiabilidade na comunicação, ou seja, garantir que os bits recebidos estão corretos e quando possível e necessário, corrigi-los, com as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação). Além disso, há um requisito de segurança, que equivale a evitar a possibilidade de vazamento de dados para terceiros, ou até a intromissão de mensagens indesejadas na comunicação.
-	\textbf{Modulação de luz:} O requisito mais importante é garantir o funcionamento do sistema a uma distância de até 1 metro, considerando uma aplicação residencial do produto. Secundariamente, há o requisito de manter um baixo consumo de energia, que apesar de fundamental em produtos de tecnologia da informação, foge do escopo deste estudo.
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_req2} Requisitos Não Funcionais}
 		\centering		%  trim={<left> <lower> <right> <upper>} 
-		\includegraphics[width=0.9\textwidth, trim={1cm 5.5cm 1cm 6cm}, clip]{ReqTree2.pdf}
+		\includegraphics[width=0.9\textwidth, trim={1cm 5.5cm 1cm 5.7cm}, clip]{ReqTree2.pdf}
+		\legend{Fonte: Autores}
 	\end{figure}
+
+	\paragraph{Transmissão de dados} 
+	Deve-se principalmente manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada PHY correspondente. É também primordial garantir a confiabilidade na comunicação, ou seja, garantir que os bits recebidos estão corretos e quando possível e necessário, corrigi-los, com as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação). Além disso, há um requisito de segurança, que equivale a evitar a possibilidade de vazamento de dados para terceiros, ou até a intromissão de mensagens indesejadas na comunicação.
+	
+	\paragraph{Modulação de luz} 
+	O requisito mais importante é garantir o funcionamento do sistema a uma distância de até 1 metro, considerando uma aplicação residencial do produto. Secundariamente, há o requisito de manter um baixo consumo de energia, que apesar de fundamental em produtos de tecnologia da informação, foge do escopo deste estudo.
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_req3} Outros Requisitos}
 		\centering
 		\includegraphics[width=0.7\textwidth, trim={1cm 4cm 3cm 4cm}, clip]{ReqTree3.pdf}
+		\legend{Fonte: Autores}
 	\end{figure}
 	
 	% ---
 	\section{Norma IEEE 802.15.7}\label{sec-norma}
 	% ---
-	
-	A norma 802.15.7 estabelece um padrão para comunicação via luz, no que se diz respeito à definição de topologias de rede, codificação da informação, divisão das camadas da arquitetura do sistema de comunicação, ordem e conteúdo de cabeçalhos para cada camada e definições sobre a segurança do \textit{link}. A arquitetura de um sistema LiFi completo está definida na \autoref{fig_architecture}.
-	
 	\begin{figure}[htb]
 		\caption{\label{fig_architecture} Arquitetura de dispositivos VPAN}
 		\centering
 		\includegraphics[width=0.5\textheight,trim={5.5cm 9.6cm 5.3cm 7cm}, clip]{pag31.pdf}
 		\legend{Fonte: IEEE 802.15.7}
 	\end{figure}
-	
-	O trabalho focará no estudo e implementação das camadas PHY e MAC.
+
+	A norma 802.15.7 estabelece um padrão para comunicação via luz, no que se diz respeito à definição de topologias de rede, codificação da informação, divisão das camadas da arquitetura do sistema de comunicação, ordem e conteúdo de cabeçalhos para cada camada e definições sobre a segurança do \textit{link}. A arquitetura de um sistema LiFi completo está definida na \autoref{fig_architecture}. 
+	O trabalho focará no estudo e implementação da camada PHY.
 	
 %	\begin{figure}[htb]
 %		\caption{\label{fig_transmission_simple_blocs} Diagrama de blocos simplificado da transmissão da camada PHY I}
@@ -129,8 +142,8 @@
 		\begin{figure}[htb]
 			\caption{\label{fig_transmission_phy1} Diagrama de blocos da codificação da mensagem}
 			\centering
-			\includegraphics[width=0.6\textheight]{PHY1-transmission.pdf}
-			\legend{Fonte: @todo figura 126}
+			\includegraphics[width=0.4\textheight]{PHY1-transmission.pdf}
+			\legend{Fonte: Autores}
 		\end{figure}
 		
 	Para que os dados transmitidos sejam corretamente recebidos, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em burst, maior facilidade na sincronia do clock, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Esses passos estarão detalhados nas seções a seguir.
@@ -228,6 +241,7 @@
 		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
 		\centering
 		\includegraphics[width=0.5\textheight]{reed_solomon_message.pdf}
+		\legend{Fonte: Autores}
 	\end{figure}
 	
 	Finalmente, a representação do codificador de Reed Solomon (15, 7) em hardware equivale a:
@@ -241,10 +255,7 @@
 	
 	É possível observar nos registradores e multiplicadores de Galois a estrutura de um polinômio e seus índices. A mensagem a que se vai adicionar redundância deve passar por "entrada", com um ciclo de clock para cada símbolo, levando portanto 7 ciclos para finalizar o cálculo das paridades para um código (15, 7). Os 8 símbolos de paridade devem então ser passados através de deslocamento de registradores, com a mudança do sinal de seleção, de maneira também a zerar a saída da porta lógica AND à direita. Sendo assim, os valores dos registradores não são afetados pelos somadores, já que as operações de multiplicação e soma de Galois estarão recebendo uma das entradas igual a 0000. Em suma, o processo de codificação leva tantos ciclos quantos forem os símbolos do bloco codificado, ou o valor denotado por $n$.
 	
-	 
 	\cite{nasa-rs1}
-
-		
 	
 	\subsubsection{Padding}
 	
@@ -341,9 +352,9 @@
 	Após a codificação dos dados, é necessário realizar a decodificação deles. Para isso, deve-se reverter os processos aplicados pela seção anterior. No entanto, isso não é tão trivial, dado que vários desses módulos devem realizar correção de erro, tornando o algoritmo completamente diferente. As etapas de decodificação dos dados estão esquematizadas abaixo:
 
 	\begin{figure}[htb]
-		\caption{\label{fig_transmission_phy1} Diagrama de blocos da codificação da mensagem}
+		\caption{\label{fig_reception_phy1} Diagrama de blocos da decodificação da mensagem}
 		\centering
-		\includegraphics[width=0.6\textheight]{PHY1-transmission.pdf}
+		\includegraphics[width=0.4\textheight]{PHY1-reception.pdf}
 		\legend{Fonte: @todo figura 126}
 	\end{figure}
 
@@ -521,12 +532,77 @@
 		\caption{\label{RSDecoder_diagrama_logico} Diagrama funcional de decodificação Reed Solomon}
 		\centering
 		\includegraphics[width=0.7\textheight]{RSdecoder_diagrama.png}
-		\legend{Fonte: @todo figura 126}
+		\legend{Fonte: Autores}
 	\end{figure}
 	
 	\subsubsubsection{Estratégia}
 	
 	O primeiro passo para aproximar os algoritmos de uma solução em hardware foi procurar níveis de abstração intermediários. O nível encontrado foi a programação em alto nível, reduzindo módulos como multiplicadores e somadores a funções. Uma das vantagens deste método foi a geração de saídas esperadas para cada módulo funcional, incluindo o bloco de saída final, corrigido ou a ser descartado. Esses dados foram fundamentais para a depuração e correções em hardware. Entretanto, uma das limitações deste método era a de que a linguagem de programação pertence a um paradigma diferente do da descrição de hardware, o que envolveu o uso de máquinas de estado no lugar de loops, por exemplo.  
+	
+	\subsection{Estrutura da mensagem}
+	
+	Como nesse trabalho apenas será implementado a camada física PHY I, a estrutura da mensagem não conterá elementos da camada MAC. Define-se portanto o elemento básico de transmissão, a Unidade de dados da camada física, ou PPDU, de acordo com a norma. Seu formato pode ser visto na \autoref{fig_ppdu_frame}
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_ppdu_frame} Estrutura da mensagem, composta pelo Cabeçalho de Sincronização (SHR), Cabeçalho da Camada Física (PHR) e Unidade de Dados de Serviço PHY (PSDU).}
+		\centering
+		\includegraphics[width=0.5\textheight]{frame/PPDU.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	\subsubsection{Preâmbulo}
+	
+	O campo de preâmbulo é usado pelo transmissor de data para obter sincronização ótica de clock com uma mensagem recebida. A norma define um padrão de travamento rápido (FLP), seguido de quatro padrões dependentes da topologia (TDP) para fins de distinção de topologias de PHY diferentes. O preâmbulo deve ser enviado em uma taxa de clock escolhida pelo transmissor e suportada pelo receptor. O preâmbulo é uma sequência de domínio de tempo e não possui nenhuma codificação de canal ou linha.
+	O preâmbulo começa com um FLP com pelo menos 64 zeros e uns alternados. O FLP é fixado para iniciar com um padrão  \textbf{"1010..."} i.e., termina com um '0'. A sequência de transição máxima é usada para travar o circuito de recuperação de clock e dados (CDR) 
+	
+	O comprimento do padrão de travamento rápido é não pode exceder o máximo de 16384 bits. Após o TDP, quatro repetições de uma de quatro TDPs (definido na \autoref{fig_tdp_def}) devem ser enviados. O TDP deve conter 15 bits de comprimento e deve ser invertido a cada repetição para providenciar DC balance
+	
+	O preâmbulo deve ser enviado utilizando modulação OOk. O campo deve ser formatado
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_ppdu_frame} Estrutura da mensagem, composta pelo Cabeçalho de Sincronização (SHR), Cabeçalho da Camada Física (PHR) e Unidade de Dados de Serviço PHY (PSDU).}
+		\centering
+		\includegraphics[width=0.5\textheight]{frame/SHR.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	The preambles shall be transmitted using an OOK modulation. The preamble field for single data mode and
+	packed data mode shall be formatted as illustrated in Figure 119. For PHY III, all the three light sources
+	shall transmit the same preamble pattern simultaneously in the supported frequency bands within the error
+	tolerance specified in 8.3.3.
+	For the burst mode transmission, the FLP shall be included only for the first frame. Subsequent frames shall
+	not include the FLP in the burst mode since the receiver is already synchronized to the transmitter. This
+	reduces the preamble length by at least half and provides higher throughput at the MAC layer. The preamble
+	field for burst data mode shall be formatted as illustrated in Figure 121.
+	
+	The TDP used for a specific a topology is defined in Table 80. The topologies are given in 4.2.
+	The same preamble sequences shall be used for all PHY types. The number of repetitions of the FLP can be
+	extended by the MAC during idle time or for different operating modes for better synchronization or to
+	provide visibility or image array receiver based device discovery
+	
+	The PHY header, as shown in Table 81, shall be transmitted with an OOK modulation. For PHY III, all light
+	sources shall transmit the same header contents simultaneously within the error tolerance specified in 8.3.3
+	and the band plan ID field shall be set to be the band plan ID of the lowest wavelength. The MAC shall
+	select the optical clock rate for communication during the clock-rate selection process, as defined in 6.5. The
+	PHY header shall be sent at the lowest data rate for the chosen optical clock rate. The clock rate does not
+	change throughout the frame between the preamble, header, and payload. If the dimmed OOK extension bit
+	is set in the PHY header for dimming support, additional fields are transmitted after the PHY header as
+	shown in Table 82.
+	
+	Se refere ao ato de sincronizar os clocks de sistemas independentes. Para a transmissão de dados via luz, como ambos módulos (receptor e transmissor) não estão conectados via nenhum cabo, o sinal de clock não é compartilhado. Dessa forma, é certo dizer que eles estão fora de fase. A norma especifica dados fixos sem codificação, apenas com o propósito de obter sincronia entre os sistemas.
+	\\
+	8.6.5 PSDU field
+	The PSDU field has a variable length and carries the data of the PHY frame. The FCS is appended if the
+	PSDU has a non-zero byte payload. Six tail bits of zeros are attached to end of the PSDU, if PHY I is used
+	with data rates of 11.67 kb/s, 24.44 kb/s, or 48.89 kb/s. The structure of the PSDU field is as shown in
+	Figure 123.
+	
+	\subsubsection{FLP}
+	
+	O 
+	
+	Clock synchronization is a topic in computer science and engineering that aims to coordinate otherwise independent clocks. Even when initially set accurately, real clocks will differ after some amount of time due to clock drift, caused by clocks counting time at slightly different rates. There are several problems that occur as a result of clock rate differences and several solutions, some being more appropriate than others in certain contexts.[1]
+	
 	
 	% ---
 	\section{Hardware}\label{sec-hardware}
@@ -1071,22 +1147,7 @@
 	
 	%--- Obs: essa justificativa sobre as matérias é ok? 
 	
-	
 	*ref: Very High Speed Integrated Circuit
-
-	
-	% ---
-	\subsubsection{Opções Consideradas}\label{vhdl-options}
-	% ---
-	%-- VHDL e Verilog?
-	%Essa parte é necessária? 
-	%Explicação de quais foram as opções consideradas.
-	
-	% ---
-	\subsubsection{Tabela Comparativa}\label{vhdl-table}
-	% ---
-	
-	Tabela de opções consideradas.
 	
 	% ---
 	\subsection{Quartus}\label{soft-quartus}
@@ -1095,22 +1156,3 @@
 	Quartus é um software de programação de dispositivos lógicos, desenvolvido pela Altera, subsidiária da Intel, que fabrica dispositivos lógicos programáveis, como as FPGAs citadas anteriormente. Algumas das vantagens dessa ferramenta são a possibilidade de sintetizar circuitos a partir de diagramas lógicos,  simular o comportamento de circuitos no tempo, controlando entradas através de testbenches, e uma interface relativamente simples para se programar uma FPGA.
 	
 	Dentro do contexto do estudo de sistemas digitais, Quartus foi uma ferramenta recorrente para os integrantes do grupo no passado. Ademais, o fato desta ferramenta se integrar com famílias de FPGAs como Cyclone ou MAX foi interessante, já que isto tornou possível o uso da infra-estrutura presente nos laboratórios da Universidade.
-	
-	%--- necessário aprimorar essa justificativa, sugestões?
-	
-	% ---
-	\subsubsection{Opções Consideradas}\label{quartus-options}
-	% ---
-
-	
-	% ---
-	\subsubsection{Tabela Comparativa}\label{quartus-table}
-	% ---
-	
-	
-	% ---
-	\subsection{Android}\label{soft-android}
-	% ---
-	
-	Explicação do porquê foi escolhido Android.
-
