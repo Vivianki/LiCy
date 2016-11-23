@@ -240,7 +240,7 @@
 	\begin{figure}[htb]
 		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
 		\centering
-		\includegraphics[width=0.5\textheight]{reed_solomon_message.pdf}
+		\includegraphics[width=0.4\textheight]{frame/rs-codeword.pdf}
 		\legend{Fonte: Autores}
 	\end{figure}
 	
@@ -373,6 +373,8 @@
 	
 	\subsubsection{Deinterleaver}
 	
+	O De
+	
 	\subsubsection{Decodificação Reed Solomon}
 	
 	Esta seção discorre sobre as quatros etapas principais do processo de decodificação de Reed Solomon abordados na execução do projeto.
@@ -426,8 +428,6 @@
 		\includegraphics[width=0.2\textheight]{Syndrome.png}
 		\legend{Fonte: @todo figura 126}
 	\end{figure}
-	
-	
 	
 	\subsubsubsection{Localização dos erros}
 	
@@ -550,59 +550,69 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	\subsubsection{Preâmbulo}
+	\subsubsection{Preâmbulo - SHR}
 	
 	O campo de preâmbulo é usado pelo transmissor de data para obter sincronização ótica de clock com uma mensagem recebida. A norma define um padrão de travamento rápido (FLP), seguido de quatro padrões dependentes da topologia (TDP) para fins de distinção de topologias de PHY diferentes. O preâmbulo deve ser enviado em uma taxa de clock escolhida pelo transmissor e suportada pelo receptor. O preâmbulo é uma sequência de domínio de tempo e não possui nenhuma codificação de canal ou linha.
 	O preâmbulo começa com um FLP com pelo menos 64 zeros e uns alternados. O FLP é fixado para iniciar com um padrão  \textbf{"1010..."} i.e., termina com um '0'. A sequência de transição máxima é usada para travar o circuito de recuperação de clock e dados (CDR) 
 	
-	O comprimento do padrão de travamento rápido é não pode exceder o máximo de 16384 bits. Após o TDP, quatro repetições de uma de quatro TDPs (definido na \autoref{fig_tdp_def}) devem ser enviados. O TDP deve conter 15 bits de comprimento e deve ser invertido a cada repetição para providenciar DC balance
+	O comprimento do padrão de travamento rápido é não pode exceder o máximo de 16384 bits. Após o TDP, quatro repetições de uma de quatro TDPs devem ser enviados. O TDP deve conter 15 bits de comprimento e deve ser invertido a cada repetição para providenciar DC balance
 	
-	O preâmbulo deve ser enviado utilizando modulação OOk. O campo deve ser formatado
+	O preâmbulo deve ser enviado utilizando modulação OOk. O campo deve ser formatado com um TDP fixo e a lista de topologias está definida na  \autoref{tab_tdp_def}.
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_ppdu_frame} Estrutura da mensagem, composta pelo Cabeçalho de Sincronização (SHR), Cabeçalho da Camada Física (PHR) e Unidade de Dados de Serviço PHY (PSDU).}
+		\caption{\label{fig_shr_frame} Estrutura do SHR - Cabeçalho da Camada Física.}
 		\centering
 		\includegraphics[width=0.5\textheight]{frame/SHR.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	The preambles shall be transmitted using an OOK modulation. The preamble field for single data mode and
-	packed data mode shall be formatted as illustrated in Figure 119. For PHY III, all the three light sources
-	shall transmit the same preamble pattern simultaneously in the supported frequency bands within the error
-	tolerance specified in 8.3.3.
-	For the burst mode transmission, the FLP shall be included only for the first frame. Subsequent frames shall
-	not include the FLP in the burst mode since the receiver is already synchronized to the transmitter. This
-	reduces the preamble length by at least half and provides higher throughput at the MAC layer. The preamble
-	field for burst data mode shall be formatted as illustrated in Figure 121.
+	\begin{table}[ht]
+		\caption{Definição de Topologias para o TDP}
+		\centering
+		\begin{tabular}{c c c}
+			\hline
+			TDP & Topologia & Valor\\ \hline
+			P1 & Independente & 1 1 1 1 0 1 0 1 1 0 0 1 0 0 0 \\
+			P2 & Peer-to-peer & 0 0 1 0 1 1 1 0 1 1 1 1 1 1 0 \\ 
+			P3 & Estrela & 1 0 0 1 1 0 0 0 0 0 1 0 0 1 1 \\
+			P4 & Broadcast & 0 1 0 0 0 0 1 1 0 1 0 0 1 0 1 \\
+			\hline
+		\end{tabular}
+		\label{tab_tdpdef}
+		\legend{Fonte: Figura 120 da norma 802.15.7}
+	\end{table}
+
+	\paragraph{Sincronização de Clocks}
 	
-	The TDP used for a specific a topology is defined in Table 80. The topologies are given in 4.2.
-	The same preamble sequences shall be used for all PHY types. The number of repetitions of the FLP can be
-	extended by the MAC during idle time or for different operating modes for better synchronization or to
-	provide visibility or image array receiver based device discovery
+	Se refere ao ato de sincronizar os clocks de sistemas independentes. Para a transmissão de dados via luz, como ambos módulos (receptor e transmissor) não estão conectados via nenhum cabo, o sinal de clock não é compartilhado. Dessa forma, é certo dizer que eles estão fora de fase. Para isso a norma especifica o FLP, um sinal com período fixo utilizado pelo receptor para sincronizar seu clock com o transmissor.
+
+	\subsubsection{Cabeçalho PHY - PHR}
 	
-	The PHY header, as shown in Table 81, shall be transmitted with an OOK modulation. For PHY III, all light
-	sources shall transmit the same header contents simultaneously within the error tolerance specified in 8.3.3
-	and the band plan ID field shall be set to be the band plan ID of the lowest wavelength. The MAC shall
-	select the optical clock rate for communication during the clock-rate selection process, as defined in 6.5. The
-	PHY header shall be sent at the lowest data rate for the chosen optical clock rate. The clock rate does not
-	change throughout the frame between the preamble, header, and payload. If the dimmed OOK extension bit
-	is set in the PHY header for dimming support, additional fields are transmitted after the PHY header as
-	shown in Table 82.
+	\begin{table}[ht]
+		\caption{Definição dos campos do cabeçalho PHY}
+		\centering
+		\begin{tabular}{c c}
+			\hline
+			Campo do cabeçalho & Comprimento em Bits \\ \hline
+			Modo de Burst & 1\\
+			Número do Canal & 3\\ 
+			MCS ID & 6\\
+			Comprimento PSDU & 16\\
+			Extensão de dimerização OOK & 1\\
+			Campos Reservados & 5\\
+			\hline
+		\end{tabular}
+		\label{tab_phy-header-def}
+		\legend{Fonte: Tabela 81 da norma 802.15.7}
+	\end{table}
 	
-	Se refere ao ato de sincronizar os clocks de sistemas independentes. Para a transmissão de dados via luz, como ambos módulos (receptor e transmissor) não estão conectados via nenhum cabo, o sinal de clock não é compartilhado. Dessa forma, é certo dizer que eles estão fora de fase. A norma especifica dados fixos sem codificação, apenas com o propósito de obter sincronia entre os sistemas.
-	\\
-	8.6.5 PSDU field
-	The PSDU field has a variable length and carries the data of the PHY frame. The FCS is appended if the
-	PSDU has a non-zero byte payload. Six tail bits of zeros are attached to end of the PSDU, if PHY I is used
-	with data rates of 11.67 kb/s, 24.44 kb/s, or 48.89 kb/s. The structure of the PSDU field is as shown in
-	Figure 123.
+	O cabeçalho PHY, como mostrado na \autoref{tab-phy-header-def}, deve ser transmitido utilizando modulação OOK. Ele deve ser enviado na menor velocidade listada da camada, que no caso de PHY I é 11.67kb/s e fica no cabeçalho como \texttt{000000}.
 	
-	\subsubsection{FLP}
+	A maioria dos campos não serão usados por motivos de redução de escopo, portanto o receptor e transmissor não terão habilitado o modo Burst, canais e dimerização OOK.  O único campo variável do cabeçalho será o Comprimento PSDU, que dependerá do conteúdo da mensagem enviada.
 	
-	O 
+	\subsubsection{Unidade de Dados de Serviço PHY - PSDU}
 	
-	Clock synchronization is a topic in computer science and engineering that aims to coordinate otherwise independent clocks. Even when initially set accurately, real clocks will differ after some amount of time due to clock drift, caused by clocks counting time at slightly different rates. There are several problems that occur as a result of clock rate differences and several solutions, some being more appropriate than others in certain contexts.[1]
-	
+	Como o escopo do trabalho não engloba a camada MAC, o campo de Unidade de Dados de Serviço PHY conterá apenas a mensagem.
 	
 	% ---
 	\section{Hardware}\label{sec-hardware}
@@ -635,9 +645,9 @@
 		\item Componentes limitados pela frequência de operação.
 	\end{itemize}
 	
-	Contornando e solucionando todas as restrições listadas acima, o circuito resultante deverá enviar sinais luminosos a uma frequência de 200kHz.
+	Contornando e solucionando todas as restrições listadas acima, o circuito resultante deverá enviar sinais luminosos a uma frequência de 200kHz, que é a velocidade definida pela norma da camada PHY I.
 	
-	\subsubsection{Conversor Digital-Analógico}
+	\subsubsection{Conversor Digital-Analógico}\label{method-hardware-conv-da}
 	Como o LED será de alta potência, a corrente necessária para ligá-lo corretamente é na ordem de grandeza de amperes. Essa corrente de polarização é incompatível com a fornecida pela porta de saída da FPGA (aproximadamente mil vezes menor). Como forma de proteger o circuito da FPGA e também de chavear o LED, será utilizado um transistor de potência.
 	
 	Além disso, deve-se notar que o método de modulação desejado é OOK (on-off keying). Isso significa que na presença de portadora (sinal 1) o a luz deve estar ligada, enquanto em sua ausência (sinal 0) a luz deve estar desligada.
@@ -698,9 +708,9 @@
 	\end{figure}
 	
 	% ---
-	\subsubsection{LED}\label{hard-led}
+	\subsubsection{LED}\label{method-hardware-led}
 	% ---
-	
+
 	De acordo com a \autoref{tab_phy1} e \autoref{tab_phy2}, para cada camada física implementada é necessário suportar uma frequência de oscilação luminosa mínima:
 	
 	\begin{itemize}
@@ -755,7 +765,7 @@
 	É de responsabilidade do receptor realizar três processos: a recepção dos sinais luminosos, sua amplificação com filtragem e por fim a conversão das ondas em sinais digitais. Com o funcionamento pleno deles, será possível receber um sinal equivalente ao transmitido pela FPGA. Os processos e todos métodos envolvidos estarão explicados em detalhes a seguir na \autoref{hard-photodiode}, \autoref{hard-bandfilter} e \autoref{hard-comparator-filter-and-waves}.
 	
 	% ---
-	\subsubsection{Recepção Luminosa}\label{hard-photodiode}
+	\subsubsection{Recepção Luminosa}\label{method-hard-photodiode}
 	% ---
 	
 	O módulo mais crítico do receptor, que recebe oscilações luminosas e converte-as em sinais analógicos. É muito empregado em circuitos receptores de fibra óptica, CD players, televisões, câmeras e até em medidores de batimento cardíaco. Os fotoreceptores mais comuns são fototransistores ou fotodiodos, que são classificados principalmente de acordo com sua velocidade de chaveamento. 
@@ -831,7 +841,7 @@
 	Após esse estágio de recepção, obtém-se uma onda com componente $V_{DC} = L$. Essa componente é variável e depende de alterações na intensidade de luz, variações na distância do transmissor com receptor, entre outros fatores. A amplitude da onda depende da corrente  $i_{D}$ do fotodiodo e da resistência de feedback $R_{F}$ do circuito amplificador. 
 	
 	% ---
-	\subsubsection{Conversor Digital-Analógico}\label{hard-comparator-filter-and-waves}
+	\subsubsection{Conversor Analógico-Digital}\label{method-hardware-conv-ad}
 	% ---
 	
 	Para poder realizar estágios adicionais de amplificação e comparação para obter uma saída compatível com a entrada da FPGA, deve-se entender o funcionamento de um comparador. O circuito comparador utiliza um amplificador operacional com alto ganho sem realimentação e recebe dois sinais: uma voltagem de entrada $V_{in}$ e uma voltagem de referência $V_{ref}$. Ele realiza a comparação do nível de tensão analógico $V_{in}$ com $V_{ref}$ e produz saída de acordo com essa comparação. Seu desenho esquemático pode ser visto na \autoref{fig_comparator_circuit} e o comportamento de sua saída na \autoref{tab_comparator_behaviour}. 
@@ -874,7 +884,7 @@
 	\end{equation}
 	Nesse intervalo $V_{\delta-} < V_{in} < V_{\delta+}$ (ilustrado em \autoref{fig_comparator_transfer}), o comportamento da saída é diferenciado e depende do ganho de loop aberto A, que para circuitos reais é muito grande $A=20000$. Os valores $V_{\delta-}$ e $V_{\delta+}$ então são da ordem de  $\mu$V, definindo a tensão mínima (ou máxima) da entrada para que o comparador realize uma comparação adequada. Com uma amplitude $V_{in_{AC}}$ alternada suficientemente alta, é possível tornar a curva de resposta mais íngreme melhorando o tempo de resposta do componente. A amplitude pode ser ajustada com o resistor de feedback $R_{f}$ do estágio anterior. Mesmo com essas correções, a onda comparada pode defasar um pouco na saída.
 	
-	\subsubsection{Filtro Passa-Altas}
+	\subsubsection{Filtro Passa-Altas}\label{method-hardware-highpass-filter}
 	
 	Como foi observado na \autoref{plot-post-tia}, a onda recebida possui uma componente $V_{DC} = L$ variável. Essa ela não tem valor fixo, então não é possível definir a tensão $V_{ref}$ para comparar. Nesse caso existe a necessidade da eliminação da componente $V_{DC} = L$.
 	
@@ -938,7 +948,8 @@
 		\end{subfigure}
 		\legend{Fonte: Autores}
 	\end{figure}
-	\subsubsection{Acoplamento DC}
+
+	\subsubsection{Acoplamento DC}\label{method-hardware-dc-bias}
 	Com a aplicação do filtro passa-altas agora a onda gerada têm componente $V_{DC} = 0$ fixa - observada na parte hachurada da \autoref{plot-post-highpass-filter} -, que ainda necessita correção, pois é uma tensão incompatível com o circuito.
 	
 	O funcionamento do comparador (e de qualquer amplificador operacional) depende altamente do fato de que as voltagens de entrada $V_{in}$ e $V_{ref}$ estejam dentro do intervalo de alimentação. Caso as tensões aplicadas nas entradas sejam muito altas (ou baixas), o amplificador pode operar incorretamente, ser reversamente polarizado e até ser danificado. Esses valores costumam estar presentes em datasheets de componentes em uma tabela chamada	\textbf{ABSOLUTE MAXIMUM RATINGS}. Como foi decisão de projeto o fato de que o sistema de comunicação utilizaria apenas uma fonte de alimentação, essa restrição será aplicada para todos os componentes do circuito.
@@ -1019,7 +1030,7 @@
 	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Caso a saída não esteja adequada, é possível que seja necessário realizar mais um estágio de amplificação e filtração após o filtro passa-altas.
 	
 	% ---
-	\subsubsection{Filtro Passa-Faixas}\label{hard-bandfilter}
+	\subsubsection{Filtro Passa-Faixas}\label{method-hardware-bandfilter}
 	% ---
 	
 	Com intuito de reduzir o ruído em circuitos de amplificação com amplificadores operacionais, especifica-se um modelo de circuito passa-faixas na \autoref{fig_opampdif}.

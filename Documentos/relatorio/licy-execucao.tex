@@ -7,13 +7,21 @@
 	
 	\section{Arquitetura}
 	
+	\begin{figure}[htb]
+		\caption{\label{fig_arch} Desenho esquemático}
+		\centering
+		\includegraphics[width=1\textwidth]{Arquitetura}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	
 	\subsection{Codificador}
 	
 	Conforme apontado no capítulo de Metodologia, a arquitetura do codificador Reed Solomon foi construída para um código (15, 7), portanto contando com 8 registradores em série. Os multiplicadores foram feitos com uma tabela,  que recebe duas entradas e retorna uma saída, de maneira a simplificar o trabalho de fazer uma função utilizando lógica combinatória. Já os somadores são equivalentes à função de OU exclusivo, ou XOR, com duas entradas e uma saída de 4 bits cada - ou seja, um símbolo. Além destes, os módulos básicos ainda compreendem um multiplexador, que seleciona um entre dois símbolos.
 	
 	Diagrama do codificador
 	
-	O comportamento de codificação de uma mensagem pode ser exemplificado pela seguinte simulação, onde se observa a entrada de uma mensagem de 7 símbolos e a saída de um bloco de 15 símbolos, sendo 8 de paridade.	
+	O comportamento de codificação de uma mensagem pode ser exemplificado pela seguinte simulação, onde se observa a entrada de uma mensagem de 7 símbolos e a saída de um bloco de 15 símbolos, sendo 8 de paridade.
 	
 	
 	\subsection{Decodificador}
@@ -41,9 +49,20 @@
 	% ---
 	\section{Hardware}
 	% ---
+	A seção abaixo discorrerá sobre a aplicação dos métodos estudados nos capítulos anteriores para Hardware.
+	Antes de iniciar a execução do trabalho, foram estabelecidas algumas decisões de projeto:
+	
+	* formato de lista *
+	Única fonte de alimentação de 5V.
+	Implementação de um circuito apenas para a camada PHY I da norma, fixando a frequência de operação a 200kHz.
+	
+	. . .
+	
+	
 	\subsection{Transmissor}
+	
 	\subsubsection{Conversor Digital-Analógico}
-		 Os requisitos para o transistor de potência realizando transmissão via luz são:
+		Com os estudos feitos no \autoref{method-hardware-conv-da}, é possível requisitos reais para o transistor de potência:
 
 		\begin{itemize}
 			\item Tensão de base/gate compatível com 3.3V;
@@ -51,8 +70,9 @@
 			\item Resposta de base/gate a $V_{on(FPGA)}$ de no máximo 1us;
 		\end{itemize}
 		
-		Alguns dos parâmetros são decisões de projeto, como a utilização de níveis TTL para chaveamento do transistor (3.3V ou 5V), e também requisitos da norma IEEE, como frequência de operação a 200kHz (nesse caso deseja-se um transistor com $T_{rise}$ e $T_{fall}$ de no mínimo 10-100 vezes menor que o período da onda transmitida - no caso $5\mu$$s/100 = 50ns$).
-		O componente escolhido foi um MOSFET de Potência, mais especificamente o IRLZ14, pois é um transistor de nível lógico, então tem o GATE compatível com voltagens de microcontrolador. 
+		Alguns dos parâmetros são decisões de projeto, como a utilização de níveis TTL para chaveamento do transistor (3.3V ou 5V), e outros são requisitos da norma IEEE, como frequência de operação a 200kHz. Especialmente no segundo caso, é importante escolher um transistor com $T_{rise}$ e $T_{fall}$ de no mínimo 10-100 vezes menor que o período da onda transmitida - no caso $5\mu$$s/100 = 50ns$. Se o transistor não chavear rápido suficiente, é possível que a onda fique alterada. Em alguns casos é possível que fique semelhante a uma onda dente de serra.
+		
+		O componente escolhido foi um MOSFET de Potência, mais especificamente o IRLZ14, pois é um transistor de nível lógico, pois tem o GATE compatível com voltagens de microcontrolador. 
 		
 		\begin{figure}[htb]
 			\caption{\label{fig_transfer_carac_irlz14} Características de transferência do MOSFET de potência IRLZ14.}
@@ -61,7 +81,7 @@
 			\legend{Fonte: \cite{datasheet-irlz14}}
 		\end{figure}
 	
-		De acordo com função de transferência da \autoref{fig_transfer_carac_irlz14}, a VGS=3.3V ele permite corrente de dreno de 2A. A datasheet também especifica parâmetros de resposta dinâmica do circuito, como seu $T_{rise}$, $T_{fall}$, que estão disponibilizados na tabela abaixo.
+		De acordo com função de transferência da \autoref{fig_transfer_carac_irlz14}, a VGS=3.3V é permitida uma corrente de dreno de 2A. A datasheet também especifica parâmetros de resposta dinâmica do circuito, como seu $T_{rise}$, $T_{fall}$, que estão disponibilizados na tabela abaixo.
 		
 		\begin{table}[ht]
 			\caption{Características Dinâmicas do MOSFET IRLZ14}
@@ -76,11 +96,17 @@
 			\legend{Fonte: Vishay Siliconix.}
 		\end{table}
 	
-		O circuito proposto é 
+		O circuito proposto é composto da junção dos dois circuitos elaborados na seção de 
+		\begin{figure}[htb]
+			\caption{\label{fig_transmitter_lify_circuit} Circuito de transmissão de dados LiCy.}
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[width=0.7\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
+			\legend{Fonte: Autores}
+		\end{figure}
 
 	\subsubsection{Transmissão de Luz}
 		
-		Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. O LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento.
+		Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. Esse LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procuranto satisfazer certos parâmetros, o componente escolhido foi da OSRAM, o LUW W5-AM.
 		
 %		\begin{figure}[htb]
 %			\caption{\label{fig_pulse_handling_led} Gráfico da capacidade de manuseio de pulso do LED LUW-W5AM. D: Duty Cycle, Ts = 25 C}
@@ -89,10 +115,24 @@
 %			\legend{Fonte: OSRAM LUW W5AM Datasheet.}
 %		\end{figure}
 
-		 a frequências altas com alta corrente são necessários cuidados especiais para projetar um circuito que oscila corretamente de acordo com o sistema de chaveamento anterior.
+		Utilizando o circuito polarizador do LED da \autoref{fig_led_circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização, mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
+		\begin{equation}
+		R_{LIMIT} = \frac{5V}{500mA} = 2.5\Omega
+		\end{equation}
+		
+		a frequências altas com alta corrente são necessários cuidados especiais para projetar um circuito que oscila corretamente de acordo com o sistema de chaveamento anterior.
+		
+	\subsubsection{Integração - Transmissor}
+		
+		Com ambos os circuitos integrados pode-se realizar uma montagem em protoboard e realizar testes.
 		
 	\subsection{Receptor}
+		
+		A recepção será feita utilizando os conceitos apresentados nas seções \ref{method-hard-photodiode}, \ref{method-hardware-conv-ad}, \ref{method-hardware-highpass-filter}, \ref{method-hardware-dc-bias};
+		
 	\subsubsection{Recepção Luminosa}
+		
+		A recepção luminosa é feita por um fotodiodo e amplificador de transimpedância, como definido na \autoref{fig_transimpedance_amp_simple}. 
 		
 		A photodiode is a semiconductor device that converts light into current. The current is generated when photons are absorbed in the photodiode. A small amount of current is also produced when no light is present. Photodiodes may contain optical filters, built-in lenses, and may have large or small surface areas. Photodiodes usually have a slower response time as their surface area increases. The common, traditional solar cell used to generate electric solar power is a large area photodiode.
 		
