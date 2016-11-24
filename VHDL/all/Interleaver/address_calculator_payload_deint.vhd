@@ -42,7 +42,12 @@ begin
 					Pre_Q := Pre_Q ;
 					carry <= '1';
 					iterator <= iterator;
-					select_clock <= '0';				
+					select_clock <= '1';	
+				elsif (Pre_Q2 > "0000000001110") then
+					Pre_Q := "0000000001111" ;
+					carry <= '1';
+					iterator <= iterator;
+					select_clock <= '0';	
 				else 
 					Pre_Q := Pre_Q + 1;
 					carry <= '1';

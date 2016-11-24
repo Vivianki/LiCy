@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Thu Nov 10 20:03:25 2016"
+-- CREATED		"Fri Nov 18 20:01:02 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -29,6 +29,7 @@ ENTITY Interleaver IS
 		Clock :  IN  STD_LOGIC;
 		InputIntrlv :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Flag_2 :  OUT  STD_LOGIC;
+		readWrite :  OUT  STD_LOGIC;
 		address_interlaver :  OUT  STD_LOGIC_VECTOR(12 DOWNTO 0);
 		Output_Interlv :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		Output_Interlv_Aux :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
@@ -176,7 +177,8 @@ SIGNAL	SYNTHESIZED_WIRE_39 :  STD_LOGIC;
 
 
 BEGIN 
-address_interlaver <= SYNTHESIZED_WIRE_8;
+readWrite <= SYNTHESIZED_WIRE_7;
+address_interlaver <= SYNTHESIZED_WIRE_9;
 SYNTHESIZED_WIRE_13 <= '0';
 SYNTHESIZED_WIRE_18 <= '0';
 

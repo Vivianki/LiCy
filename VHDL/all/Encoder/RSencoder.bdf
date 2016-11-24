@@ -41,7 +41,7 @@ agreement for further details.
 	(input)
 	(rect -408 352 -240 368)
 	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
-	(text "Flag" (rect 5 0 39 14)(font "Arial" ))
+	(text "Flag" (rect 5 0 38 14)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -57,7 +57,7 @@ agreement for further details.
 	(input)
 	(rect 2784 520 2992 536)
 	(text "INPUT" (rect 165 0 206 11)(font "Arial" (font_size 6)))
-	(text "InputRS[3..0]" (rect 5 0 113 14)(font "Arial" ))
+	(text "InputRS[3..0]" (rect 5 0 112 14)(font "Arial" ))
 	(pt 208 8)
 	(drawing
 		(line (pt 124 12)(pt 149 12))
@@ -85,6 +85,38 @@ agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 	(annotation_block (location)(rect 3603 520 3691 552))
+)
+(pin
+	(output)
+	(rect 3136 432 3312 448)
+	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
+	(text "rs_select" (rect 90 0 164 14)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 440 488 717 504)
+	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
+	(text "count_control_rs[3..0]" (rect 90 0 271 14)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
 )
 (symbol
 	(rect 168 280 320 360)
@@ -1781,14 +1813,6 @@ agreement for further details.
 )
 (connector
 	(pt 3136 544)
-	(pt 3136 376)
-)
-(connector
-	(pt 448 544)
-	(pt 3136 544)
-)
-(connector
-	(pt 3136 544)
 	(pt 3168 544)
 )
 (connector
@@ -1824,6 +1848,18 @@ agreement for further details.
 	(pt -32 376)
 	(pt 280 376)
 )
+(connector
+	(pt 448 544)
+	(pt 3136 544)
+)
+(connector
+	(pt 3136 376)
+	(pt 3136 440)
+)
+(connector
+	(pt 3136 440)
+	(pt 3136 544)
+)
 (junction (pt -8 48))
 (junction (pt -32 360))
 (junction (pt 392 360))
@@ -1857,3 +1893,4 @@ agreement for further details.
 (junction (pt 3112 528))
 (junction (pt 3088 328))
 (junction (pt 3136 544))
+(junction (pt 3136 440))

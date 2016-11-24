@@ -24,18 +24,26 @@ begin
     process (CLK, Reset_60b)
     begin
 		if (rising_edge(CLK)) then
-			if (Reset_60b = '0') then
+			if (Reset_60b = '0' and is_enviando_external = '0') then
 				shift_reg <= "1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010111101011001000000010100110111111101011001000000010100110111";
 				is_enviando <= '0';
 				counter <= (others => '0');
-			elsif (Reset_60b = '1') then -- flag = 1
-				if (counter > "100100010") then
+			elsif (Reset_60b = '0' and is_enviando_external = '1') then
+				if (counter = "100011001") then
+					is_enviando <= '1';
+					counter <= counter + 1;
+				elsif (counter > "100011001") then
 					is_enviando <= '0';
 					counter <= counter;
 				else
-					is_enviando <= '1';
+					is_enviando <= '0';
 					counter <= counter + 1;
 				end if;
+				shift_reg(279 downto 1) <= shift_reg(278 downto 0);
+				shift_reg(0) <= D;						
+			elsif (Reset_60b = '1') then -- flag = 1
+				is_enviando <= '0';
+				counter <= counter;
 				shift_reg(279 downto 1) <= shift_reg(278 downto 0);
 				shift_reg(0) <= D;
 			end if;

@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity PHR_PSDU is
 	port (address : in std_logic_vector(4 downto 0);
+			D : in std_logic_vector(3 downto 0);
 			Q : out std_logic_vector(3 downto 0));
 end entity PHR_PSDU;
 
@@ -31,7 +32,7 @@ architecture Behavioral of PHR_PSDU is
 		19 => "0000", -- era tudo 0
 		20 => "0000"); -- era tudo 0
 	begin
-		process (address)
+		process (address, D)
 		begin
 			case address is
 				when "00000" => Q <= my_rom(0);
@@ -48,13 +49,13 @@ architecture Behavioral of PHR_PSDU is
 				when "01011" => Q <= my_rom(11);
 				when "01100" => Q <= my_rom(12);
 				when "01101" => Q <= my_rom(13);
-				when "01110" => Q <= my_rom(14);
-				when "01111" => Q <= my_rom(15);
-				when "10000" => Q <= my_rom(16);
-				when "10001" => Q <= my_rom(17);
-				when "10010" => Q <= my_rom(18);
-				when "10011" => Q <= my_rom(19);
-				when "10100" => Q <= my_rom(20);
+				when "01110" => Q <= D;
+				when "01111" => Q <= D;
+				when "10000" => Q <= D;
+				when "10001" => Q <= D;
+				when "10010" => Q <= D;
+				when "10011" => Q <= D;
+				when "10100" => Q <= D;
 				when others => Q <= "0000";
 			end case;
 		end process;

@@ -26,15 +26,19 @@ begin
 			Pre_Q <= "00000";
 			iterator <="0000";
 		elsif (rising_edge(Clk)) then
-			if iterator <="0101" then
-				Pre_Q <= Pre_Q + 1;
-				iterator <= iterator + 1;
-			elsif iterator ="1101" then
+			if Pre_Q > "11010" then
 				Pre_Q <= Pre_Q;
-				iterator <= "0000";	
 			else
-				Pre_Q <= Pre_Q;
-				iterator <= iterator + 1;
+				if iterator < "0110" then -- menor que 6
+					Pre_Q <= Pre_Q + 1;
+					iterator <= iterator + 1;
+				elsif iterator = "1110" then -- igual a 14
+					Pre_Q <= Pre_Q + 1;
+					iterator <= "0000";	
+				else -- maior ou igual a 6, diferente de 14
+					Pre_Q <= Pre_Q;
+					iterator <= iterator + 1;
+				end if;
 			end if;
 		end if;
 	end process;	

@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sun Nov 06 22:27:23 2016"
+-- CREATED		"Wed Nov 16 16:55:44 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -30,17 +30,23 @@ ENTITY ccEncoder IS
 		input :  IN  STD_LOGIC;
 		A0 :  OUT  STD_LOGIC;
 		B0 :  OUT  STD_LOGIC;
-		C0 :  OUT  STD_LOGIC
+		C0 :  OUT  STD_LOGIC;
+		Q1 :  OUT  STD_LOGIC
 	);
 END ccEncoder;
 
 ARCHITECTURE bdf_type OF ccEncoder IS 
 
-COMPONENT d_ff_vhdl
-	PORT(clk : IN STD_LOGIC;
-		 rst : IN STD_LOGIC;
-		 d : IN STD_LOGIC;
-		 q : OUT STD_LOGIC
+COMPONENT shift_register_convolutional
+	PORT(D : IN STD_LOGIC;
+		 CLK : IN STD_LOGIC;
+		 reset : IN STD_LOGIC;
+		 Q1 : OUT STD_LOGIC;
+		 Q2 : OUT STD_LOGIC;
+		 Q3 : OUT STD_LOGIC;
+		 Q4 : OUT STD_LOGIC;
+		 Q5 : OUT STD_LOGIC;
+		 Q6 : OUT STD_LOGIC
 	);
 END COMPONENT;
 
@@ -54,85 +60,82 @@ COMPONENT xor5x1
 	);
 END COMPONENT;
 
+COMPONENT register1b_viterbi
+	PORT(d : IN STD_LOGIC;
+		 clr : IN STD_LOGIC;
+		 clk : IN STD_LOGIC;
+		 q : OUT STD_LOGIC
+	);
+END COMPONENT;
+
+SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
 
 
 BEGIN 
+Q1 <= SYNTHESIZED_WIRE_18;
 
 
 
-b2v_inst : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 d => SYNTHESIZED_WIRE_17,
-		 q => SYNTHESIZED_WIRE_18);
+b2v_inst : shift_register_convolutional
+PORT MAP(D => SYNTHESIZED_WIRE_0,
+		 CLK => clock,
+		 reset => reset,
+		 Q1 => SYNTHESIZED_WIRE_18,
+		 Q2 => SYNTHESIZED_WIRE_15,
+		 Q3 => SYNTHESIZED_WIRE_16,
+		 Q4 => SYNTHESIZED_WIRE_11,
+		 Q5 => SYNTHESIZED_WIRE_3,
+		 Q6 => SYNTHESIZED_WIRE_17);
 
 
 b2v_inst10 : xor5x1
 PORT MAP(A1 => input,
-		 B1 => SYNTHESIZED_WIRE_17,
-		 C1 => SYNTHESIZED_WIRE_18,
-		 D1 => SYNTHESIZED_WIRE_19,
-		 E1 => SYNTHESIZED_WIRE_20,
+		 B1 => SYNTHESIZED_WIRE_15,
+		 C1 => SYNTHESIZED_WIRE_16,
+		 D1 => SYNTHESIZED_WIRE_3,
+		 E1 => SYNTHESIZED_WIRE_17,
 		 F => A0);
 
 
 b2v_inst11 : xor5x1
 PORT MAP(A1 => input,
-		 B1 => SYNTHESIZED_WIRE_21,
-		 C1 => SYNTHESIZED_WIRE_17,
-		 D1 => SYNTHESIZED_WIRE_18,
-		 E1 => SYNTHESIZED_WIRE_20,
+		 B1 => SYNTHESIZED_WIRE_18,
+		 C1 => SYNTHESIZED_WIRE_15,
+		 D1 => SYNTHESIZED_WIRE_16,
+		 E1 => SYNTHESIZED_WIRE_17,
 		 F => B0);
 
 
 b2v_inst12 : xor5x1
 PORT MAP(A1 => input,
-		 B1 => SYNTHESIZED_WIRE_21,
-		 C1 => SYNTHESIZED_WIRE_17,
-		 D1 => SYNTHESIZED_WIRE_22,
-		 E1 => SYNTHESIZED_WIRE_20,
+		 B1 => SYNTHESIZED_WIRE_18,
+		 C1 => SYNTHESIZED_WIRE_15,
+		 D1 => SYNTHESIZED_WIRE_11,
+		 E1 => SYNTHESIZED_WIRE_17,
 		 F => C0);
 
 
-b2v_inst13 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 d => SYNTHESIZED_WIRE_19,
-		 q => SYNTHESIZED_WIRE_20);
+SYNTHESIZED_WIRE_14 <= NOT(clock);
 
 
-b2v_inst6 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 d => input,
-		 q => SYNTHESIZED_WIRE_21);
+
+b2v_inst3 : register1b_viterbi
+PORT MAP(d => input,
+		 clr => SYNTHESIZED_WIRE_13,
+		 clk => SYNTHESIZED_WIRE_14,
+		 q => SYNTHESIZED_WIRE_0);
 
 
-b2v_inst7 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 d => SYNTHESIZED_WIRE_21,
-		 q => SYNTHESIZED_WIRE_17);
+SYNTHESIZED_WIRE_13 <= NOT(reset);
 
-
-b2v_inst8 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 d => SYNTHESIZED_WIRE_18,
-		 q => SYNTHESIZED_WIRE_22);
-
-
-b2v_inst9 : d_ff_vhdl
-PORT MAP(clk => clock,
-		 rst => reset,
-		 d => SYNTHESIZED_WIRE_22,
-		 q => SYNTHESIZED_WIRE_19);
 
 
 END bdf_type;

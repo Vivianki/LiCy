@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sat Nov 12 18:03:32 2016"
+-- CREATED		"Tue Nov 15 16:22:39 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -28,9 +28,10 @@ ENTITY RSIntegration IS
 		Clock :  IN  STD_LOGIC;
 		Reset :  IN  STD_LOGIC;
 		Input :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		pin_name1 :  OUT  STD_LOGIC;
 		erroro :  OUT  STD_LOGIC;
-		Decod :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
+		Flag :  OUT  STD_LOGIC;
+		Decod :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		Mensagem :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END RSIntegration;
 
@@ -139,7 +140,7 @@ COMPONENT messagecontroller
 	);
 END COMPONENT;
 
-COMPONENT register4b_decoder
+COMPONENT register4b
 	PORT(ld : IN STD_LOGIC;
 		 clr : IN STD_LOGIC;
 		 clk : IN STD_LOGIC;
@@ -225,8 +226,9 @@ SIGNAL	SYNTHESIZED_WIRE_45 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 BEGIN 
-pin_name1 <= SYNTHESIZED_WIRE_51;
+Flag <= SYNTHESIZED_WIRE_51;
 Decod <= SYNTHESIZED_WIRE_22;
+Mensagem <= SYNTHESIZED_WIRE_41;
 
 
 
@@ -313,7 +315,7 @@ PORT MAP(clock => Clock,
 		 Message => SYNTHESIZED_WIRE_41);
 
 
-b2v_inst2 : register4b_decoder
+b2v_inst2 : register4b
 PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 clr => SYNTHESIZED_WIRE_53,
 		 clk => Clock,
@@ -321,7 +323,7 @@ PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 q => SYNTHESIZED_WIRE_54);
 
 
-b2v_inst3 : register4b_decoder
+b2v_inst3 : register4b
 PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 clr => SYNTHESIZED_WIRE_53,
 		 clk => Clock,
@@ -329,7 +331,7 @@ PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 q => SYNTHESIZED_WIRE_55);
 
 
-b2v_inst4 : register4b_decoder
+b2v_inst4 : register4b
 PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 clr => SYNTHESIZED_WIRE_53,
 		 clk => Clock,
@@ -337,7 +339,7 @@ PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 q => SYNTHESIZED_WIRE_56);
 
 
-b2v_inst5 : register4b_decoder
+b2v_inst5 : register4b
 PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 clr => SYNTHESIZED_WIRE_53,
 		 clk => Clock,
@@ -345,7 +347,7 @@ PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 q => SYNTHESIZED_WIRE_57);
 
 
-b2v_inst6 : register4b_decoder
+b2v_inst6 : register4b
 PORT MAP(ld => SYNTHESIZED_WIRE_52,
 		 clr => SYNTHESIZED_WIRE_53,
 		 clk => Clock,

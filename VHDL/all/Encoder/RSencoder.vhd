@@ -15,7 +15,7 @@
 
 -- PROGRAM		"Quartus Prime"
 -- VERSION		"Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
--- CREATED		"Sun Nov 06 19:35:36 2016"
+-- CREATED		"Mon Nov 14 01:49:08 2016"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -28,6 +28,8 @@ ENTITY RSencoder IS
 		Clk :  IN  STD_LOGIC;
 		Flag :  IN  STD_LOGIC;
 		InputRS :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		rs_select :  OUT  STD_LOGIC;
+		count_control_rs :  OUT  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		OutputRS :  OUT  STD_LOGIC_VECTOR(0 TO 3)
 	);
 END RSencoder;
@@ -148,6 +150,7 @@ SIGNAL	SYNTHESIZED_WIRE_50 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 BEGIN 
+rs_select <= SYNTHESIZED_WIRE_51;
 SYNTHESIZED_WIRE_54 <= '1';
 
 
@@ -155,7 +158,8 @@ SYNTHESIZED_WIRE_54 <= '1';
 b2v_inst : sinalcontrole
 PORT MAP(clk => Clk,
 		 reset => Flag,
-		 control => SYNTHESIZED_WIRE_51);
+		 control => SYNTHESIZED_WIRE_51,
+		 count => count_control_rs);
 
 
 b2v_inst1 : mux2x1_4b
