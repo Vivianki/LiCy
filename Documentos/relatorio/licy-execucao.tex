@@ -62,7 +62,7 @@
 	\subsection{Transmissor}
 	
 	\subsubsection{Conversor Digital-Analógico}
-		Com os estudos feitos no \autoref{method-hardware-conv-da}, é possível requisitos reais para o transistor de potência:
+		Com os estudos feitos no \autoref{method-hardware-conv-da}, é possível especificar os requisitos reais para o transistor de potência:
 
 		\begin{itemize}
 			\item Tensão de base/gate compatível com 3.3V;
@@ -95,37 +95,64 @@
 			\label{tab_irlz14_timing}
 			\legend{Fonte: Vishay Siliconix.}
 		\end{table}
+
+	\subsubsection{Transmissão de Luz}
+		
+		Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. Esse LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procuranto satisfazer tais parâmetros, o componente escolhido foi da OSRAM, o LUW W5-AM.
+
+		Utilizando o circuito polarizador do LED da \autoref{fig_led_circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização, mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
+		\begin{equation}
+		R_{LIMIT} = 5V \cdot 500mA = 2.5\Omega
+		\end{equation}
+		
+		
+	\subsubsection{Versões Anteriores}
+		
+		Devido a falta de conhecimento do comportamento de transistores e da resposta de todos os componentes a frequência de 200kHz, foram projetados vários circuitos que não satisfaziam o formato de onda desejado. Abaixo são exemplificadas algumas versões implementadas, juntamente com os motivos de terem sido abandonadas.
+		
+		\paragraph{Filtro da Ponta de Prova}
+		
+		O primeiro problema que o projeto do transmissor encontrou foi o comportamento de subamortecimento nos terminais do LED. Ele utiliza um circuito semelhante ao utilizado em pontas de provas para filtrar ruídos e é conectado em série com a entrada do transmissor, como visto na \autoref{fig_transmitter_lify_circuit_fail0}.
+		
+		\begin{figure}[htb]
+			\caption{\label{fig_transmitter_lify_circuit_fail0} Circuito de transmissão de dados LiCy.}
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[width=0.7\textwidth, trim={2cm 1cm 2cm 2cm}, clip]{circuits/transmitter_fail0.pdf}
+			\legend{Fonte: Autores}
+		\end{figure}
+		
+		A saída dessa implementação é mostrada na \autoref{fig_transmitter_lify_circuit_fail0_rl} e não é satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Um segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Isso ocorre devido a efeitos de capacitância ou no LED ou no transistor de potência.
+		
+		\begin{figure}[htb]
+			\caption{\label{fig_transmitter_lify_circuit_fail0_rl} Comportamento do circuito de transmissão com filtro de ponta de prova em série com a entrada. A onda azul é saída do gerador de funções enquanto a onda amarela é a tensão submetida ao LED. Observa-se o comportamento de subamortecimento em ambas.}
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[width=0.7\textwidth, trim={30cm 0cm 2cm 40cm}, clip]{circuits/photos/TX_probe_result.jpg}
+			\legend{Fonte: Autores}
+		\end{figure}
 	
-		O circuito proposto é composto da junção dos dois circuitos elaborados na seção de 
+		Ambos os componentes contém esse valor. O transistor de potência possui capacitância devido a separação de suas placas. Seu valor é significativo e é até especificado na datasheet. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente. 
+
+		No caso do LED, esse comportamento é mais complexo. A frequências altas, seu chaveamento cria um capacitor entre seus terminais, devido a sua arquitetura semicondutora. É possível observar esse comportamento capacitivo tanto em um LED de baixa potência quando de alta. Na prática, a tensão sob o LED não diminui acompanhando a tensão submetida a ele, e isso causa o comportamento indesejável visto.		
+		
+		Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual a entrada, portanto conclui-se que o comportamento subamortecido era atribuído ao LED.
+		
+
+		\begin{figure}[htb]
+			\caption{\label{fig_transmitter_lify_circuit_fail0_r2} }
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[width=0.7\textwidth, trim={1cm 0cm 2cm 1cm}, clip]{circuits/photos/TX_200k_without_filter.jpg}
+			\legend{Fonte: Autores}
+		\end{figure}
+		
+		O circuito proposto é composto da junção dos dois circuitos elaborados nas seções anteriores
 		\begin{figure}[htb]
 			\caption{\label{fig_transmitter_lify_circuit} Circuito de transmissão de dados LiCy.}
 			\centering		%  trim={<left> <lower> <right> <upper>} 
 			\includegraphics[width=0.7\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
 			\legend{Fonte: Autores}
 		\end{figure}
-
-	\subsubsection{Transmissão de Luz}
-		
-		Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. Esse LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procuranto satisfazer certos parâmetros, o componente escolhido foi da OSRAM, o LUW W5-AM.
-		
-%		\begin{figure}[htb]
-%			\caption{\label{fig_pulse_handling_led} Gráfico da capacidade de manuseio de pulso do LED LUW-W5AM. D: Duty Cycle, Ts = 25 C}
-%			\centering									%  trim={<left> <lower> <right> <upper>} 
-%			\includegraphics[page=15, width=0.5\textwidth, trim={2.5cm 4.6cm 11.5cm 15.6cm}, clip]{circuits/led_luw_w5am.pdf}
-%			\legend{Fonte: OSRAM LUW W5AM Datasheet.}
-%		\end{figure}
-
-		Utilizando o circuito polarizador do LED da \autoref{fig_led_circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização, mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
-		\begin{equation}
-		R_{LIMIT} = \frac{5V}{500mA} = 2.5\Omega
-		\end{equation}
-		
-		a frequências altas com alta corrente são necessários cuidados especiais para projetar um circuito que oscila corretamente de acordo com o sistema de chaveamento anterior.
-		
-	\subsubsection{Integração - Transmissor}
-		
-		Com ambos os circuitos integrados pode-se realizar uma montagem em protoboard e realizar testes.
-		
+	
+	
 	\subsection{Receptor}
 		
 		A recepção será feita utilizando os conceitos apresentados nas seções \ref{method-hard-photodiode}, \ref{method-hardware-conv-ad}, \ref{method-hardware-highpass-filter}, \ref{method-hardware-dc-bias};
