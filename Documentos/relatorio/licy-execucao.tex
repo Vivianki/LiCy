@@ -134,43 +134,73 @@
 
 		No caso do LED, esse comportamento é mais complexo. A frequências altas, seu chaveamento cria um capacitor entre seus terminais, devido a sua arquitetura semicondutora. É possível observar esse comportamento capacitivo tanto em um LED de baixa potência quando de alta. Na prática, a tensão sob o LED não diminui acompanhando a tensão submetida a ele, e isso causa o comportamento indesejável visto.		
 		
-		Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual a entrada, portanto conclui-se que o comportamento subamortecido era atribuído ao LED.
-		
-
+		Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual a entrada. Colocando um LED em série com o resistor adicionava o comportamento subamortecido, portanto conclui-se que essa anomalia é atribuida ao LED.
+				
 		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit_fail0_r2} }
+			\caption{\label{fig_transmitter_lify_circuit_fail1_r1} Operação de circuito transmissor. A onda amarela representa voltagem no LED sem filtro de ponta de prova em frequências mais altas. O gerador de funções é medido e gera a forma de onda verde.}
 			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={1cm 0cm 2cm 1cm}, clip]{circuits/photos/TX_200k_without_filter.jpg}
+			\includegraphics[width=0.7\textwidth, trim={20cm 15cm 50cm 10cm}, clip]{circuits/photos/TX_200k_without_filter.jpg}
 			\legend{Fonte: Autores}
 		\end{figure}
 		
-		O circuito proposto é composto da junção dos dois circuitos elaborados nas seções anteriores
+		\paragraph{Aumento da Frequência}
+		
+		O aumento da frequência de operação a $f_{OP} = 200kHz$ causa um subamortecimento substancialmente maior. Observa-se na \autoref{fig_transmitter_lify_circuit_fail1_r1}, que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
+		
 		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit} Circuito de transmissão de dados LiCy.}
+			\caption{\label{fig_transmitter_lify_circuit_fail1} Circuito de transmissão de}
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[width=0.7\textwidth, trim={2cm 1cm 2cm 1cm}, clip]{circuits/transmitter_fail1.pdf}
+			\legend{Fonte: Autores}
+		\end{figure}
+		
+		Nesse caso é muito mais evidente o amortecimento visto na onda. Atribui-se esse comportamento a componente capacitiva ao chavear o LED. No entanto, observa-se que não há feedback do circuito na saída do gerador de funções, fato observado na última versão do circuito. O capacitor colocado adicionava um nível de complexidade desnecessário ao circuito, pois se carregava com oscilação da entrada. A forma de onda gerada em si era boa, mas os picos de voltagem gerados no início da onda colocavam os componentes em risco.
+		
+		A forma de onda gerada por esse circuito é difícil de ser usada, pois não preserva o período da onda de entrada. Mesmo com muitos filtros no receptor não é possível corrigir a essa diferença.
+		
+		\paragraph{Final - Filtro Passa-Altas}
+				
+		\begin{figure}[htb]
+			\caption{\label{fig_transmitter_lify_circuit_final} Circuito de transmissão de dados LiCy.}
 			\centering		%  trim={<left> <lower> <right> <upper>} 
 			\includegraphics[width=0.7\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
 			\legend{Fonte: Autores}
 		\end{figure}
+		
+		\begin{figure}[htb]
+			\caption{\label{fig_transmitter_lify_circuit_final_r1} Forma de onda após adicionar um capacitor que age como filtro passa-altas. Está defasada em 180$\degree$. }
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[width=0.7\textwidth, trim={5cm 30cm 20cm 20cm}, clip]{circuits/photos/TX_200k_with_filter.jpeg}
+			\legend{Fonte: Autores}
+		\end{figure}
+
+		Por fim, realiza-se a correção dessa componente utilizando um capacitor entre os terminais da Source do MOSFET e GND (observado em \autoref{fig_transmitter_lify_circuit_final}). Esse capacitor atua como filtro passa-altas e remove a componente AC da saída para o LED. O comportamento não fica exatamente igual à entrada, mas fica satisfatório pois o período é muito similar, chaveando o LED corretamente. A forma de onda resultante pode ser observada em \autoref{fig_transmitter_lify_circuit_final_r1}. Está defasada em 180$\degree$.
 	
-	
-	\subsection{Receptor}
+		\subsection{Receptor}
 		
 		A recepção será feita utilizando os conceitos apresentados nas seções \ref{method-hard-photodiode}, \ref{method-hardware-conv-ad}, \ref{method-hardware-highpass-filter}, \ref{method-hardware-dc-bias};
 		
-	\subsubsection{Recepção Luminosa}
+		\subsubsection{Recepção Luminosa}
 		
-		A recepção luminosa é feita por um fotodiodo e amplificador de transimpedância, como definido na \autoref{fig_transimpedance_amp_simple}. 
+		Para o recebimento luminoso, foi utilizado um circuito da \textbf{APPLICATION NOTES} da \citeonline{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_simple}. O valor de R1 foi escolhido como 1M$\Omega$.
 		
-		A photodiode is a semiconductor device that converts light into current. The current is generated when photons are absorbed in the photodiode. A small amount of current is also produced when no light is present. Photodiodes may contain optical filters, built-in lenses, and may have large or small surface areas. Photodiodes usually have a slower response time as their surface area increases. The common, traditional solar cell used to generate electric solar power is a large area photodiode.
+		\begin{figure}[htb]
+			\caption{\label{fig_receiver_lify_circuit_fail0_r1} Saída do Amplificador de Transimpedância (amarela) para uma entrada luminosa de 200kHz (verde).}
+			\centering		%  trim={<left> <lower> <right> <upper>} 
+			\includegraphics[width=0.7\textwidth, trim={5cm 30cm 90cm 20cm}, clip]{circuits/photos/RX_TIA_result.jpg}
+			\legend{Fonte: Autores}
+		\end{figure}
 		
-		Photodiodes are similar to regular semiconductor diodes except that they may be either exposed (to detect vacuum UV or X-rays) or packaged with a window or optical fiber connection to allow light to reach the sensitive part of the device. Many diodes designed for use specifically as a photodiode use a PIN junction rather than a p–n junction, to increase the speed of response. A photodiode is designed to operate in reverse bias.[1]
-
-%		https://www.aptechnologies.co.uk/images/img/ODC/PV_and_PC_Modes.png
+		\subsubsection{Conversor Analógico-Digital}
 		
-		
-	\subsubsection{Amplificador de Transimpedância}
+		O conversor analógico-digital foi integrado 
 	
-	\subsubsection{Conversor Analógico-Digital}
+		\begin{figure}[htb]
+			\caption{\label{fig_receiver_lify_circuit_final} Circuito esquemático final.}
+			\centering
+			\includegraphics[width=1\textwidth, trim={0cm 1cm 0cm 1cm}, clip]{circuits/receiver_lify_final.pdf}
+			\legend{Fonte: Autores}
+		\end{figure}
 	
-	\section{Software}
+		\section{Software}
 		Com os dados codificados, enviados via luz, recebidos via luz e decodificados, é possível realizar 
