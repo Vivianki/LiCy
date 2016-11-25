@@ -62,145 +62,164 @@
 	\subsection{Transmissor}
 	
 	\subsubsection{Conversor Digital-Analógico}
-		Com os estudos feitos no \autoref{method-hardware-conv-da}, é possível especificar os requisitos reais para o transistor de potência:
+	Com os estudos feitos no \autoref{method-hardware-conv-da}, é possível especificar os requisitos reais para o transistor de potência:
 
-		\begin{itemize}
-			\item Tensão de base/gate compatível com 3.3V;
-			\item Corrente de saída compatível com LED de alta potência, no mínimo 750mA;
-			\item Resposta de base/gate a $V_{on(FPGA)}$ de no máximo 1us;
-		\end{itemize}
-		
-		Alguns dos parâmetros são decisões de projeto, como a utilização de níveis TTL para chaveamento do transistor (3.3V ou 5V), e outros são requisitos da norma IEEE, como frequência de operação a 200kHz. Especialmente no segundo caso, é importante escolher um transistor com $T_{rise}$ e $T_{fall}$ de no mínimo 10-100 vezes menor que o período da onda transmitida - no caso $5\mu$$s/100 = 50ns$. Se o transistor não chavear rápido suficiente, é possível que a onda fique alterada. Em alguns casos é possível que fique semelhante a uma onda dente de serra.
-		
-		O componente escolhido foi um MOSFET de Potência, mais especificamente o IRLZ14, pois é um transistor de nível lógico, pois tem o GATE compatível com voltagens de microcontrolador. 
-		
-		\begin{figure}[htb]
-			\caption{\label{fig_transfer_carac_irlz14} Características de transferência do MOSFET de potência IRLZ14.}
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[page=3, width=0.7\textwidth, trim={12cm 16.5cm 2.2cm 5cm}, clip]{circuits/irlz14.pdf}
-			\legend{Fonte: \cite{datasheet-irlz14}}
-		\end{figure}
+	\begin{itemize}
+		\item Tensão de base/gate compatível com 3.3V;
+		\item Corrente de saída compatível com LED de alta potência, no mínimo 750mA;
+		\item Resposta de base/gate a $V_{on(FPGA)}$ de no máximo 1us;
+	\end{itemize}
 	
-		De acordo com função de transferência da \autoref{fig_transfer_carac_irlz14}, a VGS=3.3V é permitida uma corrente de dreno de 2A. A datasheet também especifica parâmetros de resposta dinâmica do circuito, como seu $T_{rise}$, $T_{fall}$, que estão disponibilizados na tabela abaixo.
-		
-		\begin{table}[ht]
-			\caption{Características Dinâmicas do MOSFET IRLZ14}
-			\centering
-			\begin{tabular}{c c}
-				\hline
-				Parâmetro  & Valor  \\ \hline
-				$T_{rise}$ & 110 ns \\
-				$T_{fall}$ & 26 ns  \\ \hline
-			\end{tabular}
-			\label{tab_irlz14_timing}
-			\legend{Fonte: Vishay Siliconix.}
-		\end{table}
+	Alguns dos parâmetros são decisões de projeto, como a utilização de níveis TTL para chaveamento do transistor (3.3V ou 5V), e outros são requisitos da norma IEEE, como frequência de operação a 200kHz. Especialmente no segundo caso, é importante escolher um transistor com $T_{rise}$ e $T_{fall}$ de no mínimo 10-100 vezes menor que o período da onda transmitida - no caso $5\mu$$s/100 = 50ns$. Se o transistor não chavear rápido suficiente, é possível que a onda fique alterada. Em alguns casos é possível que fique semelhante a uma onda dente de serra.
+	
+	O componente escolhido foi um MOSFET de Potência, mais especificamente o IRLZ14, pois é um transistor de nível lógico, pois tem o GATE compatível com voltagens de microcontrolador. 
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_transfer_carac_irlz14} Características de transferência do MOSFET de potência IRLZ14.}
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[page=3, width=0.5\textwidth, trim={12cm 16.5cm 2.2cm 5cm}, clip]{circuits/irlz14.pdf}
+		\legend{Fonte: \cite{datasheet-irlz14}}
+	\end{figure}
+
+	De acordo com função de transferência da \autoref{fig_transfer_carac_irlz14}, a VGS=3.3V é permitida uma corrente de dreno de 2A. A datasheet também especifica parâmetros de resposta dinâmica do circuito, como seu $T_{rise}$, $T_{fall}$, que estão disponibilizados na tabela abaixo.
+	
+	\begin{table}[ht]
+		\caption{Características Dinâmicas do MOSFET IRLZ14}
+		\centering
+		\begin{tabular}{c c}
+			\hline
+			Parâmetro  & Valor  \\ \hline
+			$T_{rise}$ & 110 ns \\
+			$T_{fall}$ & 26 ns  \\ \hline
+		\end{tabular}
+		\label{tab_irlz14_timing}
+		\legend{Fonte: Vishay Siliconix.}
+	\end{table}
 
 	\subsubsection{Transmissão de Luz}
 		
-		Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. Esse LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procuranto satisfazer tais parâmetros, o componente escolhido foi da OSRAM, o LUW W5-AM.
+	Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. Esse LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procuranto satisfazer tais parâmetros, o componente escolhido foi da OSRAM, o LUW W5-AM.
 
-		Utilizando o circuito polarizador do LED da \autoref{fig_led_circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização, mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
-		\begin{equation}
-		R_{LIMIT} = 5V \cdot 500mA = 2.5\Omega
-		\end{equation}
-		
-		
+	Utilizando o circuito polarizador do LED da \autoref{fig_led_circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização, mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
+	\begin{equation}
+	R_{LIMIT} = 5V \cdot 500mA = 2.5\Omega
+	\end{equation}
+	
 	\subsubsection{Versões Anteriores}
-		
-		Devido a falta de conhecimento do comportamento de transistores e da resposta de todos os componentes a frequência de 200kHz, foram projetados vários circuitos que não satisfaziam o formato de onda desejado. Abaixo são exemplificadas algumas versões implementadas, juntamente com os motivos de terem sido abandonadas.
-		
-		\paragraph{Filtro da Ponta de Prova}
-		
-		O primeiro problema que o projeto do transmissor encontrou foi o comportamento de subamortecimento nos terminais do LED. Ele utiliza um circuito semelhante ao utilizado em pontas de provas para filtrar ruídos e é conectado em série com a entrada do transmissor, como visto na \autoref{fig_transmitter_lify_circuit_fail0}.
-		
-		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit_fail0} Circuito de transmissão de dados LiCy.}
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={2cm 1cm 2cm 2cm}, clip]{circuits/transmitter_fail0.pdf}
-			\legend{Fonte: Autores}
-		\end{figure}
-		
-		A saída dessa implementação é mostrada na \autoref{fig_transmitter_lify_circuit_fail0_rl} e não é satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Um segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Isso ocorre devido a efeitos de capacitância ou no LED ou no transistor de potência.
-		
-		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit_fail0_rl} Comportamento do circuito de transmissão com filtro de ponta de prova em série com a entrada. A onda azul é saída do gerador de funções enquanto a onda amarela é a tensão submetida ao LED. Observa-se o comportamento de subamortecimento em ambas.}
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={30cm 0cm 2cm 40cm}, clip]{circuits/photos/TX_probe_result.jpg}
-			\legend{Fonte: Autores}
-		\end{figure}
 	
-		Ambos os componentes contém esse valor. O transistor de potência possui capacitância devido a separação de suas placas. Seu valor é significativo e é até especificado na datasheet. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente. 
+	Devido a falta de conhecimento do comportamento de transistores e da resposta de todos os componentes a frequência de 200kHz, foram projetados vários circuitos que não satisfaziam o formato de onda desejado. Abaixo são exemplificadas algumas versões implementadas, juntamente com os motivos de terem sido abandonadas.
+	
+	\paragraph{Filtro da Ponta de Prova}
+	\begin{figure}[htb]
+		\caption{\label{fig_transmitter_lify_circuit_fail0} Circuito de transmissão com filtro de ponta de prova. }
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[width=0.7\textwidth, trim={2cm 1cm 2cm 2cm}, clip]{circuits/transmitter_fail0.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	O primeiro problema que o projeto do transmissor encontrou foi o comportamento de subamortecimento nos terminais do LED. Ele utiliza um circuito semelhante ao utilizado em pontas de provas para filtrar ruídos e é conectado em série com a entrada do transmissor, como visto na \autoref{fig_transmitter_lify_circuit_fail0}.
+	\begin{figure}[htb]
+		\caption{\label{fig_transmitter_lify_circuit_fail0_rl} Comportamento do circuito de transmissão com filtro de ponta de prova em série com a entrada. A onda azul é saída do gerador de funções enquanto a onda amarela é a tensão submetida ao LED. Observa-se o comportamento de subamortecimento em ambas.}
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[width=0.5\textwidth, trim={30cm 0cm 2cm 40cm}, clip]{circuits/photos/TX_probe_result.jpg}
+		\legend{Fonte: Autores}
+	\end{figure}
 
-		No caso do LED, esse comportamento é mais complexo. A frequências altas, seu chaveamento cria um capacitor entre seus terminais, devido a sua arquitetura semicondutora. É possível observar esse comportamento capacitivo tanto em um LED de baixa potência quando de alta. Na prática, a tensão sob o LED não diminui acompanhando a tensão submetida a ele, e isso causa o comportamento indesejável visto.		
-		
-		Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual a entrada. Colocando um LED em série com o resistor adicionava o comportamento subamortecido, portanto conclui-se que essa anomalia é atribuida ao LED.
-				
-		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit_fail1_r1} Operação de circuito transmissor. A onda amarela representa voltagem no LED sem filtro de ponta de prova em frequências mais altas. O gerador de funções é medido e gera a forma de onda verde.}
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={20cm 15cm 50cm 10cm}, clip]{circuits/photos/TX_200k_without_filter.jpg}
-			\legend{Fonte: Autores}
-		\end{figure}
-		
-		\paragraph{Aumento da Frequência}
-		
-		O aumento da frequência de operação a $f_{OP} = 200kHz$ causa um subamortecimento substancialmente maior. Observa-se na \autoref{fig_transmitter_lify_circuit_fail1_r1}, que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
-		
-		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit_fail1} Circuito de transmissão de}
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={2cm 1cm 2cm 1cm}, clip]{circuits/transmitter_fail1.pdf}
-			\legend{Fonte: Autores}
-		\end{figure}
-		
-		Nesse caso é muito mais evidente o amortecimento visto na onda. Atribui-se esse comportamento a componente capacitiva ao chavear o LED. No entanto, observa-se que não há feedback do circuito na saída do gerador de funções, fato observado na última versão do circuito. O capacitor colocado adicionava um nível de complexidade desnecessário ao circuito, pois se carregava com oscilação da entrada. A forma de onda gerada em si era boa, mas os picos de voltagem gerados no início da onda colocavam os componentes em risco.
-		
-		A forma de onda gerada por esse circuito é difícil de ser usada, pois não preserva o período da onda de entrada. Mesmo com muitos filtros no receptor não é possível corrigir a essa diferença.
-		
-		\paragraph{Final - Filtro Passa-Altas}
-				
-		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit_final} Circuito de transmissão de dados LiCy.}
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
-			\legend{Fonte: Autores}
-		\end{figure}
-		
-		\begin{figure}[htb]
-			\caption{\label{fig_transmitter_lify_circuit_final_r1} Forma de onda após adicionar um capacitor que age como filtro passa-altas. Está defasada em 180$\degree$. }
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={5cm 30cm 20cm 20cm}, clip]{circuits/photos/TX_200k_with_filter.jpeg}
-			\legend{Fonte: Autores}
-		\end{figure}
+	A saída dessa implementação é mostrada na \autoref{fig_transmitter_lify_circuit_fail0_rl} e não foi satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Além dessa frequência a forma de onda se distorcia demais. O segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Atribuiu-se esses efeitos a capacitâncias parasitas no LED e no transistor de potência.
+	
+	O transistor de potência possui capacitância devido a separação de suas placas. Seu valor é significativo e é até especificado na datasheet. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente. 
 
-		Por fim, realiza-se a correção dessa componente utilizando um capacitor entre os terminais da Source do MOSFET e GND (observado em \autoref{fig_transmitter_lify_circuit_final}). Esse capacitor atua como filtro passa-altas e remove a componente AC da saída para o LED. O comportamento não fica exatamente igual à entrada, mas fica satisfatório pois o período é muito similar, chaveando o LED corretamente. A forma de onda resultante pode ser observada em \autoref{fig_transmitter_lify_circuit_final_r1}. Está defasada em 180$\degree$.
+	No caso do LED, esse comportamento é mais complexo. A frequências altas, seu chaveamento cria um capacitor entre seus terminais, devido a sua arquitetura semicondutora. É possível observar esse comportamento capacitivo tanto em um LED de baixa potência quando de alta. Na prática, a tensão sob o LED não diminui acompanhando a tensão submetida a ele, e isso causa o comportamento indesejável visto, como os picos na onda amarela.
 	
-		\subsection{Receptor}
-		
-		A recepção será feita utilizando os conceitos apresentados nas seções \ref{method-hard-photodiode}, \ref{method-hardware-conv-ad}, \ref{method-hardware-highpass-filter}, \ref{method-hardware-dc-bias};
-		
-		\subsubsection{Recepção Luminosa}
-		
-		Para o recebimento luminoso, foi utilizado um circuito da \textbf{APPLICATION NOTES} da \citeonline{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_simple}. O valor de R1 foi escolhido como 1M$\Omega$.
-		
-		\begin{figure}[htb]
-			\caption{\label{fig_receiver_lify_circuit_fail0_r1} Saída do Amplificador de Transimpedância (amarela) para uma entrada luminosa de 200kHz (verde).}
-			\centering		%  trim={<left> <lower> <right> <upper>} 
-			\includegraphics[width=0.7\textwidth, trim={5cm 30cm 90cm 20cm}, clip]{circuits/photos/RX_TIA_result.jpg}
-			\legend{Fonte: Autores}
-		\end{figure}
-		
-		\subsubsection{Conversor Analógico-Digital}
-		
-		O conversor analógico-digital foi integrado 
+	A forma de onda gerada por esse circuito é muito boa, porém os picos de voltagem de até o dobro de $2 \cdot V_{CC} = 10V$ com certeza danificam os componentes. Essa versão foi descartada por esse motivo (como pode-se observar em no osciloscópio - \textbf{Maximum 10.1V}). 
 	
-		\begin{figure}[htb]
-			\caption{\label{fig_receiver_lify_circuit_final} Circuito esquemático final.}
+	Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual a entrada. Colocando um LED em série com o resistor adicionava o comportamento subamortecido, portanto conclui-se que a anomalia é atribuida ao LED.
+	
+	\paragraph{Aumento da Frequência}
+
+	O aumento da frequência de operação a $f_{OP} = 200kHz$ causa um subamortecimento substancialmente maior. Observa-se na \autoref{fig_transmitter_lify_circuit_fail1_r1}, que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
+	\begin{figure}[htb]
+		\caption{\label{fig_transmitter_lify_circuit_fail1} Circuito de transmissão sem o filtro de ponta de prova.}
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[width=0.5\textwidth, trim={2cm 1.5cm 2cm 2cm}, clip]{circuits/transmitter_fail1.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_transmitter_lify_circuit_fail1_r1} Operação de circuito transmissor sem ponta de prova. A onda amarela representa voltagem no LED sem filtro de ponta de prova em frequências mais altas. O gerador de funções é medido e gera a forma de onda verde.}
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[width=0.5\textwidth, trim={20cm 65cm 85cm 10cm}, clip]{circuits/photos/TX_200k_without_filter.jpg}
+		\legend{Fonte: Autores}
+	\end{figure}
+	Nesse caso é muito mais evidente o amortecimento visto na onda. Atribui-se esse comportamento a componente capacitiva ao chavear o LED. No entanto, observa-se que não há feedback do circuito na saída do gerador de funções, fato observado na última versão do circuito. O capacitor colocado adicionava um nível de complexidade desnecessário ao circuito, pois se carregava com oscilação da entrada. 
+	
+	Além disso, ele não preserva a forma de onda da entrada. Ainda é possível refinar mais a solução.
+	
+	\paragraph{Final - Filtro Passa-Altas}
+			
+	\begin{figure}[htb]
+		\caption{\label{fig_transmitter_lify_circuit_final} Circuito final de transmissão de dados LiCy, utilizando um filtro passa-altas.}
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[width=0.7\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_transmitter_lify_circuit_final_r1} Forma de onda após adicionar um capacitor que age como filtro passa-altas. Está defasada em 180$\degree$. }
+		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\includegraphics[width=0.5\textwidth, trim={5cm 30cm 90cm 20cm}, clip]{circuits/photos/TX_200k_with_filter.jpeg}
+		\legend{Fonte: Autores}
+	\end{figure}
+
+	Por fim, realiza-se a correção dessa componente subamortecida utilizando um capacitor entre os terminais da Source do MOSFET e GND (observado em \autoref{fig_transmitter_lify_circuit_final}). Esse capacitor atua como filtro passa-altas e remove a componente AC da saída para o LED. O comportamento não fica exatamente igual à entrada, mas fica satisfatório pois o período é muito similar, chaveando o LED corretamente. A forma de onda resultante pode ser observada em \autoref{fig_transmitter_lify_circuit_final_r1}. Está defasada em 180$\degree$.
+
+	\subsection{Receptor}
+	
+	A recepção será feita utilizando os conceitos apresentados nas seções \ref{method-hard-photodiode}, \ref{method-hardware-conv-ad}, \ref{method-hardware-highpass-filter}, \ref{method-hardware-dc-bias};
+	
+	\subsubsection{Recepção Luminosa}
+	Para o recebimento luminoso, foi utilizado um circuito da \textbf{APPLICATION NOTES} da \cite{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_complex_outer}, diferente do utilizado na Metodologia (\autoref{fig_transimpedance_amp_simple}). Com $V_{bias} = 2.5V$ polarizando reversamente o fotodiodo, uma resposta mais confiável era recebida pelo componente. O valor de R1 e R2 foram  escolhidos como 1M$\Omega$ e 100k$\Omega$.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_transimpedance_amp_complex_outer} Circuito e saída de um amplificador de impedâncias. No circuito, o fotodiodo é reversamente polarizado por $V_{bias}$. No osciloscópio, a saída está marcada em amarelo enquanto a saída do LED está em verde.}
+		\begin{subfigure}{.5\textwidth}
 			\centering
-			\includegraphics[width=1\textwidth, trim={0cm 1cm 0cm 1cm}, clip]{circuits/receiver_lify_final.pdf}
-			\legend{Fonte: Autores}
-		\end{figure}
+			\includegraphics[width=1\textwidth, trim={1cm 1cm 1cm 2cm}, clip]{circuits/transimpedance_amp.pdf}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth, trim={25cm 35cm 40cm 15cm}, clip]{circuits/photos/RX_TIA_result.jpg}
+		\end{subfigure}
+		\legend{Fonte: Autores}
+	\end{figure}
+
+	No osciloscópio, a componente DC da saída do amplificador de transimpedância é zero. No entanto, esse valor é apenas zero quando o padrão da oscilação luminosa se estabiliza. Entrando em detalhes: nesse e em todos casos de teste, o receptor está sendo submetido a uma onda quadrada de $f = 200kHz$. Como a norma define Manchester como código de RLL, é providenciado balanço DC ao receptor (são transmitidos a mesma quantidade de zeros e uns). Então o fotodiodo se desestabilizará quando há movimentação dos módulos ou quando há mudança na iluminação do ambiente.
 	
-		\section{Software}
-		Com os dados codificados, enviados via luz, recebidos via luz e decodificados, é possível realizar 
+	Para remover esses fatores de incerteza, o circuito de passas baixas com acomplamento DC $V_{ref} = 1V$ foi projetado a partir da \autoref{plot-post-bias1v}. Para obter uma voltagem de referência de 1V foi utilizado um divisor resistivo de 12k e 47k. 
+	
+	\begin{equation}
+	V_{out} = V_{in} \cdot \frac{12k}{12k + 47k} = V_{in} \cdot \frac{12k}{59k} \approx \frac{V_{in}}{5} = \frac{V_{CC}}{5} \approx 1V
+	\end{equation}
+	
+	\subsubsection{Conversor Analógico-Digital}
+	
+	Com a onda em $V_{DC} = 1V$, é possível utilizar o comparador definido na \autoref{fig_double_comparator} para converter a onda senoidal em uma onda quadrada, com níveis compatíveis com a FPGA.
+	
+	A voltagem de referência do comparador deve ser a mesma que a voltagem $V_{ref}$ do filtro passa-baixas, provenientes do divisor resistivo. O circuito final integrado do receptor pode é analisado na \autoref{fig_receiver_lify_circuit_final}.
+
+	\begin{figure}[htb]
+		\caption{\label{fig_receiver_lify_circuit_final} Circuito esquemático final de recepção de dados LiCy.}
+		\centering
+		\includegraphics[width=0.7\textwidth, trim={0cm 1cm 0cm 1cm}, clip]{circuits/receiver_lify_final.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	
+	Os testes realizados foram bem sucedidos e resultaram na onda da \autoref{fig_receiver_lify_circuit_final_r1}. Nela é possível observar a medição do período da onda resultante convertida, que foi 4.88us, muito próximo de 5us, período para 200kHz.
+	
+	\begin{figure}[htb]
+		\caption{\label{fig_receiver_lify_circuit_final_r1} Saída do transmissor em verde e saída digital convertida do receptor em amarelo. É possível observar uma defasagem de 90$\degree$ em relação às ondas.}
+		\centering
+		\includegraphics[width=0.7\textwidth, trim={36cm 30cm 60cm 40cm}, clip]{circuits/photos/TXRX_final_fixed.jpg}
+		\legend{Fonte: Autores}
+	\end{figure}
+	
+	Em seguida será realizada a integração entre a parte analógica e digital do trabalho.
