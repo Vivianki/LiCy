@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 % ---
 % Arquivo com a metodologia do Trabalho de Conclusão de Curso dos alunos
 % Gabriel Takaoka Nishimura, Felippe Demarqui Ramos e Vivian Kimie Isuyama 
@@ -19,7 +18,6 @@
 	% ---
 	
 	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto, foram definidas a partir da EAP as fases de trabalho. Observa-se que existe uma fase de gerenciamento, três fases de desenvolvimento e uma fase final para o encerramento.
-	
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber }
@@ -75,7 +73,7 @@
 	Já o módulo de celular tem como requisitos de hardware exclusivos o consumo de energia através de uma bateria e a conexão ao celular através da interface USB.	
 	
 	\paragraph{Requisitos de software} 
-	Dividem-se entre a lamparina, o módulo de celular e o aplicativo, utilizado para receber e enviar dados para este módulo. Existem requisitos que são complementares às funções de hardware, porém correspondentes às soluções de software adotadas, como a implementação da norma IEEE 802.15.7 e a comunicação full-duplex um a um. Além destes, existem os requisitos de software comuns tanto à lamparina, ou Access Point Li-Fi, como ao módulo de telefone:
+	Dividem-se entre a lamparina, o módulo de celular e o aplicativo, utilizado para receber e enviar dados para este módulo. Existem requisitos que são comuns às funções de hardware e às soluções de software adotadas, como a implementação da norma IEEE 802.15.7 e a comunicação full-duplex um a um. Além destes, existem os requisitos de software comuns tanto à lamparina, ou Access Point Li-Fi, como ao módulo de telefone:
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_req1_2} Requisitos Funcionais de Software}
@@ -122,7 +120,7 @@
 	\begin{figure}[htb]
 		\caption{\label{fig_architecture} Arquitetura de dispositivos VPAN}
 		\centering
-		\includegraphics[width=0.5\textheight,trim={5.5cm 9.6cm 5.3cm 7cm}, clip]{pag31.pdf}
+		\includegraphics[width=0.5\textheight,trim={5cm 9.6cm 5.3cm 7cm}, clip]{pag31.pdf}
 		\legend{Fonte: IEEE 802.15.7}
 	\end{figure}
 
@@ -157,7 +155,7 @@
 	
 	Os principais parâmetros de um código Reed Solomon são $(n, k)$, onde $n$ é o número de símbolos de um bloco de código e $k$ é o tamanho da mensagem em número de símbolos. Portanto, o bloco terá $n - k$ símbolos de paridade, usualmente designados como $2t$, sendo que a capacidade de correção é de até $t$ símbolos.
 	
-	Campos de Galois
+	\paragraph{Campos de Galois}
 	
 	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 bits, totalizando 16 elementos de 0000 a 1111. 
 	
@@ -200,7 +198,7 @@
 	 
 	A multiplicação entre dois campos de Galois ocorre, em termos de aritmética comum, pela multiplicação de dois polinômios, seguida da divisão pelo gerador polinomial. Já a divisão  de campos finitos pode ser feita através da operação de inversão do divisor e multiplicação desse resultado pelo dividendo, seguindo os passos indicados anteriormente para a multiplicação. 
 	 
-	 Codificação 
+	\paragraph{Codificação}
 	 
 	Para gerar um código de Reed Solomon a partir dos campos finitos, é necessário um polinômio gerador de código. Este polinômio possui $2t$ fatores, de maneira que o grau do polinômio representado por $C(x)$ (bloco codificado, com grau $n$) seja a soma do grau de $M(x)$ (a própria mensagem dentro do bloco codificado, com grau $k$) e $G(x)$ (polinômio codificador, com grau $2t = n - k$). O polinômio gerador de código deve ter a seguinte forma:
 	 
@@ -256,11 +254,7 @@
 	É possível observar nos registradores e multiplicadores de Galois a estrutura de um polinômio e seus índices. A mensagem a que se vai adicionar redundância deve passar por "entrada", com um ciclo de clock para cada símbolo, levando portanto 7 ciclos para finalizar o cálculo das paridades para um código (15, 7). Os 8 símbolos de paridade devem então ser passados através de deslocamento de registradores, com a mudança do sinal de seleção, de maneira também a zerar a saída da porta lógica AND à direita. Sendo assim, os valores dos registradores não são afetados pelos somadores, já que as operações de multiplicação e soma de Galois estarão recebendo uma das entradas igual a 0000. Em suma, o processo de codificação leva tantos ciclos quantos forem os símbolos do bloco codificado, ou o valor denotado por $n$.
 	
 	\cite{nasa-rs1}
-	
-	\subsubsection{Padding}
-	
-	Esse processo se aplica a mensagens curtas e consiste em preencher espaços vazios com zeros.
-	
+
 	\subsubsection{Interleaver}
 	
 	O processo de entrelaçamento é utilizado para aprimorar a performance de mecanismos de correção de erros antecipados. Ele se baseia no fato de que canais de comunicação não são estocásticos, então erros ocorrem em sequência e não independentemente. 
@@ -270,61 +264,99 @@
 	Para melhor demonstrar a aplicação do entrelaçador, serão exemplificadas várias situações utilizado um sistema de recuperação de erros em um canal com ruídos (que costumam ser \textit{bit-flip}). Na primeira, não é aplicado o entrelaçamento e a mensagem é recuperável com redundância.
 
 	\begin{verbatim}
-	   Burst = 2, Redundância = 3, Sem entrelaçamento
-	   Mensagem inicial:                             abcdefg
-	   Mensagem com redundância:                     aaabbbcccdddeeefffggg
-	   Transmissão com erros em burst:               aaabbbc__dddeeefffggg
-	   Mensagem recuperada:                          abcdefg
+	    Burst = 2, Redundância = 3, Sem entrelaçamento
+	    Mensagem inicial:                             abcdefg
+	    Mensagem com redundância:                     aaabbbcccdddeeefffggg
+	    Transmissão com erros em burst:               aaabbbc__dddeeefffggg
+	    Mensagem recuperada:                          abcdefg
 	\end{verbatim}
 
-	Mesmo após dois caracteres perdidos em sequência, foi possível recuperar as perdas do canal. Isso ocorreu pois o burst do erro foi menor que sua capacidade de recuperação. Na situação a seguir, novamente sem entrelaçamento, a mensagem não é recuperável com redundância.
+	Mesmo após dois caracteres perdidos em sequência, foi possível recuperar as perdas do canal. Isso ocorreu pois o \textit{burst} do erro foi menor que sua capacidade de recuperação. Na situação a seguir, novamente sem entrelaçamento, a mensagem não é recuperável com redundância.
 	
 	\begin{verbatim}
-	   Burst = 4, Redundância = 3, Sem entrelaçamento
-	   Mensagem inicial:                             abcdefg
-	   Mensagem com redundância:                     aaabbbcccdddeeefffggg
-	   Transmissão com erros em burst:               aaabbbcc____eeefffggg
-	   Mensagem recuperada:                          abc_efg
+	    Burst = 4, Redundância = 3, Sem entrelaçamento
+	    Mensagem inicial:                             abcdefg
+	    Mensagem com redundância:                     aaabbbcccdddeeefffggg
+	    Transmissão com erros em burst:               aaabbbcc____eeefffggg
+	    Mensagem recuperada:                          abc_efg
 	\end{verbatim}
 	
-	Mesmo com a redundância aplicada, a informação \textit{d} foi perdida devido à erros em burst. Aplicando entrelaçamento, a mesma mensagem pode ser recuperada facilmente, a seguir:
+	Mesmo com a redundância aplicada, a informação \textit{d} foi perdida devido à erros em \textit{burst}. Aplicando entrelaçamento, a mesma mensagem pode ser recuperada facilmente, a seguir:
 	
 	\begin{verbatim}
-	   Burst = 4, Redundância = 3, Com entrelaçamento
-	   Mensagem inicial:                             abcdefg
-	   Mensagem com redundância:                     aaabbbcccdddeeefffggg
-	   Interleaving:                                 abcdefgabcdefgabcdefg
-	   Transmissão com erros em sequência:           abcdefgab____gabcdefg
-	   Deinterleaving:                               aaabbbc_cd_de_ef_fggg
-	   Mensagem recuperada:                          abcdefg
+	    Burst = 4, Redundância = 3, Com entrelaçamento
+	    Mensagem inicial:                             abcdefg
+	    Mensagem com redundância:                     aaabbbcccdddeeefffggg
+	    Interleaving:                                 abcdefgabcdefgabcdefg
+	    Transmissão com erros em sequência:           abcdefgab____gabcdefg
+	    Deinterleaving:                               aaabbbc_cd_de_ef_fggg
+	    Mensagem recuperada:                          abcdefg
 	\end{verbatim}
 	
 	A mensagem recebida foi recuperada pois os erros foram distribuídos em partes diferentes da mensagem, que foi entrelaçada. Os dados resultantes puderam ser inferidos pela redundância aplicada. A norma especifica alguns parâmetros que devem ser definidos para criar o entrelaçador:
 	
 	\begin{verbatim}
-	n: RS codeword length
-	k: Number of information data symbols in a RS codeword
-	q: Number of elements in the Galois field: GF(q)
-	L_{frame}: Input frame size in bytes
-	S_{frame}: Number of symbols at the input of the RS encoder
-	S: Number of symbols from the output of the shortened RS encoder
-	S_{block}: The size of the interleaver used
-	D:The interleaving depth
-	i: Ordered indices take the values 0, 1, …, Sblock–1
-	l(i): Interleaved indices
-	p: Number of zero RS symbols
-	t: Ordered indices take the values 0, 1, …, p
-	z(t): Locations of the bits to be punctured at the output of the 
-	interleaver before transmission 
+	    n: RS codeword length
+	    k: Number of information data symbols in a RS codeword
+	    q: Number of elements in the Galois field: GF(q)
+	    L_frame: Input frame size in bytes
+	    S_frame: Number of symbols at the input of the RS encoder
+	    S: Number of symbols from the output of the shortened RS encoder
+	    S_block: The size of the interleaver used
+	    D:The interleaving depth
+	    i: Ordered indices take the values 0, 1, …, Sblock–1
+	    l(i): Interleaved indices
+	    p: Number of zero RS symbols
+	    t: Ordered indices take the values 0, 1, …, p
+	    z(t): Locations of the bits to be punctured at the output of the interleaver before transmission 
 	\end{verbatim}
 	
 	\subsubsection{Puncture}
 	
 	O módulo de punção é utilizado para reduzir o overhead do padding, e é aplicado depois do interleaver.
 	
-	\subsubsection{Convolutional Encoder}
+	\subsubsection{Código Convolutional}
 	
-	Este módulo 
+	O módulo de código convolucional é um código de correção de erros que converte a mensagem em símbolos de paridade. Ele se utiliza de uma janela deslizante para receber e armazenar uma parte dos dados de entrada. Alguns subgrupos de bits dentro da janela, definidos pelos geradores polinomiais, são utilizados para gerar os \textit{bits} de paridade. A operação de \textit{exclusive or} entre os \textit{bits} de um subgrupo gera um \textit{bit} de paridade. A norma define os parâmetros do código na \autoref{tabela_params_convolutional} de acordo com a camada PHY I. 
+	
+	\begin{table}[ht]
+		\caption{Parâmetros do Código Convolucional da camada PHY I}
+		\centering
+		\begin{tabular}{c c c}
+			\hline
+			Parâmetro & Valor & Descrição \\ \hline
+			K & 7 & comprimento da janela deslizante \\
+			R & 1/4 & taxa de bits / paridade \\ 
+			G & $g_{0} = 133_{8}$; $g_{1} = 171_{8}$; $g_{2} = 165_{8}$ & polinômio gerador \\ \hline
+		\end{tabular}
+		\label{tabela_params_convolutional}
+		\legend{Fonte: Autores}
+	\end{table}
+
+	No documento da norma há uma figura que especifica a implementação do codificador. Estudando-a em detalhes, foram encontrados erros na figura, pois os \textit{bits} utilizados para gerar as paridades eram extraídos de geradores polinomiais errados. A \autoref{schematics_convolutional} esquematiza um codificador com os polinômios corrigidos. A cada \textit{bit} $X_{n}$ de entrada, o código convolucional gera três paridades: $A_{0}$, $B_{0}$ e $C_{0}$, por isso 1/3.
+	\begin{figure}[htb]
+		\caption{\label{schematics_convolutional} Esquemático do Codificador Convolucional com taxa 1/3, os quadrados representam registradores e os retângulos os somadores.}
+		\centering
+		\includegraphics[width=0.6\textheight]{schematics/convolutional.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	Nota-se que o codificador especificado pela norma tem taxa 1/3, e não de 1/4, como especificado na norma. Para obter uma taxa de 1/4 deve-se realizar operação de \textit{puncture} no código de taxa 1/3 para um de taxa 1/2, como mostrado na \autoref{schematics_convolutional_puncture}, e depois usando um código de repetição como na \autoref{schematics_convolutional_repetition}.
+	
+
+	\begin{figure}[htb]
+		\caption{\label{schematics_convolutional_puncture} Padrão de \textit{puncture} para obter código a taxa 1/2.}
+		\centering
+		\includegraphics[width=0.3\textheight]{schematics/convolutional_puncture.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	\begin{figure}[htb]
+		\caption{\label{schematics_convolutional_repetition} Padrão de repetição utilizado para obter um código com taxa 1/4.}
+		\centering
+		\includegraphics[width=0.3\textheight]{schematics/convolutional_repetition.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	
+	Como a saída do codificador é serial de um \textit{bit}, observa-se que esse código cria um \textit{overhead} na velocidade da transmissão da mensagem. Os bits entram no codificador convolucional a uma taxa de t \textit{bits}/tempo e saem a uma taxa de t/4 \textit{bits} /tempo.
 	
 	\subsubsection{Codificação RLL}
 	
@@ -343,50 +375,81 @@
 		\legend{Fonte: Tabela 103 da norma 802.15.7}
 	\end{table}
 	
-	Uma maneira prática de se obter um codificador Manchester é através da aplicação da operação de OU exlcusivo, ou XOR em dois sinais de entrada. Um destes sinais é a própria mensagem a ser codificada, o outro sinal deve ser um clock com o dobro da frequência da mensagem. É importante observar que para essa codificação ser eficiente, os dois sinais devem estar sincronizados, de maneira que um período de clock seja exatamente equivalente à duração do bit da mensagem de entrada.
+	Uma maneira prática de se obter um codificador Manchester é através da aplicação da operação de OU exlcusivo, ou XOR em dois sinais de entrada. Um destes sinais é a própria mensagem a ser codificada, o outro sinal deve ser um clock com o dobro da frequência da mensagem. É importante observar que para essa codificação ser eficiente, os dois sinais devem estar sincronizados, de maneira que um período de clock seja exatamente equivalente à duração do bit da mensagem de entrada.	
 	
+	\subsection{Recepção}\label{section_norma_recepcao}
 	
-	
-	\subsection{Recepção}
-	
-	Após a codificação dos dados, é necessário realizar a decodificação deles. Para isso, deve-se reverter os processos aplicados pela seção anterior. No entanto, isso não é tão trivial, dado que vários desses módulos devem realizar correção de erro, tornando o algoritmo completamente diferente. As etapas de decodificação dos dados estão esquematizadas abaixo:
+	Após a codificação dos dados, é necessário realizar a decodificação deles. Esse processo inclui a reversão dos processos de codificação e correção de erros caso existentes. No entanto isso não é trivial, pois a norma não especificou nenhum algoritmo para decodificar nem corrigir erros. Foi necessário realizar uma pesquisa para descobrir os métodos mais adequados para decodificação de cada etapa, que estão esquematizadas na \autoref{fig_reception_phy1}. Esses algoritimos estão descritos em detalhes abaixo.
 
 	\begin{figure}[htb]
 		\caption{\label{fig_reception_phy1} Diagrama de blocos da decodificação da mensagem}
 		\centering
 		\includegraphics[width=0.4\textheight]{PHY1-reception.pdf}
-		\legend{Fonte: @todo figura 126}
+		\legend{Fonte: Autores}
 	\end{figure}
-
-	Esses passos estarão detalhados abaixo:
-	
 	
 	\subsubsection{Decodificação RLL}
 	
 	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de clock cuja frequência é idêntica à do clock de codificação. Portanto, o período do clock deve ser o dobro do tempo de duração do bit da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que dados efetivos são transmitidos seja a mesma.
 	
-	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de dois bits idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do clock da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um shift register. Caso o número de bits idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
+	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de dois bits idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do clock da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de bits idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
 	
-	\subsubsection{Decodificação Viterbi}
+	\subsubsection{Decodificação \textit{Viterbi}}
 	
-	\subsubsection{Puncture}
+	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador \textit{Viterbi}: máquinas de estado, tabela \textit{Trellis} e por fim o algoritimo de decodificação \textit{Viterbi}.
 	
-	\subsubsection{Deinterleaver}
+	\paragraph{Máquina de Estados}
 	
-	O De
+	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{schematics_convolutional_states}) e processa um bit de cada vez. Para cada \textit{bit} de mensagem, há a transicão do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de \textit{Mealy}: X/Y, onde X representa a entrada e Y representa a saída.
+	\begin{figure}[htb]
+		\caption{\label{schematics_convolutional_states} Visão de máquina de estados de um codificador convolucional.}
+		\centering
+		\includegraphics[width=0.4\textheight]{schematics/convolutional_states.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	O receptor, é claro, não tem conhecimento direto das transições do transmissor. Ele só pode ver a sequência de paridades recebidas, possívelmente corrompidas. Sua tarefa é determinar a \textbf{melhor} sequência possível de estados transmitidos que podem ter gerado a sequência de paridades. Essa tarefa é chamada de decodificação, que será discorrida a seguir.
 	
-	\subsubsection{Decodificação Reed Solomon}
+	\paragraph{Tabela Trellis}
+
+	Como mencionado acima, o receptor deve determinar a \textbf{melhor} sequência de estados que o transmissor passou. Essa sequência forma um caminho dentro da máquina de estados, que pode ser deduzido pelo decodificador. \textit{Trellis} é a estrutura derivada da máquna de estados, ela ajuda o decodificador a escolher os melhores caminhos para recuperar a mensagem. Um exemplo de tabela \textit{Trellis} é dado na \autoref{schematics_convolutional_states}.
+	\begin{figure}[htb]
+		\caption{\label{schematics_convolutional_trellis} A tabela de \textit{Trellis} é útil para entender o processo de decodificação de uma máquina de estados.}
+		\centering
+		\includegraphics[width=0.6\textheight,trim={0cm 18cm 0cm 2.5cm},clip]{schematics/convolutional_trellis.pdf}
+		\legend{Fonte: Autores}
+	\end{figure}
+	Nessa figura, cada coluna tem um grupo de estados; cada estado é conectado a dois estados na próxima coluna; cada seta indica qual saída e próximo estado para cada entrada. A figura mostra o caminho percorrido pelo transmissor com a mensagem 101100. 
+	
+	O decodificador deve identificar o melhor caminho utilizando a tabela \textit{Trellis}, explicando por meio dela a sequência de paridades observadas e possivelmente corrompidas. Esse decodificador é chamado de Viterbi.
+	
+	\paragraph{Algoritimo}
+	
+	O algoritimo de decodificação Viterbi utiliza duas métricas: a métrica de ramificação (BM) e a métrica de caminho (PM). 
+	
+	A BM é uma medida da distância entre o transmitido e o recebido, e é definido para cada seta na \textit{Trellis}. Em alguns casos ela também é conhecida como distância de Hamming. A PM é um valor associado com um estado na tabela \textit{Trellis}. Ele é equivalente a soma das distâncias de Hamming a partir do estado inicial da tabela. A menor soma das distâncias será o melhor caminho até determinado nó, e também será a mensagem mais provável - com menor número de erros.
+	
+	A ideia principal do algoritimo de \textit{Viterbi} é que o receptor consegue calcular a PM de forma incremental, utilizando a PM de estados anteriores e BM. Após o cálculo de todas combinações possíveis de distâncias acumuladas, o módulo de \textit{traceback} realiza a escolha do melhor e mais provável caminho. Esse algoritimo pode ser simplificado removendo o módulo de \textit{traceback} e realizando as decisões no momento de leitura da paridade. Essa decisão é feita observando apenas as métricas de ramificação, ou seja, apenas as distâncias de cada estado para o próximo. Esse método é chamado de \textit{Fangled Viterbi}.
+	
+	\begin{comment}
+	Convolutional encoding with Viterbi decoding is a good forward error correction technique suitable for channels affected by noise degradation. Fangled Viterbi decoders are variants of Viterbi decoder (VD) which decodes quicker and takes less memory with no error detection capability. Modified fangled takes it a step further by gaining one bit error correction and detection capability at the cost of doubling the
+	computational complexity and processing time. A new efficient fangled Viterbi algorithm is proposed in this paper with less complexity and processing time along with 2 bit error correction capabilities. For 1 bit error correction for 14 bit input data, when compared with Modified fangled Viterbi decoder, computational complexity has come down by 36-43% and processing delay was halved. For a 2 bit error correction, when compared with Modified fangled decoder computational complexity decreased by 22-36%.
+	\end{comment}
+	
+	\subsubsection{\textit{Deinterleaver}}
+	
+	O processo de \textit{deinterleaving} é análogo ao processo de \textit{interleaving} e é o único que não necessida de atenção especial para um estudo de um novo algoritmo.
+	
+	\subsubsection{Decodificação \textit{Reed Solomon}}
 	
 	Esta seção discorre sobre as quatros etapas principais do processo de decodificação de Reed Solomon abordados na execução do projeto.
 	
-	\subsubsubsection{Cálculo das síndromes}
+	\paragraph{Cálculo das síndromes}
 	
 	As síndromes são calculadas através da mensagem recebida e dos símbolos de paridade. O objetivo desse cálculo é identificar num primeiro momento a presença de erros no bloco que foi recebido em relação ao que foi transmitido. Utilizaremos aqui a notação de $R(x)$ para o bloco recebido e $E(x)$ para os possíveis erros. Portanto:
 	
 	\begin{equation}
 	R(x) = C(x) + E(x)
 	\end{equation}
-	
 	
 	Caso a mensagem recebida não tenha erros, teremos $E(x)$ formado por 15 símbolos de 0000 no caso de Reed Solomon (15, 7). Se pelo menos um símbolo de $E(x)$ possuir pelo menos um bit diferente de 0, configura-se um erro, e o cálculo das síndromes deverá apontá-lo. Caso o número de símbolos com erro exceda $t$, ou 4 símbolos para um código (15, 7), o erro será identificado nas síndromes, porém não será possível corrigi-lo posteriormente.
 	
@@ -396,13 +459,11 @@
 	S_{i} = Q_{i}(x)(x + \alpha^{i}) + R(x)
 	\end{equation}
 	
-	
 	No caso específico em que $x$ é $\alpha^{i}$, temos que o primeiro termo da soma é nulo, já que $x + \alpha^{i} = 0000$. Portanto:
 	
 	\begin{equation}
 	S_{i} = R(\alpha^{i})
 	\end{equation}
-	
 	
 	E haverá um total de $2t$ síndromes, uma para cada raiz do polinômio codificador $G(x)$. Considerando que existem $v$ símbolos com erros, com $v \leq t$, teremos:
 	
@@ -410,13 +471,11 @@
 	E(x) = V_{1}x^{L_{1}} + ... + V_{v}x^{L_{v}}
 	\end{equation}
 	
-	
 	Com $V_{i}$ representando os valores do erro, e $L_{i}$ indicando a localização desses erros. Portanto, para cada síndrome $S_{i}$:
 	
 	\begin{equation}
 	S_{i}(\alpha^{i}) = V_{1}X_{1}^{i} + V_{2}X_{2}^{i} + ... V_{v}X_{v}^{i}
 	\end{equation}
-	
 	
 	Os valores de $X_{i}$ são usualmente designados para representar os localizadores de erro. Observe que os índices numéricos não necessariamente indicam o coeficiente do polinômio.
 	
@@ -429,7 +488,7 @@
 		\legend{Fonte: @todo figura 126}
 	\end{figure}
 	
-	\subsubsubsection{Localização dos erros}
+	\paragraph{Localização dos erros}
 	
 	O polinômio localizador de erros é construído com auxílio dos localizadores de erro, denotados por $X_{1}$ a $X_{v}$.
 	
@@ -441,13 +500,11 @@
 	\Lambda(x) =  1 + \Lambda_{1}x^{1} + ... + \Lambda_{v-1}x^{v-1} + \Lambda_{v}x^{v}
 	\end{equation}
 	
-	
 	Dessa forma teremos os inversos de $X_{1}$ a $X_{v}$ como raízes deste polinômio, sendo que cada uma dessas raízes torna $\Lambda(x)$ igual a zero. 
 	
 	\begin{equation}
 	\Lambda(X_{j}^{-1}) = \Lambda_{v}X_{j}^{-v} + ... + \Lambda_{1}X_{j}^{-1} + 1 = 0
 	\end{equation}
-	
 	
 	Multiplicando essa igualdade por $V_{j}*X_{j}^{i+v}$, temos:
 	
@@ -484,7 +541,7 @@
 	\end{spmatrix}
 	\end{equation}
 	
-	\subsubsubsection{Algoritmo de Berlekamp-Massey}
+	\paragraph{Algoritmo de Berlekamp-Massey}
 	
 	Resolvendo o sistema anterior, encontram-se os coeficientes do polinômio localizador de erros. Essa resolução pode se feita por mais de uma forma, porém neste estudo é abordado o método de Berlekamp-Massey. Este algoritmo resolve o sistema por meio de aproximações sucessivas do polinômio localizador, iniciando com um $\Lambda(x)$ capaz de produzir $S_{v}$, ou a primeira síndrome. Conforme a seção anterior, calcula-se o próximo termo, $S_{v + 1}$:
 	
@@ -492,20 +549,18 @@
 	S_{v + 1} = S_{v}\Lambda_{1} + S_{v-1}\Lambda_{2} + ... + S_{1}\Lambda_{v}
 	\end{equation}
 	
-	
 	Sendo que os valores de $\Lambda$ fazem parte da primeira aproximação. Caso esse valor da síndrome calculada pelo polinômio seja o mesmo valor da síndrome real, ou a diferença $d = 0000$, calcula-se $S_{v + 2}$. Caso contrário, o polinômio deve ser refinado:
 	
 	\begin{equation}
 	\Lambda'(x) = \Lambda(x) +  Kx^{z}\Lambda''(x)
 	\end{equation}
 	
-	
 	Onde $\Lambda''(x)$ é o último polinômio localizador estimado antes de haver uma diferença $d \neq 0000$. K é definida como $d''^{-1}d$, com $d''^{-1}$ sendo o inverso da diferença de quando o polinômio $\Lambda(x)$ foi modificado da última vez. Já $z$ é o número de estágios entre $\Lambda''^{+1}(x)$ e $\Lambda(x)$.
 	
 	Uma vez calculados os coeficientes do polinômio localizador, 
 	deve-se descobrir o valor de suas raízes. Como apontado anteriormente, o inverso destas aponta a localização dos erros. Esses valores são encontrados através do método de busca de Chien, que utiliza tentativa e erro, com todos os possíveis valores das raízes.
 	
-	\subsubsubsection{Valores dos erros}
+	\paragraph{Valores dos erros}
 	
 	Existem diversas maneiras de encontrar os valores dos erros. O método abordado aqui - o algoritmo de Forney - utiliza o polinômio avaliador de erros, definido como:
 	
@@ -513,20 +568,17 @@
 	\Omega(x) = \Omega_{v-1}x^{v-1} + ... + \Omega_{1}x + \Omega_{0}
 	\end{equation}
 	
-	
 	Os valores dos erros são dados por sua vez por:
 	
 	\begin{equation}
 	V_{j} = X_{j}^{1-b} \frac{\Omega(X_{j}^{-1})}{\Lambda'(X_{j}^{-1})}
 	\end{equation}
 	
-	
 	Sendo $\Lambda'(x)$ a derivada de $\Lambda(x)$, e $b$ o índice do primeiro $\alpha$ usado no polinômio codificador, que neste caso será 0.
 	
-	\subsubsubsection{Síntese}
+	\paragraph{Síntese}
 	
 	Um decodificador de Reed Solomon pode ser dividido funcionalmente nos seguintes módulos:
-	
 
 	\begin{figure}[htb]
 		\caption{\label{RSDecoder_diagrama_logico} Diagrama funcional de decodificação Reed Solomon}
@@ -535,7 +587,7 @@
 		\legend{Fonte: Autores}
 	\end{figure}
 	
-	\subsubsubsection{Estratégia}
+	\paragraph{Estratégia}
 	
 	O primeiro passo para aproximar os algoritmos de uma solução em hardware foi procurar níveis de abstração intermediários. O nível encontrado foi a programação em alto nível, reduzindo módulos como multiplicadores e somadores a funções. Uma das vantagens deste método foi a geração de saídas esperadas para cada módulo funcional, incluindo o bloco de saída final, corrigido ou a ser descartado. Esses dados foram fundamentais para a depuração e correções em hardware. Entretanto, uma das limitações deste método era a de que a linguagem de programação pertence a um paradigma diferente do da descrição de hardware, o que envolveu o uso de máquinas de estado no lugar de loops, por exemplo.  
 	
@@ -612,7 +664,7 @@
 	
 	\subsubsection{Unidade de Dados de Serviço PHY - PSDU}
 	
-	Como o escopo do trabalho não engloba a camada MAC, o campo de Unidade de Dados de Serviço PHY conterá apenas a mensagem.
+	Como o escopo do trabalho não engloba a camada MAC, o campo de PSDU conterá apenas a mensagem.
 	
 	% ---
 	\section{Hardware}\label{sec-hardware}
