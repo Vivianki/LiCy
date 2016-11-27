@@ -20,7 +20,7 @@
 	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto,as fases de trabalho foram definidas a partir da EAP. Observa-se que existe uma fase de gerenciamento, duas fases de desenvolvimento e uma fase final para o encerramento.
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber.}
+		\caption{\label{fig_eap}Estrutura Analítica do Projeto Light Cyber.}
 		\centering
 		\includegraphics[width=0.8\textwidth, trim={0cm 0cm 0cm 0cm}, clip]{EAP.pdf}
 		\legend{Fonte: Autores.}
@@ -54,7 +54,7 @@
 	É importante observar que estes dividem-se entre a lamparina, que serve de ponto de acesso, e o módulo de recepção, com pesos iguais entre os dois, já que a comunicação é de um para um e ambos têm a mesma importância. Há requisitos em comum entre esses subsistemas, e alguns serão explicados mais à frente. A organização desses requisitos encontra-se abaixo, na \autoref{fig_req1_1}.
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_req1_1} Requisitos Funcionais de Hardware Digital.}
+		\caption{\label{fig_req1_1}Requisitos Funcionais de Hardware Digital.}
 		\centering
 		\includegraphics[width=0.5\textwidth]{Req_Tree_Digital.pdf}
 		\legend{Fonte: Autores.}
@@ -78,7 +78,7 @@
 	Dividem-se entre a lamparina e o módulo receptor:
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_req1_2} Requisitos Funcionais de Hardware Analógico.}
+		\caption{\label{fig_req1_2}Requisitos Funcionais de Hardware Analógico.}
 		\centering
 		\includegraphics[width=0.5\textwidth]{Req_Tree_Analog.pdf}
 		\legend{Fonte: Autores.}
@@ -96,7 +96,7 @@
 	Foram especificados através da seguinte estrutura:
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_req2} Requisitos Não Funcionais.}
+		\caption{\label{fig_req2}Requisitos Não Funcionais.}
 		\centering
 		\includegraphics[width=0.5\textwidth]{Req_Tree_NFunc.pdf}
 		\legend{Fonte: Autores.}
@@ -112,7 +112,7 @@
 	\section{Norma IEEE 802.15.7}\label{sec-norma}
 	% ---
 	\begin{figure}[htb]
-		\caption{\label{fig_architecture} Arquitetura de dispositivos VPAN}
+		\caption{\label{fig_architecture}Arquitetura de dispositivos VPAN.}
 		\centering
 		\includegraphics[width=0.5\textheight,trim={5cm 9.6cm 5.3cm 7cm}, clip]{pag31.pdf}
 		\legend{Fonte: IEEE 802.15.7}
@@ -122,14 +122,14 @@
 	O trabalho focará no estudo e implementação da camada PHY. Os modos de operação das subcamada PHY I e PHY II são listados nas tabelas \ref{tab_phy1} e \ref{tab_phy2}.
 	
 	\begin{table}[h!]
-		\caption{\label{tab_phy1} Modos de operação da camada PHY I de Li-Fi}
+		\caption{\label{tab_phy1}Modos de operação da camada PHY I de Li-Fi.}
 		\centering
 		\includegraphics[clip, trim=37mm 151mm 36mm 51mm,  width=0.7\textwidth]{pag213.pdf}
 		\legend{Fonte: IEEE 802.15.7}
 	\end{table}
 
 	\begin{table}[h!]
-		\caption{\label{tab_phy2} Modos de operação da camada PHY II de Li-Fi}
+		\caption{\label{tab_phy2}Modos de operação da camada PHY II de Li-Fi.}
 		\centering
 		\includegraphics[clip, trim=46.55mm 36.79mm 46.74mm 142.30mm,  width=0.7\textwidth]{pag213.pdf}
 		\legend{Fonte: IEEE 802.15.7}
@@ -140,10 +140,10 @@
 	Nessa seção será discorrido o processo de transmissão de dados via luz, levando em conta códigos cíclicos de correção de erro, redução de erros em burst e protocolos RLL, especificados pela norma IEEE. Para realizar a transmissão, é necessário passar pelas etapas do diagrama abaixo:
 		
 		\begin{figure}[htb]
-			\caption{\label{fig_transmission_phy1} Diagrama de blocos da codificação da mensagem}
+			\caption{\label{fig_transmission_phy1}Diagrama de blocos da codificação da mensagem.}
 			\centering
 			\includegraphics[width=0.4\textheight]{PHY1-transmission.pdf}
-			\legend{Fonte: Autores}
+			\legend{Fonte: Autores.}
 		\end{figure}
 		
 	Para que os dados transmitidos sejam corretamente recebidos, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em burst, maior facilidade na sincronia do clock, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Esses passos estarão detalhados nas seções a seguir.
@@ -229,7 +229,7 @@
 	Portanto, o bloco codificado $C(x)$ é composto por $M(x)$ deslocada, somada a $r(x)$, na prática equivalendo à \autoref{fig_reed_solomon_message}, com os símbolos de dados transmitidos em esquema de fila, seguidos dos símbolos de paridade.
 	
 	\begin{figure}[!htb]
-		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
+		\caption{\label{fig_reed_solomon_message}Diagrama de blocos da codificação da mensagem.}
 		\centering
 		\includegraphics[width=0.4\textheight]{frame/rs-codeword.pdf}
 		\legend{Fonte: Autores.}
@@ -238,7 +238,7 @@
 	Finalmente, a representação do codificador de Reed Solomon (15, 7) em hardware equivale a:
 	 
 	\begin{figure}[!htb]
-		\caption{\label{RS_encoder_logic} Circuito lógico de codificação Reed Solomon (15,7)}
+		\caption{\label{RS_encoder_logic}Circuito lógico de codificação Reed Solomon (15,7).}
 		\centering
 		\includegraphics[width=0.6\textheight]{RS_Encoder.png}
 		\legend{Fonte: }
@@ -314,7 +314,7 @@
 	O módulo de código convolucional é um código de correção de erros que converte a mensagem em símbolos de paridade. Ele se utiliza de uma janela deslizante para receber e armazenar uma parte dos dados de entrada. Alguns subgrupos de bits dentro da janela, definidos pelos geradores polinomiais, são utilizados para gerar os \textit{bits} de paridade. A operação de \textit{exclusive or} entre os \textit{bits} de um subgrupo gera um \textit{bit} de paridade. A norma define os parâmetros do código na \autoref{tabela_params_convolutional} de acordo com a camada PHY I. 
 	
 	\begin{table}[ht]
-		\caption{Parâmetros do Código Convolucional da camada PHY I}
+		\caption{Parâmetros do Código Convolucional da camada PHY I.}
 		\centering
 		\begin{tabular}{c c c}
 			\hline
@@ -324,30 +324,29 @@
 			G & $g_{0} = 133_{8}$; $g_{1} = 171_{8}$; $g_{2} = 165_{8}$ & polinômio gerador \\ \hline
 		\end{tabular}
 		\label{tabela_params_convolutional}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{table}
 
 	No documento da norma há uma figura que especifica a implementação do codificador. Estudando-a em detalhes, foram encontrados erros na figura, pois os \textit{bits} utilizados para gerar as paridades eram extraídos de geradores polinomiais errados. A \autoref{schematics_convolutional} esquematiza um codificador com os polinômios corrigidos. A cada \textit{bit} $X_{n}$ de entrada, o código convolucional gera três paridades: $A_{0}$, $B_{0}$ e $C_{0}$, por isso 1/3.
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional} Esquemático do Codificador Convolucional com taxa 1/3, os quadrados representam registradores e os retângulos os somadores.}
+		\caption{\label{schematics_convolutional}Esquemático do Codificador Convolucional com taxa 1/3, os quadrados representam registradores e os retângulos os somadores.}
 		\centering
 		\includegraphics[width=0.6\textheight]{schematics/convolutional.pdf}
 		\legend{Fonte: Autores}
 	\end{figure}
 	Nota-se que o codificador especificado pela norma tem taxa 1/3, e não de 1/4, como especificado na norma. Para obter uma taxa de 1/4 deve-se realizar operação de \textit{puncture} no código de taxa 1/3 para um de taxa 1/2, como mostrado na \autoref{schematics_convolutional_puncture}, e depois usando um código de repetição como na \autoref{schematics_convolutional_repetition}.
 	
-
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_puncture} Padrão de \textit{puncture} para obter código a taxa 1/2.}
+		\caption{\label{schematics_convolutional_puncture}Padrão de \textit{puncture} para obter código a taxa 1/2.}
 		\centering
 		\includegraphics[width=0.3\textheight]{schematics/convolutional_puncture.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_repetition} Padrão de repetição utilizado para obter um código com taxa 1/4.}
+		\caption{\label{schematics_convolutional_repetition}Padrão de repetição utilizado para obter um código com taxa 1/4.}
 		\centering
 		\includegraphics[width=0.3\textheight]{schematics/convolutional_repetition.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	Como a saída do codificador é serial de um \textit{bit}, observa-se que esse código cria um \textit{overhead} na velocidade da transmissão da mensagem. Os bits entram no codificador convolucional a uma taxa de t \textit{bits}/tempo e saem a uma taxa de t/4 \textit{bits} /tempo.
@@ -356,7 +355,7 @@
 	
 	Para a primeira camada de implementação PHY I, será escolhida a codificação RLL Manchester. A codificação Manchester divide o bit do dado ao meio, de maneira que a primeira metade deve obrigatoriamente assumir um valor diferente da segunda metade. Em outras palavras, caso a entrada a ser codificada seja 0 por um tempo $2t$, a saída deve ser 01, com cada bit com tempo $t$ de transmissão como se verifica na \autoref{tabela_cod_manchester}. Analogamente, caso o bit de entrada seja 1, a saída deve ser 10.
 	\begin{table}[ht]
-		\caption{Codificação Manchester}
+		\caption{Codificação Manchester.}
 		\centering
 		\begin{tabular}{c c}
 			\hline
@@ -374,10 +373,10 @@
 	Após a codificação dos dados, é necessário realizar a decodificação deles. Esse processo inclui a reversão dos processos de codificação e correção de erros caso existentes. No entanto isso não é trivial, pois a norma não especificou nenhum algoritmo para decodificar nem corrigir erros. Foi necessário realizar uma pesquisa para descobrir os métodos mais adequados para decodificação de cada etapa, que estão esquematizadas na \autoref{fig_reception_phy1}. Esses algoritmos estão descritos em detalhes abaixo.
 
 	\begin{figure}[!htb]
-		\caption{\label{fig_reception_phy1} Diagrama de blocos da decodificação da mensagem}
+		\caption{\label{fig_reception_phy1}Diagrama de blocos da decodificação da mensagem.}
 		\centering
 		\includegraphics[width=0.4\textheight]{PHY1-reception.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	\subsubsection{Decodificação RLL}
@@ -388,16 +387,16 @@
 	
 	\subsubsection{Decodificação \textit{Viterbi}}
 	
-	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador \textit{Viterbi}: máquinas de estado, tabela \textit{Trellis} e por fim o algoritimo de decodificação \textit{Viterbi}.
+	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador \textit{Viterbi}: máquinas de estado, tabela \textit{Trellis} e por fim o algoritmo de decodificação \textit{Viterbi}.
 	
 	\paragraph{Máquina de Estados}
 	
 	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{schematics_convolutional_states}) e processa um bit de cada vez. Para cada \textit{bit} de mensagem, há a transicão do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de \textit{Mealy}: X/Y, onde X representa a entrada e Y representa a saída.
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_states} Visão de máquina de estados de um codificador convolucional.}
+		\caption{\label{schematics_convolutional_states}Visão de máquina de estados de um codificador convolucional.}
 		\centering
 		\includegraphics[width=0.4\textheight]{schematics/convolutional_states.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	O receptor, é claro, não tem conhecimento direto das transições do transmissor. Ele só pode ver a sequência de paridades recebidas, possívelmente corrompidas. Sua tarefa é determinar a \textbf{melhor} sequência possível de estados transmitidos que podem ter gerado a sequência de paridades. Essa tarefa é chamada de decodificação, que será discorrida a seguir.
 	
@@ -405,7 +404,7 @@
 
 	Como mencionado acima, o receptor deve determinar a \textbf{melhor} sequência de estados que o transmissor passou. Essa sequência forma um caminho dentro da máquina de estados, que pode ser deduzido pelo decodificador. \textit{Trellis} é a estrutura derivada da máquna de estados, ela ajuda o decodificador a escolher os melhores caminhos para recuperar a mensagem. Um exemplo de tabela \textit{Trellis} é dado na \autoref{schematics_convolutional_states}.
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_trellis} A tabela de \textit{Trellis} é útil para entender o processo de decodificação de uma máquina de estados.}
+		\caption{\label{schematics_convolutional_trellis}A tabela de \textit{Trellis} é útil para entender o processo de decodificação de uma máquina de estados.}
 		\centering
 		\includegraphics[width=0.6\textheight,trim={0cm 18cm 0cm 2.5cm},clip]{schematics/convolutional_trellis.pdf}
 		\legend{Fonte: \cite{mit-convolutional}}
@@ -414,13 +413,13 @@
 	
 	O decodificador deve identificar o melhor caminho utilizando a tabela \textit{Trellis}, explicando por meio dela a sequência de paridades observadas e possivelmente corrompidas. Esse decodificador é chamado de Viterbi.
 	
-	\paragraph{Algoritimo}
+	\paragraph{Algoritmo}
 	
-	O algoritimo de decodificação Viterbi utiliza duas métricas: a métrica de ramificação (BM) e a métrica de caminho (PM). 
+	O algoritmo de decodificação Viterbi utiliza duas métricas: a métrica de ramificação (BM) e a métrica de caminho (PM). 
 	
 	A BM é uma medida da distância entre o transmitido e o recebido, e é definido para cada seta na \textit{Trellis}. Em alguns casos ela também é conhecida como distância de Hamming. A PM é um valor associado com um estado na tabela \textit{Trellis}. Ele é equivalente a soma das distâncias de Hamming a partir do estado inicial da tabela. A menor soma das distâncias será o melhor caminho até determinado nó, e também será a mensagem mais provável - com menor número de erros.
 	
-	A ideia principal do algoritimo de \textit{Viterbi} é que o receptor consegue calcular a PM de forma incremental, utilizando a PM de estados anteriores e BM. Após o cálculo de todas combinações possíveis de distâncias acumuladas, o módulo de \textit{traceback} realiza a escolha do melhor e mais provável caminho. Esse algoritimo pode ser simplificado removendo o módulo de \textit{traceback} e realizando as decisões no momento de leitura da paridade. Essa decisão é feita observando apenas as métricas de ramificação, ou seja, apenas as distâncias de cada estado para o próximo. Esse método é chamado de \textit{Fangled Viterbi}.
+	A ideia principal do algoritmo de \textit{Viterbi} é que o receptor consegue calcular a PM de forma incremental, utilizando a PM de estados anteriores e BM. Após o cálculo de todas combinações possíveis de distâncias acumuladas, o módulo de \textit{traceback} realiza a escolha do melhor e mais provável caminho. Esse algoritmo pode ser simplificado removendo o módulo de \textit{traceback} e realizando as decisões no momento de leitura da paridade. Essa decisão é feita observando apenas as métricas de ramificação, ou seja, apenas as distâncias de cada estado para o próximo. Esse método é chamado de \textit{Fangled Viterbi}.
 	
 	\subsubsection{\textit{Deinterleaver}}
 	

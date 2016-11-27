@@ -14,7 +14,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	\subsection{Codificador}
+	\subsection{Codificador Reed Solomon}
 	
 	Conforme apontado no capítulo de Metodologia, a arquitetura do codificador Reed Solomon foi construída para um código (15, 7), portanto contando com 8 registradores em série. Os multiplicadores foram feitos com uma tabela,  que recebe duas entradas e retorna uma saída, de maneira a simplificar o trabalho de fazer uma função utilizando lógica combinatória. Já os somadores são equivalentes à função de OU exclusivo, ou XOR, com duas entradas e uma saída de 4 bits cada - ou seja, um símbolo. Além destes, os módulos básicos ainda compreendem um multiplexador, que seleciona um entre dois símbolos. A arquitetura desenvolvida pode ser observada na \autoref{RS_encoder_logic}.
 	
@@ -27,7 +27,109 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	\subsection{Decodificador}
+	\subsection{\textit{Interleaver}}
+
+	O módulo do Interleaver é composto por três componentes principais: (i) a memória, (ii) a unidade de controle do cabeçalho e (iii) a unidade de controle do payload.
+
+	\subsection{Memória}
+	
+	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição. 
+	
+	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do payload da PHY I (1023 \textit{bytes}). Isso acontece pois o módulo anterior ao \textit{Interlaver} - o Codificador Reed Solomon - transforma cada 28 bits de mensagem em 60 bits (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu padding (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser capaz de guardar 2206 \textit{bytes}.
+	
+	A princípio, é possível realizar esse armazenamento de três formas na FPGA: (i) criando vetores dentro de um arquivo .vhd, (ii) utilizando uma memória externa a FPGA e (iii) utilizando uma memória interna da FPGA. A primeira solução ocupa muito espaço disponível nas unidades lógicas do chip. A segunda proposta requer uma memória acoplada à placa de desenvolvimento utilizada, restringindo a gama de placas possíveis. A terceira e última opção é a mais adequada, pois a arquitetura da FPGA utilizada (EP4) possui memória auxiliar incorporada na FPGA.
+	
+	Para implementar a memória, foi utilizado o componente RAM de duas portas do Catálogo IP (Intellectual Property) do programa Altera Quartus. De forma que a capacidade de memória seja no mínimo 2206 \textit{bytes}, foi instanciada uma de 4096 \textit{bytes}, pois devem ser potências de 2.
+
+	\subsection{Unidade de controle do cabeçalho}\label{section:interleaver-header-control}
+	
+	O propósito deste módulo é receber os dados do Codificador Reed Solomon, gravá-los na memória interna e depois enviá-los de forma entrelaçada. A abordagem tomada pelo projeto foi gravar esses dados em ordem entrelaçada, para que a leitura seja feita apenas varrendo os endereços da memória em ordem crescente. A \autoref{figure:interleaver-order} ilustra o algoritmo desenvolvido para escolher os endereços entrelaçados. Ele foi implementado em Javascript para melhor visualização da ordem certa de gravação.
+	
+	\begin{figure}[h]
+		\caption{\label{figure:interleaver-order}Ordem do algoritmo entrelaçador para gravar a memória.}
+		\centering
+		\includegraphics[width=0.9\textwidth]{interleaver/order.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	Em VHDL, a solução é composta por três componentes: (i) contador de endereços, (ii) contador de profundidade e (iii) contador de saída. Eles estão integrados com a memória na \autoref{figure:interleaver-schematics}.
+		
+	\begin{figure}[h]
+		\caption{\label{figure:interleaver-schematics}Diagrama esquemático do \textit{Interleaver}, com unidade de controle e memória.}
+		\centering
+		\includegraphics[width=1\textwidth]{interleaver/schematics.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+
+	\paragraph{Contador de endereços}
+	Responsável por selecionar endereços para a etapa de gravação da memória. Recebe 
+	
+	\paragraph{Contador de profundidade}
+	
+	\paragraph{Contador de saída}
+	
+	\begin{figure}[h]
+		\caption{\label{figure:interleaver-flow}Diagrama esquemático do fluxo de dados do \textit{Interleaver}.}
+		\centering
+		\includegraphics[width=1\textwidth]{interleaver/flow.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	\subsubsection{Unidade de controle do \textit{payload}}
+	
+	O comportamento da unidade de controle do \textit{payload} é análoga a explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados.
+	
+	\subsection{Codificador Convolucional}	
+	
+	O convolutional encoder foi implementado a partir de seis registradores representando a janela deslizante mencionada na metodologia e xor dos valores dos geradores polinomiais.
+	Vale mencionar que existe um tratamento específico dos dados que saem do interleaver antes de entrar no convolutional encoder que consiste em dois módulos. Um módulo lida com o fato de que o interleaver tem saída de palavra por palavra, ou seja, de quatro em quatro bits e a entrada do convolutional encoder deve ser bit por bit. Ele transforma os dados de paralelos para seriais.
+	O outro módulo insere uma cadeia de 6 bits zeros entre o header e o interleaver. Garantindo que o estado inicial conhecido seja “000000” para os dados serem posteriormente decodificados. Esse módulo conta as 30 (tamanho do header) primeiras palavras recebidas. Após atingir o fim do header a entrada começa a passar por um registrador de deslocamento de 6 bits inicialmente zerado.
+	
+	
+	Puncture:
+	
+	
+	Para realizar o puncture de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois clocks do próximo módulo e o valor de B por mais dois clocks. Seguindo o que foi especificado na metodologia.
+	
+	
+	
+	\subsection{Codificador Manchester}
+	
+	\subsection{\textit{Sync}}
+	
+	Para sincronizar o clock do transmissor e do receptor para que os dados sejam recebidos de modo correto foi considerado inicialmente utilizar-se o PLL Phase-Locked Loop. Porém para implementação do PHY I especificado pela norma a frequência de transmissão de dados tem ordem de grandeza menor do que o mínimo que o PLL aceita. 
+	Foi desenvolvido um módulo original de sincronização de clock pelos próprios autores.
+	Oversampling: Existem dois contadores, um deles é para contar por quanto tempo o input permanece em 1 e o outro é para ver quanto tempo o input permanece em 0. Para o contador de tempo para o input 1, o enable é o próprio input e o reset é a negação lógica do input. Para o contador do tempo em zero os sinais são utilizados de modo inverso ao do contador de tempo em 1.
+	Módulo de decisão de limite de tempo: O clock utilizado nesses contadores é o interno da FPGA de 50 MHz. Para identificar o input de um bit em 200kHz o contador deve contar até 250. Para se identificar se a entrada é uma possível parte do FLP, considera-se que não pode existir dois 1 seguidos nem dois  0 seguidos. Para verificar-se com facilidade se existe um bit de input solitário utilizamos o nono bit menos significativo do valor do contador (256) para verificar que ele está acompanhado de outro bit igual e o oitavo bit menos significativo (128) para indicar que existe pelo menos um bit do valor de input atual.
+	Detector de flp: O valor de entrada é armazenado em um registrador de deslocamento de 60 bits quando o oitavo bit menos significativo é atingido e o nono não. Quando o nono bit é atingido, os valores presentes no registrador de deslocamento é resetado. O valor presente nesse registrador de deslocamento é comparado com o valor um FLP. Quando é identificado um FLP, o detector de flp gera um sinal para o componente que gera o clock para o decodificador.
+	Gerador de clock: A partir de um divisor de frequência do clock interno da FPGA o gerador de clock gera um sinal de 200 kHz a partir do clock interno da FPGA de 50 MHz. Quando o gerador de clock recebe o sinal de que o FLP identificado, ele reajusta o seu clock de 200 kHz gerado para a borda de subida dele ficar no centro de um bit de entrada. Esse reajuste é feito esperando-se o tempo de metade de um ciclo de um clock de 200 kHz a partir do momento que recebe-se o FLP para ter a próxima borda de subida do clock gerado.
+	
+	\subsection{Decodificador Manchester}
+	
+	De acordo com a \autoref{tabela_cod_manchester}, 
+	
+		O manchester decoder é inicializado quando o TDP~TDPTDP~TDP é identificado. Ele foi desenvolvido com uma máquina de estados que inicia no estado s0. Essa máquina de estados funciona de modo que quando existe uma transição de 0 para 1 a saída é um bit 0 e quando a transição é de 1 para 0 a saída é um bit 1 para 0. Isso é demonstrado na figura abaixo. 
+		
+	\begin{figure}[h]
+		\caption{\label{figure:manchester-decoder-flow}Visão de máquina de estados do decodificador Manchester.}
+		\centering
+		\includegraphics[width=0.6\textheight]{manchester/decoder-flow.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	
+	\subsection{Decodificador Viterbi Fangled}
+	
+	Os dados são transformados de seriais paralelos de 4 em 4 para encaixarem com a entrada do fangled viterbi decoder
+	Para decodificação dos dados fornecidos pelo codificador convolucional foi utilizado o fangled  viterbi decoder. Ele é uma versão simplificada do viterbi decoder. Utiliza menos memória, e menos processamento, é mais veloz porém tem capacidade de detecção e correção de erro muito menor. A capacidade de correção de erro é de um bit a cada quatro dado que o puncture do convolutional é de $\frac{1}{4}$.
+	Branch Metrics: A entrada é composta por AABB. Calcula-se a distância entre o primeiro A com o primeiro B e todas as possíveis combinações de bits (00, 01, 10, 11). A distância é calculada do mesmo modo para o segundo A e o segundo B recebidos. Isso foi feito a partir da operação xor entre a entrada e as combinações. As distâncias de uma mesma combinação de bits é posteriormente somada.
+	Trellis Table: Dado o estado atual, é um look up table que os dois valores possíveis de entrada pro viterbi. Uma delas é caso o bit que foi codificado fosse um e o outro caso é se ele fosse zero.
+	Path Metrics: O path metrics recebe a informação de quais as duas possíveis entradas do Trellis Table e quais as distâncias do branch metrics. Com esses dados o path metrics identifica qual o bit mais provável de ter sido codificado. Definindo, assim, qual o próximo estado e a saída do viterbi decoder. 
+	O valor do próximo estado é armazenado para ser posteriormente utilizado pelo Trellis Table.
+	Caso as distâncias a serem consideradas forem iguais, o valor da saída é escolhido como sendo zero e o próximo estado é definido de acordo com isso. Segue-se a ideia do fangled viterbi decoder que escolhe uma saída, e consequentemente o próximo estado, ao acaso. 
+	
+	
+	\subsection{Decodificador Reed Solomon}
 	
 	A arquitetura do decodificador segue o diagrama funcional da figura X do capítulo de Metologia. Desta forma, o desenvolvimento pode ser separado em quatro partes principais, apresentadas a seguir.
 	
@@ -104,12 +206,9 @@
 		\legend{}
 	\end{figure}
 	
-	Por outro lado, caso haja mais de 4 símbolos com erro, nenhuma correção será feita, portanto contabiliza-se o número de correções feitas até então. Se for identificado um erro com as síndromes e não for contada nenhuma correção no módulo de Forney, temos duas condições suficientes para afirmar que o bloco deve ser descartado e este não pode ser corrigido através do método de Reed Solomon. No exemplo anterior, o número de erros corrigidos é inferior a 5, portanto a mensagem final está correta e pode sair da camada física PHY I. Caso a mensagem seja descartada, é necessário que se envie novamente pelo transmissor.
+	Por outro lado, caso haja mais de 4 símbolos com erro, nenhuma correção será feita, portanto contabiliza-se o número de correções feitas até então. Se for identificado um erro com as síndromes e não for contada nenhuma correção no módulo de Forney, temos duas condições suficientes para afirmar que o bloco deve ser descartado e este não pode ser corrigido através do método de Reed Solomon. No exemplo anterior, o número de erros corrigidos é inferior a 5, portanto a mensagem final está correta e pode sair da camada física PHY I. Caso a mensagem seja descartada, é necessário que se envie novamente pelo transmissor.	
 	
-	\subsection{\textit{Sync}}
-	
-	Módulo de sincronização do receptor. Fica 
-	
+
 	
 	% ---
 	\section{Hardware}
@@ -285,3 +384,28 @@
 	\end{figure}
 	
 	Em seguida será realizada a integração entre a parte analógica e digital do trabalho.
+	
+	\subsection{UART}
+	
+	UART, ou \textit{Universal Asynchronous Receiver/Transmitter} é o componente utilizado para fazer comunicação entre dispositivos. A transmissão de dados é feita a partir de pacotes compostos por: \textit{bit} de início, \textit{data frame}, \textit{bit} de paridade e \textit{bit} de fim.
+	\begin{figure}[h]
+		\caption{\label{figure:uart-frame}Quadro de mensagem da UART utilizada no projeto.}
+		\centering
+		\includegraphics[width=0.9\textwidth]{uart/frame.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	Gerador de Baud: recebe um \textit{clock} de entrada e o divide para gerar o \textit{baud clock}. A frequência do \textit{baud clock} é dezesseis vezes o \textit{baud rate.} Quando a UART está recebendo o bit de entrada é amostrado no oitavo ciclo do baud clock para o esquema de \textit{oversampling} dezesseis vezes.
+	
+	\begin{figure}[h]
+		\caption{\label{figure:uart-txrx}\textit{Oversampling} com \textit{baud clock}.}
+		\centering
+		\includegraphics[width=0.9\textwidth]{uart/txrx.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	
+	
+	Receiver timing and control
+	Transmitter Timing and control
+	
