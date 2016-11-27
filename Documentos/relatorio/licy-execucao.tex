@@ -8,7 +8,7 @@
 	\section{Arquitetura}
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_arch} Desenho esquemático da arquitetura do sistema}
+		\caption{\label{fig_arch}Desenho esquemático da arquitetura do sistema.}
 		\centering
 		\includegraphics[width=1\textwidth]{Arquitetura.pdf}
 		\legend{Fonte: Autores.}
@@ -21,7 +21,7 @@
 	O comportamento de codificação de uma mensagem pode ser exemplificado pela \autoref{simula_rs_encoder}, onde se observa a entrada de uma mensagem de 7 símbolos e a saída de um bloco de 15 símbolos, sendo 8 de paridade.
 	
 	\begin{figure}[htb]
-		\caption{\label{simula_rs_encoder} Simulação de codificação do codificador Reed Solomon}
+		\caption{\label{simula_rs_encoder}Simulação de codificação do codificador Reed Solomon.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_encoder}
 		\legend{Fonte: Autores.}
@@ -36,19 +36,18 @@
 	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso. O arranjo dos componentes pode se exemplificar através da arquitetura do módulo, representada a seguir.
 	
 	\begin{figure}[!htb]
-		\caption{\label{fig_sindrome_arq} Arquitetura do módulo de cálculo das síndromes}
+		\caption{\label{fig_sindrome_arq}Arquitetura do módulo de cálculo das síndromes.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/SindromeRTL.pdf}
 		\legend{}
 	\end{figure}
-	
-	
+
 	Os elementos indicados por "static" são constantes, guardando os valores dos símbolos de cada umas raízes citadas. Estes valores são enviados para multiplicadores de GF(16), representados por "gfmult". Como pode-se observar, o cálculo é iterativo e portanto os multiplicadores recebem também o valor dos registradores que são representados por "register4b". Os somadores de Campos de Galois são representados por "gfsum".
 	
 	A simulação a seguir representa o caso em que existem erros na mensagem codificada, o que é indicado por síndromes diferentes de 0000.
 	
 	\begin{figure}[!htb]
-		\caption{\label{fig_sindrome_sim} Simulação do cálculo das síndromes}
+		\caption{\label{fig_sindrome_sim}Simulação do cálculo das síndromes.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_sindrome.PNG}
 		\legend{}
@@ -59,7 +58,7 @@
 	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados então, com as síndromes e localizações de erro.
 	
 	\begin{figure}[!htb]
-		\caption{\label{fig_berlekamp_arq} Arquitetura do módulo de Berlekamp-Massey}
+		\caption{\label{fig_berlekamp_arq}Arquitetura do módulo de Berlekamp-Massey.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/BerlekampRTL.pdf}
 		\legend{}
@@ -68,7 +67,7 @@
 	As síndromes são enviadas sequencialmente para o módulo de Berlekamp-Massey a cada ciclo de clock. A atualização do polinômio localizador, representado pela seção X do diagrama, ocorre quando ele não possibilitar gerar uma síndrome específica. Nesse caso, são feitos os cálculos no módulo inversor, com a atualização do polinômio no próximo ciclo. Esse processo é exemplificado pela \autoref{fig_berlekamp_sim}.
 	
 	\begin{figure}[!htb]
-		\caption{\label{fig_berlekamp_sim} Simulação do módulo de Berlekamp-Massey}
+		\caption{\label{fig_berlekamp_sim}Simulação do módulo de Berlekamp-Massey.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_berlekamp.PNG}
 		\legend{}
@@ -83,14 +82,14 @@
 	O módulo de busca de Chien é na verdade composto por dois módulos: busca de localização e de valores dos erros. Ambos trabalham paralelamente e têm como entrada os coeficientes $\Lambda$ e $\Omega$. 
 	
 	\begin{figure}[!htb]
-		\caption{\label{fig_chienloc_arq} Arquitetura do módulo de busca de Chien: localização de erros}
+		\caption{\label{fig_chienloc_arq}Arquitetura do módulo de busca de Chien: localização de erros.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/ChienLocationRTL.pdf}
 		\legend{}
 	\end{figure}
 
 	\begin{figure}[!htb]
-		\caption{\label{fig_chienval_arq} Arquitetura do módulo de busca de Chien: valores de erros}
+		\caption{\label{fig_chienval_arq}Arquitetura do módulo de busca de Chien: valores de erros.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/ChienValueRTL.pdf}
 		\legend{}
@@ -99,7 +98,7 @@
 	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. É possível neste circuito observar esse processo com a identificação de síndromes diferentes de zero, com o sinal "errorsyndrome" na \autoref{fig_forney_sim}. Considerando que o sinal está na posição alta, significa que pelo menos um bit de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida. 
 	
 	\begin{figure}[!htb]
-		\caption{\label{fig_forney_sim} Simulação do módulo de Forney}
+		\caption{\label{fig_forney_sim}Simulação do módulo de Forney.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_forney.PNG}
 		\legend{}
@@ -221,10 +220,10 @@
 	\paragraph{Final - Filtro Passa-Altas}
 	Por fim, realiza-se a correção dessa componente subamortecida utilizando um capacitor entre os terminais da \textit{source} do MOSFET e GND (observado em \autoref{fig_transmitter_lify_circuit_final}). 
 	\begin{figure}[h!]
-		\caption{\label{fig_transmitter_lify_circuit_final} Circuito final de transmissão de dados LiCy, utilizando um filtro passa-altas.}
+		\caption{\label{fig_transmitter_lify_circuit_final}Circuito final de transmissão de dados LiCy, utilizando um filtro passa-altas.}
 		\centering
 		\includegraphics[width=0.6\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	\begin{figure}[h!]

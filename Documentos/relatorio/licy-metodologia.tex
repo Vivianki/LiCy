@@ -20,10 +20,10 @@
 	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto,as fases de trabalho foram definidas a partir da EAP. Observa-se que existe uma fase de gerenciamento, duas fases de desenvolvimento e uma fase final para o encerramento.
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber }
+		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber.}
 		\centering
-		\scalebox{.96}{\includegraphics[width=1.0\textwidth, trim={1cm 1cm 1cm 1cm}, clip]{EAP.pdf}}
-		\legend{Fonte: Autores}
+		\includegraphics[width=0.8\textwidth, trim={0cm 0cm 0cm 0cm}, clip]{EAP.pdf}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	% ---
@@ -33,10 +33,10 @@
 	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes fizeram reuniões para estimar o tempo de cada um desses pacotes, com a aplicação das estimativas a um calendário, que também considerou as datas de entrega oficiais da disciplina. Com todas as estimativas feitas, a primeira e segunda fases do projeto durariam até o fim de Julho de 2016, com intuito de adiantar tanto a documentação quanto sua implementação, como pode-se observar no diagrama de Gantt abaixo \autoref{fig_gantt}.  
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_gantt} Diagrama de Gantt do projeto LiCy}
+		\caption{\label{fig_gantt}Diagrama de Gantt do projeto LiCy.}
 		\centering
 		\includegraphics[width=1.0\textwidth]{gantt.png}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	% ---
@@ -54,10 +54,10 @@
 	É importante observar que estes dividem-se entre a lamparina, que serve de ponto de acesso, e o módulo de recepção, com pesos iguais entre os dois, já que a comunicação é de um para um e ambos têm a mesma importância. Há requisitos em comum entre esses subsistemas, e alguns serão explicados mais à frente. A organização desses requisitos encontra-se abaixo, na \autoref{fig_req1_1}.
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_req1_1} Requisitos Funcionais de Hardware}
+		\caption{\label{fig_req1_1} Requisitos Funcionais de Hardware Digital.}
 		\centering
-		\includegraphics[width=0.8\textwidth]{ReqTree1_1.pdf}
-		\legend{Fonte: Autores}
+		\includegraphics[width=0.5\textwidth]{Req_Tree_Digital.pdf}
+		\legend{Fonte: Autores.}
 	\end{figure}
 
 	\begin{itemize}  
@@ -78,10 +78,10 @@
 	Dividem-se entre a lamparina e o módulo receptor:
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_req1_2} Requisitos Funcionais de Software}
+		\caption{\label{fig_req1_2} Requisitos Funcionais de Hardware Analógico.}
 		\centering
-		\includegraphics[width=0.8\textwidth]{ReqTree1_2.pdf}
-		\legend{Fonte: Autores}
+		\includegraphics[width=0.5\textwidth]{Req_Tree_Analog.pdf}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	\begin{itemize}  
@@ -96,10 +96,10 @@
 	Foram especificados através da seguinte estrutura:
 	
 	\begin{figure}[h!]
-		\caption{\label{fig_req2} Requisitos Não Funcionais}
-		\centering		%  trim={<left> <lower> <right> <upper>} 
-		\includegraphics[width=0.9\textwidth, trim={1cm 5.5cm 1cm 5.7cm}, clip]{ReqTree2.pdf}
-		\legend{Fonte: Autores}
+		\caption{\label{fig_req2} Requisitos Não Funcionais.}
+		\centering
+		\includegraphics[width=0.5\textwidth]{Req_Tree_NFunc.pdf}
+		\legend{Fonte: Autores.}
 	\end{figure}
 
 	\paragraph{Transmissão de dados} 
@@ -107,15 +107,6 @@
 	
 	\paragraph{Modulação de luz} 
 	O requisito mais importante é garantir o funcionamento do sistema a uma distância de até 1 metro, considerando uma aplicação residencial do produto. Secundariamente, há o requisito de manter um baixo consumo de energia, que apesar de fundamental em produtos de tecnologia da informação, foge do escopo deste estudo.
-	
-	Outros requisitos do projeto podem ser apresentados na \autoref{fig_req3}.
-	
-	\begin{figure}[h!]
-		\caption{\label{fig_req3} Outros Requisitos}
-		\centering
-		\includegraphics[width=0.7\textwidth, trim={1cm 4cm 3cm 4cm}, clip]{ReqTree3.pdf}
-		\legend{Fonte: Autores}
-	\end{figure}
 	
 	% ---
 	\section{Norma IEEE 802.15.7}\label{sec-norma}
@@ -241,7 +232,7 @@
 		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
 		\centering
 		\includegraphics[width=0.4\textheight]{frame/rs-codeword.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	Finalmente, a representação do codificador de Reed Solomon (15, 7) em hardware equivale a:
@@ -249,10 +240,10 @@
 	\begin{figure}[!htb]
 		\caption{\label{RS_encoder_logic} Circuito lógico de codificação Reed Solomon (15,7)}
 		\centering
-		\includegraphics[width=0.7\textheight]{RS_Encoder.png}
+		\includegraphics[width=0.6\textheight]{RS_Encoder.png}
 		\legend{Fonte: }
 	\end{figure}
-	
+
 	É possível observar nos registradores e multiplicadores de Galois a estrutura de um polinômio e seus índices. A mensagem a que se vai adicionar redundância deve passar por "entrada", com um ciclo de clock para cada símbolo, levando portanto 7 ciclos para finalizar o cálculo das paridades para um código (15, 7). Os 8 símbolos de paridade devem então ser passados através de deslocamento de registradores, com a mudança do sinal de seleção, de maneira também a zerar a saída da porta lógica AND à direita. Sendo assim, os valores dos registradores não são afetados pelos somadores, já que as operações de multiplicação e soma de Galois estarão recebendo uma das entradas igual a 0000. Em suma, o processo de codificação leva tantos ciclos quantos forem os símbolos do bloco codificado, ou o valor denotado por $n$.
 	
 	%%\cite{nasa-rs1}
@@ -310,7 +301,8 @@
 	    l(i): Interleaved indices
 	    p: Number of zero RS symbols
 	    t: Ordered indices take the values 0, 1, …, p
-	    z(t): Locations of the bits to be punctured at the output of the interleaver before transmission 
+	    z(t): Locations of the bits to be punctured at the output of the 
+	    interleaver before transmission 
 	\end{verbatim}
 	
 	\subsubsection{Puncture}
@@ -576,10 +568,10 @@
 	Um decodificador de Reed Solomon pode ser dividido funcionalmente nos seguintes módulos:
 
 	\begin{figure}[!htb]
-		\caption{\label{RSDecoder_diagrama_logico} Diagrama funcional de decodificação Reed Solomon}
+		\caption{\label{RSDecoder_diagrama_logico} Diagrama funcional de decodificação Reed Solomon.}
 		\centering
-		\includegraphics[width=0.7\textheight]{RSdecoder_diagrama.png}
-		\legend{Fonte: Autores}
+		\includegraphics[width=0.6\textheight]{RSdecoder_diagrama.png}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	\paragraph{Estratégia}
@@ -590,7 +582,7 @@
 	
 	Como nesse trabalho apenas será implementado a camada física PHY I, a estrutura da mensagem não conterá elementos da camada MAC. Define-se portanto o elemento básico de transmissão, a Unidade de dados da camada física, ou PPDU, de acordo com a norma. Seu formato pode ser visto na \autoref{fig_ppdu_frame}.
 	
-	\begin{figure}[h!]
+	\begin{figure}[h]
 		\caption{\label{fig_ppdu_frame} Estrutura da mensagem, composta pelo Cabeçalho de Sincronização (SHR), Cabeçalho da Camada Física (PHR) e Unidade de Dados de Serviço PHY (PSDU).}
 		\centering
 		\includegraphics[width=0.5\textheight]{frame/PPDU.pdf}
@@ -608,15 +600,14 @@
 	\begin{figure}[h]
 		\caption{\label{figure:SHR-frame}Estrutura do SHR - Cabeçalho da Camada Física.}
 		\centering
-		\includegraphics[width=0.5\textheight]{frame/SHR.pdf}
+		\includegraphics[width=0.4\textheight]{frame/SHR.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 
 	O preâmbulo deve ser enviado utilizando modulação OOK (\textit{on-off keying}). O campo deve ser formatado com um TDP fixo e a lista de topologias está definida na \autoref{table:tdpdef}.
 		
 	\begin{table}[h]
-		\caption{Definição de Topologias para o TDP}
-
+		\caption{Definição de Topologias para o TDP.}
 		\centering
 		\begin{tabular}{c c c}
 			\hline
@@ -638,7 +629,7 @@
 	\subsubsection{Cabeçalho PHY - PHR}
 	
 	\begin{table}[ht]
-		\caption{Definição dos campos do cabeçalho PHY}
+		\caption{Definição dos campos do cabeçalho PHY.}
 		\centering
 		\begin{tabular}{c c}
 			\hline
@@ -661,7 +652,14 @@
 	
 	\subsubsection{Unidade de Dados de Serviço PHY - PSDU}
 	
-	Como o escopo do trabalho não engloba a camada MAC, o campo de PSDU conterá apenas a mensagem.
+	Como o escopo do trabalho não engloba a camada MAC, o campo de PSDU conterá apenas a mensagem. A estrutura adaptada sem os cabeçalhos MAC está na \autoref{figure:PSDU-frame}. A norma ainda especifica \textit{tail bits} para reiniciar o processo do código convolucional.
+	
+	\begin{figure}[h]
+		\caption{\label{figure:PSDU-frame}Estrutura do PSDU - Mensagem e \textit{tail bits}.}
+		\centering
+		\includegraphics[width=0.4\textheight]{frame/PSDU.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
 	
 	% ---
 	\section{Hardware}\label{sec:method-hardware}
@@ -830,6 +828,7 @@
 			Fotovoltaico & não & $I_{dark}$ menor, resposta lenta \\
 			Fotocondutivo & negativa & $I_{dark}$ maior, resposta rápida \\ \hline
 		\end{tabular}
+		\legend{Fonte: Autores.}
 		\label{table:photodiode-comp}
 	\end{table}
 	
@@ -880,7 +879,7 @@
 		\addplot[domain=0:8*pi]{1};
 		\end{axis}
 		\end{tikzpicture}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	Após esse estágio de recepção, obtém-se uma onda com componente $V_{DC} = L$. Esse componente é variável e depende de alterações na intensidade de luz, variações na distância do transmissor com receptor, entre outros fatores. A amplitude da onda depende da corrente  $i_{D}$ do fotodiodo e da resistência de feedback $R_{F}$ do circuito amplificador. 
@@ -906,7 +905,7 @@
 	\end{figure}
 	
 	\begin{table}[ht]
-		\caption{Comportamento real de um comparador com amplificador operacional}
+		\caption{Comportamento real de um comparador com amplificador operacional.}
 		\centering
 		\begin{tabular}{c c}
 			\hline
@@ -950,7 +949,7 @@
 	A \autoref{plot-post-highpass-filter} ilustra o comportamento da saída do filtro passa-altas juntamente com o esquemático do filtro passa-altas.
 	
 	\begin{figure}[h]
-		\caption{\label{plot-post-highpass-filter} Saída esperada após remoção do acoplamento DC, aplicando filtro passa-alta RC de primeira ordem (à direita), com defasagem de 45$\degree$. A área hachurada representa tensão inadequada para o comparador.}
+		\caption{\label{plot-post-highpass-filter}Saída esperada após remoção do acoplamento DC, aplicando filtro passa-alta RC de primeira ordem (à direita), com defasagem de 45$\degree$. A área hachurada representa tensão inadequada para o comparador.}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\begin{tikzpicture}
@@ -991,7 +990,7 @@
 			\centering
 			\includegraphics[width=1\textwidth, trim={3cm 0cm 3cm 3cm},clip]{circuits/highpass_filter.pdf}
 		\end{subfigure}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 
 	\subsubsection{Acoplamento DC}\label{section:dc-bias}
@@ -1006,7 +1005,7 @@
 	Portanto, o componente não conseguirá realizar a comparação corretamente. Para resolver esse problema pode-se adicionar um acoplamento $V_{DC} = V_{ref}$ fixo, que também será utilizado na entrada de referência do comparador. E etapa de filtro pode ser realizada juntamente com a adição de $V_{ref}$, utilizando um circuito levemente modificado.
 	
 	\begin{figure}[h]
-		\caption{\label{plot-post-bias1v} Gráfico com adição de componente DC $V_{DC} = V_{ref}$ fixa e filtro passa-altas modificado. Agora não existe tensão }
+		\caption{\label{plot-post-bias1v}Gráfico com adição de componente DC $V_{DC} = V_{ref}$ fixa e filtro passa-altas modificado.}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\begin{tikzpicture}
@@ -1030,17 +1029,16 @@
 			\end{tikzpicture}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
-			%\caption{\label{hard-post-bias1v} Filtro passa-altas com adição de $V_{DC} = 1V$.}
 			\centering
 			\includegraphics[width=1\textwidth, trim={3cm 0cm 3cm 3cm},clip]{circuits/highpass_filter_bias.pdf}
 		\end{subfigure}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 
 	A figura \autoref{plot-post-bias1v} ilustra a onda modificada, com voltagem de referência fixa agora. Após todas essas etapas, é possível realizar de fato a etapa de comparação. Idealmente a onda ficaria similar à \autoref{plot-post-comparator}.
 	
 	\begin{figure}[h]
-		\caption{\label{plot-post-comparator} Saída esperada após a etapa de comparação em verde.}
+		\caption{\label{plot-post-comparator}Saída esperada após a etapa de comparação em verde.}
 		\centering
 		\begin{tikzpicture}
 		\begin{axis}[
@@ -1065,11 +1063,10 @@
 		]
 		\addplot[smooth, domain=0:8*pi, color=red]{0.35*sin(deg(x/2)) + 0.7}; \addlegendentry{$V_{in}$};
 		\addplot[color=green] coordinates {(0, 1.4) (2*pi,1.4) (2*pi,0) (4*pi,0) (4*pi,1.4) (6*pi,1.4) (6*pi,0) (8*pi,0)}; \addlegendentry{$V_{comp}$};
-		%\addplot[color=green] coordinates {(0,0) (0, 1.4) (2*pi,1.4) (2*pi,0) (4*pi,0) (4*pi,1.4) (6*pi,1.4) (6*pi,0) (8*pi,0)}; \addlegendentry{$V_{comp}$};
 		\addplot[domain=0:8*pi]{0.7};
 		\end{axis}
 		\end{tikzpicture}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
 		
 	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Caso a saída não esteja adequada, é possível que seja necessário realizar mais um estágio de amplificação e filtração após o filtro passa-altas.
@@ -1086,16 +1083,6 @@
 	\end{figure}
 	
 	De acordo com as tabelas \ref{tab_phy1} e \ref{tab_phy2}, o intervalo da frequência do \textit{clock} luminoso é de 200kHz até 120MHz. Deseja-se então  permitir a passagem dessas, limitando as frequências fora desse intervalo. Com o uso do passa-baixas e passa-altas da figura acima, pode-se realizar essa limitação adequando os resistores e capacitores do circuito.
-	
-	\begin{comment}
-	Ninguém gosta de imagens da wikipedia
-	\begin{figure}[htb]
-		\caption{\label{fig_frequenciacentral}Um gráfico em escala logaritmica mostrando a banda de passagem B, a frequência de corte inferior $f_{L}$, a frequência de corte superior $f_{H}$ e a frequência central fo para um circuito passa faixas.}
-		\centering
-		\includegraphics[width=0.5\textwidth, trim={4.5cm 17cm 3.3cm 2cm},clip]{circuits/freq-corte.pdf}
-		\legend{Fonte: Inductiveload, Wikipedia}
-	\end{figure}
-	\end{comment}
 	
 	Deve-se levar em conta também o ganho do circuito, que é dado pela fórmula:
 	
