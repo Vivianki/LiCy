@@ -7,7 +7,7 @@
 	\chapter{Metodologia}\label{cap-metodologia}
 	% ---
 	
-	Nesse capítulo são discorridas as escolhas da \texttt{norma 802.15.7}, \textit{hardware} e \texttt{software}.
+	Nesse capítulo serão analisadas a escolha da \texttt{norma 802.15.7}, bem como as especificações de \textit{hardware} e \textit{software}.
 	
 	% ---
 	\section{Planejamento}\label{sec-planejamento}
@@ -17,7 +17,7 @@
 	\subsection{Estrutura Analítica do Projeto}\label{subsec-eap}
 	% ---
 	
-	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto, foram definidas a partir da EAP as fases de trabalho. Observa-se que existe uma fase de gerenciamento, três fases de desenvolvimento e uma fase final para o encerramento.
+	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto,as fases de trabalho foram definidas a partir da EAP. Observa-se que existe uma fase de gerenciamento, duas fases de desenvolvimento e uma fase final para o encerramento.
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_eap} Estrutura Analítica do Projeto Light Cyber }
@@ -30,7 +30,7 @@
 	\subsection{Cronograma}\label{subsec-cronograma}
 	% ---
 	
-	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes então fizeram reuniões para estimar o tempo, com a aplicação dessas estimativas a um calendário, considerando ainda as datas de entrega oficiais da disciplina. Com todas as estimativas feitas, o projeto tem a primeira e segunda fase com duração até o fim de Julho, com intuito de adiantar tanto a documentação quanto a implementação, como pode-se observar no diagrama de Gantt  \autoref{fig_gantt} abaixo.
+	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes fizeram reuniões para estimar o tempo de cada um desses pacotes, com a aplicação das estimativas a um calendário, que também considerou as datas de entrega oficiais da disciplina. Com todas as estimativas feitas, a primeira e segunda fases do projeto durariam até o fim de Julho de 2016, com intuito de adiantar tanto a documentação quanto sua implementação, como pode-se observar no diagrama de Gantt abaixo \autoref{fig_gantt}.  
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_gantt} Diagrama de Gantt do projeto LiCy}
@@ -43,15 +43,15 @@
 	\subsection{Requisitos}\label{subsec-requisitos}
 	% ---
 	
-	Os requisitos foram divididos primeiramente em funcionais e não-funcionais. Além disso, existem outras divisões relacionadas a hardware, software, estética e módulos do sistema. Para cada requisito foi dado um peso, conforme avaliação da relevância deste requisito para este projeto, de modo que no topo da árvore haja uma soma equivalente a 1.
+	Os requisitos foram divididos primeiramente em funcionais e não-funcionais. Além disso, existem outras divisões relacionadas a hardware, estética e módulos do sistema. Para cada requisito foi dado um peso, conforme avaliação da relevância deste requisito para o projeto, de modo que no topo da árvore haja uma soma equivalente a 1.
 	
 	% ---
 	\subsubsection{Requisitos Funcionais}\label{subsubsec-requisitos-func}
 	% ---
 	
-	\paragraph{Requisitos de hardware} 
+	\paragraph{Requisitos de hardware digital} 
 	
-	É importante observar que estes dividem-se entre a lamparina, que serve de ponto de acesso, e o módulo de celular, com pesos iguais entre os dois, já que a comunicação é bilateral e ambos têm importância equivalente. Há requisitos em comum entre esses subsistemas:
+	É importante observar que estes dividem-se entre a lamparina, que serve de ponto de acesso, e o módulo de recepção, com pesos iguais entre os dois, já que a comunicação é de um para um e ambos têm a mesma importância. Há requisitos em comum entre esses subsistemas, e alguns serão explicados mais à frente. A organização desses requisitos encontra-se abaixo, na \autoref{fig_req1_1}.
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_req1_1} Requisitos Funcionais de Hardware}
@@ -61,19 +61,21 @@
 	\end{figure}
 
 	\begin{itemize}  
-		\item Estar de acordo com a norma IEEE 802.15.7, que tem o peso mais alto, já que compreende o escopo principal deste trabalho, que é implementá-la;
-		\item Utilização da FPGA e de um microcontrolador, para implementar as camadas física, MAC\footnote{ Media Access Control, ou camada de enlace.},  TCP, IP e de aplicação. As justificativas para o uso desses dois componentes segue nos próximos itens;
-		\item Comunicação full-duplex um a um, diz respeito a garantir a bilateralidade da comunicação entre dois nós, com recepção e transmissão independentes nas duas partes;
-		\item Utilizar LED e fotodiodo, para transmitir e receber, respectivamente, os dados modulados através da luz;
-		\item Filtrar a luz ambiente, que é primordial para que a recepção seja bem sucedida, do contrário pode haver muita interferência da luz que não tenha o LED como fonte. Deve fazer com que o sistema se aproxime ao máximo de um cenário ideal, onde há apenas um LED e um fotodiodo num ambiente escuro.
+		\item Estar de acordo com a norma IEEE 802.15.7 - que tem o peso mais alto, já que o escopo principal deste trabalho compreende implementá-la;
+		\subitem Codificador de Reed Solomon. Determinado pela norma, para garantir integridade através da correção de erros;
+		\subitem Entrelaçamento e desentrelaçamento. Métodos que evitam erros em sequências e garantem certo grau de confidencialidade;
+		\subitem Codificação convolucional e decodificador de Viterbi. Ajudam avaliar a chance da mensagem recebida conter erros, aproximando-a da enviada;
+		\subitem Outros requisitos. Dizem respeito a outra parte da codificação definida pela norma, além do pipeline do fluxo de dados e controle, bem como circuitos de sincronismo;
+		\item Utilização da FPGA para implementar a camada física. As justificativas para o uso desse componente será apresentada nos próximos itens;
+		\item Comunicação simplex um a um, que visa garantir a unilateralidade da comunicação entre dois nós, com recepção e transmissão exclusivas a cada uma das partes.
 	\end{itemize}
 	
-	A lamparina possui requisitos de hardware próprios, incluindo funcionar como Access Point, ou seja, fornecer acesso a uma fonte de dados, que pode ser uma rede local, um computador, a internet, entre outros. Outro requisito importante e complementar a este, é a conexão desse módulo a alguma dessas fontes através de uma interface Ethernet.
+	A lamparina possui requisitos de hardware próprios, incluindo a habilidade de funcionar como Access Point, ou seja, fornecer acesso a uma fonte de dados, que pode ser uma rede local, um computador, a internet, entre outros. 
 	
-	Já o módulo de celular tem como requisitos de hardware exclusivos o consumo de energia através de uma bateria e a conexão ao celular através da interface USB.	
+	Já o módulo de recepção tem como requisito de hardware exclusivo a interface com um terminal para se observar os dados recebidos, que é essencialmente um computador ou dispositivo móvel.	
 	
-	\paragraph{Requisitos de software} 
-	Dividem-se entre a lamparina, o módulo de celular e o aplicativo, utilizado para receber e enviar dados para este módulo. Existem requisitos que são comuns às funções de hardware e às soluções de software adotadas, como a implementação da norma IEEE 802.15.7 e a comunicação full-duplex um a um. Além destes, existem os requisitos de software comuns tanto à lamparina, ou Access Point Li-Fi, como ao módulo de telefone:
+	\paragraph{Requisitos de hardware analógico} 
+	Dividem-se entre a lamparina e o módulo receptor:
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_req1_2} Requisitos Funcionais de Software}
@@ -83,16 +85,15 @@
 	\end{figure}
 	
 	\begin{itemize}  
-		\item Lidar com luz ambiente, ou seja, minimizar a interferência causada por ela, e mitigar o efeito de erros, corrigindo ou descartando pacotes que os contenham;
-		\item Transmissão de dados pelo módulo de celular e recepção pela lamparina, representam o mesmo fluxo de dados mas de dois lados da comunicação;
-		\item Transmissão de dados e multimídia pela lamparina e recepção destes pelo módulo de celular;
-	\end{itemize}
+		\item Transmissão e recepção luminosa. Utilizar LED e fotodiodo, para transmitir e receber, respectivamente, os dados modulados através da luz. Adequar a frequência de operação à norma;
+		\item Filtragem de sinais. Filtrar a luz ambiente, que é primordial para que a recepção seja bem sucedida, do contrário pode haver muita interferência da luz que não tenha o LED como fonte. Deve fazer com que o sistema se aproxime ao máximo de um cenário ideal, onde há apenas um LED e um fotodiodo num ambiente escuro.
+		\item Conversão Digital-Analógica/ Analógica-Digital. 
+	\end{itemize} 
 	
-	O módulo de celular possui um requisito de software exclusivo, que é a utilização de um protocolo conhecido para se comunicar com o celular via USB. Do outro lado, o lamparina deve se conectar à internet e lidar com os pacotes que chegarem desta rede. 
-	
-	Além desses requisitos, existem também aqueles referentes ao aplicativo de celular, que deve decodificar os dados recebidos via USB, deve ser desenvolvido a fim de funcionar no sistema operacional Android e deve exibir vídeos, imagens ou websites.
 	
 	\subsubsection{Requisitos Não-Funcionais}\label{subsubsec-requisitos-nfunc}
+	
+	Foram especificados através da seguinte estrutura:
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_req2} Requisitos Não Funcionais}
@@ -102,10 +103,12 @@
 	\end{figure}
 
 	\paragraph{Transmissão de dados} 
-	Deve-se principalmente manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada PHY correspondente. É também primordial garantir a confiabilidade na comunicação, ou seja, garantir que os bits recebidos estão corretos e quando possível e necessário, corrigi-los, com as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação). Além disso, há um requisito de segurança, que equivale a evitar a possibilidade de vazamento de dados para terceiros, ou até a intromissão de mensagens indesejadas na comunicação.
+	Uma das principais preocupações é manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada física (PHY) correspondente. É também primordial garantir a confiabilidade na comunicação, de modo que se possa garantir que os bits recebidos estão corretos e quando possível e necessário, corrigi-los, observando as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação). 
 	
 	\paragraph{Modulação de luz} 
 	O requisito mais importante é garantir o funcionamento do sistema a uma distância de até 1 metro, considerando uma aplicação residencial do produto. Secundariamente, há o requisito de manter um baixo consumo de energia, que apesar de fundamental em produtos de tecnologia da informação, foge do escopo deste estudo.
+	
+	Outros requisitos do projeto podem ser apresentados na \autoref{fig_req3}.
 	
 	\begin{figure}[h!]
 		\caption{\label{fig_req3} Outros Requisitos}
@@ -124,7 +127,7 @@
 		\legend{Fonte: IEEE 802.15.7}
 	\end{figure}
 
-	A norma 802.15.7 estabelece um padrão para comunicação via luz, no que se diz respeito à definição de topologias de rede, codificação da informação, divisão das camadas da arquitetura do sistema de comunicação, ordem e conteúdo de cabeçalhos para cada camada e definições sobre a segurança do \textit{link}. A arquitetura de um sistema LiFi completo está definida na \autoref{fig_architecture}. 
+	A norma 802.15.7 estabelece um padrão para comunicação via luz, abarcando definição de topologias de rede, codificação da informação, divisão das camadas da arquitetura do sistema de comunicação, ordem e conteúdo de cabeçalhos para cada camada e definições sobre a segurança do \textit{link}. A arquitetura de um sistema LiFi completo está definida na \autoref{fig_architecture}. 
 	O trabalho focará no estudo e implementação da camada PHY. Os modos de operação das subcamada PHY I e PHY II são listados nas tabelas \ref{tab_phy1} e \ref{tab_phy2}.
 	
 	\begin{table}[h!]
@@ -157,7 +160,7 @@
 	
 	\subsubsection{Codificação Reed Solomon}
 	
-	Com intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. 
+	Com o intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. 
 	
 	Os códigos Reed Solomon são compostos por símbolos de mais de um bit. O número de erros é considerado como sendo o total de símbolos com pelo menos um bit com erro. Isso o torna efetivo para corrigir erros em rajadas, já que uma sequência de bits errados dentro de um mesmo símbolo é considerada como apenas um erro. 
 	
@@ -167,17 +170,13 @@
 	
 	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 bits, totalizando 16 elementos de 0000 a 1111. 
 	
-	A adição e subtração de dois campos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas bit a bit, sem que haja bits de "vai um" para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, para ambas adição e subtração.
+	A adição e subtração de dois campos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas bit a bit, sem que haja bits de "vai um" para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, tanto para adição como subtração.
 	
 	Os campos de Galois são definidos com base no gerador polinomial de campos, que é um polinômio irredutível, de grau $m$. Para GF(16) existe por exemplo, esta opção:
-	
 	\begin{equation}
 	p(x) = x^{4} + x + 1 
 	\end{equation}
-	
-	
 	A norma IEEE 802.7.15 não especifica qual gerador polinomial deve ser usado, portanto neste estudo foi usada a opção do exemplo. O processo de geração neste caso resulta nos seguintes elementos finitos:
-	 
 	\begin{table}[]
 		\centering
 		\caption{Campos de Galois (16)}
@@ -214,9 +213,8 @@
 	g(x) = (x + \alpha^{i})(x + \alpha^{i+1})...(x + \alpha^{i + 2t - 1})  
 	\end{equation}
 	
-	
 	As raízes são escolhidas como campos finitos de Galois consecutivos. Para esse estudo, usaram-se como raízes os elementos consecutivos de $\alpha^{0}$ a $\alpha^{7}$. Por exemplo, para um código (15, 7), usado posteriormente neste projeto:
-	 
+ 
 	\begin{equation}
 	g(x) = (x + \alpha^{0})(x + \alpha^{1})(x + \alpha^{2})(x + \alpha^{3})(x + \alpha^{4})(x + \alpha^{5})(x + \alpha^{6})(x + \alpha^{7})
 	\end{equation}
@@ -225,14 +223,11 @@
 	g(x) = \alpha^{13}x^{7} + \alpha^{0}x^{6} + \alpha^{1}x^{5} + \alpha^{13}x^{4} + \alpha^{8}x^{3} + \alpha^{14}x^{2} + \alpha^{4}x + \alpha^{13}
 	\end{equation}
 	
-	
 	Neste caso, a mensagem $M(x)$ é codificada da seguinte maneira:
-	
 	
 	\begin{equation}
 	\frac{M(x)x^{n-k}}{G(x)} = q(x) + \frac{r(x)}{g(x)}
 	\end{equation}
-	
 	 
 	Desta forma, são produzidos um quociente $q(x)$ e um resto $r(x)$. Por manipulação algébrica, temos que o bloco codificado pode ser representado da seguinte forma:
 	 
@@ -240,8 +235,7 @@
 	M(x)x^{n-k} + r(x) = g(x)q(x)
 	\end{equation}
 	
-	
-	Portanto o bloco codificado $C(x)$ é composto por $M(x)$ deslocada, somada a $r(x)$, na prática equivalendo à \autoref{fig_reed_solomon_message}, com os símbolos de dados transmitidos em esquema de fila, seguidos dos símbolos de paridade.
+	Portanto, o bloco codificado $C(x)$ é composto por $M(x)$ deslocada, somada a $r(x)$, na prática equivalendo à \autoref{fig_reed_solomon_message}, com os símbolos de dados transmitidos em esquema de fila, seguidos dos símbolos de paridade.
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
@@ -256,12 +250,12 @@
 		\caption{\label{RS_encoder_logic} Circuito lógico de codificação Reed Solomon (15,7)}
 		\centering
 		\includegraphics[width=0.7\textheight]{RS_Encoder.png}
-		\legend{Fonte: @todo figura 126}
+		\legend{Fonte: }
 	\end{figure}
 	
 	É possível observar nos registradores e multiplicadores de Galois a estrutura de um polinômio e seus índices. A mensagem a que se vai adicionar redundância deve passar por "entrada", com um ciclo de clock para cada símbolo, levando portanto 7 ciclos para finalizar o cálculo das paridades para um código (15, 7). Os 8 símbolos de paridade devem então ser passados através de deslocamento de registradores, com a mudança do sinal de seleção, de maneira também a zerar a saída da porta lógica AND à direita. Sendo assim, os valores dos registradores não são afetados pelos somadores, já que as operações de multiplicação e soma de Galois estarão recebendo uma das entradas igual a 0000. Em suma, o processo de codificação leva tantos ciclos quantos forem os símbolos do bloco codificado, ou o valor denotado por $n$.
 	
-	\cite{nasa-rs1}
+	%%\cite{nasa-rs1}
 
 	\subsubsection{Interleaver}
 	
@@ -289,7 +283,7 @@
 	    Mensagem recuperada:                          abc_efg
 	\end{verbatim}
 	
-	Mesmo com a redundância aplicada, a informação \textit{d} foi perdida devido à erros em \textit{burst}. Aplicando entrelaçamento, a mesma mensagem pode ser recuperada facilmente, a seguir:
+	Mesmo com a redundância aplicada, a informação \textit{d} foi perdida devido a erros em \textit{burst}. Aplicando entrelaçamento, a mesma mensagem pode ser recuperada facilmente, a seguir:
 	
 	\begin{verbatim}
 	    Burst = 4, Redundância = 3, Com entrelaçamento
@@ -368,8 +362,7 @@
 	
 	\subsubsection{Codificação RLL}
 	
-	Para a primeira camada de implementação PHY I, será escolhida codificação RLL Manchester. A codificação Manchester divide o bit do dado ao meio, de maneira que a primeira metade deve obrigatoriamente assumir um valor diferente da segunda metade. Em outras palavras, caso a entrada a ser codificada seja 0 por um tempo $2t$, a saída deve ser 01, com cada bit com tempo $t$ de transmissão como se verifica em \autoref{tabela_cod_manchester}. Analogamente, caso o bit de entrada seja 1, a saída deve ser 10.
-	
+	Para a primeira camada de implementação PHY I, será escolhida a codificação RLL Manchester. A codificação Manchester divide o bit do dado ao meio, de maneira que a primeira metade deve obrigatoriamente assumir um valor diferente da segunda metade. Em outras palavras, caso a entrada a ser codificada seja 0 por um tempo $2t$, a saída deve ser 01, com cada bit com tempo $t$ de transmissão como se verifica na \autoref{tabela_cod_manchester}. Analogamente, caso o bit de entrada seja 1, a saída deve ser 10.
 	\begin{table}[ht]
 		\caption{Codificação Manchester}
 		\centering
@@ -382,12 +375,11 @@
 		\label{tabela_cod_manchester}
 		\legend{Fonte: Tabela 103 da norma 802.15.7}
 	\end{table}
-	
 	Uma maneira prática de se obter um codificador Manchester é através da aplicação da operação de OU exlcusivo, ou XOR em dois sinais de entrada. Um destes sinais é a própria mensagem a ser codificada, o outro sinal deve ser um clock com o dobro da frequência da mensagem. É importante observar que para essa codificação ser eficiente, os dois sinais devem estar sincronizados, de maneira que um período de clock seja exatamente equivalente à duração do bit da mensagem de entrada.	
 	
 	\subsection{Recepção}\label{section_norma_recepcao}
 	
-	Após a codificação dos dados, é necessário realizar a decodificação deles. Esse processo inclui a reversão dos processos de codificação e correção de erros caso existentes. No entanto isso não é trivial, pois a norma não especificou nenhum algoritmo para decodificar nem corrigir erros. Foi necessário realizar uma pesquisa para descobrir os métodos mais adequados para decodificação de cada etapa, que estão esquematizadas na \autoref{fig_reception_phy1}. Esses algoritimos estão descritos em detalhes abaixo.
+	Após a codificação dos dados, é necessário realizar a decodificação deles. Esse processo inclui a reversão dos processos de codificação e correção de erros caso existentes. No entanto isso não é trivial, pois a norma não especificou nenhum algoritmo para decodificar nem corrigir erros. Foi necessário realizar uma pesquisa para descobrir os métodos mais adequados para decodificação de cada etapa, que estão esquematizadas na \autoref{fig_reception_phy1}. Esses algoritmos estão descritos em detalhes abaixo.
 
 	\begin{figure}[!htb]
 		\caption{\label{fig_reception_phy1} Diagrama de blocos da decodificação da mensagem}
@@ -398,7 +390,7 @@
 	
 	\subsubsection{Decodificação RLL}
 	
-	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de clock cuja frequência é idêntica à do clock de codificação. Portanto, o período do clock deve ser o dobro do tempo de duração do bit da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que dados efetivos são transmitidos seja a mesma.
+	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de clock cuja frequência é idêntica à do clock de codificação. Portanto, o período do clock deve ser o dobro do tempo de duração do bit da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que os dados efetivos são transmitidos seja a mesma.
 	
 	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de dois bits idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do clock da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de bits idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
 	
@@ -448,7 +440,7 @@
 	
 	\paragraph{Cálculo das síndromes}
 	
-	As síndromes são calculadas através da mensagem recebida e dos símbolos de paridade. O objetivo desse cálculo é identificar num primeiro momento a presença de erros no bloco que foi recebido em relação ao que foi transmitido. Utilizaremos aqui a notação de $R(x)$ para o bloco recebido e $E(x)$ para os possíveis erros. Portanto:
+	As síndromes são calculadas através da mensagem recebida e dos símbolos de paridade. O objetivo desse cálculo é identificar, num primeiro momento, a presença de erros no bloco que foi recebido em relação ao que foi transmitido. Utilizaremos aqui a notação de $R(x)$ para o bloco recebido e $E(x)$ para os possíveis erros. Portanto:
 	
 	\begin{equation}
 	R(x) = C(x) + E(x)
@@ -488,7 +480,7 @@
 		\caption{\label{Syndrome_logic} Módulo genérico de cálculo de uma das síndromes}
 		\centering
 		\includegraphics[width=0.2\textheight]{Syndrome.png}
-		\legend{Fonte: @todo figura 126}
+		\legend{Fonte:}
 	\end{figure}
 	
 	\paragraph{Localização dos erros}
@@ -546,19 +538,19 @@
 	
 	\paragraph{Algoritmo de Berlekamp-Massey}
 	
-	Resolvendo o sistema anterior, encontram-se os coeficientes do polinômio localizador de erros. Essa resolução pode se feita por mais de uma forma, porém neste estudo é abordado o método de Berlekamp-Massey. Este algoritmo resolve o sistema por meio de aproximações sucessivas do polinômio localizador, iniciando com um $\Lambda(x)$ capaz de produzir $S_{v}$, ou a primeira síndrome. Conforme a seção anterior, calcula-se o próximo termo, $S_{v + 1}$:
+	Resolvendo o sistema anterior, encontram-se os coeficientes do polinômio localizador de erros. Essa resolução pode se feita por mais de uma forma, porém neste estudo foi selecionado o método de Berlekamp-Massey. Este algoritmo resolve o sistema por meio de aproximações sucessivas do polinômio localizador, iniciando com um $\Lambda(x)$ capaz de produzir $S_{v}$, ou a primeira síndrome. Conforme a seção anterior, calcula-se o próximo termo, $S_{v + 1}$, considerando:
 	
 	\begin{equation}
 	S_{v + 1} = S_{v}\Lambda_{1} + S_{v-1}\Lambda_{2} + ... + S_{1}\Lambda_{v}
 	\end{equation}
 	
-	Sendo que os valores de $\Lambda$ fazem parte da primeira aproximação. Caso esse valor da síndrome calculada pelo polinômio seja o mesmo valor da síndrome real, ou a diferença $d = 0000$, calcula-se $S_{v + 2}$. Caso contrário, o polinômio deve ser refinado:
+	Do que os valores de $\Lambda$ fazem parte da primeira aproximação. Caso esse valor da síndrome calculada pelo polinômio seja o mesmo valor da síndrome real, ou a diferença $d = 0000$, calcula-se $S_{v + 2}$. Caso contrário, o polinômio deve ser refinado:
 	
 	\begin{equation}
 	\Lambda'(x) = \Lambda(x) +  Kx^{z}\Lambda''(x)
 	\end{equation}
 	
-	Onde $\Lambda''(x)$ é o último polinômio localizador estimado antes de haver uma diferença $d \neq 0000$. K é definida como $d''^{-1}d$, com $d''^{-1}$ sendo o inverso da diferença de quando o polinômio $\Lambda(x)$ foi modificado da última vez. Já $z$ é o número de estágios entre $\Lambda''^{+1}(x)$ e $\Lambda(x)$.
+	$\Lambda''(x)$ é o último polinômio localizador estimado antes de haver uma diferença $d \neq 0000$. K é definida como $d''^{-1}d$, com $d''^{-1}$ sendo o inverso da diferença de quando o polinômio $\Lambda(x)$ foi modificado da última vez. Já $z$ é o número de estágios entre $\Lambda''^{+1}(x)$ e $\Lambda(x)$.
 	
 	Uma vez calculados os coeficientes do polinômio localizador, 
 	deve-se descobrir o valor de suas raízes. Como apontado anteriormente, o inverso destas aponta a localização dos erros. Esses valores são encontrados através do método de busca de Chien, que utiliza tentativa e erro, com todos os possíveis valores das raízes.
@@ -577,7 +569,7 @@
 	V_{j} = X_{j}^{1-b} \frac{\Omega(X_{j}^{-1})}{\Lambda'(X_{j}^{-1})}
 	\end{equation}
 	
-	Sendo $\Lambda'(x)$ a derivada de $\Lambda(x)$, e $b$ o índice do primeiro $\alpha$ usado no polinômio codificador, que neste caso será 0.
+	$\Lambda'(x)$ é a derivada de $\Lambda(x)$, e $b$ é o índice do primeiro $\alpha$ usado no polinômio codificador, que neste caso será 0.
 	
 	\paragraph{Síntese}
 	
