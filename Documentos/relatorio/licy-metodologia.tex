@@ -35,7 +35,7 @@
 	\begin{figure}[h!]
 		\caption{\label{fig_gantt} Diagrama de Gantt do projeto LiCy}
 		\centering
-		\includegraphics[width=1.0\textwidth, trim={1cm 1cm 7cm 1cm}, clip]{gantt.pdf}
+		\includegraphics[width=1.0\textwidth]{gantt.png}
 		\legend{Fonte: Autores}
 	\end{figure}
 	
@@ -703,7 +703,7 @@
 	
 	Contornando e solucionando todas as restrições listadas acima, o circuito resultante deverá enviar sinais luminosos a uma frequência de 200kHz, que é a velocidade definida pela norma da camada PHY I.
 	
-	\subsubsection{Conversor Digital-Analógico}\label{method-hardware-conv-da}
+	\subsubsection{Conversor Digital-Analógico}\label{section:dac}
 	Como o LED será de alta potência, a corrente necessária para ligá-lo corretamente é na ordem de grandeza de amperes. Essa corrente de polarização é incompatível com a fornecida pela porta de saída da FPGA (aproximadamente mil vezes menor). Como forma de proteger o circuito da FPGA e também de chavear o LED, será utilizado um transistor de potência.
 	
 	Além disso, deve-se notar que o método de modulação desejado é OOK (\textit{on-off keying}). Isso significa que, na presença de portadora (sinal 1), a luz deve estar ligada, enquanto em sua ausência (sinal 0), a luz deve estar desligada.
@@ -712,7 +712,7 @@
 	
 	Para projetar um circuito chaveador com um transistor de potência é importante entender seu funcionamento. Um FET (Field Effect Transistor) é um transistor que utiliza campo elétrico para controlar a condutividade de um tipo de carga de um canal em um semicondutor. Existem dois tipos de canais para transistores: n e p.
 	
-	Em um \textit{n-channel} FET, a aplicação de voltagem positiva no \textit{Gate} em relação à \textit{Source} permite a livre passagem de elétrons pelo caminho \textit{Drain-Source}. Analogamente, em um \textit{p-channel}, a aplicação de voltagem positiva no \textit{Gate} bloqueia a passagem de elétrons. Nesse caso, a voltagem aplicada deve ser zero ou negativa para polarizá-lo. Esse comportamento deve ser melhor detalhado utilizando uma curva característica de transistores tipo FET.
+	Em um \textit{n-channel} FET, a aplicação de voltagem positiva no \textit{gate} em relação à \textit{source} permite a livre passagem de elétrons pelo caminho \textit{drain-source}. Analogamente, em um \textit{p-channel}, a aplicação de voltagem positiva no \textit{gate} bloqueia a passagem de elétrons. Nesse caso, a voltagem aplicada deve ser zero ou negativa para polarizá-lo. Esse comportamento deve ser melhor detalhado utilizando uma curva característica de transistores tipo FET.
 
 	A \autoref{figure:carac-mosfet} caracteriza a resposta $i_{D}$ do transistor tipo FET de acordo com a tensão $V_{GS}$ fornecida, indicando as regiões operação do componente. As regiões de interesse para o chaveamento do LED são as de saturação e corte, e serão detalhadas abaixo.
 			
@@ -734,7 +734,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Nesse esquemático, R1 representa o resistor que controla a tensão no \textit{Gate}, enquanto R2 e R3 representam a carga.
+	Nesse esquemático, R1 representa o resistor que controla a tensão no \textit{gate}, enquanto R2 e R3 representam a carga.
 	
 	Para a aplicação OOK, é interessante que a chave do LED esteja aberta quando a FPGA gerar um 0 digital. A restrição mínima da tensão de limiar é $V_{th} > 0V$, pois a FPGA não consegue gerar sinais negativos sem circuito auxiliar.
 	
@@ -749,7 +749,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Nesse esquemático, R1 representa o resistor que controla a tensão no \textit{Gate}, enquanto R2 e R3 representam a carga e R4 a resistência interna $R_{DS}$ do MOSFET.
+	Nesse esquemático, R1 representa o resistor que controla a tensão no \textit{gate}, enquanto R2 e R3 representam a carga e R4 a resistência interna $R_{DS}$ do MOSFET.
 	
 	\paragraph{Conclusão}
 	
