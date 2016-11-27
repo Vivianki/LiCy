@@ -235,7 +235,7 @@
 	
 	Portanto o bloco codificado $C(x)$ é composto por $M(x)$ deslocada, somada a $r(x)$, na prática equivalendo à \autoref{fig_reed_solomon_message}, com os símbolos de dados transmitidos em esquema de fila, seguidos dos símbolos de paridade.
 	
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 		\caption{\label{fig_reed_solomon_message} Diagrama de blocos da codificação da mensagem}
 		\centering
 		\includegraphics[width=0.4\textheight]{frame/rs-codeword.pdf}
@@ -244,7 +244,7 @@
 	
 	Finalmente, a representação do codificador de Reed Solomon (15, 7) em hardware equivale a:
 	 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 		\caption{\label{RS_encoder_logic} Circuito lógico de codificação Reed Solomon (15,7)}
 		\centering
 		\includegraphics[width=0.7\textheight]{RS_Encoder.png}
@@ -381,7 +381,7 @@
 	
 	Após a codificação dos dados, é necessário realizar a decodificação deles. Esse processo inclui a reversão dos processos de codificação e correção de erros caso existentes. No entanto isso não é trivial, pois a norma não especificou nenhum algoritmo para decodificar nem corrigir erros. Foi necessário realizar uma pesquisa para descobrir os métodos mais adequados para decodificação de cada etapa, que estão esquematizadas na \autoref{fig_reception_phy1}. Esses algoritimos estão descritos em detalhes abaixo.
 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 		\caption{\label{fig_reception_phy1} Diagrama de blocos da decodificação da mensagem}
 		\centering
 		\includegraphics[width=0.4\textheight]{PHY1-reception.pdf}
@@ -481,7 +481,7 @@
 	
 	Uma possível representação para o cálculo da síndrome, em hardware, seria a \autoref{Syndrome_logic}. Observe que cada símbolo $C_{j}$ do código é uma das entradas para cada ciclo do cálculo. O parâmetro $\alpha^{i}$ é fixo e seu índice é o mesmo da síndrome de saída. Portanto, para um código Reed Solomon (15, 7), existem 15 símbolos de entrada e 8 síndromes - uma para cada raiz do polinômio codificador.
 	
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 		\caption{\label{Syndrome_logic} Módulo genérico de cálculo de uma das síndromes}
 		\centering
 		\includegraphics[width=0.2\textheight]{Syndrome.png}
@@ -580,7 +580,7 @@
 	
 	Um decodificador de Reed Solomon pode ser dividido funcionalmente nos seguintes módulos:
 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 		\caption{\label{RSDecoder_diagrama_logico} Diagrama funcional de decodificação Reed Solomon}
 		\centering
 		\includegraphics[width=0.7\textheight]{RSdecoder_diagrama.png}
