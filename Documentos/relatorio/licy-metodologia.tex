@@ -125,13 +125,21 @@
 	\end{figure}
 
 	A norma 802.15.7 estabelece um padrão para comunicação via luz, no que se diz respeito à definição de topologias de rede, codificação da informação, divisão das camadas da arquitetura do sistema de comunicação, ordem e conteúdo de cabeçalhos para cada camada e definições sobre a segurança do \textit{link}. A arquitetura de um sistema LiFi completo está definida na \autoref{fig_architecture}. 
-	O trabalho focará no estudo e implementação da camada PHY.
+	O trabalho focará no estudo e implementação da camada PHY. Os modos de operação das subcamada PHY I e PHY II são listados nas tabelas \ref{tab_phy1} e \ref{tab_phy2}.
 	
-%	\begin{figure}[htb]
-%		\caption{\label{fig_transmission_simple_blocs} Diagrama de blocos simplificado da transmissão da camada PHY I}
-%		\centering
-%		\includegraphics[width=0.4\textheight]{transmissao-blocos-simplificado.pdf}
-%	\end{figure}
+	\begin{table}[h!]
+		\caption{\label{tab_phy1} Modos de operação da camada PHY I de Li-Fi}
+		\centering
+		\includegraphics[clip, trim=37mm 151mm 36mm 51mm,  width=0.7\textwidth]{pag213.pdf}
+		\legend{Fonte: IEEE 802.15.7}
+	\end{table}
+
+	\begin{table}[h!]
+		\caption{\label{tab_phy2} Modos de operação da camada PHY II de Li-Fi}
+		\centering
+		\includegraphics[clip, trim=46.55mm 36.79mm 46.74mm 142.30mm,  width=0.7\textwidth]{pag213.pdf}
+		\legend{Fonte: IEEE 802.15.7}
+	\end{table}
 
 	\subsection{Transmissão}
 	
@@ -416,7 +424,7 @@
 		\caption{\label{schematics_convolutional_trellis} A tabela de \textit{Trellis} é útil para entender o processo de decodificação de uma máquina de estados.}
 		\centering
 		\includegraphics[width=0.6\textheight,trim={0cm 18cm 0cm 2.5cm},clip]{schematics/convolutional_trellis.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: \cite{mit-convolutional}}
 	\end{figure}
 	Nessa figura, cada coluna tem um grupo de estados; cada estado é conectado a dois estados na próxima coluna; cada seta indica qual saída e próximo estado para cada entrada. A figura mostra o caminho percorrido pelo transmissor com a mensagem 101100. 
 	
@@ -429,11 +437,6 @@
 	A BM é uma medida da distância entre o transmitido e o recebido, e é definido para cada seta na \textit{Trellis}. Em alguns casos ela também é conhecida como distância de Hamming. A PM é um valor associado com um estado na tabela \textit{Trellis}. Ele é equivalente a soma das distâncias de Hamming a partir do estado inicial da tabela. A menor soma das distâncias será o melhor caminho até determinado nó, e também será a mensagem mais provável - com menor número de erros.
 	
 	A ideia principal do algoritimo de \textit{Viterbi} é que o receptor consegue calcular a PM de forma incremental, utilizando a PM de estados anteriores e BM. Após o cálculo de todas combinações possíveis de distâncias acumuladas, o módulo de \textit{traceback} realiza a escolha do melhor e mais provável caminho. Esse algoritimo pode ser simplificado removendo o módulo de \textit{traceback} e realizando as decisões no momento de leitura da paridade. Essa decisão é feita observando apenas as métricas de ramificação, ou seja, apenas as distâncias de cada estado para o próximo. Esse método é chamado de \textit{Fangled Viterbi}.
-	
-	\begin{comment}
-	Convolutional encoding with Viterbi decoding is a good forward error correction technique suitable for channels affected by noise degradation. Fangled Viterbi decoders are variants of Viterbi decoder (VD) which decodes quicker and takes less memory with no error detection capability. Modified fangled takes it a step further by gaining one bit error correction and detection capability at the cost of doubling the
-	computational complexity and processing time. A new efficient fangled Viterbi algorithm is proposed in this paper with less complexity and processing time along with 2 bit error correction capabilities. For 1 bit error correction for 14 bit input data, when compared with Modified fangled Viterbi decoder, computational complexity has come down by 36-43% and processing delay was halved. For a 2 bit error correction, when compared with Modified fangled decoder computational complexity decreased by 22-36%.
-	\end{comment}
 	
 	\subsubsection{\textit{Deinterleaver}}
 	
@@ -593,33 +596,35 @@
 	
 	\subsection{Estrutura da mensagem}
 	
-	Como nesse trabalho apenas será implementado a camada física PHY I, a estrutura da mensagem não conterá elementos da camada MAC. Define-se portanto o elemento básico de transmissão, a Unidade de dados da camada física, ou PPDU, de acordo com a norma. Seu formato pode ser visto na \autoref{fig_ppdu_frame}
+	Como nesse trabalho apenas será implementado a camada física PHY I, a estrutura da mensagem não conterá elementos da camada MAC. Define-se portanto o elemento básico de transmissão, a Unidade de dados da camada física, ou PPDU, de acordo com a norma. Seu formato pode ser visto na \autoref{fig_ppdu_frame}.
 	
-	\begin{figure}[htb]
+	\begin{figure}[h!]
 		\caption{\label{fig_ppdu_frame} Estrutura da mensagem, composta pelo Cabeçalho de Sincronização (SHR), Cabeçalho da Camada Física (PHR) e Unidade de Dados de Serviço PHY (PSDU).}
 		\centering
 		\includegraphics[width=0.5\textheight]{frame/PPDU.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	\subsubsection{Preâmbulo - SHR}
+
+	O campo de preâmbulo é usado pelo transmissor de data para obter sincronização ótica de \textit{clock} com uma mensagem recebida. A norma define um padrão de travamento rápido (FLP), seguido de quatro padrões dependentes da topologia (TDP) para fins de distinção de topologias de PHY diferentes. O preâmbulo deve ser enviado em uma taxa de \textit{clock} escolhida pelo transmissor e suportada pelo receptor. Ele é uma sequência de domínio de tempo e não possui nenhuma codificação de canal ou linha.
 	
-	O campo de preâmbulo é usado pelo transmissor de data para obter sincronização ótica de clock com uma mensagem recebida. A norma define um padrão de travamento rápido (FLP), seguido de quatro padrões dependentes da topologia (TDP) para fins de distinção de topologias de PHY diferentes. O preâmbulo deve ser enviado em uma taxa de clock escolhida pelo transmissor e suportada pelo receptor. O preâmbulo é uma sequência de domínio de tempo e não possui nenhuma codificação de canal ou linha.
-	O preâmbulo começa com um FLP com pelo menos 64 zeros e uns alternados. O FLP é fixado para iniciar com um padrão  \textbf{"1010..."} i.e., termina com um '0'. A sequência de transição máxima é usada para travar o circuito de recuperação de clock e dados (CDR) 
+	O preâmbulo começa com um FLP com pelo menos 64 zeros e uns alternados. O FLP é fixado para iniciar com um padrão  \textbf{"1010..."} i.e., termina com um '0'. A sequência de transição máxima é usada para travar o circuito de recuperação de \textit{clock} e dados (CDR).
 	
-	O comprimento do padrão de travamento rápido é não pode exceder o máximo de 16384 bits. Após o TDP, quatro repetições de uma de quatro TDPs devem ser enviados. O TDP deve conter 15 bits de comprimento e deve ser invertido a cada repetição para providenciar DC balance
+	O comprimento do padrão de travamento rápido não pode exceder o máximo de 16384 bits. Após o FLP, quatro repetições de TDP devem ser enviados. O TDP deve conter 15 \textit{bits} de comprimento e deve ser invertido a cada repetição para providenciar \textit{DC balance}. O diagrama da estrutura do SHR está na \autoref{figure:SHR-frame}.
 	
-	O preâmbulo deve ser enviado utilizando modulação OOk. O campo deve ser formatado com um TDP fixo e a lista de topologias está definida na  \autoref{tab_tdp_def}.
-	
-	\begin{figure}[htb]
-		\caption{\label{fig_shr_frame} Estrutura do SHR - Cabeçalho da Camada Física.}
+	\begin{figure}[h]
+		\caption{\label{figure:SHR-frame}Estrutura do SHR - Cabeçalho da Camada Física.}
 		\centering
 		\includegraphics[width=0.5\textheight]{frame/SHR.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
-	\begin{table}[ht]
+
+	O preâmbulo deve ser enviado utilizando modulação OOK (\textit{on-off keying}). O campo deve ser formatado com um TDP fixo e a lista de topologias está definida na \autoref{table:tdpdef}.
+		
+	\begin{table}[h]
 		\caption{Definição de Topologias para o TDP}
+
 		\centering
 		\begin{tabular}{c c c}
 			\hline
@@ -630,13 +635,13 @@
 			P4 & Broadcast & 0 1 0 0 0 0 1 1 0 1 0 0 1 0 1 \\
 			\hline
 		\end{tabular}
-		\label{tab_tdpdef}
+		\label{table:tdpdef}
 		\legend{Fonte: Figura 120 da norma 802.15.7}
 	\end{table}
 
-	\paragraph{Sincronização de Clocks}
+	\paragraph{Sincronização de \textit{Clocks}}
 	
-	Se refere ao ato de sincronizar os clocks de sistemas independentes. Para a transmissão de dados via luz, como ambos módulos (receptor e transmissor) não estão conectados via nenhum cabo, o sinal de clock não é compartilhado. Dessa forma, é certo dizer que eles estão fora de fase. Para isso a norma especifica o FLP, um sinal com período fixo utilizado pelo receptor para sincronizar seu clock com o transmissor.
+	Se refere ao ato de sincronizar os \textit{clocks} de sistemas independentes. Para a transmissão de dados via luz, como ambos os módulos (receptor e transmissor) não estão conectados via cabo, o sinal de \textit{clock} não é compartilhado. Dessa forma, é certo dizer que eles estão fora de fase. Para isso a norma especifica o FLP, um sinal com período fixo utilizado pelo receptor para sincronizar seu \textit{clock} com o do transmissor. 
 
 	\subsubsection{Cabeçalho PHY - PHR}
 	
@@ -654,45 +659,44 @@
 			Campos Reservados & 5\\
 			\hline
 		\end{tabular}
-		\label{tab_phy-header-def}
+		\label{table:phy-header-def}
 		\legend{Fonte: Tabela 81 da norma 802.15.7}
 	\end{table}
 	
-	O cabeçalho PHY, como mostrado na \autoref{tab-phy-header-def}, deve ser transmitido utilizando modulação OOK. Ele deve ser enviado na menor velocidade listada da camada, que no caso de PHY I é 11.67kb/s e fica no cabeçalho como \texttt{000000}.
+	O cabeçalho PHY, como mostrado na \autoref{table:phy-header-def}, deve ser transmitido utilizando modulação OOK. Ele deve ser enviado na menor velocidade listada da camada, que no caso de PHY I é 11.67kb/s e fica no cabeçalho como 000000.
 	
-	A maioria dos campos não serão usados por motivos de redução de escopo, portanto o receptor e transmissor não terão habilitado o modo Burst, canais e dimerização OOK.  O único campo variável do cabeçalho será o Comprimento PSDU, que dependerá do conteúdo da mensagem enviada.
+	A maioria dos campos não serão usados por motivos de redução de escopo, portanto o receptor e transmissor não terão habilitado o modo \textit{Burst}, canais e dimerização OOK. O único campo variável do cabeçalho será o Comprimento PSDU, que dependerá do conteúdo da mensagem enviada. 
 	
 	\subsubsection{Unidade de Dados de Serviço PHY - PSDU}
 	
 	Como o escopo do trabalho não engloba a camada MAC, o campo de PSDU conterá apenas a mensagem.
 	
 	% ---
-	\section{Hardware}\label{sec-hardware}
+	\section{Hardware}\label{sec:method-hardware}
 	% ---
 	
-	A seguir serão discorridas as implicações da implementação da norma IEEE 802.15.7 em um escopo de hardware analógico, a partir da necessidade de transmitir, receber e converter sinais digitais em analógicos, que então serão convertidos de/para oscilações luminosas.A \autoref{fig_dataflow_analog_circuits}  representa o fluxo dos dados:
+	A seguir serão discorridas as implicações da implementação da norma IEEE 802.15.7 em um escopo de hardware analógico, a partir da necessidade de transmitir, receber e converter sinais digitais em analógicos, que então serão convertidos de e para oscilações luminosas. A \autoref{figure:dataflow_analog_circuits} representa o fluxo dos dados:
 	
-	\begin{figure}[htb]
-		\caption{\label{fig_dataflow_analog_circuits} Diagrama de blocos da conversão digital-analógica e analógica-digital da transmissão de dados.}
+	\begin{figure}[h!]
+		\caption{\label{figure:dataflow_analog_circuits}Diagrama de blocos da conversão digital-analógica e analógica-digital da transmissão de dados.}
 		\centering
 		\includegraphics[width=0.6\textheight]{circuits/dataflow_analog_circuits.pdf}
-		\legend{Fonte: autores.}
+		\legend{Fonte: Autores.}
 	\end{figure}
-	
 	Os dois primeiros módulos são relativos ao circuito de recepção, enquanto os três últimos são relativos ao transmissor.
 	
 	% ---
 	\subsection{Transmissão}
 	% ---
 	
-	O transmissor do sistema de comunicação LiCy será composto por um conversor digital-analógico e um LED de potência. Os dados serão enviados a partir da FPGA e codificados em 0 e 3.3V, representando os sinais \texttt{0} e \texttt{1} digitais. 
+	O transmissor do sistema de comunicação LiCy será composto por um conversor digital-analógico e um LED de potência. Os dados serão enviados a partir da FPGA e codificados em 0 e 3.3V, representando os sinais 0 e 1 digitais. 
 	
-	Para cada um desses módulos deve haver um minucioso estudo sobre suas características eletro-eletrônicas, pois existem muitas restrições que devem ser levadas em conta com a frequência de operação $F_{op} = 200 kHz$, como:
+	Para cada um desses módulos deve haver um minucioso estudo sobre suas características eletro-eletrônicas, pois existem muitas restrições que devem ser levadas em conta com a frequência de operação $F_{op}$ = 200kHz, como:
 	
 	\begin{itemize}  
-		\item Ruídos são amplificados nessa frequência;
+		\item Amplificação de ruídos;
 		\item Capacitâncias e Indutâncias parasitas em todos componentes, com ênfase no LED e no transistor;
-		\item Prototipação dificultada, pois a breadboard possui muita capacitância em seus contatos;
+		\item Prototipação dificultada, pois a \textit{breadboard} possui muita capacitância em seus contatos;
 		\item Alta corrente para ligar um LED de potência.
 		\item Componentes limitados pela frequência de operação.
 	\end{itemize}
@@ -702,58 +706,57 @@
 	\subsubsection{Conversor Digital-Analógico}\label{method-hardware-conv-da}
 	Como o LED será de alta potência, a corrente necessária para ligá-lo corretamente é na ordem de grandeza de amperes. Essa corrente de polarização é incompatível com a fornecida pela porta de saída da FPGA (aproximadamente mil vezes menor). Como forma de proteger o circuito da FPGA e também de chavear o LED, será utilizado um transistor de potência.
 	
-	Além disso, deve-se notar que o método de modulação desejado é OOK (on-off keying). Isso significa que na presença de portadora (sinal 1) o a luz deve estar ligada, enquanto em sua ausência (sinal 0) a luz deve estar desligada.
+	Além disso, deve-se notar que o método de modulação desejado é OOK (\textit{on-off keying}). Isso significa que, na presença de portadora (sinal 1), a luz deve estar ligada, enquanto em sua ausência (sinal 0), a luz deve estar desligada.
 	
 	\paragraph{Curva característica de FET}
-		
-	\begin{figure}[htb]
-		\caption{\label{fig_carac_mosfet} Curva característica de um MOSFET, com indicações das regiões de saturação, corte e triodo.}
+	
+	Para projetar um circuito chaveador com um transistor de potência é importante entender seu funcionamento. Um FET (Field Effect Transistor) é um transistor que utiliza campo elétrico para controlar a condutividade de um tipo de carga de um canal em um semicondutor. Existem dois tipos de canais para transistores: n e p.
+	
+	Em um \textit{n-channel} FET, a aplicação de voltagem positiva no \textit{Gate} em relação à \textit{Source} permite a livre passagem de elétrons pelo caminho \textit{Drain-Source}. Analogamente, em um \textit{p-channel}, a aplicação de voltagem positiva no \textit{Gate} bloqueia a passagem de elétrons. Nesse caso, a voltagem aplicada deve ser zero ou negativa para polarizá-lo. Esse comportamento deve ser melhor detalhado utilizando uma curva característica de transistores tipo FET.
+
+	A \autoref{figure:carac-mosfet} caracteriza a resposta $i_{D}$ do transistor tipo FET de acordo com a tensão $V_{GS}$ fornecida, indicando as regiões operação do componente. As regiões de interesse para o chaveamento do LED são as de saturação e corte, e serão detalhadas abaixo.
+			
+	\begin{figure}[h]
+		\caption{\label{figure:carac-mosfet}Curva característica de um MOSFET, com indicações das regiões de saturação, corte e triodo.}
 		\centering
 		%  trim={<left> <lower> <right> <upper>} 
-		\includegraphics[page=8,width=0.5\textwidth, trim={16.5cm 9.89cm 3.6cm 3cm},clip]{circuits/Electronics_Ch5.pdf}
+		\includegraphics[page=8,width=0.4\textwidth, trim={16.5cm 9.89cm 3.6cm 3cm},clip]{circuits/Electronics_Ch5.pdf}
 		\legend{Fonte: \cite{microelectronics-circuits}}
 	\end{figure}
-	
-	Para projetar um circuito chaveador com um transistor de potência é importante entender seu funcionamento. Um FET é um transistor que utiliza campo elétrico para controlar a condutividade de um tipo de carga de um canal em um semicondutor. Existem dois tipos de canais para transistores: n e p.
-	
-	Em um n-channel FET, a aplicação de voltagem positiva no Gate em relação a Source permite a livre passagem de eletrons pelo caminho Drain-Source. Analogamente em um p-channel, a aplicação de voltagem positiva no gate bloqueia a passagem de elétrons. Nesse caso, a voltagem aplicada deve ser zero ou negativa para polarizá-lo. Esse comportamento deve ser melhor detalhado utilizando uma curva característica de transistores tipo FET.
 
-	A \autoref{fig_carac_mosfet} caracteriza a resposta $i_{D}$ do transistor tipo FET de acordo com a tensão $V_{GS}$ fornecida, indicando as regiões operação do componente. As regiões de interesse para o chaveamento do LED são as de saturação e corte, e serão detalhadas abaixo.
+	\subparagraph{Região de Corte.}
+	Na região de corte o transistor se comporta como uma chave aberta. Esse comportamento é visto em todos transistores FET em que se aplica uma tensão $V_{GS} \leq V_{t}$, onde $V_{t}$ indica a tensão de limiar  característica de cada componente. A \autoref{figure:mosfet-cutoff} mostra um circuito com comportamento equivalente.
 	
-	\subparagraph{Região de Corte}
-	
-	Na região de corte o transistor se comporta como uma chave aberta. Esse comportamento é visto em todos transistores FET em que se aplica uma tensão $V_{GS} \leq V_{t}$, onde $V_{t}$ indica a tensão de limiar, característica de cada componente. A \autoref{fig_mosfet_cutoff} mostra um circuito com comportamento equivalente.
-	
-	\begin{figure}[htb]
-		\caption{\label{fig_mosfet_cutoff} Equivalência de circuitos com MOSFET em região de corte.}
+	\begin{figure}[h]
+		\caption{\label{figure:mosfet-cutoff}Equivalência de circuitos com MOSFET em região de corte.}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={0cm 2cm 0cm 2cm}, clip]{circuits/mosfet_cutoff.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Nesse esquemático, R1 representa o resistor que controla a tensão no Gate, R2 e R3 a carga.
+	Nesse esquemático, R1 representa o resistor que controla a tensão no \textit{Gate}, enquanto R2 e R3 representam a carga.
 	
-	Para a aplicação OOK, é interessante que a chave do LED esteja aberta quando a FPGA gerar um zero digital. A restrição mínima da tensão de limiar é $V_{th} > 0V$, 
+	Para a aplicação OOK, é interessante que a chave do LED esteja aberta quando a FPGA gerar um 0 digital. A restrição mínima da tensão de limiar é $V_{th} > 0V$, pois a FPGA não consegue gerar sinais negativos sem circuito auxiliar.
 	
-	\subparagraph{Região de Saturação}
+	\subparagraph{Região de Saturação.}
 	
-	Na região de saturação o transistor se comporta como uma chave fechada. Em uma situação real, dependendo de qual $V_{GS} \geq V_{t}$ aplicado, é permitida maior ou menor passagem de corrente $i_{D}$, como pode-se observar na \autoref{fig_carac_mosfet}. Os valores $i_{D}$ não são fiéis a realidade, uma vez que um MOSFET de potência permite passagem de corrente muito maior. O esquemático abaixo mostra um circuito com FET na região de saturação com um circuito com comportamento equivalente, utilizando apenas componentes passivos.
+	Na região de saturação, o transistor se comporta como uma chave fechada. Em uma situação real, dependendo de qual $V_{GS} \geq V_{t}$ aplicado, é permitida maior ou menor passagem de corrente $i_{D}$, como pode-se observar na \autoref{figure:carac-mosfet}. Os valores $i_{D}$ não são fiéis à realidade, uma vez que um MOSFET de potência permite passagem de corrente muito maior. O esquemático na \autoref{figure:mosfet-saturation} mostra um circuito com FET na região de saturação com um circuito com comportamento equivalente, utilizando apenas componentes passivos.
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_mosfet_saturation} Equivalência de circuitos com MOSFET em região de saturação.}
+		\caption{\label{figure:mosfet-saturation}Equivalência de circuitos com MOSFET em região de saturação.}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={0cm 2cm 0cm 2cm}, clip]{circuits/mosfet_saturation.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Nesse esquemático, R1 representa o resistor que controla a tensão no Gate, R2 e R3 a carga e R4 a resistência interna $R_{DS}$ do MOSFET.
+	Nesse esquemático, R1 representa o resistor que controla a tensão no \textit{Gate}, enquanto R2 e R3 representam a carga e R4 a resistência interna $R_{DS}$ do MOSFET.
 	
 	\paragraph{Conclusão}
 	
-	O transistor deve ser deixado na configuração de fonte comum da \autoref{fig_common_source}, agindo como chave entre o circuito do LED, VCC e GND. Quando a FPGA gerar o sinal digital 1, o circuito deve atender $V_{in} \geq V_{(i_{D} > Corrente de LED aceso)}$. Da mesma forma, quando o sinal gerado for 0, é necessário projetar $V_{in} < V_{i_{D} \approx 0}$.
+	O transistor deve ser deixado na configuração de fonte comum da \autoref{figure:fet-common-source}, agindo como chave entre o circuito do LED, VCC e GND. Quando a FPGA gerar o sinal digital 1, o circuito deve atender $V_{in} \geq V_{(i_{D} > Corrente de LED aceso)}$. Da mesma forma, quando o sinal gerado for 0, é necessário projetar  $V_{in} < V_{i_{D} \approx 0}$.
 	
-	\begin{figure}[htb]
-		\caption{\label{fig_common_source} FET-n em modo de fonte comum.}
+	\begin{figure}[h]
+		\caption{\label{figure:fet-common-source}FET-n em modo de fonte comum.}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={0cm 2cm 0cm 2cm}, clip]{circuits/mosfet_example.pdf}
 		\legend{Fonte: Autores.}
@@ -763,7 +766,7 @@
 	\subsubsection{LED}\label{method-hardware-led}
 	% ---
 
-	De acordo com a \autoref{tab_phy1} e \autoref{tab_phy2}, para cada camada física implementada é necessário suportar uma frequência de oscilação luminosa mínima:
+	De acordo com a \autoref{tab_phy1} e a \autoref{tab_phy2}, para cada camada física implementada é necessário suportar uma frequência de oscilação luminosa mínima:
 	
 	\begin{itemize}
 		\item PHY I: 400kHz
@@ -772,41 +775,41 @@
 	
 	O LED para a transmissão deverá então suportar essas frequências de acordo com a implementação de cada camada. Além disso, também deve realizar a transmissão de luz a distâncias de pelo menos um metro.
 	
-	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional a luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza - como por exemplo, a possibilidade do LED atrasar em relação a excitações em seus terminais. O circuito polarizador de um LED de alta potência pode ser simples, apenas ligando-o a um resistor de alta potência chamado de resistor limitador de corrente.
+	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional à luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza - como, por exemplo, a possibilidade do LED atrasar em relação a excitações em seus terminais. O circuito polarizador de um LED de alta potência pode ser simples, apenas ligando-o a um resistor de alta potência chamado de resistor limitador de corrente, como na \autoref{figure:led-circuit}.
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_led_circuit}Circuito polarizador de LED, com resistor limitador de corrente}
+		\caption{\label{figure:led-circuit}Circuito polarizador de LED, com resistor limitador de corrente.}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={8cm 8cm 8cm 8.5cm},clip]{circuits/led_circuit.pdf}
 		\legend{Fonte: Autores}
 	\end{figure}
 
-	A corrente que passa pelo LED, que não pode exceder valores definidos de fábrica pode ser calculada pela fórmula:
+	A corrente que passa pelo LED, que não pode exceder valores definidos de fábrica, pode ser calculada pela fórmula:
 	\begin{equation}
 	V_{LED} = \frac{V_{CC}}{R_{limit}}
 	\end{equation}
 	
 	\paragraph{Resposta Luminosa}
 	
-	Como definido no próprio nome, o LED é um Diodo Emissor de Luz. Então para efeitos de simulação pode-se considerar que ele é um diodo.
-	\begin{figure}[htb]
-		\caption{\label{fig_led_schematic}Símbolo esquemático de um LED, similar ao do diodo}
+	Como definido no próprio nome, o LED é um Diodo Emissor de Luz. Então, para efeitos de simulação, pode-se considerar que ele é um diodo (\autoref{figure:led-schematic})
+	\begin{figure}[h]
+		\caption{\label{figure:led-schematic}Símbolo esquemático de um LED, similar ao do diodo.}
 		\centering
 		\includegraphics[width=0.3\textwidth, trim={12cm 9.2cm 12cm 9.5cm},clip]{circuits/led_schematics.pdf}
-		\legend{Fonte: Autores}
+		\legend{Fonte: Autores.}
 	\end{figure}
-	O circuito proposto deseja oscilar todos os componentes a 200kHz. Isso significa oscilar entre a região de saturação e corte. Ao realizar o fechamento ou abertura de seus terminais, é possível que o componente responda com efeitos de capacitor. As componentes capacitivas passivas e ativas dos componentes criam respostas indesejadas no circuito. Para atenuá-las, é possível utilizar um filtro, que remove esse comportamento indesejado, aplicando uma onda de acordo com a entrada (da FPGA) no LED.
+	O circuito proposto deseja oscilar todos os componentes a 200kHz. Isso significa oscilar entre a região de saturação e corte. Ao realizar o fechamento ou abertura de seus terminais, é possível que o componente responda com efeitos de um capacitor. As componentes capacitivas passivas e ativas dos componentes criam respostas indesejadas no circuito. Para atenuá-las, é possível utilizar um filtro, que remove esse comportamento indesejado, aplicando uma onda de acordo com a entrada (da FPGA) no LED.
 	
-	Ainda existe outra opção para não gerar a componente capacitiva ativa no circuito: oscilar a voltagem de entrada apenas dentro da região de saturação do LED. Essa modificação consiste em aplicar uma componente contínua $V_{DC}$ no LED e uma alternada $V_{AC}$ pequena com a portadora do sinal gerado pela FPGA. Esse é muito utilizado em circuitos de fibra ótica, utilizando um componente chamado Bias-Tee.
+	Ainda existe outra opção para não gerar a componente capacitiva ativa no circuito: oscilar a voltagem de entrada apenas dentro da região de saturação do LED. Essa modificação consiste em aplicar uma componente contínua $V_{DC}$ no LED e uma alternada $V_{AC}$ pequena com a portadora do sinal gerado pela FPGA. Isso é muito utilizado em circuitos de fibra ótica, utilizando um componente chamado \textit{Bias-Tee}.
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_diode_carac} Zona de operação do diodo}
+		\caption{\label{figure:diode-carac}Zona de operação do diodo.}
 		\centering
 		\includegraphics[page=5,width=0.6\textwidth, trim={16cm 2.5cm 2cm 12.5cm}, clip]{circuits/Electronics_Ch3.pdf}
 		\legend{Fonte: \cite{microelectronics-circuits}}
 	\end{figure}
 	
-	No gráfico da \autoref{fig_diode_carac} é possível observar a curva de operação do diodo crescente. Ao submetê-lo a uma tensão, há resposta em $I_{D}$, que no caso do LED corresponde a intensidade luminosa. Cada diodo (ou LED) tem sua curva, e será necessário projetar o circuito levando esses parâmetros em consideração.
+	No gráfico da \autoref{figure:diode-carac} é possível observar a curva de operação do diodo crescente. Ao submetê-lo a uma tensão, há resposta em $I_{D}$, que no caso do LED corresponde a intensidade luminosa. Cada diodo (ou LED) tem sua curva, e será necessário projetar o circuito levando esses parâmetros em consideração.
 	
 	No entanto, é possível que essa estratégia cause modificações também no circuito do receptor, pois o LED deixará de apagar e acender, apenas oscilando sua intensidade.	
 	
@@ -814,19 +817,17 @@
 	\subsection{Recepção}
 	% ---
 	
-	É de responsabilidade do receptor realizar três processos: a recepção dos sinais luminosos, sua amplificação com filtragem e por fim a conversão das ondas em sinais digitais. Com o funcionamento pleno deles, será possível receber um sinal equivalente ao transmitido pela FPGA. Os processos e todos métodos envolvidos estarão explicados em detalhes a seguir na \autoref{hard-photodiode}, \autoref{hard-bandfilter} e \autoref{hard-comparator-filter-and-waves}.
+	É de responsabilidade do receptor realizar três processos: (i) a recepção dos sinais luminosos, (ii) sua amplificação com filtragem e (iii) a conversão das ondas em sinais digitais. Com o funcionamento pleno deles, será possível receber um sinal equivalente ao transmitido pela FPGA. Os processos e todos os métodos envolvidos serão explicados em detalhes a seguir nas seções \ref{section:light-reception}, \ref{section:adc},  \ref{section:highpass-filter}, \ref{section:dc-bias} e \ref{section:band-filter}.
 	
-	% ---
-	\subsubsection{Recepção Luminosa}\label{method-hard-photodiode}
-	% ---
+	\subsubsection{Recepção Luminosa}\label{section:light-reception}
 	
-	O módulo mais crítico do receptor, que recebe oscilações luminosas e converte-as em sinais analógicos. É muito empregado em circuitos receptores de fibra óptica, CD players, televisões, câmeras e até em medidores de batimento cardíaco. Os fotoreceptores mais comuns são fototransistores ou fotodiodos, que são classificados principalmente de acordo com sua velocidade de chaveamento. 
+	O módulo de recepção luminosa é o mais crítico do receptor, pois recebe oscilações luminosas e as converte em sinais analógicos. É muito empregado em circuitos receptores de fibra óptica, CD players, televisões, câmeras e até em medidores de batimento cardíaco. Os fotorreceptores mais comuns são fototransistores ou fotodiodos, que são classificados principalmente de acordo com sua velocidade de chaveamento. 
 	
-	Um fototransistor é composto por um transistor de junção que responde à incidencia de luz gerando e amplificando corrente elétrica. Seu tempo de resposta é da ordem de $\mu$s. Já o fotodiodo é um diodo semicondutor que gera diferença de potencial ou mudança em sua resistência quando iluminado, com o tempo de resposta usualmente em ns, devido a sua natureza semicondutora e arquitetura de silício.
+	Um fototransistor é composto por um transistor de junção que responde à incidência de luz gerando e amplificando corrente elétrica. Seu tempo de resposta é da ordem de $\mu$s. Já o fotodiodo é um diodo semicondutor que gera diferença de potencial ou mudança em sua resistência quando iluminado, com o tempo de resposta usualmente em ns, devido a sua natureza semicondutora e arquitetura de silício.
 	
-	Para o projeto, é mais interessante a escolha do fotodiodo, pela sua alta velocidade de resposta, tornando a onda recebida mais fiel possível a realidade.
+	Para o projeto, é mais interessante a escolha do fotodiodo, pois possui alta velocidade de resposta, tornando a onda recebida mais fiel possível à realidade.
 	
-	O fotodiodo tem dois principais modos de operação com as seguintes características:
+	O fotodiodo tem dois principais modos de operação, com as seguintes características na \autoref{table:photodiode-comp}.
 	
 	\begin{table}[ht]
 		\caption{Comparação entre modos de operação do fotodiodo.}
@@ -837,7 +838,7 @@
 			Fotovoltaico & não & $I_{dark}$ menor, resposta lenta \\
 			Fotocondutivo & negativa & $I_{dark}$ maior, resposta rápida \\ \hline
 		\end{tabular}
-		\label{tab_photodiode_comp}
+		\label{table:photodiode-comp}
 	\end{table}
 	
 	Como velocidade de resposta é prioritária na aplicação de comunicação, será utilizado o modo fotocondutivo. A polarização reversa aumenta o comprimento da região de depleção e diminui a capacitância de junção, aumentando a performance em altas frequências.
@@ -846,12 +847,12 @@
 	
 	\paragraph{Amplificador de Transimpedância}
 	
-	O comportamento de um amplificador de transimpedância é simples: converter corrente em tensão. Ele normalmente é utilizado com componentes em que resposta em corrente é mais linear que a resposta em tensão, como no caso o fotodiodo. 
+	O comportamento de um amplificador de transimpedância é simples: converter corrente em tensão. Ele normalmente é utilizado com componentes em que resposta em corrente é mais linear que a resposta em tensão, como no caso do fotodiodo. 
 	
-	O amplificador apresenta baixa impedância de entrada para isolar o fotodiodo da voltagem de saída. Em relação a saída, ao contrário do fototransistor, que tem corrente de saída a $\mu$A, o fotodiodo gera uma corrente na ordem de grandeza de pA. Para converter essa corrente baixa em voltagem útil para o circuito, é necessário realizar a amplificação desse sinal utilizando um resistor de feedback $R_{F}$, rotulado como R1 na \autoref{fig_transimpedance_amp_simple}.
+	O amplificador apresenta baixa impedância de entrada para isolar o fotodiodo da voltagem de saída. Em relação à saída, ao contrário do fototransistor, que tem corrente de saída a $\mu$A, o fotodiodo gera uma corrente na ordem de grandeza de pA. Para converter essa corrente baixa em voltagem útil para o circuito, é necessário realizar a amplificação desse sinal utilizando um resistor de feedback $R_{F}$, rotulado como R1 na \autoref{figure:transimpedance-amp-simple}.
 	
-	\begin{figure}[htb]
-		\caption{\label{fig_transimpedance_amp_simple} Circuito Amplificador de Transimpedância}
+	\begin{figure}[h]
+		\caption{\label{figure:transimpedance-amp-simple}Circuito Amplificador de Transimpedância.}
 		\centering
 		\includegraphics[width=0.6\textwidth, trim={2cm 3.8cm 2cm 3.8cm}, clip]{circuits/transimpedance_amp_simple.pdf}
 		\legend{Fonte: Autores.}
@@ -863,10 +864,10 @@
 	V_{out} = - I_{fotodiodo} \cdot R_{feedback}
 	\end{equation}
 	
-	Como $I_{fotodiodo}$ é da ordem de pA, $R_{F}$ deve ser grande (M$\Omega$) para tornar a voltagem compatível com níveis TTL. Nota-se que $V_{out}$ é negativo pois o amplificador se encontra na configuração inversora. A \autoref{plot-post-tia} ilustra o comportamento da saída do Amplificador de Transimpedância.
+	Como $I_{fotodiodo}$ é da ordem de pA, $R_{F}$ deve ser grande (M$\Omega$) para tornar a voltagem compatível com níveis TTL. Nota-se que $V_{out}$ é negativo pois o amplificador se encontra na configuração inversora. A \autoref{plot:post-tia} ilustra o comportamento da saída do Amplificador de Transimpedância.
 	
 	\begin{figure}[h!]
-		\caption{\label{plot-post-tia} Saída esperada do Amplificador de Transimpedância, com amplitude de $i_{D} \cdot R_{F}$, com componente $V_{DC} = L$ variável.}
+		\caption{\label{plot:post-tia}Saída esperada do Amplificador de Transimpedância, com amplitude de $i_{D} \cdot R_{F}$, com componente $V_{DC} = L$ variável.}
 		\centering
 		\begin{tikzpicture}
 		\begin{axis}[
@@ -890,24 +891,22 @@
 		\legend{Fonte: Autores}
 	\end{figure}
 	
-	Após esse estágio de recepção, obtém-se uma onda com componente $V_{DC} = L$. Essa componente é variável e depende de alterações na intensidade de luz, variações na distância do transmissor com receptor, entre outros fatores. A amplitude da onda depende da corrente  $i_{D}$ do fotodiodo e da resistência de feedback $R_{F}$ do circuito amplificador. 
+	Após esse estágio de recepção, obtém-se uma onda com componente $V_{DC} = L$. Esse componente é variável e depende de alterações na intensidade de luz, variações na distância do transmissor com receptor, entre outros fatores. A amplitude da onda depende da corrente  $i_{D}$ do fotodiodo e da resistência de feedback $R_{F}$ do circuito amplificador. 
 	
-	% ---
-	\subsubsection{Conversor Analógico-Digital}\label{method-hardware-conv-ad}
-	% ---
+	\subsubsection{Conversor Analógico-Digital}\label{section:adc}
 	
-	Para poder realizar estágios adicionais de amplificação e comparação para obter uma saída compatível com a entrada da FPGA, deve-se entender o funcionamento de um comparador. O circuito comparador utiliza um amplificador operacional com alto ganho sem realimentação e recebe dois sinais: uma voltagem de entrada $V_{in}$ e uma voltagem de referência $V_{ref}$. Ele realiza a comparação do nível de tensão analógico $V_{in}$ com $V_{ref}$ e produz saída de acordo com essa comparação. Seu desenho esquemático pode ser visto na \autoref{fig_comparator_circuit} e o comportamento de sua saída na \autoref{tab_comparator_behaviour}. 
+	Para poder realizar estágios adicionais de amplificação e comparação para obter uma saída compatível com a entrada da FPGA, deve-se entender o funcionamento de um comparador. O circuito comparador utiliza um amplificador operacional com alto ganho sem realimentação e recebe dois sinais: uma voltagem de entrada $V_{in}$ e uma voltagem de referência $V_{ref}$. Ele realiza a comparação do nível de tensão analógico $V_{in}$ com $V_{ref}$ e produz saída de acordo com essa comparação. Seu desenho esquemático pode ser visto na \autoref{fig_comparator_circuit} e o comportamento de sua saída na \autoref{table:comparator-behaviour}. 
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_double_comparator}Comparador e curva de resposta}
+		\caption{\label{fig_double_comparator}Comparador e curva de resposta.}
 		\begin{subfigure}{.5\textwidth}
-			\caption{\label{fig_comparator_circuit}Circuito comparador simples}
+			\caption{\label{fig_comparator_circuit}Circuito comparador simples.}
 			\centering
 			\includegraphics[width=0.77\textwidth, trim={7.5cm 5cm 7.5cm 5.5cm},clip]{circuits/comparator_amp.pdf}
 			\legend{Fonte: Autores.}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
-			\caption{\label{fig_comparator_transfer}Curva de resposta de comparador real}
+			\caption{\label{fig_comparator_transfer}Curva de resposta de comparador real.}
 			\centering
 			\includegraphics[page=1,width=0.8\textwidth, trim={6.9cm 5.5cm 6.9cm 19.25cm},clip]{circuits/lecture_comparator.pdf}
 			\legend{Fonte: \cite{comparator-ampop-lecture}}
@@ -915,7 +914,7 @@
 	\end{figure}
 	
 	\begin{table}[ht]
-		\caption{Comportamento real de um comparador com amplificador operacional}\label{tab_comparator_behaviour}
+		\caption{Comportamento real de um comparador com amplificador operacional}
 		\centering
 		\begin{tabular}{c c}
 			\hline
@@ -925,22 +924,24 @@
 			$V_{in} < V_{ref}$& $V_{EE}$\\
 			\hline
 		\end{tabular}
+		\label{table:comparator-behaviour}
+		\caption{Fonte: Autores.}
 	\end{table}
 	
-	Na primeira e terceira cláusula da \autoref{tab_comparator_behaviour} o amplificador operacional opera na região de saturação. No entanto, seu funcionamento para entrada $V_{in} \approx V_{ref}$ polariza o semicondutor em uma região linear que depende de dois parâmetros adicionais:
+	Na primeira e terceira cláusula da \autoref{table:comparator-behaviour} o amplificador operacional opera na região de saturação. No entanto, seu funcionamento para entrada $V_{in} \approx V_{ref}$ polariza o semicondutor em uma região linear que depende de dois parâmetros adicionais:
 	\begin{equation}
 	V_{\delta+} = \frac{V_{DD}}{A}
 	\end{equation}
 	\begin{equation}
 	V_{\delta-} = \frac{V_{EE}}{A}
 	\end{equation}
-	Nesse intervalo $V_{\delta-} < V_{in} < V_{\delta+}$ (ilustrado em \autoref{fig_comparator_transfer}), o comportamento da saída é diferenciado e depende do ganho de loop aberto A, que para circuitos reais é muito grande $A=20000$. Os valores $V_{\delta-}$ e $V_{\delta+}$ então são da ordem de  $\mu$V, definindo a tensão mínima (ou máxima) da entrada para que o comparador realize uma comparação adequada. Com uma amplitude $V_{in_{AC}}$ alternada suficientemente alta, é possível tornar a curva de resposta mais íngreme melhorando o tempo de resposta do componente. A amplitude pode ser ajustada com o resistor de feedback $R_{f}$ do estágio anterior. Mesmo com essas correções, a onda comparada pode defasar um pouco na saída.
+	Nesse intervalo $V_{\delta-} < V_{in} < V_{\delta+}$ (ilustrado em \autoref{fig_comparator_transfer}), o comportamento da saída é diferenciado e depende do ganho de \textit{loop} aberto A, que para circuitos reais é muito grande $A=20000$. Os valores $V_{\delta-}$ e $V_{\delta+}$ então são da ordem de  $\mu$V, definindo a tensão mínima (ou máxima) da entrada para que o comparador realize uma comparação adequada. Com uma amplitude $V_{in_{AC}}$ alternada suficientemente alta, é possível tornar a curva de resposta mais íngreme melhorando o tempo de resposta do componente. A amplitude pode ser ajustada com o resistor de feedback $R_{f}$ do estágio anterior. Mesmo com essas correções, a onda comparada pode defasar um pouco na saída.
 	
-	\subsubsection{Filtro Passa-Altas}\label{method-hardware-highpass-filter}
+	\subsubsection{Filtro Passa-Altas}\label{section:highpass-filter}
 	
-	Como foi observado na \autoref{plot-post-tia}, a onda recebida possui uma componente $V_{DC} = L$ variável. Essa ela não tem valor fixo, então não é possível definir a tensão $V_{ref}$ para comparar. Nesse caso existe a necessidade da eliminação da componente $V_{DC} = L$.
+	Como foi observado na \autoref{plot:post-tia}, a onda recebida possui um componente $V_{DC} = L$ variável. Essa ela não tem valor fixo, então não é possível definir a tensão $V_{ref}$ para comparar. Nesse caso existe a necessidade da eliminação da componente $V_{DC} = L$.
 	
-	Para isso, pode-se utilizar um simples circuito RC de primeira ordem, que age como filtro passa altas, esquematizado na \autoref{plot-post-highpass-filter}. Seu funcionamento se baseia no capacitor C, que em baixas frequências apresenta alta reatância, atuando como um aberto e bloqueando qualquer sinal abaixo da frequência de corte $f_{c}$. Acima dessa frequência a reatância do capacitor é reduzida suficientemente para agir como um curto circuito, permitindo qualquer entrada $V_{in}$ passar diretamente para saída $V_{out}$. A frequência de corte $f_{c}$ só pode ser obtida com a presença do resistor R e do capacitor C juntos, que geram a constante de tempo $\tau$. O cálculo desses valores se encontra abaixo:
+	Para isso, pode-se utilizar um simples circuito RC de primeira ordem, que age como filtro passa-altas, esquematizado na \autoref{plot-post-highpass-filter}. Seu funcionamento se baseia no capacitor C, que em baixas frequências apresenta alta reatância, atuando como um aberto e bloqueando qualquer sinal abaixo da frequência de corte $f_{c}$. Acima dessa frequência, a reatância do capacitor é reduzida suficientemente para agir como um curto-circuito, permitindo qualquer entrada $V_{in}$ passar diretamente para saída $V_{out}$. A frequência de corte $f_{c}$ só pode ser obtida com a presença do resistor R e do capacitor C juntos, que geram a constante de tempo $\tau$. O cálculo desses valores se encontra abaixo:
 	\begin{equation}
 	\tau = R \cdot C
 	\end{equation}
@@ -1001,16 +1002,16 @@
 		\legend{Fonte: Autores}
 	\end{figure}
 
-	\subsubsection{Acoplamento DC}\label{method-hardware-dc-bias}
-	Com a aplicação do filtro passa-altas agora a onda gerada têm componente $V_{DC} = 0$ fixa - observada na parte hachurada da \autoref{plot-post-highpass-filter} -, que ainda necessita correção, pois é uma tensão incompatível com o circuito.
+	\subsubsection{Acoplamento DC}\label{section:dc-bias}
+	Com a aplicação do filtro passa-altas agora a onda gerada tem componente $V_{DC} = 0$ fixa - observada na parte hachurada da \autoref{plot-post-highpass-filter} -, que ainda necessita correção, pois é uma tensão incompatível com o circuito.
 	
-	O funcionamento do comparador (e de qualquer amplificador operacional) depende altamente do fato de que as voltagens de entrada $V_{in}$ e $V_{ref}$ estejam dentro do intervalo de alimentação. Caso as tensões aplicadas nas entradas sejam muito altas (ou baixas), o amplificador pode operar incorretamente, ser reversamente polarizado e até ser danificado. Esses valores costumam estar presentes em datasheets de componentes em uma tabela chamada	\textbf{ABSOLUTE MAXIMUM RATINGS}. Como foi decisão de projeto o fato de que o sistema de comunicação utilizaria apenas uma fonte de alimentação, essa restrição será aplicada para todos os componentes do circuito.
+	O funcionamento do comparador (e de qualquer amplificador operacional) depende altamente do fato de que as voltagens de entrada $V_{in}$ e $V_{ref}$ estejam dentro do intervalo de alimentação. Caso as tensões aplicadas nas entradas sejam muito altas (ou baixas), o amplificador pode operar incorretamente, ser reversamente polarizado e até ser danificado. Esses valores costumam estar presentes em \textit{datasheets} de componentes em uma tabela chamada "Absolute Maximum Ratings". Como foi decisão de projeto o fato de que o sistema de comunicação utilizaria apenas uma fonte de alimentação, essa restrição será aplicada para todos os componentes do circuito.
 	
 	Apenas uma fonte significa que o circuito terá apenas alimentação positiva disponível em seus terminais: 
 	\begin{equation}
 	V_{in}, V_{ref} \in [V_{EE} \geq 0, V_{CC} > V_{EE}]
 	\end{equation}
-	Portanto o componente não conseguirá realizar a comparação corretamente. Para resolver esse problema pode-se adicionar um acoplamento $V_{DC} = V_{ref}$ fixo, que também será utilizado na entrada de referência do comparador. E etapa de filtro pode ser realizada juntamente com a adição de $V_{ref}$, utilizando um circuito levemente modificado.
+	Portanto, o componente não conseguirá realizar a comparação corretamente. Para resolver esse problema pode-se adicionar um acoplamento $V_{DC} = V_{ref}$ fixo, que também será utilizado na entrada de referência do comparador. E etapa de filtro pode ser realizada juntamente com a adição de $V_{ref}$, utilizando um circuito levemente modificado.
 	
 	\begin{figure}[h]
 		\caption{\label{plot-post-bias1v} Gráfico com adição de componente DC $V_{DC} = V_{ref}$ fixa e filtro passa-altas modificado. Agora não existe tensão }
@@ -1044,7 +1045,7 @@
 		\legend{Fonte: Autores}
 	\end{figure}
 
-	 A figura \autoref{plot-post-bias1v} ilustra a onda modificada, com voltagem de referência fixa agora. Após todas essas etapas, é possível realizar de fato a etapa de comparação. Idealmente a onda ficaria similar a \autoref{plot-post-comparator}.
+	A figura \autoref{plot-post-bias1v} ilustra a onda modificada, com voltagem de referência fixa agora. Após todas essas etapas, é possível realizar de fato a etapa de comparação. Idealmente a onda ficaria similar à \autoref{plot-post-comparator}.
 	
 	\begin{figure}[h]
 		\caption{\label{plot-post-comparator} Saída esperada após a etapa de comparação em verde.}
@@ -1081,9 +1082,7 @@
 		
 	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Caso a saída não esteja adequada, é possível que seja necessário realizar mais um estágio de amplificação e filtração após o filtro passa-altas.
 	
-	% ---
-	\subsubsection{Filtro Passa-Faixas}\label{method-hardware-bandfilter}
-	% ---
+	\subsubsection{Filtro Passa-Faixas}\label{section:band-filter}
 	
 	Com intuito de reduzir o ruído em circuitos de amplificação com amplificadores operacionais, especifica-se um modelo de circuito passa-faixas na \autoref{fig_opampdif}.
 	
@@ -1094,7 +1093,7 @@
 		\legend{Fonte: Autores}
 	\end{figure}
 	
-	De acordo com as tabelas \ref{tab_phy1} e \ref{tab_phy2}, o intervalo da frequência do \textit{clock} luminoso é de 200kHz até 120MHz. Deseja-se então  permitir a passagem dessas, limitando as frequências fora desse intervalo. Com o uso do passa baixas e passa altas da figura acima, pode-se realizar essa limitação adequando os resistores e capacitores do circuito.
+	De acordo com as tabelas \ref{tab_phy1} e \ref{tab_phy2}, o intervalo da frequência do \textit{clock} luminoso é de 200kHz até 120MHz. Deseja-se então  permitir a passagem dessas, limitando as frequências fora desse intervalo. Com o uso do passa-baixas e passa-altas da figura acima, pode-se realizar essa limitação adequando os resistores e capacitores do circuito.
 	
 	\begin{comment}
 	Ninguém gosta de imagens da wikipedia
@@ -1124,72 +1123,36 @@
 	f_{ci} = \frac{1}{2 \cdot \pi \cdot R2 \cdot C2}
 	\end{equation}
 	
-	O cálculo da frequência central é feita pela \texttt{média geométrica} das frequências calculadas em \ref{eq:1} and \ref{eq:2} abaixo: 
+	O cálculo da frequência central é feita pela média geométrica das frequências calculadas em \ref{eq:1} e \ref{eq:2} acima: 
 	
 	\begin{equation} \label{eq:3}
 	f_{o} = \sqrt{f_{ci} \cdot f_{cs}}
 	\end{equation}
 	
-	A banda de passagem do circuito é calculada pela subtração da frequencia de corte superior pela inferior:
+	A banda de passagem do circuito é calculada pela subtração da frequência de corte superior pela inferior:
 	
 	\begin{equation} \label{eq:4}
 	BW = f_{cs} - f_{ci}
 	\end{equation}
-
-	% ---
-	\subsection{Microcontrolador}\label{hard-uc}
-	% ---
-	
-	O microcontrolador escolhido foi o Raspberry Pi.
-
-	% @TODO insira imagem do rasp aqui %
-	
-	Explicação do porquê foi escolhido Raspberry Pi: sistema linux, GPIO de fácil acesso, programação python
-	
-	% ---
-	\subsubsection{Opções Consideradas}\label{uc-options}
-	% ---
-	
-	Raspberry Pi, Galileo, 
-	
-	% ---
-	\subsubsection{Tabela Comparativa}\label{uc-table}
-	% ---
 	
 	% ---
 	\subsection{FPGA}\label{hard-fpga}
 	% ---
 	
-	FPGA (Field-Programmable Gate Array) é uma tecnologia que utiliza chips de silício reprogramáveis para obter circuitos customizáveis, latência a nível de hardware\footnote{muito muito rápido} e vazão muito alta\footnote{devido ao alto grau de paralelismo}. No projeto LiCy, como o fluxo de informações é muito alto (requisito de projeto de 1Gbps), é necessário realizar múltiplos processos ao mesmo tempo para lidar com os dados:
+	FPGA (\textit{Field-Programmable Gate Array}) é uma tecnologia que utiliza \textit{chips} de silício reprogramáveis para obter circuitos customizáveis, latência a nível de hardware e vazão muito alta. No projeto LiCy, como o fluxo de informações é muito alto (requisito de projeto de 1Gbps), é necessário realizar múltiplos processos ao mesmo tempo para lidar com os dados:
 	
 	\begin{itemize}  
 		\item Recebimento/Transmissão de dados
 		\item Cálculo de paridade
-		\item Correção de erros\footnote{apenas para recebimento}
-		\item (De)codificação de dados
+		\item Correção de erros quando do recebimento
+		\item Codificação/Decodificação de dados
 	\end{itemize}
 	
-	\begin{table}[htbp]
-		\caption{\label{tab_phy1} Modos de operação da camada PHY I de Li-Fi}
-		
-		\centering
-		%  trim={<left> <lower> <right> <upper>} 
-		\includegraphics[clip, trim=37mm 151mm 36mm 51mm,  width=0.7\textwidth]{pag213.pdf}
-		\legend{Fonte: IEEE 802.15.7}
-	\end{table}
-	
-	\begin{table}[htbp]
-		\caption{\label{tab_phy2} Modos de operação da camada PHY II de Li-Fi}
-		\centering
-		\includegraphics[clip, trim=46.55mm 36.79mm 46.74mm 142.30mm,  width=0.7\textwidth]{pag213.pdf}
-		\legend{Fonte: IEEE 802.15.7}
-	\end{table}
-	
-	Essa tecnologia é ideal para criar protótipos de circuitos digitais. Existe neste caso a facilidade de mudar o arranjo de componentes e vias de dados, bem como a possibilidade de simulá-los e depurá-los antes mesmo de gravar as configurações no hardware. Estes são elementos chave para a criação de um ambiente controlado, para testar as funcionalidades do produto desenvolvido. Sendo assim, um dos fatores que mais motivou a escolha dessa tecnologia neste projeto.
+	Essa tecnologia é ideal para criar protótipos de circuitos digitais. Existe neste caso a facilidade de mudar o arranjo de componentes e vias de dados, bem como a possibilidade de simulá-los e depurá-los antes mesmo de gravar as configurações no hardware. Estes são elementos chave para a criação de um ambiente controlado e que possibilita testar as funcionalidades do produto desenvolvido, sendo um dos fatores que mais motivou a escolha dessa tecnologia neste projeto.
 	
 	O projeto de uma FPGA possui características que anteriormente estavam associadas a sistemas baseados em processadores. Uma delas é o uso de ferramentas e interfaces de alto nível, usando diagramas de bloco representando comportamentos e linguagens de descrição de hardware (na sigla em inglês, HDL), que no entanto diferem em muito de linguagens de programação como C. 
 	
-	A principal vantagem do uso de uma FPGA em relação a microcontroladores está na independência das operações de processamento, que por estarem em circuitos paralelos não precisam dividir recursos, como um mesmo núcleo por exemplo. Entretanto, o alto grau de paralelismo pode resultar em maiores desafios como garantir o sincronismo e lidar com inconsistência de dados no nível de circuito. Ainda assim, é preferível neste projeto lidar com esses desafios para se beneficiar do ganho em latência e vazão de dados.
+	A principal vantagem do uso de uma FPGA em relação a microcontroladores está na independência das operações de processamento que, por estarem em circuitos paralelos, não precisam dividir recursos como um mesmo núcleo, por exemplo. Entretanto, o alto grau de paralelismo pode resultar em maiores desafios, como garantir o sincronismo e lidar com inconsistência de dados no nível de circuito. Ainda assim, é preferível neste projeto lidar com esses desafios para se beneficiar do ganho em latência e vazão de dados.
 
 	% ---
 	\section{Software}\label{sec-software}
@@ -1201,21 +1164,16 @@
 	\subsection{VHDL}\label{soft-vhdl}
 	% ---
 	
-	VHDL, sigla do inglês para VHSIC Hardware Description Language, é uma linguagem de descrição de hardware.  Entre suas características incluem-se uma tipagem forte, comportamento determinístico em comparação com outras linguagens de descrição de hardware como Verilog, e aplicação maior em FPGAs na área acadêmica. Por esses motivos, a curva de aprendizado pode ser mais inclinada no início, mas uma vez ultrapassada a barreira da maior rigidez no processo de compilação, a detecção de erros em código é facilitada.
+	VHDL, sigla do inglês para \textit{Very High Speed Integrated Circuit Hardware Description Language}, é uma linguagem de descrição de hardware. Entre suas características incluem-se uma tipagem forte, comportamento determinístico em comparação com outras linguagens de descrição de hardware como Verilog, e aplicação maior em FPGAs na área acadêmica. Por esses motivos, a curva de aprendizado pode ser mais inclinada no início, mas uma vez ultrapassada a barreira da maior rigidez no processo de compilação, a detecção de erros em código é facilitada.
 	
 	Uma linguagem de descrição de hardware tem por objetivo modelar sistemas digitais através de código. Alguns parâmetros importantes dessa modelagem são o comportamento, a estrutura e o tempo - todos cobertos por VHDL. Analogamente às linguagens de programação, VHDL possui categorias de dados, como sinais, variáveis e constantes, que servem para representar fios, registradores e outros elementos de circuitos relacionados a dados. 
 	
-	Além disso, a linguagem de VHDL é uma ferramenta interessante para a construção de máquinas de estado finitos. A síntese desse tipo de circuito é essencial para a implantação em hardware de algoritmos que envolvem iteração, o que é mais uma forte justificativa para a escolha desta ferramenta neste estudo. Outro fator importante levado em consideração para essa escolha foi a familiarização prévia com VHDL durante o curso, nas matérias de Laboratório, Organização e Arquitetura de Sistemas Digitais, o que auxiliou na escalada da curva de aprendizado.
-	
-	
-	%--- Obs: essa justificativa sobre as matérias é ok? 
-	
-	*ref: Very High Speed Integrated Circuit
+	Além disso, a linguagem VHDL é uma ferramenta interessante para a construção de máquinas de estado finitos. A síntese desse tipo de circuito é essencial para a implantação em hardware de algoritmos que envolvem iteração, o que é mais uma forte justificativa para a escolha desta ferramenta neste estudo. Outro fator importante levado em consideração para essa escolha foi a familiarização prévia com VHDL durante o curso, nas matérias de Laboratório, Organização e Arquitetura de Sistemas Digitais, o que auxiliou na escalada da curva de aprendizado.
 	
 	% ---
 	\subsection{Quartus}\label{soft-quartus}
 	% ---
 	
-	Quartus é um software de programação de dispositivos lógicos, desenvolvido pela Altera, subsidiária da Intel, que fabrica dispositivos lógicos programáveis, como as FPGAs citadas anteriormente. Algumas das vantagens dessa ferramenta são a possibilidade de sintetizar circuitos a partir de diagramas lógicos,  simular o comportamento de circuitos no tempo, controlando entradas através de testbenches, e uma interface relativamente simples para se programar uma FPGA.
+	Quartus é um software de programação de dispositivos lógicos, desenvolvido pela Altera, subsidiária da Intel, que fabrica dispositivos lógicos programáveis, como as FPGAs citadas anteriormente. Algumas das vantagens dessa ferramenta são a possibilidade de sintetizar circuitos a partir de diagramas lógicos,  simular o comportamento de circuitos no tempo, controlando entradas através de \textit{testbenchs}, e uma interface relativamente simples para se programar uma FPGA.
 	
 	Dentro do contexto do estudo de sistemas digitais, Quartus foi uma ferramenta recorrente para os integrantes do grupo no passado. Ademais, o fato desta ferramenta se integrar com famílias de FPGAs como Cyclone ou MAX foi interessante, já que isto tornou possível o uso da infra-estrutura presente nos laboratórios da Universidade.

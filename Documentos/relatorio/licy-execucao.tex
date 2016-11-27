@@ -8,12 +8,11 @@
 	\section{Arquitetura}
 	
 	\begin{figure}[htb]
-		\caption{\label{fig_arch} Desenho esquemático}
+		\caption{\label{fig_arch} Desenho esquemático da arquitetura do sistema}
 		\centering
-		\includegraphics[width=1\textwidth]{Arquitetura}
+		\includegraphics[width=1\textwidth]{Arquitetura.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
 	
 	\subsection{Codificador}
 	
@@ -107,6 +106,11 @@
 	\end{figure}
 	
 	Por outro lado, caso haja mais de 4 símbolos com erro, nenhuma correção será feita, portanto contabiliza-se o número de correções feitas até então. Se for identificado um erro com as síndromes e não for contada nenhuma correção no módulo de Forney, temos duas condições suficientes para afirmar que o bloco deve ser descartado e este não pode ser corrigido através do método de Reed Solomon. No exemplo anterior, o número de erros corrigidos é inferior a 5, portanto a mensagem final está correta e pode sair da camada física PHY I. Caso a mensagem seja descartada, é necessário que se envie novamente pelo transmissor.
+	
+	\subsection{\textit{Sync}}
+	
+	Módulo de sincronização do receptor. Fica 
+	
 	
 	% ---
 	\section{Hardware}
