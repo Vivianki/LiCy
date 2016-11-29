@@ -125,21 +125,38 @@
 	
 	\subsection{Codificador Convolucional}	
 	
+	O codificador convolucional foi baseado no esquema corrigido da norma em \autoref{figure:convolutional-schematics}, com seis registradores representando a janela deslizante e o \textit{exclusive OR} dos geradores polinomiais.
 	
+	Nesse módulo, existe uma grande diferença da vazão da mensagem do \textit{Interleaver} com a vazão suportada pelo Codificador Convolucional. A figura \autoref{figure:integration-encoder} mostra que o entrelaçador fornece 4 \textit{bits}/clock enquanto o convolucional apenas consome 1 \textit{bit}/clock. Essa diferença foi tratada utilizando um módulo chamado PISO (Parallel Input to Serial Output), que transforma os dados paralelos em seriais, desde que o \textit{clock} do convolucional seja mais rápido. Mais detalhes com relação a integração entre componentes do codificador na \autoref{section:execution-integration-encoder-speeds}.
+
+	Ainda existe outro módulo que insere uma cadeia de 6 \textit{bits} zeros entre o cabeçalho e a mensagem. Isso reinicia o Convolucional, garantindo que o estado inicial seja "000000", estado conhecido posterior decodificação. A implementação é simples: processa as 30 primeiras palavras e depois envia os zeros via um registrador de deslocamento.
 	
-	O convolutional encoder foi implementado a partir de seis registradores representando a janela deslizante mencionada na metodologia e xor dos valores dos geradores polinomiais.
-	Vale mencionar que existe um tratamento específico dos dados que saem do interleaver antes de entrar no convolutional encoder que consiste em dois módulos. Um módulo lida com o fato de que o interleaver tem saída de palavra por palavra, ou seja, de quatro em quatro bits e a entrada do convolutional encoder deve ser bit por bit. Ele transforma os dados de paralelos para seriais.
-	O outro módulo insere uma cadeia de 6 bits zeros entre o header e o interleaver. Garantindo que o estado inicial conhecido seja “000000” para os dados serem posteriormente decodificados. Esse módulo conta as 30 (tamanho do header) primeiras palavras recebidas. Após atingir o fim do header a entrada começa a passar por um registrador de deslocamento de 6 bits inicialmente zerado.
+	\subsubsection{\textit{Puncture}}
 	
-	Puncture:
+	Para realizar o \textit{puncture} de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois \textit{clocks} do próximo módulo e o valor de B por mais dois \textit{clocks}. Seguindo o especificado na metodologia.
 	
-	Para realizar o puncture de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois clocks do próximo módulo e o valor de B por mais dois \textit{}. Seguindo o que foi especificado na metodologia.
+	A simulação de todas operações descritas encontra-se abaixo:
+	
+	\begin{figure}[h]
+		\caption{\label{figure:convolutional-simulation}Simulação do Codificador Convolucional. Nota-se a forma que ele serializa os dados do \textit{Interleaver} em ccEncoderInput antes de utilizá-los, para gerar a saída em ccEncoderOutput.}
+		\centering
+		\includegraphics[width=1\textwidth]{convolutional/simulation.png}
+		\legend{Fonte: Autores.}
+	\end{figure}
 	
 	\subsection{Codificador Manchester}
 	
-	A arquitetura da codificação de Manchester segue o mesmo modelo explicado na Metologia. Duas entradas: \textit{clock} e mensagem, recebem a operação lógica XOR e retornam o código.
+	A arquitetura da codificação de Manchester segue o mesmo modelo explicado na Metologia. Duas entradas: \textit{clock} e mensagem, recebem a operação lógica XOR e retornam o código. A simulação do componente está abaixo:
 	
-	\subsection{Integração do Codificador}
+	\begin{figure}[h]
+		\caption{\label{figure:manchester-encoder-simulation}Simulação do Codificador Manchester.}
+		\centering
+		\includegraphics[width=0.6\textheight]{manchester/simulation-encoder.png}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	
+	\subsection{Integração do Codificador}\label{section:execution-integration-encoder-speeds}
 	
 	Com exceção da UART, o projeto teve o
 	Com intuito de evitar a utilização de \textit{buffers} entre os componentes, 
@@ -206,17 +223,41 @@
 		\includegraphics[width=0.4\textheight]{manchester/decoder-flow.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
+	A simulação do componente encontra-se abaixo na \autoref{figure:manchester-decoder-simulation}, e a arquitetura implementada no programa Altera Quartus no Apêndice na \autoref{figure:manchester-decoder-rtl}.
+
+	\begin{figure}[h]
+		\caption{\label{figure:manchester-decoder-simulation}Simulação do Decodificador Manchester.}
+		\centering
+		\includegraphics[width=0.6\textheight]{manchester/simulation-decoder.png}
+		\legend{Fonte: Autores.}
+	\end{figure}
 	
 	\subsection{Decodificador Viterbi Fangled}
 	
-	Os dados são transformados de seriais paralelos de 4 em 4 para encaixarem com a entrada do fangled viterbi decoder
-	Para decodificação dos dados fornecidos pelo codificador convolucional foi utilizado o fangled  viterbi decoder. Ele é uma versão simplificada do viterbi decoder. Utiliza menos memória, e menos processamento, é mais veloz porém tem capacidade de detecção e correção de erro muito menor. A capacidade de correção de erro é de um bit a cada quatro dado que o puncture do convolutional é de $\frac{1}{4}$.
-	Branch Metrics: A entrada é composta por AABB. Calcula-se a distância entre o primeiro A com o primeiro B e todas as possíveis combinações de bits (00, 01, 10, 11). A distância é calculada do mesmo modo para o segundo A e o segundo B recebidos. Isso foi feito a partir da operação xor entre a entrada e as combinações. As distâncias de uma mesma combinação de bits é posteriormente somada.
-	Trellis Table: Dado o estado atual, é um look up table que os dois valores possíveis de entrada pro viterbi. Uma delas é caso o bit que foi codificado fosse um e o outro caso é se ele fosse zero.
-	Path Metrics: O path metrics recebe a informação de quais as duas possíveis entradas do Trellis Table e quais as distâncias do branch metrics. Com esses dados o path metrics identifica qual o bit mais provável de ter sido codificado. Definindo, assim, qual o próximo estado e a saída do viterbi decoder. 
-	O valor do próximo estado é armazenado para ser posteriormente utilizado pelo Trellis Table.
-	Caso as distâncias a serem consideradas forem iguais, o valor da saída é escolhido como sendo zero e o próximo estado é definido de acordo com isso. Segue-se a ideia do fangled viterbi decoder que escolhe uma saída, e consequentemente o próximo estado, ao acaso. 
+	O Decodificador Viterbi tem o mesmo problema do Codificador Convolucional: as vazões de entrada e saída são diferentes. Deve-se então converter dados seriais para paralelos utilizando um módulo SIPO (Serial Input Parallel Output). Os \textit{clocks} também devem ser ajustados de acordo. Mais detalhes com relação a integração entre componentes do decodificador na \autoref{section:execution-integration-decoder-speeds}.
+	
+	Como especificado na metodologia (\autoref{section:method-viterbi}), a implementação Viterbi utilizada é simplificada e se chama \textit{Fangled}. Consome menos memória e processamento e é mais veloz, porém tem capacidade de detecção e correção de erro muito menor. O \textit{Fangled} Viterbi corrige no mínimo um \textit{bit} a cada quatro recebidos, devido à sua arquitetura de taxa $\frac{1}{4}$.
+
+	\subsubsection{\textit{Branch Metrics}}
+	A entrada é composta por AABB. Calcula-se a distância entre o primeiro A com o primeiro B e todas as possíveis combinações de bits (00, 01, 10, 11). A distância é calculada do mesmo modo para o segundo A e o segundo B recebidos. A operação feita entre os dados é XOR. As distâncias de uma mesma combinação de bits é posteriormente somada.
+	
+	\subsubsection{Tabela Trellis}
+	Dado o estado atual, é uma LUT (\textit{Look Up Table}) com dois valores possíveis de entrada para o Viterbi. Possui duas saídas para cada entrada: uma quando o \textit{bit} é um e outra quando o \textit{bit} é zero.
+	
+	\subsubsection{\textit{Path Metrics}}
+	O PM (\textit{Path Metrics}) recebe a informação de quais são as duas possíveis entradas da Tabela Trellis e quais as distâncias do \textit{Branch Metrics}. Com esses dados o PM identifica qual o bit mais provável de ter sido codificado. Definindo assim, qual o próximo estado e a saída do decodificador Viterbi. O valor do próximo estado é armazenado para ser posteriormente utilizado pela Tabela Trellis.
+	
+	Caso as distâncias consideradas forem iguais, o valor da saída é escolhido como sendo zero e o próximo estado é definido de acordo. No caso do \textit{Fangled} Viterbi, essa escolha deverá ser realizada ao acaso.
+	
+	A simulação do módulo de decodificação Viterbi \textit{Fangled} se encontra na \autoref{figure:viterbi-simulation} abaixo. A arquitetura do componente RTL encontra-se no Apêndice, na \autoref{figure:viterbi-rtl}.
+	
+	\begin{figure}[h]
+		\caption{\label{figure:viterbi-simulation}Simulação do funcionamento do Decodificador Viterbi \textit{Fangled}. Observa-se que o componente apenas conclui qual o símbolo recebido após quatro ciclos.}
+		\centering
+		\includegraphics[width=0.6\textheight]{viterbi/simulation.png}
+		\legend{Fonte: Autores.}
+	\end{figure}
 	
 	
 	\subsection{Decodificador Reed Solomon}
@@ -289,9 +330,9 @@
 		\legend{Fonte: Autores.}
 	\end{chart}
 	
-	\subsection{Integração do Decodificador}
+	\subsection{Integração do Decodificador}\label{section:execution-integration-decoder-speeds}
 	%FAZER INTEGRACAO DO DECODIFICADOR
-
+	
 	\begin{figure}[h]
 		\caption{\label{figure:integration-decoder}Relação entre vazão de \textit{bits} entre cada módulo do Decodificador.}
 		\centering
@@ -359,14 +400,14 @@
 	Devido a falta de conhecimento do comportamento de transistores e da resposta de todos os componentes a frequência de 200kHz, foram projetados vários circuitos que não satisfaziam o formato de onda desejado. Abaixo são exemplificadas algumas versões implementadas, juntamente com os motivos de terem sido abandonadas.
 	
 	\subsubsection{Filtro da Ponta de Prova}
-	\begin{figure}[htb]
+	\begin{figure}[h]
 		\caption{\label{fig_transmitter_lify_circuit_fail0}Circuito de transmissão com filtro de ponta de prova.}
 		\centering		%  trim={<left> <lower> <right> <upper>} 
 		\includegraphics[width=0.5\textwidth, trim={2cm 1cm 2cm 2cm}, clip]{circuits/transmitter_fail0.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	O primeiro problema que o projeto do transmissor encontrou foi o comportamento de subamortecimento nos terminais do LED. Ele utiliza um circuito semelhante ao utilizado em pontas de provas para filtrar ruídos e é conectado em série com a entrada do transmissor, como visto na \autoref{fig_transmitter_lify_circuit_fail0}.
-	\begin{chart}[htb]
+	\begin{chart}[h]
 		\caption{\label{fig_transmitter_lify_circuit_fail0_rl}Comportamento do circuito de transmissão com filtro de ponta de prova em série com a entrada. A onda azul é saída do gerador de funções enquanto a onda amarela é a tensão submetida ao LED. Observa-se o comportamento de subamortecimento em ambas.}
 		\centering		%  trim={<left> <lower> <right> <upper>} 
 		\includegraphics[width=0.5\textwidth, trim={30cm 0cm 2cm 40cm}, clip]{circuits/photos/TX_probe_result.jpg}
@@ -426,7 +467,7 @@
 	\subsection{Recepção Luminosa}
 	Para o recebimento luminoso, foi utilizado um circuito da "Application Notes" da \cite{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_complex_outer}, diferente do utilizado na Metodologia (\autoref{figure:transimpedance-amp-simple}). Com $V_{bias} = 2.5V$ polarizando reversamente o fotodiodo, uma resposta mais confiável era recebida pelo componente. O valor escolhido de R1 e R2 foram  1M$\Omega$ e 100k$\Omega$.
 	
-	\begin{figure}[htb]
+	\begin{figure}[h]
 		\caption{\label{fig_transimpedance_amp_complex_outer}Circuito e saída de um amplificador de impedâncias. No circuito, o fotodiodo é reversamente polarizado por $V_{bias}$. No osciloscópio, a saída está marcada em amarelo enquanto a saída do LED está em verde.}
 		\begin{subfigure}{.5\textwidth}
 			\centering
@@ -453,7 +494,7 @@
 	
 	A voltagem de referência do comparador deve ser a mesma que a voltagem $V_{ref}$ do filtro passa-baixas, provenientes do divisor resistivo. O circuito final integrado do receptor pode é analisado na \autoref{fig_receiver_lify_circuit_final}.
 
-	\begin{figure}[htb]
+	\begin{figure}[h]
 		\caption{\label{fig_receiver_lify_circuit_final}Circuito esquemático final de recepção de dados LiCy.}
 		\centering
 		\includegraphics[width=0.7\textwidth, trim={0cm 1cm 0cm 1cm}, clip]{circuits/receiver_lify_final.pdf}
@@ -462,7 +503,7 @@
 	
 	Os testes realizados foram bem sucedidos e resultaram na onda da \autoref{fig_receiver_lify_circuit_final_r1}. Nela é possível observar a medição do período da onda resultante convertida, que foi 4.88us, muito próximo de 5us, período para 200kHz.
 	
-	\begin{chart}[htb]
+	\begin{chart}[h]
 		\caption{\label{fig_receiver_lify_circuit_final_r1}Saída do transmissor em verde e saída digital convertida do receptor em amarelo. É possível observar uma defasagem de 90$\degree$ em relação às ondas.}
 		\centering
 		\includegraphics[width=0.4\textwidth, trim={36cm 30cm 60cm 40cm}, clip]{circuits/photos/TXRX_final_fixed.jpg}

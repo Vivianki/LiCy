@@ -287,7 +287,7 @@
 	
 	\subsubsection{Código Convolutional}
 	
-	O módulo de código convolucional é um código de correção de erros que converte a mensagem em símbolos de paridade. Ele se utiliza de uma janela deslizante para receber e armazenar uma parte dos dados de entrada. Alguns subgrupos de \textit{bits} dentro da janela, definidos pelos geradores polinomiais, são utilizados para gerar os \textit{bits} de paridade. A operação de \textit{exclusive or} entre os \textit{bits} de um subgrupo gera um \textit{bit} de paridade. A norma define os parâmetros do código na \autoref{tabela_params_convolutional} de acordo com a camada PHY I. 
+	O módulo de código convolucional é um código de correção de erros que converte a mensagem em símbolos de paridade. Ele se utiliza de uma janela deslizante para receber e armazenar uma parte dos dados de entrada. Alguns subgrupos de \textit{bits} dentro da janela, definidos pelos geradores polinomiais, são utilizados para gerar os \textit{bits} de paridade. A operação de \textit{exclusive or} entre os \textit{bits} de um subgrupo gera um \textit{bit} de paridade. A norma define os parâmetros do código na \autoref{table:convolutional-params} de acordo com a camada PHY I. 
 	
 	\begin{table}[ht]
 		\caption{Parâmetros do Código Convolucional da camada PHY I.}
@@ -299,27 +299,27 @@
 			R & 1/4 & taxa de \textit{bits} / paridade \\ 
 			G & $g_{0} = 133_{8}$; $g_{1} = 171_{8}$; $g_{2} = 165_{8}$ & polinômio gerador \\ \hline
 		\end{tabular}
-		\label{tabela_params_convolutional}
+		\label{table:convolutional-params}
 		\legend{Fonte: Autores.}
 	\end{table}
 
-	No documento da norma há uma figura que especifica a implementação do codificador. Estudando-a em detalhes, foram encontrados erros na figura, pois os \textit{bits} utilizados para gerar as paridades eram extraídos de geradores polinomiais errados. A \autoref{schematics_convolutional} esquematiza um codificador com os polinômios corrigidos. A cada \textit{bit} $X_{n}$ de entrada, o código convolucional gera três paridades: $A_{0}$, $B_{0}$ e $C_{0}$, por isso 1/3.
+	No documento da norma há uma figura que especifica a implementação do codificador. Estudando-a em detalhes, foram encontrados erros na figura, pois os \textit{bits} utilizados para gerar as paridades eram extraídos de geradores polinomiais errados. A \autoref{figure:convolutional-schematics} esquematiza um codificador com os polinômios corrigidos. A cada \textit{bit} $X_{n}$ de entrada, o código convolucional gera três paridades: $A_{0}$, $B_{0}$ e $C_{0}$, por isso 1/3.
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional}Esquemático do Codificador Convolucional com taxa 1/3, os quadrados representam registradores e os retângulos os somadores.}
+		\caption{\label{figure:convolutional-schematics}Esquemático do Codificador Convolucional com taxa 1/3, os quadrados representam registradores e os retângulos os somadores.}
 		\centering
 		\includegraphics[width=0.6\textheight]{convolutional/schematics.pdf}
 		\legend{Fonte: Autores}
 	\end{figure}
-	Nota-se que o codificador especificado pela norma tem taxa 1/3, e não de 1/4, como especificado na norma. Para obter uma taxa de 1/4 deve-se realizar operação de \textit{puncture} no código de taxa 1/3 para um de taxa 1/2, como mostrado na \autoref{schematics_convolutional_puncture}, e depois usando um código de repetição como na \autoref{schematics_convolutional_repetition}.
+	Nota-se que o codificador especificado pela norma tem taxa 1/3, e não de 1/4, como especificado na norma. Para obter uma taxa de 1/4 deve-se realizar operação de \textit{puncture} no código de taxa 1/3 para um de taxa 1/2, como mostrado na \autoref{figure:convolutional-puncture}, e depois usando um código de repetição como na \autoref{figure:convolutional-repetition}.
 	
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_puncture}Padrão de \textit{puncture} para obter código a taxa 1/2.}
+		\caption{\label{figure:convolutional-puncture}Padrão de \textit{puncture} para obter código a taxa 1/2.}
 		\centering
 		\includegraphics[width=0.3\textheight]{convolutional/puncture.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_repetition}Padrão de repetição utilizado para obter um código com taxa 1/4.}
+		\caption{\label{figure:convolutional-repetition}Padrão de repetição utilizado para obter um código com taxa 1/4.}
 		\centering
 		\includegraphics[width=0.3\textheight]{convolutional/repetition.pdf}
 		\legend{Fonte: Autores.}
@@ -361,15 +361,15 @@
 	
 	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de três \textit{bits} idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do \textit{clock} da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de \textit{bits} idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
 	
-	\subsubsection{Decodificação Viterbi}
+	\subsubsection{Decodificação Viterbi}\label{section:method-viterbi}
 	
 	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador Viterbi: máquinas de estado, tabela Trellis, o algoritmo de decodificação \textit{Viterbi} e sua simplificação \textit{Fangled} Viterbi.
 	
 	\paragraph{Máquina de Estados}
 	
-	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{schematics_convolutional_states}) e processa um \textit{bit} de cada vez. Para cada \textit{bit} de mensagem, há a transição do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de Mealy: X/Y, onde X representa a entrada e Y representa a saída.
+	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{figure:viterbi-states}) e processa um \textit{bit} de cada vez. Para cada \textit{bit} de mensagem, há a transição do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de Mealy: X/Y, onde X representa a entrada e Y representa a saída.
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_states}Visão de máquina de estados de um codificador convolucional.}
+		\caption{\label{figure:viterbi-states}Visão de máquina de estados de um codificador convolucional.}
 		\centering
 		\includegraphics[width=0.25\textheight]{viterbi/states.pdf}
 		\legend{Fonte: Autores.}
@@ -378,9 +378,9 @@
 	
 	\paragraph{Tabela Trellis}
 
-	Como mencionado acima, o receptor deve determinar a \textbf{melhor} sequência de estados que o transmissor passou. Essa sequência forma um caminho dentro da máquina de estados, que pode ser deduzido pelo decodificador. Trellis é a estrutura derivada da máquina de estados, ela ajuda o decodificador a escolher os melhores caminhos para recuperar a mensagem. Um exemplo de tabela Trellis é dado na \autoref{schematics_convolutional_states}.
+	Como mencionado acima, o receptor deve determinar a \textbf{melhor} sequência de estados que o transmissor passou. Essa sequência forma um caminho dentro da máquina de estados, que pode ser deduzido pelo decodificador. Trellis é a estrutura derivada da máquina de estados, ela ajuda o decodificador a escolher os melhores caminhos para recuperar a mensagem. Um exemplo de tabela Trellis é dado na \autoref{figure:viterbi-trellis}.
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_trellis}A tabela Trellis é útil para entender o processo de decodificação de uma máquina de estados.}
+		\caption{\label{figure:viterbi-trellis}A tabela Trellis é útil para entender o processo de decodificação de uma máquina de estados.}
 		\centering
 		\includegraphics[width=0.6\textheight,trim={0cm 18cm 0cm 2.5cm},clip]{viterbi/trellis.pdf}
 		\legend{Fonte: \cite{mit-convolutional}}
@@ -390,7 +390,9 @@
 	O decodificador deve identificar o melhor caminho utilizando a tabela Trellis, explicando por meio dela a sequência de paridades observadas e possivelmente corrompidas. Esse decodificador é chamado de Viterbi.
 	
 	\paragraph{Algoritmo}
-	A métrica de caminho calcula as distâncias entre a entrada e todas as possíveis entradas. Em alguns casos ela também é conhecida como distância de Hamming.
+	O algoritmo de decodificação Viterbi é composto por três componentes principais: a métrica de ramificação (BM), a métrica de caminho (PM) e o \textit{Traceback Unit}.
+	
+	A métrica de ramificação calcula as distâncias entre a entrada e todas as possíveis entradas. Em alguns casos ela também é conhecida como distância de Hamming.
 	
 	A métrica de caminho calcula todos caminhos possíveis na tabela Trellis. Esse módulo é composto por múltiplos submódulos chamados ACS (Add, Compare and Select), que representam um estado e realizam a decisão de qual será o próximo estado. Após realizar a decisão, o ACS grava o caminho até o próximo estado e a distância acumulada na memória do \textit{Traceback Unit}. Esse processo se repete à medida que cada \textit{bit} da mensagem entra no Viterbi e apenas acaba quando a mensagem termina. 
 	
