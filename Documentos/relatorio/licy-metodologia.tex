@@ -103,7 +103,7 @@
 	\end{figure}
 
 	\paragraph{Transmissão de dados} 
-	Uma das principais preocupações é manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada física (PHY) correspondente. É também primordial garantir a confiabilidade na comunicação, de modo que se possa garantir que os bits recebidos estão corretos e quando possível e necessário, corrigi-los, observando as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação). 
+	Uma das principais preocupações é manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada física (PHY) correspondente. É também primordial garantir a confiabilidade na comunicação, de modo que se possa garantir que os \textit{bits} recebidos estão corretos e quando possível e necessário, corrigi-los, observando as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação). 
 	
 	\paragraph{Modulação de luz} 
 	O requisito mais importante é garantir o funcionamento do sistema a uma distância de até 1 metro, considerando uma aplicação residencial do produto. Secundariamente, há o requisito de manter um baixo consumo de energia, que apesar de fundamental em produtos de tecnologia da informação, foge do escopo deste estudo.
@@ -139,22 +139,22 @@
 			\legend{Fonte: Autores.}
 		\end{figure}
 		
-	Para que os dados transmitidos sejam corretamente recebidos, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em burst, maior facilidade na sincronia do clock, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Esses passos estarão detalhados nas seções a seguir.
+	Para que os dados transmitidos sejam corretamente recebidos, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em burst, maior facilidade na sincronia do \textit{clock}, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Esses passos estarão detalhados nas seções a seguir.
 	
 	
 	\subsubsection{Codificação Reed Solomon}
 	
 	Com o intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon. 
 	
-	Os códigos Reed Solomon são compostos por símbolos de mais de um bit. O número de erros é considerado como sendo o total de símbolos com pelo menos um bit com erro. Isso o torna efetivo para corrigir erros em rajadas, já que uma sequência de bits errados dentro de um mesmo símbolo é considerada como apenas um erro. 
+	Os códigos Reed Solomon são compostos por símbolos de mais de um \textit{bit}. O número de erros é considerado como sendo o total de símbolos com pelo menos um \textit{bit} com erro. Isso o torna efetivo para corrigir erros em rajadas, já que uma sequência de \textit{bits} errados dentro de um mesmo símbolo é considerada como apenas um erro. 
 	
 	Os principais parâmetros de um código Reed Solomon são $(n, k)$, onde $n$ é o número de símbolos de um bloco de código e $k$ é o tamanho da mensagem em número de símbolos. Portanto, o bloco terá $n - k$ símbolos de paridade, usualmente designados como $2t$, sendo que a capacidade de correção é de até $t$ símbolos.
 	
 	\paragraph{Campos de Galois}
 	
-	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 bits, totalizando 16 elementos de 0000 a 1111. 
+	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 \textit{bits}, totalizando 16 elementos de 0000 a 1111. 
 	
-	A adição e subtração de dois campos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas bit a bit, sem que haja bits de "vai um" para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, tanto para adição como subtração.
+	A adição e subtração de dois campos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas \textit{bit} a \textit{bit}, sem que haja \textit{bits} de "vai um" para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, tanto para adição como subtração.
 	
 	Os campos de Galois são definidos com base no gerador polinomial de campos, que é um polinômio irredutível, de grau $m$. Para GF(16) existe por exemplo, esta opção:
 	\begin{equation}
@@ -234,10 +234,10 @@
 		\caption{\label{RS_encoder_logic}Circuito lógico de codificação Reed Solomon (15,7).}
 		\centering
 		\includegraphics[width=0.6\textheight]{RS_Encoder.png}
-		\legend{Fonte: }
+		\legend{Fonte: Autores.}
 	\end{figure}
 
-	É possível observar nos registradores e multiplicadores de Galois a estrutura de um polinômio e seus índices. A mensagem a que se vai adicionar redundância deve passar por "entrada", com um ciclo de clock para cada símbolo, levando portanto 7 ciclos para finalizar o cálculo das paridades para um código (15, 7). Os 8 símbolos de paridade devem então ser passados através de deslocamento de registradores, com a mudança do sinal de seleção, de maneira também a zerar a saída da porta lógica AND à direita. Sendo assim, os valores dos registradores não são afetados pelos somadores, já que as operações de multiplicação e soma de Galois estarão recebendo uma das entradas igual a 0000. Em suma, o processo de codificação leva tantos ciclos quantos forem os símbolos do bloco codificado, ou o valor denotado por $n$.
+	É possível observar nos registradores e multiplicadores de Galois a estrutura de um polinômio e seus índices. A mensagem a que se vai adicionar redundância deve passar por "entrada", com um ciclo de \textit{clock} para cada símbolo, levando portanto 7 ciclos para finalizar o cálculo das paridades para um código (15, 7). Os 8 símbolos de paridade devem então ser passados através de deslocamento de registradores, com a mudança do sinal de seleção, de maneira também a zerar a saída da porta lógica AND à direita. Sendo assim, os valores dos registradores não são afetados pelos somadores, já que as operações de multiplicação e soma de Galois estarão recebendo uma das entradas igual a 0000. Em suma, o processo de codificação leva tantos ciclos quantos forem os símbolos do bloco codificado, ou o valor denotado por $n$.
 	
 	%%\cite{nasa-rs1}
 
@@ -279,24 +279,7 @@
 	    Mensagem recuperada:                          abcdefg
 	\end{verbatim}
 	
-	A mensagem recebida foi recuperada pois os erros foram distribuídos em partes diferentes da mensagem, que foi entrelaçada. Os dados resultantes puderam ser inferidos pela redundância aplicada. A norma especifica alguns parâmetros que devem ser definidos para criar o entrelaçador:
-	
-	\begin{verbatim}
-	    n: RS codeword length
-	    k: Number of information data symbols in a RS codeword
-	    q: Number of elements in the Galois field: GF(q)
-	    L_frame: Input frame size in bytes
-	    S_frame: Number of symbols at the input of the RS encoder
-	    S: Number of symbols from the output of the shortened RS encoder
-	    S_block: The size of the interleaver used
-	    D:The interleaving depth
-	    i: Ordered indices take the values 0, 1, …, Sblock–1
-	    l(i): Interleaved indices
-	    p: Number of zero RS symbols
-	    t: Ordered indices take the values 0, 1, …, p
-	    z(t): Locations of the bits to be punctured at the output of the 
-	    interleaver before transmission 
-	\end{verbatim}
+	A mensagem recebida foi recuperada pois os erros foram distribuídos em partes diferentes da mensagem, que foi entrelaçada. Os dados resultantes puderam ser inferidos pela redundância aplicada.
 	
 	\subsubsection{Puncture}
 	
@@ -304,7 +287,7 @@
 	
 	\subsubsection{Código Convolutional}
 	
-	O módulo de código convolucional é um código de correção de erros que converte a mensagem em símbolos de paridade. Ele se utiliza de uma janela deslizante para receber e armazenar uma parte dos dados de entrada. Alguns subgrupos de bits dentro da janela, definidos pelos geradores polinomiais, são utilizados para gerar os \textit{bits} de paridade. A operação de \textit{exclusive or} entre os \textit{bits} de um subgrupo gera um \textit{bit} de paridade. A norma define os parâmetros do código na \autoref{tabela_params_convolutional} de acordo com a camada PHY I. 
+	O módulo de código convolucional é um código de correção de erros que converte a mensagem em símbolos de paridade. Ele se utiliza de uma janela deslizante para receber e armazenar uma parte dos dados de entrada. Alguns subgrupos de \textit{bits} dentro da janela, definidos pelos geradores polinomiais, são utilizados para gerar os \textit{bits} de paridade. A operação de \textit{exclusive or} entre os \textit{bits} de um subgrupo gera um \textit{bit} de paridade. A norma define os parâmetros do código na \autoref{tabela_params_convolutional} de acordo com a camada PHY I. 
 	
 	\begin{table}[ht]
 		\caption{Parâmetros do Código Convolucional da camada PHY I.}
@@ -313,7 +296,7 @@
 			\hline
 			Parâmetro & Valor & Descrição \\ \hline
 			K & 7 & comprimento da janela deslizante \\
-			R & 1/4 & taxa de bits / paridade \\ 
+			R & 1/4 & taxa de \textit{bits} / paridade \\ 
 			G & $g_{0} = 133_{8}$; $g_{1} = 171_{8}$; $g_{2} = 165_{8}$ & polinômio gerador \\ \hline
 		\end{tabular}
 		\label{tabela_params_convolutional}
@@ -342,11 +325,11 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Como a saída do codificador é serial de um \textit{bit}, observa-se que esse código cria um \textit{overhead} na velocidade da transmissão da mensagem. Os bits entram no codificador convolucional a uma taxa de t \textit{bits}/tempo e saem a uma taxa de t/4 \textit{bits}/tempo.
+	Como a saída do codificador é serial de um \textit{bit}, observa-se que esse código cria um \textit{overhead} na velocidade da transmissão da mensagem. Os \textit{bits} entram no codificador convolucional a uma taxa de t \textit{bits}/tempo e saem a uma taxa de t/4 \textit{bits}/tempo.
 	
 	\subsubsection{Codificação RLL}
 	
-	Para a primeira camada de implementação PHY I, será escolhida a codificação RLL Manchester. A codificação Manchester divide o bit do dado ao meio, de maneira que a primeira metade deve obrigatoriamente assumir um valor diferente da segunda metade. Em outras palavras, caso a entrada a ser codificada seja 0 por um tempo $2t$, a saída deve ser 01, com cada bit com tempo $t$ de transmissão como se verifica na \autoref{tabela_cod_manchester}. Analogamente, caso o bit de entrada seja 1, a saída deve ser 10.
+	Para a primeira camada de implementação PHY I, será escolhida a codificação RLL Manchester. A codificação Manchester divide o \textit{bit} do dado ao meio, de maneira que a primeira metade deve obrigatoriamente assumir um valor diferente da segunda metade. Em outras palavras, caso a entrada a ser codificada seja 0 por um tempo $2t$, a saída deve ser 01, com cada \textit{bit} com tempo $t$ de transmissão como se verifica na \autoref{tabela_cod_manchester}. Analogamente, caso o \textit{bit} de entrada seja 1, a saída deve ser 10.
 	\begin{table}[ht]
 		\caption{Codificação Manchester.}
 		\centering
@@ -374,9 +357,9 @@
 	
 	\subsubsection{Decodificação RLL}
 	
-	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de \textit{clock} cuja frequência é idêntica à do \textit{clock} de codificação. Portanto, o período do \textit{clock} deve ser o dobro do tempo de duração do bit da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que os dados efetivos são transmitidos seja a mesma.
+	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de \textit{clock} cuja frequência é idêntica à do \textit{clock} de codificação. Portanto, o período do \textit{clock} deve ser o dobro do tempo de duração do \textit{bit} da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que os dados efetivos são transmitidos seja a mesma.
 	
-	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de três bits idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do \textit{clock} da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de bits idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
+	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de três \textit{bits} idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do \textit{clock} da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de \textit{bits} idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
 	
 	\subsubsection{Decodificação Viterbi}
 	
@@ -384,7 +367,7 @@
 	
 	\paragraph{Máquina de Estados}
 	
-	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{schematics_convolutional_states}) e processa um bit de cada vez. Para cada \textit{bit} de mensagem, há a transição do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de Mealy: X/Y, onde X representa a entrada e Y representa a saída.
+	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{schematics_convolutional_states}) e processa um \textit{bit} de cada vez. Para cada \textit{bit} de mensagem, há a transição do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de Mealy: X/Y, onde X representa a entrada e Y representa a saída.
 	\begin{figure}[htb]
 		\caption{\label{schematics_convolutional_states}Visão de máquina de estados de um codificador convolucional.}
 		\centering
@@ -433,7 +416,7 @@
 	R(x) = C(x) + E(x)
 	\end{equation}
 	
-	Caso a mensagem recebida não tenha erros, teremos $E(x)$ formado por 15 símbolos de 0000 no caso de Reed Solomon (15, 7). Se pelo menos um símbolo de $E(x)$ possuir pelo menos um bit diferente de 0, configura-se um erro, e o cálculo das síndromes deverá apontá-lo. Caso o número de símbolos com erro exceda $t$, ou 4 símbolos para um código (15, 7), o erro será identificado nas síndromes, porém não será possível corrigi-lo posteriormente.
+	Caso a mensagem recebida não tenha erros, teremos $E(x)$ formado por 15 símbolos de 0000 no caso de Reed Solomon (15, 7). Se pelo menos um símbolo de $E(x)$ possuir pelo menos um \textit{bit} diferente de 0, configura-se um erro, e o cálculo das síndromes deverá apontá-lo. Caso o número de símbolos com erro exceda $t$, ou 4 símbolos para um código (15, 7), o erro será identificado nas síndromes, porém não será possível corrigi-lo posteriormente.
 	
 	No caso de Reed Solomon, as síndromes podem se definir da seguinte maneira:
 	
@@ -590,7 +573,7 @@
 	
 	O preâmbulo começa com um FLP com pelo menos 64 zeros e uns alternados. O FLP é fixado para iniciar com um padrão  \textbf{"1010..."} i.e., termina com um '0'. A sequência de transição máxima é usada para travar o circuito de recuperação de \textit{clock} e dados (CDR).
 	
-	O comprimento do padrão de travamento rápido não pode exceder o máximo de 16384 bits. Após o FLP, quatro repetições de TDP devem ser enviados. O TDP deve conter 15 \textit{bits} de comprimento e deve ser invertido a cada repetição para providenciar \textit{DC balance}. O diagrama da estrutura do SHR está na \autoref{figure:SHR-frame}.
+	O comprimento do padrão de travamento rápido não pode exceder o máximo de 16384 \textit{bits}. Após o FLP, quatro repetições de TDP devem ser enviados. O TDP deve conter 15 \textit{bits} de comprimento e deve ser invertido a cada repetição para providenciar \textit{DC balance}. O diagrama da estrutura do SHR está na \autoref{figure:SHR-frame}.
 	
 	\begin{figure}[h]
 		\caption{\label{figure:SHR-frame}Estrutura do SHR - Cabeçalho da Camada Física.}
@@ -751,7 +734,7 @@
 	\subsubsection{LED}\label{method-hardware-led}
 	% ---
 
-	De acordo com a \autoref{tab_phy1}, é necessário suportar uma frequência de oscilação luminosa mínima de 200kHz. Para não tornar o LED limitante, seria interessante se ele também suportasse a frequência de transmissão de 20MHz, que é a frequência para PHY II. Além disso, ele deve realizar a transmissão de luz a distâncias de pelo menos um metro.
+	De acordo com a \autoref{tab_phy1}, é necessário suportar uma frequência de oscilação luminosa mínima de 200kHz. Para não tornar o LED limitante, seria interessante se ele também suportasse a frequência de transmissão de 120MHz, que é a frequência para PHY II. Além disso, ele deve realizar a transmissão de luz a distâncias de pelo menos um metro.
 	
 	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional à luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza - como, por exemplo, a possibilidade do LED atrasar em relação a excitações em seus terminais. O circuito polarizador de um LED de alta potência pode ser simples, apenas ligando-o a um resistor de alta potência chamado de resistor limitador de corrente, como na \autoref{figure:led-circuit}.
 	
