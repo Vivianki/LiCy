@@ -6,6 +6,7 @@
 	\chapter{Execução}\label{cap-execucao}
 	
 	\section{Arquitetura}
+	Esta sessão visa apresentar a arquitetura dos sistemas digitais desenvolvidos durante o projeto. Conforme o embasamento teórico apresentado no capítulo de Metodologia, todos os circuitos apresentados a seguir servem a um mesmo objetivo: enviar uma mensagem pela camada física por um dos nós da comunicação e recebê-la integralmente através do outro nó. Separamos, portanto, na \autoref{fig_arch} a Transmissão na metade superior, e Recepção na inferior.
 	
 	\begin{figure}[htb]
 		\caption{\label{fig_arch}Desenho esquemático da arquitetura do sistema.}
@@ -14,17 +15,20 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
+	A seguir, explicam-se os componentes indicados dentro de Encoder e Decoder, que em conjunto sintetizam todos os circuitos digitais do estudo. Explicitar-se-ão as decisões mais importantes de projeto e a forma pela qual se integraram e se testaram os dois módulos.
+
+	
 	\subsection{Codificador Reed Solomon}
 	
 	Conforme apontado no capítulo de Metodologia, a arquitetura do codificador Reed Solomon foi construída para um código (15, 7), portanto contando com 8 registradores em série. Os multiplicadores foram feitos com uma tabela,  que recebe duas entradas e retorna uma saída, de maneira a simplificar o trabalho de fazer uma função utilizando lógica combinatória. Já os somadores são equivalentes à função de OU exclusivo, ou XOR, com duas entradas e uma saída de 4 bits cada - ou seja, um símbolo. Além destes, os módulos básicos ainda compreendem um multiplexador, que seleciona um entre dois símbolos. A arquitetura desenvolvida pode ser observada na \autoref{RS_encoder_logic}.
 	
 	O comportamento de codificação de uma mensagem pode ser exemplificado pela \autoref{simula_rs_encoder}, onde se observa a entrada de uma mensagem de 7 símbolos e a saída de um bloco de 15 símbolos, sendo 8 de paridade.
 	
-	\begin{figure}[htb]
+	\begin{figure}[h]
 		\caption{\label{simula_rs_encoder}Simulação de codificação do codificador Reed Solomon.}
 		\centering
-		\includegraphics[width=1\textwidth]{RS/Sim_encoder}
-		\legend{Fonte: Autores.}
+		\includegraphics[width=1.0\textwidth, trim={0 0 5cm 0}]{RS/Sim_encoder}
+		\legend{}
 	\end{figure}
 	
 	\subsection{\textit{Interleaver}}
@@ -95,6 +99,9 @@
 	
 	\subsection{Codificador Manchester}
 	
+	A arquitetura da codificação de Manchester segue o mesmo modelo explicado na Metologia. Duas entradas: clock e mensagem, recebem a operação lógica XOR e retornam o código.
+	
+	
 	\subsection{\textit{Sync}}
 	
 	Para sincronizar o clock do transmissor e do receptor para que os dados sejam recebidos de modo correto foi considerado inicialmente utilizar-se o PLL Phase-Locked Loop. Porém para implementação do PHY I especificado pela norma a frequência de transmissão de dados tem ordem de grandeza menor do que o mínimo que o PLL aceita. 
@@ -106,9 +113,9 @@
 	
 	\subsection{Decodificador Manchester}
 	
-	De acordo com a \autoref{tabela_cod_manchester}, 
+	O decodificador funciona, conforme explicado anteriormente, de acordo com a \autoref{tabela_cod_manchester}.
 	
-		O manchester decoder é inicializado quando o TDP~TDPTDP~TDP é identificado. Ele foi desenvolvido com uma máquina de estados que inicia no estado s0. Essa máquina de estados funciona de modo que quando existe uma transição de 0 para 1 a saída é um bit 0 e quando a transição é de 1 para 0 a saída é um bit 1 para 0. Isso é demonstrado na figura abaixo. 
+	Neste projeto, o decodificador de Manchester é inicializado quando o TDP~TDPTDP~TDP é identificado. Seu circuito foi desenvolvido com uma máquina de estados que tem estado inicial S0. Essa máquina funciona de modo que quando existe uma transição de 0 para 1, a saída é um bit 0 e quando a transição é de 1 para 0, a saída é um bit 1 para 0. Isso é demonstrado na figura \autoref{figure:manchester-decoder-flow}. 
 		
 	\begin{figure}[h]
 		\caption{\label{figure:manchester-decoder-flow}Visão de máquina de estados do decodificador Manchester.}
@@ -135,14 +142,7 @@
 	
 	\subsubsection{Cálculo das Síndromes}
 	
-	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso. O arranjo dos componentes pode se exemplificar através da arquitetura do módulo, representada a seguir.
-	
-	\begin{figure}[!htb]
-		\caption{\label{fig_sindrome_arq}Arquitetura do módulo de cálculo das síndromes.}
-		\centering
-		\includegraphics[width=1\textwidth]{RS/SindromeRTL.pdf}
-		\legend{}
-	\end{figure}
+	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso. O arranjo dos componentes pode se exemplificar através da arquitetura do módulo, representada na \autoref{fig_sindrome_arq} nos Anexos.
 
 	Os elementos indicados por "static" são constantes, guardando os valores dos símbolos de cada umas raízes citadas. Estes valores são enviados para multiplicadores de GF(16), representados por "gfmult". Como pode-se observar, o cálculo é iterativo e portanto os multiplicadores recebem também o valor dos registradores que são representados por "register4b". Os somadores de Campos de Galois são representados por "gfsum".
 	
@@ -150,8 +150,8 @@
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_sindrome_sim}Simulação do cálculo das síndromes.}
-		\centering
-		\includegraphics[width=1\textwidth]{RS/Sim_sindrome.PNG}
+		\centering %%trim={<left> <lower> <right> <upper>}
+		\includegraphics[width=1\textwidth, trim = {0 0 15cm 0}]{RS/Sim_sindrome.PNG}
 		\legend{}
 	\end{figure}
 
@@ -159,19 +159,12 @@
 	
 	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados então, com as síndromes e localizações de erro.
 	
-	\begin{figure}[!htb]
-		\caption{\label{fig_berlekamp_arq}Arquitetura do módulo de Berlekamp-Massey.}
-		\centering
-		\includegraphics[width=1\textwidth]{RS/BerlekampRTL.pdf}
-		\legend{}
-	\end{figure}
-	
 	As síndromes são enviadas sequencialmente para o módulo de Berlekamp-Massey a cada ciclo de clock. A atualização do polinômio localizador, representado pela seção X do diagrama, ocorre quando ele não possibilitar gerar uma síndrome específica. Nesse caso, são feitos os cálculos no módulo inversor, com a atualização do polinômio no próximo ciclo. Esse processo é exemplificado pela \autoref{fig_berlekamp_sim}.
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_berlekamp_sim}Simulação do módulo de Berlekamp-Massey.}
 		\centering
-		\includegraphics[width=1\textwidth]{RS/Sim_berlekamp.PNG}
+		\includegraphics[width=1\textwidth, trim = {0 0 14cm 0}]{RS/Sim_berlekamp.PNG}
 		\legend{}
 	\end{figure}
 	
@@ -183,26 +176,12 @@
 	
 	O módulo de busca de Chien é na verdade composto por dois módulos: busca de localização e de valores dos erros. Ambos trabalham paralelamente e têm como entrada os coeficientes $\Lambda$ e $\Omega$. 
 	
-	\begin{figure}[!htb]
-		\caption{\label{fig_chienloc_arq}Arquitetura do módulo de busca de Chien: localização de erros.}
-		\centering
-		\includegraphics[width=1\textwidth]{RS/ChienLocationRTL.pdf}
-		\legend{}
-	\end{figure}
-
-	\begin{figure}[!htb]
-		\caption{\label{fig_chienval_arq}Arquitetura do módulo de busca de Chien: valores de erros.}
-		\centering
-		\includegraphics[width=1\textwidth]{RS/ChienValueRTL.pdf}
-		\legend{}
-	\end{figure}
-	
 	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. É possível neste circuito observar esse processo com a identificação de síndromes diferentes de zero, com o sinal "errorsyndrome" na \autoref{fig_forney_sim}. Considerando que o sinal está na posição alta, significa que pelo menos um bit de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida. 
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_forney_sim}Simulação do módulo de Forney.}
-		\centering
-		\includegraphics[width=1\textwidth]{RS/Sim_forney.PNG}
+		\centering%%trim={<left> <lower> <right> <upper>}
+		\includegraphics[width=1\textwidth, trim={0 0 15cm 0}]{RS/Sim_forney.PNG}
 		\legend{}
 	\end{figure}
 	
@@ -211,9 +190,9 @@
 
 	
 	% ---
-	\section{Hardware}
+	\section{Hardware analógico}
 	% ---
-	A seção abaixo discorrerá sobre a aplicação dos métodos estudados nos capítulos anteriores para Hardware.
+	A seção abaixo discorrerá sobre a aplicação dos métodos estudados nos capítulos anteriores para Hardware analógico.
 	Antes de iniciar a execução do trabalho, foram estabelecidas algumas decisões de projeto:
 	
 	* formato de lista *
@@ -410,6 +389,15 @@
 	Transmitter Timing and control
 
 	\section{Integração}
+	
+	\subsection{Etapas da Integração}
+	O processo de integração seguiu o seguinte método: primeiro testaram-se unitariamente todos os componentes digitais. Uma vez concluídos os testes unitários feitos por meio de testbenches do Quartus, existiram duas frentes de integração: codificação e decodificação. Ambas são análogas, com exceção da presença do circuito de sincronização do módulo decodificador. É importante relatar que alguns subcomponentes foram testados unitariamente na própria FPGA, a fim de garantir que não houvesse comportamentos não previstos quando da integração. 
+	
+	O próximo passo da integração foi gravar o decodificador e o codificador na FPGA e testá-los separadamente. Neste caso, utilizou-se a ferramenta Signal Tap, onde se conecta a memória gravada a uma interface USB, controlam-se sinais de entrada e se observam as saídas. Uma vez que os testes foram satisfatórios, a integração de hardware digital pôde se concluir. Nesta última etapa, foram primeiro integrados codificador e decodificador dentro do próprio Quartus. Por fim, o circuito integrado foi gravado na FPGA, para mais testes, que antecederam os testes digitais finais, onde o transmissor e o receptor operaram cada um numa memória diferente, com clocks diferentes e um cabo como interface.
+	
+	Uma vez que se obteve os dois circuitos digitais principais operantes, cada um foi integrado com seu respectivo hardware analógico. Antes disso, o receptor e o transmissor analógico já haviam sido testados, com auxílio de uma fonte de sinais digitais na entrada do transmissor e um osciloscópio na saída do receptor.
+	
+	\subsection{Decisões tomadas na Integração}
 	
 	\section{Resultados}
 	
