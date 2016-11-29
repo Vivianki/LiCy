@@ -1,1 +1,11 @@
-\contentsline {chart}{\numberline {1}{\ignorespaces Crescimento do tr\IeC {\'a}fego IP do ano 2014 ao 2019\relax }}{25}{chart.1}
+\contentsline {chart}{\numberline {1}{\ignorespaces Crescimento do tr\IeC {\'a}fego IP do ano 2014 ao 2019\relax }}{23}{chart.1}
+\contentsline {chart}{\numberline {2}{\ignorespaces Curva caracter\IeC {\'\i }stica de um MOSFET, com indica\IeC {\c c}\IeC {\~o}es das regi\IeC {\~o}es de satura\IeC {\c c}\IeC {\~a}o, corte e triodo.\relax }}{52}{chart.2}
+\contentsline {chart}{\numberline {3}{\ignorespaces Zona de opera\IeC {\c c}\IeC {\~a}o do diodo.\relax }}{55}{chart.3}
+\contentsline {chart}{\numberline {4}{\ignorespaces Sa\IeC {\'\i }da esperada do Amplificador de Transimped\IeC {\^a}ncia, com amplitude de $i_{D} \cdot R_{F}$, com componente $V_{DC} = L$ vari\IeC {\'a}vel.\relax }}{57}{chart.4}
+\contentsline {chart}{\numberline {5}{\ignorespaces Gr\IeC {\'a}fico com adi\IeC {\c c}\IeC {\~a}o de componente DC $V_{DC} = V_{ref}$ fixa e filtro passa-altas modificado.\relax }}{60}{chart.5}
+\contentsline {chart}{\numberline {6}{\ignorespaces Sa\IeC {\'\i }da esperada ap\IeC {\'o}s a etapa de compara\IeC {\c c}\IeC {\~a}o em verde.\relax }}{61}{chart.6}
+\contentsline {chart}{\numberline {7}{\ignorespaces \textit {Oversampling} com \textit {baud clock}.\relax }}{77}{chart.7}
+\contentsline {chart}{\numberline {8}{\ignorespaces Caracter\IeC {\'\i }sticas de transfer\IeC {\^e}ncia do MOSFET de pot\IeC {\^e}ncia IRLZ14.\relax }}{78}{chart.8}
+\contentsline {chart}{\numberline {9}{\ignorespaces Comportamento do circuito de transmiss\IeC {\~a}o com filtro de ponta de prova em s\IeC {\'e}rie com a entrada. A onda azul \IeC {\'e} sa\IeC {\'\i }da do gerador de fun\IeC {\c c}\IeC {\~o}es enquanto a onda amarela \IeC {\'e} a tens\IeC {\~a}o submetida ao LED. Observa-se o comportamento de subamortecimento em ambas.\relax }}{79}{chart.9}
+\contentsline {chart}{\numberline {10}{\ignorespaces Opera\IeC {\c c}\IeC {\~a}o de circuito transmissor sem ponta de prova. A onda amarela representa voltagem no LED sem filtro de ponta de prova em frequ\IeC {\^e}ncias mais altas. O gerador de fun\IeC {\c c}\IeC {\~o}es \IeC {\'e} medido e gera a forma de onda verde.\relax }}{81}{chart.10}
+\contentsline {chart}{\numberline {11}{\ignorespaces Sa\IeC {\'\i }da do transmissor em verde e sa\IeC {\'\i }da digital convertida do receptor em amarelo. \IeC {\'E} poss\IeC {\'\i }vel observar uma defasagem de 90$\ensuremath {^\circ }$ em rela\IeC {\c c}\IeC {\~a}o \IeC {\`a}s ondas.\relax }}{84}{chart.11}

@@ -119,19 +119,12 @@
 	\end{figure}
 
 	A norma 802.15.7 estabelece um padrão para comunicação via luz, abarcando definição de topologias de rede, codificação da informação, divisão das camadas da arquitetura do sistema de comunicação, ordem e conteúdo de cabeçalhos para cada camada e definições sobre a segurança do \textit{link}. A arquitetura de um sistema LiFi completo está definida na \autoref{fig_architecture}. 
-	O trabalho focará no estudo e implementação da camada PHY. Os modos de operação das subcamada PHY I e PHY II são listados nas tabelas \ref{tab_phy1} e \ref{tab_phy2}.
+	O trabalho focará no estudo e implementação da camada PHY. Os modos de operação da subcamada PHY I estão listado na \autoref{tab_phy1}.
 	
 	\begin{table}[h!]
 		\caption{\label{tab_phy1}Modos de operação da camada PHY I de Li-Fi.}
 		\centering
 		\includegraphics[clip, trim=37mm 151mm 36mm 51mm,  width=0.7\textwidth]{pag213.pdf}
-		\legend{Fonte: IEEE 802.15.7}
-	\end{table}
-
-	\begin{table}[h!]
-		\caption{\label{tab_phy2}Modos de operação da camada PHY II de Li-Fi.}
-		\centering
-		\includegraphics[clip, trim=46.55mm 36.79mm 46.74mm 142.30mm,  width=0.7\textwidth]{pag213.pdf}
 		\legend{Fonte: IEEE 802.15.7}
 	\end{table}
 
@@ -331,7 +324,7 @@
 	\begin{figure}[htb]
 		\caption{\label{schematics_convolutional}Esquemático do Codificador Convolucional com taxa 1/3, os quadrados representam registradores e os retângulos os somadores.}
 		\centering
-		\includegraphics[width=0.6\textheight]{schematics/convolutional.pdf}
+		\includegraphics[width=0.6\textheight]{convolutional/schematics.pdf}
 		\legend{Fonte: Autores}
 	\end{figure}
 	Nota-se que o codificador especificado pela norma tem taxa 1/3, e não de 1/4, como especificado na norma. Para obter uma taxa de 1/4 deve-se realizar operação de \textit{puncture} no código de taxa 1/3 para um de taxa 1/2, como mostrado na \autoref{schematics_convolutional_puncture}, e depois usando um código de repetição como na \autoref{schematics_convolutional_repetition}.
@@ -339,13 +332,13 @@
 	\begin{figure}[htb]
 		\caption{\label{schematics_convolutional_puncture}Padrão de \textit{puncture} para obter código a taxa 1/2.}
 		\centering
-		\includegraphics[width=0.3\textheight]{schematics/convolutional_puncture.pdf}
+		\includegraphics[width=0.3\textheight]{convolutional/puncture.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	\begin{figure}[htb]
 		\caption{\label{schematics_convolutional_repetition}Padrão de repetição utilizado para obter um código com taxa 1/4.}
 		\centering
-		\includegraphics[width=0.3\textheight]{schematics/convolutional_repetition.pdf}
+		\includegraphics[width=0.3\textheight]{convolutional/repetition.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
@@ -366,7 +359,7 @@
 		\label{tabela_cod_manchester}
 		\legend{Fonte: Tabela 103 da norma 802.15.7}
 	\end{table}
-	Uma maneira prática de se obter um codificador Manchester é através da aplicação da operação de OU exlcusivo, ou XOR em dois sinais de entrada. Um destes sinais é a própria mensagem a ser codificada, o outro sinal deve ser um clock com o dobro da frequência da mensagem. É importante observar que para essa codificação ser eficiente, os dois sinais devem estar sincronizados, de maneira que um período de clock seja exatamente equivalente à duração do bit da mensagem de entrada.	
+	Uma maneira prática de se obter um codificador Manchester é através da aplicação da operação de OU exclusivo, ou XOR em dois sinais de entrada. Um destes sinais é a própria mensagem a ser codificada, o outro sinal deve ser um \textit{clock} com o dobro da frequência da mensagem. É importante observar que para essa codificação ser eficiente, os dois sinais devem estar sincronizados, de maneira que um período de \textit{clock} seja exatamente equivalente à duração do bit da mensagem de entrada.	
 	
 	\subsection{Recepção}\label{section_norma_recepcao}
 	
@@ -381,9 +374,9 @@
 	
 	\subsubsection{Decodificação RLL}
 	
-	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de clock cuja frequência é idêntica à do clock de codificação. Portanto, o período do clock deve ser o dobro do tempo de duração do bit da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que os dados efetivos são transmitidos seja a mesma.
+	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de \textit{clock} cuja frequência é idêntica à do \textit{clock} de codificação. Portanto, o período do \textit{clock} deve ser o dobro do tempo de duração do bit da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que os dados efetivos são transmitidos seja a mesma.
 	
-	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de dois bits idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do clock da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de bits idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
+	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de três bits idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do \textit{clock} da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de bits idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
 	
 	\subsubsection{Decodificação Viterbi}
 	
@@ -395,7 +388,7 @@
 	\begin{figure}[htb]
 		\caption{\label{schematics_convolutional_states}Visão de máquina de estados de um codificador convolucional.}
 		\centering
-		\includegraphics[width=0.4\textheight]{schematics/convolutional_states.pdf}
+		\includegraphics[width=0.25\textheight]{viterbi/states.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	O receptor, é claro, não tem conhecimento direto das transições do transmissor. Ele só pode ver a sequência de paridades recebidas, possivelmente corrompidas. Sua tarefa é determinar a \textbf{melhor} sequência possível de estados transmitidos que podem ter gerado a sequência de paridades. Essa tarefa é chamada de decodificação, que será discorrida a seguir.
@@ -406,7 +399,7 @@
 	\begin{figure}[htb]
 		\caption{\label{schematics_convolutional_trellis}A tabela Trellis é útil para entender o processo de decodificação de uma máquina de estados.}
 		\centering
-		\includegraphics[width=0.6\textheight,trim={0cm 18cm 0cm 2.5cm},clip]{schematics/convolutional_trellis.pdf}
+		\includegraphics[width=0.6\textheight,trim={0cm 18cm 0cm 2.5cm},clip]{viterbi/trellis.pdf}
 		\legend{Fonte: \cite{mit-convolutional}}
 	\end{figure}
 	Nessa figura, cada coluna tem um grupo de estados; cada estado é conectado a dois estados na próxima coluna; cada seta indica qual saída e próximo estado para cada entrada. A figura mostra o caminho percorrido pelo transmissor com a mensagem 101100. 
@@ -708,13 +701,13 @@
 
 	A \autoref{figure:carac-mosfet} caracteriza a resposta $i_{D}$ do transistor tipo FET de acordo com a tensão $V_{GS}$ fornecida, indicando as regiões operação do componente. As regiões de interesse para o chaveamento do LED são as de saturação e corte, e serão detalhadas abaixo.
 			
-	\begin{figure}[h]
+	\begin{chart}[h]
 		\caption{\label{figure:carac-mosfet}Curva característica de um MOSFET, com indicações das regiões de saturação, corte e triodo.}
 		\centering
 		%  trim={<left> <lower> <right> <upper>} 
 		\includegraphics[page=8,width=0.4\textwidth, trim={16.5cm 9.89cm 3.6cm 3cm},clip]{circuits/Electronics_Ch5.pdf}
 		\legend{Fonte: \cite{microelectronics-circuits}}
-	\end{figure}
+	\end{chart}
 
 	\subparagraph{Região de Corte.}
 	Na região de corte o transistor se comporta como uma chave aberta. Esse comportamento é visto em todos transistores FET em que se aplica uma tensão $V_{GS} \leq V_{t}$, onde $V_{t}$ indica a tensão de limiar  característica de cada componente. A \autoref{figure:mosfet-cutoff} mostra um circuito com comportamento equivalente.
@@ -758,14 +751,7 @@
 	\subsubsection{LED}\label{method-hardware-led}
 	% ---
 
-	De acordo com a \autoref{tab_phy1} e a \autoref{tab_phy2}, para cada camada física implementada é necessário suportar uma frequência de oscilação luminosa mínima:
-	
-	\begin{itemize}
-		\item PHY I: 400kHz
-		\item PHY II: 120MHz
-	\end{itemize} 
-	
-	O LED para a transmissão deverá então suportar essas frequências de acordo com a implementação de cada camada. Além disso, também deve realizar a transmissão de luz a distâncias de pelo menos um metro.
+	De acordo com a \autoref{tab_phy1}, é necessário suportar uma frequência de oscilação luminosa mínima de 200kHz. Para não tornar o LED limitante, seria interessante se ele também suportasse a frequência de transmissão de 20MHz, que é a frequência para PHY II. Além disso, ele deve realizar a transmissão de luz a distâncias de pelo menos um metro.
 	
 	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional à luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza - como, por exemplo, a possibilidade do LED atrasar em relação a excitações em seus terminais. O circuito polarizador de um LED de alta potência pode ser simples, apenas ligando-o a um resistor de alta potência chamado de resistor limitador de corrente, como na \autoref{figure:led-circuit}.
 	
@@ -794,12 +780,12 @@
 	
 	Ainda existe outra opção para não gerar a componente capacitiva ativa no circuito: oscilar a voltagem de entrada apenas dentro da região de saturação do LED. Essa modificação consiste em aplicar uma componente contínua $V_{DC}$ no LED e uma alternada $V_{AC}$ pequena com a portadora do sinal gerado pela FPGA. Isso é muito utilizado em circuitos de fibra ótica, utilizando um componente chamado \textit{Bias-Tee}.
 	
-	\begin{figure}[htb]
+	\begin{chart}[htb]
 		\caption{\label{figure:diode-carac}Zona de operação do diodo.}
 		\centering
 		\includegraphics[page=5,width=0.6\textwidth, trim={16cm 2.5cm 2cm 12.5cm}, clip]{circuits/Electronics_Ch3.pdf}
 		\legend{Fonte: \cite{microelectronics-circuits}}
-	\end{figure}
+	\end{chart}
 	
 	No gráfico da \autoref{figure:diode-carac} é possível observar a curva de operação do diodo crescente. Ao submetê-lo a uma tensão, há resposta em $I_{D}$, que no caso do LED corresponde a intensidade luminosa. Cada diodo (ou LED) tem sua curva, e será necessário projetar o circuito levando esses parâmetros em consideração.
 	
@@ -859,7 +845,7 @@
 	
 	Como $I_{fotodiodo}$ é da ordem de pA, $R_{F}$ deve ser grande (M$\Omega$) para tornar a voltagem compatível com níveis TTL. Nota-se que $V_{out}$ é negativo pois o amplificador se encontra na configuração inversora. A \autoref{plot:post-tia} ilustra o comportamento da saída do Amplificador de Transimpedância.
 	
-	\begin{figure}[h!]
+	\begin{chart}[h!]
 		\caption{\label{plot:post-tia}Saída esperada do Amplificador de Transimpedância, com amplitude de $i_{D} \cdot R_{F}$, com componente $V_{DC} = L$ variável.}
 		\centering
 		\begin{tikzpicture}
@@ -882,7 +868,7 @@
 		\end{axis}
 		\end{tikzpicture}
 		\legend{Fonte: Autores.}
-	\end{figure}
+	\end{chart}
 	
 	Após esse estágio de recepção, obtém-se uma onda com componente $V_{DC} = L$. Esse componente é variável e depende de alterações na intensidade de luz, variações na distância do transmissor com receptor, entre outros fatores. A amplitude da onda depende da corrente  $i_{D}$ do fotodiodo e da resistência de feedback $R_{F}$ do circuito amplificador. 
 	
@@ -1006,7 +992,7 @@
 	\end{equation}
 	Portanto, o componente não conseguirá realizar a comparação corretamente. Para resolver esse problema pode-se adicionar um acoplamento $V_{DC} = V_{ref}$ fixo, que também será utilizado na entrada de referência do comparador. E etapa de filtro pode ser realizada juntamente com a adição de $V_{ref}$, utilizando um circuito levemente modificado.
 	
-	\begin{figure}[h]
+	\begin{chart}[h]
 		\caption{\label{plot-post-bias1v}Gráfico com adição de componente DC $V_{DC} = V_{ref}$ fixa e filtro passa-altas modificado.}
 		\begin{subfigure}{.5\textwidth}
 			\centering
@@ -1035,11 +1021,11 @@
 			\includegraphics[width=1\textwidth, trim={3cm 0cm 3cm 3cm},clip]{circuits/highpass_filter_bias.pdf}
 		\end{subfigure}
 		\legend{Fonte: Autores.}
-	\end{figure}
+	\end{chart}
 
 	A figura \autoref{plot-post-bias1v} ilustra a onda modificada, com voltagem de referência fixa agora. Após todas essas etapas, é possível realizar de fato a etapa de comparação. Idealmente a onda ficaria similar à \autoref{plot-post-comparator}.
 	
-	\begin{figure}[h]
+	\begin{chart}[h]
 		\caption{\label{plot-post-comparator}Saída esperada após a etapa de comparação em verde.}
 		\centering
 		\begin{tikzpicture}
@@ -1069,7 +1055,7 @@
 		\end{axis}
 		\end{tikzpicture}
 		\legend{Fonte: Autores.}
-	\end{figure}
+	\end{chart}
 		
 	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Caso a saída não esteja adequada, é possível que seja necessário realizar mais um estágio de amplificação e filtração após o filtro passa-altas.
 	

@@ -97,7 +97,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Light Cyber: Um estudo sobre a implementação de Light Fidelity utilizando a norma 802.15.7}
+\titulo{\textit{Light Cyber}: Um estudo sobre a implementação de \textit{Light Fidelity} utilizando a norma IEEE 802.15.7}
 \autor{Gabriel Takaoka Nishimura\\ Felippe Demarqui Ramos\\ Vivian Kimie Isuyama}
 \local{São Paulo}
 \data{2016}
@@ -105,8 +105,8 @@
 			Escola Politécnica \par	
 			Engenharia Elétrica com ênfase em Computação}
 \tipotrabalho{Trabalho de Conclusão de Curso}
-\preambulo{Trabalho de Formatura apresentado ao Departamento de Engenharia de Computação e Sistemas
-	Digitais da Escola Politécnica da Universidade de São Paulo para obtenção do Diploma de Engenheiro}
+\preambulo{Trabalho de Conclusão de Curso apresentado ao Departamento de Engenharia de Computação e Sistemas
+	Digitais da Escola Politécnica da Universidade de São Paulo para obtenção do título de Bacharel de Engenharia}
 % ---
 
 % ---
@@ -245,39 +245,41 @@
 	% inserir lista de abreviaturas e siglas
 	% ---
 	\begin{siglas}
+		\item[AC] Corrente Alternada (do inglês Alternating Current)
+		\item[ACS] Adicionar, Comparar e Selecionar (do inglês Add, Compare and Select)
 		\item[ADC] Conversor Digital Analógico (do inglês Analog Digital Converter)
+		\item[DC] Corrente Contínua (do inglês Direct Current)
 		\item[EAP] Estrutura Analítica de Projeto
+		\item[FET] Transistor de Efeito de Campo (do inglês Field Effect Transistor)
+		\item[FLP] Padrão de Rápido Travamento (do inglês Fast Locking Pattern)
 		\item[FPGA] Arranjo de Portas Programável em Campo (do inglês Field Programable Gate Array)
 		\item[GF] Campos de Galois (do inglês Galois Field)
-		\item[LED] Diodo Emissor de Luz (do inglês Light Emitting Diode)
-		\item[MAC] Media Access Control
-		\item[RS] Reed Solomon
-		\item[USB] Universal Serial Bus
-		\item[UART] Universal Asynchronous Receiver/Transmitter
-		\item[FET] Field Effect Transistor
-		\item[FLP] Fast Locking Pattern
-		\item[IEEE] Instituto dos Engenheiros Elétricos e Eletrônicos (do inglês Institute of Electrical and Electronics Engineers)
-		\item[HDL] Linguagem de Descrição de Hardware (do inglês Hardware Description Language)
-		\item[VHDL] Linguagem Verilog de Descrição de Hardware (do inglês Verilog Hardware Description Language)
-		\item[TDP] Topology Dependant Pattern
-		\item[PHR] Cabeçalho do PHY (do inglês PHY Header)
-		\item[SHR] Synchronization Header
-		\item[PSDU] PHY Service Data Unit
-		\item[MOSFET] Metal Oxide Semiconductor Field Effect Transistor
-		\item[MCS] Modulation and Coding Scheme
-		\item[RLL] Run Length Limited
-		\item[OOK] On-off Keying
-		\item[DC] Corrente Contínua (do inglês Direct Current)
-		\item[VCC] Voltagem no Coletor Comum
-		\item[GPIO] Pinos de Entrada e Saída de Propósito Geral (do inglês General Purpose Input/Output)
 		\item[GND] Terra (do inglês Ground)
-		\item[AC] Corrente Alternada (do inglês Alternating Current)
-		\item[TTL] Lógica de Transistor-Transistor (do inglês Transistor-Transistor Logic)
-		\item[VPAN] Visible-Light Communication Personal Area Network
-		\item[TCP] Transmission Control Protocol
+		\item[GPIO] Pinos de Entrada e Saída de Propósito Geral (do inglês General Purpose Input/Output)
+		\item[HDL] Linguagem de Descrição de Hardware (do inglês Hardware Description Language)
+		\item[IEEE] Instituto dos Engenheiros Elétricos e Eletrônicos (do inglês Institute of Electrical and Electronics Engineers)
 		\item[IP] Propriedade Intelectual (do inglês Intellectual Property)
-		\item[ACS] Add, Compare and Select
-		\item[RFC] 
+		\item[LED] Diodo Emissor de Luz (do inglês Light Emitting Diode)
+		\item[MAC] Controle de Acesso de Mídia (do inglês Media Access Control)
+		\item[MCS] Esquema de Modulação e Codificação (do inglês Modulation and Coding Scheme)
+		\item[MOSFET] Metal Oxide Semiconductor Field Effect Transistor
+		\item[OOK] On-off Keying
+		\item[PHR] Cabeçalho do PHY (do inglês PHY Header)
+		\item[PPDU] Unidade de Dados da Camada Física (do inglês Physical Layer Data Unit)
+		\item[PSDU] Unidade de Serviço de dados PHY I (do inglês PHY Service Data Unit)
+		\item[RLL] Comprimento de Execução Limitado (do inglês Run Length Limited)
+		\item[RS] Reed Solomon
+		\item[RTL] Nível de Transferência de Registradores (do inglês Register Transfer Level)
+		\item[SHR] Cabeçalho de Sincronização (do inglês Synchronization Header)
+		\item[TDP] Padrão Dependente de Topologia (do inglês Topology Dependant Pattern)
+		\item[TTL] Lógica de Transistor-Transistor (do inglês Transistor-Transistor Logic)
+		\item[UART] Receptor/Transmissor Asíncrono Universal (do inglês Universal Asynchronous Receiver/Transmitter)
+		\item[UC] Unidade de Controle
+		\item[USB] Barramento Serial Universal (do inglês Universal Serial Bus)
+		\item[VCC] Voltagem no Coletor Comum
+		\item[VHDL] Linguagem Verilog de Descrição de Hardware (do inglês Verilog Hardware Description Language)
+		\item[VPAN] Visible-Light Communication Personal Area Network
+
 	\end{siglas}
 	% ---
 	
@@ -356,20 +358,19 @@
 	% ----------------------------------------------------------
 	% Apêndices - SEM APENDICES
 	% ----------------------------------------------------------
-	%\begin{apendicesenv}
-		%\partapendices % pagina indicando inicio dos apendices
-		%\chapter{Quisque libero justo}
-		%\lipsum[50]
-	%\end{apendicesenv}
+	\begin{apendicesenv}
+		\partapendices % pagina indicando inicio dos apendices
+		\include{licy-apendices}
+	\end{apendicesenv}
 	% ----------------------------------------------------------
 	
 	% ----------------------------------------------------------
 	% Anexos - SEM ANEXOS
 	% ----------------------------------------------------------
-	\begin{anexosenv}
-		\partanexos	% Imprime uma página indicando o início dos anexos
-		\include{licy-anexos}
-	\end{anexosenv}
+	%\begin{anexosenv}
+		%\partanexos	% Imprime uma página indicando o início dos anexos
+		%\include{licy-anexos}
+	%\end{anexosenv}
 	% ----------------------------------------------------------
 	
 	%---------------------------------------------------------------------

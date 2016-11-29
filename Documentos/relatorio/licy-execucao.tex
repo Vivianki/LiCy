@@ -8,10 +8,10 @@
 	\section{Arquitetura}
 	Esta sessão visa apresentar a arquitetura dos sistemas digitais desenvolvidos durante o projeto. Conforme o embasamento teórico apresentado no capítulo de Metodologia, todos os circuitos apresentados a seguir servem a um mesmo objetivo: enviar uma mensagem pela camada física por um dos nós da comunicação e recebê-la integralmente através do outro nó. Separamos, portanto, na \autoref{fig_arch} a Transmissão na metade superior, e Recepção na inferior.
 	
-	\begin{figure}[htb]
+	\begin{figure}[h!]
 		\caption{\label{fig_arch}Desenho esquemático da arquitetura do sistema.}
 		\centering
-		\includegraphics[width=1\textwidth]{Arquitetura.pdf}
+		\includegraphics[width=0.8\textwidth]{Arquitetura.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
@@ -27,15 +27,15 @@
 	\begin{figure}[h]
 		\caption{\label{simula_rs_encoder}Simulação de codificação do codificador Reed Solomon.}
 		\centering
-		\includegraphics[width=1.0\textwidth, trim={0 0 5cm 0}]{RS/Sim_encoder}
-		\legend{}
+		\includegraphics[width=0.76\textwidth, trim={5cm 0 5cm 0}]{RS/Sim_encoder}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	\subsection{\textit{Interleaver}}
 
 	O módulo do Interleaver é composto por três componentes principais: (i) a memória, (ii) a unidade de controle do cabeçalho e (iii) a unidade de controle do payload.
 
-	\subsection{Memória}
+	\subsubsection{Memória}
 	
 	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição. 
 	
@@ -45,20 +45,20 @@
 	
 	Para implementar a memória, foi utilizado o componente RAM de duas portas do Catálogo IP (Intellectual Property) do programa Altera Quartus. De forma que a capacidade de memória seja no mínimo 2206 \textit{bytes}, foi instanciada uma de 4096 \textit{bytes}, pois devem ser potências de 2.
 
-	\subsection{Unidade de controle do cabeçalho}\label{section:interleaver-header-control}
+	\subsubsection{Unidade de controle do cabeçalho}\label{section:interleaver-header-control}
 	
-	O propósito deste módulo é receber os dados do Codificador Reed Solomon, gravá-los na memória interna e depois enviá-los de forma entrelaçada. A abordagem tomada pelo projeto foi gravar esses dados em ordem entrelaçada, para que a leitura seja feita apenas varrendo os endereços da memória em ordem crescente. A \autoref{figure:interleaver-order} ilustra o algoritmo desenvolvido para escolher os endereços entrelaçados. Ele foi implementado em Javascript para melhor visualização da ordem certa de gravação.
-	
-	\begin{figure}[h]
-		\caption{\label{figure:interleaver-order}Ordem do algoritmo entrelaçador para gravar a memória.}
+	O propósito deste módulo é receber os dados do Codificador Reed Solomon, gravá-los na memória interna e depois enviá-los de forma entrelaçada. A abordagem tomada pelo projeto foi gravar esses dados em ordem entrelaçada, para que a leitura seja feita apenas varrendo os endereços da memória em ordem crescente. A \autoref{figure:interleaver-flow} ilustra o algoritmo desenvolvido para escolher os endereços entrelaçados e gerar a saída. Ele foi implementado em Javascript para melhor visualização da ordem certa de gravação.
+
+	\begin{figure}[h!]
+		\caption{\label{figure:interleaver-flow}Diagrama esquemático do fluxo de dados do \textit{Interleaver}.}
 		\centering
-		\includegraphics[width=0.9\textwidth]{interleaver/order.pdf}
+		\includegraphics[width=0.6\textwidth]{interleaver/flow.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	Em VHDL, a solução é composta por três componentes: (i) contador de endereços, (ii) contador de profundidade e (iii) contador de saída. Eles estão integrados com a memória na \autoref{figure:interleaver-schematics}.
 		
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\caption{\label{figure:interleaver-schematics}Diagrama esquemático do \textit{Interleaver}, com unidade de controle e memória. Os sinais azuis representam entradas para melhor visualização.}
 		\centering
 		\includegraphics[width=1\textwidth]{interleaver/schematics.pdf}
@@ -66,22 +66,61 @@
 	\end{figure}
 
 	\paragraph{Contador de endereços}
-	Responsável por selecionar endereços para a etapa de gravação da memória. Recebe 
+	Responsável por selecionar endereços para a etapa de gravação da memória. Recebe a profundidade atual e o valor da profundidade da mensagem.
 	
-	\paragraph{Contador de profundidade}
+	Inicialmente, a profundidade atual é utilizada como endereço na etapa de gravação da mensagem na memória. As iterações posteriores utilizam também o valor de profundidade da mensagem para deslocar os dados na memória, realizando esse processo quatorze vezes, uma vez para cada símbolo do codificador Reed Solomon, como ilustrado na \autoref{figure:interleaver-order}. A equação abaixo também auxilia no entendimento do processo:
 	
-	\paragraph{Contador de saída}
+	\begin{equation}
+	Address = depth_counter + iteration \cdot depth
+	\end{equation}
 	
-	\begin{figure}[h]
-		\caption{\label{figure:interleaver-flow}Diagrama esquemático do fluxo de dados do \textit{Interleaver}.}
+	\begin{figure}[h!]
+		\caption{\label{figure:interleaver-order}Ordem do algoritmo entrelaçador para gravar a memória.}
 		\centering
-		\includegraphics[width=1\textwidth]{interleaver/flow.pdf}
+		\includegraphics[width=0.9\textwidth]{interleaver/order.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
+	Na última iteração desse módulo, há o sinal de \textit{carry}. Esse sinaliza ao contador de profundidade que deve-se deslocar uma profundidade na gravação.
+	
+	\paragraph{Contador de profundidade}
+	Contador que desloca o endereço base selecionado na \autoref{figure:interleaver-order}, preenchendo toda a memória com dados entrelaçados. O processo de gravação termina quando a profundidade atual atinge o valor da profundidade da mensagem. Nesse momento, é sinalizado ao contador de saída que é possível gerar a saída.
+	
+	\paragraph{Contador de saída}
+	
+	O contador de saída, quando habilitado pelo contador de profundidade, troca o modo de operação da memória de gravação para leitura. Esse módulo também seleciona endereços para ler de forma crescente, gerando uma saída entrelaçada, juntamente com sinal de FlagInt mostrando que os dados atuais são válidos.
+	
 	\subsubsection{Unidade de controle do \textit{payload}}
 	
-	O comportamento da unidade de controle do \textit{payload} é análoga a explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados.
+	O comportamento da UC (unidade de controle) do \textit{payload} é análoga a explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados. Algumas modificações foram feitas no esquema apresentado (\autoref{figure:interleaver-schematics}) para o funcionamento pleno do \textit{Interleaver}: 
+	
+	\begin{itemize}
+		\item UC duplicada para o \textit{payload};
+		\item Saída da segunda UC conectada na segunda porta da RAM;
+		\item Segunda UC habilitada quando a primeira UC acaba o processo de gravação do cabeçalho;
+		\item Segunda UC modificada para gravar depois do cabeçalho;
+		\item Contador de saída habilitado quando a segunda UC acaba o processo de gravação;
+		\item Critério de parada do contador de saída modificado para $comprimento(cabeçalho + mensagem)$.
+	\end{itemize}
+	
+	A simulação para a gravação dos dados está disponível na \autoref{figure:interleaver-simulation-store}. A entrada é uma mensagem Reed Solomon válida e vários zeros em seguida.
+	\begin{figure}[h]
+		\caption{\label{figure:interleaver-simulation-store}Simulação da etapa de gravação do módulo \textit{Interleaver}.}
+		\centering
+		\includegraphics[width=1\textwidth]{interleaver/simulation-store.png}
+		\legend{Fonte: Autores.}
+	\end{figure}
+
+	A etapa de saída dos dados está disponível na \autoref{figure:interleaver-simulation-flush}. Como a profundidade da mensagem é 2, então o \textit{Interleaver} irá alternar entre os primeiros 15 dados e os 15 seguintes. Esse comportamento é facilmente observado quando a saída alterna paridade do Reed Solomon com zeros, presentes na segunda mensagem.
+	
+	\begin{figure}[h]
+		\caption{\label{figure:interleaver-simulation-flush}Simulação da etapa de saída do módulo \textit{Interleaver}.}
+		\centering
+		\includegraphics[width=1\textwidth]{interleaver/simulation-flush.png}
+		\legend{Fonte: Autores.}
+	\end{figure}
+
+	Como o componente é complexo, seu RTL
 	
 	\subsection{Codificador Convolucional}	
 	
@@ -104,9 +143,9 @@
 	
 	Inicialmente foi utilizado uma propriedade intelectual da Altera chamada PLL (\textit{Phase-Locked Loop}). Um estudo mais detalhado demonstrou que sua entrada recebe apenas sinais de ordem de grandeza de MHz. É portanto incompatível com a frequência definida pela camada PHY I.
 	
-	O trabalho propõe uma solução para esse problema desenvolvida pelos próprios autores, e é dividida em três módulos: \textit{oversampling}, decisor de limite de tempo, detector de FLP e gerador de \textit{clock}. O diagrama abaixo (\autoref{figure:sync-schematics}) ilustra a conexão entre esses módulos.
+	O trabalho propõe uma solução para esse problema desenvolvida pelos próprios autores, e é dividida em quatro módulos: \textit{oversampling}, decisor de limite de tempo, detector de FLP e gerador de \textit{clock}. O diagrama abaixo (\autoref{figure:sync-schematics}) ilustra as conexões entre esses módulos.
 	\begin{figure}[h]
-		\caption{\label{figure:sync-schematics}Diagrama esquemático do \textit{Sync}.}
+		\caption{\label{figure:sync-schematics}Diagrama esquemático do \textit{Sync}. O \textit{clock} do registrador de deslocamentos foi omitido para simplificar a representação.}
 		\centering
 		\includegraphics[width=1\textwidth]{sync/schematics.pdf}
 		\legend{Fonte: Autores.}
@@ -123,23 +162,23 @@
 	Para o módulo sincronizador, dois uns ou dois zeros seguidos fogem da norma, portanto tais mensagens são descartadas.
 	
 	\subsubsection{Detector de FLP}
-	A detecção de FLP é realizada com com um registrador de deslocamento de 200 \textit{bits}. Se pelo menos 200 bits recebidos preenchem o registrador com zeros e uns alternados, o móduto gera um sinal lógico um para o gerador de clock.
+	A detecção de FLP é realizada com com um registrador de deslocamento de 200 \textit{bits}. Se pelo menos 200 bits recebidos preenchem o registrador com zeros e uns alternados, o móduto gera um sinal lógico um para o gerador de \textit{clock}.
 	
 	O registrador é reiniciado quando o nono \textit{bit} do Decisor de limite de tempo é um, pois caracteriza um FLP inválido. Enquanto apenas o oitavo \textit{bit} for detectado, o registrador grava o valor e desloca seus valores à direita.
 	\subsubsection{Gerador de \textit{clock}}
 	Módulo que gera um \textit{clock} de 200kHz estável para o decodificador inteiro. Utiliza um divisor de frequência do \textit{clock} interno da FPGA.
 	
-	Quando recebe o sinal de detecção de FLP, reajusta seu clock de 200kHz forma que a borda de subida fique no centro do \textit{bit} de entrada. Essa característica do gerador de clock protege o decodificador do fenômeno de \textit{clock drift}, ou da perda de sincronia entre os clocks devido ao comprimento da mensagem.
+	Quando recebe o sinal de detecção de FLP, reajusta seu clock de 200kHz forma que a borda de subida fique no centro do \textit{bit} de entrada. Essa característica do gerador de \textit{clock} protege o decodificador do fenômeno de \textit{clock drift}, ou da perda de sincronia entre os \textit{clocks} devido ao comprimento da mensagem.
 	\subsection{Decodificador Manchester}
 	
 	O decodificador funciona, conforme explicado anteriormente, de acordo com a \autoref{tabela_cod_manchester}.
 	
-	Neste projeto, o decodificador de Manchester é inicializado quando o TDP~TDPTDP~TDP é identificado. Seu circuito foi desenvolvido com uma máquina de estados que tem estado inicial S0. Essa máquina funciona de modo que quando existe uma transição de 0 para 1, a saída é um bit 0 e quando a transição é de 1 para 0, a saída é um bit 1 para 0. Isso é demonstrado na figura \autoref{figure:manchester-decoder-flow}. 
+	Neste projeto, o decodificador de Manchester é inicializado quando o TDP$~$TDPTDP$~$TDP é identificado. Seu circuito foi desenvolvido com uma máquina de estados que tem estado inicial S0. Essa máquina funciona de modo que quando existe uma transição de 0 para 1, a saída é um \textit{bit} 0 e quando a transição é de 1 para 0, a saída é um \textit{bit} 1 para 0. Isso é demonstrado na figura \autoref{figure:manchester-decoder-flow}. 
 		
 	\begin{figure}[h]
 		\caption{\label{figure:manchester-decoder-flow}Visão de máquina de estados do decodificador Manchester.}
 		\centering
-		\includegraphics[width=0.6\textheight]{manchester/decoder-flow.pdf}
+		\includegraphics[width=0.4\textheight]{manchester/decoder-flow.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
@@ -167,11 +206,11 @@
 	
 	A simulação a seguir representa o caso em que existem erros na mensagem codificada, o que é indicado por síndromes diferentes de 0000.
 	
-	\begin{figure}[!htb]
+	\begin{figure}[h]
 		\caption{\label{fig_sindrome_sim}Simulação do cálculo das síndromes.}
-		\centering %%trim={<left> <lower> <right> <upper>}
-		\includegraphics[width=1\textwidth, trim = {0 0 15cm 0}]{RS/Sim_sindrome.PNG}
-		\legend{}
+		\centering
+		\includegraphics[width=1\textwidth]{RS/Sim_sindrome.PNG}
+		\legend{Fonte: Autores.}
 	\end{figure}
 
 	\subsubsection{Módulo de Berlekamp-Massey}
@@ -183,8 +222,8 @@
 	\begin{figure}[!htb]
 		\caption{\label{fig_berlekamp_sim}Simulação do módulo de Berlekamp-Massey.}
 		\centering
-		\includegraphics[width=1\textwidth, trim = {0 0 14cm 0}]{RS/Sim_berlekamp.PNG}
-		\legend{}
+		\includegraphics[width=1\textwidth]{RS/Sim_berlekamp.PNG}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	Uma vez calculados os valores dos coeficientes do polinômio localizador, equivalentes a Lambda na simulação, é necessário calcular os coeficientes do polinômio de valor dos erros. Novamente, as síndromes são enviadas sequencialmente para o circuito. O novo cálculo ocorre com as síndromes e o polinômio localizador de erros. O resultado são os coeficientes do polinômio de valores de erro, representados por Omega na simulação, obtidos em sequência em cada ciclo de clock. 
@@ -199,14 +238,32 @@
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_forney_sim}Simulação do módulo de Forney.}
-		\centering%%trim={<left> <lower> <right> <upper>}
-		\includegraphics[width=1\textwidth, trim={0 0 15cm 0}]{RS/Sim_forney.PNG}
-		\legend{}
+		\centering
+		\includegraphics[width=1\textwidth]{RS/Sim_forney.PNG}
+		\legend{Fonte: Autores.}
 	\end{figure}
 	
 	Por outro lado, caso haja mais de 4 símbolos com erro, nenhuma correção será feita, portanto contabiliza-se o número de correções feitas até então. Se for identificado um erro com as síndromes e não for contada nenhuma correção no módulo de Forney, temos duas condições suficientes para afirmar que o bloco deve ser descartado e este não pode ser corrigido através do método de Reed Solomon. No exemplo anterior, o número de erros corrigidos é inferior a 5, portanto a mensagem final está correta e pode sair da camada física PHY I. Caso a mensagem seja descartada, é necessário que se envie novamente pelo transmissor.	
 	
-
+	\subsection{UART}
+	
+	UART, ou \textit{Universal Asynchronous Receiver/Transmitter} é o componente utilizado para fazer comunicação entre dispositivos. A transmissão de dados é feita a partir de pacotes compostos por: \textit{bit} de início, \textit{data frame}, \textit{bit} de paridade e \textit{bit} de fim.
+	\begin{figure}[h]
+		\caption{\label{figure:uart-frame}Quadro de mensagem da UART utilizada no projeto.}
+		\centering
+		\includegraphics[width=0.9\textwidth]{uart/frame.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	Gerador de Baud: recebe um \textit{clock} de entrada e o divide para gerar o \textit{baud clock}. A frequência do \textit{baud clock} é dezesseis vezes o \textit{baud rate.} Quando a UART está recebendo o bit de entrada é amostrado no oitavo ciclo do baud clock para o esquema de \textit{oversampling} dezesseis vezes.
+	
+	\begin{chart}[h]
+		\caption{\label{figure:uart-txrx}\textit{Oversampling} com \textit{baud clock}.}
+		\centering
+		\includegraphics[width=0.9\textwidth]{uart/txrx.pdf}
+		\legend{Fonte: Autores.}
+	\end{chart}
+	
 	
 	% ---
 	\section{Hardware analógico}
@@ -214,12 +271,11 @@
 	A seção abaixo discorrerá sobre a aplicação dos métodos estudados nos capítulos anteriores para Hardware analógico.
 	Antes de iniciar a execução do trabalho, foram estabelecidas algumas decisões de projeto:
 	
-	* formato de lista *
-	Única fonte de alimentação de 5V.
-	Implementação de um circuito apenas para a camada PHY I da norma, fixando a frequência de operação a 200kHz.
-	
-	. . .
-	
+	\begin{itemize}
+		\item Única fonte de alimentação de 5V.
+		\item Implementação de um circuito apenas para a camada PHY I da norma, fixando a frequência de operação a 200kHz.
+	\end{itemize}
+
 	\subsection{Transmissor}
 	
 	\subsubsection{Conversor Digital-Analógico}
@@ -237,12 +293,12 @@
 
 	De acordo com função de transferência da \autoref{figure:transfer-carac-irlz14}, a VGS=3.3V é permitida uma corrente de dreno de 2A. A \textit{datasheet} também especifica parâmetros de resposta dinâmica do circuito, como seu $T_{rise}$, $T_{fall}$, que estão disponibilizados na \autoref{table:irlz14-timing}.
 	
-	\begin{figure}[h]
+	\begin{chart}[h]
 		\caption{\label{figure:transfer-carac-irlz14}Características de transferência do MOSFET de potência IRLZ14.}
 		\centering
 		\includegraphics[page=3, width=0.4\textwidth, trim={12cm 16.5cm 2.2cm 5cm}, clip]{circuits/irlz14.pdf}
 		\legend{Fonte: \cite{datasheet-irlz14}}
-	\end{figure}
+	\end{chart}
 
 	\begin{table}[h]
 		\caption{Características Dinâmicas do MOSFET IRLZ14.}
@@ -278,12 +334,12 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	O primeiro problema que o projeto do transmissor encontrou foi o comportamento de subamortecimento nos terminais do LED. Ele utiliza um circuito semelhante ao utilizado em pontas de provas para filtrar ruídos e é conectado em série com a entrada do transmissor, como visto na \autoref{fig_transmitter_lify_circuit_fail0}.
-	\begin{figure}[htb]
+	\begin{chart}[htb]
 		\caption{\label{fig_transmitter_lify_circuit_fail0_rl}Comportamento do circuito de transmissão com filtro de ponta de prova em série com a entrada. A onda azul é saída do gerador de funções enquanto a onda amarela é a tensão submetida ao LED. Observa-se o comportamento de subamortecimento em ambas.}
 		\centering		%  trim={<left> <lower> <right> <upper>} 
 		\includegraphics[width=0.5\textwidth, trim={30cm 0cm 2cm 40cm}, clip]{circuits/photos/TX_probe_result.jpg}
 		\legend{Fonte: Autores.}
-	\end{figure}
+	\end{chart}
 
 	A saída dessa implementação é mostrada na \autoref{fig_transmitter_lify_circuit_fail0_rl} e não foi satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Além dessa frequência a forma de onda se distorcia demais. O segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Atribuiu-se esses efeitos a capacitâncias parasitas no LED e no transistor de potência.
 	
@@ -304,12 +360,12 @@
 		\includegraphics[width=0.5\textwidth, trim={2cm 2cm 2cm 2.3cm}, clip]{circuits/transmitter_fail1.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	\begin{figure}[h!]
+	\begin{chart}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_fail1_r1}Operação de circuito transmissor sem ponta de prova. A onda amarela representa voltagem no LED sem filtro de ponta de prova em frequências mais altas. O gerador de funções é medido e gera a forma de onda verde.}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={22.5cm 69cm 87cm 16cm}, clip]{circuits/photos/TX_200k_without_filter.jpg}
 		\legend{Fonte: Autores.}
-	\end{figure}
+	\end{chart}
 	Nesse caso é muito mais evidente o amortecimento visto na onda. Atribui-se esse comportamento à componente capacitiva ao chavear o LED. No entanto, observa-se que não há \textit{feedback} do circuito na saída do gerador de funções, fato observado na última versão do circuito. O capacitor colocado adicionava um nível de complexidade desnecessário ao circuito, pois se carregava com oscilação da entrada. 
 	
 	Além disso, ele não preserva a forma de onda da entrada. Ainda é possível refinar mais a solução.
@@ -326,7 +382,7 @@
 	\begin{figure}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_final_r1} Forma de onda após adicionar um capacitor que age como filtro passa-altas. Está defasada em 180$\degree$. }
 		\centering
-		\includegraphics[width=0.5\textwidth, trim={5cm 30cm 90cm 20cm}, clip]{circuits/photos/TX_200k_with_filter.jpeg}
+		\includegraphics[width=0.5\textwidth, trim={10cm 35cm 97cm 22cm}, clip]{circuits/photos/TX_200k_with_filter.jpeg}
 		\legend{Fonte: Autores}
 	\end{figure}
 	Esse capacitor atua como filtro passa-altas e remove a componente AC da saída para o LED. O comportamento não fica exatamente igual à entrada, mas é satisfatório, pois o período é muito similar, chaveando o LED corretamente. A forma de onda resultante pode ser observada na \autoref{fig_transmitter_lify_circuit_final_r1}. Está defasada em 180$\degree$.
@@ -374,38 +430,14 @@
 	
 	Os testes realizados foram bem sucedidos e resultaram na onda da \autoref{fig_receiver_lify_circuit_final_r1}. Nela é possível observar a medição do período da onda resultante convertida, que foi 4.88us, muito próximo de 5us, período para 200kHz.
 	
-	\begin{figure}[htb]
+	\begin{chart}[htb]
 		\caption{\label{fig_receiver_lify_circuit_final_r1}Saída do transmissor em verde e saída digital convertida do receptor em amarelo. É possível observar uma defasagem de 90$\degree$ em relação às ondas.}
 		\centering
-		\includegraphics[width=0.7\textwidth, trim={36cm 30cm 60cm 40cm}, clip]{circuits/photos/TXRX_final_fixed.jpg}
+		\includegraphics[width=0.4\textwidth, trim={36cm 30cm 60cm 40cm}, clip]{circuits/photos/TXRX_final_fixed.jpg}
 		\legend{Fonte: Autores.}
-	\end{figure}
+	\end{chart}
 	
 	Em seguida será realizada a integração entre a parte analógica e digital do trabalho.
-	
-	\subsection{UART}
-	
-	UART, ou \textit{Universal Asynchronous Receiver/Transmitter} é o componente utilizado para fazer comunicação entre dispositivos. A transmissão de dados é feita a partir de pacotes compostos por: \textit{bit} de início, \textit{data frame}, \textit{bit} de paridade e \textit{bit} de fim.
-	\begin{figure}[h]
-		\caption{\label{figure:uart-frame}Quadro de mensagem da UART utilizada no projeto.}
-		\centering
-		\includegraphics[width=0.9\textwidth]{uart/frame.pdf}
-		\legend{Fonte: Autores.}
-	\end{figure}
-	
-	Gerador de Baud: recebe um \textit{clock} de entrada e o divide para gerar o \textit{baud clock}. A frequência do \textit{baud clock} é dezesseis vezes o \textit{baud rate.} Quando a UART está recebendo o bit de entrada é amostrado no oitavo ciclo do baud clock para o esquema de \textit{oversampling} dezesseis vezes.
-	
-	\begin{figure}[h]
-		\caption{\label{figure:uart-txrx}\textit{Oversampling} com \textit{baud clock}.}
-		\centering
-		\includegraphics[width=0.9\textwidth]{uart/txrx.pdf}
-		\legend{Fonte: Autores.}
-	\end{figure}
-	
-	
-	
-	Receiver timing and control
-	Transmitter Timing and control
 
 	\section{Integração}
 	
