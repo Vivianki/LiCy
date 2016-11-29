@@ -40,7 +40,7 @@
 	
 	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição. 
 	
-	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do payload da PHY I (1023 \textit{bytes}). Isso acontece pois o módulo anterior ao \textit{Interleaver} - o Codificador Reed Solomon - transforma cada 28 \textit{bits} de mensagem em 60 \textit{bits} (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu padding (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser capaz de guardar 2206 \textit{bytes}.
+	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do payload da PHY I (1023 \textit{bytes}). Isso acontece porque o módulo anterior ao \textit{Interleaver} - o Codificador Reed Solomon - transforma cada 28 \textit{bits} de mensagem em 60 \textit{bits} (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu padding (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser, então, capaz de guardar 2206 \textit{bytes}.
 	
 	A princípio, é possível realizar esse armazenamento de três formas na FPGA: (i) criando vetores dentro de um arquivo .vhd, (ii) utilizando uma memória externa a FPGA e (iii) utilizando uma memória interna da FPGA. A primeira solução ocupa muito espaço disponível nas unidades lógicas do chip. A segunda proposta requer uma memória acoplada à placa de desenvolvimento utilizada, restringindo a gama de placas possíveis. A terceira e última opção é a mais adequada, pois a arquitetura da FPGA utilizada (EP4) possui memória auxiliar incorporada na FPGA.
 	
@@ -57,7 +57,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Em VHDL, a solução é composta por três componentes: (i) contador de endereços, (ii) contador de profundidade e (iii) contador de saída. Eles estão integrados com a memória na \autoref{figure:interleaver-schematics}.
+	Em VHDL, a solução é composta por três componentes: (i) contador de endereços, (ii) contador de profundidade e (iii) contador de saída. Eles estão integrados com à memória na \autoref{figure:interleaver-schematics}.
 		
 	\begin{figure}[h!]
 		\caption{\label{figure:interleaver-schematics}Diagrama esquemático do \textit{Interleaver}, com unidade de controle e memória. Os sinais azuis representam entradas para melhor visualização.}
@@ -93,7 +93,7 @@
 	
 	\subsubsection{Unidade de controle do \textit{payload}}
 	
-	O comportamento da UC (unidade de controle) do \textit{payload} é análoga a explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados. Algumas modificações foram feitas no esquema apresentado (\autoref{figure:interleaver-schematics}) para o funcionamento pleno do \textit{Interleaver}: 
+	O comportamento da UC (unidade de controle) do \textit{payload} é análoga à explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados. Algumas modificações foram feitas no esquema apresentado (\autoref{figure:interleaver-schematics}) para o funcionamento pleno do \textit{Interleaver}: 
 	
 	\begin{itemize}
 		\item UC duplicada para o \textit{payload};
@@ -210,6 +210,7 @@
 		\includegraphics[width=1\textwidth]{sync/simulation.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
+	Seu RTL se encontra no Anexo na \autoref{figure:sync-rtl}.
 	
 	\subsection{Decodificador Manchester}
 	
@@ -281,7 +282,7 @@
 
 	\subsubsection{Módulo de Berlekamp-Massey}
 	
-	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados então, com as síndromes e localizações de erro.
+	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados, então, com as síndromes e localizações de erro.
 	
 	As síndromes são enviadas sequencialmente para o módulo de Berlekamp-Massey a cada ciclo de \textit{clock}. A atualização do polinômio localizador, representado pela seção X do diagrama, ocorre quando ele não possibilitar gerar uma síndrome específica. Nesse caso, são feitos os cálculos no módulo inversor, com a atualização do polinômio no próximo ciclo. Esse processo é exemplificado pela \autoref{fig_berlekamp_sim}.
 	
@@ -300,7 +301,7 @@
 	
 	O módulo de busca de Chien é na verdade composto por dois módulos: busca de localização e de valores dos erros. Ambos trabalham paralelamente e têm como entrada os coeficientes $\Lambda$ e $\Omega$. 
 	
-	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. É possível neste circuito observar esse processo com a identificação de síndromes diferentes de zero, com o sinal "errorsyndrome" na \autoref{fig_forney_sim}. Considerando que o sinal está na posição alta, significa que pelo menos um \textit{bit} de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida. 
+	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que, caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. Nesse circuito, é possível observar esse processo com a identificação de síndromes diferentes de zero, com o sinal "errorsyndrome" na \autoref{fig_forney_sim}. Considerando que o sinal está na posição alta, significa que pelo menos um \textit{bit} de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida. 
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_forney_sim}Simulação do módulo de Forney.}
@@ -414,19 +415,19 @@
 		\legend{Fonte: Autores.}
 	\end{chart}
 
-	A saída dessa implementação é mostrada na \autoref{fig_transmitter_lify_circuit_fail0_rl} e não foi satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Além dessa frequência a forma de onda se distorcia demais. O segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Atribuiu-se esses efeitos a capacitâncias parasitas no LED e no transistor de potência.
+	A saída dessa implementação é mostrada na \autoref{fig_transmitter_lify_circuit_fail0_rl} e não foi satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Além dessa frequência, a forma de onda se distorcia demais. O segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Atribuiu-se esses efeitos a capacitâncias parasitas no LED e no transistor de potência.
 	
-	O transistor de potência possui capacitância devido a separação de suas placas. Seu valor é significativo e é até especificado na \textit{datasheet}. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente. 
+	O transistor de potência possui capacitância devido à separação de suas placas. Seu valor é significativo e é até especificado na \textit{datasheet}. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente. 
 
 	No caso do LED, esse comportamento é mais complexo. A altas frequências, seu chaveamento cria um capacitor entre seus terminais, devido a sua arquitetura semicondutora. É possível observar esse comportamento capacitivo tanto em um LED de baixa potência quando de alta. Na prática, a tensão sob o LED não diminui acompanhando a tensão submetida a ele, e isso causa o comportamento indesejável visto, como os picos na onda amarela.
 	
 	A forma de onda gerada por esse circuito é muito boa, porém os picos de voltagem de até o dobro de $2 \cdot V_{CC} = 10V$ com certeza danificam os componentes. Essa versão foi descartada por esse motivo (como pode-se observar em no osciloscópio - \textbf{Maximum 10.1V}). 
 	
-	Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual a entrada. Colocando um LED em série com o resistor adicionava o comportamento subamortecido, portanto conclui-se que a anomalia é atribuida ao LED.
+	Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual à entrada. Colocar um LED em série com o resistor adicionava o comportamento subamortecido, portanto conclui-se que a anomalia é atribuida ao LED.
 	
 	\subsubsection{Aumento da Frequência}
 
-	O aumento da frequência de operação a $f_{OP}$ = 200kHz causa um subamortecimento substancialmente maior. Observa-se na \autoref{fig_transmitter_lify_circuit_fail1_r1}, que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
+	O aumento da frequência de operação a $f_{OP}$ = 200kHz causa um subamortecimento substancialmente maior. Observa-se na \autoref{fig_transmitter_lify_circuit_fail1_r1} que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
 	\begin{figure}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_fail1}Circuito de transmissão sem o filtro de ponta de prova.}
 		\centering
@@ -480,9 +481,9 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	No osciloscópio, a componente DC da saída do amplificador de transimpedância é zero. No entanto, esse valor é apenas zero quando o padrão da oscilação luminosa se estabiliza. Entrando em detalhes: nesse e em todos casos de teste, o receptor está sendo submetido a uma onda quadrada de $f = 200kHz$. Como a norma define Manchester como código de RLL, é providenciado balanço DC ao receptor (são transmitidos a mesma quantidade de zeros e uns). Então o fotodiodo se desestabilizará quando há movimentação dos módulos ou quando há mudança na iluminação do ambiente.
+	No osciloscópio, a componente DC da saída do amplificador de transimpedância é zero. No entanto, esse valor é apenas zero quando o padrão da oscilação luminosa se estabiliza. Mais especificamente: nesse e em todos casos de teste, o receptor está sendo submetido a uma onda quadrada de $f = 200kHz$. Visto que a norma define Manchester como código de RLL, é providenciado balanço DC ao receptor (são transmitidos a mesma quantidade de zeros e uns). Então, o fotodiodo se desestabilizará quando há movimentação dos módulos ou quando há mudança na iluminação do ambiente.
 	
-	Para remover esses fatores de incerteza, o circuito de passas baixas com acomplamento DC $V_{ref} = 1V$ foi projetado a partir da \autoref{plot-post-bias1v}. Para obter uma voltagem de referência de 1V foi utilizado um divisor resistivo de 12k e 47k. 
+	Para remover esses fatores de incerteza, o circuito de passas baixas com acomplamento DC $V_{ref} = 1V$ foi projetado a partir da \autoref{plot-post-bias1v}. Para obter uma voltagem de referência de 1V, foi utilizado um divisor resistivo de 12k e 47k. 
 	
 	\begin{equation}
 	V_{out} = V_{in} \cdot \frac{12k}{12k + 47k} = V_{in} \cdot \frac{12k}{59k} \approx \frac{V_{in}}{5} = \frac{V_{CC}}{5} \approx 1V
@@ -492,7 +493,7 @@
 	
 	Com a onda em $V_{DC} = 1V$, é possível utilizar o comparador definido na \autoref{fig_double_comparator} para converter a onda senoidal em uma onda quadrada, com níveis compatíveis com a FPGA.
 	
-	A voltagem de referência do comparador deve ser a mesma que a voltagem $V_{ref}$ do filtro passa-baixas, provenientes do divisor resistivo. O circuito final integrado do receptor pode é analisado na \autoref{fig_receiver_lify_circuit_final}.
+	A voltagem de referência do comparador deve ser a mesma que a voltagem $V_{ref}$ do filtro passa-baixas, provenientes do divisor resistivo. O circuito final integrado do receptor é analisado na \autoref{fig_receiver_lify_circuit_final}.
 
 	\begin{figure}[h]
 		\caption{\label{fig_receiver_lify_circuit_final}Circuito esquemático final de recepção de dados LiCy.}
