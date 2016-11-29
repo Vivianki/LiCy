@@ -307,7 +307,7 @@
 	
 	\subsubsection{Puncture}
 	
-	O módulo de punção é utilizado para reduzir o overhead do padding, e é aplicado depois do interleaver.
+	O módulo de punção é utilizado para reduzir o \textit{overhead} do \textit{padding}, e é aplicado depois do \textit{interleaver}.
 	
 	\subsubsection{Código Convolutional}
 	
@@ -349,7 +349,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Como a saída do codificador é serial de um \textit{bit}, observa-se que esse código cria um \textit{overhead} na velocidade da transmissão da mensagem. Os bits entram no codificador convolucional a uma taxa de t \textit{bits}/tempo e saem a uma taxa de t/4 \textit{bits} /tempo.
+	Como a saída do codificador é serial de um \textit{bit}, observa-se que esse código cria um \textit{overhead} na velocidade da transmissão da mensagem. Os bits entram no codificador convolucional a uma taxa de t \textit{bits}/tempo e saem a uma taxa de t/4 \textit{bits}/tempo.
 	
 	\subsubsection{Codificação RLL}
 	
@@ -359,7 +359,7 @@
 		\centering
 		\begin{tabular}{c c}
 			\hline
-			bit & manchester symbol \\ \hline
+			\textit{bit} & \textit{manchester symbol} \\ \hline
 			0 & 01 \\
 			1 & 10 \\ \hline
 		\end{tabular}
@@ -385,41 +385,44 @@
 	
 	A identificação de erros pode acontecer de mais de uma forma. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de dois bits idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do clock da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de bits idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
 	
-	\subsubsection{Decodificação \textit{Viterbi}}
+	\subsubsection{Decodificação Viterbi}
 	
-	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador \textit{Viterbi}: máquinas de estado, tabela \textit{Trellis} e por fim o algoritmo de decodificação \textit{Viterbi}.
+	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador Viterbi: máquinas de estado, tabela Trellis, o algoritmo de decodificação \textit{Viterbi} e sua simplificação \textit{Fangled} Viterbi.
 	
 	\paragraph{Máquina de Estados}
 	
-	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{schematics_convolutional_states}) e processa um bit de cada vez. Para cada \textit{bit} de mensagem, há a transicão do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de \textit{Mealy}: X/Y, onde X representa a entrada e Y representa a saída.
+	A visão de máquinas de estado é uma forma elegante para explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{schematics_convolutional_states}) e processa um bit de cada vez. Para cada \textit{bit} de mensagem, há a transição do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a mesma que utilizada em máquinas de Mealy: X/Y, onde X representa a entrada e Y representa a saída.
 	\begin{figure}[htb]
 		\caption{\label{schematics_convolutional_states}Visão de máquina de estados de um codificador convolucional.}
 		\centering
 		\includegraphics[width=0.4\textheight]{schematics/convolutional_states.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	O receptor, é claro, não tem conhecimento direto das transições do transmissor. Ele só pode ver a sequência de paridades recebidas, possívelmente corrompidas. Sua tarefa é determinar a \textbf{melhor} sequência possível de estados transmitidos que podem ter gerado a sequência de paridades. Essa tarefa é chamada de decodificação, que será discorrida a seguir.
+	O receptor, é claro, não tem conhecimento direto das transições do transmissor. Ele só pode ver a sequência de paridades recebidas, possivelmente corrompidas. Sua tarefa é determinar a \textbf{melhor} sequência possível de estados transmitidos que podem ter gerado a sequência de paridades. Essa tarefa é chamada de decodificação, que será discorrida a seguir.
 	
 	\paragraph{Tabela Trellis}
 
-	Como mencionado acima, o receptor deve determinar a \textbf{melhor} sequência de estados que o transmissor passou. Essa sequência forma um caminho dentro da máquina de estados, que pode ser deduzido pelo decodificador. \textit{Trellis} é a estrutura derivada da máquna de estados, ela ajuda o decodificador a escolher os melhores caminhos para recuperar a mensagem. Um exemplo de tabela \textit{Trellis} é dado na \autoref{schematics_convolutional_states}.
+	Como mencionado acima, o receptor deve determinar a \textbf{melhor} sequência de estados que o transmissor passou. Essa sequência forma um caminho dentro da máquina de estados, que pode ser deduzido pelo decodificador. Trellis é a estrutura derivada da máquina de estados, ela ajuda o decodificador a escolher os melhores caminhos para recuperar a mensagem. Um exemplo de tabela Trellis é dado na \autoref{schematics_convolutional_states}.
 	\begin{figure}[htb]
-		\caption{\label{schematics_convolutional_trellis}A tabela de \textit{Trellis} é útil para entender o processo de decodificação de uma máquina de estados.}
+		\caption{\label{schematics_convolutional_trellis}A tabela Trellis é útil para entender o processo de decodificação de uma máquina de estados.}
 		\centering
 		\includegraphics[width=0.6\textheight,trim={0cm 18cm 0cm 2.5cm},clip]{schematics/convolutional_trellis.pdf}
 		\legend{Fonte: \cite{mit-convolutional}}
 	\end{figure}
 	Nessa figura, cada coluna tem um grupo de estados; cada estado é conectado a dois estados na próxima coluna; cada seta indica qual saída e próximo estado para cada entrada. A figura mostra o caminho percorrido pelo transmissor com a mensagem 101100. 
 	
-	O decodificador deve identificar o melhor caminho utilizando a tabela \textit{Trellis}, explicando por meio dela a sequência de paridades observadas e possivelmente corrompidas. Esse decodificador é chamado de Viterbi.
+	O decodificador deve identificar o melhor caminho utilizando a tabela Trellis, explicando por meio dela a sequência de paridades observadas e possivelmente corrompidas. Esse decodificador é chamado de Viterbi.
 	
 	\paragraph{Algoritmo}
+	A métrica de caminho calcula as distâncias entre a entrada e todas as possíveis entradas. Em alguns casos ela também é conhecida como distância de Hamming.
 	
-	O algoritmo de decodificação Viterbi utiliza duas métricas: a métrica de ramificação (BM) e a métrica de caminho (PM). 
+	A métrica de caminho calcula todos caminhos possíveis na tabela Trellis. Esse módulo é composto por múltiplos submódulos chamados ACS (Add, Compare and Select), que representam um estado e realizam a decisão de qual será o próximo estado. Após realizar a decisão, o ACS grava o caminho até o próximo estado e a distância acumulada na memória do \textit{Traceback Unit}. Esse processo se repete à medida que cada \textit{bit} da mensagem entra no Viterbi e apenas acaba quando a mensagem termina. 
 	
-	A BM é uma medida da distância entre o transmitido e o recebido, e é definido para cada seta na \textit{Trellis}. Em alguns casos ela também é conhecida como distância de Hamming. A PM é um valor associado com um estado na tabela \textit{Trellis}. Ele é equivalente a soma das distâncias de Hamming a partir do estado inicial da tabela. A menor soma das distâncias será o melhor caminho até determinado nó, e também será a mensagem mais provável - com menor número de erros.
+	Ao fim da mensagem, o \textit{Traceback Unit} escolhe o caminho com a menor distância acumulada e o percorre de forma invertida.
 	
-	A ideia principal do algoritmo de \textit{Viterbi} é que o receptor consegue calcular a PM de forma incremental, utilizando a PM de estados anteriores e BM. Após o cálculo de todas combinações possíveis de distâncias acumuladas, o módulo de \textit{traceback} realiza a escolha do melhor e mais provável caminho. Esse algoritmo pode ser simplificado removendo o módulo de \textit{traceback} e realizando as decisões no momento de leitura da paridade. Essa decisão é feita observando apenas as métricas de ramificação, ou seja, apenas as distâncias de cada estado para o próximo. Esse método é chamado de \textit{Fangled Viterbi}.
+	\paragraph{\textit{Fangled} Viterbi}
+	
+	Pode-se observar que esse método necessita de muitos recursos e computação, pois grava e compara todos os caminhos possíveis durante sua execução. O algoritmo pode ser simplificado removendo o módulo de \textit{Traceback Unit} e utilizando apenas uma unidade modificada de ACS. Essa unidade escolhe a menor distância de acordo com o estado atual e percorre o caminho, removendo a necessidade de gravar as possibilidades em memória. Esse método é chamado de \textit{Fangled} Viterbi.
 	
 	\subsubsection{\textit{Deinterleaver}}
 	

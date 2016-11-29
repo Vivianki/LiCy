@@ -39,7 +39,7 @@
 	
 	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição. 
 	
-	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do payload da PHY I (1023 \textit{bytes}). Isso acontece pois o módulo anterior ao \textit{Interlaver} - o Codificador Reed Solomon - transforma cada 28 bits de mensagem em 60 bits (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu padding (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser capaz de guardar 2206 \textit{bytes}.
+	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do payload da PHY I (1023 \textit{bytes}). Isso acontece pois o módulo anterior ao \textit{Interleaver} - o Codificador Reed Solomon - transforma cada 28 bits de mensagem em 60 bits (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu padding (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser capaz de guardar 2206 \textit{bytes}.
 	
 	A princípio, é possível realizar esse armazenamento de três formas na FPGA: (i) criando vetores dentro de um arquivo .vhd, (ii) utilizando uma memória externa a FPGA e (iii) utilizando uma memória interna da FPGA. A primeira solução ocupa muito espaço disponível nas unidades lógicas do chip. A segunda proposta requer uma memória acoplada à placa de desenvolvimento utilizada, restringindo a gama de placas possíveis. A terceira e última opção é a mais adequada, pois a arquitetura da FPGA utilizada (EP4) possui memória auxiliar incorporada na FPGA.
 	
@@ -59,7 +59,7 @@
 	Em VHDL, a solução é composta por três componentes: (i) contador de endereços, (ii) contador de profundidade e (iii) contador de saída. Eles estão integrados com a memória na \autoref{figure:interleaver-schematics}.
 		
 	\begin{figure}[h]
-		\caption{\label{figure:interleaver-schematics}Diagrama esquemático do \textit{Interleaver}, com unidade de controle e memória.}
+		\caption{\label{figure:interleaver-schematics}Diagrama esquemático do \textit{Interleaver}, com unidade de controle e memória. Os sinais azuis representam entradas para melhor visualização.}
 		\centering
 		\includegraphics[width=1\textwidth]{interleaver/schematics.pdf}
 		\legend{Fonte: Autores.}
@@ -89,13 +89,9 @@
 	Vale mencionar que existe um tratamento específico dos dados que saem do interleaver antes de entrar no convolutional encoder que consiste em dois módulos. Um módulo lida com o fato de que o interleaver tem saída de palavra por palavra, ou seja, de quatro em quatro bits e a entrada do convolutional encoder deve ser bit por bit. Ele transforma os dados de paralelos para seriais.
 	O outro módulo insere uma cadeia de 6 bits zeros entre o header e o interleaver. Garantindo que o estado inicial conhecido seja “000000” para os dados serem posteriormente decodificados. Esse módulo conta as 30 (tamanho do header) primeiras palavras recebidas. Após atingir o fim do header a entrada começa a passar por um registrador de deslocamento de 6 bits inicialmente zerado.
 	
-	
 	Puncture:
 	
-	
 	Para realizar o puncture de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois clocks do próximo módulo e o valor de B por mais dois clocks. Seguindo o que foi especificado na metodologia.
-	
-	
 	
 	\subsection{Codificador Manchester}
 	
@@ -104,13 +100,36 @@
 	
 	\subsection{\textit{Sync}}
 	
-	Para sincronizar o clock do transmissor e do receptor para que os dados sejam recebidos de modo correto foi considerado inicialmente utilizar-se o PLL Phase-Locked Loop. Porém para implementação do PHY I especificado pela norma a frequência de transmissão de dados tem ordem de grandeza menor do que o mínimo que o PLL aceita. 
-	Foi desenvolvido um módulo original de sincronização de clock pelos próprios autores.
-	Oversampling: Existem dois contadores, um deles é para contar por quanto tempo o input permanece em 1 e o outro é para ver quanto tempo o input permanece em 0. Para o contador de tempo para o input 1, o enable é o próprio input e o reset é a negação lógica do input. Para o contador do tempo em zero os sinais são utilizados de modo inverso ao do contador de tempo em 1.
-	Módulo de decisão de limite de tempo: O clock utilizado nesses contadores é o interno da FPGA de 50 MHz. Para identificar o input de um bit em 200kHz o contador deve contar até 250. Para se identificar se a entrada é uma possível parte do FLP, considera-se que não pode existir dois 1 seguidos nem dois  0 seguidos. Para verificar-se com facilidade se existe um bit de input solitário utilizamos o nono bit menos significativo do valor do contador (256) para verificar que ele está acompanhado de outro bit igual e o oitavo bit menos significativo (128) para indicar que existe pelo menos um bit do valor de input atual.
-	Detector de flp: O valor de entrada é armazenado em um registrador de deslocamento de 60 bits quando o oitavo bit menos significativo é atingido e o nono não. Quando o nono bit é atingido, os valores presentes no registrador de deslocamento é resetado. O valor presente nesse registrador de deslocamento é comparado com o valor um FLP. Quando é identificado um FLP, o detector de flp gera um sinal para o componente que gera o clock para o decodificador.
-	Gerador de clock: A partir de um divisor de frequência do clock interno da FPGA o gerador de clock gera um sinal de 200 kHz a partir do clock interno da FPGA de 50 MHz. Quando o gerador de clock recebe o sinal de que o FLP identificado, ele reajusta o seu clock de 200 kHz gerado para a borda de subida dele ficar no centro de um bit de entrada. Esse reajuste é feito esperando-se o tempo de metade de um ciclo de um clock de 200 kHz a partir do momento que recebe-se o FLP para ter a próxima borda de subida do clock gerado.
+	Módulo que sincroniza o \textit{clock} do transmissor com o do receptor, para que os dados recebidos sejam os mesmos que os enviados. 
 	
+	Inicialmente foi utilizado uma propriedade intelectual da Altera chamada PLL (\textit{Phase-Locked Loop}). Um estudo mais detalhado demonstrou que sua entrada recebe apenas sinais de ordem de grandeza de MHz. É portanto incompatível com a frequência definida pela camada PHY I.
+	
+	O trabalho propõe uma solução para esse problema desenvolvida pelos próprios autores, e é dividida em três módulos: \textit{oversampling}, decisor de limite de tempo, detector de FLP e gerador de \textit{clock}. O diagrama abaixo (\autoref{figure:sync-schematics}) ilustra a conexão entre esses módulos.
+	\begin{figure}[h]
+		\caption{\label{figure:sync-schematics}Diagrama esquemático do \textit{Sync}.}
+		\centering
+		\includegraphics[width=1\textwidth]{sync/schematics.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+	
+	\subsubsection{\textit{Oversampling}}
+	Componente que realiza a verificação do tempo de permanência do sinal para cada \textit{bit}. Possui dois contadores, um para o sinal lógico zero e outro para um. O próprio sinal de entrada habilita (\textit{enable}) o contador de zeros quando está em \textit{high}, e analogamente o contador de uns quando está em \textit{low}. O funcionamento do sinal de \textit{reset} é inverso ao de enable aos dois contadores. Portanto o módulo contador de zeros conta por quantos clocks de 50MHz a entrada ficou em zero. Caso a entrada seja um, o contador zera e ele é desabilitado. Analogamente para o módulo contador de uns, que conta por quantos clocks a entrada ficou em um, zerando.
+
+	\subsubsection{Decisão de Limite de Tempo}
+	Esse subsistema decide se o sinal analisado pelo módulo de \textit{Oversampling} possui pelo menos 250 amostras iguais (zeros ou uns). Ele parte do princípio que a entrada será uma onda quadrada de período 250 $\mu$s - garantido pelo envio do FLP -, não possuindo dois uns nem dois zeros seguidos.
+	
+	Com intuito de facilitar a sincronização, o decisor de limite de tempo verifica se o \textit{Oversampling} está dentro de um intervalo de 128 a 255 ciclos. Esse processo ocorre verificando apenas os bits mais significativos do contador. Caso o oitavo \textit{bit} seja um, significa que o módulo anterior contou pelo menos até 128, caracterizando um possível um ou zero. Verificando o nono \textit{bit} é possível concluir se ele não excedeu o tempo de permanência no mesmo \textit{bit} (além de 255). 
+	
+	Para o módulo sincronizador, dois uns ou dois zeros seguidos fogem da norma, portanto tais mensagens são descartadas.
+	
+	\subsubsection{Detector de FLP}
+	A detecção de FLP é realizada com com um registrador de deslocamento de 200 \textit{bits}. Se pelo menos 200 bits recebidos preenchem o registrador com zeros e uns alternados, o móduto gera um sinal lógico um para o gerador de clock.
+	
+	O registrador é reiniciado quando o nono \textit{bit} do Decisor de limite de tempo é um, pois caracteriza um FLP inválido. Enquanto apenas o oitavo \textit{bit} for detectado, o registrador grava o valor e desloca seus valores à direita.
+	\subsubsection{Gerador de \textit{clock}}
+	Módulo que gera um \textit{clock} de 200kHz estável para o decodificador inteiro. Utiliza um divisor de frequência do \textit{clock} interno da FPGA.
+	
+	Quando recebe o sinal de detecção de FLP, reajusta seu clock de 200kHz forma que a borda de subida fique no centro do \textit{bit} de entrada. Essa característica do gerador de clock protege o decodificador do fenômeno de \textit{clock drift}, ou da perda de sincronia entre os clocks devido ao comprimento da mensagem.
 	\subsection{Decodificador Manchester}
 	
 	O decodificador funciona, conforme explicado anteriormente, de acordo com a \autoref{tabela_cod_manchester}.
