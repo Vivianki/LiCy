@@ -1,37 +1,37 @@
 % ---
 % Arquivo com a execução do Trabalho de Conclusão de Curso dos alunos
-% Gabriel Takaoka Nishimura, Felippe Demarqui Ramos e Vivian Kimie Isuyama 
+% Gabriel Takaoka Nishimura, Felippe Demarqui Ramos e Vivian Kimie Isuyama
 % da Escola Politécnica da Universidade de São Paulo
 % ---
 	\chapter{Execução}\label{cap-execucao}
-	
+
 	\section{Arquitetura}
 	Esta sessão visa apresentar a arquitetura dos sistemas digitais desenvolvidos durante o projeto. Conforme o embasamento teórico apresentado no capítulo de Metodologia, todos os circuitos apresentados a seguir servem a um mesmo objetivo: enviar uma mensagem pela camada física por um dos nós da comunicação e recebê-la integralmente através do outro nó. Separamos, portanto, na \autoref{fig_arch} a Transmissão na metade superior, e Recepção na inferior.
-	
+
 	\begin{figure}[h!]
 		\caption{\label{fig_arch}Desenho esquemático da arquitetura do sistema.}
 		\centering
 		\includegraphics[width=0.8\textwidth]{Arquitetura.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
-	A seguir, explicam-se os componentes indicados dentro de Encoder e Decoder, que em conjunto sintetizam todos os circuitos digitais do estudo. Explicitar-se-ão as decisões mais importantes de projeto e a forma pela qual se integraram e se testaram os dois módulos. 
-	
+
+	A seguir, explicam-se os componentes indicados dentro de Encoder e Decoder, que em conjunto sintetizam todos os circuitos digitais do estudo. Explicitar-se-ão as decisões mais importantes de projeto e a forma pela qual se integraram e se testaram os dois módulos.
+
 	\section{Codificador Digital}
-	
+
 	\subsection{Codificador Reed Solomon}
-	
+
 	Conforme apontado no capítulo de Metodologia, a arquitetura do codificador Reed Solomon foi construída para um código (15, 7), portanto contando com 8 registradores em série. Os multiplicadores foram feitos com uma tabela,  que recebe duas entradas e retorna uma saída, de maneira a simplificar o trabalho de fazer uma função utilizando lógica combinatória. Já os somadores são equivalentes à função de OU exclusivo, ou XOR, com duas entradas e uma saída de 4 \textit{bits} cada - ou seja, um símbolo. Além destes, os módulos básicos ainda compreendem um multiplexador, que seleciona um entre dois símbolos. A arquitetura desenvolvida pode ser observada na \autoref{RS_encoder_logic}.
-	
+
 	O comportamento de codificação de uma mensagem pode ser exemplificado pela \autoref{simula_rs_encoder}, onde se observa a entrada de uma mensagem de 7 símbolos e a saída de um bloco de 15 símbolos, sendo 8 de paridade.
-	
+
 	\begin{figure}[h]
 		\caption{\label{simula_rs_encoder}Simulação de codificação do codificador Reed Solomon.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_encoder}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	\subsection{\textit{Interleaver}}
 
 	O módulo do Interleaver é composto por três componentes principais: (i) a memória, (ii) a unidade de controle do cabeçalho e (iii) a unidade de controle do payload.
@@ -44,21 +44,21 @@
 	\end{figure}
 
 	\subsubsection{Memória}
-	
-	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição. 
-	
+
+	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição.
+
 	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do payload da PHY I (1023 \textit{bytes}). Isso acontece porque o módulo anterior ao \textit{Interleaver} - o Codificador Reed Solomon - transforma cada 28 \textit{bits} de mensagem em 60 \textit{bits} (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu padding (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser, então, capaz de guardar 2206 \textit{bytes}.
-	
+
 	A princípio, é possível realizar esse armazenamento de três formas na FPGA: (i) criando vetores dentro de um arquivo .vhd, (ii) utilizando uma memória externa a FPGA e (iii) utilizando uma memória interna da FPGA. A primeira solução ocupa muito espaço disponível nas unidades lógicas do chip. A segunda proposta requer uma memória acoplada à placa de desenvolvimento utilizada, restringindo a gama de placas possíveis. A terceira e última opção é a mais adequada, pois a arquitetura da FPGA utilizada (EP4) possui memória auxiliar incorporada na FPGA.
-	
+
 	Para implementar a memória, foi utilizado o componente RAM de duas portas do Catálogo IP (Intellectual Property) do programa Altera Quartus. De forma que a capacidade de memória seja no mínimo 2206 \textit{bytes}, foi instanciada uma de 4096 \textit{bytes}, pois devem ser potências de 2.
 
 	\subsubsection{Unidade de controle do cabeçalho}\label{section:interleaver-header-control}
-	
+
 	O propósito deste módulo é receber os dados do Codificador Reed Solomon, gravá-los na memória interna e depois enviá-los de forma entrelaçada. A abordagem tomada pelo projeto foi gravar esses dados em ordem entrelaçada, para que a leitura seja feita apenas varrendo os endereços da memória em ordem crescente. A \autoref{figure:interleaver-flow} ilustra o algoritmo desenvolvido para escolher os endereços entrelaçados e gerar a saída. Ele foi implementado em Javascript para melhor visualização da ordem certa de gravação.
 
 	Em VHDL, a solução é composta por três componentes: (i) contador de endereços, (ii) contador de profundidade e (iii) contador de saída. Eles estão integrados com à memória na \autoref{figure:interleaver-schematics}.
-		
+
 	\begin{figure}[h!]
 		\caption{\label{figure:interleaver-schematics}Diagrama esquemático do \textit{Interleaver}, com unidade de controle e memória. Os sinais azuis representam entradas para melhor visualização.}
 		\centering
@@ -68,33 +68,33 @@
 
 	\paragraph{Contador de endereços}
 	Responsável por selecionar endereços para a etapa de gravação da memória. Recebe a profundidade atual e o valor da profundidade da mensagem.
-	
+
 	Inicialmente, a profundidade atual é utilizada como endereço na etapa de gravação da mensagem na memória. As iterações posteriores utilizam também o valor de profundidade da mensagem para deslocar os dados na memória, realizando esse processo quatorze vezes, uma vez para cada símbolo do codificador Reed Solomon, como ilustrado na \autoref{figure:interleaver-order}. A equação abaixo também auxilia no entendimento do processo:
-	
+
 	\begin{equation}
 	Address = depth_counter + iteration \cdot depth
 	\end{equation}
-	
+
 	\begin{figure}[h!]
 		\caption{\label{figure:interleaver-order}Ordem do algoritmo entrelaçador para gravar a memória.}
 		\centering
 		\includegraphics[width=0.8\textwidth]{interleaver/order.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	Na última iteração desse módulo, há o sinal de \textit{carry}. Esse sinaliza ao contador de profundidade que deve-se deslocar uma profundidade na gravação.
-	
+
 	\paragraph{Contador de profundidade}
 	Contador que desloca o endereço base selecionado na \autoref{figure:interleaver-order}, preenchendo toda a memória com dados entrelaçados. O processo de gravação termina quando a profundidade atual atinge o valor da profundidade da mensagem. Nesse momento, é sinalizado ao contador de saída que é possível gerar a saída.
-	
+
 	\paragraph{Contador de saída}
-	
+
 	O contador de saída, quando habilitado pelo contador de profundidade, troca o modo de operação da memória de gravação para leitura. Esse módulo também seleciona endereços para ler de forma crescente, gerando uma saída entrelaçada, juntamente com sinal de FlagInt mostrando que os dados atuais são válidos.
-	
+
 	\subsubsection{Unidade de controle do \textit{payload}}
-	
-	O comportamento da UC (unidade de controle) do \textit{payload} é análoga à explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados. Algumas modificações foram feitas no esquema apresentado (\autoref{figure:interleaver-schematics}) para o funcionamento pleno do \textit{Interleaver}: 
-	
+
+	O comportamento da UC (unidade de controle) do \textit{payload} é análoga à explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados. Algumas modificações foram feitas no esquema apresentado (\autoref{figure:interleaver-schematics}) para o funcionamento pleno do \textit{Interleaver}:
+
 	\begin{itemize}
 		\item UC duplicada para o \textit{payload};
 		\item Saída da segunda UC conectada na segunda porta da RAM;
@@ -103,7 +103,7 @@
 		\item Contador de saída habilitado quando a segunda UC acaba o processo de gravação;
 		\item Critério de parada do contador de saída modificado para $comprimento(cabeçalho + mensagem)$.
 	\end{itemize}
-	
+
 	A simulação para a gravação dos dados está disponível na \autoref{figure:interleaver-simulation-store}. A entrada é uma mensagem Reed Solomon válida e vários zeros em seguida.
 	\begin{figure}[h]
 		\caption{\label{figure:interleaver-simulation-store}Simulação da etapa de gravação do módulo \textit{Interleaver}.}
@@ -113,7 +113,7 @@
 	\end{figure}
 
 	A etapa de saída dos dados está disponível na \autoref{figure:interleaver-simulation-flush}. Como a profundidade da mensagem é 2, então o \textit{Interleaver} irá alternar entre os primeiros 15 dados e os 15 seguintes. Esse comportamento é facilmente observado quando a saída alterna paridade do Reed Solomon com zeros, presentes na segunda mensagem.
-	
+
 	\begin{figure}[h]
 		\caption{\label{figure:interleaver-simulation-flush}Simulação da etapa de saída do módulo \textit{Interleaver}.}
 		\centering
@@ -122,40 +122,40 @@
 	\end{figure}
 
 	Como o componente é complexo, seu RTL encontra-se separado no Anexo na \autoref{figure:interleaver-rtl}.
-	
-	\subsection{Codificador Convolucional}	
-	
+
+	\subsection{Codificador Convolucional}
+
 	O codificador convolucional foi baseado no esquema corrigido da norma em \autoref{figure:convolutional-schematics}, com seis registradores representando a janela deslizante e o \textit{exclusive OR} dos geradores polinomiais.
-	
+
 	Nesse módulo, existe uma grande diferença da vazão da mensagem do \textit{Interleaver} com a vazão suportada pelo Codificador Convolucional. A figura \autoref{figure:integration-encoder} mostra que o entrelaçador fornece 4 \textit{bits}/clock enquanto o convolucional apenas consome 1 \textit{bit}/clock. Essa diferença foi tratada utilizando um módulo chamado PISO (Parallel Input to Serial Output), que transforma os dados paralelos em seriais, desde que o \textit{clock} do convolucional seja mais rápido. Mais detalhes com relação a integração entre componentes do codificador na \autoref{section:execution-integration-encoder-speeds}.
 
 	Ainda existe outro módulo que insere uma cadeia de 6 \textit{bits} zeros entre o cabeçalho e a mensagem. Isso reinicia o Convolucional, garantindo que o estado inicial seja "000000", estado conhecido posterior decodificação. A implementação é simples: processa as 30 primeiras palavras e depois envia os zeros via um registrador de deslocamento.
-	
+
 	\subsubsection{\textit{Puncture}}
-	
+
 	Para realizar o \textit{puncture} de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois \textit{clocks} do próximo módulo e o valor de B por mais dois \textit{clocks}. Seguindo o especificado na metodologia. A simulação de todas operações descritas encontra-se abaixo:
-	
+
 	\begin{figure}[h]
 		\caption{\label{figure:convolutional-simulation}Simulação do Codificador Convolucional. Nota-se a forma que ele serializa os dados do \textit{Interleaver} em ccEncoderInput antes de utilizá-los, para gerar a saída em ccEncoderOutput.}
 		\centering
 		\includegraphics[width=1\textwidth]{convolutional/simulation.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	\subsection{Codificador Manchester}
-	
+
 	A arquitetura da codificação de Manchester segue o mesmo modelo explicado na Metologia. Duas entradas: \textit{clock} e mensagem, recebem a operação lógica XOR e retornam o código. A simulação do componente está abaixo:
-	
+
 	\begin{figure}[h!]
 		\caption{\label{figure:manchester-encoder-simulation}Simulação do Codificador Manchester.}
 		\centering
 		\includegraphics[width=0.5\textheight]{manchester/simulation-encoder.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
-	
+
+
 	\subsection{Integração do Codificador}\label{section:execution-integration-encoder-speeds}
-	
+
 	Os codificadores foram integrados de modo a não existir nenhum \textit{buffer} entre os componentes, com exceção entre a UART e o Reed Solomon. Para a saída ser na velocidade de 200kHz como foi especificado na norma, os \textit{clocks} dos componentes têm frequências diferentes. Isso se deve ao número de \textit{bits} de entrada diferir com o número de \textit{bits} de saída dos componentes. Essa relação de entrada e saída de \textit{bits} e suas frequências, é mostrada na figura abaixo.
 	\begin{figure}[h]
 		\caption{\label{figure:integration-encoder}Relação entre vazão de \textit{bits} entre cada módulo do Codificador.}
@@ -165,13 +165,13 @@
 	\end{figure}
 
 	\section{Decodificador Digital}
-	
+
 	\subsection{\textit{Sync}}
-	
-	Módulo que sincroniza o \textit{clock} do transmissor com o do receptor, para que os dados recebidos sejam os mesmos que os enviados. 
-	
+
+	Módulo que sincroniza o \textit{clock} do transmissor com o do receptor, para que os dados recebidos sejam os mesmos que os enviados.
+
 	Inicialmente foi utilizado uma propriedade intelectual da Altera chamada PLL (\textit{Phase-Locked Loop}). Um estudo mais detalhado demonstrou que sua entrada recebe apenas sinais de ordem de grandeza de MHz. É portanto incompatível com a frequência definida pela camada PHY I.
-	
+
 	O trabalho propõe uma solução para esse problema desenvolvida pelos próprios autores, e é dividida em quatro módulos: \textit{oversampling}, decisor de limite de tempo, detector de FLP e gerador de \textit{clock}. O diagrama abaixo (\autoref{figure:sync-schematics}) ilustra as conexões entre esses módulos.
 	\begin{figure}[h]
 		\caption{\label{figure:sync-schematics}Diagrama esquemático do \textit{Sync}. O \textit{clock} do registrador de deslocamentos foi omitido para simplificar a representação.}
@@ -179,26 +179,27 @@
 		\includegraphics[width=0.8\textwidth]{sync/schematics.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	\subsubsection{\textit{Oversampling}}
 	Componente que realiza a verificação do tempo de permanência do sinal para cada \textit{bit}. Possui dois contadores, um para o sinal lógico zero e outro para um. O próprio sinal de entrada habilita (\textit{enable}) o contador de zeros quando está em \textit{high}, e analogamente o contador de uns quando está em \textit{low}. O funcionamento do sinal de \textit{reset} é inverso ao de enable aos dois contadores. Portanto o módulo contador de zeros conta por quantos \textit{clocks} de 50MHz a entrada ficou em zero. Caso a entrada seja um, o contador zera e ele é desabilitado. Analogamente para o módulo contador de uns, que conta por quantos \textit{clocks} a entrada ficou em um, zerando.
 
 	\subsubsection{Decisão de Limite de Tempo}
-	Esse subsistema decide se o sinal analisado pelo módulo de \textit{Oversampling} possui pelo menos 250 amostras iguais (zeros ou uns). Ele parte do princípio que a entrada será uma onda quadrada de período 10 $\mu$s - garantido pelo envio do FLP -, não possuindo dois uns nem dois zeros seguidos.
-	
-	Com intuito de facilitar a sincronização, o decisor de limite de tempo verifica se o \textit{Oversampling} está dentro de um intervalo de 128 a 255 ciclos do \textit{clock} interno da FPGA de 50 MHz. Esse processo ocorre verificando apenas os \textit{bits} mais significativos do contador. Caso o oitavo \textit{bit} seja um, significa que o módulo anterior contou pelo menos até 128, caracterizando um possível um ou zero. Verificando o nono \textit{bit} é possível concluir se ele não excedeu o tempo de permanência no mesmo \textit{bit} (além de 255). 
-	
+	Esse subsistema decide se o sinal analisado pelo módulo de \textit{Oversampling} possui pelo menos 250 amostras iguais (zeros ou uns). Ele parte do princípio que a entrada será uma onda quadrada de período 10 $\mu$s, garantido pelo envio do FLP, não possuindo dois uns nem dois zeros seguidos.
+
+	Com intuito de facilitar a sincronização, o decisor de limite de tempo verifica se o \textit{Oversampling} está dentro de um intervalo de 128 a 255 ciclos do \textit{clock} interno da FPGA de 50 MHz. Esse processo ocorre verificando apenas os \textit{bits} mais significativos do contador. Caso o oitavo \textit{bit} seja um, significa que o módulo anterior contou pelo menos até 128, caracterizando um possível um ou zero. Verificando o nono \textit{bit} é possível concluir se ele não excedeu o tempo de permanência no mesmo \textit{bit} (além de 255).
+
 	Para o módulo sincronizador, dois uns ou dois zeros seguidos fogem da norma, portanto tais mensagens são descartadas.
-	
+
 	\subsubsection{Detector de FLP}
 	A detecção de FLP é realizada com com um registrador de deslocamento de 200 \textit{bits}. Se pelo menos 200 \textit{bits} recebidos preenchem o registrador com zeros e uns alternados, o móduto gera um sinal lógico um para o gerador de \textit{clock}.
-	
+
 	O registrador é reiniciado quando o nono \textit{bit} do Decisor de limite de tempo é um, pois caracteriza um FLP inválido. Enquanto apenas o oitavo \textit{bit} for detectado, o registrador grava o valor e desloca seus valores à direita.
+
 	\subsubsection{Gerador de \textit{clock}}
 	Módulo que gera um \textit{clock} de 200kHz estável para o decodificador inteiro. Utiliza um divisor de frequência do \textit{clock} interno da FPGA.
-	
+
 	Quando recebe o sinal de detecção de FLP, reajusta seu \textit{clock} de 200kHz forma que a borda de subida fique no centro do \textit{bit} de entrada. Essa característica do gerador de \textit{clock} protege o decodificador do fenômeno de \textit{clock drift}, ou da perda de sincronia entre os \textit{clocks} devido ao comprimento da mensagem.
-	
+
 	A simulação resultante desse componente se encontra abaixo:
 	\begin{figure}[h]
 		\caption{\label{figure:sync-simulation}Simulação do comportamento do Sincronizador. Quando o sinal FLP é habilitado, o gerador de clock reinicia.}
@@ -206,15 +207,15 @@
 		\includegraphics[width=1\textwidth]{sync/simulation.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
-	Seu RTL se encontra no Anexo na \autoref{figure:sync-rtl}.
-	
+
+	Seu RTL se encontra no Anexo, na \autoref{figure:sync-rtl}.
+
 	\subsection{Decodificador Manchester}
-	
+
 	O decodificador funciona, conforme explicado anteriormente, de acordo com a \autoref{tabela_cod_manchester}.
-	
-	Neste projeto, o decodificador de Manchester é inicializado quando a combinação de TDPs e não TDPs é identificado. Seu circuito foi desenvolvido com uma máquina de estados que tem estado inicial S0. Essa máquina funciona de modo que quando existe uma transição de 0 para 1, a saída é um \textit{bit} 0 e quando a transição é de 1 para 0, a saída é um \textit{bit} 1 para 0. Isso é demonstrado na figura \autoref{figure:manchester-decoder-flow}. 
-		
+
+	Neste projeto, o decodificador de Manchester é inicializado quando a combinação de TDPs e não TDPs é identificado. Seu circuito foi desenvolvido com uma máquina de estados que tem estado inicial S0. Essa máquina funciona de modo que quando existe uma transição de 0 para 1, a saída é um \textit{bit} 0 e quando a transição é de 1 para 0, a saída é um \textit{bit} 1 para 0. Isso é demonstrado na figura \autoref{figure:manchester-decoder-flow}.
+
 	\begin{figure}[h]
 		\caption{\label{figure:manchester-decoder-flow}Visão de máquina de estados do decodificador Manchester.}
 		\centering
@@ -230,46 +231,46 @@
 		\includegraphics[width=0.6\textheight]{manchester/simulation-decoder.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	\subsection{Decodificador Viterbi Fangled}
-	
+
 	O Decodificador Viterbi tem o mesmo problema do Codificador Convolucional: as vazões de entrada e saída são diferentes. Deve-se então converter dados seriais para paralelos utilizando um módulo SIPO (Serial Input Parallel Output). Os \textit{clocks} também devem ser ajustados de acordo. Mais detalhes com relação a integração entre componentes do decodificador na \autoref{section:execution-integration-decoder-speeds}.
-	
+
 	Como especificado na metodologia (\autoref{section:method-viterbi}), a implementação Viterbi utilizada é simplificada e se chama \textit{Fangled}. Consome menos memória e processamento e é mais veloz, porém tem capacidade de detecção e correção de erro muito menor. O \textit{Fangled} Viterbi corrige no mínimo um \textit{bit} a cada quatro recebidos, devido à sua arquitetura de taxa $\frac{1}{4}$.
 
 	\subsubsection{\textit{Branch Metrics}}
 	A entrada é composta por AABB. Calcula-se a distância entre o primeiro A com o primeiro B e todas as possíveis combinações de bits (00, 01, 10, 11). A distância é calculada do mesmo modo para o segundo A e o segundo B recebidos. A operação feita entre os dados é XOR. As distâncias de uma mesma combinação de bits é posteriormente somada.
-	
+
 	\subsubsection{Tabela Trellis}
-	Dado o estado atual, é uma LUT (\textit{Look Up Table}) com dois valores possíveis de entrada para o Viterbi. Possui duas saídas para cada entrada: uma quando o \textit{bit} é um e outra quando o \textit{bit} é zero.
-	
+	A tabela foi implementada através de uma LUT (\textit{Look Up Table}) com dois valores possíveis de entrada para o Viterbi. Possui duas saídas para cada entrada: uma quando o \textit{bit} é um e outra quando o \textit{bit} é zero.
+
 	\subsubsection{\textit{Path Metrics}}
 	O PM (\textit{Path Metrics}) recebe a informação de quais são as duas possíveis entradas da Tabela Trellis e quais as distâncias do \textit{Branch Metrics}. Com esses dados o PM identifica qual o bit mais provável de ter sido codificado. Definindo assim, qual o próximo estado e a saída do decodificador Viterbi. O valor do próximo estado é armazenado para ser posteriormente utilizado pela Tabela Trellis.
-	
+
 	Caso as distâncias consideradas forem iguais, o valor da saída é escolhido como sendo zero e o próximo estado é definido de acordo. No caso do \textit{Fangled} Viterbi, essa escolha deverá ser realizada ao acaso.
-	
+
 	A simulação do módulo de decodificação Viterbi \textit{Fangled} se encontra na \autoref{figure:viterbi-simulation} abaixo. A arquitetura do componente RTL encontra-se no Apêndice, na \autoref{figure:viterbi-rtl}.
-	
+
 	\begin{figure}[h]
 		\caption{\label{figure:viterbi-simulation}Simulação do funcionamento do Decodificador Viterbi \textit{Fangled}. Observa-se que o componente apenas conclui qual o símbolo recebido após quatro ciclos.}
 		\centering
 		\includegraphics[width=0.6\textheight]{viterbi/simulation.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
-	
+
+
 	\subsection{Decodificador Reed Solomon}
-	
+
 	A arquitetura do decodificador segue o diagrama funcional da figura X do capítulo de Metologia. Desta forma, o desenvolvimento pode ser separado em quatro partes principais, apresentadas a seguir.
-	
+
 	\subsubsection{Cálculo das Síndromes}
-	
+
 	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso. O arranjo dos componentes pode se exemplificar através da arquitetura do módulo, representada na \autoref{fig_sindrome_arq}, nos Anexos.
 
-	Os elementos indicados por "static" são constantes, guardando os valores dos símbolos de cada umas raízes citadas. Estes valores são enviados para multiplicadores de GF(16), representados por "gf\_mult". Como pode-se observar, o cálculo é iterativo e portanto os multiplicadores recebem também o valor dos registradores que são representados por "register4b". Os somadores de Campos de Galois são representados por "gf\_sum".
-	
+	Os elementos indicados por \texttt{static} são constantes, guardando os valores dos símbolos de cada umas raízes citadas. Estes valores são enviados para multiplicadores de GF(16), representados por \texttt{gf\_mult}. Como pode-se observar, o cálculo é iterativo e portanto os multiplicadores recebem também o valor dos registradores que são representados por \texttt{register4b}. Os somadores de Campos de Galois são representados por \texttt{gf\_sum}.
+
 	A simulação a seguir representa o caso em que existem erros na mensagem codificada, o que é indicado por síndromes diferentes de 0000.
-	
+
 	\begin{figure}[h]
 		\caption{\label{fig_sindrome_sim}Simulação do cálculo das síndromes.}
 		\centering
@@ -278,39 +279,39 @@
 	\end{figure}
 
 	\subsubsection{Módulo de Berlekamp-Massey}
-	
-	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados, então, com as síndromes e localizações de erro. A arquitetura desse circuito pode ser encontrada nos Anexos, na \autoref{fig_berlekamp_arq}.
-	
+
+	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lambda, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados, então, com as síndromes e localizações de erro. A arquitetura desse circuito pode ser encontrada nos Anexos, na \autoref{fig_berlekamp_arq}.
+
 	As síndromes são enviadas sequencialmente para o módulo de Berlekamp-Massey a cada ciclo de \textit{clock}. A atualização do polinômio localizador, representado por 4 registradores do diagrama, ocorre quando ele não possibilita gerar uma síndrome específica. Nesse caso, são feitos os cálculos no módulo inversor, com a atualização do polinômio no próximo ciclo. Esse processo é exemplificado pela \autoref{fig_berlekamp_sim}.
-	
+
 	\begin{figure}[!htb]
 		\caption{\label{fig_berlekamp_sim}Simulação do módulo de Berlekamp-Massey.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_berlekamp.PNG}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
-	Uma vez calculados os valores dos coeficientes do polinômio localizador, equivalentes a Lambda na simulação, é necessário calcular os coeficientes do polinômio de valor dos erros. Novamente, as síndromes são enviadas sequencialmente para o circuito. O novo cálculo ocorre com as síndromes e o polinômio localizador de erros. O resultado são os coeficientes do polinômio de valores de erro, representados por Omega na simulação, obtidos em sequência em cada ciclo de \textit{clock}. 
-	
+
+	Uma vez calculados os valores dos coeficientes do polinômio localizador, equivalentes a Lambda na simulação, é necessário calcular os coeficientes do polinômio de valor dos erros. Novamente, as síndromes são enviadas sequencialmente para o circuito. O novo cálculo ocorre com as síndromes e o polinômio localizador de erros. O resultado são os coeficientes do polinômio de valores de erro, representados por Omega na simulação, obtidos em sequência em cada ciclo de \textit{clock}.
+
 	O componente de Berlekamp-Massey possui um circuito de controle próprio. Por ele é recebido um sinal de início de cálculo, vindo do controlador do estágio anterior, de cálculo de síndromes. Sendo assim, ele deve manipular registradores, para, por exemplo, registrar os valores de Lambda e Omega para cálculo posterior, no módulo seguinte.
-	
+
 	\subsubsection{Módulos de Busca de Chien e Forney}
-	
-	O módulo de busca de Chien é na verdade composto por dois módulos: busca de localização e de valores dos erros. Ambos trabalham paralelamente e têm como entrada os coeficientes $\Lambda$ e $\Omega$. 
-	
-	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que, caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. Nesse circuito, é possível observar esse processo com a identificação de síndromes diferentes de zero, com o sinal "error\_syndrome" na \autoref{fig_forney_sim}, nos Anexos. Considerando que o sinal está na posição alta, significa que pelo menos um \textit{bit} de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida. 
-	
+
+	O módulo de busca de Chien é na verdade composto por dois módulos: busca de localização e de valores dos erros. Ambos trabalham paralelamente e têm como entrada os coeficientes $\Lambda$ e $\Omega$.
+
+	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que, caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. Nesse circuito, é possível observar esse processo com a identificação de síndromes diferentes de zero, com o sinal \texttt{error\_syndrome} na \autoref{fig_forney_sim}, nos Anexos. Considerando que o sinal está na posição alta, significa que pelo menos um \textit{bit} de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida.
+
 	\begin{figure}[!htb]
 		\caption{\label{fig_forney_sim}Simulação do módulo de Forney.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_forney.PNG}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
-	Por outro lado, caso haja mais de 4 símbolos com erro, nenhuma correção será feita, portanto contabiliza-se o número de correções feitas até então. Se for identificado um erro com as síndromes e não for contada nenhuma correção no módulo de Forney, temos duas condições suficientes para afirmar que o bloco deve ser descartado e este não pode ser corrigido através do método de Reed Solomon. No exemplo anterior, o número de erros corrigidos é inferior a 5, portanto a mensagem final está correta e pode sair da camada física PHY I. Caso a mensagem seja descartada, é necessário que se envie novamente pelo transmissor.	
-	
+
+	Por outro lado, caso haja mais de 4 símbolos com erro, nenhuma correção será feita, portanto contabiliza-se o número de correções feitas até então. Se for identificado um erro com as síndromes e não for contada nenhuma correção no módulo de Forney, temos duas condições suficientes para afirmar que o bloco deve ser descartado e este não pode ser corrigido através do método de Reed Solomon. No exemplo anterior, o número de erros corrigidos é inferior a 5, portanto a mensagem final está correta e pode sair da camada física PHY I. Caso a mensagem seja descartada, é necessário que se envie novamente pelo transmissor.
+
 	\subsection{UART}
-	
+
 	UART, ou \textit{Universal Asynchronous Receiver/Transmitter} é o componente utilizado para fazer comunicação entre dispositivos. A transmissão de dados é feita a partir de pacotes compostos por: \textit{bit} de início, \textit{data frame}, \textit{bit} de paridade e \textit{bit} de fim.
 	\begin{figure}[h]
 		\caption{\label{figure:uart-frame}Quadro de mensagem da UART utilizada no projeto.}
@@ -318,16 +319,16 @@
 		\includegraphics[width=0.9\textwidth]{uart/frame.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	Gerador de Baud: recebe um \textit{clock} de entrada e o divide para gerar o \textit{baud clock}. A frequência do \textit{baud clock} é dezesseis vezes o \textit{baud rate.} Quando a UART está recebendo o \textit{bit} de entrada é amostrado no oitavo ciclo do baud clock para o esquema de \textit{oversampling} dezesseis vezes.
-	
+
 	\begin{chart}[h]
 		\caption{\label{figure:uart-txrx}\textit{Oversampling} com \textit{baud clock}.}
 		\centering
 		\includegraphics[width=0.9\textwidth]{uart/txrx.pdf}
 		\legend{Fonte: Autores.}
 	\end{chart}
-	
+
 	\subsection{Integração do Decodificador}\label{section:execution-integration-decoder-speeds}
 	%FAZER INTEGRACAO DO DECODIFICADOR
 	A integração dos decodificadores foi realizada de modo análogo ao da integração dos codificadores, não existindo nenhum \textit{buffer} entre eles. Recebe-se dados a 200kHz como especificado na norma, e os \textit{clocks} dos decodificadores foram ajustados de modo a receber esses dados e decodificá-los. A relação de entradas e saídas de \textit{bits} e suas frequências, é ilustrada na \autoref{figure:integration-decoder}.
@@ -341,14 +342,14 @@
 	\section{Transmissor Analógico}
 	A seção abaixo discorrerá sobre a aplicação dos métodos estudados nos capítulos anteriores para o transmissor analógico.
 	Antes de iniciar a execução do trabalho, foram estabelecidas algumas decisões de projeto:
-	
+
 	\begin{itemize}
 		\item Única fonte de alimentação de 5V.
 		\item Implementação de um circuito apenas para a camada PHY I da norma, fixando a frequência de operação a 200kHz.
 	\end{itemize}
-	
+
 	Essas decisões persistirão para o projeto analógico como um todo, para manter consistência no projeto.
-	
+
 	\subsection{Conversor Digital-Analógico}
 	Com os estudos feitos na \autoref{section:dac}, é possível especificar os requisitos reais para o transistor de potência:
 
@@ -357,13 +358,13 @@
 		\item Corrente de saída compatível com LED de alta potência, no mínimo 750mA;
 		\item Resposta de base/\textit{gate} a $V_{on(FPGA)}$ de no máximo 1us;
 	\end{itemize}
-	
+
 	Alguns dos parâmetros são decisões de projeto, como a utilização de níveis TTL (Transistor Transistor Logic) para chaveamento do transistor (3.3V ou 5V), e outros são requisitos da norma IEEE, como frequência de operação a 200kHz. Especialmente no segundo caso, é importante escolher um transistor com $T_{rise}$ e $T_{fall}$ de no mínimo 10-100 vezes menor que o período da onda transmitida - no caso $5\mu$$s/100 = 50ns$. Se o transistor não chavear rápido suficiente, é possível que a onda seja alterada. Em alguns casos é possível que fique semelhante a uma onda "dente de serra".
-	
-	O componente escolhido foi um MOSFET de Potência, mais especificamente o IRLZ14, pois é um transistor de nível lógico e tem o \textit{gate} compatível com voltagens de microcontrolador. 
+
+	O componente escolhido foi um MOSFET de Potência, mais especificamente o IRLZ14, pois é um transistor de nível lógico e tem o \textit{gate} compatível com voltagens de microcontrolador.
 
 	De acordo com função de transferência da \autoref{figure:transfer-carac-irlz14}, a VGS=3.3V é permitida uma corrente de dreno de 2A. A \textit{datasheet} também especifica parâmetros de resposta dinâmica do circuito, como seu $T_{rise}$, $T_{fall}$, que estão disponibilizados na \autoref{table:irlz14-timing}.
-	
+
 	\begin{chart}[h]
 		\caption{\label{figure:transfer-carac-irlz14}Características de transferência do MOSFET de potência IRLZ14.}
 		\centering
@@ -385,43 +386,43 @@
 	\end{table}
 
 	\subsection{Transmissão de Luz}
-		
-	Para realizar a transmissão de luz a distâncias de pelo menos um metro, será necessária a utilização de um LED de potência. Esse LED deverá atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procurando satisfazer tais parâmetros, o componente escolhido foi o LUW W5-AM, fabricado pela OSRAM.
+
+	Para realizar a transmissão de luz a distâncias de pelo menos um metro, foi necessária a utilização de um LED de potência. Esse LED deve atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procurando satisfazer tais parâmetros, o componente escolhido foi o LUW W5-AM, fabricado pela OSRAM.
 
 	Utilizando o circuito polarizador do LED da \autoref{figure:led-circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização, mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
 	\begin{equation}
 	R_{LIMIT} = 5V \cdot 500mA = 2.5\Omega
 	\end{equation}
-	
+
 	\subsection{Versões Anteriores}
-	
+
 	Devido a falta de conhecimento do comportamento de transistores e da resposta de todos os componentes a frequência de 200kHz, foram projetados vários circuitos que não satisfaziam o formato de onda desejado. Abaixo são exemplificadas algumas versões implementadas, juntamente com os motivos de terem sido abandonadas.
-	
+
 	\subsubsection{Filtro da Ponta de Prova}
 	\begin{figure}[h]
 		\caption{\label{fig_transmitter_lify_circuit_fail0}Circuito de transmissão com filtro de ponta de prova.}
-		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\centering		%  trim={<left> <lower> <right> <upper>}
 		\includegraphics[width=0.5\textwidth, trim={2cm 1cm 2cm 2cm}, clip]{circuits/transmitter_fail0.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	O primeiro problema que o projeto do transmissor encontrou foi o comportamento de subamortecimento nos terminais do LED. Ele utiliza um circuito semelhante ao utilizado em pontas de provas para filtrar ruídos e é conectado em série com a entrada do transmissor, como visto na \autoref{fig_transmitter_lify_circuit_fail0}.
 	\begin{chart}[h]
 		\caption{\label{fig_transmitter_lify_circuit_fail0_rl}Comportamento do circuito de transmissão com filtro de ponta de prova em série com a entrada. A onda azul é saída do gerador de funções enquanto a onda amarela é a tensão submetida ao LED. Observa-se o comportamento de subamortecimento em ambas.}
-		\centering		%  trim={<left> <lower> <right> <upper>} 
+		\centering		%  trim={<left> <lower> <right> <upper>}
 		\includegraphics[width=0.5\textwidth, trim={30cm 0cm 2cm 40cm}, clip]{circuits/photos/TX_probe_result.jpg}
 		\legend{Fonte: Autores.}
 	\end{chart}
 
 	A saída dessa implementação é mostrada no Gráfico \ref{fig_transmitter_lify_circuit_fail0_rl} e não foi satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Além dessa frequência, a forma de onda se distorcia demais. O segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Atribuiu-se esses efeitos a capacitâncias parasitas no LED e no transistor de potência.
-	
-	O transistor de potência possui capacitância devido à separação de suas placas. Seu valor é significativo e é até especificado na \textit{datasheet}. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente. 
+
+	O transistor de potência possui capacitância devido à separação de suas placas. Seu valor é significativo e é até especificado na \textit{datasheet}. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente.
 
 	No caso do LED, esse comportamento é mais complexo. A altas frequências, seu chaveamento cria um capacitor entre seus terminais, devido a sua arquitetura semicondutora. É possível observar esse comportamento capacitivo tanto em um LED de baixa potência quando de alta. Na prática, a tensão sob o LED não diminui acompanhando a tensão submetida a ele, e isso causa o comportamento indesejável visto, como os picos na onda amarela.
-	
-	A forma de onda gerada por esse circuito é muito boa, porém os picos de voltagem de até o dobro de $2 \cdot V_{CC} = 10V$ com certeza danificam os componentes. Essa versão foi descartada por esse motivo (como pode-se observar em no osciloscópio - \textbf{Maximum 10.1V}). 
-	
+
+	A forma de onda gerada por esse circuito é muito boa, porém os picos de voltagem de até o dobro de $2 \cdot V_{CC} = 10V$ com certeza danificam os componentes. Essa versão foi descartada por esse motivo (como pode-se observar em no osciloscópio - \textbf{Maximum 10.1V}).
+
 	Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual à entrada. Colocar um LED em série com o resistor adicionava o comportamento subamortecido, portanto conclui-se que a anomalia é atribuida ao LED.
-	
+
 	\subsubsection{Aumento da Frequência}
 
 	O aumento da frequência de operação a $f_{OP}$ = 200kHz causa um subamortecimento substancialmente maior. Observa-se no Gráfico \ref{fig_transmitter_lify_circuit_fail1_r1} que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
@@ -437,19 +438,19 @@
 		\includegraphics[width=0.5\textwidth, trim={22.5cm 69cm 87cm 16cm}, clip]{circuits/photos/TX_200k_without_filter.jpg}
 		\legend{Fonte: Autores.}
 	\end{chart}
-	Nesse caso é muito mais evidente o amortecimento visto na onda. Atribui-se esse comportamento à componente capacitiva ao chavear o LED. No entanto, observa-se que não há \textit{feedback} do circuito na saída do gerador de funções, fato observado na última versão do circuito. O capacitor colocado adicionava um nível de complexidade desnecessário ao circuito, pois se carregava com oscilação da entrada. 
-	
+	Nesse caso é muito mais evidente o amortecimento visto na onda. Atribui-se esse comportamento à componente capacitiva ao chavear o LED. No entanto, observa-se que não há \textit{feedback} do circuito na saída do gerador de funções, fato observado na última versão do circuito. O capacitor colocado adicionava um nível de complexidade desnecessário ao circuito, pois se carregava com oscilação da entrada.
+
 	Além disso, ele não preserva a forma de onda da entrada. Ainda é possível refinar mais a solução.
-	
+
 	\subsubsection{Final - Filtro Passa-Altas}
-	Por fim, realiza-se a correção dessa componente subamortecida utilizando um capacitor entre os terminais da \textit{source} do MOSFET e GND (observado em \autoref{fig_transmitter_lify_circuit_final}). 
+	Por fim, realiza-se a correção dessa componente subamortecida utilizando um capacitor entre os terminais da \textit{source} do MOSFET e GND (observado em \autoref{fig_transmitter_lify_circuit_final}).
 	\begin{figure}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_final}Circuito final de transmissão de dados LiCy, utilizando um filtro passa-altas.}
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	\begin{chart}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_final_r1} Forma de onda após adicionar um capacitor que age como filtro passa-altas. Está defasada em 180$\degree$. }
 		\centering
@@ -459,12 +460,12 @@
 	Esse capacitor atua como filtro passa-altas e remove a componente AC da saída para o LED. O comportamento não fica exatamente igual à entrada, mas é satisfatório, pois o período é muito similar, chaveando o LED corretamente. A forma de onda resultante pode ser observada no gráfico \ref{fig_transmitter_lify_circuit_final_r1}. Está defasada em 180$\degree$.
 
 	\section{Receptor Analógico}
-	
+
 	A recepção será feita utilizando os conceitos apresentados nas seções \ref{section:light-reception}, \ref{section:adc},  \ref{section:highpass-filter}, \ref{section:dc-bias} e \ref{section:band-filter}.
-	
+
 	\subsection{Recepção Luminosa}
-	Para o recebimento luminoso, foi utilizado um circuito da "Application Notes" da \cite{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_complex_outer}, diferente do utilizado na Metodologia (\autoref{figure:transimpedance-amp-simple}). Com $V_{bias} = 2.5V$ polarizando reversamente o fotodiodo, uma resposta mais confiável era recebida pelo componente. O valor escolhido de R1 e R2 foram  1M$\Omega$ e 100k$\Omega$.
-	
+	Para o recebimento luminoso, foi utilizado um circuito da \emph{Application Notes} da \cite{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_complex_outer}, diferente do utilizado na Metodologia (\autoref{figure:transimpedance-amp-simple}). Com $V_{bias} = 2.5V$ polarizando reversamente o fotodiodo, uma resposta mais confiável era recebida pelo componente. O valor escolhido de R1 e R2 foram  1M$\Omega$ e 100k$\Omega$.
+
 	\begin{figure}[h]
 		\caption{\label{fig_transimpedance_amp_complex_outer}Circuito e saída de um amplificador de impedâncias. No circuito, o fotodiodo é reversamente polarizado por $V_{bias}$. No osciloscópio, a saída está marcada em amarelo enquanto a saída do LED está em verde.}
 		\begin{subfigure}{.5\textwidth}
@@ -479,17 +480,17 @@
 	\end{figure}
 
 	No osciloscópio, a componente DC da saída do amplificador de transimpedância é zero. No entanto, esse valor é apenas zero quando o padrão da oscilação luminosa se estabiliza. Mais especificamente: nesse e em todos casos de teste, o receptor está sendo submetido a uma onda quadrada de $f = 200kHz$. Visto que a norma define Manchester como código de RLL, é providenciado balanço DC ao receptor (são transmitidos a mesma quantidade de zeros e uns). Então, o fotodiodo se desestabilizará quando há movimentação dos módulos ou quando há mudança na iluminação do ambiente.
-	
-	Para remover esses fatores de incerteza, o circuito de passas baixas com acomplamento DC $V_{ref} = 1V$ foi projetado a partir da \autoref{plot-post-bias1v}. Para obter uma voltagem de referência de 1V, foi utilizado um divisor resistivo de 12k e 47k. 
-	
+
+	Para remover esses fatores de incerteza, o circuito de passas baixas com acomplamento DC $V_{ref} = 1V$ foi projetado a partir da \autoref{plot-post-bias1v}. Para obter uma voltagem de referência de 1V, foi utilizado um divisor resistivo de 12k e 47k.
+
 	\begin{equation}
 	V_{out} = V_{in} \cdot \frac{12k}{12k + 47k} = V_{in} \cdot \frac{12k}{59k} \approx \frac{V_{in}}{5} = \frac{V_{CC}}{5} \approx 1V
 	\end{equation}
-	
+
 	\subsection{Conversor Analógico-Digital}
-	
+
 	Com a onda em $V_{DC} = 1V$, é possível utilizar o comparador definido na \autoref{fig_double_comparator} para converter a onda senoidal em uma onda quadrada, com níveis compatíveis com a FPGA.
-	
+
 	A voltagem de referência do comparador deve ser a mesma que a voltagem $V_{ref}$ do filtro passa-baixas, provenientes do divisor resistivo. O circuito final integrado do receptor é detalhado na \autoref{fig_receiver_lify_circuit_final}.
 
 	\begin{figure}[h]
@@ -498,24 +499,23 @@
 		\includegraphics[width=0.6\textwidth, trim={0cm 1cm 0cm 1cm}, clip]{circuits/receiver_lify_final.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
-	
+
 	Os testes realizados foram bem sucedidos e resultaram na onda do gráfico \ref{fig_receiver_lify_circuit_final_r1}. Nela é possível observar a medição do período da onda resultante convertida, que foi 4.88us, muito próximo de 5us, período para 200kHz.
-	
+
 	\begin{chart}[h!]
 		\caption{\label{fig_receiver_lify_circuit_final_r1}Saída do transmissor em verde e saída digital convertida do receptor em amarelo. É possível observar uma defasagem de 90$\degree$ em relação às ondas.}
 		\centering
 		\includegraphics[width=0.4\textwidth, trim={36cm 30cm 60cm 40cm}, clip]{circuits/photos/TXRX_final_fixed.jpg}
 		\legend{Fonte: Autores.}
 	\end{chart}
-	
+
 	Em seguida será realizada a integração entre a parte analógica e digital do trabalho.
 
 	\section{Integração Completa}
-	
+
 	\subsection{Etapas da Integração}
-	O processo de integração seguiu o seguinte método: primeiro testaram-se unitariamente todos os componentes digitais. Uma vez concluídos os testes unitários feitos por meio de testbenches do Quartus, existiram duas frentes de integração: codificação e decodificação. Ambas são análogas, com exceção da presença do circuito de sincronização do módulo decodificador. É importante relatar que alguns subcomponentes foram testados unitariamente na própria FPGA, a fim de garantir que não houvesse comportamentos não previstos quando da integração. 
-	
+	O processo de integração seguiu o seguinte método: primeiro testaram-se unitariamente todos os componentes digitais. Uma vez concluídos os testes unitários feitos por meio de testbenches do Quartus, existiram duas frentes de integração: codificação e decodificação. Ambas são análogas, com exceção da presença do circuito de sincronização do módulo decodificador. É importante relatar que alguns subcomponentes foram testados unitariamente na própria FPGA, a fim de garantir que não houvesse comportamentos não previstos quando da integração.
+
 	O próximo passo da integração foi gravar o decodificador e o codificador na FPGA e testá-los separadamente. Neste caso, utilizou-se a ferramenta Signal Tap, onde se conecta a memória gravada a uma interface USB, controlam-se sinais de entrada e se observam as saídas. Uma vez que os testes foram satisfatórios, a integração de hardware digital pôde se concluir. Nesta última etapa, foram primeiro integrados codificador e decodificador dentro do próprio Quartus. Por fim, o circuito integrado foi gravado na FPGA, para mais testes, que antecederam os testes digitais finais, onde o transmissor e o receptor operaram cada um numa memória diferente, com \textit{clocks} diferentes e um cabo como interface.
-	
+
 	Uma vez que se obteve os dois circuitos digitais principais operantes, cada um foi integrado com seu respectivo hardware analógico. Antes disso, o receptor e o transmissor analógico já haviam sido testados, com auxílio de uma fonte de sinais digitais na entrada do transmissor e um osciloscópio na saída do receptor.
-	

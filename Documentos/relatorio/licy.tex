@@ -2,14 +2,14 @@
 % ------------------------------------------------------------------------
 % LiCy - Trabalho de Conclusão de Curso da Escola Politécnica da USP
 % Integrantes: Gabriel Takaoka Nishimura, Felippe Demarqui Ramos e Vivian Kimie Isuyama.
-% ------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 \documentclass[
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar
 	oneside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel. 
+	a4paper,			% tamanho do papel.
 	hyphens,			% url longa nas referencias
 	english,			% idioma adicional para hifenização
 	brazil				% o último idioma é o principal do documento
@@ -19,8 +19,8 @@
 %  PACOTES
 % ---
 
-% Pacotes básicos 
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+% Pacotes básicos
+\usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Conversão automática dos acentos
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
@@ -43,12 +43,12 @@
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações
 \usepackage[alf,abnt-url-package=url]{abntex2cite}	% Citações padrão ABNT
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
-% Configurações do pacote 
+% Configurações do pacote
 \newenvironment{spmatrix}[1]{
 	\def\mysubscript{#1}\mathop\bgroup\begin{pmatrix}
 	}
@@ -65,7 +65,7 @@
 		ymin=-2, ymax=2,
 		axis lines=middle,
 		%xticklabels={,,},
-		%ytick={#1},	
+		%ytick={#1},
 		%yticklabels={#2},
 		ylabel near ticks,
 		ylabel style={yshift=-0.5cm},
@@ -101,9 +101,9 @@
 \autor{Gabriel Takaoka Nishimura\\ Felippe Demarqui Ramos\\ Vivian Kimie Isuyama}
 \local{São Paulo}
 \data{2016}
-\orientador{Bruno Carvalho de Albertini}
+\orientador{Prof. Dr. Bruno Carvalho de Albertini}
 \instituicao{Universidade de São Paulo -  USP \par
-			Escola Politécnica \par	
+			Escola Politécnica \par
 			Engenharia Elétrica com ênfase em Computação}
 \tipotrabalho{Trabalho de Conclusão de Curso}
 \preambulo{Trabalho de Conclusão de Curso apresentado ao Departamento de Engenharia de Computação e Sistemas
@@ -118,11 +118,11 @@
 \makeatletter
 \hypersetup{
 	%pagebackref=true,
-	pdftitle={\@title}, 
+	pdftitle={\@title},
 	pdfauthor={\@author},
 	pdfsubject={\imprimirpreambulo},
 	pdfcreator={LaTeX with abnTeX2},
-	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
 	colorlinks=true,       		% false: boxed links; true: colored links
 	linkcolor=blue,          	% color of internal links
 	citecolor=blue,        		% color of links to bibliography
@@ -131,11 +131,11 @@
 	bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 \setlength{\parindent}{1.3cm} % O tamanho do parágrafo
 \setlength{\parskip}{0.2cm}  % espacamento entre um paragrafo e outro
 
@@ -149,37 +149,37 @@
 % Início do documento
 % ----
 \begin{document}
-	
+
 	% Seleciona o idioma do documento
 	\selectlanguage{brazil}
-	
+
 	% Retira espaço extra obsoleto entre as frases.
-	\frenchspacing 
-	
+	\frenchspacing
+
 	% ----------------------------------------------------------
 	% ELEMENTOS PRÉ-TEXTUAIS
 	% ----------------------------------------------------------
 	% \pretextual
-	
+
 	% ---
 	% Capa
 	% ---
 	\imprimircapa
 	% ---
-	
+
 	% ---
 	% Folha de rosto
 	% ---
 	\imprimirfolhaderosto*
 	% ---
-	
+
 	% ---
 	% Ficha Catalográfica
 	% Quando receber pdf da biblioteca, descomentar linhas abaixo
 	% ---
 	\include{ficha-catalografica}
 	% ---
-	
+
 	% \begin{fichacatalografica}
 	%     \includepdf{fig_ficha_catalografica.pdf}
 	% \end{fichacatalografica}
@@ -190,25 +190,25 @@
 	% ---
 	% \includepdf{folhadeaprovacao_final.pdf}
 	%
-	
+
 	% ---
 	% Agradecimentos
 	% ---
 	\begin{agradecimentos}
 		À instituição de ensino e todos os seus docentes por fornecerem uma aventura de graduação inesquecível aos integrantes do grupo.
-		
-		Ao nosso orientador, Bruno de Carvalho Albertini, por todo o apoio e paciência com o grupo. Seu otimismo e bom humor sempre foram grande fonte de motivação. 
-		
+
+		Ao nosso orientador, Bruno de Carvalho Albertini, por todo o apoio e paciência com o grupo. Seu otimismo e bom humor sempre foram grande fonte de motivação.
+
 		Aos docentes e técnicos do Departamento de Sistemas Eletrônicos pelas aulas extracurriculares de eletrônica.
-		
+
 		À Carolina Ribeiro Minchin e Caique Bernardes Queiroz Magalhães por suas exímias revisões. A gentileza foi imensurável.
-		
+
 		Às nossas famílias pelo amor, incentivo e apoio incondicional.
-		
+
 		Por fim aos nossos amigos, que acreditaram no nosso potencial.
 	\end{agradecimentos}
 	% ---
-	
+
 	% ---
 	% Epígrafe
 	% ---
@@ -221,13 +221,13 @@
 		\end{flushright}
 	\end{epigrafe}
 	% ---
-	
+
 	% ---
 	% RESUMOS
 	% ---
 	\include{licy-resumos}
 	% ---
-	
+
 	% ---
 	% inserir lista de ilustrações
 	% ---
@@ -235,7 +235,7 @@
 	\listoffigures*
 	\cleardoublepage
 	% ---
-	
+
 	% ---
 	% inserir lista de gráficos
 	% ---
@@ -243,7 +243,7 @@
 	\listofcharts
 	\cleardoublepage
 	% ---
-		
+
 	% ---
 	% inserir lista de tabelas
 	% ---
@@ -251,53 +251,53 @@
 	\listoftables*
 	\cleardoublepage
 	% ---
-	
+
 	% ---
 	% inserir lista de abreviaturas e siglas
 	% ---
 	\begin{siglas}
-		\item[AC] Corrente Alternada (do inglês Alternating Current)
-		\item[ACS] Adicionar, Comparar e Selecionar (do inglês Add, Compare and Select)
-		\item[ADC] Conversor Digital Analógico (do inglês Analog Digital Converter)
-		\item[BM] Métrica de Ramificação (do inglês Branch Metrics)
-		\item[DC] Corrente Contínua (do inglês Direct Current)
+		\item[AC] Corrente Alternada (do inglês \emph{Alternating Current})
+		\item[ACS] Adicionar, Comparar e Selecionar (do inglês \emph{Add, Compare and Select})
+		\item[ADC] Conversor Digital Analógico (do inglês \emph{Analog Digital Converter})
+		\item[BM] Métrica de Ramificação (do inglês \emph{Branch Metrics})
+		\item[DC] Corrente Contínua (do inglês \emph{Direct Current})
 		\item[EAP] Estrutura Analítica de Projeto
-		\item[FET] Transistor de Efeito de Campo (do inglês Field Effect Transistor)
-		\item[FLP] Padrão de Rápido Travamento (do inglês Fast Locking Pattern)
-		\item[FPGA] Arranjo de Portas Programável em Campo (do inglês Field Programable Gate Array)
-		\item[GF] Campos de Galois (do inglês Galois Field)
-		\item[GND] Terra (do inglês Ground)
-		\item[GPIO] Pinos de Entrada e Saída de Propósito Geral (do inglês General Purpose Input/Output)
-		\item[HDL] Linguagem de Descrição de Hardware (do inglês Hardware Description Language)
-		\item[IEEE] Instituto dos Engenheiros Elétricos e Eletrônicos (do inglês Institute of Electrical and Electronics Engineers)
-		\item[IP] Propriedade Intelectual (do inglês Intellectual Property)
-		\item[LED] Diodo Emissor de Luz (do inglês Light Emitting Diode)
-		\item[LUT] Tabela de Pesquisa (do inglês Look Up Table)
-		\item[MAC] Controle de Acesso de Mídia (do inglês Media Access Control)
-		\item[MCS] Esquema de Modulação e Codificação (do inglês Modulation and Coding Scheme)
-		\item[MOSFET] Metal Oxide Semiconductor Field Effect Transistor
-		\item[OOK] Chaveamento Alto-Baixo (do inglês On-off Keying)
-		\item[PHR] Cabeçalho do PHY (do inglês PHY Header)
-		\item[PISO] Entrada Paralela para Saída Serial (do inglês Parallel Input to Serial Output)
-		\item[PM] Métrica de Caminho (do inglês Path Metrics)
-		\item[PPDU] Unidade de Dados da Camada Física (do inglês Physical Layer Data Unit)
-		\item[PSDU] Unidade de Serviço de dados PHY I (do inglês PHY Service Data Unit)
-		\item[RLL] Comprimento de Execução Limitado (do inglês Run Length Limited)
+		\item[FET] Transistor de Efeito de Campo (do inglês \emph{Field Effect Transistor})
+		\item[FLP] Padrão de Rápido Travamento (do inglês \emph{Fast Locking Pattern})
+		\item[FPGA] Arranjo de Portas Programável (do inglês \emph{Field Programable Gate Array})
+		\item[GF] Campos de Galois (do inglês \emph{Galois Field})
+		\item[GND] Terra (do inglês \emph{Ground})
+		\item[GPIO] Pinos de Entrada e Saída de Propósito Geral (do inglês \emph{General Purpose Input/Output})
+		\item[HDL] Linguagem de Descrição de Hardware (do inglês \emph{Hardware Description Language})
+		\item[IEEE] Instituto dos Engenheiros Elétricos e Eletrônicos (do inglês \emph{Institute of Electrical and Electronics Engineers})
+		\item[IP] Propriedade Intelectual (do inglês \emph{Intellectual Property})
+		\item[LED] Diodo Emissor de Luz (do inglês \emph{Light Emitting Diode})
+		\item[LUT] Tabela de Pesquisa (do inglês \emph{Look Up Table})
+		\item[MAC] Controle de Acesso de Mídia (do inglês \emph{Media Access Control})
+		\item[MCS] Esquema de Modulação e Codificação (do inglês \emph{Modulation and Coding Scheme})
+		\item[MOSFET] \emph{Metal Oxide Semiconductor Field Effect Transistor}
+		\item[OOK] Chaveamento Alto-Baixo (do inglês \emph{On-Off Keying})
+		\item[PHR] Cabeçalho do PHY (do inglês PHY \emph{Header})
+		\item[PISO] Entrada Paralela para Saída Serial (do inglês \emph{Parallel Input to Serial Output})
+		\item[PM] Métrica de Caminho (do inglês \emph{Path Metrics})
+		\item[PPDU] Unidade de Dados da Camada Física (do inglês \emph{Physical Layer Data Unit})
+		\item[PSDU] Unidade de Serviço de dados PHY I (do inglês \emph{PHY Service Data Unit})
+		\item[RLL] Comprimento de Execução Limitado (do inglês \emph{Run Length Limited})
 		\item[RS] Reed Solomon
-		\item[RTL] Nível de Transferência de Registradores (do inglês Register Transfer Level)
-		\item[SHR] Cabeçalho de Sincronização (do inglês Synchronization Header)
-		\item[SIPO] Entrada Serial para Saída Paralela (do inglês Serial Input to Parallel Output)
-		\item[TDP] Padrão Dependente de Topologia (do inglês Topology Dependant Pattern)
-		\item[TTL] Lógica de Transistor-Transistor (do inglês Transistor-Transistor Logic)
-		\item[UART] Receptor/Transmissor Asíncrono Universal (do inglês Universal Asynchronous Receiver/Transmitter)
+		\item[RTL] Nível de Transferência de Registradores (do inglês \emph{Register Transfer Level})
+		\item[SHR] Cabeçalho de Sincronização (do inglês \emph{Synchronization Header})
+		\item[SIPO] Entrada Serial para Saída Paralela (do inglês \emph{Serial Input to Parallel Output})
+		\item[TDP] Padrão Dependente de Topologia (do inglês \emph{Topology Dependant Pattern})
+		\item[TTL] Lógica de Transistor-Transistor (do inglês \emph{Transistor-Transistor Logic)}
+		\item[UART] Receptor/Transmissor Asíncrono Universal (do inglês \emph{Universal Asynchronous Receiver/Transmitter})
 		\item[UC] Unidade de Controle
-		\item[USB] Barramento Serial Universal (do inglês Universal Serial Bus)
+		\item[USB] Barramento Serial Universal (do inglês \emph{Universal Serial Bus})
 		\item[VCC] Voltagem no Coletor Comum
-		\item[VHDL] Linguagem Verilog de Descrição de Hardware (do inglês Verilog Hardware Description Language)
-		\item[VPAN] Visible-Light Communication Personal Area Network
+		\item[VHDL] Linguagem Verilog de Descrição de Hardware (do inglês \emph{Verilog Hardware Description Language})
+		\item[VPAN] \emph{Visible-Light Communication Personal Area Network}
 	\end{siglas}
 	% ---
-	
+
 	% ---
 	% inserir o sumario
 	% ---
@@ -305,12 +305,12 @@
 	\tableofcontents*
 	\cleardoublepage
 	% ---
-	
+
 	% ----------------------------------------------------------
 	% ELEMENTOS TEXTUAIS
 	% ----------------------------------------------------------
 	\textual
-	
+
 	% ----------------------------------------------------------
 	% Introdução
 	% ----------------------------------------------------------
@@ -322,7 +322,7 @@
 	% ----------------------------------------------------------
 	\include{licy-metodologia}
 	% ----------------------------------------------------------
- 
+
 	% ----------------------------------------------------------
 	% Execução
 	% ----------------------------------------------------------
@@ -333,30 +333,30 @@
 	% Prepara pdf para iniciar o bookmark na raiz
 	% ----------------------------------------------------------
 	\phantompart
-	
+
 	% ----------------------------------------------------------
 	% Conclusão
 	% ----------------------------------------------------------
 	\include{licy-conclusao}
 	% ----------------------------------------------------------
-	
+
 	% ----------------------------------------------------------
 	% ELEMENTOS PÓS-TEXTUAIS
 	% ----------------------------------------------------------
 	\postextual
 	% ----------------------------------------------------------
-	
+
 	% ----------------------------------------------------------
 	% Referências bibliográficas
 	% ----------------------------------------------------------
 	\bibliography{referencias-licy}
-	
+
 	% ----------------------------------------------------------
 	% Glossário
 	% ----------------------------------------------------------
 	%\glossary
 	% ----------------------------------------------------------
-	
+
 	% ----------------------------------------------------------
 	% Apêndices - SEM APENDICES
 	% ----------------------------------------------------------
@@ -365,7 +365,7 @@
 		\include{licy-apendices}
 	\end{apendicesenv}
 	% ----------------------------------------------------------
-	
+
 	% ----------------------------------------------------------
 	% Anexos - SEM ANEXOS
 	% ----------------------------------------------------------
@@ -374,12 +374,12 @@
 		%\include{licy-anexos}
 	%\end{anexosenv}
 	% ----------------------------------------------------------
-	
+
 	%---------------------------------------------------------------------
 	% INDICE REMISSIVO
 	%---------------------------------------------------------------------
 	\phantompart
 	\printindex
 	%---------------------------------------------------------------------
-	
+
 \end{document}
