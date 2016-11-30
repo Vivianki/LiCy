@@ -98,7 +98,7 @@
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 \titulo{\textit{Light Cyber}: Um estudo sobre a implementação de \textit{Light Fidelity} utilizando a norma IEEE 802.15.7}
-\autor{Gabriel Takaoka Nishimura\\ Felippe Demarqui Ramos\\ Vivian Kimie Isuyama}
+\autor{Gabriel Takaoka Nishimura \\ Felippe Demarqui Ramos \\ Vivian Kimie Isuyama}
 \local{São Paulo}
 \data{2016}
 \orientador{Prof. Dr. Bruno Carvalho de Albertini}
@@ -170,14 +170,47 @@
 	% ---
 	% Folha de rosto
 	% ---
-	\imprimirfolhaderosto*
+	%\imprimirfolhaderosto*
+	
+	\begin{center}
+		%fix do nome zuadinho
+		{\ABNTEXchapterfont\large\ Gabriel Takaoka Nishimura \\ Felippe Demarqui Ramos \\ \vspace*{0.18cm} Vivian Kimie Isuyama}
+		
+		\vspace*{\fill}\vspace*{\fill}
+%		\vspace*{-0.2cm}
+		\begin{center}
+			\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+		\end{center}
+		\vspace*{\fill}
+		
+		{%
+			\hspace{.45\textwidth}
+			\begin{minipage}{.5\textwidth}
+				\SingleSpacing
+				\imprimirpreambulo
+			\end{minipage}%
+			\vspace*{\fill}
+		}%
+		
+		{\imprimirinstituicao\vspace*{\fill}}
+		
+		{\large\imprimirorientadorRotulo~\imprimirorientador\par}
+
+		\vspace*{\fill}
+		
+		{\large\imprimirlocal}
+		\par
+		{\large\imprimirdata}
+		\vspace*{1cm}
+		
+	\end{center}
 	% ---
 
 	% ---
 	% Ficha Catalográfica
 	% Quando receber pdf da biblioteca, descomentar linhas abaixo
 	% ---
-	\include{ficha-catalografica}
+	%\include{ficha-catalografica}
 	% ---
 
 	% \begin{fichacatalografica}
