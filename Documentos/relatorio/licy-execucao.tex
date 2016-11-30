@@ -158,9 +158,7 @@
 	
 	\subsection{Integração do Codificador}\label{section:execution-integration-encoder-speeds}
 	
-	Com exceção da UART, o projeto teve o
-	Com intuito de evitar a utilização de \textit{buffers} entre os componentes, 
-	Os codificadores foram integrados de modo a não existir nenhum buffer entre os componentes, com exceção entre a UART e o Reed Solomon. Para a saída ser na velocidade de 200kHz como foi especificado na norma, os clocks dos componentes têm frequências diferentes. Isso se deve ao número de \textit{bits} de entrada diferir com o número de \textit{bits} de saída dos componentes. Essa relação de entrada e saída de \textit{bits} e suas frequências, são mostradas na figura abaixo.
+	Os codificadores foram integrados de modo a não existir nenhum \textit{buffer} entre os componentes, com exceção entre a UART e o Reed Solomon. Para a saída ser na velocidade de 200kHz como foi especificado na norma, os \textit{clocks} dos componentes têm frequências diferentes. Isso se deve ao número de \textit{bits} de entrada diferir com o número de \textit{bits} de saída dos componentes. Essa relação de entrada e saída de \textit{bits} e suas frequências, é mostrada na figura abaixo.
 	\begin{figure}[h]
 		\caption{\label{figure:integration-encoder}Relação entre vazão de \textit{bits} entre cada módulo do Codificador.}
 		\centering
@@ -188,9 +186,9 @@
 	Componente que realiza a verificação do tempo de permanência do sinal para cada \textit{bit}. Possui dois contadores, um para o sinal lógico zero e outro para um. O próprio sinal de entrada habilita (\textit{enable}) o contador de zeros quando está em \textit{high}, e analogamente o contador de uns quando está em \textit{low}. O funcionamento do sinal de \textit{reset} é inverso ao de enable aos dois contadores. Portanto o módulo contador de zeros conta por quantos \textit{clocks} de 50MHz a entrada ficou em zero. Caso a entrada seja um, o contador zera e ele é desabilitado. Analogamente para o módulo contador de uns, que conta por quantos \textit{clocks} a entrada ficou em um, zerando.
 
 	\subsubsection{Decisão de Limite de Tempo}
-	Esse subsistema decide se o sinal analisado pelo módulo de \textit{Oversampling} possui pelo menos 250 amostras iguais (zeros ou uns). Ele parte do princípio que a entrada será uma onda quadrada de período 250 $\mu$s - garantido pelo envio do FLP -, não possuindo dois uns nem dois zeros seguidos.
+	Esse subsistema decide se o sinal analisado pelo módulo de \textit{Oversampling} possui pelo menos 250 amostras iguais (zeros ou uns). Ele parte do princípio que a entrada será uma onda quadrada de período 10 $\mu$s - garantido pelo envio do FLP -, não possuindo dois uns nem dois zeros seguidos.
 	
-	Com intuito de facilitar a sincronização, o decisor de limite de tempo verifica se o \textit{Oversampling} está dentro de um intervalo de 128 a 255 ciclos. Esse processo ocorre verificando apenas os \textit{bits} mais significativos do contador. Caso o oitavo \textit{bit} seja um, significa que o módulo anterior contou pelo menos até 128, caracterizando um possível um ou zero. Verificando o nono \textit{bit} é possível concluir se ele não excedeu o tempo de permanência no mesmo \textit{bit} (além de 255). 
+	Com intuito de facilitar a sincronização, o decisor de limite de tempo verifica se o \textit{Oversampling} está dentro de um intervalo de 128 a 255 ciclos do \textit{clock} interno da FPGA de 50 MHz. Esse processo ocorre verificando apenas os \textit{bits} mais significativos do contador. Caso o oitavo \textit{bit} seja um, significa que o módulo anterior contou pelo menos até 128, caracterizando um possível um ou zero. Verificando o nono \textit{bit} é possível concluir se ele não excedeu o tempo de permanência no mesmo \textit{bit} (além de 255). 
 	
 	Para o módulo sincronizador, dois uns ou dois zeros seguidos fogem da norma, portanto tais mensagens são descartadas.
 	
@@ -216,7 +214,7 @@
 	
 	O decodificador funciona, conforme explicado anteriormente, de acordo com a \autoref{tabela_cod_manchester}.
 	
-	Neste projeto, o decodificador de Manchester é inicializado quando o TDP$~$TDPTDP$~$TDP é identificado. Seu circuito foi desenvolvido com uma máquina de estados que tem estado inicial S0. Essa máquina funciona de modo que quando existe uma transição de 0 para 1, a saída é um \textit{bit} 0 e quando a transição é de 1 para 0, a saída é um \textit{bit} 1 para 0. Isso é demonstrado na figura \autoref{figure:manchester-decoder-flow}. 
+	Neste projeto, o decodificador de Manchester é inicializado quando a combinação de TDPs e não TDPs é identificado. Seu circuito foi desenvolvido com uma máquina de estados que tem estado inicial S0. Essa máquina funciona de modo que quando existe uma transição de 0 para 1, a saída é um \textit{bit} 0 e quando a transição é de 1 para 0, a saída é um \textit{bit} 1 para 0. Isso é demonstrado na figura \autoref{figure:manchester-decoder-flow}. 
 		
 	\begin{figure}[h]
 		\caption{\label{figure:manchester-decoder-flow}Visão de máquina de estados do decodificador Manchester.}
@@ -333,7 +331,7 @@
 	
 	\subsection{Integração do Decodificador}\label{section:execution-integration-decoder-speeds}
 	%FAZER INTEGRACAO DO DECODIFICADOR
-	
+	A integração dos decodificadores foi realizada de modo análogo ao da integração dos codificadores, não existindo nenhum \textit{buffer} entre eles. Recebe-se dados a 200kHz como especificado na norma, e os \textit{clocks} dos decodificadores foram ajustados de modo a receber esses dados e decodificá-los. A relação de entradas e saídas de \textit{bits} e suas frequências, é ilustrada na \autoref{figure:integration-decoder}.
 	\begin{figure}[h]
 		\caption{\label{figure:integration-decoder}Relação entre vazão de \textit{bits} entre cada módulo do Decodificador.}
 		\centering
