@@ -264,9 +264,9 @@
 	
 	\subsubsection{Cálculo das Síndromes}
 	
-	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso. O arranjo dos componentes pode se exemplificar através da arquitetura do módulo, representada na \autoref{fig_sindrome_arq} nos Anexos.
+	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso. O arranjo dos componentes pode se exemplificar através da arquitetura do módulo, representada na \autoref{fig_sindrome_arq}, nos Anexos.
 
-	Os elementos indicados por "static" são constantes, guardando os valores dos símbolos de cada umas raízes citadas. Estes valores são enviados para multiplicadores de GF(16), representados por "gfmult". Como pode-se observar, o cálculo é iterativo e portanto os multiplicadores recebem também o valor dos registradores que são representados por "register4b". Os somadores de Campos de Galois são representados por "gfsum".
+	Os elementos indicados por "static" são constantes, guardando os valores dos símbolos de cada umas raízes citadas. Estes valores são enviados para multiplicadores de GF(16), representados por "gf\_mult". Como pode-se observar, o cálculo é iterativo e portanto os multiplicadores recebem também o valor dos registradores que são representados por "register4b". Os somadores de Campos de Galois são representados por "gf\_sum".
 	
 	A simulação a seguir representa o caso em que existem erros na mensagem codificada, o que é indicado por síndromes diferentes de 0000.
 	
@@ -274,14 +274,14 @@
 		\caption{\label{fig_sindrome_sim}Simulação do cálculo das síndromes.}
 		\centering
 		\includegraphics[width=1\textwidth]{RS/Sim_sindrome.PNG}
-		\legend{Fonte: Autores.}
+		\legend{}
 	\end{figure}
 
 	\subsubsection{Módulo de Berlekamp-Massey}
 	
-	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados, então, com as síndromes e localizações de erro.
+	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lamba, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados, então, com as síndromes e localizações de erro. A arquitetura desse circuito pode ser encontrada nos Anexos, na \autoref{fig_berlekamp_arq}.
 	
-	As síndromes são enviadas sequencialmente para o módulo de Berlekamp-Massey a cada ciclo de \textit{clock}. A atualização do polinômio localizador, representado pela seção X do diagrama, ocorre quando ele não possibilitar gerar uma síndrome específica. Nesse caso, são feitos os cálculos no módulo inversor, com a atualização do polinômio no próximo ciclo. Esse processo é exemplificado pela \autoref{fig_berlekamp_sim}.
+	As síndromes são enviadas sequencialmente para o módulo de Berlekamp-Massey a cada ciclo de \textit{clock}. A atualização do polinômio localizador, representado por 4 registradores do diagrama, ocorre quando ele não possibilita gerar uma síndrome específica. Nesse caso, são feitos os cálculos no módulo inversor, com a atualização do polinômio no próximo ciclo. Esse processo é exemplificado pela \autoref{fig_berlekamp_sim}.
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_berlekamp_sim}Simulação do módulo de Berlekamp-Massey.}
@@ -298,7 +298,7 @@
 	
 	O módulo de busca de Chien é na verdade composto por dois módulos: busca de localização e de valores dos erros. Ambos trabalham paralelamente e têm como entrada os coeficientes $\Lambda$ e $\Omega$. 
 	
-	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que, caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. Nesse circuito, é possível observar esse processo com a identificação de síndromes diferentes de zero, com o sinal "errorsyndrome" na \autoref{fig_forney_sim}. Considerando que o sinal está na posição alta, significa que pelo menos um \textit{bit} de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida. 
+	Pode-se observar que ambos funcionam com cálculo incremental. A cada ciclo, o valor de registradores é atualizado com o uso das raízes do polinômio codificador e dos coeficientes já apontados. As suas saídas vão diretamente para o módulo de Forney, uma delas indicando se deve-se corrigir o símbolo de mensagem, e outra indicando qual o valor da correção, que somado ao valor da mensagem corrigi quaisquer erros. É importante apontar que, caso haja mais do que 4 símbolos com erros, nenhuma correção será feita, o que configura a condição para descarte do bloco recebido. Nesse circuito, é possível observar esse processo com a identificação de síndromes diferentes de zero, com o sinal "error\_syndrome" na \autoref{fig_forney_sim}, nos Anexos. Considerando que o sinal está na posição alta, significa que pelo menos um \textit{bit} de alguma das síndromes é diferente de 0, e portanto a mensagem deve ser corrigida. 
 	
 	\begin{figure}[!htb]
 		\caption{\label{fig_forney_sim}Simulação do módulo de Forney.}
