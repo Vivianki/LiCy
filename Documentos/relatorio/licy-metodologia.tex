@@ -147,7 +147,7 @@
 
 	\subsubsection{Codificação Reed Solomon}
 
-	Com o intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon.
+	Com o intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon, apresentado originalmente em \cite{reed-solomon-original} e também discutido em \cite{rs-bbc}.
 
 	Os códigos Reed Solomon são compostos por símbolos de mais de um \textit{bit}. O número de erros é considerado como sendo o total de símbolos com pelo menos um \textit{bit} com erro. Isso o torna efetivo para corrigir erros em rajadas, já que uma sequência de \textit{bits} errados dentro de um mesmo símbolo é considerada como apenas um erro.
 
@@ -414,7 +414,7 @@
 
 	\subsubsection{Decodificação \textit{Reed Solomon}}
 
-	Esta seção discorre sobre as quatros etapas principais do processo de decodificação de Reed Solomon abordados na execução do projeto.
+	Esta seção discorre sobre as quatros etapas principais do processo de decodificação de Reed Solomon abordados na execução do projeto. Alguns dos algoritmos são discutidos com mais detalhes em \cite{reed-solomon-berle}.
 
 	\paragraph{Cálculo das síndromes}
 
