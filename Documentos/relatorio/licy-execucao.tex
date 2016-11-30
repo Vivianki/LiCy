@@ -36,6 +36,13 @@
 
 	O módulo do Interleaver é composto por três componentes principais: (i) a memória, (ii) a unidade de controle do cabeçalho e (iii) a unidade de controle do payload.
 
+	\begin{figure}[h!]
+		\caption{\label{figure:interleaver-flow}Diagrama esquemático do fluxo de dados do \textit{Interleaver}.}
+		\centering
+		\includegraphics[width=0.6\textwidth]{interleaver/flow.pdf}
+		\legend{Fonte: Autores.}
+	\end{figure}
+
 	\subsubsection{Memória}
 	
 	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição. 
@@ -50,19 +57,12 @@
 	
 	O propósito deste módulo é receber os dados do Codificador Reed Solomon, gravá-los na memória interna e depois enviá-los de forma entrelaçada. A abordagem tomada pelo projeto foi gravar esses dados em ordem entrelaçada, para que a leitura seja feita apenas varrendo os endereços da memória em ordem crescente. A \autoref{figure:interleaver-flow} ilustra o algoritmo desenvolvido para escolher os endereços entrelaçados e gerar a saída. Ele foi implementado em Javascript para melhor visualização da ordem certa de gravação.
 
-	\begin{figure}[h!]
-		\caption{\label{figure:interleaver-flow}Diagrama esquemático do fluxo de dados do \textit{Interleaver}.}
-		\centering
-		\includegraphics[width=0.6\textwidth]{interleaver/flow.pdf}
-		\legend{Fonte: Autores.}
-	\end{figure}
-	
 	Em VHDL, a solução é composta por três componentes: (i) contador de endereços, (ii) contador de profundidade e (iii) contador de saída. Eles estão integrados com à memória na \autoref{figure:interleaver-schematics}.
 		
 	\begin{figure}[h!]
 		\caption{\label{figure:interleaver-schematics}Diagrama esquemático do \textit{Interleaver}, com unidade de controle e memória. Os sinais azuis representam entradas para melhor visualização.}
 		\centering
-		\includegraphics[width=1\textwidth]{interleaver/schematics.pdf}
+		\includegraphics[width=0.8\textwidth]{interleaver/schematics.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 
@@ -78,7 +78,7 @@
 	\begin{figure}[h!]
 		\caption{\label{figure:interleaver-order}Ordem do algoritmo entrelaçador para gravar a memória.}
 		\centering
-		\includegraphics[width=0.9\textwidth]{interleaver/order.pdf}
+		\includegraphics[width=0.8\textwidth]{interleaver/order.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
@@ -121,7 +121,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	Como o componente é complexo, seu RTL
+	Como o componente é complexo, seu RTL encontra-se separado no Anexo na \autoref{figure:interleaver-rtl}.
 	
 	\subsection{Codificador Convolucional}	
 	
@@ -133,9 +133,7 @@
 	
 	\subsubsection{\textit{Puncture}}
 	
-	Para realizar o \textit{puncture} de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois \textit{clocks} do próximo módulo e o valor de B por mais dois \textit{clocks}. Seguindo o especificado na metodologia.
-	
-	A simulação de todas operações descritas encontra-se abaixo:
+	Para realizar o \textit{puncture} de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois \textit{clocks} do próximo módulo e o valor de B por mais dois \textit{clocks}. Seguindo o especificado na metodologia. A simulação de todas operações descritas encontra-se abaixo:
 	
 	\begin{figure}[h]
 		\caption{\label{figure:convolutional-simulation}Simulação do Codificador Convolucional. Nota-se a forma que ele serializa os dados do \textit{Interleaver} em ccEncoderInput antes de utilizá-los, para gerar a saída em ccEncoderOutput.}
@@ -148,10 +146,10 @@
 	
 	A arquitetura da codificação de Manchester segue o mesmo modelo explicado na Metologia. Duas entradas: \textit{clock} e mensagem, recebem a operação lógica XOR e retornam o código. A simulação do componente está abaixo:
 	
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\caption{\label{figure:manchester-encoder-simulation}Simulação do Codificador Manchester.}
 		\centering
-		\includegraphics[width=0.6\textheight]{manchester/simulation-encoder.png}
+		\includegraphics[width=0.5\textheight]{manchester/simulation-encoder.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
@@ -178,7 +176,7 @@
 	\begin{figure}[h]
 		\caption{\label{figure:sync-schematics}Diagrama esquemático do \textit{Sync}. O \textit{clock} do registrador de deslocamentos foi omitido para simplificar a representação.}
 		\centering
-		\includegraphics[width=1\textwidth]{sync/schematics.pdf}
+		\includegraphics[width=0.8\textwidth]{sync/schematics.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
@@ -208,6 +206,7 @@
 		\includegraphics[width=1\textwidth]{sync/simulation.png}
 		\legend{Fonte: Autores.}
 	\end{figure}
+	
 	Seu RTL se encontra no Anexo na \autoref{figure:sync-rtl}.
 	
 	\subsection{Decodificador Manchester}
@@ -219,7 +218,7 @@
 	\begin{figure}[h]
 		\caption{\label{figure:manchester-decoder-flow}Visão de máquina de estados do decodificador Manchester.}
 		\centering
-		\includegraphics[width=0.4\textheight]{manchester/decoder-flow.pdf}
+		\includegraphics[width=0.25\textheight]{manchester/decoder-flow.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 
@@ -413,7 +412,7 @@
 		\legend{Fonte: Autores.}
 	\end{chart}
 
-	A saída dessa implementação é mostrada na \autoref{fig_transmitter_lify_circuit_fail0_rl} e não foi satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Além dessa frequência, a forma de onda se distorcia demais. O segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Atribuiu-se esses efeitos a capacitâncias parasitas no LED e no transistor de potência.
+	A saída dessa implementação é mostrada no Gráfico \ref{fig_transmitter_lify_circuit_fail0_rl} e não foi satisfatória. O primeiro ponto a se notar é que a frequência de operação era baixa, no caso 80kHz - ainda 120kHz abaixo da especificação da velocidade da camada PHY I. Além dessa frequência, a forma de onda se distorcia demais. O segundo ponto observado foi o fato de que houve uma resposta de subamortecimento tanto na entrada quanto na saída. Atribuiu-se esses efeitos a capacitâncias parasitas no LED e no transistor de potência.
 	
 	O transistor de potência possui capacitância devido à separação de suas placas. Seu valor é significativo e é até especificado na \textit{datasheet}. Para o IRLZ14, a capacitância de entrada é 400pF e de saída 170pF. Esses valores devem ser levados em conta ao polarizar tal componente. 
 
@@ -425,7 +424,7 @@
 	
 	\subsubsection{Aumento da Frequência}
 
-	O aumento da frequência de operação a $f_{OP}$ = 200kHz causa um subamortecimento substancialmente maior. Observa-se na \autoref{fig_transmitter_lify_circuit_fail1_r1} que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
+	O aumento da frequência de operação a $f_{OP}$ = 200kHz causa um subamortecimento substancialmente maior. Observa-se no Gráfico \ref{fig_transmitter_lify_circuit_fail1_r1} que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
 	\begin{figure}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_fail1}Circuito de transmissão sem o filtro de ponta de prova.}
 		\centering
@@ -447,17 +446,17 @@
 	\begin{figure}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_final}Circuito final de transmissão de dados LiCy, utilizando um filtro passa-altas.}
 		\centering
-		\includegraphics[width=0.6\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
+		\includegraphics[width=0.5\textwidth, trim={2cm 0cm 2cm 0cm}, clip]{circuits/transmitter_lify.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	\begin{figure}[h!]
+	\begin{chart}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_final_r1} Forma de onda após adicionar um capacitor que age como filtro passa-altas. Está defasada em 180$\degree$. }
 		\centering
 		\includegraphics[width=0.5\textwidth, trim={10cm 35cm 97cm 22cm}, clip]{circuits/photos/TX_200k_with_filter.jpeg}
 		\legend{Fonte: Autores}
-	\end{figure}
-	Esse capacitor atua como filtro passa-altas e remove a componente AC da saída para o LED. O comportamento não fica exatamente igual à entrada, mas é satisfatório, pois o período é muito similar, chaveando o LED corretamente. A forma de onda resultante pode ser observada na \autoref{fig_transmitter_lify_circuit_final_r1}. Está defasada em 180$\degree$.
+	\end{chart}
+	Esse capacitor atua como filtro passa-altas e remove a componente AC da saída para o LED. O comportamento não fica exatamente igual à entrada, mas é satisfatório, pois o período é muito similar, chaveando o LED corretamente. A forma de onda resultante pode ser observada no gráfico \ref{fig_transmitter_lify_circuit_final_r1}. Está defasada em 180$\degree$.
 
 	\section{Receptor Analógico}
 	
@@ -474,7 +473,7 @@
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
-			\includegraphics[width=1\textwidth, trim={25cm 35cm 40cm 15cm}, clip]{circuits/photos/RX_TIA_result.jpg}
+			\includegraphics[width=0.9\textwidth, trim={25cm 35cm 40cm 15cm}, clip]{circuits/photos/RX_TIA_result.jpg}
 		\end{subfigure}
 		\legend{Fonte: Autores.}
 	\end{figure}
@@ -491,18 +490,18 @@
 	
 	Com a onda em $V_{DC} = 1V$, é possível utilizar o comparador definido na \autoref{fig_double_comparator} para converter a onda senoidal em uma onda quadrada, com níveis compatíveis com a FPGA.
 	
-	A voltagem de referência do comparador deve ser a mesma que a voltagem $V_{ref}$ do filtro passa-baixas, provenientes do divisor resistivo. O circuito final integrado do receptor é analisado na \autoref{fig_receiver_lify_circuit_final}.
+	A voltagem de referência do comparador deve ser a mesma que a voltagem $V_{ref}$ do filtro passa-baixas, provenientes do divisor resistivo. O circuito final integrado do receptor é detalhado na \autoref{fig_receiver_lify_circuit_final}.
 
 	\begin{figure}[h]
 		\caption{\label{fig_receiver_lify_circuit_final}Circuito esquemático final de recepção de dados LiCy.}
 		\centering
-		\includegraphics[width=0.7\textwidth, trim={0cm 1cm 0cm 1cm}, clip]{circuits/receiver_lify_final.pdf}
+		\includegraphics[width=0.6\textwidth, trim={0cm 1cm 0cm 1cm}, clip]{circuits/receiver_lify_final.pdf}
 		\legend{Fonte: Autores.}
 	\end{figure}
 	
-	Os testes realizados foram bem sucedidos e resultaram na onda da \autoref{fig_receiver_lify_circuit_final_r1}. Nela é possível observar a medição do período da onda resultante convertida, que foi 4.88us, muito próximo de 5us, período para 200kHz.
+	Os testes realizados foram bem sucedidos e resultaram na onda do gráfico \ref{fig_receiver_lify_circuit_final_r1}. Nela é possível observar a medição do período da onda resultante convertida, que foi 4.88us, muito próximo de 5us, período para 200kHz.
 	
-	\begin{chart}[h]
+	\begin{chart}[h!]
 		\caption{\label{fig_receiver_lify_circuit_final_r1}Saída do transmissor em verde e saída digital convertida do receptor em amarelo. É possível observar uma defasagem de 90$\degree$ em relação às ondas.}
 		\centering
 		\includegraphics[width=0.4\textwidth, trim={36cm 30cm 60cm 40cm}, clip]{circuits/photos/TXRX_final_fixed.jpg}
