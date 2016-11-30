@@ -389,7 +389,7 @@
 
 	Para realizar a transmissão de luz a distâncias de pelo menos um metro, foi necessária a utilização de um LED de potência. Esse LED deve atender a requisitos de altas frequência e resposta luminosa de acordo com seu chaveamento. Procurando satisfazer tais parâmetros, o componente escolhido foi o LUW W5-AM, fabricado pela OSRAM.
 
-	Utilizando o circuito polarizador do LED da \autoref{figure:led-circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização (\cite{datasheet-luw-w5am}), mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
+	Utilizando o circuito polarizador do LED da \autoref{figure:led-circuit}, é necessário calcular o valor da resistência de $R_{LIMIT}$. O LED permite no máximo 1000mA de corrente de polarização \cite{datasheet-luw-w5am}, mas não é desejável trabalhar na região limite de corrente, portanto o circuito será projetado para funcionar a 500mA. Como a voltagem de operação é de 5V, utilizando a Lei de Ohm:
 	\begin{equation}
 	R_{LIMIT} = 5V \cdot 500mA = 2.5\Omega
 	\end{equation}
@@ -464,7 +464,7 @@
 	A recepção será feita utilizando os conceitos apresentados nas seções \ref{section:light-reception}, \ref{section:adc},  \ref{section:highpass-filter}, \ref{section:dc-bias} e \ref{section:band-filter}.
 
 	\subsection{Recepção Luminosa}
-	Para o recebimento luminoso, foi utilizado um circuito da \emph{Application Notes} da \cite{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_complex_outer}, diferente do utilizado na Metodologia (\autoref{figure:transimpedance-amp-simple}). Com $V_{bias} = 2.5V$ polarizando reversamente o fotodiodo, uma resposta mais confiável era recebida pelo componente. O valor escolhido de R1 e R2 foram  1M$\Omega$ e 100k$\Omega$. O fotodiodo escolhido foi o SFH2701 (\cite{datasheet-sfh2701}) .
+	Para o recebimento luminoso, foi utilizado um circuito da \emph{Application Notes} da \cite{datasheet-opa380}, simplificado e esquematizado na \autoref{fig_transimpedance_amp_complex_outer}, diferente do utilizado na Metodologia (\autoref{figure:transimpedance-amp-simple}). Com $V_{bias} = 2.5V$ polarizando reversamente o fotodiodo, uma resposta mais confiável era recebida pelo componente. O valor escolhido de R1 e R2 foram  1M$\Omega$ e 100k$\Omega$. O fotodiodo escolhido foi o SFH2701 \cite{datasheet-sfh2701} .
 
 	\begin{figure}[h]
 		\caption{\label{fig_transimpedance_amp_complex_outer}Circuito e saída de um amplificador de impedâncias. No circuito, o fotodiodo é reversamente polarizado por $V_{bias}$. No osciloscópio, a saída está marcada em amarelo enquanto a saída do LED está em verde.}
