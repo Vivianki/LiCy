@@ -8,7 +8,7 @@
 \documentclass[
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar
-	twoside,			% para impressão em recto e verso. Oposto a oneside
+	oneside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	hyphens,			% url longa nas referencias
 	english,			% idioma adicional para hifenização
@@ -101,6 +101,7 @@
 \autor{Gabriel Takaoka Nishimura\\ Felippe Demarqui Ramos\\ Vivian Kimie Isuyama}
 \local{São Paulo}
 \data{2016}
+\orientador{Bruno Carvalho de Albertini}
 \instituicao{Universidade de São Paulo -  USP \par
 			Escola Politécnica \par	
 			Engenharia Elétrica com ênfase em Computação}
@@ -231,18 +232,18 @@
 	% ---
 	
 	% ---
-	% inserir lista de tabelas
-	% ---
-	\pdfbookmark[0]{\listtablename}{lot}
-	\listoftables*
-	\cleardoublepage
-	% ---
-	
-	% ---
 	% inserir lista de gráficos
 	% ---
 	\pdfbookmark[0]{\listtablename}{lot}
 	\listofcharts
+	\cleardoublepage
+	% ---
+		
+	% ---
+	% inserir lista de tabelas
+	% ---
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listoftables*
 	\cleardoublepage
 	% ---
 	
@@ -270,7 +271,7 @@
 		\item[MAC] Controle de Acesso de Mídia (do inglês Media Access Control)
 		\item[MCS] Esquema de Modulação e Codificação (do inglês Modulation and Coding Scheme)
 		\item[MOSFET] Metal Oxide Semiconductor Field Effect Transistor
-		\item[OOK] On-off Keying
+		\item[OOK] Chaveamento Alto-Baixo (do inglês On-off Keying)
 		\item[PHR] Cabeçalho do PHY (do inglês PHY Header)
 		\item[PISO] Entrada Paralela para Saída Serial (do inglês Parallel Input to Serial Output)
 		\item[PM] Métrica de Caminho (do inglês Path Metrics)
@@ -289,21 +290,7 @@
 		\item[VCC] Voltagem no Coletor Comum
 		\item[VHDL] Linguagem Verilog de Descrição de Hardware (do inglês Verilog Hardware Description Language)
 		\item[VPAN] Visible-Light Communication Personal Area Network
-
 	\end{siglas}
-	% ---
-	
-	% ---
-	% inserir lista de símbolos
-	% ---
-	\begin{comment}
-	\begin{simbolos}
-		\item[$ \Gamma $] Letra grega Gama
-		\item[$ \Lambda $] Lambda
-		\item[$ \zeta $] Letra grega minúscula zeta
-		\item[$ \in $] Pertence
-	\end{simbolos}
-	\end{comment}
 	% ---
 	
 	% ---
