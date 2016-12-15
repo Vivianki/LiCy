@@ -1048,6 +1048,70 @@ agreement for further details.
 		(rectangle (rect 16 16 184 64))
 	)
 )
+(symbol
+	(rect 1608 -8 1672 40)
+	(text "AND2" (rect 1 0 34 11)(font "Arial" (font_size 6)))
+	(text "inst1" (rect 3 37 44 51)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 21)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 21)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 37)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 37)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 29)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 29)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+	)
+)
+(symbol
+	(rect 1808 408 1872 456)
+	(text "AND2" (rect 1 0 34 11)(font "Arial" (font_size 6)))
+	(text "inst2" (rect 3 37 44 51)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 21)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 21)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 37)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 37)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 29)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 29)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+	)
+)
 (connector
 	(pt 616 320)
 	(pt 728 320)
@@ -1226,11 +1290,6 @@ agreement for further details.
 	(pt 1792 88)
 )
 (connector
-	(pt 1488 128)
-	(pt 1544 128)
-	(bus)
-)
-(connector
 	(pt 1544 128)
 	(pt 1672 128)
 	(bus)
@@ -1300,39 +1359,12 @@ agreement for further details.
 	(pt 2240 248)
 )
 (connector
-	(pt 1472 288)
-	(pt 1504 288)
-	(bus)
-)
-(connector
-	(text "D[9..0]" (rect 1482 272 1539 286)(font "Arial" ))
-	(pt 1504 288)
-	(pt 1560 288)
-	(bus)
-)
-(connector
-	(pt 1504 440)
-	(pt 2040 440)
-)
-(connector
-	(pt 1488 8)
-	(pt 2064 8)
-)
-(connector
-	(pt 2064 272)
-	(pt 2064 8)
-)
-(connector
 	(pt 2064 272)
 	(pt 2080 272)
 )
 (connector
 	(pt 2160 280)
 	(pt 2144 280)
-)
-(connector
-	(pt 2040 440)
-	(pt 2040 288)
 )
 (connector
 	(pt 2040 288)
@@ -1540,11 +1572,6 @@ agreement for further details.
 	(pt 1544 88)
 )
 (connector
-	(text "D[8]" (rect 1487 401 1501 434)(font "Arial" )(vertical))
-	(pt 1504 288)
-	(pt 1504 440)
-)
-(connector
 	(pt 576 128)
 	(pt 616 128)
 )
@@ -1636,6 +1663,87 @@ agreement for further details.
 	(pt 2560 232)
 	(bus)
 )
+(connector
+	(pt 1488 128)
+	(pt 1512 128)
+	(bus)
+)
+(connector
+	(pt 1512 128)
+	(pt 1544 128)
+	(bus)
+)
+(connector
+	(pt 1512 128)
+	(pt 1512 24)
+)
+(connector
+	(text "E[4]" (rect 1522 8 1555 22)(font "Arial" ))
+	(pt 1512 24)
+	(pt 1608 24)
+)
+(connector
+	(pt 1520 288)
+	(pt 1560 288)
+	(bus)
+)
+(connector
+	(pt 1520 288)
+	(pt 1520 424)
+)
+(connector
+	(text "D[4]" (rect 1530 408 1563 422)(font "Arial" ))
+	(pt 1520 424)
+	(pt 1808 424)
+)
+(connector
+	(pt 1488 8)
+	(pt 1608 8)
+)
+(connector
+	(pt 1672 16)
+	(pt 2064 16)
+)
+(connector
+	(pt 2064 272)
+	(pt 2064 16)
+)
+(connector
+	(pt 2064 16)
+	(pt 2064 8)
+)
+(connector
+	(text "D[8]" (rect 1487 401 1501 434)(font "Arial" )(vertical))
+	(pt 1504 288)
+	(pt 1504 440)
+)
+(connector
+	(pt 1472 288)
+	(pt 1504 288)
+	(bus)
+)
+(connector
+	(text "D[9..0]" (rect 1482 272 1539 286)(font "Arial" ))
+	(pt 1504 288)
+	(pt 1520 288)
+	(bus)
+)
+(connector
+	(pt 1504 440)
+	(pt 1808 440)
+)
+(connector
+	(pt 1872 432)
+	(pt 2040 432)
+)
+(connector
+	(pt 2040 288)
+	(pt 2040 432)
+)
+(connector
+	(pt 2040 432)
+	(pt 2040 440)
+)
 (junction (pt 616 232))
 (junction (pt 704 336))
 (junction (pt 616 184))
@@ -1671,3 +1779,7 @@ agreement for further details.
 (junction (pt 1992 304))
 (junction (pt 2232 272))
 (junction (pt 2520 232))
+(junction (pt 1512 128))
+(junction (pt 1520 288))
+(junction (pt 2064 16))
+(junction (pt 2040 432))

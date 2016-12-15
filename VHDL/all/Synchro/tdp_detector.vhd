@@ -10,8 +10,8 @@ end tdp_detector;
 architecture Behavioral of tdp_detector is
 
 begin
-
-    tdp_detect <= '1' when entrada = "111101011001000000010100110111111101011001000000010100110111" else 
+    tdp_detect <= '1' when entrada = "111101011001000000010100110111111101011001000000010100110111" 
+								or entrada = "000010100110111111101011001000000010100110111111101011001000" else 
 						'0';
 
 end Behavioral;

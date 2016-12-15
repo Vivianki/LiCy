@@ -75,7 +75,7 @@ agreement for further details.
 	(input)
 	(rect 1952 256 2120 272)
 	(text "INPUT" (rect 125 0 166 11)(font "Arial" (font_size 6)))
-	(text "input_rx" (rect 5 0 72 14)(font "Arial" ))
+	(text "input_rx" (rect 5 0 71 14)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -86,7 +86,7 @@ agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 152 18)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1912 304 2000 336))
+	(annotation_block (location)(rect 1896 328 1984 360))
 )
 (pin
 	(output)
@@ -1869,7 +1869,7 @@ agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 2008 272 2096 304))
+	(annotation_block (location)(rect 2040 320 2128 352))
 )
 (pin
 	(output)
@@ -1910,6 +1910,22 @@ agreement for further details.
 	(rect 1832 240 2008 256)
 	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
 	(text "reset_reg" (rect 90 0 164 14)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 2616 448 2794 464)
+	(text "OUTPUT" (rect 1 0 50 11)(font "Arial" (font_size 6)))
+	(text "flp_detect" (rect 90 0 172 14)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -5267,6 +5283,35 @@ agreement for further details.
 		(line (pt 8 8)(pt 24 8))
 	)
 )
+(symbol
+	(rect 2496 424 2616 504)
+	(text "flag_reg" (rect 5 0 71 14)(font "Arial" ))
+	(text "inst55" (rect 8 64 57 78)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clr" (rect 0 0 24 14)(font "Arial" ))
+		(text "clr" (rect 21 27 45 41)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk" (rect 0 0 24 14)(font "Arial" ))
+		(text "clk" (rect 21 43 45 57)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 120 32)
+		(output)
+		(text "q" (rect 0 0 8 14)(font "Arial" ))
+		(text "q" (rect 93 27 101 41)(font "Arial" ))
+		(line (pt 120 32)(pt 104 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 104 64))
+	)
+)
 (connector
 	(pt 104 136)
 	(pt 96 136)
@@ -6045,10 +6090,6 @@ agreement for further details.
 (connector
 	(pt -688 744)
 	(pt -648 744)
-)
-(connector
-	(pt -688 688)
-	(pt -688 744)
 )
 (connector
 	(pt 40 600)
@@ -7664,6 +7705,38 @@ agreement for further details.
 	(pt 6056 736)
 	(pt 6056 816)
 )
+(connector
+	(pt -688 688)
+	(pt -688 744)
+)
+(connector
+	(pt -688 744)
+	(pt -688 928)
+)
+(connector
+	(pt 2472 928)
+	(pt -688 928)
+)
+(connector
+	(pt 2472 456)
+	(pt 2472 928)
+)
+(connector
+	(pt 2472 456)
+	(pt 2496 456)
+)
+(connector
+	(pt 2360 376)
+	(pt 2480 376)
+)
+(connector
+	(pt 2480 376)
+	(pt 2480 472)
+)
+(connector
+	(pt 2480 472)
+	(pt 2496 472)
+)
 (junction (pt 272 120))
 (junction (pt 96 176))
 (junction (pt 272 176))
@@ -7786,6 +7859,7 @@ agreement for further details.
 (junction (pt -1592 544))
 (junction (pt 1872 128))
 (junction (pt 3224 816))
+(junction (pt -688 744))
 (text "U20 = KEY1" (rect -2008 408 -1914 424)(font "Arial" (font_size 8)))
 (text "V22 = KEY0" (rect -2000 680 -1906 696)(font "Arial" (font_size 8)))
 (text "RXD = J22 = GPIO0[8]" (rect -2024 472 -1836 488)(font "Arial" (font_size 8)))
