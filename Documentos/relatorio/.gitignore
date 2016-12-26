@@ -12,10 +12,4 @@ licy.synctex.gz
 licy.synctex.gz(busy)
 licy.toc
 licy.loc
-licy-resumos.aux
-licy-introducao.aux
-licy-metodologia.aux
-licy-execucao.aux
-licy-conclusao.aux
-licy-apendices.aux
-ficha-catalografica.aux
+*.aux

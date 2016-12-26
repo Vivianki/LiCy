@@ -100,7 +100,7 @@ public class LiCyReceiver
     {
         try
         {
-            (new LiCyReceiver()).connect("COM3");
+            (new LiCyReceiver()).connect("COM7");
         }
         catch ( Exception e )
         {

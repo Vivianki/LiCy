@@ -49,7 +49,7 @@
 	\subsubsection{Requisitos Funcionais}\label{subsubsec-requisitos-func}
 	% ---
 
-	\paragraph{Requisitos de hardware digital}
+	\paragraph*{Requisitos de hardware digital}
 
 	É importante observar que estes dividem-se entre a lamparina (luminária), que serve de ponto de acesso, e o módulo de recepção, com pesos iguais entre os dois, já que a comunicação é de um para um e ambos têm a mesma importância. Há requisitos em comum entre esses subsistemas, e alguns serão explicados mais à frente. A organização desses requisitos encontra-se abaixo, na \autoref{fig_req1_1}.
 
@@ -76,7 +76,7 @@
 
 	Já o módulo de recepção tem como requisito de hardware exclusivo a interface com um terminal para se observar os dados recebidos, que é essencialmente um computador ou dispositivo móvel.
 
-	\paragraph{Requisitos de hardware analógico}
+	\paragraph*{Requisitos de hardware analógico}
 	Dividem-se entre a lamparina e o módulo receptor:
 
 	\begin{figure}[h!]
@@ -104,10 +104,10 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\paragraph{Transmissão de dados}
+	\paragraph*{Transmissão de dados}
 	Uma das principais preocupações é manter a velocidade da banda conforme a especificação da norma IEEE 802.15.7 para cada camada física (PHY) correspondente. É também primordial garantir a confiabilidade na comunicação, de modo que se possa garantir que os \textit{bits} recebidos estão corretos e quando possível e necessário, corrigí-los, observando as limitações que serão discutidas posteriormente no que diz respeito à norma (ver módulos de codificação e decodificação).
 
-	\paragraph{Modulação de luz}
+	\paragraph*{Modulação de luz}
 	O requisito mais importante é garantir o funcionamento do sistema a uma distância de até 1 metro, considerando uma aplicação residencial do produto. Secundariamente, há o requisito de manter um baixo consumo de energia, que apesar de fundamental em produtos de tecnologia da informação, foge do escopo deste estudo.
 
 	% ---
@@ -153,7 +153,7 @@
 
 	Os principais parâmetros de um código Reed Solomon são $(n, k)$, onde $n$ é o número de símbolos de um bloco de código e $k$ é o tamanho da mensagem em número de símbolos. Portanto, o bloco terá $n - k$ símbolos de paridade, usualmente designados como $2t$, sendo que a capacidade de correção é de até $t$ símbolos.
 
-	\paragraph{Campos de Galois}
+	\paragraph*{Campos de Galois}
 
 	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 \textit{bits}, totalizando 16 elementos de 0000 a 1111.
 
@@ -192,7 +192,7 @@
 
 	A multiplicação entre dois campos de Galois ocorre, em termos de aritmética comum, pela multiplicação de dois polinômios, seguida da divisão pelo gerador polinomial. Já a divisão  de campos finitos pode ser feita através da operação de inversão do divisor e multiplicação desse resultado pelo dividendo, seguindo os passos indicados anteriormente para a multiplicação.
 
-	\paragraph{Codificação}
+	\paragraph*{Codificação}
 
 	Para gerar um código de Reed Solomon a partir dos campos finitos, é necessário um polinômio gerador de código. Este polinômio possui $2t$ fatores, de maneira que o grau do polinômio representado por $C(x)$ (bloco codificado, com grau $n$) seja a soma do grau de $M(x)$ (a própria mensagem dentro do bloco codificado, com grau $k$) e $G(x)$ (polinômio codificador, com grau $2t = n - k$). O polinômio gerador de código deve ter a seguinte forma:
 
@@ -371,7 +371,7 @@
 
 	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador Viterbi: máquinas de estado, tabela Trellis, o algoritmo de decodificação \textit{Viterbi} e sua simplificação \textit{Fangled} Viterbi.
 
-	\paragraph{Máquina de Estados}
+	\paragraph*{Máquina de Estados}
 
 	A visão de máquinas de estado é uma maneira elegante de explicar o funcionamento do transmissor (e do receptor) e é explicada a seguir. O transmissor começa no estado inicial (marcado como em vermelho na \autoref{figure:viterbi-states}) e processa um \textit{bit} de cada vez. Para cada \textit{bit} de mensagem, há a transição do estado atual para um novo dependendo do valor do \textit{bit} de entrada, e o envio da paridade no arco correspondente. A nomenclatura tomada na figura é a idêntica à utilizada em máquinas de Mealy: X/Y, onde X representa a entrada e Y representa a saída.
 	\begin{figure}[htb]
@@ -382,7 +382,7 @@
 	\end{figure}
 	O receptor, é claro, não tem conhecimento direto das transições do transmissor. Ele só pode ver a sequência de paridades recebidas, possivelmente corrompidas. Sua tarefa é determinar a \textbf{melhor} sequência possível de estados transmitidos que podem ter gerado a sequência de paridades. Essa tarefa é chamada de decodificação, que será detalhada a seguir.
 
-	\paragraph{Tabela Trellis}
+	\paragraph*{Tabela Trellis}
 
 	Como mencionado acima, o receptor deve determinar a \textbf{melhor} sequência de estados que o transmissor passou. Essa sequência forma um caminho dentro da máquina de estados, que pode ser deduzido pelo decodificador. Trellis é a estrutura derivada da máquina de estados, ela ajuda o decodificador a escolher os melhores caminhos para recuperar a mensagem. Um exemplo de tabela Trellis é dado na \autoref{figure:viterbi-trellis}.
 	\begin{figure}[htb]
@@ -395,7 +395,7 @@
 
 	O decodificador deve identificar o melhor caminho utilizando a tabela Trellis, explicando por meio dela a sequência de paridades observadas e possivelmente corrompidas. Esse decodificador é chamado de Viterbi.
 
-	\paragraph{Algoritmo}
+	\paragraph*{Algoritmo}
 	O algoritmo de decodificação Viterbi é composto por três componentes principais: a métrica de ramificação (BM), a métrica de caminho (PM) e o \textit{Traceback Unit}.
 
 	A métrica de ramificação calcula as distâncias entre a entrada e todas as possíveis entradas. Em alguns casos ela também é conhecida como distância de Hamming.
@@ -404,7 +404,7 @@
 
 	Ao fim da mensagem, o \textit{Traceback Unit} escolhe o caminho com a menor distância acumulada e o percorre de forma invertida.
 
-	\paragraph{\textit{Fangled} Viterbi}
+	\paragraph*{\textit{Fangled} Viterbi}
 
 	Pode-se observar que esse método necessita de muitos recursos e computação, pois grava e compara todos os caminhos possíveis durante sua execução. O algoritmo pode ser simplificado removendo o módulo de \textit{Traceback Unit} e utilizando apenas uma unidade modificada de ACS. Essa unidade escolhe a menor distância de acordo com o estado atual e percorre o caminho, removendo a necessidade de gravar as possibilidades em memória. Esse método é chamado de \textit{Fangled} Viterbi.
 
@@ -416,7 +416,7 @@
 
 	Esta seção discorre sobre as quatros etapas principais do processo de decodificação de Reed Solomon abordados na execução do projeto. Alguns dos algoritmos são discutidos com mais detalhes em \cite{reed-solomon-berle}.
 
-	\paragraph{Cálculo das síndromes}
+	\paragraph*{Cálculo das síndromes}
 
 	As síndromes são calculadas através da mensagem recebida e dos símbolos de paridade. O objetivo desse cálculo é identificar, num primeiro momento, a presença de erros no bloco que foi recebido em relação ao que foi transmitido. Utilizaremos aqui a notação de $R(x)$ para o bloco recebido e $E(x)$ para os possíveis erros. Portanto:
 
@@ -461,7 +461,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\paragraph{Localização dos erros}
+	\paragraph*{Localização dos erros}
 
 	O polinômio localizador de erros é construído com auxílio dos localizadores de erro, denotados por $X_{1}$ a $X_{v}$.
 
@@ -514,7 +514,7 @@
 	\end{spmatrix}
 	\end{equation}
 
-	\paragraph{Algoritmo de Berlekamp-Massey}
+	\paragraph*{Algoritmo de Berlekamp-Massey}
 
 	Resolvendo o sistema anterior, encontram-se os coeficientes do polinômio localizador de erros. Essa resolução pode se feita de várias formas, porém neste estudo foi selecionado o método de Berlekamp-Massey. Este algoritmo resolve o sistema por meio de aproximações sucessivas do polinômio localizador, iniciando com um $\Lambda(x)$ capaz de produzir $S_{v}$, ou a primeira síndrome. Conforme a seção anterior, calcula-se o próximo termo, $S_{v + 1}$, considerando:
 
@@ -533,7 +533,7 @@
 	Uma vez calculados os coeficientes do polinômio localizador,
 	deve-se descobrir o valor de suas raízes. Como apontado anteriormente, o inverso destas aponta a localização dos erros. Esses valores são encontrados através do método de busca de Chien, que utiliza tentativa e erro, com todos os possíveis valores das raízes.
 
-	\paragraph{Valores dos erros}
+	\paragraph*{Valores dos erros}
 
 	Existem diversas maneiras de encontrar os valores dos erros. O método abordado aqui - o algoritmo de Forney - utiliza o polinômio avaliador de erros, definido como:
 
@@ -549,7 +549,7 @@
 
 	$\Lambda'(x)$ é a derivada de $\Lambda(x)$, e $b$ é o índice do primeiro $\alpha$ usado no polinômio codificador, que neste caso será 0.
 
-	\paragraph{Síntese}
+	\paragraph*{Síntese}
 
 	Um decodificador de Reed Solomon pode ser dividido funcionalmente nos seguintes módulos:
 
@@ -562,7 +562,7 @@
 
 	Em suma, a entrada compreende os símbolos de mensagem e de paridade, que são enviados sequencialmente para o cálculo das síndromes. Uma vez calculadas as síndromes, seus valores são usados para se obter os polinômios localizador e avaliador de erros, cujos coeficientes determinam quando se realiza uma correção e qual o valor da correção que, somado à mensagem recebida, corrige-a.
 
-	\paragraph{Estratégia}
+	\paragraph*{Estratégia}
 
 	O primeiro passo para aproximar os algoritmos de uma solução em hardware foi procurar níveis de abstração intermediários. O nível encontrado foi a programação em alto nível, reduzindo módulos como multiplicadores e somadores a funções. Uma das vantagens deste método foi a geração de saídas esperadas para cada módulo funcional, incluindo o bloco de saída final, corrigido ou a ser descartado. Esses dados foram fundamentais para a depuração e correções em hardware. Entretanto, uma das limitações deste método era a de que a linguagem de programação pertence a um paradigma diferente do da descrição de hardware, o que envolveu o uso de máquinas de estado no lugar de loops, por exemplo.
 
@@ -610,7 +610,7 @@
 		\legend{Fonte: Figura 120 da norma 802.15.7}
 	\end{table}
 
-	\paragraph{Sincronização de \textit{Clocks}}
+	\paragraph*{Sincronização de \textit{Clocks}}
 
 	Se refere ao ato de sincronizar os \textit{clocks} de sistemas independentes. Para a transmissão de dados via luz, como ambos os módulos (receptor e transmissor) não estão conectados via cabo, o sinal de \textit{clock} não é compartilhado. Dessa forma, é certo dizer que eles estão fora de fase. Para isso a norma especifica o FLP, um sinal com período fixo utilizado pelo receptor para sincronizar seu \textit{clock} com o do transmissor.
 
@@ -686,7 +686,7 @@
 
 	Além disso, deve-se notar que o método de modulação desejado é OOK (\textit{on-off keying}). Isso significa que, na presença de portadora (sinal 1), a luz deve estar ligada, enquanto em sua ausência (sinal 0), a luz deve estar desligada.
 
-	\paragraph{Curva característica de FET}
+	\paragraph*{Curva característica de FET}
 
 	Para projetar um circuito chaveador com um transistor de potência, é importante entender seu funcionamento. Um FET (\emph{Field Effect Transistor}) é um transistor que utiliza campo elétrico para controlar a condutividade de um tipo de carga de um canal em um semicondutor. Existem dois tipos de canais para transistores: n e p.
 
@@ -702,7 +702,7 @@
 		\legend{Fonte: \cite{microelectronics-circuits}}
 	\end{chart}
 
-	\subparagraph{Região de Corte}
+	\subparagraph*{Região de Corte}
 	Na região de corte, o transistor se comporta como uma chave aberta. Esse comportamento é visto em todos transistores FET em que se aplica uma tensão $V_{GS} \leq V_{t}$, onde $V_{t}$ indica a tensão de limiar  característica de cada componente. A \autoref{figure:mosfet-cutoff} mostra um circuito com comportamento equivalente.
 
 	\begin{figure}[h]
@@ -716,7 +716,7 @@
 
 	Para a aplicação OOK, é interessante que a chave do LED esteja aberta quando a FPGA gerar um 0 digital. A restrição mínima da tensão de limiar é $V_{th} > 0V$, pois a FPGA não consegue gerar sinais negativos sem circuito auxiliar.
 
-	\subparagraph{Região de Saturação}
+	\subparagraph*{Região de Saturação}
 
 	Na região de saturação, o transistor se comporta como uma chave fechada. Em uma situação real, dependendo de qual $V_{GS} \geq V_{t}$ aplicado, é permitida maior ou menor passagem de corrente $i_{D}$, como pode-se observar na \autoref{figure:carac-mosfet}. Os valores $i_{D}$ não são fiéis à realidade, uma vez que um MOSFET de potência permite passagem de corrente muito maior. O esquemático na \autoref{figure:mosfet-saturation} mostra um circuito com FET na região de saturação com um circuito com comportamento equivalente, utilizando apenas componentes passivos.
 
@@ -729,7 +729,7 @@
 
 	Nesse esquemático, R1 representa o resistor que controla a tensão no \textit{gate}, enquanto R2 e R3 representam a carga e R4 a resistência interna $R_{DS}$ do MOSFET.
 
-	\paragraph{Conclusão}
+	\paragraph*{Conclusão}
 
 	O transistor deve ser deixado na configuração de fonte comum da \autoref{figure:fet-common-source}, agindo como chave entre o circuito do LED, VCC e GND. Quando a FPGA gerar o sinal digital 1, o circuito deve atender $V_{in} \geq V_{(i_{D} > Corrente de LED aceso)}$. Da mesma forma, quando o sinal gerado for 0, é necessário projetar  $V_{in} < V_{i_{D} \approx 0}$.
 
@@ -760,7 +760,7 @@
 	V_{LED} = \frac{V_{CC}}{R_{limit}}
 	\end{equation}
 
-	\paragraph{Resposta Luminosa}
+	\paragraph*{Resposta Luminosa}
 
 	Como definido no próprio nome, o LED é um Diodo Emissor de Luz. Então, para efeitos de simulação, pode-se considerar que ele é um diodo (\autoref{figure:led-schematic}).
 
@@ -819,7 +819,7 @@
 
 	Mas como o fotodiodo apenas altera a corrente de polarização propocionalmente à luz que recebe, portanto é necessário convertê-la em tensão para amplificar o sinal e filtrar os eventuais ruídos. A conversão será feita por um amplificador de transimpedância.
 
-	\paragraph{Amplificador de Transimpedância}
+	\paragraph*{Amplificador de Transimpedância}
 
 	O comportamento de um amplificador de transimpedância é simples: converter corrente em tensão. Ele normalmente é utilizado com componentes em que a resposta em corrente é mais linear que a resposta em tensão, como no caso do fotodiodo.
 

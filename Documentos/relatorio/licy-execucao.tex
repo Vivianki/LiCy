@@ -66,7 +66,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\paragraph{Contador de endereços}
+	\paragraph*{Contador de endereços}
 	Responsável por selecionar endereços para a etapa de gravação da memória. Recebe a profundidade atual e o valor da profundidade da mensagem.
 
 	Inicialmente, a profundidade atual é utilizada como endereço na etapa de gravação da mensagem na memória. As iterações posteriores utilizam também o valor de profundidade da mensagem para deslocar os dados na memória, realizando esse processo quatorze vezes, uma vez para cada símbolo do codificador Reed Solomon, como ilustrado na \autoref{figure:interleaver-order}. A equação abaixo também auxilia no entendimento do processo:
@@ -84,10 +84,10 @@
 
 	Na última iteração desse módulo, há o sinal de \textit{carry}. Esse sinaliza ao contador de profundidade que deve-se deslocar uma profundidade na gravação.
 
-	\paragraph{Contador de profundidade}
+	\paragraph*{Contador de profundidade}
 	Contador que desloca o endereço base selecionado na \autoref{figure:interleaver-order}, preenchendo toda a memória com dados entrelaçados. O processo de gravação termina quando a profundidade atual atinge o valor da profundidade da mensagem. Nesse momento, é sinalizado ao contador de saída que é possível gerar a saída.
 
-	\paragraph{Contador de saída}
+	\paragraph*{Contador de saída}
 
 	O contador de saída, quando habilitado pelo contador de profundidade, troca o modo de operação da memória de gravação para leitura. Esse módulo também seleciona endereços para ler de forma crescente, gerando uma saída entrelaçada, juntamente com sinal de FlagInt mostrando que os dados atuais são válidos.
 
@@ -519,3 +519,5 @@
 	O próximo passo da integração foi gravar o decodificador e o codificador na FPGA e testá-los separadamente. Neste caso, utilizou-se a ferramenta Signal Tap, onde se conecta a memória gravada a uma interface USB, controlam-se sinais de entrada e se observam as saídas. Uma vez que os testes foram satisfatórios, a integração de hardware digital pôde se concluir. Nesta última etapa, foram primeiro integrados codificador e decodificador dentro do próprio Quartus. Por fim, o circuito integrado foi gravado na FPGA, para mais testes, que antecederam os testes digitais finais, onde o transmissor e o receptor operaram cada um numa memória diferente, com \textit{clocks} diferentes e um cabo como interface.
 
 	Uma vez que se obteve os dois circuitos digitais principais operantes, cada um foi integrado com seu respectivo hardware analógico. Antes disso, o receptor e o transmissor analógico já haviam sido testados, com auxílio de uma fonte de sinais digitais na entrada do transmissor e um osciloscópio na saída do receptor.
+	
+	\section{Testes}
