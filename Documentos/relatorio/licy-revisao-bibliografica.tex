@@ -5,50 +5,67 @@
 % ---
 	\chapter{Revisão Bibliográfica}\label{cap-revisao-bibliografica}
 	
-	Nesse capítulo será feita a verificação do estado atual outros trabalhos.
+	Nesse capítulo será feita a verificação do estado atual de outros trabalhos sobre comunicação via luz. Serão analisados tanto o meio comercial quanto o acadêmico.
 	
-	A única solução comercialmente disponível no mercado é de uma empresa chamada pureLifi, que afirma entregar:
-
+	\section{Lifi-X}
+	
+	A única solução de VLC anunciada disponível no mercado é o LiFi-X, de uma empresa chamada \textit{pureLifi}. Que afirma fornecer:
+	
 	\begin{itemize}
-		\item Estar de acordo com a norma IEEE 802.15.7 - que tem o peso mais alto, já que o escopo principal deste trabalho compreende implementá-la;
-		\item Utilização da FPGA para implementar a camada física. As justificativas para o uso desse componente será apresentada nos próximos itens;
-		\item Comunicação simplex um a um, que visa garantir a unilateralidade da comunicação entre dois nós, com recepção e transmissão exclusivas a cada uma das partes.
+		\item Comunicação \textit{full duplex} com 40Mpbs de \textit{download} e \textit{upload};
+		\item Módulo receptor portátil ligado via USB;
+		\item Múltiplos usuários por ponto de acesso;
+		\item \textit{Handover} suportado entre múltiplos pontos de acesso;
+		\item Comunicação sem fio segura contida por paredes;
 	\end{itemize}
 
-	Antes da publicação da norma 802.15.7 em Setembro de 2011, o Fraunhofer-Gesellschaft conseguiu criar um link de 513 Mbit/s \cite{513mb-fraunhofer} utilizando VLC. A implementação utilizou modulação baseada em DMT (Discrete Multi-Tone) e QAM (Quadrature Amplitude Modulation), assim como técnicas de bit e power loading e clipping simétrico.
+	A descrição do produto não especifica a modulação utilizada, ou se existe algum código de correção de erro implementado. Sua velocidade de \textit{download} é comparável ao 802.15.11g, que tem velocidades teóricas de 54Mpbs. Entretanto, o produto está em fase de lançamento então não tem preço de venda ainda.
 
-
-	Em 2012, a Scuola Superiore Sant’Anna na Itália provou possível a transmissão de 3.4 Gbit/s com distâncias abaixo de 30cm \cite{3.4g-sant-ana}. O artigo se focou na transmissão de luz com modulação WDM (Wavelength Division Multiplexing) utilizando um LED RGB. Cada comprimento de onda foi então modulado utilizando DMT, que divide o sinal em 512 portadoras, combinadas utilizando QAM.
+	\section{Franhoufer-Gesellschaft}\label{section:fraunhofer}
+	
+	Antes da publicação da norma IEEE 802.15.7 em Setembro de 2011, o Fraunhofer-Gesellschaft conseguiu criar um link de 513 Mbit/s utilizando VLC \cite{513mb-fraunhofer}. A implementação utilizou modulação baseada em DMT (Discrete Multi-Tone) e QAM (Quadrature Amplitude Modulation), assim como técnicas de \textit{bit} e \textit{power loading} e \textit{clipping} simétrico.
+		
+	É utilizado um LED de alta potência para iluminar o receptor com 1000 lx e transmitir os dados modulados. Para possibilitar isso, o circuito analógico de transmissão utiliza um Bias-T, que adiciona uma componente de corrente contínua (DC) a uma onda com a mensagem codificada. A componente DC mantém a iluminação alta enquanto a mensagem é enviada ao receptor, que recebe os sinais luminosos com um fotodiodo e remove a componente de iluminação utilizando um filtro passa-baixas, facilitando o processo de recepção e decodificação. A \autoref{figure:fraunhofer-architecture} ilustra a arquitetura do sistema desenvolvido.
 	
 	\begin{figure}[h]
-		\caption{\label{figure:bib-rev}Configuração experimental da transmissão WDM. AWG: Gerador de Funções; APD: Fotodiodo de Avalanche}
+		\caption{\label{figure:fraunhofer-architecture}Arquitetura do sistema VLC do Instituto Fraunhofer}
 		\centering
-		\includegraphics[width=\textwidth, trim={5cm 10cm 7cm 12cm},clip]{sant-ana.pdf}
+		\includegraphics[width=0.8\textwidth, trim={5cm 19.3cm 4.5cm 2cm},clip]{fraunhofer2.pdf}
+		\legend{\cite{513mb-fraunhofer}}
+	\end{figure}
+	
+	O \textit{overhead} de transmissão e recepção é removido com o pré e pós-processamento de dados: para transmitir é utilizado um gerador de funções programado com o \textit{payload} e para receber é utilizado um osciloscópio com memória conectado a um computador, onde é realizada uma análise \textit{offline} dos dados.	
+	
+	O artigo foca no estudo da eficácia das modulações citadas, de forma a obter uma relação distância de transmissão e vazão de dados boa. Ao fim do estudo, foram obtidas vazões de 513 Mbit/s a 30 centímetros de distância. 
+
+	\section{Scuola Superiore Sant’Anna}
+	
+	Em 2012, a Scuola Superiore Sant’Anna na Itália provou possível a transmissão de 3.4 Gbit/s com distâncias abaixo de 30cm \cite{3.4g-sant-ana}. O artigo se focou na transmissão de luz com modulação WDM (Wavelength Division Multiplexing) utilizando um LED Vermelho Verde e Azul (RGB). Cada comprimento de onda foi então modulado utilizando DMT, que divide o sinal em 512 portadoras, combinadas utilizando QAM.
+	
+	\begin{figure}[h]
+		\caption{\label{figure:santanna-architecture}Configuração experimental da transmissão WDM. AWG: Gerador de Funções; APD: Fotodiodo de Avalanche}
+		\centering
+		\includegraphics[width=0.8\textwidth, trim={6.6cm 11cm 5cm 13.5cm},clip]{sant-ana.pdf}
 		\legend{\cite{3.4g-sant-ana}}
 	\end{figure}
 	
+	Como no artigo anterior (\autoref{section:fraunhofer}), os autores da Scuona Superiore Sant’Ana apenas consideraram a camada física, previamente gravando a mensagem em um gerador de funções para diminição do \textit{overhead}. 
 	
+	As distâncias obtidas foram de 30cm, com níveis de iluminação de 410 lx no receptor. Como os níveis estavam abaixo do recomendado pela norma Européia para iluminação - que é 500 lx -, foi sugerido que em trabalhos futuros fossem adicionados mais componentes LED do lado do transmissor.
 	
+	\section{Fudan University}
 	
-	Abstract: In this paper, we experimentally realized a gigabit-class indoor
-	visible light communication system using commercially available RGB
-	White LED and exploiting an optimized DMT modulation. We achieved
-	data rate of 1.5 Gbit/s with single channel and 3.4 Gbit/s by implementing
-	WDM transmission at standard illumination levels. In both experiments, the
-	resulting bit error ratios were below the FEC limit. To the best of our
-	knowledge, these values are the highest ever achieved in VLC systems. 
-	 No artigo de 
+	Três anos depois, na China, a Universidade de Fudan publicou um artigo sobre comunicação via luz a uma taxa de 4.5 Gbit/s \cite{4.5g-fudan}. O artigo se focou em resolver o problema da baixa distância de transmissão em sistemas VLC com velocidades na ordem de grandeza de \textit{Gigabits}/s. Os LEDs utilizados estão disponíveis comercialmente.
 	
-	\cite{4.5g-fudan}
-	Abstract: Inter-symbol interference (ISI) is one of the key problems that
-	seriously limit transmission data rate in high-speed VLC systems. To
-	eliminate ISI and further improve the system performance, series of
-	equalization schemes have been widely investigated. As an adaptive
-	algorithm commonly used in wireless communication, RLS is also suitable
-	for visible light communication due to its quick convergence and better
-	performance. In this paper, for the first time we experimentally demonstrate
-	a high-speed RGB-LED based WDM VLC system employing carrier-less
-	amplitude and phase (CAP) modulation and recursive least square (RLS)
-	based adaptive equalization. An aggregate data rate of 4.5Gb/s is
-	successfully achieved over 1.5-m indoor free space transmission with the bit error rate (BER) below the 7percent forward error correction (FEC) limit of 3.8x10−3. To the best of our knowledge, this is the highest data rate ever
-	achieved in RGB-LED based VLC systems
+	Em sistemas de VLC de alta velocidade, a interferência inter-símbolo (ISI) é induzida pela dispersão multi-caminho ótica, degradando a performance do sistema e reduzindo a distância de transmissão. Para reduzir o ISI, os autores propõe a utilização de um equalizador adaptativo baseado no algoritmo \textit{Recursive Least Square} (RLS), devido à suas vantagens sobre outro algoritmo equalizador chamado \textit{Modified Cascaded Multi-Modulus Algorithm} (M-CMMA). Algumas das vantagens do RLS sobre o M-CMMA são a velocidade de convergência do algoritmo e a complexidade computacional total.
+	
+	Além da etapa de equalização dos sistemas, ainda é descrita a modulação aplicada à mensagem. A sequência de bits da mensagem é mapeado para símbolos complexos em 64QAM, que são posteriormente enviados para modulação \textit{Carrier-less amplitude and phase} (CAP). No artigo, são explicados ainda os motivos da escolha da modulação CAP sobre a \textit{Orthgonal Frequency Divided Multiplexing} OFDM. Utilizando CAP, não é necessária a conversão elétrica ou ótica de números complexos para reais, além de dispensar a transformação de Fourier discreta, reduzindo a complexidade da computação e estrutura do sistema consideravelmente. A arquitetura do sistema e algumas fotos podem ser observadas na \autoref{figure:fudan-architecture}.
+	
+	\begin{figure}[h]
+		\caption{\label{figure:fudan-architecture}Arquitetura do sistema VLC desenvolvido pela Universidade de Fudan. Observa-se a modulação por comprimento de onda com as três cores do LED e o processamento adicional para converter os símbolos em CAP.}
+		\centering
+		\includegraphics[width=0.8\textwidth, trim={5cm 10cm 5cm 10.1cm},clip]{fudan4.pdf}
+		\legend{\cite{4.5g-fudan}}
+	\end{figure}
+	
+	Após as etapas de equalização e modulação, o sistema obteve até 1.5m de distância entre o transmissor e receptor, com taxas de BER 7\% abaixo de 3.8x10e-3.
