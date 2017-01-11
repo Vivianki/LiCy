@@ -7,7 +7,7 @@
 	
 	Nesse capítulo será feita a verificação do estado atual de outros trabalhos sobre comunicação via luz. Serão analisados tanto o meio comercial quanto o acadêmico.
 	
-	\section{Lifi-X}
+	\section{Lifi-X}\label{section:lifi-x}
 	
 	A única solução de VLC anunciada disponível no mercado é o LiFi-X, de uma empresa chamada \textit{pureLifi}. Que afirma fornecer:
 	
@@ -38,7 +38,7 @@
 	
 	O artigo foca no estudo da eficácia das modulações citadas, de forma a obter uma relação distância de transmissão e vazão de dados boa. Ao fim do estudo, foram obtidas vazões de 513 Mbit/s a 30 centímetros de distância. 
 
-	\section{Scuola Superiore Sant’Anna}
+	\section{Scuola Superiore Sant’Anna}\label{section:sant-ana}
 	
 	Em 2012, a Scuola Superiore Sant’Anna na Itália provou possível a transmissão de 3.4 Gbit/s com distâncias abaixo de 30cm \cite{3.4g-sant-ana}. O artigo se focou na transmissão de luz com modulação WDM (Wavelength Division Multiplexing) utilizando um LED Vermelho Verde e Azul (RGB). Cada comprimento de onda foi então modulado utilizando DMT, que divide o sinal em 512 portadoras, combinadas utilizando QAM.
 	
@@ -53,7 +53,7 @@
 	
 	As distâncias obtidas foram de 30cm, com níveis de iluminação de 410 lx no receptor. Como os níveis estavam abaixo do recomendado pela norma Européia para iluminação - que é 500 lx -, foi sugerido que em trabalhos futuros fossem adicionados mais componentes LED do lado do transmissor.
 	
-	\section{Fudan University}
+	\section{Fudan University}\label{section:fudan-u}
 	
 	Três anos depois, na China, a Universidade de Fudan publicou um artigo sobre comunicação via luz a uma taxa de 4.5 Gbit/s \cite{4.5g-fudan}. O artigo se focou em resolver o problema da baixa distância de transmissão em sistemas VLC com velocidades na ordem de grandeza de \textit{Gigabits}/s. Os LEDs utilizados estão disponíveis comercialmente.
 	
@@ -61,11 +61,33 @@
 	
 	Além da etapa de equalização dos sistemas, ainda é descrita a modulação aplicada à mensagem. A sequência de bits da mensagem é mapeado para símbolos complexos em 64QAM, que são posteriormente enviados para modulação \textit{Carrier-less amplitude and phase} (CAP). No artigo, são explicados ainda os motivos da escolha da modulação CAP sobre a \textit{Orthgonal Frequency Divided Multiplexing} OFDM. Utilizando CAP, não é necessária a conversão elétrica ou ótica de números complexos para reais, além de dispensar a transformação de Fourier discreta, reduzindo a complexidade da computação e estrutura do sistema consideravelmente. A arquitetura do sistema e algumas fotos podem ser observadas na \autoref{figure:fudan-architecture}.
 	
-	\begin{figure}[h]
+	\begin{figure}[ht]
 		\caption{\label{figure:fudan-architecture}Arquitetura do sistema VLC desenvolvido pela Universidade de Fudan. Observa-se a modulação por comprimento de onda com as três cores do LED e o processamento adicional para converter os símbolos em CAP.}
 		\centering
-		\includegraphics[width=0.8\textwidth, trim={5cm 10cm 5cm 10.1cm},clip]{fudan4.pdf}
+		\includegraphics[width=0.8\textwidth, trim={4.5cm 10cm 4.5cm 10.1cm},clip]{fudan4.pdf}
 		\legend{\cite{4.5g-fudan}}
 	\end{figure}
 	
 	Após as etapas de equalização e modulação, o sistema obteve até 1.5m de distância entre o transmissor e receptor, com taxas de BER 7\% abaixo de 3.8x10e-3.
+	
+	\section{Análise Comparativa}
+	
+	Na \autoref{table:comp-revbib} se encontra uma análise comparativa das implementações pequisadas. Foram considerados os parâmetros Velocidade de \textit{download}, a distância de transmissão, a taxa de erros no canal, a modulação utilizada e se o trabalho utilizou algum código de correção de erro.
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Análise Comparativa entre os trabalhos sobre VLC encontrados.}
+		\label{table:comp-revbib}
+		\begin{tabular}{lclll}
+			\hline
+			& \multicolumn{1}{l}{LiFi-X} & Franhoufer & Sant’Anna       & Fudan University \\ \hline
+			\textit{Download}  & \multicolumn{1}{l}{40Mbps} & 513Mbps    & 3.4Gbps         & 4.5Gbps          \\
+			Distância & -      & 30cm       & 30cm            & 150cm            \\
+			BER       & -      & 2x10e-3    & 2x10e-3         & 3.8x10e-3        \\
+			Modulação & -      & DMT + QAM  & WDM + DMT + QAM & WDM + CAP + QAM  \\
+			FEC       & -      & não        & não             & não            	 \\ \hline
+		\end{tabular}
+		\legend{Fonte: Artigos citados nas seções \ref{section:lifi-x}, \ref{section:fraunhofer}, \ref{section:sant-ana} e \ref{section:fudan-u}.}
+	\end{table}
+
+	Observa-se que nenhum dos trabalhos utilizou códigos de correção de erro, principalmente pelo foco na velocidade de transmissão.

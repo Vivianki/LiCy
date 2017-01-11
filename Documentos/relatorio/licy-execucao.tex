@@ -43,17 +43,17 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\subsubsection{Memória}
+	\subsubsection*{Memória}
 
 	Para realizar o processo de entrelaçamento, é necessário que o \textit{Interleaver} guarde a mensagem inteira dentro de uma memória, para manipular sua ordem de disposição.
 
-	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do payload da PHY I (1023 \textit{bytes}). Isso acontece porque o módulo anterior ao \textit{Interleaver} - o Codificador Reed Solomon - transforma cada 28 \textit{bits} de mensagem em 60 \textit{bits} (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu padding (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser, então, capaz de guardar 2206 \textit{bytes}.
+	Deve-se observar, no entanto, que o tamanho da mensagem a ser guardado é maior que apenas o tamanho máximo do \textit{payload} da PHY I (1023 \textit{bytes}). Isso acontece porque o módulo anterior ao \textit{Interleaver} - o Codificador Reed Solomon - transforma cada 28 \textit{bits} de mensagem em 60 \textit{bits} (Reed Solomon (15,7)). A mensagem com paridade adicionada ao fim tem portanto 2191 \textit{bytes}. Além disso, ainda deve ser considerado o cabeçalho, sua paridade e seu \textit{padding} (4 + 3 + 8 \textit{bytes}). Portanto o Interleaver deve ser, então, capaz de guardar 2206 \textit{bytes}. Caso a mensagem seja maior que o tamanho máximo do \textit{payload}, ela deve ser dividida em outro \textit{payload}, para ser enviada posteriormente.
 
 	A princípio, é possível realizar esse armazenamento de três formas na FPGA: (i) criando vetores dentro de um arquivo .vhd, (ii) utilizando uma memória externa a FPGA e (iii) utilizando uma memória interna da FPGA. A primeira solução ocupa muito espaço disponível nas unidades lógicas do chip. A segunda proposta requer uma memória acoplada à placa de desenvolvimento utilizada, restringindo a gama de placas possíveis. A terceira e última opção é a mais adequada, pois a arquitetura da FPGA utilizada (EP4) possui memória auxiliar incorporada na FPGA.
 
 	Para implementar a memória, foi utilizado o componente RAM de duas portas do Catálogo IP (Intellectual Property) do programa Altera Quartus. De forma que a capacidade de memória seja no mínimo 2206 \textit{bytes}, foi instanciada uma de 4096 \textit{bytes}, pois devem ser potências de 2.
 
-	\subsubsection{Unidade de controle do cabeçalho}\label{section:interleaver-header-control}
+	\subsubsection*{Unidade de controle do cabeçalho}\label{section:interleaver-header-control}
 
 	O propósito deste módulo é receber os dados do Codificador Reed Solomon, gravá-los na memória interna e depois enviá-los de forma entrelaçada. A abordagem tomada pelo projeto foi gravar esses dados em ordem entrelaçada, para que a leitura seja feita apenas varrendo os endereços da memória em ordem crescente. A \autoref{figure:interleaver-flow} ilustra o algoritmo desenvolvido para escolher os endereços entrelaçados e gerar a saída. Ele foi implementado em Javascript para melhor visualização da ordem certa de gravação.
 
@@ -72,7 +72,7 @@
 	Inicialmente, a profundidade atual é utilizada como endereço na etapa de gravação da mensagem na memória. As iterações posteriores utilizam também o valor de profundidade da mensagem para deslocar os dados na memória, realizando esse processo quatorze vezes, uma vez para cada símbolo do codificador Reed Solomon, como ilustrado na \autoref{figure:interleaver-order}. A equação abaixo também auxilia no entendimento do processo:
 
 	\begin{equation}
-	Address = depth_counter + iteration \cdot depth
+	Address = depth_{counter} + iteration \cdot depth
 	\end{equation}
 
 	\begin{figure}[h!]
@@ -91,7 +91,7 @@
 
 	O contador de saída, quando habilitado pelo contador de profundidade, troca o modo de operação da memória de gravação para leitura. Esse módulo também seleciona endereços para ler de forma crescente, gerando uma saída entrelaçada, juntamente com sinal de FlagInt mostrando que os dados atuais são válidos.
 
-	\subsubsection{Unidade de controle do \textit{payload}}
+	\subsubsection*{Unidade de controle do \textit{payload}}
 
 	O comportamento da UC (unidade de controle) do \textit{payload} é análoga à explicada anteriormente (\autoref{section:interleaver-header-control}). Entretanto, é necessário que eles funcionem de forma coordenada, de acordo com o recebimento do cabeçalho e em seguida dos dados. Algumas modificações foram feitas no esquema apresentado (\autoref{figure:interleaver-schematics}) para o funcionamento pleno do \textit{Interleaver}:
 
@@ -131,7 +131,7 @@
 
 	Ainda existe outro módulo que insere uma cadeia de 6 \textit{bits} zeros entre o cabeçalho e a mensagem. Isso reinicia o Convolucional, garantindo que o estado inicial seja "000000", estado conhecido posterior decodificação. A implementação é simples: processa as 30 primeiras palavras e depois envia os zeros via um registrador de deslocamento.
 
-	\subsubsection{\textit{Puncture}}
+	\subsubsection*{\textit{Puncture}}
 
 	Para realizar o \textit{puncture} de $\frac{1}{4}$ o valor A é mantido pelo tempo equivalente a dois \textit{clocks} do próximo módulo e o valor de B por mais dois \textit{clocks}. Seguindo o especificado na metodologia. A simulação de todas operações descritas encontra-se abaixo:
 
@@ -180,22 +180,22 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\subsubsection{\textit{Oversampling}}
+	\subsubsection*{\textit{Oversampling}}
 	Componente que realiza a verificação do tempo de permanência do sinal para cada \textit{bit}. Possui dois contadores, um para o sinal lógico zero e outro para um. O próprio sinal de entrada habilita (\textit{enable}) o contador de zeros quando está em \textit{high}, e analogamente o contador de uns quando está em \textit{low}. O funcionamento do sinal de \textit{reset} é inverso ao de enable aos dois contadores. Portanto o módulo contador de zeros conta por quantos \textit{clocks} de 50MHz a entrada ficou em zero. Caso a entrada seja um, o contador zera e ele é desabilitado. Analogamente para o módulo contador de uns, que conta por quantos \textit{clocks} a entrada ficou em um, zerando.
 
-	\subsubsection{Decisão de Limite de Tempo}
+	\subsubsection*{Decisão de Limite de Tempo}
 	Esse subsistema decide se o sinal analisado pelo módulo de \textit{Oversampling} possui pelo menos 250 amostras iguais (zeros ou uns). Ele parte do princípio que a entrada será uma onda quadrada de período 10 $\mu$s, garantido pelo envio do FLP, não possuindo dois uns nem dois zeros seguidos.
 
 	Com intuito de facilitar a sincronização, o decisor de limite de tempo verifica se o \textit{Oversampling} está dentro de um intervalo de 128 a 255 ciclos do \textit{clock} interno da FPGA de 50 MHz. Esse processo ocorre verificando apenas os \textit{bits} mais significativos do contador. Caso o oitavo \textit{bit} seja um, significa que o módulo anterior contou pelo menos até 128, caracterizando um possível um ou zero. Verificando o nono \textit{bit} é possível concluir se ele não excedeu o tempo de permanência no mesmo \textit{bit} (além de 255).
 
 	Para o módulo sincronizador, dois uns ou dois zeros seguidos fogem da norma, portanto tais mensagens são descartadas.
 
-	\subsubsection{Detector de FLP}
+	\subsubsection*{Detector de FLP}
 	A detecção de FLP é realizada com com um registrador de deslocamento de 200 \textit{bits}. Se pelo menos 200 \textit{bits} recebidos preenchem o registrador com zeros e uns alternados, o móduto gera um sinal lógico um para o gerador de \textit{clock}.
 
 	O registrador é reiniciado quando o nono \textit{bit} do Decisor de limite de tempo é um, pois caracteriza um FLP inválido. Enquanto apenas o oitavo \textit{bit} for detectado, o registrador grava o valor e desloca seus valores à direita.
 
-	\subsubsection{Gerador de \textit{clock}}
+	\subsubsection*{Gerador de \textit{clock}}
 	Módulo que gera um \textit{clock} de 200kHz estável para o decodificador inteiro. Utiliza um divisor de frequência do \textit{clock} interno da FPGA.
 
 	Quando recebe o sinal de detecção de FLP, reajusta seu \textit{clock} de 200kHz forma que a borda de subida fique no centro do \textit{bit} de entrada. Essa característica do gerador de \textit{clock} protege o decodificador do fenômeno de \textit{clock drift}, ou da perda de sincronia entre os \textit{clocks} devido ao comprimento da mensagem.
@@ -238,13 +238,13 @@
 
 	Como especificado na metodologia (\autoref{section:method-viterbi}), a implementação Viterbi utilizada é simplificada e se chama \textit{Fangled}. Consome menos memória e processamento e é mais veloz, porém tem capacidade de detecção e correção de erro muito menor. O \textit{Fangled} Viterbi corrige no mínimo um \textit{bit} a cada quatro recebidos, devido à sua arquitetura de taxa $\frac{1}{4}$.
 
-	\subsubsection{\textit{Branch Metrics}}
+	\subsubsection*{\textit{Branch Metrics}}
 	A entrada é composta por AABB. Calcula-se a distância entre o primeiro A com o primeiro B e todas as possíveis combinações de bits (00, 01, 10, 11). A distância é calculada do mesmo modo para o segundo A e o segundo B recebidos. A operação feita entre os dados é XOR. As distâncias de uma mesma combinação de bits é posteriormente somada.
 
-	\subsubsection{Tabela Trellis}
+	\subsubsection*{Tabela Trellis}
 	A tabela foi implementada através de uma LUT (\textit{Look Up Table}) com dois valores possíveis de entrada para o Viterbi. Possui duas saídas para cada entrada: uma quando o \textit{bit} é um e outra quando o \textit{bit} é zero.
 
-	\subsubsection{\textit{Path Metrics}}
+	\subsubsection*{\textit{Path Metrics}}
 	O PM (\textit{Path Metrics}) recebe a informação de quais são as duas possíveis entradas da Tabela Trellis e quais as distâncias do \textit{Branch Metrics}. Com esses dados o PM identifica qual o bit mais provável de ter sido codificado. Definindo assim, qual o próximo estado e a saída do decodificador Viterbi. O valor do próximo estado é armazenado para ser posteriormente utilizado pela Tabela Trellis.
 
 	Caso as distâncias consideradas forem iguais, o valor da saída é escolhido como sendo zero e o próximo estado é definido de acordo. No caso do \textit{Fangled} Viterbi, essa escolha deverá ser realizada ao acaso.
@@ -263,7 +263,7 @@
 
 	A arquitetura do decodificador segue o diagrama funcional da figura X do capítulo de Metologia. Desta forma, o desenvolvimento pode ser separado em quatro partes principais, apresentadas a seguir.
 
-	\subsubsection{Cálculo das Síndromes}
+	\subsubsection*{Cálculo das Síndromes}
 
 	O cálculo das síndromes é feito de forma iterativa, durando tantos ciclos quanto forem os símbolos da mensagem. O cálculo de cada síndrome é independente dos cálculos das demais, e depende apenas dos símbolos de entrada e de cada uma das raízes do polinômio codificador, de alpha0 a alpha7 neste caso. O arranjo dos componentes pode se exemplificar através da arquitetura do módulo, representada na \autoref{fig_sindrome_arq}, no Apêndice.
 
@@ -278,7 +278,7 @@
 		\legend{}
 	\end{figure}
 
-	\subsubsection{Módulo de Berlekamp-Massey}
+	\subsubsection*{Módulo de Berlekamp-Massey}
 
 	O módulo de Berlekamp-Massey foi implementado de forma a primeiramente calcular as localizações dos erros, ou seja, os coeficientes do polinômio localizador de erros, representados por Lambda, e guardados em registradores, para o posterior cálculo dos valores dos erros. Os valores de erros são calculados, então, com as síndromes e localizações de erro. A arquitetura desse circuito pode ser encontrada no Apêndice, na \autoref{fig_berlekamp_arq}.
 
@@ -295,7 +295,7 @@
 
 	O componente de Berlekamp-Massey possui um circuito de controle próprio. Por ele é recebido um sinal de início de cálculo, vindo do controlador do estágio anterior, de cálculo de síndromes. Sendo assim, ele deve manipular registradores, para, por exemplo, registrar os valores de Lambda e Omega para cálculo posterior, no módulo seguinte.
 
-	\subsubsection{Módulos de Busca de Chien e Forney}
+	\subsubsection*{Módulos de Busca de Chien e Forney}
 
 	O módulo de busca de Chien é na verdade composto por dois módulos: busca de localização e de valores dos erros. Ambos trabalham paralelamente e têm como entrada os coeficientes $\Lambda$ e $\Omega$.
 
@@ -330,7 +330,7 @@
 	\end{chart}
 
 	\subsection{Integração do Decodificador}\label{section:execution-integration-decoder-speeds}
-	%FAZER INTEGRACAO DO DECODIFICADOR
+
 	A integração dos decodificadores foi realizada de modo análogo ao da integração dos codificadores, não existindo nenhum \textit{buffer} entre eles. Recebe-se dados a 200kHz como especificado na norma, e os \textit{clocks} dos decodificadores foram ajustados de modo a receber esses dados e decodificá-los. A relação de entradas e saídas de \textit{bits} e suas frequências, é ilustrada na \autoref{figure:integration-decoder}.
 	\begin{figure}[h]
 		\caption{\label{figure:integration-decoder}Relação entre vazão de \textit{bits} entre cada módulo do Decodificador.}
@@ -398,7 +398,7 @@
 
 	Devido a falta de conhecimento do comportamento de transistores e da resposta de todos os componentes a frequência de 200kHz, foram projetados vários circuitos que não satisfaziam o formato de onda desejado. Abaixo são exemplificadas algumas versões implementadas, juntamente com os motivos de terem sido abandonadas.
 
-	\subsubsection{Filtro da Ponta de Prova}
+	\subsubsection*{Filtro da Ponta de Prova}
 	\begin{figure}[h]
 		\caption{\label{fig_transmitter_lify_circuit_fail0}Circuito de transmissão com filtro de ponta de prova.}
 		\centering		%  trim={<left> <lower> <right> <upper>}
@@ -423,7 +423,7 @@
 
 	Em um teste unitário, foi observado o comportamento do chaveamento de um resistor $R_{L}$ a 200kHz, removendo completamente o LED do sistema. A saída observada era exatamente igual à entrada. Colocar um LED em série com o resistor adicionava o comportamento subamortecido, portanto conclui-se que a anomalia é atribuida ao LED.
 
-	\subsubsection{Aumento da Frequência}
+	\subsubsection*{Aumento da Frequência}
 
 	O aumento da frequência de operação a $f_{OP}$ = 200kHz causa um subamortecimento substancialmente maior. Observa-se no Gráfico \ref{fig_transmitter_lify_circuit_fail1_r1} que provém de circuito sem o filtro da ponta de prova na \autoref{fig_transmitter_lify_circuit_fail1}.
 	\begin{figure}[h!]
@@ -442,7 +442,7 @@
 
 	Além disso, ele não preserva a forma de onda da entrada. Ainda é possível refinar mais a solução.
 
-	\subsubsection{Final - Filtro Passa-Altas}
+	\subsubsection*{Final - Filtro Passa-Altas}
 	Por fim, realiza-se a correção dessa componente subamortecida utilizando um capacitor entre os terminais da \textit{source} do MOSFET e GND (observado em \autoref{fig_transmitter_lify_circuit_final}).
 	\begin{figure}[h!]
 		\caption{\label{fig_transmitter_lify_circuit_final}Circuito final de transmissão de dados LiCy, utilizando um filtro passa-altas.}
@@ -521,3 +521,14 @@
 	Uma vez que se obteve os dois circuitos digitais principais operantes, cada um foi integrado com seu respectivo hardware analógico. Antes disso, o receptor e o transmissor analógico já haviam sido testados, com auxílio de uma fonte de sinais digitais na entrada do transmissor e um osciloscópio na saída do receptor.
 	
 	\section{Testes}
+
+	 A realização dos testes foi feita utilizando apenas uma máquina para enviar e receber os dados, conectada a duas FPGAs não conectadas por fios. Os resultados obtidos estão listados abaixo:
+	 
+	 \begin{itemize}
+	 	\item Velocidade de download: 480 bits/s;
+	 	\item Distância de transmissão: 16cm;
+	 	\item BER: ele não recebe bits errados, e sim perde pacotes;
+	 	\item Perda de pacotes: para mensagens maiores que 10 caracteres, 30\%.
+	 \end{itemize}
+ 
+	 A redução no \textit{download} pode ser atribuída ao \textit{delay} inserido para enviar os dados corretamente para a UART, diminuindo de 11.67kbits/s especificado pela norma IEEE 802.15.7 para 4.8kbits/s. Também pode-se atribuir a essa redução ao \textit{overhead} introduzido pelo pipeline de codificação e decodificação.

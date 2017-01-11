@@ -7,7 +7,7 @@
 	\chapter{Metodologia}\label{cap-metodologia}
 	% ---
 
-	Neste capítulo serão analisadas a escolha da norma \texttt{802.15.7}, bem como as especificações de \textit{hardware} e \textit{software}.
+	Neste capítulo serão analisadas a escolha da norma IEEE 802.15.7, bem como as especificações de \textit{hardware} e \textit{software}.
 
 	% ---
 	\section{Planejamento}\label{sec-planejamento}
@@ -17,7 +17,7 @@
 	\subsection{Estrutura Analítica do Projeto}\label{subsec-eap}
 	% ---
 
-	A Estrutura Analítica do Projeto é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto, as fases de trabalho foram definidas a partir da EAP. Observa-se que existe uma fase de gerenciamento, duas fases de desenvolvimento e uma fase de encerramento.
+	A Estrutura Analítica do Projeto (EAP) é uma ferramenta de gerenciamento que divide as principais entregas de um projeto. Cada entrega deve ser subdividida em tarefas até que sejam obtidos pacotes de trabalho, para que se estime recursos e tempo demandados. Neste projeto, as fases de trabalho foram definidas a partir da EAP. Observa-se que existe uma fase de gerenciamento, duas fases de desenvolvimento e uma fase de encerramento. Foi desenvolvida uma EAP para o projeto que se encontra na figura \autoref{fig_eap}.
 
 	\begin{figure}[h!]
 		\caption{\label{fig_eap}Estrutura Analítica do Projeto Light Cyber.}
@@ -30,7 +30,7 @@
 	\subsection{Cronograma}\label{subsec-cronograma}
 	% ---
 
-	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes fizeram reuniões para estimar o tempo de cada um desses pacotes, com a aplicação das estimativas a um calendário, que também considerou as datas de entrega oficiais da disciplina. Com todas as estimativas feitas, a primeira e segunda fases do projeto durariam até o fim de Novembro de 2016, como pode-se observar no diagrama de Gantt abaixo \autoref{fig_gantt}.
+	O cronograma do projeto foi planejado a partir dos pacotes de trabalho definidos na Estrutura Analítica de Projeto. Os participantes fizeram reuniões para estimar o tempo de cada um desses pacotes, com a aplicação das estimativas a um calendário, que também considerou as datas de entrega oficiais da disciplina. Com todas as estimativas feitas, a primeira e segunda fases do projeto durariam até o fim de Novembro de 2016, como pode-se observar no diagrama de Gantt na \autoref{fig_gantt}.
 
 	\begin{figure}[h!]
 		\caption{\label{fig_gantt}Diagrama de Gantt do projeto LiCy.}
@@ -46,7 +46,7 @@
 	Os requisitos foram divididos primeiramente em funcionais e não-funcionais. Além disso, existem outras divisões relacionadas a hardware, estética e módulos do sistema. Para cada requisito foi dado um peso, conforme avaliação da relevância deste requisito para o projeto, de modo que no topo da árvore haja uma soma equivalente a 100.
 
 	% ---
-	\subsubsection{Requisitos Funcionais}\label{subsubsec-requisitos-func}
+	\subsubsection*{Requisitos Funcionais}\label{subsubsec-requisitos-func}
 	% ---
 
 	\paragraph*{Requisitos de hardware digital}
@@ -93,7 +93,7 @@
 	\end{itemize}
 
 
-	\subsubsection{Requisitos Não-Funcionais}\label{subsubsec-requisitos-nfunc}
+	\subsubsection*{Requisitos Não-Funcionais}\label{subsubsec-requisitos-nfunc}
 
 	Foram especificados através da seguinte estrutura:
 
@@ -145,7 +145,7 @@
 	Para que os dados transmitidos sejam recebidos corretamente, a norma estabelece algumas regras para codificação da mensagem, a fim de garantir recuperação de erros, redução de erros em \emph{burst}, facilidade na sincronia do \textit{clock}, entre outros detalhes. A \autoref{fig_transmission_phy1} ilustra os passos necessários para compor a mensagem antes de sua transmissão. Esses passos estarão detalhados nas seções a seguir.
 
 
-	\subsubsection{Codificação Reed Solomon}
+	\subsubsection*{Codificação Reed Solomon}
 
 	Com o intuito de adicionar redundância de informação na mensagem, a norma estabelece um mecanismo de correção de erros antecipada (FEC). Mais especificamente, o código de Reed Solomon, apresentado originalmente em \cite{reed-solomon-original} e também discutido em \cite{rs-bbc}.
 
@@ -155,7 +155,7 @@
 
 	\paragraph*{Corpos de Galois}
 
-	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de corpos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um corpo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 \textit{bits}, totalizando 16 elementos de 0000 a 1111.
+	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de corpos finitos. A norma IEEE 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um corpo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 \textit{bits}, totalizando 16 elementos de 0000 a 1111.
 
 	A adição e subtração de dois corpos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas \textit{bit} a \textit{bit}, sem que haja \textit{bits} de ``vai um'' para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, tanto para adição como subtração.
 
@@ -243,9 +243,7 @@
 
 	É possível observar nos registradores e multiplicadores de Galois a estrutura de um polinômio e seus índices. A mensagem a que se vai adicionar redundância deve passar pela ``entrada'', com um ciclo de \textit{clock} para cada símbolo, levando portanto 7 ciclos para finalizar o cálculo das paridades para um código (15, 7). Os 8 símbolos de paridade devem então serem passados através de registradores de deslocamento, com a mudança do sinal de seleção, de maneira também a zerar a saída da porta lógica AND à direita. Sendo assim, os valores dos registradores não são afetados pelos somadores, já que as operações de multiplicação e soma de Galois estarão recebendo uma das entradas igual a 0000. Em suma, o processo de codificação leva tantos ciclos quantos forem os símbolos do bloco codificado, ou o valor denotado por $n$.
 
-	%%\cite{nasa-rs1}
-
-	\subsubsection{Interleaver}
+	\subsubsection*{Interleaver}
 
 	O processo de entrelaçamento é utilizado para aprimorar a performance de mecanismos de correção de erros antecipados. Ele se baseia no fato de que canais de comunicação não são estocásticos, então erros ocorrem em sequência e não independentemente.
 
@@ -285,11 +283,11 @@
 
 	A mensagem recebida foi recuperada porque os erros foram distribuídos em partes diferentes da mensagem, que foi entrelaçada. Os dados resultantes puderam ser inferidos pela redundância aplicada.
 
-	\subsubsection{Puncture}
+	\subsubsection*{Puncture}
 
 	O módulo de punção é utilizado para reduzir o \textit{overhead} do \textit{padding}, e é aplicado depois do \textit{interleaver}. A função da punção é remover alguns bits de paridade da sequência, e equivale a utilizar um algoritmo de correção de erros com menos redundância. Neste caso, visa os bits de \textit{padding}, que não representam informação e são colocados apenas para completar o pacote até que o tamanho seja uma potência de dois. O efeito é uma redução na taxa do código, que será explicada nas seções subsequentes.
 
-	\subsubsection{Código Convolutional}
+	\subsubsection*{Código Convolutional}
 
 	O módulo de código convolucional é um código de correção de erros que converte a mensagem em símbolos de paridade. Ele se utiliza de uma janela deslizante para receber e armazenar uma parte dos dados de entrada. Alguns subgrupos de \textit{bits} dentro da janela, definidos pelos geradores polinomiais, são utilizados para gerar os \textit{bits} de paridade. A operação de \textit{exclusive or} entre os \textit{bits} de um subgrupo gera um \textit{bit} de paridade. A norma define os parâmetros do código na \autoref{table:convolutional-params} de acordo com a camada PHY I.
 
@@ -333,7 +331,7 @@
 
 	Como a saída do codificador é serial de um \textit{bit}, observa-se que esse código cria um \textit{overhead} na velocidade da transmissão da mensagem. Os \textit{bits} entram no codificador convolucional a uma taxa de t \textit{bits}/tempo e saem a uma taxa de t/4 \textit{bits}/tempo.
 
-	\subsubsection{Codificação RLL}
+	\subsubsection*{Codificação RLL}
 
 	Para a primeira camada de implementação PHY I, será escolhida a codificação RLL Manchester. A codificação Manchester divide o \textit{bit} do dado ao meio, de maneira que a primeira metade deve obrigatoriamente assumir um valor diferente da segunda metade. Em outras palavras, caso a entrada a ser codificada seja 0 por um tempo $2t$, a saída deve ser 01, com cada \textit{bit} com tempo $t$ de transmissão como se verifica na \autoref{tabela_cod_manchester}. Analogamente, caso o \textit{bit} de entrada seja 1, a saída deve ser 10.
 	\begin{table}[ht]
@@ -361,13 +359,13 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\subsubsection{Decodificação RLL}
+	\subsubsection*{Decodificação RLL}
 
 	A decodificação do código Manchester ocorre da mesma forma que a codificação, porém com um sinal de \textit{clock} cuja frequência é idêntica à do \textit{clock} de codificação. Portanto, o período do \textit{clock} deve ser o dobro do tempo de duração do \textit{bit} da mensagem. Uma consequência dessa definição é que os dados transmitidos entre um codificador e um decodificador Manchester têm o dobro da frequência da mensagem original, embora a frequência com que os dados efetivos são transmitidos seja a mesma.
 
 	A identificação de erros pode acontecer de diversas formas. É possível, por exemplo, criar uma máquina de estados que identifique a entrada de três \textit{bits} idênticos consecutivos, o que sinaliza erro no caso do código de Manchester. Um dos motivos para esse erro pode ser um código deslocado em até metade de um ciclo do \textit{clock} da entrada do decodificador, e neste caso pode-se corrigir o erro através de uma correção simples, como um \textit{shift register}. Caso o número de \textit{bits} idênticos consecutivos seja superior a dois, a correção do erro se torna muito mais trabalhosa, motivo pelo qual esse tipo de correção não foi abordado neste estudo.
 
-	\subsubsection{Decodificação Viterbi}\label{section:method-viterbi}
+	\subsubsection*{Decodificação Viterbi}\label{section:method-viterbi}
 
 	A seção a seguir explica os conceitos fundamentais para o entendimento do decodificador Viterbi: máquinas de estado, tabela Trellis, o algoritmo de decodificação \textit{Viterbi} e sua simplificação \textit{Fangled} Viterbi.
 
@@ -408,11 +406,11 @@
 
 	Pode-se observar que esse método necessita de muitos recursos e computação, pois grava e compara todos os caminhos possíveis durante sua execução. O algoritmo pode ser simplificado removendo o módulo de \textit{Traceback Unit} e utilizando apenas uma unidade modificada de ACS. Essa unidade escolhe a menor distância de acordo com o estado atual e percorre o caminho, removendo a necessidade de gravar as possibilidades em memória. Esse método é chamado de \textit{Fangled} Viterbi.
 
-	\subsubsection{\textit{Deinterleaver}}
+	\subsubsection*{\textit{Deinterleaver}}
 
 	O processo de \textit{deinterleaving} é análogo ao processo de \textit{interleaving} e é o único que não necessita de atenção especial para um estudo de um novo algoritmo.
 
-	\subsubsection{Decodificação \textit{Reed Solomon}}
+	\subsubsection*{Decodificação \textit{Reed Solomon}}
 
 	Esta seção discorre sobre as quatros etapas principais do processo de decodificação de Reed Solomon abordados na execução do projeto. Alguns dos algoritmos são discutidos com mais detalhes em \cite{reed-solomon-berle}.
 
@@ -577,7 +575,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\subsubsection{Preâmbulo - SHR}
+	\subsubsection*{Preâmbulo - SHR}
 
 	O campo de preâmbulo é usado pelo transmissor de data para obter sincronização ótica de \textit{clock} com uma mensagem recebida. A norma define um padrão de travamento rápido (FLP), seguido de quatro padrões dependentes da topologia (TDP) para fins de distinção de topologias de PHY diferentes. O preâmbulo deve ser enviado em uma taxa de \textit{clock} escolhida pelo transmissor e suportada pelo receptor. Ele é uma sequência de domínio de tempo e não possui nenhuma codificação de canal ou linha.
 
@@ -614,7 +612,7 @@
 
 	Se refere ao ato de sincronizar os \textit{clocks} de sistemas independentes. Para a transmissão de dados via luz, como ambos os módulos (receptor e transmissor) não estão conectados via cabo, o sinal de \textit{clock} não é compartilhado. Dessa forma, é certo dizer que eles estão fora de fase. Para isso a norma especifica o FLP, um sinal com período fixo utilizado pelo receptor para sincronizar seu \textit{clock} com o do transmissor.
 
-	\subsubsection{Cabeçalho PHY - PHR}
+	\subsubsection*{Cabeçalho PHY - PHR}
 
 	\begin{table}[ht]
 		\caption{Definição dos campos do cabeçalho PHY.}
@@ -638,7 +636,7 @@
 
 	A maioria dos campos não será usada por motivos de redução de escopo, portanto o receptor e transmissor não terão habilitado o modo \textit{Burst}, canais e dimerização OOK. O único campo variável do cabeçalho será o Comprimento PSDU, que dependerá do conteúdo da mensagem enviada.
 
-	\subsubsection{Unidade de Dados de Serviço PHY - PSDU}
+	\subsubsection*{Unidade de Dados de Serviço PHY - PSDU}
 
 	Como o escopo do trabalho não engloba a camada MAC, o campo de PSDU conterá apenas a mensagem. A estrutura adaptada sem os cabeçalhos MAC está na \autoref{figure:PSDU-frame}. A norma ainda especifica \textit{tail bits} para reiniciar o processo do código convolucional.
 
@@ -681,7 +679,7 @@
 
 	Uma vez contornadas e solucionadas todas as restrições listadas acima, o circuito resultante deverá enviar sinais luminosos a uma frequência de 200kHz, que é a velocidade definida pela norma da camada PHY I.
 
-	\subsubsection{Conversor Digital-Analógico}\label{section:dac}
+	\subsubsection*{Conversor Digital-Analógico}\label{section:dac}
 	Como o LED será de alta potência, a corrente necessária para ligá-lo corretamente é na ordem de grandeza de amperes. Essa corrente de polarização é incompatível com a fornecida pela porta de saída da FPGA (aproximadamente mil vezes menor). De forma a proteger o circuito da FPGA e também a chavear o LED, foi utilizado um transistor de potência.
 
 	Além disso, deve-se notar que o método de modulação desejado é OOK (\textit{on-off keying}). Isso significa que, na presença de portadora (sinal 1), a luz deve estar ligada, enquanto em sua ausência (sinal 0), a luz deve estar desligada.
@@ -741,10 +739,10 @@
 	\end{figure}
 
 	% ---
-	\subsubsection{LED}\label{method-hardware-led}
+	\subsubsection*{LED}\label{method-hardware-led}
 	% ---
 
-	De acordo com a \autoref{tab_phy1}, é necessário suportar uma frequência de oscilação luminosa mínima de 200kHz. Para não tornar o LED limitante, seria interessante se ele também suportasse a frequência de transmissão de 120MHz, que é a frequência para PHY II. Além disso, ele deve realizar a transmissão de luz a distâncias de pelo menos um metro, conforme requisito funcional do projeto.
+	De acordo com a \autoref{tab_phy1} é necessário suportar uma frequência de oscilação luminosa mínima de 200kHz. Para não tornar o LED limitante, seria interessante se ele também suportasse a frequência de transmissão de 120MHz, que é a frequência para PHY II. Além disso, ele deve realizar a transmissão de luz a distâncias de pelo menos um metro, conforme requisito funcional do projeto.
 
 	Será então necessária a utilização de um LED de potência. É muito importante que o LED escolhido tenha resposta luminosa de acordo com o chaveamento, de forma que a tensão fornecida seja proporcional à luz emitida. Como o grupo não tem nenhum medidor de intensidade luminosa, será muito difícil de caracterizar um problema dessa natureza como, por exemplo, a possibilidade de o LED atrasar em relação a excitações em seus terminais. O circuito polarizador de um LED de alta potência pode ser simples, apenas ligando-o a um resistor de alta potência chamado de resistor limitador de corrente, como na \autoref{figure:led-circuit}.
 
@@ -792,7 +790,7 @@
 
 	É de responsabilidade do receptor realizar três processos: (i) a recepção dos sinais luminosos, (ii) sua amplificação com filtragem e (iii) a conversão das ondas em sinais digitais. Com o funcionamento pleno deles, será possível receber um sinal equivalente ao transmitido pela FPGA. Os processos e todos os métodos envolvidos serão explicados em detalhes a seguir nas seções \ref{section:light-reception}, \ref{section:adc},  \ref{section:highpass-filter}, \ref{section:dc-bias} e \ref{section:band-filter}.
 
-	\subsubsection{Recepção Luminosa}\label{section:light-reception}
+	\subsubsection*{Recepção Luminosa}\label{section:light-reception}
 
 	O módulo de recepção luminosa é o mais crítico do receptor, pois recebe oscilações luminosas e as converte em sinais analógicos. É muito empregado em circuitos receptores de fibra óptica, CD players, televisões, câmeras e até em medidores de batimento cardíaco. Os fotorreceptores mais comuns são fototransistores ou fotodiodos, que são classificados principalmente de acordo com sua velocidade de chaveamento.
 
@@ -867,7 +865,7 @@
 
 	Após esse estágio de recepção, obtém-se uma onda com componente $V_{DC} = L$. Esse componente é variável e depende de alterações na intensidade de luz, variações na distância do transmissor com receptor, entre outros fatores. A amplitude da onda depende da corrente  $i_{D}$ do fotodiodo e da resistência de feedback $R_{F}$ do circuito amplificador.
 
-	\subsubsection{Conversor Analógico-Digital}\label{section:adc}
+	\subsubsection*{Conversor Analógico-Digital}\label{section:adc}
 
 	Para poder realizar estágios adicionais de amplificação e comparação a fim de obter uma saída compatível com a entrada da FPGA, deve-se entender o funcionamento de um comparador. O circuito comparador utiliza um amplificador operacional com alto ganho sem realimentação e recebe dois sinais: uma voltagem de entrada $V_{in}$ e uma voltagem de referência $V_{ref}$. Ele realiza a comparação do nível de tensão analógico $V_{in}$ com $V_{ref}$ e produz saída de acordo com essa comparação. Seu desenho esquemático pode ser visto na \autoref{fig_comparator_circuit} e o comportamento de sua saída na \autoref{table:comparator-behaviour}.
 
@@ -911,7 +909,7 @@
 	\end{equation}
 	Nesse intervalo $V_{\delta-} < V_{in} < V_{\delta+}$ (ilustrado em \autoref{fig_comparator_transfer}), o comportamento da saída é diferenciado e depende do ganho de \textit{loop} aberto A, que para circuitos reais é muito grande $A=20000$. Os valores $V_{\delta-}$ e $V_{\delta+}$ então são da ordem de  $\mu$V, definindo a tensão mínima (ou máxima) da entrada para que o comparador realize uma comparação adequada. Com uma amplitude $V_{in_{AC}}$ alternada suficientemente alta, é possível tornar a curva de resposta mais íngreme melhorando o tempo de resposta do componente. A amplitude pode ser ajustada com o resistor de feedback $R_{f}$ do estágio anterior. Mesmo com essas correções, a onda comparada pode defasar um pouco na saída.
 
-	\subsubsection{Filtro Passa-Altas}\label{section:highpass-filter}
+	\subsubsection*{Filtro Passa-Altas}\label{section:highpass-filter}
 
 	Como foi observado na \autoref{plot:post-tia}, a onda recebida possui um componente $V_{DC} = L$ variável. Essa ela não tem valor fixo, então não é possível definir a tensão $V_{ref}$ para comparar. Nesse caso existe a necessidade da eliminação da componente $V_{DC} = L$.
 
@@ -976,7 +974,7 @@
 		\legend{Fonte: Autores.}
 	\end{figure}
 
-	\subsubsection{Acoplamento DC}\label{section:dc-bias}
+	\subsubsection*{Acoplamento DC}\label{section:dc-bias}
 	Com a aplicação do filtro passa-altas agora a onda gerada tem componente $V_{DC} = 0$ fixa - observada na parte hachurada da \autoref{plot-post-highpass-filter}, que ainda necessita correção, pois é uma tensão incompatível com o circuito.
 
 	O funcionamento do comparador (e de qualquer amplificador operacional) depende altamente do fato de que as voltagens de entrada $V_{in}$ e $V_{ref}$ estejam dentro do intervalo de alimentação. Caso as tensões aplicadas nas entradas sejam muito altas (ou baixas), o amplificador pode operar incorretamente, ser reversamente polarizado e até ser danificado. Esses valores costumam estar presentes em \textit{datasheets} de componentes em uma tabela chamada \emph{Absolute Maximum Ratings}. Como foi decisão de projeto o fato de que o sistema de comunicação utilizaria apenas uma fonte de alimentação, essa restrição será aplicada para todos os componentes do circuito.
@@ -1055,7 +1053,7 @@
 
 	Com a sensibilidade ajustada de acordo, é possível que o sinal recebido seja muito semelhante (se não exatamente igual) ao enviado. Caso a saída não esteja adequada, é possível que seja necessário realizar mais um estágio de amplificação e filtração após o filtro passa-altas.
 
-	\subsubsection{Filtro Passa-Faixas}\label{section:band-filter}
+	\subsubsection*{Filtro Passa-Faixas}\label{section:band-filter}
 
 	Com intuito de reduzir o ruído em circuitos de amplificação com amplificadores operacionais, especifica-se um modelo de circuito passa-faixas na \autoref{fig_opampdif}.
 
