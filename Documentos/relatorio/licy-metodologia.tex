@@ -153,20 +153,20 @@
 
 	Os principais parâmetros de um código Reed Solomon são $(n, k)$, onde $n$ é o número de símbolos de um bloco de código e $k$ é o tamanho da mensagem em número de símbolos. Portanto, o bloco terá $n - k$ símbolos de paridade, usualmente designados como $2t$, sendo que a capacidade de correção é de até $t$ símbolos.
 
-	\paragraph*{Campos de Galois}
+	\paragraph*{Corpos de Galois}
 
-	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de campos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um campo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 \textit{bits}, totalizando 16 elementos de 0000 a 1111.
+	A codificação e decodificação de Reed Solomon usam em seus algoritmos operações aritméticas de multiplicação e adição de corpos finitos. A norma 802.15.7 define que para a camada PHY 1, usa-se Galois Fields 16, ou na notação corrente na literatura: GF(16). Um corpo de Galois é um conjunto de $2m - 1$ elementos, cada qual representado por um polinômio de grau $m - 1$, com coeficientes binários. Em suma, um elemento de GF(16) pode ser representado a partir de símbolos de 4 \textit{bits}, totalizando 16 elementos de 0000 a 1111.
 
-	A adição e subtração de dois campos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas \textit{bit} a \textit{bit}, sem que haja \textit{bits} de ``vai um'' para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, tanto para adição como subtração.
+	A adição e subtração de dois corpos de Galois é dada pela soma ou subtração dos coeficientes de dois polinômios. Além disso as operações são feitas \textit{bit} a \textit{bit}, sem que haja \textit{bits} de ``vai um'' para coeficientes subsequentes. Caso os dois coeficientes tenham o mesmo valor, que pode ser 1 ou 0, o resultado da sua soma ou subtração deve ser 0. Caso contrário, a soma equivale a 1, de maneira que essa operação é perfeitamente representável pela função lógica de OU exclusivo, tanto para adição como subtração.
 
-	Os campos de Galois são definidos com base no gerador polinomial de campos, que é um polinômio irredutível, de grau $m$. Para GF(16) existe por exemplo, esta opção:
+	Os corpos de Galois são definidos com base no gerador polinomial de corpos, que é um polinômio irredutível, de grau $m$. Para GF(16) existe por exemplo, esta opção:
 	\begin{equation}
 	p(x) = x^{4} + x + 1
 	\end{equation}
 	A norma IEEE 802.7.15 não especifica qual gerador polinomial deve ser usado, portanto neste estudo foi usada a opção do exemplo. O processo de geração neste caso resulta nos elementos finitos da Tabela~\ref{tab:galois}.
 	\begin{table}[]
 		\centering
-		\caption{Campos de Galois (16)}
+		\caption{Corpos de Galois (16)}
 		\label{tab:galois}
 		\begin{tabular}{|c|c|}
 			\hline
@@ -190,17 +190,17 @@
 		\end{tabular}
 	\end{table}
 
-	A multiplicação entre dois campos de Galois ocorre, em termos de aritmética comum, pela multiplicação de dois polinômios, seguida da divisão pelo gerador polinomial. Já a divisão  de campos finitos pode ser feita através da operação de inversão do divisor e multiplicação desse resultado pelo dividendo, seguindo os passos indicados anteriormente para a multiplicação.
+	A multiplicação entre dois corpos de Galois ocorre, em termos de aritmética comum, pela multiplicação de dois polinômios, seguida da divisão pelo gerador polinomial. Já a divisão  de corpos finitos pode ser feita através da operação de inversão do divisor e multiplicação desse resultado pelo dividendo, seguindo os passos indicados anteriormente para a multiplicação.
 
 	\paragraph*{Codificação}
 
-	Para gerar um código de Reed Solomon a partir dos campos finitos, é necessário um polinômio gerador de código. Este polinômio possui $2t$ fatores, de maneira que o grau do polinômio representado por $C(x)$ (bloco codificado, com grau $n$) seja a soma do grau de $M(x)$ (a própria mensagem dentro do bloco codificado, com grau $k$) e $G(x)$ (polinômio codificador, com grau $2t = n - k$). O polinômio gerador de código deve ter a seguinte forma:
+	Para gerar um código de Reed Solomon a partir dos corpos finitos, é necessário um polinômio gerador de código. Este polinômio possui $2t$ fatores, de maneira que o grau do polinômio representado por $C(x)$ (bloco codificado, com grau $n$) seja a soma do grau de $M(x)$ (a própria mensagem dentro do bloco codificado, com grau $k$) e $G(x)$ (polinômio codificador, com grau $2t = n - k$). O polinômio gerador de código deve ter a seguinte forma:
 
 	\begin{equation}
 	g(x) = (x + \alpha^{i})(x + \alpha^{i+1})...(x + \alpha^{i + 2t - 1})
 	\end{equation}
 
-	As raízes são escolhidas como campos finitos de Galois consecutivos. Para esse estudo, usaram-se como raízes os elementos consecutivos de $\alpha^{0}$ a $\alpha^{7}$. Por exemplo, para um código (15, 7), usado posteriormente neste projeto:
+	As raízes são escolhidas como corpos finitos de Galois consecutivos. Para esse estudo, usaram-se como raízes os elementos consecutivos de $\alpha^{0}$ a $\alpha^{7}$. Por exemplo, para um código (15, 7), usado posteriormente neste projeto:
 
 	\begin{equation}
 	g(x) = (x + \alpha^{0})(x + \alpha^{1})(x + \alpha^{2})(x + \alpha^{3})(x + \alpha^{4})(x + \alpha^{5})(x + \alpha^{6})(x + \alpha^{7})
